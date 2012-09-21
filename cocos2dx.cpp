@@ -1182,40 +1182,6 @@ JSBool js_cocos2dx_CCSet_addObject(JSContext *cx, uint32_t argc, jsval *vp)
 	JS_ReportError(cx, "wrong number of arguments: %d, was expecting %d", argc, 1);
 	return JS_FALSE;
 }
-JSBool js_cocos2dx_CCSet_begin(JSContext *cx, uint32_t argc, jsval *vp)
-{
-	JSObject *obj = JS_THIS_OBJECT(cx, vp);
-	js_proxy_t *proxy; JS_GET_NATIVE_PROXY(proxy, obj);
-	cocos2d::CCSet* cobj = (cocos2d::CCSet *)(proxy ? proxy->ptr : NULL);
-	TEST_NATIVE_OBJECT(cx, cobj)
-
-	if (argc == 0) {
-		CCSetIterator ret = cobj->begin();
-		jsval jsret;
-		#pragma warning NO CONVERSION FROM NATIVE FOR CCSetIterator;
-		JS_SET_RVAL(cx, vp, jsret);
-		return JS_TRUE;
-	}
-	JS_ReportError(cx, "wrong number of arguments: %d, was expecting %d", argc, 0);
-	return JS_FALSE;
-}
-JSBool js_cocos2dx_CCSet_end(JSContext *cx, uint32_t argc, jsval *vp)
-{
-	JSObject *obj = JS_THIS_OBJECT(cx, vp);
-	js_proxy_t *proxy; JS_GET_NATIVE_PROXY(proxy, obj);
-	cocos2d::CCSet* cobj = (cocos2d::CCSet *)(proxy ? proxy->ptr : NULL);
-	TEST_NATIVE_OBJECT(cx, cobj)
-
-	if (argc == 0) {
-		CCSetIterator ret = cobj->end();
-		jsval jsret;
-		#pragma warning NO CONVERSION FROM NATIVE FOR CCSetIterator;
-		JS_SET_RVAL(cx, vp, jsret);
-		return JS_TRUE;
-	}
-	JS_ReportError(cx, "wrong number of arguments: %d, was expecting %d", argc, 0);
-	return JS_FALSE;
-}
 JSBool js_cocos2dx_CCSet_mutableCopy(JSContext *cx, uint32_t argc, jsval *vp)
 {
 	JSObject *obj = JS_THIS_OBJECT(cx, vp);
@@ -1362,8 +1328,6 @@ void js_register_cocos2dx_CCSet(JSContext *cx, JSObject *global) {
 	static JSFunctionSpec funcs[] = {
 		JS_FN("count", js_cocos2dx_CCSet_count, 0, JSPROP_PERMANENT | JSPROP_SHARED),
 		JS_FN("addObject", js_cocos2dx_CCSet_addObject, 1, JSPROP_PERMANENT | JSPROP_SHARED),
-		JS_FN("begin", js_cocos2dx_CCSet_begin, 0, JSPROP_PERMANENT | JSPROP_SHARED),
-		JS_FN("end", js_cocos2dx_CCSet_end, 0, JSPROP_PERMANENT | JSPROP_SHARED),
 		JS_FN("mutableCopy", js_cocos2dx_CCSet_mutableCopy, 0, JSPROP_PERMANENT | JSPROP_SHARED),
 		JS_FN("anyObject", js_cocos2dx_CCSet_anyObject, 0, JSPROP_PERMANENT | JSPROP_SHARED),
 		JS_FN("removeObject", js_cocos2dx_CCSet_removeObject, 1, JSPROP_PERMANENT | JSPROP_SHARED),
@@ -4783,14 +4747,7 @@ JSBool js_cocos2dx_CCAnimation_getFrames(JSContext *cx, uint32_t argc, jsval *vp
 	if (argc == 0) {
 		cocos2d::CCArray* ret = cobj->getFrames();
 		jsval jsret;
-		do {
-			if (ret) {
-				js_proxy_t *proxy = js_get_or_create_proxy<cocos2d::CCArray>(cx, ret);
-				jsret = OBJECT_TO_JSVAL(proxy->obj);
-			} else {
-				jsret = JSVAL_NULL;
-			}
-		} while (0);
+		jsret = ccarray_to_jsval(cx, ret);
 		JS_SET_RVAL(cx, vp, jsret);
 		return JS_TRUE;
 	}
@@ -5161,7 +5118,7 @@ void js_register_cocos2dx_CCAnimation(JSContext *cx, JSObject *global) {
 	};
 
 	static JSFunctionSpec funcs[] = {
-		JS_FN("addSpriteFrameWithFileName", js_cocos2dx_CCAnimation_addSpriteFrameWithFileName, 1, JSPROP_PERMANENT | JSPROP_SHARED),
+		JS_FN("addSpriteFrameWithFilename", js_cocos2dx_CCAnimation_addSpriteFrameWithFileName, 1, JSPROP_PERMANENT | JSPROP_SHARED),
 		JS_FN("setFrames", js_cocos2dx_CCAnimation_setFrames, 1, JSPROP_PERMANENT | JSPROP_SHARED),
 		JS_FN("getFrames", js_cocos2dx_CCAnimation_getFrames, 0, JSPROP_PERMANENT | JSPROP_SHARED),
 		JS_FN("addSpriteFrame", js_cocos2dx_CCAnimation_addSpriteFrame, 1, JSPROP_PERMANENT | JSPROP_SHARED),
@@ -18417,6 +18374,1181 @@ void js_register_cocos2dx_CCActionTween(JSContext *cx, JSObject *global) {
 }
 
 
+JSClass  *js_cocos2dx_CCPointArray_class;
+JSObject *js_cocos2dx_CCPointArray_prototype;
+
+JSBool js_cocos2dx_CCPointArray_count(JSContext *cx, uint32_t argc, jsval *vp)
+{
+	JSObject *obj = JS_THIS_OBJECT(cx, vp);
+	js_proxy_t *proxy; JS_GET_NATIVE_PROXY(proxy, obj);
+	cocos2d::CCPointArray* cobj = (cocos2d::CCPointArray *)(proxy ? proxy->ptr : NULL);
+	TEST_NATIVE_OBJECT(cx, cobj)
+
+	if (argc == 0) {
+		unsigned int ret = cobj->count();
+		jsval jsret;
+		JS_NewNumberValue(cx, ret, &jsret);
+		JS_SET_RVAL(cx, vp, jsret);
+		return JS_TRUE;
+	}
+	JS_ReportError(cx, "wrong number of arguments: %d, was expecting %d", argc, 0);
+	return JS_FALSE;
+}
+JSBool js_cocos2dx_CCPointArray_insertControlPoint(JSContext *cx, uint32_t argc, jsval *vp)
+{
+	jsval *argv = JS_ARGV(cx, vp);
+	JSObject *obj = JS_THIS_OBJECT(cx, vp);
+	js_proxy_t *proxy; JS_GET_NATIVE_PROXY(proxy, obj);
+	cocos2d::CCPointArray* cobj = (cocos2d::CCPointArray *)(proxy ? proxy->ptr : NULL);
+	TEST_NATIVE_OBJECT(cx, cobj)
+
+	if (argc == 2) {
+		cocos2d::CCPoint arg0;
+		unsigned int arg1;
+		arg0 = jsval_to_ccpoint(cx, argv[0]);
+		JS_ValueToECMAUint32(cx, argv[1], &arg1);
+		cobj->insertControlPoint(arg0, arg1);
+		return JS_TRUE;
+	}
+	JS_ReportError(cx, "wrong number of arguments: %d, was expecting %d", argc, 2);
+	return JS_FALSE;
+}
+JSBool js_cocos2dx_CCPointArray_reverse(JSContext *cx, uint32_t argc, jsval *vp)
+{
+	JSObject *obj = JS_THIS_OBJECT(cx, vp);
+	js_proxy_t *proxy; JS_GET_NATIVE_PROXY(proxy, obj);
+	cocos2d::CCPointArray* cobj = (cocos2d::CCPointArray *)(proxy ? proxy->ptr : NULL);
+	TEST_NATIVE_OBJECT(cx, cobj)
+
+	if (argc == 0) {
+		cocos2d::CCPointArray* ret = cobj->reverse();
+		jsval jsret;
+		do {
+			if (ret) {
+				js_proxy_t *proxy = js_get_or_create_proxy<cocos2d::CCPointArray>(cx, ret);
+				jsret = OBJECT_TO_JSVAL(proxy->obj);
+			} else {
+				jsret = JSVAL_NULL;
+			}
+		} while (0);
+		JS_SET_RVAL(cx, vp, jsret);
+		return JS_TRUE;
+	}
+	JS_ReportError(cx, "wrong number of arguments: %d, was expecting %d", argc, 0);
+	return JS_FALSE;
+}
+JSBool js_cocos2dx_CCPointArray_initWithCapacity(JSContext *cx, uint32_t argc, jsval *vp)
+{
+	jsval *argv = JS_ARGV(cx, vp);
+	JSObject *obj = JS_THIS_OBJECT(cx, vp);
+	js_proxy_t *proxy; JS_GET_NATIVE_PROXY(proxy, obj);
+	cocos2d::CCPointArray* cobj = (cocos2d::CCPointArray *)(proxy ? proxy->ptr : NULL);
+	TEST_NATIVE_OBJECT(cx, cobj)
+
+	if (argc == 1) {
+		unsigned int arg0;
+		JS_ValueToECMAUint32(cx, argv[0], &arg0);
+		bool ret = cobj->initWithCapacity(arg0);
+		jsval jsret;
+		jsret = BOOLEAN_TO_JSVAL(ret);
+		JS_SET_RVAL(cx, vp, jsret);
+		return JS_TRUE;
+	}
+	JS_ReportError(cx, "wrong number of arguments: %d, was expecting %d", argc, 1);
+	return JS_FALSE;
+}
+JSBool js_cocos2dx_CCPointArray_removeControlPointAtIndex(JSContext *cx, uint32_t argc, jsval *vp)
+{
+	jsval *argv = JS_ARGV(cx, vp);
+	JSObject *obj = JS_THIS_OBJECT(cx, vp);
+	js_proxy_t *proxy; JS_GET_NATIVE_PROXY(proxy, obj);
+	cocos2d::CCPointArray* cobj = (cocos2d::CCPointArray *)(proxy ? proxy->ptr : NULL);
+	TEST_NATIVE_OBJECT(cx, cobj)
+
+	if (argc == 1) {
+		unsigned int arg0;
+		JS_ValueToECMAUint32(cx, argv[0], &arg0);
+		cobj->removeControlPointAtIndex(arg0);
+		return JS_TRUE;
+	}
+	JS_ReportError(cx, "wrong number of arguments: %d, was expecting %d", argc, 1);
+	return JS_FALSE;
+}
+JSBool js_cocos2dx_CCPointArray_setControlPoints(JSContext *cx, uint32_t argc, jsval *vp)
+{
+	jsval *argv = JS_ARGV(cx, vp);
+	JSObject *obj = JS_THIS_OBJECT(cx, vp);
+	js_proxy_t *proxy; JS_GET_NATIVE_PROXY(proxy, obj);
+	cocos2d::CCPointArray* cobj = (cocos2d::CCPointArray *)(proxy ? proxy->ptr : NULL);
+	TEST_NATIVE_OBJECT(cx, cobj)
+
+	if (argc == 1) {
+		cocos2d::CCArray* arg0;
+		arg0 = jsval_to_ccarray(cx, argv[0]);
+		cobj->setControlPoints(arg0);
+		return JS_TRUE;
+	}
+	JS_ReportError(cx, "wrong number of arguments: %d, was expecting %d", argc, 1);
+	return JS_FALSE;
+}
+JSBool js_cocos2dx_CCPointArray_replaceControlPoint(JSContext *cx, uint32_t argc, jsval *vp)
+{
+	jsval *argv = JS_ARGV(cx, vp);
+	JSObject *obj = JS_THIS_OBJECT(cx, vp);
+	js_proxy_t *proxy; JS_GET_NATIVE_PROXY(proxy, obj);
+	cocos2d::CCPointArray* cobj = (cocos2d::CCPointArray *)(proxy ? proxy->ptr : NULL);
+	TEST_NATIVE_OBJECT(cx, cobj)
+
+	if (argc == 2) {
+		cocos2d::CCPoint arg0;
+		unsigned int arg1;
+		arg0 = jsval_to_ccpoint(cx, argv[0]);
+		JS_ValueToECMAUint32(cx, argv[1], &arg1);
+		cobj->replaceControlPoint(arg0, arg1);
+		return JS_TRUE;
+	}
+	JS_ReportError(cx, "wrong number of arguments: %d, was expecting %d", argc, 2);
+	return JS_FALSE;
+}
+JSBool js_cocos2dx_CCPointArray_addControlPoint(JSContext *cx, uint32_t argc, jsval *vp)
+{
+	jsval *argv = JS_ARGV(cx, vp);
+	JSObject *obj = JS_THIS_OBJECT(cx, vp);
+	js_proxy_t *proxy; JS_GET_NATIVE_PROXY(proxy, obj);
+	cocos2d::CCPointArray* cobj = (cocos2d::CCPointArray *)(proxy ? proxy->ptr : NULL);
+	TEST_NATIVE_OBJECT(cx, cobj)
+
+	if (argc == 1) {
+		cocos2d::CCPoint arg0;
+		arg0 = jsval_to_ccpoint(cx, argv[0]);
+		cobj->addControlPoint(arg0);
+		return JS_TRUE;
+	}
+	JS_ReportError(cx, "wrong number of arguments: %d, was expecting %d", argc, 1);
+	return JS_FALSE;
+}
+JSBool js_cocos2dx_CCPointArray_getControlPointAtIndex(JSContext *cx, uint32_t argc, jsval *vp)
+{
+	jsval *argv = JS_ARGV(cx, vp);
+	JSObject *obj = JS_THIS_OBJECT(cx, vp);
+	js_proxy_t *proxy; JS_GET_NATIVE_PROXY(proxy, obj);
+	cocos2d::CCPointArray* cobj = (cocos2d::CCPointArray *)(proxy ? proxy->ptr : NULL);
+	TEST_NATIVE_OBJECT(cx, cobj)
+
+	if (argc == 1) {
+		unsigned int arg0;
+		JS_ValueToECMAUint32(cx, argv[0], &arg0);
+		cocos2d::CCPoint ret = cobj->getControlPointAtIndex(arg0);
+		jsval jsret;
+		jsret = ccpoint_to_jsval(cx, ret);
+		JS_SET_RVAL(cx, vp, jsret);
+		return JS_TRUE;
+	}
+	JS_ReportError(cx, "wrong number of arguments: %d, was expecting %d", argc, 1);
+	return JS_FALSE;
+}
+JSBool js_cocos2dx_CCPointArray_reverseInline(JSContext *cx, uint32_t argc, jsval *vp)
+{
+	JSObject *obj = JS_THIS_OBJECT(cx, vp);
+	js_proxy_t *proxy; JS_GET_NATIVE_PROXY(proxy, obj);
+	cocos2d::CCPointArray* cobj = (cocos2d::CCPointArray *)(proxy ? proxy->ptr : NULL);
+	TEST_NATIVE_OBJECT(cx, cobj)
+
+	if (argc == 0) {
+		cobj->reverseInline();
+		return JS_TRUE;
+	}
+	JS_ReportError(cx, "wrong number of arguments: %d, was expecting %d", argc, 0);
+	return JS_FALSE;
+}
+JSBool js_cocos2dx_CCPointArray_getControlPoints(JSContext *cx, uint32_t argc, jsval *vp)
+{
+	JSObject *obj = JS_THIS_OBJECT(cx, vp);
+	js_proxy_t *proxy; JS_GET_NATIVE_PROXY(proxy, obj);
+	cocos2d::CCPointArray* cobj = (cocos2d::CCPointArray *)(proxy ? proxy->ptr : NULL);
+	TEST_NATIVE_OBJECT(cx, cobj)
+
+	if (argc == 0) {
+		cocos2d::CCArray* ret = cobj->getControlPoints();
+		jsval jsret;
+		jsret = ccarray_to_jsval(cx, ret);
+		JS_SET_RVAL(cx, vp, jsret);
+		return JS_TRUE;
+	}
+	JS_ReportError(cx, "wrong number of arguments: %d, was expecting %d", argc, 0);
+	return JS_FALSE;
+}
+JSBool js_cocos2dx_CCPointArray_create(JSContext *cx, uint32_t argc, jsval *vp)
+{
+	jsval *argv = JS_ARGV(cx, vp);
+	unsigned int arg0;
+	assert(argc >= 1);
+
+	JS_ValueToECMAUint32(cx, argv[0], &arg0);
+	cocos2d::CCPointArray* ret = cocos2d::CCPointArray::create(arg0);
+	jsval jsret;
+	do {
+		if (ret) {
+			js_proxy_t *proxy = js_get_or_create_proxy<cocos2d::CCPointArray>(cx, ret);
+			jsret = OBJECT_TO_JSVAL(proxy->obj);
+		} else {
+			jsret = JSVAL_NULL;
+		}
+	} while (0);
+	JS_SET_RVAL(cx, vp, jsret);
+	return JS_TRUE;
+}
+
+JSBool js_cocos2dx_CCPointArray_arrayWithCapacity(JSContext *cx, uint32_t argc, jsval *vp)
+{
+	jsval *argv = JS_ARGV(cx, vp);
+	unsigned int arg0;
+	assert(argc >= 1);
+
+	JS_ValueToECMAUint32(cx, argv[0], &arg0);
+	cocos2d::CCPointArray* ret = cocos2d::CCPointArray::arrayWithCapacity(arg0);
+	jsval jsret;
+	do {
+		if (ret) {
+			js_proxy_t *proxy = js_get_or_create_proxy<cocos2d::CCPointArray>(cx, ret);
+			jsret = OBJECT_TO_JSVAL(proxy->obj);
+		} else {
+			jsret = JSVAL_NULL;
+		}
+	} while (0);
+	JS_SET_RVAL(cx, vp, jsret);
+	return JS_TRUE;
+}
+
+JSBool js_cocos2dx_CCPointArray_constructor(JSContext *cx, uint32_t argc, jsval *vp)
+{
+
+	if (argc == 0) {
+		cocos2d::CCPointArray* cobj = new cocos2d::CCPointArray();
+#ifdef COCOS2D_JAVASCRIPT
+		cocos2d::CCObject *_ccobj = dynamic_cast<cocos2d::CCObject *>(cobj);
+		if (_ccobj) {
+			_ccobj->autorelease();
+		}
+#endif
+		TypeTest<cocos2d::CCPointArray> t;
+		js_type_class_t *typeClass;
+		uint32_t typeId = t.s_id();
+		HASH_FIND_INT(_js_global_type_ht, &typeId, typeClass);
+		assert(typeClass);
+		JSObject *obj = JS_NewObject(cx, typeClass->jsclass, typeClass->proto, typeClass->parentProto);
+		JS_SET_RVAL(cx, vp, OBJECT_TO_JSVAL(obj));
+		// link the native object with the javascript object
+		js_proxy_t *p;
+		JS_NEW_PROXY(p, cobj, obj);
+#ifdef COCOS2D_JAVASCRIPT
+		JS_AddNamedObjectRoot(cx, &p->obj, "cocos2d::CCPointArray");
+#endif
+		return JS_TRUE;
+	}
+	JS_ReportError(cx, "wrong number of arguments: %d, was expecting %d", argc, 0);
+	return JS_FALSE;
+}
+
+
+
+void js_cocos2dx_CCPointArray_finalize(JSFreeOp *fop, JSObject *obj) {
+}
+
+void js_register_cocos2dx_CCPointArray(JSContext *cx, JSObject *global) {
+	js_cocos2dx_CCPointArray_class = (JSClass *)calloc(1, sizeof(JSClass));
+	js_cocos2dx_CCPointArray_class->name = "PointArray";
+	js_cocos2dx_CCPointArray_class->addProperty = JS_PropertyStub;
+	js_cocos2dx_CCPointArray_class->delProperty = JS_PropertyStub;
+	js_cocos2dx_CCPointArray_class->getProperty = JS_PropertyStub;
+	js_cocos2dx_CCPointArray_class->setProperty = JS_StrictPropertyStub;
+	js_cocos2dx_CCPointArray_class->enumerate = JS_EnumerateStub;
+	js_cocos2dx_CCPointArray_class->resolve = JS_ResolveStub;
+	js_cocos2dx_CCPointArray_class->convert = JS_ConvertStub;
+	js_cocos2dx_CCPointArray_class->finalize = js_cocos2dx_CCPointArray_finalize;
+	js_cocos2dx_CCPointArray_class->flags = JSCLASS_HAS_RESERVED_SLOTS(2);
+
+	static JSPropertySpec properties[] = {
+		{0, 0, 0, 0, 0}
+	};
+
+	static JSFunctionSpec funcs[] = {
+		JS_FN("count", js_cocos2dx_CCPointArray_count, 0, JSPROP_PERMANENT | JSPROP_SHARED),
+		JS_FN("insertControlPoint", js_cocos2dx_CCPointArray_insertControlPoint, 2, JSPROP_PERMANENT | JSPROP_SHARED),
+		JS_FN("reverse", js_cocos2dx_CCPointArray_reverse, 0, JSPROP_PERMANENT | JSPROP_SHARED),
+		JS_FN("initWithCapacity", js_cocos2dx_CCPointArray_initWithCapacity, 1, JSPROP_PERMANENT | JSPROP_SHARED),
+		JS_FN("removeControlPointAtIndex", js_cocos2dx_CCPointArray_removeControlPointAtIndex, 1, JSPROP_PERMANENT | JSPROP_SHARED),
+		JS_FN("setControlPoints", js_cocos2dx_CCPointArray_setControlPoints, 1, JSPROP_PERMANENT | JSPROP_SHARED),
+		JS_FN("replaceControlPoint", js_cocos2dx_CCPointArray_replaceControlPoint, 2, JSPROP_PERMANENT | JSPROP_SHARED),
+		JS_FN("addControlPoint", js_cocos2dx_CCPointArray_addControlPoint, 1, JSPROP_PERMANENT | JSPROP_SHARED),
+		JS_FN("getControlPointAtIndex", js_cocos2dx_CCPointArray_getControlPointAtIndex, 1, JSPROP_PERMANENT | JSPROP_SHARED),
+		JS_FN("reverseInline", js_cocos2dx_CCPointArray_reverseInline, 0, JSPROP_PERMANENT | JSPROP_SHARED),
+		JS_FN("getControlPoints", js_cocos2dx_CCPointArray_getControlPoints, 0, JSPROP_PERMANENT | JSPROP_SHARED),
+		JS_FS_END
+	};
+
+	static JSFunctionSpec st_funcs[] = {
+		JS_FN("create", js_cocos2dx_CCPointArray_create, 1, JSPROP_PERMANENT | JSPROP_SHARED),
+		JS_FN("arrayWithCapacity", js_cocos2dx_CCPointArray_arrayWithCapacity, 1, JSPROP_PERMANENT | JSPROP_SHARED),
+		JS_FS_END
+	};
+
+	js_cocos2dx_CCPointArray_prototype = JS_InitClass(
+		cx, global,
+		js_cocos2dx_CCNode_prototype,
+		js_cocos2dx_CCPointArray_class,
+		js_cocos2dx_CCPointArray_constructor, 0, // constructor
+		properties,
+		funcs,
+		NULL, // no static properties
+		st_funcs);
+
+	// add the proto and JSClass to the type->js info hash table
+	TypeTest<cocos2d::CCPointArray> t;
+	js_type_class_t *p;
+	uint32_t typeId = t.s_id();
+	HASH_FIND_INT(_js_global_type_ht, &typeId, p);
+	if (!p) {
+		p = (js_type_class_t *)malloc(sizeof(js_type_class_t));
+		p->type = typeId;
+		p->jsclass = js_cocos2dx_CCPointArray_class;
+		p->proto = js_cocos2dx_CCPointArray_prototype;
+		p->parentProto = js_cocos2dx_CCNode_prototype;
+		HASH_ADD_INT(_js_global_type_ht, type, p);
+	}
+}
+
+
+JSClass  *js_cocos2dx_CCCardinalSplineTo_class;
+JSObject *js_cocos2dx_CCCardinalSplineTo_prototype;
+
+JSBool js_cocos2dx_CCCardinalSplineTo_startWithTarget(JSContext *cx, uint32_t argc, jsval *vp)
+{
+	jsval *argv = JS_ARGV(cx, vp);
+	JSObject *obj = JS_THIS_OBJECT(cx, vp);
+	js_proxy_t *proxy; JS_GET_NATIVE_PROXY(proxy, obj);
+	cocos2d::CCCardinalSplineTo* cobj = (cocos2d::CCCardinalSplineTo *)(proxy ? proxy->ptr : NULL);
+	TEST_NATIVE_OBJECT(cx, cobj)
+
+	if (argc == 1) {
+		cocos2d::CCNode* arg0;
+		do {
+			js_proxy_t *proxy;
+			JSObject *tmpObj = JSVAL_TO_OBJECT(argv[0]);
+			JS_GET_NATIVE_PROXY(proxy, tmpObj);
+			arg0 = (cocos2d::CCNode*)(proxy ? proxy->ptr : NULL);
+			TEST_NATIVE_OBJECT(cx, arg0)
+		} while (0);
+		cobj->startWithTarget(arg0);
+		return JS_TRUE;
+	}
+	JS_ReportError(cx, "wrong number of arguments: %d, was expecting %d", argc, 1);
+	return JS_FALSE;
+}
+JSBool js_cocos2dx_CCCardinalSplineTo_reverse(JSContext *cx, uint32_t argc, jsval *vp)
+{
+	JSObject *obj = JS_THIS_OBJECT(cx, vp);
+	js_proxy_t *proxy; JS_GET_NATIVE_PROXY(proxy, obj);
+	cocos2d::CCCardinalSplineTo* cobj = (cocos2d::CCCardinalSplineTo *)(proxy ? proxy->ptr : NULL);
+	TEST_NATIVE_OBJECT(cx, cobj)
+
+	if (argc == 0) {
+		cocos2d::CCActionInterval* ret = cobj->reverse();
+		jsval jsret;
+		do {
+			if (ret) {
+				js_proxy_t *proxy = js_get_or_create_proxy<cocos2d::CCActionInterval>(cx, ret);
+				jsret = OBJECT_TO_JSVAL(proxy->obj);
+			} else {
+				jsret = JSVAL_NULL;
+			}
+		} while (0);
+		JS_SET_RVAL(cx, vp, jsret);
+		return JS_TRUE;
+	}
+	JS_ReportError(cx, "wrong number of arguments: %d, was expecting %d", argc, 0);
+	return JS_FALSE;
+}
+JSBool js_cocos2dx_CCCardinalSplineTo_initWithDuration(JSContext *cx, uint32_t argc, jsval *vp)
+{
+	jsval *argv = JS_ARGV(cx, vp);
+	JSObject *obj = JS_THIS_OBJECT(cx, vp);
+	js_proxy_t *proxy; JS_GET_NATIVE_PROXY(proxy, obj);
+	cocos2d::CCCardinalSplineTo* cobj = (cocos2d::CCCardinalSplineTo *)(proxy ? proxy->ptr : NULL);
+	TEST_NATIVE_OBJECT(cx, cobj)
+
+	if (argc == 3) {
+		double arg0;
+		cocos2d::CCPointArray* arg1;
+		double arg2;
+		JS_ValueToNumber(cx, argv[0], &arg0);
+		do {
+			js_proxy_t *proxy;
+			JSObject *tmpObj = JSVAL_TO_OBJECT(argv[1]);
+			JS_GET_NATIVE_PROXY(proxy, tmpObj);
+			arg1 = (cocos2d::CCPointArray*)(proxy ? proxy->ptr : NULL);
+			TEST_NATIVE_OBJECT(cx, arg1)
+		} while (0);
+		JS_ValueToNumber(cx, argv[2], &arg2);
+		bool ret = cobj->initWithDuration(arg0, arg1, arg2);
+		jsval jsret;
+		jsret = BOOLEAN_TO_JSVAL(ret);
+		JS_SET_RVAL(cx, vp, jsret);
+		return JS_TRUE;
+	}
+	JS_ReportError(cx, "wrong number of arguments: %d, was expecting %d", argc, 3);
+	return JS_FALSE;
+}
+JSBool js_cocos2dx_CCCardinalSplineTo_getPoints(JSContext *cx, uint32_t argc, jsval *vp)
+{
+	JSObject *obj = JS_THIS_OBJECT(cx, vp);
+	js_proxy_t *proxy; JS_GET_NATIVE_PROXY(proxy, obj);
+	cocos2d::CCCardinalSplineTo* cobj = (cocos2d::CCCardinalSplineTo *)(proxy ? proxy->ptr : NULL);
+	TEST_NATIVE_OBJECT(cx, cobj)
+
+	if (argc == 0) {
+		cocos2d::CCPointArray* ret = cobj->getPoints();
+		jsval jsret;
+		do {
+			if (ret) {
+				js_proxy_t *proxy = js_get_or_create_proxy<cocos2d::CCPointArray>(cx, ret);
+				jsret = OBJECT_TO_JSVAL(proxy->obj);
+			} else {
+				jsret = JSVAL_NULL;
+			}
+		} while (0);
+		JS_SET_RVAL(cx, vp, jsret);
+		return JS_TRUE;
+	}
+	JS_ReportError(cx, "wrong number of arguments: %d, was expecting %d", argc, 0);
+	return JS_FALSE;
+}
+JSBool js_cocos2dx_CCCardinalSplineTo_setPoints(JSContext *cx, uint32_t argc, jsval *vp)
+{
+	jsval *argv = JS_ARGV(cx, vp);
+	JSObject *obj = JS_THIS_OBJECT(cx, vp);
+	js_proxy_t *proxy; JS_GET_NATIVE_PROXY(proxy, obj);
+	cocos2d::CCCardinalSplineTo* cobj = (cocos2d::CCCardinalSplineTo *)(proxy ? proxy->ptr : NULL);
+	TEST_NATIVE_OBJECT(cx, cobj)
+
+	if (argc == 1) {
+		cocos2d::CCPointArray* arg0;
+		do {
+			js_proxy_t *proxy;
+			JSObject *tmpObj = JSVAL_TO_OBJECT(argv[0]);
+			JS_GET_NATIVE_PROXY(proxy, tmpObj);
+			arg0 = (cocos2d::CCPointArray*)(proxy ? proxy->ptr : NULL);
+			TEST_NATIVE_OBJECT(cx, arg0)
+		} while (0);
+		cobj->setPoints(arg0);
+		return JS_TRUE;
+	}
+	JS_ReportError(cx, "wrong number of arguments: %d, was expecting %d", argc, 1);
+	return JS_FALSE;
+}
+JSBool js_cocos2dx_CCCardinalSplineTo_update(JSContext *cx, uint32_t argc, jsval *vp)
+{
+	jsval *argv = JS_ARGV(cx, vp);
+	JSObject *obj = JS_THIS_OBJECT(cx, vp);
+	js_proxy_t *proxy; JS_GET_NATIVE_PROXY(proxy, obj);
+	cocos2d::CCCardinalSplineTo* cobj = (cocos2d::CCCardinalSplineTo *)(proxy ? proxy->ptr : NULL);
+	TEST_NATIVE_OBJECT(cx, cobj)
+
+	if (argc == 1) {
+		double arg0;
+		JS_ValueToNumber(cx, argv[0], &arg0);
+		cobj->update(arg0);
+		return JS_TRUE;
+	}
+	JS_ReportError(cx, "wrong number of arguments: %d, was expecting %d", argc, 1);
+	return JS_FALSE;
+}
+JSBool js_cocos2dx_CCCardinalSplineTo_updatePosition(JSContext *cx, uint32_t argc, jsval *vp)
+{
+	jsval *argv = JS_ARGV(cx, vp);
+	JSObject *obj = JS_THIS_OBJECT(cx, vp);
+	js_proxy_t *proxy; JS_GET_NATIVE_PROXY(proxy, obj);
+	cocos2d::CCCardinalSplineTo* cobj = (cocos2d::CCCardinalSplineTo *)(proxy ? proxy->ptr : NULL);
+	TEST_NATIVE_OBJECT(cx, cobj)
+
+	if (argc == 1) {
+		cocos2d::CCPoint arg0;
+		arg0 = jsval_to_ccpoint(cx, argv[0]);
+		cobj->updatePosition(arg0);
+		return JS_TRUE;
+	}
+	JS_ReportError(cx, "wrong number of arguments: %d, was expecting %d", argc, 1);
+	return JS_FALSE;
+}
+JSBool js_cocos2dx_CCCardinalSplineTo_create(JSContext *cx, uint32_t argc, jsval *vp)
+{
+	jsval *argv = JS_ARGV(cx, vp);
+	double arg0;
+	cocos2d::CCPointArray* arg1;
+	double arg2;
+	assert(argc >= 3);
+
+	JS_ValueToNumber(cx, argv[0], &arg0);
+	do {
+			js_proxy_t *proxy;
+			JSObject *tmpObj = JSVAL_TO_OBJECT(argv[1]);
+			JS_GET_NATIVE_PROXY(proxy, tmpObj);
+			arg1 = (cocos2d::CCPointArray*)(proxy ? proxy->ptr : NULL);
+			TEST_NATIVE_OBJECT(cx, arg1)
+		} while (0);
+	JS_ValueToNumber(cx, argv[2], &arg2);
+	cocos2d::CCCardinalSplineTo* ret = cocos2d::CCCardinalSplineTo::create(arg0, arg1, arg2);
+	jsval jsret;
+	do {
+		if (ret) {
+			js_proxy_t *proxy = js_get_or_create_proxy<cocos2d::CCCardinalSplineTo>(cx, ret);
+			jsret = OBJECT_TO_JSVAL(proxy->obj);
+		} else {
+			jsret = JSVAL_NULL;
+		}
+	} while (0);
+	JS_SET_RVAL(cx, vp, jsret);
+	return JS_TRUE;
+}
+
+JSBool js_cocos2dx_CCCardinalSplineTo_actionWithDuration(JSContext *cx, uint32_t argc, jsval *vp)
+{
+	jsval *argv = JS_ARGV(cx, vp);
+	double arg0;
+	cocos2d::CCPointArray* arg1;
+	double arg2;
+	assert(argc >= 3);
+
+	JS_ValueToNumber(cx, argv[0], &arg0);
+	do {
+			js_proxy_t *proxy;
+			JSObject *tmpObj = JSVAL_TO_OBJECT(argv[1]);
+			JS_GET_NATIVE_PROXY(proxy, tmpObj);
+			arg1 = (cocos2d::CCPointArray*)(proxy ? proxy->ptr : NULL);
+			TEST_NATIVE_OBJECT(cx, arg1)
+		} while (0);
+	JS_ValueToNumber(cx, argv[2], &arg2);
+	cocos2d::CCCardinalSplineTo* ret = cocos2d::CCCardinalSplineTo::actionWithDuration(arg0, arg1, arg2);
+	jsval jsret;
+	do {
+		if (ret) {
+			js_proxy_t *proxy = js_get_or_create_proxy<cocos2d::CCCardinalSplineTo>(cx, ret);
+			jsret = OBJECT_TO_JSVAL(proxy->obj);
+		} else {
+			jsret = JSVAL_NULL;
+		}
+	} while (0);
+	JS_SET_RVAL(cx, vp, jsret);
+	return JS_TRUE;
+}
+
+JSBool js_cocos2dx_CCCardinalSplineTo_constructor(JSContext *cx, uint32_t argc, jsval *vp)
+{
+
+	if (argc == 0) {
+		cocos2d::CCCardinalSplineTo* cobj = new cocos2d::CCCardinalSplineTo();
+#ifdef COCOS2D_JAVASCRIPT
+		cocos2d::CCObject *_ccobj = dynamic_cast<cocos2d::CCObject *>(cobj);
+		if (_ccobj) {
+			_ccobj->autorelease();
+		}
+#endif
+		TypeTest<cocos2d::CCCardinalSplineTo> t;
+		js_type_class_t *typeClass;
+		uint32_t typeId = t.s_id();
+		HASH_FIND_INT(_js_global_type_ht, &typeId, typeClass);
+		assert(typeClass);
+		JSObject *obj = JS_NewObject(cx, typeClass->jsclass, typeClass->proto, typeClass->parentProto);
+		JS_SET_RVAL(cx, vp, OBJECT_TO_JSVAL(obj));
+		// link the native object with the javascript object
+		js_proxy_t *p;
+		JS_NEW_PROXY(p, cobj, obj);
+#ifdef COCOS2D_JAVASCRIPT
+		JS_AddNamedObjectRoot(cx, &p->obj, "cocos2d::CCCardinalSplineTo");
+#endif
+		return JS_TRUE;
+	}
+	JS_ReportError(cx, "wrong number of arguments: %d, was expecting %d", argc, 0);
+	return JS_FALSE;
+}
+
+
+
+void js_cocos2dx_CCCardinalSplineTo_finalize(JSFreeOp *fop, JSObject *obj) {
+}
+
+void js_register_cocos2dx_CCCardinalSplineTo(JSContext *cx, JSObject *global) {
+	js_cocos2dx_CCCardinalSplineTo_class = (JSClass *)calloc(1, sizeof(JSClass));
+	js_cocos2dx_CCCardinalSplineTo_class->name = "CardinalSplineTo";
+	js_cocos2dx_CCCardinalSplineTo_class->addProperty = JS_PropertyStub;
+	js_cocos2dx_CCCardinalSplineTo_class->delProperty = JS_PropertyStub;
+	js_cocos2dx_CCCardinalSplineTo_class->getProperty = JS_PropertyStub;
+	js_cocos2dx_CCCardinalSplineTo_class->setProperty = JS_StrictPropertyStub;
+	js_cocos2dx_CCCardinalSplineTo_class->enumerate = JS_EnumerateStub;
+	js_cocos2dx_CCCardinalSplineTo_class->resolve = JS_ResolveStub;
+	js_cocos2dx_CCCardinalSplineTo_class->convert = JS_ConvertStub;
+	js_cocos2dx_CCCardinalSplineTo_class->finalize = js_cocos2dx_CCCardinalSplineTo_finalize;
+	js_cocos2dx_CCCardinalSplineTo_class->flags = JSCLASS_HAS_RESERVED_SLOTS(2);
+
+	static JSPropertySpec properties[] = {
+		{0, 0, 0, 0, 0}
+	};
+
+	static JSFunctionSpec funcs[] = {
+		JS_FN("startWithTarget", js_cocos2dx_CCCardinalSplineTo_startWithTarget, 1, JSPROP_PERMANENT | JSPROP_SHARED),
+		JS_FN("reverse", js_cocos2dx_CCCardinalSplineTo_reverse, 0, JSPROP_PERMANENT | JSPROP_SHARED),
+		JS_FN("initWithDuration", js_cocos2dx_CCCardinalSplineTo_initWithDuration, 3, JSPROP_PERMANENT | JSPROP_SHARED),
+		JS_FN("getPoints", js_cocos2dx_CCCardinalSplineTo_getPoints, 0, JSPROP_PERMANENT | JSPROP_SHARED),
+		JS_FN("setPoints", js_cocos2dx_CCCardinalSplineTo_setPoints, 1, JSPROP_PERMANENT | JSPROP_SHARED),
+		JS_FN("update", js_cocos2dx_CCCardinalSplineTo_update, 1, JSPROP_PERMANENT | JSPROP_SHARED),
+		JS_FN("updatePosition", js_cocos2dx_CCCardinalSplineTo_updatePosition, 1, JSPROP_PERMANENT | JSPROP_SHARED),
+		JS_FS_END
+	};
+
+	static JSFunctionSpec st_funcs[] = {
+		JS_FN("create", js_cocos2dx_CCCardinalSplineTo_create, 3, JSPROP_PERMANENT | JSPROP_SHARED),
+		JS_FN("actionWithDuration", js_cocos2dx_CCCardinalSplineTo_actionWithDuration, 3, JSPROP_PERMANENT | JSPROP_SHARED),
+		JS_FS_END
+	};
+
+	js_cocos2dx_CCCardinalSplineTo_prototype = JS_InitClass(
+		cx, global,
+		js_cocos2dx_CCActionInterval_prototype,
+		js_cocos2dx_CCCardinalSplineTo_class,
+		js_cocos2dx_CCCardinalSplineTo_constructor, 0, // constructor
+		properties,
+		funcs,
+		NULL, // no static properties
+		st_funcs);
+
+	// add the proto and JSClass to the type->js info hash table
+	TypeTest<cocos2d::CCCardinalSplineTo> t;
+	js_type_class_t *p;
+	uint32_t typeId = t.s_id();
+	HASH_FIND_INT(_js_global_type_ht, &typeId, p);
+	if (!p) {
+		p = (js_type_class_t *)malloc(sizeof(js_type_class_t));
+		p->type = typeId;
+		p->jsclass = js_cocos2dx_CCCardinalSplineTo_class;
+		p->proto = js_cocos2dx_CCCardinalSplineTo_prototype;
+		p->parentProto = js_cocos2dx_CCActionInterval_prototype;
+		HASH_ADD_INT(_js_global_type_ht, type, p);
+	}
+}
+
+
+JSClass  *js_cocos2dx_CCCardinalSplineBy_class;
+JSObject *js_cocos2dx_CCCardinalSplineBy_prototype;
+
+JSBool js_cocos2dx_CCCardinalSplineBy_startWithTarget(JSContext *cx, uint32_t argc, jsval *vp)
+{
+	jsval *argv = JS_ARGV(cx, vp);
+	JSObject *obj = JS_THIS_OBJECT(cx, vp);
+	js_proxy_t *proxy; JS_GET_NATIVE_PROXY(proxy, obj);
+	cocos2d::CCCardinalSplineBy* cobj = (cocos2d::CCCardinalSplineBy *)(proxy ? proxy->ptr : NULL);
+	TEST_NATIVE_OBJECT(cx, cobj)
+
+	if (argc == 1) {
+		cocos2d::CCNode* arg0;
+		do {
+			js_proxy_t *proxy;
+			JSObject *tmpObj = JSVAL_TO_OBJECT(argv[0]);
+			JS_GET_NATIVE_PROXY(proxy, tmpObj);
+			arg0 = (cocos2d::CCNode*)(proxy ? proxy->ptr : NULL);
+			TEST_NATIVE_OBJECT(cx, arg0)
+		} while (0);
+		cobj->startWithTarget(arg0);
+		return JS_TRUE;
+	}
+	JS_ReportError(cx, "wrong number of arguments: %d, was expecting %d", argc, 1);
+	return JS_FALSE;
+}
+JSBool js_cocos2dx_CCCardinalSplineBy_updatePosition(JSContext *cx, uint32_t argc, jsval *vp)
+{
+	jsval *argv = JS_ARGV(cx, vp);
+	JSObject *obj = JS_THIS_OBJECT(cx, vp);
+	js_proxy_t *proxy; JS_GET_NATIVE_PROXY(proxy, obj);
+	cocos2d::CCCardinalSplineBy* cobj = (cocos2d::CCCardinalSplineBy *)(proxy ? proxy->ptr : NULL);
+	TEST_NATIVE_OBJECT(cx, cobj)
+
+	if (argc == 1) {
+		cocos2d::CCPoint arg0;
+		arg0 = jsval_to_ccpoint(cx, argv[0]);
+		cobj->updatePosition(arg0);
+		return JS_TRUE;
+	}
+	JS_ReportError(cx, "wrong number of arguments: %d, was expecting %d", argc, 1);
+	return JS_FALSE;
+}
+JSBool js_cocos2dx_CCCardinalSplineBy_reverse(JSContext *cx, uint32_t argc, jsval *vp)
+{
+	JSObject *obj = JS_THIS_OBJECT(cx, vp);
+	js_proxy_t *proxy; JS_GET_NATIVE_PROXY(proxy, obj);
+	cocos2d::CCCardinalSplineBy* cobj = (cocos2d::CCCardinalSplineBy *)(proxy ? proxy->ptr : NULL);
+	TEST_NATIVE_OBJECT(cx, cobj)
+
+	if (argc == 0) {
+		cocos2d::CCActionInterval* ret = cobj->reverse();
+		jsval jsret;
+		do {
+			if (ret) {
+				js_proxy_t *proxy = js_get_or_create_proxy<cocos2d::CCActionInterval>(cx, ret);
+				jsret = OBJECT_TO_JSVAL(proxy->obj);
+			} else {
+				jsret = JSVAL_NULL;
+			}
+		} while (0);
+		JS_SET_RVAL(cx, vp, jsret);
+		return JS_TRUE;
+	}
+	JS_ReportError(cx, "wrong number of arguments: %d, was expecting %d", argc, 0);
+	return JS_FALSE;
+}
+JSBool js_cocos2dx_CCCardinalSplineBy_create(JSContext *cx, uint32_t argc, jsval *vp)
+{
+	jsval *argv = JS_ARGV(cx, vp);
+	double arg0;
+	cocos2d::CCPointArray* arg1;
+	double arg2;
+	assert(argc >= 3);
+
+	JS_ValueToNumber(cx, argv[0], &arg0);
+	do {
+			js_proxy_t *proxy;
+			JSObject *tmpObj = JSVAL_TO_OBJECT(argv[1]);
+			JS_GET_NATIVE_PROXY(proxy, tmpObj);
+			arg1 = (cocos2d::CCPointArray*)(proxy ? proxy->ptr : NULL);
+			TEST_NATIVE_OBJECT(cx, arg1)
+		} while (0);
+	JS_ValueToNumber(cx, argv[2], &arg2);
+	cocos2d::CCCardinalSplineBy* ret = cocos2d::CCCardinalSplineBy::create(arg0, arg1, arg2);
+	jsval jsret;
+	do {
+		if (ret) {
+			js_proxy_t *proxy = js_get_or_create_proxy<cocos2d::CCCardinalSplineBy>(cx, ret);
+			jsret = OBJECT_TO_JSVAL(proxy->obj);
+		} else {
+			jsret = JSVAL_NULL;
+		}
+	} while (0);
+	JS_SET_RVAL(cx, vp, jsret);
+	return JS_TRUE;
+}
+
+JSBool js_cocos2dx_CCCardinalSplineBy_actionWithDuration(JSContext *cx, uint32_t argc, jsval *vp)
+{
+	jsval *argv = JS_ARGV(cx, vp);
+	double arg0;
+	cocos2d::CCPointArray* arg1;
+	double arg2;
+	assert(argc >= 3);
+
+	JS_ValueToNumber(cx, argv[0], &arg0);
+	do {
+			js_proxy_t *proxy;
+			JSObject *tmpObj = JSVAL_TO_OBJECT(argv[1]);
+			JS_GET_NATIVE_PROXY(proxy, tmpObj);
+			arg1 = (cocos2d::CCPointArray*)(proxy ? proxy->ptr : NULL);
+			TEST_NATIVE_OBJECT(cx, arg1)
+		} while (0);
+	JS_ValueToNumber(cx, argv[2], &arg2);
+	cocos2d::CCCardinalSplineBy* ret = cocos2d::CCCardinalSplineBy::actionWithDuration(arg0, arg1, arg2);
+	jsval jsret;
+	do {
+		if (ret) {
+			js_proxy_t *proxy = js_get_or_create_proxy<cocos2d::CCCardinalSplineBy>(cx, ret);
+			jsret = OBJECT_TO_JSVAL(proxy->obj);
+		} else {
+			jsret = JSVAL_NULL;
+		}
+	} while (0);
+	JS_SET_RVAL(cx, vp, jsret);
+	return JS_TRUE;
+}
+
+JSBool js_cocos2dx_CCCardinalSplineBy_constructor(JSContext *cx, uint32_t argc, jsval *vp)
+{
+
+	if (argc == 0) {
+		cocos2d::CCCardinalSplineBy* cobj = new cocos2d::CCCardinalSplineBy();
+#ifdef COCOS2D_JAVASCRIPT
+		cocos2d::CCObject *_ccobj = dynamic_cast<cocos2d::CCObject *>(cobj);
+		if (_ccobj) {
+			_ccobj->autorelease();
+		}
+#endif
+		TypeTest<cocos2d::CCCardinalSplineBy> t;
+		js_type_class_t *typeClass;
+		uint32_t typeId = t.s_id();
+		HASH_FIND_INT(_js_global_type_ht, &typeId, typeClass);
+		assert(typeClass);
+		JSObject *obj = JS_NewObject(cx, typeClass->jsclass, typeClass->proto, typeClass->parentProto);
+		JS_SET_RVAL(cx, vp, OBJECT_TO_JSVAL(obj));
+		// link the native object with the javascript object
+		js_proxy_t *p;
+		JS_NEW_PROXY(p, cobj, obj);
+#ifdef COCOS2D_JAVASCRIPT
+		JS_AddNamedObjectRoot(cx, &p->obj, "cocos2d::CCCardinalSplineBy");
+#endif
+		return JS_TRUE;
+	}
+	JS_ReportError(cx, "wrong number of arguments: %d, was expecting %d", argc, 0);
+	return JS_FALSE;
+}
+
+
+
+void js_cocos2dx_CCCardinalSplineBy_finalize(JSFreeOp *fop, JSObject *obj) {
+}
+
+void js_register_cocos2dx_CCCardinalSplineBy(JSContext *cx, JSObject *global) {
+	js_cocos2dx_CCCardinalSplineBy_class = (JSClass *)calloc(1, sizeof(JSClass));
+	js_cocos2dx_CCCardinalSplineBy_class->name = "CardinalSplineBy";
+	js_cocos2dx_CCCardinalSplineBy_class->addProperty = JS_PropertyStub;
+	js_cocos2dx_CCCardinalSplineBy_class->delProperty = JS_PropertyStub;
+	js_cocos2dx_CCCardinalSplineBy_class->getProperty = JS_PropertyStub;
+	js_cocos2dx_CCCardinalSplineBy_class->setProperty = JS_StrictPropertyStub;
+	js_cocos2dx_CCCardinalSplineBy_class->enumerate = JS_EnumerateStub;
+	js_cocos2dx_CCCardinalSplineBy_class->resolve = JS_ResolveStub;
+	js_cocos2dx_CCCardinalSplineBy_class->convert = JS_ConvertStub;
+	js_cocos2dx_CCCardinalSplineBy_class->finalize = js_cocos2dx_CCCardinalSplineBy_finalize;
+	js_cocos2dx_CCCardinalSplineBy_class->flags = JSCLASS_HAS_RESERVED_SLOTS(2);
+
+	static JSPropertySpec properties[] = {
+		{0, 0, 0, 0, 0}
+	};
+
+	static JSFunctionSpec funcs[] = {
+		JS_FN("startWithTarget", js_cocos2dx_CCCardinalSplineBy_startWithTarget, 1, JSPROP_PERMANENT | JSPROP_SHARED),
+		JS_FN("updatePosition", js_cocos2dx_CCCardinalSplineBy_updatePosition, 1, JSPROP_PERMANENT | JSPROP_SHARED),
+		JS_FN("reverse", js_cocos2dx_CCCardinalSplineBy_reverse, 0, JSPROP_PERMANENT | JSPROP_SHARED),
+		JS_FS_END
+	};
+
+	static JSFunctionSpec st_funcs[] = {
+		JS_FN("create", js_cocos2dx_CCCardinalSplineBy_create, 3, JSPROP_PERMANENT | JSPROP_SHARED),
+		JS_FN("actionWithDuration", js_cocos2dx_CCCardinalSplineBy_actionWithDuration, 3, JSPROP_PERMANENT | JSPROP_SHARED),
+		JS_FS_END
+	};
+
+	js_cocos2dx_CCCardinalSplineBy_prototype = JS_InitClass(
+		cx, global,
+		js_cocos2dx_CCCardinalSplineTo_prototype,
+		js_cocos2dx_CCCardinalSplineBy_class,
+		js_cocos2dx_CCCardinalSplineBy_constructor, 0, // constructor
+		properties,
+		funcs,
+		NULL, // no static properties
+		st_funcs);
+
+	// add the proto and JSClass to the type->js info hash table
+	TypeTest<cocos2d::CCCardinalSplineBy> t;
+	js_type_class_t *p;
+	uint32_t typeId = t.s_id();
+	HASH_FIND_INT(_js_global_type_ht, &typeId, p);
+	if (!p) {
+		p = (js_type_class_t *)malloc(sizeof(js_type_class_t));
+		p->type = typeId;
+		p->jsclass = js_cocos2dx_CCCardinalSplineBy_class;
+		p->proto = js_cocos2dx_CCCardinalSplineBy_prototype;
+		p->parentProto = js_cocos2dx_CCCardinalSplineTo_prototype;
+		HASH_ADD_INT(_js_global_type_ht, type, p);
+	}
+}
+
+
+JSClass  *js_cocos2dx_CCCatmullRomTo_class;
+JSObject *js_cocos2dx_CCCatmullRomTo_prototype;
+
+JSBool js_cocos2dx_CCCatmullRomTo_initWithDuration(JSContext *cx, uint32_t argc, jsval *vp)
+{
+	jsval *argv = JS_ARGV(cx, vp);
+	JSObject *obj = JS_THIS_OBJECT(cx, vp);
+	js_proxy_t *proxy; JS_GET_NATIVE_PROXY(proxy, obj);
+	cocos2d::CCCatmullRomTo* cobj = (cocos2d::CCCatmullRomTo *)(proxy ? proxy->ptr : NULL);
+	TEST_NATIVE_OBJECT(cx, cobj)
+
+	if (argc == 2) {
+		double arg0;
+		cocos2d::CCPointArray* arg1;
+		JS_ValueToNumber(cx, argv[0], &arg0);
+		do {
+			js_proxy_t *proxy;
+			JSObject *tmpObj = JSVAL_TO_OBJECT(argv[1]);
+			JS_GET_NATIVE_PROXY(proxy, tmpObj);
+			arg1 = (cocos2d::CCPointArray*)(proxy ? proxy->ptr : NULL);
+			TEST_NATIVE_OBJECT(cx, arg1)
+		} while (0);
+		bool ret = cobj->initWithDuration(arg0, arg1);
+		jsval jsret;
+		jsret = BOOLEAN_TO_JSVAL(ret);
+		JS_SET_RVAL(cx, vp, jsret);
+		return JS_TRUE;
+	}
+	JS_ReportError(cx, "wrong number of arguments: %d, was expecting %d", argc, 2);
+	return JS_FALSE;
+}
+JSBool js_cocos2dx_CCCatmullRomTo_create(JSContext *cx, uint32_t argc, jsval *vp)
+{
+	jsval *argv = JS_ARGV(cx, vp);
+	double arg0;
+	cocos2d::CCPointArray* arg1;
+	assert(argc >= 2);
+
+	JS_ValueToNumber(cx, argv[0], &arg0);
+	do {
+			js_proxy_t *proxy;
+			JSObject *tmpObj = JSVAL_TO_OBJECT(argv[1]);
+			JS_GET_NATIVE_PROXY(proxy, tmpObj);
+			arg1 = (cocos2d::CCPointArray*)(proxy ? proxy->ptr : NULL);
+			TEST_NATIVE_OBJECT(cx, arg1)
+		} while (0);
+	cocos2d::CCCatmullRomTo* ret = cocos2d::CCCatmullRomTo::create(arg0, arg1);
+	jsval jsret;
+	do {
+		if (ret) {
+			js_proxy_t *proxy = js_get_or_create_proxy<cocos2d::CCCatmullRomTo>(cx, ret);
+			jsret = OBJECT_TO_JSVAL(proxy->obj);
+		} else {
+			jsret = JSVAL_NULL;
+		}
+	} while (0);
+	JS_SET_RVAL(cx, vp, jsret);
+	return JS_TRUE;
+}
+
+JSBool js_cocos2dx_CCCatmullRomTo_actionWithDuration(JSContext *cx, uint32_t argc, jsval *vp)
+{
+	jsval *argv = JS_ARGV(cx, vp);
+	double arg0;
+	cocos2d::CCPointArray* arg1;
+	assert(argc >= 2);
+
+	JS_ValueToNumber(cx, argv[0], &arg0);
+	do {
+			js_proxy_t *proxy;
+			JSObject *tmpObj = JSVAL_TO_OBJECT(argv[1]);
+			JS_GET_NATIVE_PROXY(proxy, tmpObj);
+			arg1 = (cocos2d::CCPointArray*)(proxy ? proxy->ptr : NULL);
+			TEST_NATIVE_OBJECT(cx, arg1)
+		} while (0);
+	cocos2d::CCCatmullRomTo* ret = cocos2d::CCCatmullRomTo::actionWithDuration(arg0, arg1);
+	jsval jsret;
+	do {
+		if (ret) {
+			js_proxy_t *proxy = js_get_or_create_proxy<cocos2d::CCCatmullRomTo>(cx, ret);
+			jsret = OBJECT_TO_JSVAL(proxy->obj);
+		} else {
+			jsret = JSVAL_NULL;
+		}
+	} while (0);
+	JS_SET_RVAL(cx, vp, jsret);
+	return JS_TRUE;
+}
+
+
+
+void js_cocos2dx_CCCatmullRomTo_finalize(JSFreeOp *fop, JSObject *obj) {
+}
+
+void js_register_cocos2dx_CCCatmullRomTo(JSContext *cx, JSObject *global) {
+	js_cocos2dx_CCCatmullRomTo_class = (JSClass *)calloc(1, sizeof(JSClass));
+	js_cocos2dx_CCCatmullRomTo_class->name = "CatmullRomTo";
+	js_cocos2dx_CCCatmullRomTo_class->addProperty = JS_PropertyStub;
+	js_cocos2dx_CCCatmullRomTo_class->delProperty = JS_PropertyStub;
+	js_cocos2dx_CCCatmullRomTo_class->getProperty = JS_PropertyStub;
+	js_cocos2dx_CCCatmullRomTo_class->setProperty = JS_StrictPropertyStub;
+	js_cocos2dx_CCCatmullRomTo_class->enumerate = JS_EnumerateStub;
+	js_cocos2dx_CCCatmullRomTo_class->resolve = JS_ResolveStub;
+	js_cocos2dx_CCCatmullRomTo_class->convert = JS_ConvertStub;
+	js_cocos2dx_CCCatmullRomTo_class->finalize = js_cocos2dx_CCCatmullRomTo_finalize;
+	js_cocos2dx_CCCatmullRomTo_class->flags = JSCLASS_HAS_RESERVED_SLOTS(2);
+
+	JSPropertySpec *properties = NULL;
+
+	static JSFunctionSpec funcs[] = {
+		JS_FN("initWithDuration", js_cocos2dx_CCCatmullRomTo_initWithDuration, 2, JSPROP_PERMANENT | JSPROP_SHARED),
+		JS_FS_END
+	};
+
+	static JSFunctionSpec st_funcs[] = {
+		JS_FN("create", js_cocos2dx_CCCatmullRomTo_create, 2, JSPROP_PERMANENT | JSPROP_SHARED),
+		JS_FN("actionWithDuration", js_cocos2dx_CCCatmullRomTo_actionWithDuration, 2, JSPROP_PERMANENT | JSPROP_SHARED),
+		JS_FS_END
+	};
+
+	js_cocos2dx_CCCatmullRomTo_prototype = JS_InitClass(
+		cx, global,
+		js_cocos2dx_CCCardinalSplineTo_prototype,
+		js_cocos2dx_CCCatmullRomTo_class,
+		dummy_constructor<cocos2d::CCCatmullRomTo>, 0, // no constructor
+		properties,
+		funcs,
+		NULL, // no static properties
+		st_funcs);
+
+	// add the proto and JSClass to the type->js info hash table
+	TypeTest<cocos2d::CCCatmullRomTo> t;
+	js_type_class_t *p;
+	uint32_t typeId = t.s_id();
+	HASH_FIND_INT(_js_global_type_ht, &typeId, p);
+	if (!p) {
+		p = (js_type_class_t *)malloc(sizeof(js_type_class_t));
+		p->type = typeId;
+		p->jsclass = js_cocos2dx_CCCatmullRomTo_class;
+		p->proto = js_cocos2dx_CCCatmullRomTo_prototype;
+		p->parentProto = js_cocos2dx_CCCardinalSplineTo_prototype;
+		HASH_ADD_INT(_js_global_type_ht, type, p);
+	}
+}
+
+
+JSClass  *js_cocos2dx_CCCatmullRomBy_class;
+JSObject *js_cocos2dx_CCCatmullRomBy_prototype;
+
+JSBool js_cocos2dx_CCCatmullRomBy_initWithDuration(JSContext *cx, uint32_t argc, jsval *vp)
+{
+	jsval *argv = JS_ARGV(cx, vp);
+	JSObject *obj = JS_THIS_OBJECT(cx, vp);
+	js_proxy_t *proxy; JS_GET_NATIVE_PROXY(proxy, obj);
+	cocos2d::CCCatmullRomBy* cobj = (cocos2d::CCCatmullRomBy *)(proxy ? proxy->ptr : NULL);
+	TEST_NATIVE_OBJECT(cx, cobj)
+
+	if (argc == 2) {
+		double arg0;
+		cocos2d::CCPointArray* arg1;
+		JS_ValueToNumber(cx, argv[0], &arg0);
+		do {
+			js_proxy_t *proxy;
+			JSObject *tmpObj = JSVAL_TO_OBJECT(argv[1]);
+			JS_GET_NATIVE_PROXY(proxy, tmpObj);
+			arg1 = (cocos2d::CCPointArray*)(proxy ? proxy->ptr : NULL);
+			TEST_NATIVE_OBJECT(cx, arg1)
+		} while (0);
+		bool ret = cobj->initWithDuration(arg0, arg1);
+		jsval jsret;
+		jsret = BOOLEAN_TO_JSVAL(ret);
+		JS_SET_RVAL(cx, vp, jsret);
+		return JS_TRUE;
+	}
+	JS_ReportError(cx, "wrong number of arguments: %d, was expecting %d", argc, 2);
+	return JS_FALSE;
+}
+JSBool js_cocos2dx_CCCatmullRomBy_create(JSContext *cx, uint32_t argc, jsval *vp)
+{
+	jsval *argv = JS_ARGV(cx, vp);
+	double arg0;
+	cocos2d::CCPointArray* arg1;
+	assert(argc >= 2);
+
+	JS_ValueToNumber(cx, argv[0], &arg0);
+	do {
+			js_proxy_t *proxy;
+			JSObject *tmpObj = JSVAL_TO_OBJECT(argv[1]);
+			JS_GET_NATIVE_PROXY(proxy, tmpObj);
+			arg1 = (cocos2d::CCPointArray*)(proxy ? proxy->ptr : NULL);
+			TEST_NATIVE_OBJECT(cx, arg1)
+		} while (0);
+	cocos2d::CCCatmullRomBy* ret = cocos2d::CCCatmullRomBy::create(arg0, arg1);
+	jsval jsret;
+	do {
+		if (ret) {
+			js_proxy_t *proxy = js_get_or_create_proxy<cocos2d::CCCatmullRomBy>(cx, ret);
+			jsret = OBJECT_TO_JSVAL(proxy->obj);
+		} else {
+			jsret = JSVAL_NULL;
+		}
+	} while (0);
+	JS_SET_RVAL(cx, vp, jsret);
+	return JS_TRUE;
+}
+
+JSBool js_cocos2dx_CCCatmullRomBy_actionWithDuration(JSContext *cx, uint32_t argc, jsval *vp)
+{
+	jsval *argv = JS_ARGV(cx, vp);
+	double arg0;
+	cocos2d::CCPointArray* arg1;
+	assert(argc >= 2);
+
+	JS_ValueToNumber(cx, argv[0], &arg0);
+	do {
+			js_proxy_t *proxy;
+			JSObject *tmpObj = JSVAL_TO_OBJECT(argv[1]);
+			JS_GET_NATIVE_PROXY(proxy, tmpObj);
+			arg1 = (cocos2d::CCPointArray*)(proxy ? proxy->ptr : NULL);
+			TEST_NATIVE_OBJECT(cx, arg1)
+		} while (0);
+	cocos2d::CCCatmullRomBy* ret = cocos2d::CCCatmullRomBy::actionWithDuration(arg0, arg1);
+	jsval jsret;
+	do {
+		if (ret) {
+			js_proxy_t *proxy = js_get_or_create_proxy<cocos2d::CCCatmullRomBy>(cx, ret);
+			jsret = OBJECT_TO_JSVAL(proxy->obj);
+		} else {
+			jsret = JSVAL_NULL;
+		}
+	} while (0);
+	JS_SET_RVAL(cx, vp, jsret);
+	return JS_TRUE;
+}
+
+
+
+void js_cocos2dx_CCCatmullRomBy_finalize(JSFreeOp *fop, JSObject *obj) {
+}
+
+void js_register_cocos2dx_CCCatmullRomBy(JSContext *cx, JSObject *global) {
+	js_cocos2dx_CCCatmullRomBy_class = (JSClass *)calloc(1, sizeof(JSClass));
+	js_cocos2dx_CCCatmullRomBy_class->name = "CatmullRomBy";
+	js_cocos2dx_CCCatmullRomBy_class->addProperty = JS_PropertyStub;
+	js_cocos2dx_CCCatmullRomBy_class->delProperty = JS_PropertyStub;
+	js_cocos2dx_CCCatmullRomBy_class->getProperty = JS_PropertyStub;
+	js_cocos2dx_CCCatmullRomBy_class->setProperty = JS_StrictPropertyStub;
+	js_cocos2dx_CCCatmullRomBy_class->enumerate = JS_EnumerateStub;
+	js_cocos2dx_CCCatmullRomBy_class->resolve = JS_ResolveStub;
+	js_cocos2dx_CCCatmullRomBy_class->convert = JS_ConvertStub;
+	js_cocos2dx_CCCatmullRomBy_class->finalize = js_cocos2dx_CCCatmullRomBy_finalize;
+	js_cocos2dx_CCCatmullRomBy_class->flags = JSCLASS_HAS_RESERVED_SLOTS(2);
+
+	JSPropertySpec *properties = NULL;
+
+	static JSFunctionSpec funcs[] = {
+		JS_FN("initWithDuration", js_cocos2dx_CCCatmullRomBy_initWithDuration, 2, JSPROP_PERMANENT | JSPROP_SHARED),
+		JS_FS_END
+	};
+
+	static JSFunctionSpec st_funcs[] = {
+		JS_FN("create", js_cocos2dx_CCCatmullRomBy_create, 2, JSPROP_PERMANENT | JSPROP_SHARED),
+		JS_FN("actionWithDuration", js_cocos2dx_CCCatmullRomBy_actionWithDuration, 2, JSPROP_PERMANENT | JSPROP_SHARED),
+		JS_FS_END
+	};
+
+	js_cocos2dx_CCCatmullRomBy_prototype = JS_InitClass(
+		cx, global,
+		js_cocos2dx_CCCardinalSplineBy_prototype,
+		js_cocos2dx_CCCatmullRomBy_class,
+		dummy_constructor<cocos2d::CCCatmullRomBy>, 0, // no constructor
+		properties,
+		funcs,
+		NULL, // no static properties
+		st_funcs);
+
+	// add the proto and JSClass to the type->js info hash table
+	TypeTest<cocos2d::CCCatmullRomBy> t;
+	js_type_class_t *p;
+	uint32_t typeId = t.s_id();
+	HASH_FIND_INT(_js_global_type_ht, &typeId, p);
+	if (!p) {
+		p = (js_type_class_t *)malloc(sizeof(js_type_class_t));
+		p->type = typeId;
+		p->jsclass = js_cocos2dx_CCCatmullRomBy_class;
+		p->proto = js_cocos2dx_CCCatmullRomBy_prototype;
+		p->parentProto = js_cocos2dx_CCCardinalSplineBy_prototype;
+		HASH_ADD_INT(_js_global_type_ht, type, p);
+	}
+}
+
+
 JSClass  *js_cocos2dx_CCAtlasNode_class;
 JSObject *js_cocos2dx_CCAtlasNode_prototype;
 
@@ -22688,14 +23820,7 @@ JSBool js_cocos2dx_CCSpriteBatchNode_getDescendants(JSContext *cx, uint32_t argc
 	if (argc == 0) {
 		cocos2d::CCArray* ret = cobj->getDescendants();
 		jsval jsret;
-		do {
-			if (ret) {
-				js_proxy_t *proxy = js_get_or_create_proxy<cocos2d::CCArray>(cx, ret);
-				jsret = OBJECT_TO_JSVAL(proxy->obj);
-			} else {
-				jsret = JSVAL_NULL;
-			}
-		} while (0);
+		jsret = ccarray_to_jsval(cx, ret);
 		JS_SET_RVAL(cx, vp, jsret);
 		return JS_TRUE;
 	}
@@ -24763,23 +25888,6 @@ JSBool js_cocos2dx_CCLayerGradient_getVector(JSContext *cx, uint32_t argc, jsval
 	JS_ReportError(cx, "wrong number of arguments: %d, was expecting %d", argc, 0);
 	return JS_FALSE;
 }
-JSBool js_cocos2dx_CCLayerGradient_setEndColor(JSContext *cx, uint32_t argc, jsval *vp)
-{
-	jsval *argv = JS_ARGV(cx, vp);
-	JSObject *obj = JS_THIS_OBJECT(cx, vp);
-	js_proxy_t *proxy; JS_GET_NATIVE_PROXY(proxy, obj);
-	cocos2d::CCLayerGradient* cobj = (cocos2d::CCLayerGradient *)(proxy ? proxy->ptr : NULL);
-	TEST_NATIVE_OBJECT(cx, cobj)
-
-	if (argc == 1) {
-		cocos2d::ccColor3B arg0;
-		arg0 = jsval_to_cccolor3b(cx, argv[0]);
-		cobj->setEndColor(arg0);
-		return JS_TRUE;
-	}
-	JS_ReportError(cx, "wrong number of arguments: %d, was expecting %d", argc, 1);
-	return JS_FALSE;
-}
 JSBool js_cocos2dx_CCLayerGradient_initWithColor(JSContext *cx, uint32_t argc, jsval *vp)
 {
 	jsval *argv = JS_ARGV(cx, vp);
@@ -24812,6 +25920,23 @@ JSBool js_cocos2dx_CCLayerGradient_initWithColor(JSContext *cx, uint32_t argc, j
 		JS_SET_RVAL(cx, vp, jsret);
 		return JS_TRUE;
 	}
+	return JS_FALSE;
+}
+JSBool js_cocos2dx_CCLayerGradient_setEndColor(JSContext *cx, uint32_t argc, jsval *vp)
+{
+	jsval *argv = JS_ARGV(cx, vp);
+	JSObject *obj = JS_THIS_OBJECT(cx, vp);
+	js_proxy_t *proxy; JS_GET_NATIVE_PROXY(proxy, obj);
+	cocos2d::CCLayerGradient* cobj = (cocos2d::CCLayerGradient *)(proxy ? proxy->ptr : NULL);
+	TEST_NATIVE_OBJECT(cx, cobj)
+
+	if (argc == 1) {
+		cocos2d::ccColor3B arg0;
+		arg0 = jsval_to_cccolor3b(cx, argv[0]);
+		cobj->setEndColor(arg0);
+		return JS_TRUE;
+	}
+	JS_ReportError(cx, "wrong number of arguments: %d, was expecting %d", argc, 1);
 	return JS_FALSE;
 }
 JSBool js_cocos2dx_CCLayerGradient_getEndColor(JSContext *cx, uint32_t argc, jsval *vp)
@@ -25012,8 +26137,8 @@ void js_register_cocos2dx_CCLayerGradient(JSContext *cx, JSObject *global) {
 		JS_FN("setCompressedInterpolation", js_cocos2dx_CCLayerGradient_setCompressedInterpolation, 1, JSPROP_PERMANENT | JSPROP_SHARED),
 		JS_FN("setEndOpacity", js_cocos2dx_CCLayerGradient_setEndOpacity, 1, JSPROP_PERMANENT | JSPROP_SHARED),
 		JS_FN("getVector", js_cocos2dx_CCLayerGradient_getVector, 0, JSPROP_PERMANENT | JSPROP_SHARED),
+		JS_FN("init", js_cocos2dx_CCLayerGradient_initWithColor, 2, JSPROP_PERMANENT | JSPROP_SHARED),
 		JS_FN("setEndColor", js_cocos2dx_CCLayerGradient_setEndColor, 1, JSPROP_PERMANENT | JSPROP_SHARED),
-		JS_FN("initWithColor", js_cocos2dx_CCLayerGradient_initWithColor, 2, JSPROP_PERMANENT | JSPROP_SHARED),
 		JS_FN("getEndColor", js_cocos2dx_CCLayerGradient_getEndColor, 0, JSPROP_PERMANENT | JSPROP_SHARED),
 		JS_FN("getEndOpacity", js_cocos2dx_CCLayerGradient_getEndOpacity, 0, JSPROP_PERMANENT | JSPROP_SHARED),
 		JS_FN("setStartColor", js_cocos2dx_CCLayerGradient_setStartColor, 1, JSPROP_PERMANENT | JSPROP_SHARED),
@@ -39864,7 +40989,7 @@ void js_register_cocos2dx_CCParticleRain(JSContext *cx, JSObject *global) {
 JSClass  *js_cocos2dx_CCAnimationCache_class;
 JSObject *js_cocos2dx_CCAnimationCache_prototype;
 
-JSBool js_cocos2dx_CCAnimationCache_addAnimation(JSContext *cx, uint32_t argc, jsval *vp)
+JSBool js_cocos2dx_CCAnimationCache_animationByName(JSContext *cx, uint32_t argc, jsval *vp)
 {
 	jsval *argv = JS_ARGV(cx, vp);
 	JSObject *obj = JS_THIS_OBJECT(cx, vp);
@@ -39872,21 +40997,23 @@ JSBool js_cocos2dx_CCAnimationCache_addAnimation(JSContext *cx, uint32_t argc, j
 	cocos2d::CCAnimationCache* cobj = (cocos2d::CCAnimationCache *)(proxy ? proxy->ptr : NULL);
 	TEST_NATIVE_OBJECT(cx, cobj)
 
-	if (argc == 2) {
-		cocos2d::CCAnimation* arg0;
-		const char* arg1;
+	if (argc == 1) {
+		const char* arg0;
+		std::string arg0_tmp = jsval_to_std_string(cx, argv[0]); arg0 = arg0_tmp.c_str();
+		cocos2d::CCAnimation* ret = cobj->animationByName(arg0);
+		jsval jsret;
 		do {
-			js_proxy_t *proxy;
-			JSObject *tmpObj = JSVAL_TO_OBJECT(argv[0]);
-			JS_GET_NATIVE_PROXY(proxy, tmpObj);
-			arg0 = (cocos2d::CCAnimation*)(proxy ? proxy->ptr : NULL);
-			TEST_NATIVE_OBJECT(cx, arg0)
+			if (ret) {
+				js_proxy_t *proxy = js_get_or_create_proxy<cocos2d::CCAnimation>(cx, ret);
+				jsret = OBJECT_TO_JSVAL(proxy->obj);
+			} else {
+				jsret = JSVAL_NULL;
+			}
 		} while (0);
-		std::string arg1_tmp = jsval_to_std_string(cx, argv[1]); arg1 = arg1_tmp.c_str();
-		cobj->addAnimation(arg0, arg1);
+		JS_SET_RVAL(cx, vp, jsret);
 		return JS_TRUE;
 	}
-	JS_ReportError(cx, "wrong number of arguments: %d, was expecting %d", argc, 2);
+	JS_ReportError(cx, "wrong number of arguments: %d, was expecting %d", argc, 1);
 	return JS_FALSE;
 }
 JSBool js_cocos2dx_CCAnimationCache_addAnimationsWithFile(JSContext *cx, uint32_t argc, jsval *vp)
@@ -39940,33 +41067,6 @@ JSBool js_cocos2dx_CCAnimationCache_init(JSContext *cx, uint32_t argc, jsval *vp
 	JS_ReportError(cx, "wrong number of arguments: %d, was expecting %d", argc, 0);
 	return JS_FALSE;
 }
-JSBool js_cocos2dx_CCAnimationCache_animationByName(JSContext *cx, uint32_t argc, jsval *vp)
-{
-	jsval *argv = JS_ARGV(cx, vp);
-	JSObject *obj = JS_THIS_OBJECT(cx, vp);
-	js_proxy_t *proxy; JS_GET_NATIVE_PROXY(proxy, obj);
-	cocos2d::CCAnimationCache* cobj = (cocos2d::CCAnimationCache *)(proxy ? proxy->ptr : NULL);
-	TEST_NATIVE_OBJECT(cx, cobj)
-
-	if (argc == 1) {
-		const char* arg0;
-		std::string arg0_tmp = jsval_to_std_string(cx, argv[0]); arg0 = arg0_tmp.c_str();
-		cocos2d::CCAnimation* ret = cobj->animationByName(arg0);
-		jsval jsret;
-		do {
-			if (ret) {
-				js_proxy_t *proxy = js_get_or_create_proxy<cocos2d::CCAnimation>(cx, ret);
-				jsret = OBJECT_TO_JSVAL(proxy->obj);
-			} else {
-				jsret = JSVAL_NULL;
-			}
-		} while (0);
-		JS_SET_RVAL(cx, vp, jsret);
-		return JS_TRUE;
-	}
-	JS_ReportError(cx, "wrong number of arguments: %d, was expecting %d", argc, 1);
-	return JS_FALSE;
-}
 JSBool js_cocos2dx_CCAnimationCache_addAnimationsWithDictionary(JSContext *cx, uint32_t argc, jsval *vp)
 {
 	jsval *argv = JS_ARGV(cx, vp);
@@ -39990,6 +41090,37 @@ JSBool js_cocos2dx_CCAnimationCache_addAnimationsWithDictionary(JSContext *cx, u
 	JS_ReportError(cx, "wrong number of arguments: %d, was expecting %d", argc, 1);
 	return JS_FALSE;
 }
+JSBool js_cocos2dx_CCAnimationCache_addAnimation(JSContext *cx, uint32_t argc, jsval *vp)
+{
+	jsval *argv = JS_ARGV(cx, vp);
+	JSObject *obj = JS_THIS_OBJECT(cx, vp);
+	js_proxy_t *proxy; JS_GET_NATIVE_PROXY(proxy, obj);
+	cocos2d::CCAnimationCache* cobj = (cocos2d::CCAnimationCache *)(proxy ? proxy->ptr : NULL);
+	TEST_NATIVE_OBJECT(cx, cobj)
+
+	if (argc == 2) {
+		cocos2d::CCAnimation* arg0;
+		const char* arg1;
+		do {
+			js_proxy_t *proxy;
+			JSObject *tmpObj = JSVAL_TO_OBJECT(argv[0]);
+			JS_GET_NATIVE_PROXY(proxy, tmpObj);
+			arg0 = (cocos2d::CCAnimation*)(proxy ? proxy->ptr : NULL);
+			TEST_NATIVE_OBJECT(cx, arg0)
+		} while (0);
+		std::string arg1_tmp = jsval_to_std_string(cx, argv[1]); arg1 = arg1_tmp.c_str();
+		cobj->addAnimation(arg0, arg1);
+		return JS_TRUE;
+	}
+	JS_ReportError(cx, "wrong number of arguments: %d, was expecting %d", argc, 2);
+	return JS_FALSE;
+}
+JSBool js_cocos2dx_CCAnimationCache_purgeSharedAnimationCache(JSContext *cx, uint32_t argc, jsval *vp)
+{
+	cocos2d::CCAnimationCache::purgeSharedAnimationCache();
+	return JS_TRUE;
+}
+
 JSBool js_cocos2dx_CCAnimationCache_sharedAnimationCache(JSContext *cx, uint32_t argc, jsval *vp)
 {
 	cocos2d::CCAnimationCache* ret = cocos2d::CCAnimationCache::sharedAnimationCache();
@@ -40003,12 +41134,6 @@ JSBool js_cocos2dx_CCAnimationCache_sharedAnimationCache(JSContext *cx, uint32_t
 		}
 	} while (0);
 	JS_SET_RVAL(cx, vp, jsret);
-	return JS_TRUE;
-}
-
-JSBool js_cocos2dx_CCAnimationCache_purgeSharedAnimationCache(JSContext *cx, uint32_t argc, jsval *vp)
-{
-	cocos2d::CCAnimationCache::purgeSharedAnimationCache();
 	return JS_TRUE;
 }
 
@@ -40065,18 +41190,18 @@ void js_register_cocos2dx_CCAnimationCache(JSContext *cx, JSObject *global) {
 	};
 
 	static JSFunctionSpec funcs[] = {
-		JS_FN("addAnimation", js_cocos2dx_CCAnimationCache_addAnimation, 2, JSPROP_PERMANENT | JSPROP_SHARED),
-		JS_FN("addAnimationsWithFile", js_cocos2dx_CCAnimationCache_addAnimationsWithFile, 1, JSPROP_PERMANENT | JSPROP_SHARED),
+		JS_FN("getAnimation", js_cocos2dx_CCAnimationCache_animationByName, 1, JSPROP_PERMANENT | JSPROP_SHARED),
+		JS_FN("addAnimations", js_cocos2dx_CCAnimationCache_addAnimationsWithFile, 1, JSPROP_PERMANENT | JSPROP_SHARED),
 		JS_FN("removeAnimationByName", js_cocos2dx_CCAnimationCache_removeAnimationByName, 1, JSPROP_PERMANENT | JSPROP_SHARED),
 		JS_FN("init", js_cocos2dx_CCAnimationCache_init, 0, JSPROP_PERMANENT | JSPROP_SHARED),
-		JS_FN("animationByName", js_cocos2dx_CCAnimationCache_animationByName, 1, JSPROP_PERMANENT | JSPROP_SHARED),
 		JS_FN("addAnimationsWithDictionary", js_cocos2dx_CCAnimationCache_addAnimationsWithDictionary, 1, JSPROP_PERMANENT | JSPROP_SHARED),
+		JS_FN("addAnimation", js_cocos2dx_CCAnimationCache_addAnimation, 2, JSPROP_PERMANENT | JSPROP_SHARED),
 		JS_FS_END
 	};
 
 	static JSFunctionSpec st_funcs[] = {
-		JS_FN("sharedAnimationCache", js_cocos2dx_CCAnimationCache_sharedAnimationCache, 0, JSPROP_PERMANENT | JSPROP_SHARED),
 		JS_FN("purgeSharedAnimationCache", js_cocos2dx_CCAnimationCache_purgeSharedAnimationCache, 0, JSPROP_PERMANENT | JSPROP_SHARED),
+		JS_FN("getInstance", js_cocos2dx_CCAnimationCache_sharedAnimationCache, 0, JSPROP_PERMANENT | JSPROP_SHARED),
 		JS_FS_END
 	};
 
@@ -40174,6 +41299,20 @@ JSBool js_cocos2dx_CCSpriteFrameCache_addSpriteFrame(JSContext *cx, uint32_t arg
 	JS_ReportError(cx, "wrong number of arguments: %d, was expecting %d", argc, 2);
 	return JS_FALSE;
 }
+JSBool js_cocos2dx_CCSpriteFrameCache_removeUnusedSpriteFrames(JSContext *cx, uint32_t argc, jsval *vp)
+{
+	JSObject *obj = JS_THIS_OBJECT(cx, vp);
+	js_proxy_t *proxy; JS_GET_NATIVE_PROXY(proxy, obj);
+	cocos2d::CCSpriteFrameCache* cobj = (cocos2d::CCSpriteFrameCache *)(proxy ? proxy->ptr : NULL);
+	TEST_NATIVE_OBJECT(cx, cobj)
+
+	if (argc == 0) {
+		cobj->removeUnusedSpriteFrames();
+		return JS_TRUE;
+	}
+	JS_ReportError(cx, "wrong number of arguments: %d, was expecting %d", argc, 0);
+	return JS_FALSE;
+}
 JSBool js_cocos2dx_CCSpriteFrameCache_spriteFrameByName(JSContext *cx, uint32_t argc, jsval *vp)
 {
 	jsval *argv = JS_ARGV(cx, vp);
@@ -40199,20 +41338,6 @@ JSBool js_cocos2dx_CCSpriteFrameCache_spriteFrameByName(JSContext *cx, uint32_t 
 		return JS_TRUE;
 	}
 	JS_ReportError(cx, "wrong number of arguments: %d, was expecting %d", argc, 1);
-	return JS_FALSE;
-}
-JSBool js_cocos2dx_CCSpriteFrameCache_removeUnusedSpriteFrames(JSContext *cx, uint32_t argc, jsval *vp)
-{
-	JSObject *obj = JS_THIS_OBJECT(cx, vp);
-	js_proxy_t *proxy; JS_GET_NATIVE_PROXY(proxy, obj);
-	cocos2d::CCSpriteFrameCache* cobj = (cocos2d::CCSpriteFrameCache *)(proxy ? proxy->ptr : NULL);
-	TEST_NATIVE_OBJECT(cx, cobj)
-
-	if (argc == 0) {
-		cobj->removeUnusedSpriteFrames();
-		return JS_TRUE;
-	}
-	JS_ReportError(cx, "wrong number of arguments: %d, was expecting %d", argc, 0);
 	return JS_FALSE;
 }
 JSBool js_cocos2dx_CCSpriteFrameCache_removeSpriteFramesFromFile(JSContext *cx, uint32_t argc, jsval *vp)
@@ -40350,8 +41475,8 @@ void js_register_cocos2dx_CCSpriteFrameCache(JSContext *cx, JSObject *global) {
 	static JSFunctionSpec funcs[] = {
 		JS_FN("addSpriteFrames", js_cocos2dx_CCSpriteFrameCache_addSpriteFramesWithFile, 1, JSPROP_PERMANENT | JSPROP_SHARED),
 		JS_FN("addSpriteFrame", js_cocos2dx_CCSpriteFrameCache_addSpriteFrame, 2, JSPROP_PERMANENT | JSPROP_SHARED),
-		JS_FN("spriteFrameByName", js_cocos2dx_CCSpriteFrameCache_spriteFrameByName, 1, JSPROP_PERMANENT | JSPROP_SHARED),
 		JS_FN("removeUnusedSpriteFrames", js_cocos2dx_CCSpriteFrameCache_removeUnusedSpriteFrames, 0, JSPROP_PERMANENT | JSPROP_SHARED),
+		JS_FN("getSpriteFrame", js_cocos2dx_CCSpriteFrameCache_spriteFrameByName, 1, JSPROP_PERMANENT | JSPROP_SHARED),
 		JS_FN("removeSpriteFramesFromFile", js_cocos2dx_CCSpriteFrameCache_removeSpriteFramesFromFile, 1, JSPROP_PERMANENT | JSPROP_SHARED),
 		JS_FN("init", js_cocos2dx_CCSpriteFrameCache_init, 0, JSPROP_PERMANENT | JSPROP_SHARED),
 		JS_FN("removeSpriteFrames", js_cocos2dx_CCSpriteFrameCache_removeSpriteFrames, 0, JSPROP_PERMANENT | JSPROP_SHARED),
@@ -41745,14 +42870,7 @@ JSBool js_cocos2dx_CCTMXMapInfo_getLayers(JSContext *cx, uint32_t argc, jsval *v
 	if (argc == 0) {
 		cocos2d::CCArray* ret = cobj->getLayers();
 		jsval jsret;
-		do {
-			if (ret) {
-				js_proxy_t *proxy = js_get_or_create_proxy<cocos2d::CCArray>(cx, ret);
-				jsret = OBJECT_TO_JSVAL(proxy->obj);
-			} else {
-				jsret = JSVAL_NULL;
-			}
-		} while (0);
+		jsret = ccarray_to_jsval(cx, ret);
 		JS_SET_RVAL(cx, vp, jsret);
 		return JS_TRUE;
 	}
@@ -41769,14 +42887,7 @@ JSBool js_cocos2dx_CCTMXMapInfo_getTilesets(JSContext *cx, uint32_t argc, jsval 
 	if (argc == 0) {
 		cocos2d::CCArray* ret = cobj->getTilesets();
 		jsval jsret;
-		do {
-			if (ret) {
-				js_proxy_t *proxy = js_get_or_create_proxy<cocos2d::CCArray>(cx, ret);
-				jsret = OBJECT_TO_JSVAL(proxy->obj);
-			} else {
-				jsret = JSVAL_NULL;
-			}
-		} while (0);
+		jsret = ccarray_to_jsval(cx, ret);
 		JS_SET_RVAL(cx, vp, jsret);
 		return JS_TRUE;
 	}
@@ -41904,14 +43015,7 @@ JSBool js_cocos2dx_CCTMXMapInfo_getObjectGroups(JSContext *cx, uint32_t argc, js
 	if (argc == 0) {
 		cocos2d::CCArray* ret = cobj->getObjectGroups();
 		jsval jsret;
-		do {
-			if (ret) {
-				js_proxy_t *proxy = js_get_or_create_proxy<cocos2d::CCArray>(cx, ret);
-				jsret = OBJECT_TO_JSVAL(proxy->obj);
-			} else {
-				jsret = JSVAL_NULL;
-			}
-		} while (0);
+		jsret = ccarray_to_jsval(cx, ret);
 		JS_SET_RVAL(cx, vp, jsret);
 		return JS_TRUE;
 	}
@@ -43181,14 +44285,7 @@ JSBool js_cocos2dx_CCTMXTiledMap_getObjectGroups(JSContext *cx, uint32_t argc, j
 	if (argc == 0) {
 		cocos2d::CCArray* ret = cobj->getObjectGroups();
 		jsval jsret;
-		do {
-			if (ret) {
-				js_proxy_t *proxy = js_get_or_create_proxy<cocos2d::CCArray>(cx, ret);
-				jsret = OBJECT_TO_JSVAL(proxy->obj);
-			} else {
-				jsret = JSVAL_NULL;
-			}
-		} while (0);
+		jsret = ccarray_to_jsval(cx, ret);
 		JS_SET_RVAL(cx, vp, jsret);
 		return JS_TRUE;
 	}
@@ -43905,7 +45002,9 @@ void register_all_cocos2dx(JSContext* cx, JSObject* obj) {
 	js_register_cocos2dx_CCEaseInOut(cx, obj);
 	js_register_cocos2dx_CCTransitionSplitCols(cx, obj);
 	js_register_cocos2dx_CCTransitionProgress(cx, obj);
-	js_register_cocos2dx_CCTransitionProgressRadialCW(cx, obj);
+	js_register_cocos2dx_CCCardinalSplineTo(cx, obj);
+	js_register_cocos2dx_CCCardinalSplineBy(cx, obj);
+	js_register_cocos2dx_CCCatmullRomBy(cx, obj);
 	js_register_cocos2dx_CCTransitionFlipAngular(cx, obj);
 	js_register_cocos2dx_CCHide(cx, obj);
 	js_register_cocos2dx_CCGridAction(cx, obj);
@@ -43933,7 +45032,7 @@ void register_all_cocos2dx(JSContext* cx, JSObject* obj) {
 	js_register_cocos2dx_CCTransitionProgressVertical(cx, obj);
 	js_register_cocos2dx_CCAtlasNode(cx, obj);
 	js_register_cocos2dx_CCTileMapAtlas(cx, obj);
-	js_register_cocos2dx_CCTMXTilesetInfo(cx, obj);
+	js_register_cocos2dx_CCPointArray(cx, obj);
 	js_register_cocos2dx_CCParticleFlower(cx, obj);
 	js_register_cocos2dx_CCMenuItemSprite(cx, obj);
 	js_register_cocos2dx_CCTransitionShrinkGrow(cx, obj);
@@ -43969,6 +45068,7 @@ void register_all_cocos2dx(JSContext* cx, JSObject* obj) {
 	js_register_cocos2dx_CCGrid3DAction(cx, obj);
 	js_register_cocos2dx_CCSpriteFrame(cx, obj);
 	js_register_cocos2dx_CCTextureCache(cx, obj);
+	js_register_cocos2dx_CCTransitionProgressRadialCW(cx, obj);
 	js_register_cocos2dx_CCRotateBy(cx, obj);
 	js_register_cocos2dx_CCFadeOutBLTiles(cx, obj);
 	js_register_cocos2dx_CCEaseIn(cx, obj);
@@ -44019,6 +45119,8 @@ void register_all_cocos2dx(JSContext* cx, JSObject* obj) {
 	js_register_cocos2dx_CCTouch(cx, obj);
 	js_register_cocos2dx_CCTransitionFadeUp(cx, obj);
 	js_register_cocos2dx_CCRenderTexture(cx, obj);
+	js_register_cocos2dx_CCTMXTilesetInfo(cx, obj);
+	js_register_cocos2dx_CCCatmullRomTo(cx, obj);
 	js_register_cocos2dx_CCActionManager(cx, obj);
 	js_register_cocos2dx_CCSet(cx, obj);
 	js_register_cocos2dx_CCSpriteFrameCache(cx, obj);

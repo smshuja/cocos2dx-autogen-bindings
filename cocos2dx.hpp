@@ -87,8 +87,6 @@ void js_register_cocos2dx_CCSet(JSContext *cx, JSObject *global);
 void register_all_cocos2dx(JSContext* cx, JSObject* obj);
 JSBool js_cocos2dx_CCSet_count(JSContext *cx, uint32_t argc, jsval *vp);
 JSBool js_cocos2dx_CCSet_addObject(JSContext *cx, uint32_t argc, jsval *vp);
-JSBool js_cocos2dx_CCSet_begin(JSContext *cx, uint32_t argc, jsval *vp);
-JSBool js_cocos2dx_CCSet_end(JSContext *cx, uint32_t argc, jsval *vp);
 JSBool js_cocos2dx_CCSet_mutableCopy(JSContext *cx, uint32_t argc, jsval *vp);
 JSBool js_cocos2dx_CCSet_anyObject(JSContext *cx, uint32_t argc, jsval *vp);
 JSBool js_cocos2dx_CCSet_removeObject(JSContext *cx, uint32_t argc, jsval *vp);
@@ -1243,6 +1241,82 @@ JSBool js_cocos2dx_CCActionTween_reverse(JSContext *cx, uint32_t argc, jsval *vp
 JSBool js_cocos2dx_CCActionTween_create(JSContext *cx, uint32_t argc, jsval *vp);
 JSBool js_cocos2dx_CCActionTween_actionWithDuration(JSContext *cx, uint32_t argc, jsval *vp);
 
+extern JSClass  *js_cocos2dx_CCPointArray_class;
+extern JSObject *js_cocos2dx_CCPointArray_prototype;
+
+JSBool js_cocos2dx_CCPointArray_constructor(JSContext *cx, uint32_t argc, jsval *vp);
+void js_cocos2dx_CCPointArray_finalize(JSContext *cx, JSObject *obj);
+void js_register_cocos2dx_CCPointArray(JSContext *cx, JSObject *global);
+void register_all_cocos2dx(JSContext* cx, JSObject* obj);
+JSBool js_cocos2dx_CCPointArray_count(JSContext *cx, uint32_t argc, jsval *vp);
+JSBool js_cocos2dx_CCPointArray_insertControlPoint(JSContext *cx, uint32_t argc, jsval *vp);
+JSBool js_cocos2dx_CCPointArray_reverse(JSContext *cx, uint32_t argc, jsval *vp);
+JSBool js_cocos2dx_CCPointArray_initWithCapacity(JSContext *cx, uint32_t argc, jsval *vp);
+JSBool js_cocos2dx_CCPointArray_removeControlPointAtIndex(JSContext *cx, uint32_t argc, jsval *vp);
+JSBool js_cocos2dx_CCPointArray_setControlPoints(JSContext *cx, uint32_t argc, jsval *vp);
+JSBool js_cocos2dx_CCPointArray_replaceControlPoint(JSContext *cx, uint32_t argc, jsval *vp);
+JSBool js_cocos2dx_CCPointArray_addControlPoint(JSContext *cx, uint32_t argc, jsval *vp);
+JSBool js_cocos2dx_CCPointArray_getControlPointAtIndex(JSContext *cx, uint32_t argc, jsval *vp);
+JSBool js_cocos2dx_CCPointArray_reverseInline(JSContext *cx, uint32_t argc, jsval *vp);
+JSBool js_cocos2dx_CCPointArray_getControlPoints(JSContext *cx, uint32_t argc, jsval *vp);
+JSBool js_cocos2dx_CCPointArray_create(JSContext *cx, uint32_t argc, jsval *vp);
+JSBool js_cocos2dx_CCPointArray_arrayWithCapacity(JSContext *cx, uint32_t argc, jsval *vp);
+JSBool js_cocos2dx_CCPointArray_CCPointArray(JSContext *cx, uint32_t argc, jsval *vp);
+
+extern JSClass  *js_cocos2dx_CCCardinalSplineTo_class;
+extern JSObject *js_cocos2dx_CCCardinalSplineTo_prototype;
+
+JSBool js_cocos2dx_CCCardinalSplineTo_constructor(JSContext *cx, uint32_t argc, jsval *vp);
+void js_cocos2dx_CCCardinalSplineTo_finalize(JSContext *cx, JSObject *obj);
+void js_register_cocos2dx_CCCardinalSplineTo(JSContext *cx, JSObject *global);
+void register_all_cocos2dx(JSContext* cx, JSObject* obj);
+JSBool js_cocos2dx_CCCardinalSplineTo_startWithTarget(JSContext *cx, uint32_t argc, jsval *vp);
+JSBool js_cocos2dx_CCCardinalSplineTo_reverse(JSContext *cx, uint32_t argc, jsval *vp);
+JSBool js_cocos2dx_CCCardinalSplineTo_initWithDuration(JSContext *cx, uint32_t argc, jsval *vp);
+JSBool js_cocos2dx_CCCardinalSplineTo_getPoints(JSContext *cx, uint32_t argc, jsval *vp);
+JSBool js_cocos2dx_CCCardinalSplineTo_setPoints(JSContext *cx, uint32_t argc, jsval *vp);
+JSBool js_cocos2dx_CCCardinalSplineTo_update(JSContext *cx, uint32_t argc, jsval *vp);
+JSBool js_cocos2dx_CCCardinalSplineTo_updatePosition(JSContext *cx, uint32_t argc, jsval *vp);
+JSBool js_cocos2dx_CCCardinalSplineTo_create(JSContext *cx, uint32_t argc, jsval *vp);
+JSBool js_cocos2dx_CCCardinalSplineTo_actionWithDuration(JSContext *cx, uint32_t argc, jsval *vp);
+JSBool js_cocos2dx_CCCardinalSplineTo_CCCardinalSplineTo(JSContext *cx, uint32_t argc, jsval *vp);
+
+extern JSClass  *js_cocos2dx_CCCardinalSplineBy_class;
+extern JSObject *js_cocos2dx_CCCardinalSplineBy_prototype;
+
+JSBool js_cocos2dx_CCCardinalSplineBy_constructor(JSContext *cx, uint32_t argc, jsval *vp);
+void js_cocos2dx_CCCardinalSplineBy_finalize(JSContext *cx, JSObject *obj);
+void js_register_cocos2dx_CCCardinalSplineBy(JSContext *cx, JSObject *global);
+void register_all_cocos2dx(JSContext* cx, JSObject* obj);
+JSBool js_cocos2dx_CCCardinalSplineBy_startWithTarget(JSContext *cx, uint32_t argc, jsval *vp);
+JSBool js_cocos2dx_CCCardinalSplineBy_updatePosition(JSContext *cx, uint32_t argc, jsval *vp);
+JSBool js_cocos2dx_CCCardinalSplineBy_reverse(JSContext *cx, uint32_t argc, jsval *vp);
+JSBool js_cocos2dx_CCCardinalSplineBy_create(JSContext *cx, uint32_t argc, jsval *vp);
+JSBool js_cocos2dx_CCCardinalSplineBy_actionWithDuration(JSContext *cx, uint32_t argc, jsval *vp);
+JSBool js_cocos2dx_CCCardinalSplineBy_CCCardinalSplineBy(JSContext *cx, uint32_t argc, jsval *vp);
+
+extern JSClass  *js_cocos2dx_CCCatmullRomTo_class;
+extern JSObject *js_cocos2dx_CCCatmullRomTo_prototype;
+
+JSBool js_cocos2dx_CCCatmullRomTo_constructor(JSContext *cx, uint32_t argc, jsval *vp);
+void js_cocos2dx_CCCatmullRomTo_finalize(JSContext *cx, JSObject *obj);
+void js_register_cocos2dx_CCCatmullRomTo(JSContext *cx, JSObject *global);
+void register_all_cocos2dx(JSContext* cx, JSObject* obj);
+JSBool js_cocos2dx_CCCatmullRomTo_initWithDuration(JSContext *cx, uint32_t argc, jsval *vp);
+JSBool js_cocos2dx_CCCatmullRomTo_create(JSContext *cx, uint32_t argc, jsval *vp);
+JSBool js_cocos2dx_CCCatmullRomTo_actionWithDuration(JSContext *cx, uint32_t argc, jsval *vp);
+
+extern JSClass  *js_cocos2dx_CCCatmullRomBy_class;
+extern JSObject *js_cocos2dx_CCCatmullRomBy_prototype;
+
+JSBool js_cocos2dx_CCCatmullRomBy_constructor(JSContext *cx, uint32_t argc, jsval *vp);
+void js_cocos2dx_CCCatmullRomBy_finalize(JSContext *cx, JSObject *obj);
+void js_register_cocos2dx_CCCatmullRomBy(JSContext *cx, JSObject *global);
+void register_all_cocos2dx(JSContext* cx, JSObject* obj);
+JSBool js_cocos2dx_CCCatmullRomBy_initWithDuration(JSContext *cx, uint32_t argc, jsval *vp);
+JSBool js_cocos2dx_CCCatmullRomBy_create(JSContext *cx, uint32_t argc, jsval *vp);
+JSBool js_cocos2dx_CCCatmullRomBy_actionWithDuration(JSContext *cx, uint32_t argc, jsval *vp);
+
 extern JSClass  *js_cocos2dx_CCAtlasNode_class;
 extern JSObject *js_cocos2dx_CCAtlasNode_prototype;
 
@@ -1575,8 +1649,8 @@ JSBool js_cocos2dx_CCLayerGradient_setStartOpacity(JSContext *cx, uint32_t argc,
 JSBool js_cocos2dx_CCLayerGradient_setCompressedInterpolation(JSContext *cx, uint32_t argc, jsval *vp);
 JSBool js_cocos2dx_CCLayerGradient_setEndOpacity(JSContext *cx, uint32_t argc, jsval *vp);
 JSBool js_cocos2dx_CCLayerGradient_getVector(JSContext *cx, uint32_t argc, jsval *vp);
-JSBool js_cocos2dx_CCLayerGradient_setEndColor(JSContext *cx, uint32_t argc, jsval *vp);
 JSBool js_cocos2dx_CCLayerGradient_initWithColor(JSContext *cx, uint32_t argc, jsval *vp);
+JSBool js_cocos2dx_CCLayerGradient_setEndColor(JSContext *cx, uint32_t argc, jsval *vp);
 JSBool js_cocos2dx_CCLayerGradient_getEndColor(JSContext *cx, uint32_t argc, jsval *vp);
 JSBool js_cocos2dx_CCLayerGradient_getEndOpacity(JSContext *cx, uint32_t argc, jsval *vp);
 JSBool js_cocos2dx_CCLayerGradient_setStartColor(JSContext *cx, uint32_t argc, jsval *vp);
@@ -2566,14 +2640,14 @@ JSBool js_cocos2dx_CCAnimationCache_constructor(JSContext *cx, uint32_t argc, js
 void js_cocos2dx_CCAnimationCache_finalize(JSContext *cx, JSObject *obj);
 void js_register_cocos2dx_CCAnimationCache(JSContext *cx, JSObject *global);
 void register_all_cocos2dx(JSContext* cx, JSObject* obj);
-JSBool js_cocos2dx_CCAnimationCache_addAnimation(JSContext *cx, uint32_t argc, jsval *vp);
+JSBool js_cocos2dx_CCAnimationCache_animationByName(JSContext *cx, uint32_t argc, jsval *vp);
 JSBool js_cocos2dx_CCAnimationCache_addAnimationsWithFile(JSContext *cx, uint32_t argc, jsval *vp);
 JSBool js_cocos2dx_CCAnimationCache_removeAnimationByName(JSContext *cx, uint32_t argc, jsval *vp);
 JSBool js_cocos2dx_CCAnimationCache_init(JSContext *cx, uint32_t argc, jsval *vp);
-JSBool js_cocos2dx_CCAnimationCache_animationByName(JSContext *cx, uint32_t argc, jsval *vp);
 JSBool js_cocos2dx_CCAnimationCache_addAnimationsWithDictionary(JSContext *cx, uint32_t argc, jsval *vp);
-JSBool js_cocos2dx_CCAnimationCache_sharedAnimationCache(JSContext *cx, uint32_t argc, jsval *vp);
+JSBool js_cocos2dx_CCAnimationCache_addAnimation(JSContext *cx, uint32_t argc, jsval *vp);
 JSBool js_cocos2dx_CCAnimationCache_purgeSharedAnimationCache(JSContext *cx, uint32_t argc, jsval *vp);
+JSBool js_cocos2dx_CCAnimationCache_sharedAnimationCache(JSContext *cx, uint32_t argc, jsval *vp);
 JSBool js_cocos2dx_CCAnimationCache_CCAnimationCache(JSContext *cx, uint32_t argc, jsval *vp);
 
 extern JSClass  *js_cocos2dx_CCSpriteFrameCache_class;
@@ -2585,8 +2659,8 @@ void js_register_cocos2dx_CCSpriteFrameCache(JSContext *cx, JSObject *global);
 void register_all_cocos2dx(JSContext* cx, JSObject* obj);
 JSBool js_cocos2dx_CCSpriteFrameCache_addSpriteFramesWithFile(JSContext *cx, uint32_t argc, jsval *vp);
 JSBool js_cocos2dx_CCSpriteFrameCache_addSpriteFrame(JSContext *cx, uint32_t argc, jsval *vp);
-JSBool js_cocos2dx_CCSpriteFrameCache_spriteFrameByName(JSContext *cx, uint32_t argc, jsval *vp);
 JSBool js_cocos2dx_CCSpriteFrameCache_removeUnusedSpriteFrames(JSContext *cx, uint32_t argc, jsval *vp);
+JSBool js_cocos2dx_CCSpriteFrameCache_spriteFrameByName(JSContext *cx, uint32_t argc, jsval *vp);
 JSBool js_cocos2dx_CCSpriteFrameCache_removeSpriteFramesFromFile(JSContext *cx, uint32_t argc, jsval *vp);
 JSBool js_cocos2dx_CCSpriteFrameCache_init(JSContext *cx, uint32_t argc, jsval *vp);
 JSBool js_cocos2dx_CCSpriteFrameCache_removeSpriteFrames(JSContext *cx, uint32_t argc, jsval *vp);

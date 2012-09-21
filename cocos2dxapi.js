@@ -301,18 +301,6 @@ count : function () {},
 addObject : function () {},
 
 /**
- * @method begin
- * @return A value converted from C/C++ "CCSetIterator"
- */
-begin : function () {},
-
-/**
- * @method end
- * @return A value converted from C/C++ "CCSetIterator"
- */
-end : function () {},
-
-/**
  * @method mutableCopy
  * @return A value converted from C/C++ "cocos2d::CCSet*"
  */
@@ -4320,6 +4308,289 @@ create : function () {},
  * @param {const char*}
  * @param {float}
  * @param {float}
+ */
+actionWithDuration : function () {},
+
+};
+
+/**
+ * @class CCPointArray
+ */
+cc.CCPointArray = {
+
+/**
+ * @method count
+ * @return A value converted from C/C++ "unsigned int"
+ */
+count : function () {},
+
+/**
+ * @method insertControlPoint
+ * @param {cocos2d::CCPoint}
+ * @param {unsigned int}
+ */
+insertControlPoint : function () {},
+
+/**
+ * @method reverse
+ * @return A value converted from C/C++ "cocos2d::CCPointArray*"
+ */
+reverse : function () {},
+
+/**
+ * @method initWithCapacity
+ * @return A value converted from C/C++ "bool"
+ * @param {unsigned int}
+ */
+initWithCapacity : function () {},
+
+/**
+ * @method removeControlPointAtIndex
+ * @param {unsigned int}
+ */
+removeControlPointAtIndex : function () {},
+
+/**
+ * @method setControlPoints
+ * @param {cocos2d::CCArray*}
+ */
+setControlPoints : function () {},
+
+/**
+ * @method replaceControlPoint
+ * @param {cocos2d::CCPoint}
+ * @param {unsigned int}
+ */
+replaceControlPoint : function () {},
+
+/**
+ * @method addControlPoint
+ * @param {cocos2d::CCPoint}
+ */
+addControlPoint : function () {},
+
+/**
+ * @method getControlPointAtIndex
+ * @return A value converted from C/C++ "cocos2d::CCPoint"
+ * @param {unsigned int}
+ */
+getControlPointAtIndex : function () {},
+
+/**
+ * @method reverseInline
+ */
+reverseInline : function () {},
+
+/**
+ * @method getControlPoints
+ * @return A value converted from C/C++ "cocos2d::CCArray*"
+ */
+getControlPoints : function () {},
+
+/**
+ * @method create
+ * @return A value converted from C/C++ "cocos2d::CCPointArray*"
+ * @param {unsigned int}
+ */
+create : function () {},
+
+/**
+ * @method arrayWithCapacity
+ * @return A value converted from C/C++ "cocos2d::CCPointArray*"
+ * @param {unsigned int}
+ */
+arrayWithCapacity : function () {},
+
+/**
+ * @method CCPointArray
+ * @constructor
+ */
+CCPointArray : function () {},
+
+};
+
+/**
+ * @class CCCardinalSplineTo
+ */
+cc.CCCardinalSplineTo = {
+
+/**
+ * @method startWithTarget
+ * @param {cocos2d::CCNode*}
+ */
+startWithTarget : function () {},
+
+/**
+ * @method reverse
+ * @return A value converted from C/C++ "cocos2d::CCActionInterval*"
+ */
+reverse : function () {},
+
+/**
+ * @method initWithDuration
+ * @return A value converted from C/C++ "bool"
+ * @param {float}
+ * @param {cocos2d::CCPointArray*}
+ * @param {float}
+ */
+initWithDuration : function () {},
+
+/**
+ * @method getPoints
+ * @return A value converted from C/C++ "cocos2d::CCPointArray*"
+ */
+getPoints : function () {},
+
+/**
+ * @method setPoints
+ * @param {cocos2d::CCPointArray*}
+ */
+setPoints : function () {},
+
+/**
+ * @method update
+ * @param {float}
+ */
+update : function () {},
+
+/**
+ * @method updatePosition
+ * @param {cocos2d::CCPoint}
+ */
+updatePosition : function () {},
+
+/**
+ * @method create
+ * @return A value converted from C/C++ "cocos2d::CCCardinalSplineTo*"
+ * @param {float}
+ * @param {cocos2d::CCPointArray*}
+ * @param {float}
+ */
+create : function () {},
+
+/**
+ * @method actionWithDuration
+ * @return A value converted from C/C++ "cocos2d::CCCardinalSplineTo*"
+ * @param {float}
+ * @param {cocos2d::CCPointArray*}
+ * @param {float}
+ */
+actionWithDuration : function () {},
+
+/**
+ * @method CCCardinalSplineTo
+ * @constructor
+ */
+CCCardinalSplineTo : function () {},
+
+};
+
+/**
+ * @class CCCardinalSplineBy
+ */
+cc.CCCardinalSplineBy = {
+
+/**
+ * @method startWithTarget
+ * @param {cocos2d::CCNode*}
+ */
+startWithTarget : function () {},
+
+/**
+ * @method updatePosition
+ * @param {cocos2d::CCPoint}
+ */
+updatePosition : function () {},
+
+/**
+ * @method reverse
+ * @return A value converted from C/C++ "cocos2d::CCActionInterval*"
+ */
+reverse : function () {},
+
+/**
+ * @method create
+ * @return A value converted from C/C++ "cocos2d::CCCardinalSplineBy*"
+ * @param {float}
+ * @param {cocos2d::CCPointArray*}
+ * @param {float}
+ */
+create : function () {},
+
+/**
+ * @method actionWithDuration
+ * @return A value converted from C/C++ "cocos2d::CCCardinalSplineBy*"
+ * @param {float}
+ * @param {cocos2d::CCPointArray*}
+ * @param {float}
+ */
+actionWithDuration : function () {},
+
+/**
+ * @method CCCardinalSplineBy
+ * @constructor
+ */
+CCCardinalSplineBy : function () {},
+
+};
+
+/**
+ * @class CCCatmullRomTo
+ */
+cc.CCCatmullRomTo = {
+
+/**
+ * @method initWithDuration
+ * @return A value converted from C/C++ "bool"
+ * @param {float}
+ * @param {cocos2d::CCPointArray*}
+ */
+initWithDuration : function () {},
+
+/**
+ * @method create
+ * @return A value converted from C/C++ "cocos2d::CCCatmullRomTo*"
+ * @param {float}
+ * @param {cocos2d::CCPointArray*}
+ */
+create : function () {},
+
+/**
+ * @method actionWithDuration
+ * @return A value converted from C/C++ "cocos2d::CCCatmullRomTo*"
+ * @param {float}
+ * @param {cocos2d::CCPointArray*}
+ */
+actionWithDuration : function () {},
+
+};
+
+/**
+ * @class CCCatmullRomBy
+ */
+cc.CCCatmullRomBy = {
+
+/**
+ * @method initWithDuration
+ * @return A value converted from C/C++ "bool"
+ * @param {float}
+ * @param {cocos2d::CCPointArray*}
+ */
+initWithDuration : function () {},
+
+/**
+ * @method create
+ * @return A value converted from C/C++ "cocos2d::CCCatmullRomBy*"
+ * @param {float}
+ * @param {cocos2d::CCPointArray*}
+ */
+create : function () {},
+
+/**
+ * @method actionWithDuration
+ * @return A value converted from C/C++ "cocos2d::CCCatmullRomBy*"
+ * @param {float}
+ * @param {cocos2d::CCPointArray*}
  */
 actionWithDuration : function () {},
 
@@ -9239,11 +9510,11 @@ CCParticleRain : function () {},
 cc.CCAnimationCache = {
 
 /**
- * @method addAnimation
- * @param {cocos2d::CCAnimation*}
+ * @method animationByName
+ * @return A value converted from C/C++ "cocos2d::CCAnimation*"
  * @param {const char*}
  */
-addAnimation : function () {},
+animationByName : function () {},
 
 /**
  * @method addAnimationsWithFile
@@ -9264,28 +9535,28 @@ removeAnimationByName : function () {},
 init : function () {},
 
 /**
- * @method animationByName
- * @return A value converted from C/C++ "cocos2d::CCAnimation*"
- * @param {const char*}
- */
-animationByName : function () {},
-
-/**
  * @method addAnimationsWithDictionary
  * @param {cocos2d::CCDictionary*}
  */
 addAnimationsWithDictionary : function () {},
 
 /**
- * @method sharedAnimationCache
- * @return A value converted from C/C++ "cocos2d::CCAnimationCache*"
+ * @method addAnimation
+ * @param {cocos2d::CCAnimation*}
+ * @param {const char*}
  */
-sharedAnimationCache : function () {},
+addAnimation : function () {},
 
 /**
  * @method purgeSharedAnimationCache
  */
 purgeSharedAnimationCache : function () {},
+
+/**
+ * @method sharedAnimationCache
+ * @return A value converted from C/C++ "cocos2d::CCAnimationCache*"
+ */
+sharedAnimationCache : function () {},
 
 /**
  * @method CCAnimationCache
@@ -9308,16 +9579,16 @@ cc.CCSpriteFrameCache = {
 addSpriteFrame : function () {},
 
 /**
+ * @method removeUnusedSpriteFrames
+ */
+removeUnusedSpriteFrames : function () {},
+
+/**
  * @method spriteFrameByName
  * @return A value converted from C/C++ "cocos2d::CCSpriteFrame*"
  * @param {const char*}
  */
 spriteFrameByName : function () {},
-
-/**
- * @method removeUnusedSpriteFrames
- */
-removeUnusedSpriteFrames : function () {},
 
 /**
  * @method removeSpriteFramesFromFile
