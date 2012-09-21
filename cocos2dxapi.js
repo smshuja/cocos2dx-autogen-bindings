@@ -8994,46 +8994,6 @@ CCParticleSystem : function () {},
 cc.CCParticleSystemQuad = {
 
 /**
- * @method postStep
- */
-postStep : function () {},
-
-/**
- * @method setBatchNode
- * @param {cocos2d::CCParticleBatchNode*}
- */
-setBatchNode : function () {},
-
-/**
- * @method draw
- */
-draw : function () {},
-
-/**
- * @method setTexture
- * @param {cocos2d::CCTexture2D*}
- */
-setTexture : function () {},
-
-/**
- * @method setTotalParticles
- * @param {unsigned int}
- */
-setTotalParticles : function () {},
-
-/**
- * @method updateQuadWithParticle
- * @param {tCCParticle*}
- * @param {cocos2d::CCPoint}
- */
-updateQuadWithParticle : function () {},
-
-/**
- * @method setupIndices
- */
-setupIndices : function () {},
-
-/**
  * @method initTexCoordsWithRect
  * @param {cocos2d::CCRect}
  */
@@ -9053,30 +9013,11 @@ setTextureWithRect : function () {},
 setDisplayFrame : function () {},
 
 /**
- * @method listenBackToForeground
- * @param {cocos2d::CCObject*}
- */
-listenBackToForeground : function () {},
-
-/**
- * @method initWithTotalParticles
- * @return A value converted from C/C++ "bool"
+ * @method createWithTotalParticles
+ * @return A value converted from C/C++ "cocos2d::CCParticleSystemQuad*"
  * @param {unsigned int}
  */
-initWithTotalParticles : function () {},
-
-/**
- * @method particleWithFile
- * @return A value converted from C/C++ "cocos2d::CCParticleSystemQuad*"
- * @param {const char*}
- */
-particleWithFile : function () {},
-
-/**
- * @method node
- * @return A value converted from C/C++ "cocos2d::CCParticleSystemQuad*"
- */
-node : function () {},
+createWithTotalParticles : function () {},
 
 /**
  * @method CCParticleSystemQuad
@@ -9801,6 +9742,12 @@ objectNamed : function () {},
  * @return A value converted from C/C++ "cocos2d::CCPoint"
  */
 getPositionOffset : function () {},
+
+/**
+ * @method getObjects
+ * @return A value converted from C/C++ "cocos2d::CCArray*"
+ */
+getObjects : function () {},
 
 /**
  * @method setGroupName

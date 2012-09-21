@@ -38821,130 +38821,6 @@ void js_register_cocos2dx_CCParticleSystem(JSContext *cx, JSObject *global) {
 JSClass  *js_cocos2dx_CCParticleSystemQuad_class;
 JSObject *js_cocos2dx_CCParticleSystemQuad_prototype;
 
-JSBool js_cocos2dx_CCParticleSystemQuad_postStep(JSContext *cx, uint32_t argc, jsval *vp)
-{
-	JSObject *obj = JS_THIS_OBJECT(cx, vp);
-	js_proxy_t *proxy; JS_GET_NATIVE_PROXY(proxy, obj);
-	cocos2d::CCParticleSystemQuad* cobj = (cocos2d::CCParticleSystemQuad *)(proxy ? proxy->ptr : NULL);
-	TEST_NATIVE_OBJECT(cx, cobj)
-
-	if (argc == 0) {
-		cobj->postStep();
-		return JS_TRUE;
-	}
-	JS_ReportError(cx, "wrong number of arguments: %d, was expecting %d", argc, 0);
-	return JS_FALSE;
-}
-JSBool js_cocos2dx_CCParticleSystemQuad_setBatchNode(JSContext *cx, uint32_t argc, jsval *vp)
-{
-	jsval *argv = JS_ARGV(cx, vp);
-	JSObject *obj = JS_THIS_OBJECT(cx, vp);
-	js_proxy_t *proxy; JS_GET_NATIVE_PROXY(proxy, obj);
-	cocos2d::CCParticleSystemQuad* cobj = (cocos2d::CCParticleSystemQuad *)(proxy ? proxy->ptr : NULL);
-	TEST_NATIVE_OBJECT(cx, cobj)
-
-	if (argc == 1) {
-		cocos2d::CCParticleBatchNode* arg0;
-		do {
-			js_proxy_t *proxy;
-			JSObject *tmpObj = JSVAL_TO_OBJECT(argv[0]);
-			JS_GET_NATIVE_PROXY(proxy, tmpObj);
-			arg0 = (cocos2d::CCParticleBatchNode*)(proxy ? proxy->ptr : NULL);
-			TEST_NATIVE_OBJECT(cx, arg0)
-		} while (0);
-		cobj->setBatchNode(arg0);
-		return JS_TRUE;
-	}
-	JS_ReportError(cx, "wrong number of arguments: %d, was expecting %d", argc, 1);
-	return JS_FALSE;
-}
-JSBool js_cocos2dx_CCParticleSystemQuad_draw(JSContext *cx, uint32_t argc, jsval *vp)
-{
-	JSObject *obj = JS_THIS_OBJECT(cx, vp);
-	js_proxy_t *proxy; JS_GET_NATIVE_PROXY(proxy, obj);
-	cocos2d::CCParticleSystemQuad* cobj = (cocos2d::CCParticleSystemQuad *)(proxy ? proxy->ptr : NULL);
-	TEST_NATIVE_OBJECT(cx, cobj)
-
-	if (argc == 0) {
-		cobj->draw();
-		return JS_TRUE;
-	}
-	JS_ReportError(cx, "wrong number of arguments: %d, was expecting %d", argc, 0);
-	return JS_FALSE;
-}
-JSBool js_cocos2dx_CCParticleSystemQuad_setTexture(JSContext *cx, uint32_t argc, jsval *vp)
-{
-	jsval *argv = JS_ARGV(cx, vp);
-	JSObject *obj = JS_THIS_OBJECT(cx, vp);
-	js_proxy_t *proxy; JS_GET_NATIVE_PROXY(proxy, obj);
-	cocos2d::CCParticleSystemQuad* cobj = (cocos2d::CCParticleSystemQuad *)(proxy ? proxy->ptr : NULL);
-	TEST_NATIVE_OBJECT(cx, cobj)
-
-	if (argc == 1) {
-		cocos2d::CCTexture2D* arg0;
-		do {
-			js_proxy_t *proxy;
-			JSObject *tmpObj = JSVAL_TO_OBJECT(argv[0]);
-			JS_GET_NATIVE_PROXY(proxy, tmpObj);
-			arg0 = (cocos2d::CCTexture2D*)(proxy ? proxy->ptr : NULL);
-			TEST_NATIVE_OBJECT(cx, arg0)
-		} while (0);
-		cobj->setTexture(arg0);
-		return JS_TRUE;
-	}
-	JS_ReportError(cx, "wrong number of arguments: %d, was expecting %d", argc, 1);
-	return JS_FALSE;
-}
-JSBool js_cocos2dx_CCParticleSystemQuad_setTotalParticles(JSContext *cx, uint32_t argc, jsval *vp)
-{
-	jsval *argv = JS_ARGV(cx, vp);
-	JSObject *obj = JS_THIS_OBJECT(cx, vp);
-	js_proxy_t *proxy; JS_GET_NATIVE_PROXY(proxy, obj);
-	cocos2d::CCParticleSystemQuad* cobj = (cocos2d::CCParticleSystemQuad *)(proxy ? proxy->ptr : NULL);
-	TEST_NATIVE_OBJECT(cx, cobj)
-
-	if (argc == 1) {
-		unsigned int arg0;
-		JS_ValueToECMAUint32(cx, argv[0], &arg0);
-		cobj->setTotalParticles(arg0);
-		return JS_TRUE;
-	}
-	JS_ReportError(cx, "wrong number of arguments: %d, was expecting %d", argc, 1);
-	return JS_FALSE;
-}
-JSBool js_cocos2dx_CCParticleSystemQuad_updateQuadWithParticle(JSContext *cx, uint32_t argc, jsval *vp)
-{
-	jsval *argv = JS_ARGV(cx, vp);
-	JSObject *obj = JS_THIS_OBJECT(cx, vp);
-	js_proxy_t *proxy; JS_GET_NATIVE_PROXY(proxy, obj);
-	cocos2d::CCParticleSystemQuad* cobj = (cocos2d::CCParticleSystemQuad *)(proxy ? proxy->ptr : NULL);
-	TEST_NATIVE_OBJECT(cx, cobj)
-
-	if (argc == 2) {
-		tCCParticle* arg0;
-		cocos2d::CCPoint arg1;
-		#pragma warning NO CONVERSION TO NATIVE FOR tCCParticle*;
-		arg1 = jsval_to_ccpoint(cx, argv[1]);
-		cobj->updateQuadWithParticle(arg0, arg1);
-		return JS_TRUE;
-	}
-	JS_ReportError(cx, "wrong number of arguments: %d, was expecting %d", argc, 2);
-	return JS_FALSE;
-}
-JSBool js_cocos2dx_CCParticleSystemQuad_setupIndices(JSContext *cx, uint32_t argc, jsval *vp)
-{
-	JSObject *obj = JS_THIS_OBJECT(cx, vp);
-	js_proxy_t *proxy; JS_GET_NATIVE_PROXY(proxy, obj);
-	cocos2d::CCParticleSystemQuad* cobj = (cocos2d::CCParticleSystemQuad *)(proxy ? proxy->ptr : NULL);
-	TEST_NATIVE_OBJECT(cx, cobj)
-
-	if (argc == 0) {
-		cobj->setupIndices();
-		return JS_TRUE;
-	}
-	JS_ReportError(cx, "wrong number of arguments: %d, was expecting %d", argc, 0);
-	return JS_FALSE;
-}
 JSBool js_cocos2dx_CCParticleSystemQuad_initTexCoordsWithRect(JSContext *cx, uint32_t argc, jsval *vp)
 {
 	jsval *argv = JS_ARGV(cx, vp);
@@ -39010,86 +38886,6 @@ JSBool js_cocos2dx_CCParticleSystemQuad_setDisplayFrame(JSContext *cx, uint32_t 
 	JS_ReportError(cx, "wrong number of arguments: %d, was expecting %d", argc, 1);
 	return JS_FALSE;
 }
-JSBool js_cocos2dx_CCParticleSystemQuad_listenBackToForeground(JSContext *cx, uint32_t argc, jsval *vp)
-{
-	jsval *argv = JS_ARGV(cx, vp);
-	JSObject *obj = JS_THIS_OBJECT(cx, vp);
-	js_proxy_t *proxy; JS_GET_NATIVE_PROXY(proxy, obj);
-	cocos2d::CCParticleSystemQuad* cobj = (cocos2d::CCParticleSystemQuad *)(proxy ? proxy->ptr : NULL);
-	TEST_NATIVE_OBJECT(cx, cobj)
-
-	if (argc == 1) {
-		cocos2d::CCObject* arg0;
-		do {
-			js_proxy_t *proxy;
-			JSObject *tmpObj = JSVAL_TO_OBJECT(argv[0]);
-			JS_GET_NATIVE_PROXY(proxy, tmpObj);
-			arg0 = (cocos2d::CCObject*)(proxy ? proxy->ptr : NULL);
-			TEST_NATIVE_OBJECT(cx, arg0)
-		} while (0);
-		cobj->listenBackToForeground(arg0);
-		return JS_TRUE;
-	}
-	JS_ReportError(cx, "wrong number of arguments: %d, was expecting %d", argc, 1);
-	return JS_FALSE;
-}
-JSBool js_cocos2dx_CCParticleSystemQuad_initWithTotalParticles(JSContext *cx, uint32_t argc, jsval *vp)
-{
-	jsval *argv = JS_ARGV(cx, vp);
-	JSObject *obj = JS_THIS_OBJECT(cx, vp);
-	js_proxy_t *proxy; JS_GET_NATIVE_PROXY(proxy, obj);
-	cocos2d::CCParticleSystemQuad* cobj = (cocos2d::CCParticleSystemQuad *)(proxy ? proxy->ptr : NULL);
-	TEST_NATIVE_OBJECT(cx, cobj)
-
-	if (argc == 1) {
-		unsigned int arg0;
-		JS_ValueToECMAUint32(cx, argv[0], &arg0);
-		bool ret = cobj->initWithTotalParticles(arg0);
-		jsval jsret;
-		jsret = BOOLEAN_TO_JSVAL(ret);
-		JS_SET_RVAL(cx, vp, jsret);
-		return JS_TRUE;
-	}
-	JS_ReportError(cx, "wrong number of arguments: %d, was expecting %d", argc, 1);
-	return JS_FALSE;
-}
-JSBool js_cocos2dx_CCParticleSystemQuad_particleWithFile(JSContext *cx, uint32_t argc, jsval *vp)
-{
-	jsval *argv = JS_ARGV(cx, vp);
-	const char* arg0;
-	assert(argc >= 1);
-
-	std::string arg0_tmp = jsval_to_std_string(cx, argv[0]); arg0 = arg0_tmp.c_str();
-	cocos2d::CCParticleSystemQuad* ret = cocos2d::CCParticleSystemQuad::particleWithFile(arg0);
-	jsval jsret;
-	do {
-		if (ret) {
-			js_proxy_t *proxy = js_get_or_create_proxy<cocos2d::CCParticleSystemQuad>(cx, ret);
-			jsret = OBJECT_TO_JSVAL(proxy->obj);
-		} else {
-			jsret = JSVAL_NULL;
-		}
-	} while (0);
-	JS_SET_RVAL(cx, vp, jsret);
-	return JS_TRUE;
-}
-
-JSBool js_cocos2dx_CCParticleSystemQuad_node(JSContext *cx, uint32_t argc, jsval *vp)
-{
-	cocos2d::CCParticleSystemQuad* ret = cocos2d::CCParticleSystemQuad::node();
-	jsval jsret;
-	do {
-		if (ret) {
-			js_proxy_t *proxy = js_get_or_create_proxy<cocos2d::CCParticleSystemQuad>(cx, ret);
-			jsret = OBJECT_TO_JSVAL(proxy->obj);
-		} else {
-			jsret = JSVAL_NULL;
-		}
-	} while (0);
-	JS_SET_RVAL(cx, vp, jsret);
-	return JS_TRUE;
-}
-
 JSBool js_cocos2dx_CCParticleSystemQuad_create(JSContext *cx, uint32_t argc, jsval *vp)
 {
 	jsval *argv = JS_ARGV(cx, vp);
@@ -39125,6 +38921,27 @@ JSBool js_cocos2dx_CCParticleSystemQuad_create(JSContext *cx, uint32_t argc, jsv
 	}
 	return JS_FALSE;
 }
+JSBool js_cocos2dx_CCParticleSystemQuad_createWithTotalParticles(JSContext *cx, uint32_t argc, jsval *vp)
+{
+	jsval *argv = JS_ARGV(cx, vp);
+	unsigned int arg0;
+	assert(argc >= 1);
+
+	JS_ValueToECMAUint32(cx, argv[0], &arg0);
+	cocos2d::CCParticleSystemQuad* ret = cocos2d::CCParticleSystemQuad::createWithTotalParticles(arg0);
+	jsval jsret;
+	do {
+		if (ret) {
+			js_proxy_t *proxy = js_get_or_create_proxy<cocos2d::CCParticleSystemQuad>(cx, ret);
+			jsret = OBJECT_TO_JSVAL(proxy->obj);
+		} else {
+			jsret = JSVAL_NULL;
+		}
+	} while (0);
+	JS_SET_RVAL(cx, vp, jsret);
+	return JS_TRUE;
+}
+
 JSBool js_cocos2dx_CCParticleSystemQuad_constructor(JSContext *cx, uint32_t argc, jsval *vp)
 {
 
@@ -39178,25 +38995,15 @@ void js_register_cocos2dx_CCParticleSystemQuad(JSContext *cx, JSObject *global) 
 	};
 
 	static JSFunctionSpec funcs[] = {
-		JS_FN("postStep", js_cocos2dx_CCParticleSystemQuad_postStep, 0, JSPROP_PERMANENT | JSPROP_SHARED),
-		JS_FN("setBatchNode", js_cocos2dx_CCParticleSystemQuad_setBatchNode, 1, JSPROP_PERMANENT | JSPROP_SHARED),
-		JS_FN("draw", js_cocos2dx_CCParticleSystemQuad_draw, 0, JSPROP_PERMANENT | JSPROP_SHARED),
-		JS_FN("setTexture", js_cocos2dx_CCParticleSystemQuad_setTexture, 1, JSPROP_PERMANENT | JSPROP_SHARED),
-		JS_FN("setTotalParticles", js_cocos2dx_CCParticleSystemQuad_setTotalParticles, 1, JSPROP_PERMANENT | JSPROP_SHARED),
-		JS_FN("updateQuadWithParticle", js_cocos2dx_CCParticleSystemQuad_updateQuadWithParticle, 2, JSPROP_PERMANENT | JSPROP_SHARED),
-		JS_FN("setupIndices", js_cocos2dx_CCParticleSystemQuad_setupIndices, 0, JSPROP_PERMANENT | JSPROP_SHARED),
 		JS_FN("initTexCoordsWithRect", js_cocos2dx_CCParticleSystemQuad_initTexCoordsWithRect, 1, JSPROP_PERMANENT | JSPROP_SHARED),
 		JS_FN("setTextureWithRect", js_cocos2dx_CCParticleSystemQuad_setTextureWithRect, 2, JSPROP_PERMANENT | JSPROP_SHARED),
 		JS_FN("setDisplayFrame", js_cocos2dx_CCParticleSystemQuad_setDisplayFrame, 1, JSPROP_PERMANENT | JSPROP_SHARED),
-		JS_FN("listenBackToForeground", js_cocos2dx_CCParticleSystemQuad_listenBackToForeground, 1, JSPROP_PERMANENT | JSPROP_SHARED),
-		JS_FN("initWithTotalParticles", js_cocos2dx_CCParticleSystemQuad_initWithTotalParticles, 1, JSPROP_PERMANENT | JSPROP_SHARED),
 		JS_FS_END
 	};
 
 	static JSFunctionSpec st_funcs[] = {
-		JS_FN("particleWithFile", js_cocos2dx_CCParticleSystemQuad_particleWithFile, 1, JSPROP_PERMANENT | JSPROP_SHARED),
-		JS_FN("node", js_cocos2dx_CCParticleSystemQuad_node, 0, JSPROP_PERMANENT | JSPROP_SHARED),
 		JS_FN("create", js_cocos2dx_CCParticleSystemQuad_create, 0, JSPROP_PERMANENT | JSPROP_SHARED),
+		JS_FN("createWithTotalParticles", js_cocos2dx_CCParticleSystemQuad_createWithTotalParticles, 1, JSPROP_PERMANENT | JSPROP_SHARED),
 		JS_FS_END
 	};
 
@@ -42198,6 +42005,23 @@ JSBool js_cocos2dx_CCTMXObjectGroup_getPositionOffset(JSContext *cx, uint32_t ar
 	JS_ReportError(cx, "wrong number of arguments: %d, was expecting %d", argc, 0);
 	return JS_FALSE;
 }
+JSBool js_cocos2dx_CCTMXObjectGroup_getObjects(JSContext *cx, uint32_t argc, jsval *vp)
+{
+	JSObject *obj = JS_THIS_OBJECT(cx, vp);
+	js_proxy_t *proxy; JS_GET_NATIVE_PROXY(proxy, obj);
+	cocos2d::CCTMXObjectGroup* cobj = (cocos2d::CCTMXObjectGroup *)(proxy ? proxy->ptr : NULL);
+	TEST_NATIVE_OBJECT(cx, cobj)
+
+	if (argc == 0) {
+		cocos2d::CCArray* ret = cobj->getObjects();
+		jsval jsret;
+		jsret = ccarray_to_jsval(cx, ret);
+		JS_SET_RVAL(cx, vp, jsret);
+		return JS_TRUE;
+	}
+	JS_ReportError(cx, "wrong number of arguments: %d, was expecting %d", argc, 0);
+	return JS_FALSE;
+}
 JSBool js_cocos2dx_CCTMXObjectGroup_setGroupName(JSContext *cx, uint32_t argc, jsval *vp)
 {
 	jsval *argv = JS_ARGV(cx, vp);
@@ -42379,6 +42203,7 @@ void js_register_cocos2dx_CCTMXObjectGroup(JSContext *cx, JSObject *global) {
 		JS_FN("setPositionOffset", js_cocos2dx_CCTMXObjectGroup_setPositionOffset, 1, JSPROP_PERMANENT | JSPROP_SHARED),
 		JS_FN("objectNamed", js_cocos2dx_CCTMXObjectGroup_objectNamed, 1, JSPROP_PERMANENT | JSPROP_SHARED),
 		JS_FN("getPositionOffset", js_cocos2dx_CCTMXObjectGroup_getPositionOffset, 0, JSPROP_PERMANENT | JSPROP_SHARED),
+		JS_FN("getObjects", js_cocos2dx_CCTMXObjectGroup_getObjects, 0, JSPROP_PERMANENT | JSPROP_SHARED),
 		JS_FN("setGroupName", js_cocos2dx_CCTMXObjectGroup_setGroupName, 1, JSPROP_PERMANENT | JSPROP_SHARED),
 		JS_FN("getProperties", js_cocos2dx_CCTMXObjectGroup_getProperties, 0, JSPROP_PERMANENT | JSPROP_SHARED),
 		JS_FN("getGroupName", js_cocos2dx_CCTMXObjectGroup_getGroupName, 0, JSPROP_PERMANENT | JSPROP_SHARED),
