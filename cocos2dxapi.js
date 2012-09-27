@@ -10459,3 +10459,129 @@ tileMapAtlasWithTileFile : function () {},
 CCTileMapAtlas : function () {},
 
 };
+
+/**
+ * @class SimpleAudioEngine
+ */
+cc.SimpleAudioEngine = {
+
+/**
+ * @method stopAllEffects
+ */
+stopAllEffects : function () {},
+
+/**
+ * @method getEffectsVolume
+ * @return A value converted from C/C++ "float"
+ */
+getEffectsVolume : function () {},
+
+/**
+ * @method stopEffect
+ * @param {unsigned int}
+ */
+stopEffect : function () {},
+
+/**
+ * @method getBackgroundMusicVolume
+ * @return A value converted from C/C++ "float"
+ */
+getBackgroundMusicVolume : function () {},
+
+/**
+ * @method willPlayBackgroundMusic
+ * @return A value converted from C/C++ "bool"
+ */
+willPlayBackgroundMusic : function () {},
+
+/**
+ * @method setBackgroundMusicVolume
+ * @param {float}
+ */
+setBackgroundMusicVolume : function () {},
+
+/**
+ * @method pauseBackgroundMusic
+ */
+pauseBackgroundMusic : function () {},
+
+/**
+ * @method isBackgroundMusicPlaying
+ * @return A value converted from C/C++ "bool"
+ */
+isBackgroundMusicPlaying : function () {},
+
+/**
+ * @method resumeAllEffects
+ */
+resumeAllEffects : function () {},
+
+/**
+ * @method pauseAllEffects
+ */
+pauseAllEffects : function () {},
+
+/**
+ * @method preloadBackgroundMusic
+ * @param {const char*}
+ */
+preloadBackgroundMusic : function () {},
+
+/**
+ * @method preloadEffect
+ * @param {const char*}
+ */
+preloadEffect : function () {},
+
+/**
+ * @method unloadEffect
+ * @param {const char*}
+ */
+unloadEffect : function () {},
+
+/**
+ * @method rewindBackgroundMusic
+ */
+rewindBackgroundMusic : function () {},
+
+/**
+ * @method pauseEffect
+ * @param {unsigned int}
+ */
+pauseEffect : function () {},
+
+/**
+ * @method getClassTypeInfo
+ * @return A value converted from C/C++ "long"
+ */
+getClassTypeInfo : function () {},
+
+/**
+ * @method resumeBackgroundMusic
+ */
+resumeBackgroundMusic : function () {},
+
+/**
+ * @method setEffectsVolume
+ * @param {float}
+ */
+setEffectsVolume : function () {},
+
+/**
+ * @method resumeEffect
+ * @param {unsigned int}
+ */
+resumeEffect : function () {},
+
+/**
+ * @method end
+ */
+end : function () {},
+
+/**
+ * @method sharedEngine
+ * @return A value converted from C/C++ "CocosDenshion::SimpleAudioEngine*"
+ */
+sharedEngine : function () {},
+
+};
