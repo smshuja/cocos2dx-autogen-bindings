@@ -2884,6 +2884,30 @@ JSBool js_cocos2dx_CCNode_stopAction(JSContext *cx, uint32_t argc, jsval *vp)
 	JS_ReportError(cx, "wrong number of arguments: %d, was expecting %d", argc, 1);
 	return JS_FALSE;
 }
+JSBool js_cocos2dx_CCNode_getActionManager(JSContext *cx, uint32_t argc, jsval *vp)
+{
+	JSObject *obj = JS_THIS_OBJECT(cx, vp);
+	js_proxy_t *proxy; JS_GET_NATIVE_PROXY(proxy, obj);
+	cocos2d::CCNode* cobj = (cocos2d::CCNode *)(proxy ? proxy->ptr : NULL);
+	TEST_NATIVE_OBJECT(cx, cobj)
+
+	if (argc == 0) {
+		cocos2d::CCActionManager* ret = cobj->getActionManager();
+		jsval jsret;
+		do {
+			if (ret) {
+				js_proxy_t *proxy = js_get_or_create_proxy<cocos2d::CCActionManager>(cx, ret);
+				jsret = OBJECT_TO_JSVAL(proxy->obj);
+			} else {
+				jsret = JSVAL_NULL;
+			}
+		} while (0);
+		JS_SET_RVAL(cx, vp, jsret);
+		return JS_TRUE;
+	}
+	JS_ReportError(cx, "wrong number of arguments: %d, was expecting %d", argc, 0);
+	return JS_FALSE;
+}
 JSBool js_cocos2dx_CCNode_node(JSContext *cx, uint32_t argc, jsval *vp)
 {
 	cocos2d::CCNode* ret = cocos2d::CCNode::node();
@@ -3049,6 +3073,7 @@ void js_register_cocos2dx_CCNode(JSContext *cx, JSObject *global) {
 		JS_FN("setTag", js_cocos2dx_CCNode_setTag, 1, JSPROP_PERMANENT | JSPROP_SHARED),
 		JS_FN("scheduleUpdate", js_cocos2dx_CCNode_scheduleUpdate, 0, JSPROP_PERMANENT | JSPROP_SHARED),
 		JS_FN("stopAction", js_cocos2dx_CCNode_stopAction, 1, JSPROP_PERMANENT | JSPROP_SHARED),
+		JS_FN("getActionManager", js_cocos2dx_CCNode_getActionManager, 0, JSPROP_PERMANENT | JSPROP_SHARED),
 		JS_FS_END
 	};
 
@@ -10284,6 +10309,260 @@ void js_register_cocos2dx_CCActionCamera(JSContext *cx, JSObject *global) {
 		p->jsclass = js_cocos2dx_CCActionCamera_class;
 		p->proto = js_cocos2dx_CCActionCamera_prototype;
 		p->parentProto = js_cocos2dx_CCActionInterval_prototype;
+		HASH_ADD_INT(_js_global_type_ht, type, p);
+	}
+}
+
+
+JSClass  *js_cocos2dx_CCOrbitCamera_class;
+JSObject *js_cocos2dx_CCOrbitCamera_prototype;
+
+JSBool js_cocos2dx_CCOrbitCamera_startWithTarget(JSContext *cx, uint32_t argc, jsval *vp)
+{
+	jsval *argv = JS_ARGV(cx, vp);
+	JSObject *obj = JS_THIS_OBJECT(cx, vp);
+	js_proxy_t *proxy; JS_GET_NATIVE_PROXY(proxy, obj);
+	cocos2d::CCOrbitCamera* cobj = (cocos2d::CCOrbitCamera *)(proxy ? proxy->ptr : NULL);
+	TEST_NATIVE_OBJECT(cx, cobj)
+
+	if (argc == 1) {
+		cocos2d::CCNode* arg0;
+		do {
+			js_proxy_t *proxy;
+			JSObject *tmpObj = JSVAL_TO_OBJECT(argv[0]);
+			JS_GET_NATIVE_PROXY(proxy, tmpObj);
+			arg0 = (cocos2d::CCNode*)(proxy ? proxy->ptr : NULL);
+			TEST_NATIVE_OBJECT(cx, arg0)
+		} while (0);
+		cobj->startWithTarget(arg0);
+		return JS_TRUE;
+	}
+	JS_ReportError(cx, "wrong number of arguments: %d, was expecting %d", argc, 1);
+	return JS_FALSE;
+}
+JSBool js_cocos2dx_CCOrbitCamera_initWithDuration(JSContext *cx, uint32_t argc, jsval *vp)
+{
+	jsval *argv = JS_ARGV(cx, vp);
+	JSObject *obj = JS_THIS_OBJECT(cx, vp);
+	js_proxy_t *proxy; JS_GET_NATIVE_PROXY(proxy, obj);
+	cocos2d::CCOrbitCamera* cobj = (cocos2d::CCOrbitCamera *)(proxy ? proxy->ptr : NULL);
+	TEST_NATIVE_OBJECT(cx, cobj)
+
+	if (argc == 7) {
+		double arg0;
+		double arg1;
+		double arg2;
+		double arg3;
+		double arg4;
+		double arg5;
+		double arg6;
+		JS_ValueToNumber(cx, argv[0], &arg0);
+		JS_ValueToNumber(cx, argv[1], &arg1);
+		JS_ValueToNumber(cx, argv[2], &arg2);
+		JS_ValueToNumber(cx, argv[3], &arg3);
+		JS_ValueToNumber(cx, argv[4], &arg4);
+		JS_ValueToNumber(cx, argv[5], &arg5);
+		JS_ValueToNumber(cx, argv[6], &arg6);
+		bool ret = cobj->initWithDuration(arg0, arg1, arg2, arg3, arg4, arg5, arg6);
+		jsval jsret;
+		jsret = BOOLEAN_TO_JSVAL(ret);
+		JS_SET_RVAL(cx, vp, jsret);
+		return JS_TRUE;
+	}
+	JS_ReportError(cx, "wrong number of arguments: %d, was expecting %d", argc, 7);
+	return JS_FALSE;
+}
+JSBool js_cocos2dx_CCOrbitCamera_sphericalRadius(JSContext *cx, uint32_t argc, jsval *vp)
+{
+	jsval *argv = JS_ARGV(cx, vp);
+	JSObject *obj = JS_THIS_OBJECT(cx, vp);
+	js_proxy_t *proxy; JS_GET_NATIVE_PROXY(proxy, obj);
+	cocos2d::CCOrbitCamera* cobj = (cocos2d::CCOrbitCamera *)(proxy ? proxy->ptr : NULL);
+	TEST_NATIVE_OBJECT(cx, cobj)
+
+	if (argc == 3) {
+		float* arg0;
+		float* arg1;
+		float* arg2;
+		#pragma warning NO CONVERSION TO NATIVE FOR float*;
+		#pragma warning NO CONVERSION TO NATIVE FOR float*;
+		#pragma warning NO CONVERSION TO NATIVE FOR float*;
+		cobj->sphericalRadius(arg0, arg1, arg2);
+		return JS_TRUE;
+	}
+	JS_ReportError(cx, "wrong number of arguments: %d, was expecting %d", argc, 3);
+	return JS_FALSE;
+}
+JSBool js_cocos2dx_CCOrbitCamera_update(JSContext *cx, uint32_t argc, jsval *vp)
+{
+	jsval *argv = JS_ARGV(cx, vp);
+	JSObject *obj = JS_THIS_OBJECT(cx, vp);
+	js_proxy_t *proxy; JS_GET_NATIVE_PROXY(proxy, obj);
+	cocos2d::CCOrbitCamera* cobj = (cocos2d::CCOrbitCamera *)(proxy ? proxy->ptr : NULL);
+	TEST_NATIVE_OBJECT(cx, cobj)
+
+	if (argc == 1) {
+		double arg0;
+		JS_ValueToNumber(cx, argv[0], &arg0);
+		cobj->update(arg0);
+		return JS_TRUE;
+	}
+	JS_ReportError(cx, "wrong number of arguments: %d, was expecting %d", argc, 1);
+	return JS_FALSE;
+}
+JSBool js_cocos2dx_CCOrbitCamera_create(JSContext *cx, uint32_t argc, jsval *vp)
+{
+	jsval *argv = JS_ARGV(cx, vp);
+	double arg0;
+	double arg1;
+	double arg2;
+	double arg3;
+	double arg4;
+	double arg5;
+	double arg6;
+	assert(argc >= 7);
+
+	JS_ValueToNumber(cx, argv[0], &arg0);
+	JS_ValueToNumber(cx, argv[1], &arg1);
+	JS_ValueToNumber(cx, argv[2], &arg2);
+	JS_ValueToNumber(cx, argv[3], &arg3);
+	JS_ValueToNumber(cx, argv[4], &arg4);
+	JS_ValueToNumber(cx, argv[5], &arg5);
+	JS_ValueToNumber(cx, argv[6], &arg6);
+	cocos2d::CCOrbitCamera* ret = cocos2d::CCOrbitCamera::create(arg0, arg1, arg2, arg3, arg4, arg5, arg6);
+	jsval jsret;
+	do {
+		if (ret) {
+			js_proxy_t *proxy = js_get_or_create_proxy<cocos2d::CCOrbitCamera>(cx, ret);
+			jsret = OBJECT_TO_JSVAL(proxy->obj);
+		} else {
+			jsret = JSVAL_NULL;
+		}
+	} while (0);
+	JS_SET_RVAL(cx, vp, jsret);
+	return JS_TRUE;
+}
+
+JSBool js_cocos2dx_CCOrbitCamera_actionWithDuration(JSContext *cx, uint32_t argc, jsval *vp)
+{
+	jsval *argv = JS_ARGV(cx, vp);
+	double arg0;
+	double arg1;
+	double arg2;
+	double arg3;
+	double arg4;
+	double arg5;
+	double arg6;
+	assert(argc >= 7);
+
+	JS_ValueToNumber(cx, argv[0], &arg0);
+	JS_ValueToNumber(cx, argv[1], &arg1);
+	JS_ValueToNumber(cx, argv[2], &arg2);
+	JS_ValueToNumber(cx, argv[3], &arg3);
+	JS_ValueToNumber(cx, argv[4], &arg4);
+	JS_ValueToNumber(cx, argv[5], &arg5);
+	JS_ValueToNumber(cx, argv[6], &arg6);
+	cocos2d::CCOrbitCamera* ret = cocos2d::CCOrbitCamera::actionWithDuration(arg0, arg1, arg2, arg3, arg4, arg5, arg6);
+	jsval jsret;
+	do {
+		if (ret) {
+			js_proxy_t *proxy = js_get_or_create_proxy<cocos2d::CCOrbitCamera>(cx, ret);
+			jsret = OBJECT_TO_JSVAL(proxy->obj);
+		} else {
+			jsret = JSVAL_NULL;
+		}
+	} while (0);
+	JS_SET_RVAL(cx, vp, jsret);
+	return JS_TRUE;
+}
+
+JSBool js_cocos2dx_CCOrbitCamera_constructor(JSContext *cx, uint32_t argc, jsval *vp)
+{
+
+	if (argc == 0) {
+		cocos2d::CCOrbitCamera* cobj = new cocos2d::CCOrbitCamera();
+#ifdef COCOS2D_JAVASCRIPT
+		cocos2d::CCObject *_ccobj = dynamic_cast<cocos2d::CCObject *>(cobj);
+		if (_ccobj) {
+			_ccobj->autorelease();
+		}
+#endif
+		TypeTest<cocos2d::CCOrbitCamera> t;
+		js_type_class_t *typeClass;
+		uint32_t typeId = t.s_id();
+		HASH_FIND_INT(_js_global_type_ht, &typeId, typeClass);
+		assert(typeClass);
+		JSObject *obj = JS_NewObject(cx, typeClass->jsclass, typeClass->proto, typeClass->parentProto);
+		JS_SET_RVAL(cx, vp, OBJECT_TO_JSVAL(obj));
+		// link the native object with the javascript object
+		js_proxy_t *p;
+		JS_NEW_PROXY(p, cobj, obj);
+#ifdef COCOS2D_JAVASCRIPT
+		JS_AddNamedObjectRoot(cx, &p->obj, "cocos2d::CCOrbitCamera");
+#endif
+		return JS_TRUE;
+	}
+	JS_ReportError(cx, "wrong number of arguments: %d, was expecting %d", argc, 0);
+	return JS_FALSE;
+}
+
+
+
+void js_cocos2dx_CCOrbitCamera_finalize(JSFreeOp *fop, JSObject *obj) {
+}
+
+void js_register_cocos2dx_CCOrbitCamera(JSContext *cx, JSObject *global) {
+	js_cocos2dx_CCOrbitCamera_class = (JSClass *)calloc(1, sizeof(JSClass));
+	js_cocos2dx_CCOrbitCamera_class->name = "OrbitCamera";
+	js_cocos2dx_CCOrbitCamera_class->addProperty = JS_PropertyStub;
+	js_cocos2dx_CCOrbitCamera_class->delProperty = JS_PropertyStub;
+	js_cocos2dx_CCOrbitCamera_class->getProperty = JS_PropertyStub;
+	js_cocos2dx_CCOrbitCamera_class->setProperty = JS_StrictPropertyStub;
+	js_cocos2dx_CCOrbitCamera_class->enumerate = JS_EnumerateStub;
+	js_cocos2dx_CCOrbitCamera_class->resolve = JS_ResolveStub;
+	js_cocos2dx_CCOrbitCamera_class->convert = JS_ConvertStub;
+	js_cocos2dx_CCOrbitCamera_class->finalize = js_cocos2dx_CCOrbitCamera_finalize;
+	js_cocos2dx_CCOrbitCamera_class->flags = JSCLASS_HAS_RESERVED_SLOTS(2);
+
+	static JSPropertySpec properties[] = {
+		{0, 0, 0, 0, 0}
+	};
+
+	static JSFunctionSpec funcs[] = {
+		JS_FN("startWithTarget", js_cocos2dx_CCOrbitCamera_startWithTarget, 1, JSPROP_PERMANENT | JSPROP_SHARED),
+		JS_FN("initWithDuration", js_cocos2dx_CCOrbitCamera_initWithDuration, 7, JSPROP_PERMANENT | JSPROP_SHARED),
+		JS_FN("sphericalRadius", js_cocos2dx_CCOrbitCamera_sphericalRadius, 3, JSPROP_PERMANENT | JSPROP_SHARED),
+		JS_FN("update", js_cocos2dx_CCOrbitCamera_update, 1, JSPROP_PERMANENT | JSPROP_SHARED),
+		JS_FS_END
+	};
+
+	static JSFunctionSpec st_funcs[] = {
+		JS_FN("create", js_cocos2dx_CCOrbitCamera_create, 7, JSPROP_PERMANENT | JSPROP_SHARED),
+		JS_FN("actionWithDuration", js_cocos2dx_CCOrbitCamera_actionWithDuration, 7, JSPROP_PERMANENT | JSPROP_SHARED),
+		JS_FS_END
+	};
+
+	js_cocos2dx_CCOrbitCamera_prototype = JS_InitClass(
+		cx, global,
+		js_cocos2dx_CCActionCamera_prototype,
+		js_cocos2dx_CCOrbitCamera_class,
+		js_cocos2dx_CCOrbitCamera_constructor, 0, // constructor
+		properties,
+		funcs,
+		NULL, // no static properties
+		st_funcs);
+
+	// add the proto and JSClass to the type->js info hash table
+	TypeTest<cocos2d::CCOrbitCamera> t;
+	js_type_class_t *p;
+	uint32_t typeId = t.s_id();
+	HASH_FIND_INT(_js_global_type_ht, &typeId, p);
+	if (!p) {
+		p = (js_type_class_t *)malloc(sizeof(js_type_class_t));
+		p->type = typeId;
+		p->jsclass = js_cocos2dx_CCOrbitCamera_class;
+		p->proto = js_cocos2dx_CCOrbitCamera_prototype;
+		p->parentProto = js_cocos2dx_CCActionCamera_prototype;
 		HASH_ADD_INT(_js_global_type_ht, type, p);
 	}
 }
@@ -22875,6 +23154,30 @@ JSBool js_cocos2dx_CCDirector_setAnimationInterval(JSContext *cx, uint32_t argc,
 	JS_ReportError(cx, "wrong number of arguments: %d, was expecting %d", argc, 1);
 	return JS_FALSE;
 }
+JSBool js_cocos2dx_CCDirector_getActionManager(JSContext *cx, uint32_t argc, jsval *vp)
+{
+	JSObject *obj = JS_THIS_OBJECT(cx, vp);
+	js_proxy_t *proxy; JS_GET_NATIVE_PROXY(proxy, obj);
+	cocos2d::CCDirector* cobj = (cocos2d::CCDirector *)(proxy ? proxy->ptr : NULL);
+	TEST_NATIVE_OBJECT(cx, cobj)
+
+	if (argc == 0) {
+		cocos2d::CCActionManager* ret = cobj->getActionManager();
+		jsval jsret;
+		do {
+			if (ret) {
+				js_proxy_t *proxy = js_get_or_create_proxy<cocos2d::CCActionManager>(cx, ret);
+				jsret = OBJECT_TO_JSVAL(proxy->obj);
+			} else {
+				jsret = JSVAL_NULL;
+			}
+		} while (0);
+		JS_SET_RVAL(cx, vp, jsret);
+		return JS_TRUE;
+	}
+	JS_ReportError(cx, "wrong number of arguments: %d, was expecting %d", argc, 0);
+	return JS_FALSE;
+}
 JSBool js_cocos2dx_CCDirector_sharedDirector(JSContext *cx, uint32_t argc, jsval *vp)
 {
 	cocos2d::CCDirector* ret = cocos2d::CCDirector::sharedDirector();
@@ -22963,6 +23266,7 @@ void js_register_cocos2dx_CCDirector(JSContext *cx, JSObject *global) {
 		JS_FN("setDisplayStats", js_cocos2dx_CCDirector_setDisplayStats, 1, JSPROP_PERMANENT | JSPROP_SHARED),
 		JS_FN("replaceScene", js_cocos2dx_CCDirector_replaceScene, 1, JSPROP_PERMANENT | JSPROP_SHARED),
 		JS_FN("setAnimationInterval", js_cocos2dx_CCDirector_setAnimationInterval, 1, JSPROP_PERMANENT | JSPROP_SHARED),
+		JS_FN("getActionManager", js_cocos2dx_CCDirector_getActionManager, 0, JSPROP_PERMANENT | JSPROP_SHARED),
 		JS_FS_END
 	};
 
@@ -44770,6 +45074,659 @@ void js_register_cocos2dx_CCTileMapAtlas(JSContext *cx, JSObject *global) {
 }
 
 
+JSClass  *js_cocos2dx_CCTimer_class;
+JSObject *js_cocos2dx_CCTimer_prototype;
+
+JSBool js_cocos2dx_CCTimer_getInterval(JSContext *cx, uint32_t argc, jsval *vp)
+{
+	JSObject *obj = JS_THIS_OBJECT(cx, vp);
+	js_proxy_t *proxy; JS_GET_NATIVE_PROXY(proxy, obj);
+	cocos2d::CCTimer* cobj = (cocos2d::CCTimer *)(proxy ? proxy->ptr : NULL);
+	TEST_NATIVE_OBJECT(cx, cobj)
+
+	if (argc == 0) {
+		float ret = cobj->getInterval();
+		jsval jsret;
+		JS_NewNumberValue(cx, ret, &jsret);
+		JS_SET_RVAL(cx, vp, jsret);
+		return JS_TRUE;
+	}
+	JS_ReportError(cx, "wrong number of arguments: %d, was expecting %d", argc, 0);
+	return JS_FALSE;
+}
+JSBool js_cocos2dx_CCTimer_setInterval(JSContext *cx, uint32_t argc, jsval *vp)
+{
+	jsval *argv = JS_ARGV(cx, vp);
+	JSObject *obj = JS_THIS_OBJECT(cx, vp);
+	js_proxy_t *proxy; JS_GET_NATIVE_PROXY(proxy, obj);
+	cocos2d::CCTimer* cobj = (cocos2d::CCTimer *)(proxy ? proxy->ptr : NULL);
+	TEST_NATIVE_OBJECT(cx, cobj)
+
+	if (argc == 1) {
+		double arg0;
+		JS_ValueToNumber(cx, argv[0], &arg0);
+		cobj->setInterval(arg0);
+		return JS_TRUE;
+	}
+	JS_ReportError(cx, "wrong number of arguments: %d, was expecting %d", argc, 1);
+	return JS_FALSE;
+}
+JSBool js_cocos2dx_CCTimer_initWithScriptHandler(JSContext *cx, uint32_t argc, jsval *vp)
+{
+	jsval *argv = JS_ARGV(cx, vp);
+	JSObject *obj = JS_THIS_OBJECT(cx, vp);
+	js_proxy_t *proxy; JS_GET_NATIVE_PROXY(proxy, obj);
+	cocos2d::CCTimer* cobj = (cocos2d::CCTimer *)(proxy ? proxy->ptr : NULL);
+	TEST_NATIVE_OBJECT(cx, cobj)
+
+	if (argc == 2) {
+		int arg0;
+		double arg1;
+		JS_ValueToInt32(cx, argv[0], (int32_t *)&arg0);
+		JS_ValueToNumber(cx, argv[1], &arg1);
+		bool ret = cobj->initWithScriptHandler(arg0, arg1);
+		jsval jsret;
+		jsret = BOOLEAN_TO_JSVAL(ret);
+		JS_SET_RVAL(cx, vp, jsret);
+		return JS_TRUE;
+	}
+	JS_ReportError(cx, "wrong number of arguments: %d, was expecting %d", argc, 2);
+	return JS_FALSE;
+}
+JSBool js_cocos2dx_CCTimer_update(JSContext *cx, uint32_t argc, jsval *vp)
+{
+	jsval *argv = JS_ARGV(cx, vp);
+	JSObject *obj = JS_THIS_OBJECT(cx, vp);
+	js_proxy_t *proxy; JS_GET_NATIVE_PROXY(proxy, obj);
+	cocos2d::CCTimer* cobj = (cocos2d::CCTimer *)(proxy ? proxy->ptr : NULL);
+	TEST_NATIVE_OBJECT(cx, cobj)
+
+	if (argc == 1) {
+		double arg0;
+		JS_ValueToNumber(cx, argv[0], &arg0);
+		cobj->update(arg0);
+		return JS_TRUE;
+	}
+	JS_ReportError(cx, "wrong number of arguments: %d, was expecting %d", argc, 1);
+	return JS_FALSE;
+}
+JSBool js_cocos2dx_CCTimer_getScriptHandler(JSContext *cx, uint32_t argc, jsval *vp)
+{
+	JSObject *obj = JS_THIS_OBJECT(cx, vp);
+	js_proxy_t *proxy; JS_GET_NATIVE_PROXY(proxy, obj);
+	cocos2d::CCTimer* cobj = (cocos2d::CCTimer *)(proxy ? proxy->ptr : NULL);
+	TEST_NATIVE_OBJECT(cx, cobj)
+
+	if (argc == 0) {
+		int ret = cobj->getScriptHandler();
+		jsval jsret;
+		JS_NewNumberValue(cx, ret, &jsret);
+		JS_SET_RVAL(cx, vp, jsret);
+		return JS_TRUE;
+	}
+	JS_ReportError(cx, "wrong number of arguments: %d, was expecting %d", argc, 0);
+	return JS_FALSE;
+}
+JSBool js_cocos2dx_CCTimer_timerWithScriptHandler(JSContext *cx, uint32_t argc, jsval *vp)
+{
+	jsval *argv = JS_ARGV(cx, vp);
+	int arg0;
+	double arg1;
+	assert(argc >= 2);
+
+	JS_ValueToInt32(cx, argv[0], (int32_t *)&arg0);
+	JS_ValueToNumber(cx, argv[1], &arg1);
+	cocos2d::CCTimer* ret = cocos2d::CCTimer::timerWithScriptHandler(arg0, arg1);
+	jsval jsret;
+	do {
+		if (ret) {
+			js_proxy_t *proxy = js_get_or_create_proxy<cocos2d::CCTimer>(cx, ret);
+			jsret = OBJECT_TO_JSVAL(proxy->obj);
+		} else {
+			jsret = JSVAL_NULL;
+		}
+	} while (0);
+	JS_SET_RVAL(cx, vp, jsret);
+	return JS_TRUE;
+}
+
+JSBool js_cocos2dx_CCTimer_constructor(JSContext *cx, uint32_t argc, jsval *vp)
+{
+
+	if (argc == 0) {
+		cocos2d::CCTimer* cobj = new cocos2d::CCTimer();
+#ifdef COCOS2D_JAVASCRIPT
+		cocos2d::CCObject *_ccobj = dynamic_cast<cocos2d::CCObject *>(cobj);
+		if (_ccobj) {
+			_ccobj->autorelease();
+		}
+#endif
+		TypeTest<cocos2d::CCTimer> t;
+		js_type_class_t *typeClass;
+		uint32_t typeId = t.s_id();
+		HASH_FIND_INT(_js_global_type_ht, &typeId, typeClass);
+		assert(typeClass);
+		JSObject *obj = JS_NewObject(cx, typeClass->jsclass, typeClass->proto, typeClass->parentProto);
+		JS_SET_RVAL(cx, vp, OBJECT_TO_JSVAL(obj));
+		// link the native object with the javascript object
+		js_proxy_t *p;
+		JS_NEW_PROXY(p, cobj, obj);
+#ifdef COCOS2D_JAVASCRIPT
+		JS_AddNamedObjectRoot(cx, &p->obj, "cocos2d::CCTimer");
+#endif
+		return JS_TRUE;
+	}
+	JS_ReportError(cx, "wrong number of arguments: %d, was expecting %d", argc, 0);
+	return JS_FALSE;
+}
+
+
+
+void js_cocos2dx_CCTimer_finalize(JSFreeOp *fop, JSObject *obj) {
+}
+
+void js_register_cocos2dx_CCTimer(JSContext *cx, JSObject *global) {
+	js_cocos2dx_CCTimer_class = (JSClass *)calloc(1, sizeof(JSClass));
+	js_cocos2dx_CCTimer_class->name = "Timer";
+	js_cocos2dx_CCTimer_class->addProperty = JS_PropertyStub;
+	js_cocos2dx_CCTimer_class->delProperty = JS_PropertyStub;
+	js_cocos2dx_CCTimer_class->getProperty = JS_PropertyStub;
+	js_cocos2dx_CCTimer_class->setProperty = JS_StrictPropertyStub;
+	js_cocos2dx_CCTimer_class->enumerate = JS_EnumerateStub;
+	js_cocos2dx_CCTimer_class->resolve = JS_ResolveStub;
+	js_cocos2dx_CCTimer_class->convert = JS_ConvertStub;
+	js_cocos2dx_CCTimer_class->finalize = js_cocos2dx_CCTimer_finalize;
+	js_cocos2dx_CCTimer_class->flags = JSCLASS_HAS_RESERVED_SLOTS(2);
+
+	static JSPropertySpec properties[] = {
+		{0, 0, 0, 0, 0}
+	};
+
+	static JSFunctionSpec funcs[] = {
+		JS_FN("getInterval", js_cocos2dx_CCTimer_getInterval, 0, JSPROP_PERMANENT | JSPROP_SHARED),
+		JS_FN("setInterval", js_cocos2dx_CCTimer_setInterval, 1, JSPROP_PERMANENT | JSPROP_SHARED),
+		JS_FN("initWithScriptHandler", js_cocos2dx_CCTimer_initWithScriptHandler, 2, JSPROP_PERMANENT | JSPROP_SHARED),
+		JS_FN("update", js_cocos2dx_CCTimer_update, 1, JSPROP_PERMANENT | JSPROP_SHARED),
+		JS_FN("getScriptHandler", js_cocos2dx_CCTimer_getScriptHandler, 0, JSPROP_PERMANENT | JSPROP_SHARED),
+		JS_FS_END
+	};
+
+	static JSFunctionSpec st_funcs[] = {
+		JS_FN("timerWithScriptHandler", js_cocos2dx_CCTimer_timerWithScriptHandler, 2, JSPROP_PERMANENT | JSPROP_SHARED),
+		JS_FS_END
+	};
+
+	js_cocos2dx_CCTimer_prototype = JS_InitClass(
+		cx, global,
+		NULL, // parent proto
+		js_cocos2dx_CCTimer_class,
+		js_cocos2dx_CCTimer_constructor, 0, // constructor
+		properties,
+		funcs,
+		NULL, // no static properties
+		st_funcs);
+
+	// add the proto and JSClass to the type->js info hash table
+	TypeTest<cocos2d::CCTimer> t;
+	js_type_class_t *p;
+	uint32_t typeId = t.s_id();
+	HASH_FIND_INT(_js_global_type_ht, &typeId, p);
+	if (!p) {
+		p = (js_type_class_t *)malloc(sizeof(js_type_class_t));
+		p->type = typeId;
+		p->jsclass = js_cocos2dx_CCTimer_class;
+		p->proto = js_cocos2dx_CCTimer_prototype;
+		p->parentProto = NULL;
+		HASH_ADD_INT(_js_global_type_ht, type, p);
+	}
+}
+
+
+JSClass  *js_cocos2dx_CCScheduler_class;
+JSObject *js_cocos2dx_CCScheduler_prototype;
+
+JSBool js_cocos2dx_CCScheduler_pauseAllTargets(JSContext *cx, uint32_t argc, jsval *vp)
+{
+	JSObject *obj = JS_THIS_OBJECT(cx, vp);
+	js_proxy_t *proxy; JS_GET_NATIVE_PROXY(proxy, obj);
+	cocos2d::CCScheduler* cobj = (cocos2d::CCScheduler *)(proxy ? proxy->ptr : NULL);
+	TEST_NATIVE_OBJECT(cx, cobj)
+
+	if (argc == 0) {
+		cocos2d::CCSet* ret = cobj->pauseAllTargets();
+		jsval jsret;
+		do {
+			if (ret) {
+				js_proxy_t *proxy = js_get_or_create_proxy<cocos2d::CCSet>(cx, ret);
+				jsret = OBJECT_TO_JSVAL(proxy->obj);
+			} else {
+				jsret = JSVAL_NULL;
+			}
+		} while (0);
+		JS_SET_RVAL(cx, vp, jsret);
+		return JS_TRUE;
+	}
+	JS_ReportError(cx, "wrong number of arguments: %d, was expecting %d", argc, 0);
+	return JS_FALSE;
+}
+JSBool js_cocos2dx_CCScheduler_setTimeScale(JSContext *cx, uint32_t argc, jsval *vp)
+{
+	jsval *argv = JS_ARGV(cx, vp);
+	JSObject *obj = JS_THIS_OBJECT(cx, vp);
+	js_proxy_t *proxy; JS_GET_NATIVE_PROXY(proxy, obj);
+	cocos2d::CCScheduler* cobj = (cocos2d::CCScheduler *)(proxy ? proxy->ptr : NULL);
+	TEST_NATIVE_OBJECT(cx, cobj)
+
+	if (argc == 1) {
+		double arg0;
+		JS_ValueToNumber(cx, argv[0], &arg0);
+		cobj->setTimeScale(arg0);
+		return JS_TRUE;
+	}
+	JS_ReportError(cx, "wrong number of arguments: %d, was expecting %d", argc, 1);
+	return JS_FALSE;
+}
+JSBool js_cocos2dx_CCScheduler_unscheduleUpdateForTarget(JSContext *cx, uint32_t argc, jsval *vp)
+{
+	jsval *argv = JS_ARGV(cx, vp);
+	JSObject *obj = JS_THIS_OBJECT(cx, vp);
+	js_proxy_t *proxy; JS_GET_NATIVE_PROXY(proxy, obj);
+	cocos2d::CCScheduler* cobj = (cocos2d::CCScheduler *)(proxy ? proxy->ptr : NULL);
+	TEST_NATIVE_OBJECT(cx, cobj)
+
+	if (argc == 1) {
+		cocos2d::CCObject* arg0;
+		do {
+			js_proxy_t *proxy;
+			JSObject *tmpObj = JSVAL_TO_OBJECT(argv[0]);
+			JS_GET_NATIVE_PROXY(proxy, tmpObj);
+			arg0 = (cocos2d::CCObject*)(proxy ? proxy->ptr : NULL);
+			TEST_NATIVE_OBJECT(cx, arg0)
+		} while (0);
+		cobj->unscheduleUpdateForTarget(arg0);
+		return JS_TRUE;
+	}
+	JS_ReportError(cx, "wrong number of arguments: %d, was expecting %d", argc, 1);
+	return JS_FALSE;
+}
+JSBool js_cocos2dx_CCScheduler_scheduleUpdateForTarget(JSContext *cx, uint32_t argc, jsval *vp)
+{
+	jsval *argv = JS_ARGV(cx, vp);
+	JSObject *obj = JS_THIS_OBJECT(cx, vp);
+	js_proxy_t *proxy; JS_GET_NATIVE_PROXY(proxy, obj);
+	cocos2d::CCScheduler* cobj = (cocos2d::CCScheduler *)(proxy ? proxy->ptr : NULL);
+	TEST_NATIVE_OBJECT(cx, cobj)
+
+	if (argc == 3) {
+		cocos2d::CCObject* arg0;
+		int arg1;
+		JSBool arg2;
+		do {
+			js_proxy_t *proxy;
+			JSObject *tmpObj = JSVAL_TO_OBJECT(argv[0]);
+			JS_GET_NATIVE_PROXY(proxy, tmpObj);
+			arg0 = (cocos2d::CCObject*)(proxy ? proxy->ptr : NULL);
+			TEST_NATIVE_OBJECT(cx, arg0)
+		} while (0);
+		JS_ValueToInt32(cx, argv[1], (int32_t *)&arg1);
+		JS_ValueToBoolean(cx, argv[2], &arg2);
+		cobj->scheduleUpdateForTarget(arg0, arg1, arg2);
+		return JS_TRUE;
+	}
+	JS_ReportError(cx, "wrong number of arguments: %d, was expecting %d", argc, 3);
+	return JS_FALSE;
+}
+JSBool js_cocos2dx_CCScheduler_unscheduleAllSelectorsWithMinPriority(JSContext *cx, uint32_t argc, jsval *vp)
+{
+	jsval *argv = JS_ARGV(cx, vp);
+	JSObject *obj = JS_THIS_OBJECT(cx, vp);
+	js_proxy_t *proxy; JS_GET_NATIVE_PROXY(proxy, obj);
+	cocos2d::CCScheduler* cobj = (cocos2d::CCScheduler *)(proxy ? proxy->ptr : NULL);
+	TEST_NATIVE_OBJECT(cx, cobj)
+
+	if (argc == 1) {
+		int arg0;
+		JS_ValueToInt32(cx, argv[0], (int32_t *)&arg0);
+		cobj->unscheduleAllSelectorsWithMinPriority(arg0);
+		return JS_TRUE;
+	}
+	JS_ReportError(cx, "wrong number of arguments: %d, was expecting %d", argc, 1);
+	return JS_FALSE;
+}
+JSBool js_cocos2dx_CCScheduler_isTargetPaused(JSContext *cx, uint32_t argc, jsval *vp)
+{
+	jsval *argv = JS_ARGV(cx, vp);
+	JSObject *obj = JS_THIS_OBJECT(cx, vp);
+	js_proxy_t *proxy; JS_GET_NATIVE_PROXY(proxy, obj);
+	cocos2d::CCScheduler* cobj = (cocos2d::CCScheduler *)(proxy ? proxy->ptr : NULL);
+	TEST_NATIVE_OBJECT(cx, cobj)
+
+	if (argc == 1) {
+		cocos2d::CCObject* arg0;
+		do {
+			js_proxy_t *proxy;
+			JSObject *tmpObj = JSVAL_TO_OBJECT(argv[0]);
+			JS_GET_NATIVE_PROXY(proxy, tmpObj);
+			arg0 = (cocos2d::CCObject*)(proxy ? proxy->ptr : NULL);
+			TEST_NATIVE_OBJECT(cx, arg0)
+		} while (0);
+		bool ret = cobj->isTargetPaused(arg0);
+		jsval jsret;
+		jsret = BOOLEAN_TO_JSVAL(ret);
+		JS_SET_RVAL(cx, vp, jsret);
+		return JS_TRUE;
+	}
+	JS_ReportError(cx, "wrong number of arguments: %d, was expecting %d", argc, 1);
+	return JS_FALSE;
+}
+JSBool js_cocos2dx_CCScheduler_update(JSContext *cx, uint32_t argc, jsval *vp)
+{
+	jsval *argv = JS_ARGV(cx, vp);
+	JSObject *obj = JS_THIS_OBJECT(cx, vp);
+	js_proxy_t *proxy; JS_GET_NATIVE_PROXY(proxy, obj);
+	cocos2d::CCScheduler* cobj = (cocos2d::CCScheduler *)(proxy ? proxy->ptr : NULL);
+	TEST_NATIVE_OBJECT(cx, cobj)
+
+	if (argc == 1) {
+		double arg0;
+		JS_ValueToNumber(cx, argv[0], &arg0);
+		cobj->update(arg0);
+		return JS_TRUE;
+	}
+	JS_ReportError(cx, "wrong number of arguments: %d, was expecting %d", argc, 1);
+	return JS_FALSE;
+}
+JSBool js_cocos2dx_CCScheduler_resumeTarget(JSContext *cx, uint32_t argc, jsval *vp)
+{
+	jsval *argv = JS_ARGV(cx, vp);
+	JSObject *obj = JS_THIS_OBJECT(cx, vp);
+	js_proxy_t *proxy; JS_GET_NATIVE_PROXY(proxy, obj);
+	cocos2d::CCScheduler* cobj = (cocos2d::CCScheduler *)(proxy ? proxy->ptr : NULL);
+	TEST_NATIVE_OBJECT(cx, cobj)
+
+	if (argc == 1) {
+		cocos2d::CCObject* arg0;
+		do {
+			js_proxy_t *proxy;
+			JSObject *tmpObj = JSVAL_TO_OBJECT(argv[0]);
+			JS_GET_NATIVE_PROXY(proxy, tmpObj);
+			arg0 = (cocos2d::CCObject*)(proxy ? proxy->ptr : NULL);
+			TEST_NATIVE_OBJECT(cx, arg0)
+		} while (0);
+		cobj->resumeTarget(arg0);
+		return JS_TRUE;
+	}
+	JS_ReportError(cx, "wrong number of arguments: %d, was expecting %d", argc, 1);
+	return JS_FALSE;
+}
+JSBool js_cocos2dx_CCScheduler_unscheduleScriptEntry(JSContext *cx, uint32_t argc, jsval *vp)
+{
+	jsval *argv = JS_ARGV(cx, vp);
+	JSObject *obj = JS_THIS_OBJECT(cx, vp);
+	js_proxy_t *proxy; JS_GET_NATIVE_PROXY(proxy, obj);
+	cocos2d::CCScheduler* cobj = (cocos2d::CCScheduler *)(proxy ? proxy->ptr : NULL);
+	TEST_NATIVE_OBJECT(cx, cobj)
+
+	if (argc == 1) {
+		unsigned int arg0;
+		JS_ValueToECMAUint32(cx, argv[0], &arg0);
+		cobj->unscheduleScriptEntry(arg0);
+		return JS_TRUE;
+	}
+	JS_ReportError(cx, "wrong number of arguments: %d, was expecting %d", argc, 1);
+	return JS_FALSE;
+}
+JSBool js_cocos2dx_CCScheduler_resumeTargets(JSContext *cx, uint32_t argc, jsval *vp)
+{
+	jsval *argv = JS_ARGV(cx, vp);
+	JSObject *obj = JS_THIS_OBJECT(cx, vp);
+	js_proxy_t *proxy; JS_GET_NATIVE_PROXY(proxy, obj);
+	cocos2d::CCScheduler* cobj = (cocos2d::CCScheduler *)(proxy ? proxy->ptr : NULL);
+	TEST_NATIVE_OBJECT(cx, cobj)
+
+	if (argc == 1) {
+		cocos2d::CCSet* arg0;
+		do {
+			js_proxy_t *proxy;
+			JSObject *tmpObj = JSVAL_TO_OBJECT(argv[0]);
+			JS_GET_NATIVE_PROXY(proxy, tmpObj);
+			arg0 = (cocos2d::CCSet*)(proxy ? proxy->ptr : NULL);
+			TEST_NATIVE_OBJECT(cx, arg0)
+		} while (0);
+		cobj->resumeTargets(arg0);
+		return JS_TRUE;
+	}
+	JS_ReportError(cx, "wrong number of arguments: %d, was expecting %d", argc, 1);
+	return JS_FALSE;
+}
+JSBool js_cocos2dx_CCScheduler_unscheduleAllSelectors(JSContext *cx, uint32_t argc, jsval *vp)
+{
+	JSObject *obj = JS_THIS_OBJECT(cx, vp);
+	js_proxy_t *proxy; JS_GET_NATIVE_PROXY(proxy, obj);
+	cocos2d::CCScheduler* cobj = (cocos2d::CCScheduler *)(proxy ? proxy->ptr : NULL);
+	TEST_NATIVE_OBJECT(cx, cobj)
+
+	if (argc == 0) {
+		cobj->unscheduleAllSelectors();
+		return JS_TRUE;
+	}
+	JS_ReportError(cx, "wrong number of arguments: %d, was expecting %d", argc, 0);
+	return JS_FALSE;
+}
+JSBool js_cocos2dx_CCScheduler_unscheduleAllSelectorsForTarget(JSContext *cx, uint32_t argc, jsval *vp)
+{
+	jsval *argv = JS_ARGV(cx, vp);
+	JSObject *obj = JS_THIS_OBJECT(cx, vp);
+	js_proxy_t *proxy; JS_GET_NATIVE_PROXY(proxy, obj);
+	cocos2d::CCScheduler* cobj = (cocos2d::CCScheduler *)(proxy ? proxy->ptr : NULL);
+	TEST_NATIVE_OBJECT(cx, cobj)
+
+	if (argc == 1) {
+		cocos2d::CCObject* arg0;
+		do {
+			js_proxy_t *proxy;
+			JSObject *tmpObj = JSVAL_TO_OBJECT(argv[0]);
+			JS_GET_NATIVE_PROXY(proxy, tmpObj);
+			arg0 = (cocos2d::CCObject*)(proxy ? proxy->ptr : NULL);
+			TEST_NATIVE_OBJECT(cx, arg0)
+		} while (0);
+		cobj->unscheduleAllSelectorsForTarget(arg0);
+		return JS_TRUE;
+	}
+	JS_ReportError(cx, "wrong number of arguments: %d, was expecting %d", argc, 1);
+	return JS_FALSE;
+}
+JSBool js_cocos2dx_CCScheduler_pauseTarget(JSContext *cx, uint32_t argc, jsval *vp)
+{
+	jsval *argv = JS_ARGV(cx, vp);
+	JSObject *obj = JS_THIS_OBJECT(cx, vp);
+	js_proxy_t *proxy; JS_GET_NATIVE_PROXY(proxy, obj);
+	cocos2d::CCScheduler* cobj = (cocos2d::CCScheduler *)(proxy ? proxy->ptr : NULL);
+	TEST_NATIVE_OBJECT(cx, cobj)
+
+	if (argc == 1) {
+		cocos2d::CCObject* arg0;
+		do {
+			js_proxy_t *proxy;
+			JSObject *tmpObj = JSVAL_TO_OBJECT(argv[0]);
+			JS_GET_NATIVE_PROXY(proxy, tmpObj);
+			arg0 = (cocos2d::CCObject*)(proxy ? proxy->ptr : NULL);
+			TEST_NATIVE_OBJECT(cx, arg0)
+		} while (0);
+		cobj->pauseTarget(arg0);
+		return JS_TRUE;
+	}
+	JS_ReportError(cx, "wrong number of arguments: %d, was expecting %d", argc, 1);
+	return JS_FALSE;
+}
+JSBool js_cocos2dx_CCScheduler_pauseAllTargetsWithMinPriority(JSContext *cx, uint32_t argc, jsval *vp)
+{
+	jsval *argv = JS_ARGV(cx, vp);
+	JSObject *obj = JS_THIS_OBJECT(cx, vp);
+	js_proxy_t *proxy; JS_GET_NATIVE_PROXY(proxy, obj);
+	cocos2d::CCScheduler* cobj = (cocos2d::CCScheduler *)(proxy ? proxy->ptr : NULL);
+	TEST_NATIVE_OBJECT(cx, cobj)
+
+	if (argc == 1) {
+		int arg0;
+		JS_ValueToInt32(cx, argv[0], (int32_t *)&arg0);
+		cocos2d::CCSet* ret = cobj->pauseAllTargetsWithMinPriority(arg0);
+		jsval jsret;
+		do {
+			if (ret) {
+				js_proxy_t *proxy = js_get_or_create_proxy<cocos2d::CCSet>(cx, ret);
+				jsret = OBJECT_TO_JSVAL(proxy->obj);
+			} else {
+				jsret = JSVAL_NULL;
+			}
+		} while (0);
+		JS_SET_RVAL(cx, vp, jsret);
+		return JS_TRUE;
+	}
+	JS_ReportError(cx, "wrong number of arguments: %d, was expecting %d", argc, 1);
+	return JS_FALSE;
+}
+JSBool js_cocos2dx_CCScheduler_scheduleScriptFunc(JSContext *cx, uint32_t argc, jsval *vp)
+{
+	jsval *argv = JS_ARGV(cx, vp);
+	JSObject *obj = JS_THIS_OBJECT(cx, vp);
+	js_proxy_t *proxy; JS_GET_NATIVE_PROXY(proxy, obj);
+	cocos2d::CCScheduler* cobj = (cocos2d::CCScheduler *)(proxy ? proxy->ptr : NULL);
+	TEST_NATIVE_OBJECT(cx, cobj)
+
+	if (argc == 3) {
+		unsigned int arg0;
+		double arg1;
+		JSBool arg2;
+		JS_ValueToECMAUint32(cx, argv[0], &arg0);
+		JS_ValueToNumber(cx, argv[1], &arg1);
+		JS_ValueToBoolean(cx, argv[2], &arg2);
+		unsigned int ret = cobj->scheduleScriptFunc(arg0, arg1, arg2);
+		jsval jsret;
+		JS_NewNumberValue(cx, ret, &jsret);
+		JS_SET_RVAL(cx, vp, jsret);
+		return JS_TRUE;
+	}
+	JS_ReportError(cx, "wrong number of arguments: %d, was expecting %d", argc, 3);
+	return JS_FALSE;
+}
+JSBool js_cocos2dx_CCScheduler_getTimeScale(JSContext *cx, uint32_t argc, jsval *vp)
+{
+	JSObject *obj = JS_THIS_OBJECT(cx, vp);
+	js_proxy_t *proxy; JS_GET_NATIVE_PROXY(proxy, obj);
+	cocos2d::CCScheduler* cobj = (cocos2d::CCScheduler *)(proxy ? proxy->ptr : NULL);
+	TEST_NATIVE_OBJECT(cx, cobj)
+
+	if (argc == 0) {
+		float ret = cobj->getTimeScale();
+		jsval jsret;
+		JS_NewNumberValue(cx, ret, &jsret);
+		JS_SET_RVAL(cx, vp, jsret);
+		return JS_TRUE;
+	}
+	JS_ReportError(cx, "wrong number of arguments: %d, was expecting %d", argc, 0);
+	return JS_FALSE;
+}
+JSBool js_cocos2dx_CCScheduler_constructor(JSContext *cx, uint32_t argc, jsval *vp)
+{
+
+	if (argc == 0) {
+		cocos2d::CCScheduler* cobj = new cocos2d::CCScheduler();
+#ifdef COCOS2D_JAVASCRIPT
+		cocos2d::CCObject *_ccobj = dynamic_cast<cocos2d::CCObject *>(cobj);
+		if (_ccobj) {
+			_ccobj->autorelease();
+		}
+#endif
+		TypeTest<cocos2d::CCScheduler> t;
+		js_type_class_t *typeClass;
+		uint32_t typeId = t.s_id();
+		HASH_FIND_INT(_js_global_type_ht, &typeId, typeClass);
+		assert(typeClass);
+		JSObject *obj = JS_NewObject(cx, typeClass->jsclass, typeClass->proto, typeClass->parentProto);
+		JS_SET_RVAL(cx, vp, OBJECT_TO_JSVAL(obj));
+		// link the native object with the javascript object
+		js_proxy_t *p;
+		JS_NEW_PROXY(p, cobj, obj);
+#ifdef COCOS2D_JAVASCRIPT
+		JS_AddNamedObjectRoot(cx, &p->obj, "cocos2d::CCScheduler");
+#endif
+		return JS_TRUE;
+	}
+	JS_ReportError(cx, "wrong number of arguments: %d, was expecting %d", argc, 0);
+	return JS_FALSE;
+}
+
+
+
+void js_cocos2dx_CCScheduler_finalize(JSFreeOp *fop, JSObject *obj) {
+}
+
+void js_register_cocos2dx_CCScheduler(JSContext *cx, JSObject *global) {
+	js_cocos2dx_CCScheduler_class = (JSClass *)calloc(1, sizeof(JSClass));
+	js_cocos2dx_CCScheduler_class->name = "Scheduler";
+	js_cocos2dx_CCScheduler_class->addProperty = JS_PropertyStub;
+	js_cocos2dx_CCScheduler_class->delProperty = JS_PropertyStub;
+	js_cocos2dx_CCScheduler_class->getProperty = JS_PropertyStub;
+	js_cocos2dx_CCScheduler_class->setProperty = JS_StrictPropertyStub;
+	js_cocos2dx_CCScheduler_class->enumerate = JS_EnumerateStub;
+	js_cocos2dx_CCScheduler_class->resolve = JS_ResolveStub;
+	js_cocos2dx_CCScheduler_class->convert = JS_ConvertStub;
+	js_cocos2dx_CCScheduler_class->finalize = js_cocos2dx_CCScheduler_finalize;
+	js_cocos2dx_CCScheduler_class->flags = JSCLASS_HAS_RESERVED_SLOTS(2);
+
+	static JSPropertySpec properties[] = {
+		{0, 0, 0, 0, 0}
+	};
+
+	static JSFunctionSpec funcs[] = {
+		JS_FN("pauseAllTargets", js_cocos2dx_CCScheduler_pauseAllTargets, 0, JSPROP_PERMANENT | JSPROP_SHARED),
+		JS_FN("setTimeScale", js_cocos2dx_CCScheduler_setTimeScale, 1, JSPROP_PERMANENT | JSPROP_SHARED),
+		JS_FN("unscheduleUpdateForTarget", js_cocos2dx_CCScheduler_unscheduleUpdateForTarget, 1, JSPROP_PERMANENT | JSPROP_SHARED),
+		JS_FN("scheduleUpdateForTarget", js_cocos2dx_CCScheduler_scheduleUpdateForTarget, 3, JSPROP_PERMANENT | JSPROP_SHARED),
+		JS_FN("unscheduleAllSelectorsWithMinPriority", js_cocos2dx_CCScheduler_unscheduleAllSelectorsWithMinPriority, 1, JSPROP_PERMANENT | JSPROP_SHARED),
+		JS_FN("isTargetPaused", js_cocos2dx_CCScheduler_isTargetPaused, 1, JSPROP_PERMANENT | JSPROP_SHARED),
+		JS_FN("update", js_cocos2dx_CCScheduler_update, 1, JSPROP_PERMANENT | JSPROP_SHARED),
+		JS_FN("resumeTarget", js_cocos2dx_CCScheduler_resumeTarget, 1, JSPROP_PERMANENT | JSPROP_SHARED),
+		JS_FN("unscheduleScriptEntry", js_cocos2dx_CCScheduler_unscheduleScriptEntry, 1, JSPROP_PERMANENT | JSPROP_SHARED),
+		JS_FN("resumeTargets", js_cocos2dx_CCScheduler_resumeTargets, 1, JSPROP_PERMANENT | JSPROP_SHARED),
+		JS_FN("unscheduleAllSelectors", js_cocos2dx_CCScheduler_unscheduleAllSelectors, 0, JSPROP_PERMANENT | JSPROP_SHARED),
+		JS_FN("unscheduleAllSelectorsForTarget", js_cocos2dx_CCScheduler_unscheduleAllSelectorsForTarget, 1, JSPROP_PERMANENT | JSPROP_SHARED),
+		JS_FN("pauseTarget", js_cocos2dx_CCScheduler_pauseTarget, 1, JSPROP_PERMANENT | JSPROP_SHARED),
+		JS_FN("pauseAllTargetsWithMinPriority", js_cocos2dx_CCScheduler_pauseAllTargetsWithMinPriority, 1, JSPROP_PERMANENT | JSPROP_SHARED),
+		JS_FN("scheduleScriptFunc", js_cocos2dx_CCScheduler_scheduleScriptFunc, 3, JSPROP_PERMANENT | JSPROP_SHARED),
+		JS_FN("getTimeScale", js_cocos2dx_CCScheduler_getTimeScale, 0, JSPROP_PERMANENT | JSPROP_SHARED),
+		JS_FS_END
+	};
+
+	JSFunctionSpec *st_funcs = NULL;
+
+	js_cocos2dx_CCScheduler_prototype = JS_InitClass(
+		cx, global,
+		NULL, // parent proto
+		js_cocos2dx_CCScheduler_class,
+		js_cocos2dx_CCScheduler_constructor, 0, // constructor
+		properties,
+		funcs,
+		NULL, // no static properties
+		st_funcs);
+
+	// add the proto and JSClass to the type->js info hash table
+	TypeTest<cocos2d::CCScheduler> t;
+	js_type_class_t *p;
+	uint32_t typeId = t.s_id();
+	HASH_FIND_INT(_js_global_type_ht, &typeId, p);
+	if (!p) {
+		p = (js_type_class_t *)malloc(sizeof(js_type_class_t));
+		p->type = typeId;
+		p->jsclass = js_cocos2dx_CCScheduler_class;
+		p->proto = js_cocos2dx_CCScheduler_prototype;
+		p->parentProto = NULL;
+		HASH_ADD_INT(_js_global_type_ht, type, p);
+	}
+}
+
+
 JSClass  *js_cocos2dx_SimpleAudioEngine_class;
 JSObject *js_cocos2dx_SimpleAudioEngine_prototype;
 
@@ -45372,6 +46329,7 @@ void register_all_cocos2dx(JSContext* cx, JSObject* obj) {
 	js_register_cocos2dx_CCMenuItemToggle(cx, obj);
 	js_register_cocos2dx_CCLabelAtlas(cx, obj);
 	js_register_cocos2dx_CCTransitionProgressInOut(cx, obj);
+	js_register_cocos2dx_CCOrbitCamera(cx, obj);
 	js_register_cocos2dx_CCAnimationFrame(cx, obj);
 	js_register_cocos2dx_CCParallaxNode(cx, obj);
 	js_register_cocos2dx_CCTransitionProgressHorizontal(cx, obj);
@@ -45384,6 +46342,7 @@ void register_all_cocos2dx(JSContext* cx, JSObject* obj) {
 	js_register_cocos2dx_CCTransitionProgressRadialCW(cx, obj);
 	js_register_cocos2dx_CCRotateBy(cx, obj);
 	js_register_cocos2dx_CCFadeOutBLTiles(cx, obj);
+	js_register_cocos2dx_CCScheduler(cx, obj);
 	js_register_cocos2dx_CCEaseIn(cx, obj);
 	js_register_cocos2dx_CCParticleFire(cx, obj);
 	js_register_cocos2dx_CCTransitionProgressRadialCCW(cx, obj);
@@ -45411,6 +46370,7 @@ void register_all_cocos2dx(JSContext* cx, JSObject* obj) {
 	js_register_cocos2dx_CCEaseBounce(cx, obj);
 	js_register_cocos2dx_CCEaseBounceIn(cx, obj);
 	js_register_cocos2dx_CCDirector(cx, obj);
+	js_register_cocos2dx_CCTimer(cx, obj);
 	js_register_cocos2dx_CCProgressTimer(cx, obj);
 	js_register_cocos2dx_CCEaseBounceInOut(cx, obj);
 	js_register_cocos2dx_CCActionTween(cx, obj);

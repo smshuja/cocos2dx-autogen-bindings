@@ -800,6 +800,12 @@ scheduleUpdate : function () {},
 stopAction : function () {},
 
 /**
+ * @method getActionManager
+ * @return A value converted from C/C++ "cocos2d::CCActionManager*"
+ */
+getActionManager : function () {},
+
+/**
  * @method node
  * @return A value converted from C/C++ "cocos2d::CCNode*"
  */
@@ -2477,6 +2483,78 @@ reverse : function () {},
  * @constructor
  */
 CCActionCamera : function () {},
+
+};
+
+/**
+ * @class CCOrbitCamera
+ */
+cc.CCOrbitCamera = {
+
+/**
+ * @method startWithTarget
+ * @param {cocos2d::CCNode*}
+ */
+startWithTarget : function () {},
+
+/**
+ * @method initWithDuration
+ * @return A value converted from C/C++ "bool"
+ * @param {float}
+ * @param {float}
+ * @param {float}
+ * @param {float}
+ * @param {float}
+ * @param {float}
+ * @param {float}
+ */
+initWithDuration : function () {},
+
+/**
+ * @method sphericalRadius
+ * @param {float*}
+ * @param {float*}
+ * @param {float*}
+ */
+sphericalRadius : function () {},
+
+/**
+ * @method update
+ * @param {float}
+ */
+update : function () {},
+
+/**
+ * @method create
+ * @return A value converted from C/C++ "cocos2d::CCOrbitCamera*"
+ * @param {float}
+ * @param {float}
+ * @param {float}
+ * @param {float}
+ * @param {float}
+ * @param {float}
+ * @param {float}
+ */
+create : function () {},
+
+/**
+ * @method actionWithDuration
+ * @return A value converted from C/C++ "cocos2d::CCOrbitCamera*"
+ * @param {float}
+ * @param {float}
+ * @param {float}
+ * @param {float}
+ * @param {float}
+ * @param {float}
+ * @param {float}
+ */
+actionWithDuration : function () {},
+
+/**
+ * @method CCOrbitCamera
+ * @constructor
+ */
+CCOrbitCamera : function () {},
 
 };
 
@@ -5421,6 +5499,12 @@ replaceScene : function () {},
  * @param {double}
  */
 setAnimationInterval : function () {},
+
+/**
+ * @method getActionManager
+ * @return A value converted from C/C++ "cocos2d::CCActionManager*"
+ */
+getActionManager : function () {},
 
 /**
  * @method sharedDirector
@@ -10457,6 +10541,174 @@ tileMapAtlasWithTileFile : function () {},
  * @constructor
  */
 CCTileMapAtlas : function () {},
+
+};
+
+/**
+ * @class CCTimer
+ */
+cc.CCTimer = {
+
+/**
+ * @method getInterval
+ * @return A value converted from C/C++ "float"
+ */
+getInterval : function () {},
+
+/**
+ * @method setInterval
+ * @param {float}
+ */
+setInterval : function () {},
+
+/**
+ * @method initWithScriptHandler
+ * @return A value converted from C/C++ "bool"
+ * @param {int}
+ * @param {float}
+ */
+initWithScriptHandler : function () {},
+
+/**
+ * @method update
+ * @param {float}
+ */
+update : function () {},
+
+/**
+ * @method getScriptHandler
+ * @return A value converted from C/C++ "int"
+ */
+getScriptHandler : function () {},
+
+/**
+ * @method timerWithScriptHandler
+ * @return A value converted from C/C++ "cocos2d::CCTimer*"
+ * @param {int}
+ * @param {float}
+ */
+timerWithScriptHandler : function () {},
+
+/**
+ * @method CCTimer
+ * @constructor
+ */
+CCTimer : function () {},
+
+};
+
+/**
+ * @class CCScheduler
+ */
+cc.CCScheduler = {
+
+/**
+ * @method pauseAllTargets
+ * @return A value converted from C/C++ "cocos2d::CCSet*"
+ */
+pauseAllTargets : function () {},
+
+/**
+ * @method setTimeScale
+ * @param {float}
+ */
+setTimeScale : function () {},
+
+/**
+ * @method unscheduleUpdateForTarget
+ * @param {cocos2d::CCObject*}
+ */
+unscheduleUpdateForTarget : function () {},
+
+/**
+ * @method scheduleUpdateForTarget
+ * @param {cocos2d::CCObject*}
+ * @param {int}
+ * @param {bool}
+ */
+scheduleUpdateForTarget : function () {},
+
+/**
+ * @method unscheduleAllSelectorsWithMinPriority
+ * @param {int}
+ */
+unscheduleAllSelectorsWithMinPriority : function () {},
+
+/**
+ * @method isTargetPaused
+ * @return A value converted from C/C++ "bool"
+ * @param {cocos2d::CCObject*}
+ */
+isTargetPaused : function () {},
+
+/**
+ * @method update
+ * @param {float}
+ */
+update : function () {},
+
+/**
+ * @method resumeTarget
+ * @param {cocos2d::CCObject*}
+ */
+resumeTarget : function () {},
+
+/**
+ * @method unscheduleScriptEntry
+ * @param {unsigned int}
+ */
+unscheduleScriptEntry : function () {},
+
+/**
+ * @method resumeTargets
+ * @param {cocos2d::CCSet*}
+ */
+resumeTargets : function () {},
+
+/**
+ * @method unscheduleAllSelectors
+ */
+unscheduleAllSelectors : function () {},
+
+/**
+ * @method unscheduleAllSelectorsForTarget
+ * @param {cocos2d::CCObject*}
+ */
+unscheduleAllSelectorsForTarget : function () {},
+
+/**
+ * @method pauseTarget
+ * @param {cocos2d::CCObject*}
+ */
+pauseTarget : function () {},
+
+/**
+ * @method pauseAllTargetsWithMinPriority
+ * @return A value converted from C/C++ "cocos2d::CCSet*"
+ * @param {int}
+ */
+pauseAllTargetsWithMinPriority : function () {},
+
+/**
+ * @method scheduleScriptFunc
+ * @return A value converted from C/C++ "unsigned int"
+ * @param {unsigned int}
+ * @param {float}
+ * @param {bool}
+ */
+scheduleScriptFunc : function () {},
+
+/**
+ * @method getTimeScale
+ * @return A value converted from C/C++ "float"
+ */
+getTimeScale : function () {},
+
+/**
+ * @method CCScheduler
+ * @constructor
+ */
+CCScheduler : function () {},
 
 };
 

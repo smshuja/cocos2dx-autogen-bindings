@@ -180,6 +180,7 @@ JSBool js_cocos2dx_CCNode_getScale(JSContext *cx, uint32_t argc, jsval *vp);
 JSBool js_cocos2dx_CCNode_setTag(JSContext *cx, uint32_t argc, jsval *vp);
 JSBool js_cocos2dx_CCNode_scheduleUpdate(JSContext *cx, uint32_t argc, jsval *vp);
 JSBool js_cocos2dx_CCNode_stopAction(JSContext *cx, uint32_t argc, jsval *vp);
+JSBool js_cocos2dx_CCNode_getActionManager(JSContext *cx, uint32_t argc, jsval *vp);
 JSBool js_cocos2dx_CCNode_node(JSContext *cx, uint32_t argc, jsval *vp);
 JSBool js_cocos2dx_CCNode_create(JSContext *cx, uint32_t argc, jsval *vp);
 JSBool js_cocos2dx_CCNode_CCNode(JSContext *cx, uint32_t argc, jsval *vp);
@@ -646,6 +647,21 @@ void register_all_cocos2dx(JSContext* cx, JSObject* obj);
 JSBool js_cocos2dx_CCActionCamera_startWithTarget(JSContext *cx, uint32_t argc, jsval *vp);
 JSBool js_cocos2dx_CCActionCamera_reverse(JSContext *cx, uint32_t argc, jsval *vp);
 JSBool js_cocos2dx_CCActionCamera_CCActionCamera(JSContext *cx, uint32_t argc, jsval *vp);
+
+extern JSClass  *js_cocos2dx_CCOrbitCamera_class;
+extern JSObject *js_cocos2dx_CCOrbitCamera_prototype;
+
+JSBool js_cocos2dx_CCOrbitCamera_constructor(JSContext *cx, uint32_t argc, jsval *vp);
+void js_cocos2dx_CCOrbitCamera_finalize(JSContext *cx, JSObject *obj);
+void js_register_cocos2dx_CCOrbitCamera(JSContext *cx, JSObject *global);
+void register_all_cocos2dx(JSContext* cx, JSObject* obj);
+JSBool js_cocos2dx_CCOrbitCamera_startWithTarget(JSContext *cx, uint32_t argc, jsval *vp);
+JSBool js_cocos2dx_CCOrbitCamera_initWithDuration(JSContext *cx, uint32_t argc, jsval *vp);
+JSBool js_cocos2dx_CCOrbitCamera_sphericalRadius(JSContext *cx, uint32_t argc, jsval *vp);
+JSBool js_cocos2dx_CCOrbitCamera_update(JSContext *cx, uint32_t argc, jsval *vp);
+JSBool js_cocos2dx_CCOrbitCamera_create(JSContext *cx, uint32_t argc, jsval *vp);
+JSBool js_cocos2dx_CCOrbitCamera_actionWithDuration(JSContext *cx, uint32_t argc, jsval *vp);
+JSBool js_cocos2dx_CCOrbitCamera_CCOrbitCamera(JSContext *cx, uint32_t argc, jsval *vp);
 
 extern JSClass  *js_cocos2dx_CCActionManager_class;
 extern JSObject *js_cocos2dx_CCActionManager_prototype;
@@ -1491,6 +1507,7 @@ JSBool js_cocos2dx_CCDirector_isPaused(JSContext *cx, uint32_t argc, jsval *vp);
 JSBool js_cocos2dx_CCDirector_setDisplayStats(JSContext *cx, uint32_t argc, jsval *vp);
 JSBool js_cocos2dx_CCDirector_replaceScene(JSContext *cx, uint32_t argc, jsval *vp);
 JSBool js_cocos2dx_CCDirector_setAnimationInterval(JSContext *cx, uint32_t argc, jsval *vp);
+JSBool js_cocos2dx_CCDirector_getActionManager(JSContext *cx, uint32_t argc, jsval *vp);
 JSBool js_cocos2dx_CCDirector_sharedDirector(JSContext *cx, uint32_t argc, jsval *vp);
 
 extern JSClass  *js_cocos2dx_CCLabelAtlas_class;
@@ -2862,6 +2879,46 @@ JSBool js_cocos2dx_CCTileMapAtlas_setTGAInfo(JSContext *cx, uint32_t argc, jsval
 JSBool js_cocos2dx_CCTileMapAtlas_create(JSContext *cx, uint32_t argc, jsval *vp);
 JSBool js_cocos2dx_CCTileMapAtlas_tileMapAtlasWithTileFile(JSContext *cx, uint32_t argc, jsval *vp);
 JSBool js_cocos2dx_CCTileMapAtlas_CCTileMapAtlas(JSContext *cx, uint32_t argc, jsval *vp);
+
+extern JSClass  *js_cocos2dx_CCTimer_class;
+extern JSObject *js_cocos2dx_CCTimer_prototype;
+
+JSBool js_cocos2dx_CCTimer_constructor(JSContext *cx, uint32_t argc, jsval *vp);
+void js_cocos2dx_CCTimer_finalize(JSContext *cx, JSObject *obj);
+void js_register_cocos2dx_CCTimer(JSContext *cx, JSObject *global);
+void register_all_cocos2dx(JSContext* cx, JSObject* obj);
+JSBool js_cocos2dx_CCTimer_getInterval(JSContext *cx, uint32_t argc, jsval *vp);
+JSBool js_cocos2dx_CCTimer_setInterval(JSContext *cx, uint32_t argc, jsval *vp);
+JSBool js_cocos2dx_CCTimer_initWithScriptHandler(JSContext *cx, uint32_t argc, jsval *vp);
+JSBool js_cocos2dx_CCTimer_update(JSContext *cx, uint32_t argc, jsval *vp);
+JSBool js_cocos2dx_CCTimer_getScriptHandler(JSContext *cx, uint32_t argc, jsval *vp);
+JSBool js_cocos2dx_CCTimer_timerWithScriptHandler(JSContext *cx, uint32_t argc, jsval *vp);
+JSBool js_cocos2dx_CCTimer_CCTimer(JSContext *cx, uint32_t argc, jsval *vp);
+
+extern JSClass  *js_cocos2dx_CCScheduler_class;
+extern JSObject *js_cocos2dx_CCScheduler_prototype;
+
+JSBool js_cocos2dx_CCScheduler_constructor(JSContext *cx, uint32_t argc, jsval *vp);
+void js_cocos2dx_CCScheduler_finalize(JSContext *cx, JSObject *obj);
+void js_register_cocos2dx_CCScheduler(JSContext *cx, JSObject *global);
+void register_all_cocos2dx(JSContext* cx, JSObject* obj);
+JSBool js_cocos2dx_CCScheduler_pauseAllTargets(JSContext *cx, uint32_t argc, jsval *vp);
+JSBool js_cocos2dx_CCScheduler_setTimeScale(JSContext *cx, uint32_t argc, jsval *vp);
+JSBool js_cocos2dx_CCScheduler_unscheduleUpdateForTarget(JSContext *cx, uint32_t argc, jsval *vp);
+JSBool js_cocos2dx_CCScheduler_scheduleUpdateForTarget(JSContext *cx, uint32_t argc, jsval *vp);
+JSBool js_cocos2dx_CCScheduler_unscheduleAllSelectorsWithMinPriority(JSContext *cx, uint32_t argc, jsval *vp);
+JSBool js_cocos2dx_CCScheduler_isTargetPaused(JSContext *cx, uint32_t argc, jsval *vp);
+JSBool js_cocos2dx_CCScheduler_update(JSContext *cx, uint32_t argc, jsval *vp);
+JSBool js_cocos2dx_CCScheduler_resumeTarget(JSContext *cx, uint32_t argc, jsval *vp);
+JSBool js_cocos2dx_CCScheduler_unscheduleScriptEntry(JSContext *cx, uint32_t argc, jsval *vp);
+JSBool js_cocos2dx_CCScheduler_resumeTargets(JSContext *cx, uint32_t argc, jsval *vp);
+JSBool js_cocos2dx_CCScheduler_unscheduleAllSelectors(JSContext *cx, uint32_t argc, jsval *vp);
+JSBool js_cocos2dx_CCScheduler_unscheduleAllSelectorsForTarget(JSContext *cx, uint32_t argc, jsval *vp);
+JSBool js_cocos2dx_CCScheduler_pauseTarget(JSContext *cx, uint32_t argc, jsval *vp);
+JSBool js_cocos2dx_CCScheduler_pauseAllTargetsWithMinPriority(JSContext *cx, uint32_t argc, jsval *vp);
+JSBool js_cocos2dx_CCScheduler_scheduleScriptFunc(JSContext *cx, uint32_t argc, jsval *vp);
+JSBool js_cocos2dx_CCScheduler_getTimeScale(JSContext *cx, uint32_t argc, jsval *vp);
+JSBool js_cocos2dx_CCScheduler_CCScheduler(JSContext *cx, uint32_t argc, jsval *vp);
 
 extern JSClass  *js_cocos2dx_SimpleAudioEngine_class;
 extern JSObject *js_cocos2dx_SimpleAudioEngine_prototype;
