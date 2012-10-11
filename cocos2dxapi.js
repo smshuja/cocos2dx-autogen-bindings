@@ -610,12 +610,6 @@ getScheduler : function () {},
 getOrderOfArrival : function () {},
 
 /**
- * @method boundingBox
- * @return A value converted from C/C++ "cocos2d::CCRect"
- */
-boundingBox : function () {},
-
-/**
  * @method setContentSize
  * @param {cocos2d::CCSize}
  */
@@ -728,6 +722,12 @@ getContentSize : function () {},
  * @param {cocos2d::CCGridBase*}
  */
 setGrid : function () {},
+
+/**
+ * @method boundingBox
+ * @return A value converted from C/C++ "cocos2d::CCRect"
+ */
+boundingBox : function () {},
 
 /**
  * @method draw
@@ -4691,12 +4691,6 @@ setTexture : function () {},
 draw : function () {},
 
 /**
- * @method getBlendFunc
- * @return A value converted from C/C++ "ccBlendFunc"
- */
-getBlendFunc : function () {},
-
-/**
  * @method setColor
  * @param {cocos2d::ccColor3B}
  */
@@ -4707,12 +4701,6 @@ setColor : function () {},
  * @param {unsigned char}
  */
 setOpacity : function () {},
-
-/**
- * @method setBlendFunc
- * @param {ccBlendFunc}
- */
-setBlendFunc : function () {},
 
 /**
  * @method getTexture
@@ -5630,12 +5618,6 @@ lowestAtlasIndexInChild : function () {},
 draw : function () {},
 
 /**
- * @method getBlendFunc
- * @return A value converted from C/C++ "ccBlendFunc"
- */
-getBlendFunc : function () {},
-
-/**
  * @method initWithTexture
  * @return A value converted from C/C++ "bool"
  * @param {cocos2d::CCTexture2D*}
@@ -5674,12 +5656,6 @@ reorderChild : function () {},
  * @param {unsigned int}
  */
 initWithFile : function () {},
-
-/**
- * @method setBlendFunc
- * @param {ccBlendFunc}
- */
-setBlendFunc : function () {},
 
 /**
  * @method rebuildIndexInOrder
@@ -8322,12 +8298,6 @@ getTexture : function () {},
 visit : function () {},
 
 /**
- * @method setBlendFunc
- * @param {ccBlendFunc}
- */
-setBlendFunc : function () {},
-
-/**
  * @method removeAllChildrenWithCleanup
  * @param {bool}
  */
@@ -8345,12 +8315,6 @@ getTextureAtlas : function () {},
  * @param {bool}
  */
 removeChild : function () {},
-
-/**
- * @method getBlendFunc
- * @return A value converted from C/C++ "ccBlendFunc"
- */
-getBlendFunc : function () {},
 
 /**
  * @method insertChild
@@ -8971,12 +8935,6 @@ getParticleCount : function () {},
 getStartRadiusVar : function () {},
 
 /**
- * @method getBlendFunc
- * @return A value converted from C/C++ "ccBlendFunc"
- */
-getBlendFunc : function () {},
-
-/**
  * @method setStartColorVar
  * @param {cocos2d::ccColor4F}
  */
@@ -9024,12 +8982,6 @@ getTotalParticles : function () {},
  * @param {float}
  */
 setStartRadiusVar : function () {},
-
-/**
- * @method setBlendFunc
- * @param {ccBlendFunc}
- */
-setBlendFunc : function () {},
 
 /**
  * @method getEndRadiusVar

@@ -2277,23 +2277,6 @@ JSBool js_cocos2dx_CCNode_getOrderOfArrival(JSContext *cx, uint32_t argc, jsval 
 	JS_ReportError(cx, "wrong number of arguments: %d, was expecting %d", argc, 0);
 	return JS_FALSE;
 }
-JSBool js_cocos2dx_CCNode_boundingBox(JSContext *cx, uint32_t argc, jsval *vp)
-{
-	JSObject *obj = JS_THIS_OBJECT(cx, vp);
-	js_proxy_t *proxy; JS_GET_NATIVE_PROXY(proxy, obj);
-	cocos2d::CCNode* cobj = (cocos2d::CCNode *)(proxy ? proxy->ptr : NULL);
-	TEST_NATIVE_OBJECT(cx, cobj)
-
-	if (argc == 0) {
-		cocos2d::CCRect ret = cobj->boundingBox();
-		jsval jsret;
-		jsret = ccrect_to_jsval(cx, ret);
-		JS_SET_RVAL(cx, vp, jsret);
-		return JS_TRUE;
-	}
-	JS_ReportError(cx, "wrong number of arguments: %d, was expecting %d", argc, 0);
-	return JS_FALSE;
-}
 JSBool js_cocos2dx_CCNode_setContentSize(JSContext *cx, uint32_t argc, jsval *vp)
 {
 	jsval *argv = JS_ARGV(cx, vp);
@@ -2668,6 +2651,23 @@ JSBool js_cocos2dx_CCNode_setGrid(JSContext *cx, uint32_t argc, jsval *vp)
 	JS_ReportError(cx, "wrong number of arguments: %d, was expecting %d", argc, 1);
 	return JS_FALSE;
 }
+JSBool js_cocos2dx_CCNode_boundingBox(JSContext *cx, uint32_t argc, jsval *vp)
+{
+	JSObject *obj = JS_THIS_OBJECT(cx, vp);
+	js_proxy_t *proxy; JS_GET_NATIVE_PROXY(proxy, obj);
+	cocos2d::CCNode* cobj = (cocos2d::CCNode *)(proxy ? proxy->ptr : NULL);
+	TEST_NATIVE_OBJECT(cx, cobj)
+
+	if (argc == 0) {
+		cocos2d::CCRect ret = cobj->boundingBox();
+		jsval jsret;
+		jsret = ccrect_to_jsval(cx, ret);
+		JS_SET_RVAL(cx, vp, jsret);
+		return JS_TRUE;
+	}
+	JS_ReportError(cx, "wrong number of arguments: %d, was expecting %d", argc, 0);
+	return JS_FALSE;
+}
 JSBool js_cocos2dx_CCNode_draw(JSContext *cx, uint32_t argc, jsval *vp)
 {
 	JSObject *obj = JS_THIS_OBJECT(cx, vp);
@@ -3040,7 +3040,6 @@ void js_register_cocos2dx_CCNode(JSContext *cx, JSObject *global) {
 		JS_FN("getActionByTag", js_cocos2dx_CCNode_getActionByTag, 1, JSPROP_PERMANENT | JSPROP_SHARED),
 		JS_FN("getScheduler", js_cocos2dx_CCNode_getScheduler, 0, JSPROP_PERMANENT | JSPROP_SHARED),
 		JS_FN("getOrderOfArrival", js_cocos2dx_CCNode_getOrderOfArrival, 0, JSPROP_PERMANENT | JSPROP_SHARED),
-		JS_FN("boundingBox", js_cocos2dx_CCNode_boundingBox, 0, JSPROP_PERMANENT | JSPROP_SHARED),
 		JS_FN("setContentSize", js_cocos2dx_CCNode_setContentSize, 1, JSPROP_PERMANENT | JSPROP_SHARED),
 		JS_FN("setActionManager", js_cocos2dx_CCNode_setActionManager, 1, JSPROP_PERMANENT | JSPROP_SHARED),
 		JS_FN("getPosition", js_cocos2dx_CCNode_getPosition, 0, JSPROP_PERMANENT | JSPROP_SHARED),
@@ -3061,6 +3060,7 @@ void js_register_cocos2dx_CCNode(JSContext *cx, JSObject *global) {
 		JS_FN("cleanup", js_cocos2dx_CCNode_cleanup, 0, JSPROP_PERMANENT | JSPROP_SHARED),
 		JS_FN("getContentSize", js_cocos2dx_CCNode_getContentSize, 0, JSPROP_PERMANENT | JSPROP_SHARED),
 		JS_FN("setGrid", js_cocos2dx_CCNode_setGrid, 1, JSPROP_PERMANENT | JSPROP_SHARED),
+		JS_FN("getBoundingBox", js_cocos2dx_CCNode_boundingBox, 0, JSPROP_PERMANENT | JSPROP_SHARED),
 		JS_FN("draw", js_cocos2dx_CCNode_draw, 0, JSPROP_PERMANENT | JSPROP_SHARED),
 		JS_FN("transformAncestors", js_cocos2dx_CCNode_transformAncestors, 0, JSPROP_PERMANENT | JSPROP_SHARED),
 		JS_FN("setUserObject", js_cocos2dx_CCNode_setUserObject, 1, JSPROP_PERMANENT | JSPROP_SHARED),
@@ -19869,23 +19869,6 @@ JSBool js_cocos2dx_CCAtlasNode_draw(JSContext *cx, uint32_t argc, jsval *vp)
 	JS_ReportError(cx, "wrong number of arguments: %d, was expecting %d", argc, 0);
 	return JS_FALSE;
 }
-JSBool js_cocos2dx_CCAtlasNode_getBlendFunc(JSContext *cx, uint32_t argc, jsval *vp)
-{
-	JSObject *obj = JS_THIS_OBJECT(cx, vp);
-	js_proxy_t *proxy; JS_GET_NATIVE_PROXY(proxy, obj);
-	cocos2d::CCAtlasNode* cobj = (cocos2d::CCAtlasNode *)(proxy ? proxy->ptr : NULL);
-	TEST_NATIVE_OBJECT(cx, cobj)
-
-	if (argc == 0) {
-		ccBlendFunc ret = cobj->getBlendFunc();
-		jsval jsret;
-		#pragma warning NO CONVERSION FROM NATIVE FOR ccBlendFunc;
-		JS_SET_RVAL(cx, vp, jsret);
-		return JS_TRUE;
-	}
-	JS_ReportError(cx, "wrong number of arguments: %d, was expecting %d", argc, 0);
-	return JS_FALSE;
-}
 JSBool js_cocos2dx_CCAtlasNode_setColor(JSContext *cx, uint32_t argc, jsval *vp)
 {
 	jsval *argv = JS_ARGV(cx, vp);
@@ -19915,23 +19898,6 @@ JSBool js_cocos2dx_CCAtlasNode_setOpacity(JSContext *cx, uint32_t argc, jsval *v
 		uint16_t arg0;
 		JS_ValueToUint16(cx, argv[0], &arg0);
 		cobj->setOpacity(arg0);
-		return JS_TRUE;
-	}
-	JS_ReportError(cx, "wrong number of arguments: %d, was expecting %d", argc, 1);
-	return JS_FALSE;
-}
-JSBool js_cocos2dx_CCAtlasNode_setBlendFunc(JSContext *cx, uint32_t argc, jsval *vp)
-{
-	jsval *argv = JS_ARGV(cx, vp);
-	JSObject *obj = JS_THIS_OBJECT(cx, vp);
-	js_proxy_t *proxy; JS_GET_NATIVE_PROXY(proxy, obj);
-	cocos2d::CCAtlasNode* cobj = (cocos2d::CCAtlasNode *)(proxy ? proxy->ptr : NULL);
-	TEST_NATIVE_OBJECT(cx, cobj)
-
-	if (argc == 1) {
-		ccBlendFunc arg0;
-		#pragma warning NO CONVERSION TO NATIVE FOR ccBlendFunc;
-		cobj->setBlendFunc(arg0);
 		return JS_TRUE;
 	}
 	JS_ReportError(cx, "wrong number of arguments: %d, was expecting %d", argc, 1);
@@ -20225,10 +20191,8 @@ void js_register_cocos2dx_CCAtlasNode(JSContext *cx, JSObject *global) {
 	static JSFunctionSpec funcs[] = {
 		JS_FN("setTexture", js_cocos2dx_CCAtlasNode_setTexture, 1, JSPROP_PERMANENT | JSPROP_SHARED),
 		JS_FN("draw", js_cocos2dx_CCAtlasNode_draw, 0, JSPROP_PERMANENT | JSPROP_SHARED),
-		JS_FN("getBlendFunc", js_cocos2dx_CCAtlasNode_getBlendFunc, 0, JSPROP_PERMANENT | JSPROP_SHARED),
 		JS_FN("setColor", js_cocos2dx_CCAtlasNode_setColor, 1, JSPROP_PERMANENT | JSPROP_SHARED),
 		JS_FN("setOpacity", js_cocos2dx_CCAtlasNode_setOpacity, 1, JSPROP_PERMANENT | JSPROP_SHARED),
-		JS_FN("setBlendFunc", js_cocos2dx_CCAtlasNode_setBlendFunc, 1, JSPROP_PERMANENT | JSPROP_SHARED),
 		JS_FN("getTexture", js_cocos2dx_CCAtlasNode_getTexture, 0, JSPROP_PERMANENT | JSPROP_SHARED),
 		JS_FN("setTextureAtlas", js_cocos2dx_CCAtlasNode_setTextureAtlas, 1, JSPROP_PERMANENT | JSPROP_SHARED),
 		JS_FN("getTextureAtlas", js_cocos2dx_CCAtlasNode_getTextureAtlas, 0, JSPROP_PERMANENT | JSPROP_SHARED),
@@ -23900,23 +23864,6 @@ JSBool js_cocos2dx_CCSpriteBatchNode_draw(JSContext *cx, uint32_t argc, jsval *v
 	JS_ReportError(cx, "wrong number of arguments: %d, was expecting %d", argc, 0);
 	return JS_FALSE;
 }
-JSBool js_cocos2dx_CCSpriteBatchNode_getBlendFunc(JSContext *cx, uint32_t argc, jsval *vp)
-{
-	JSObject *obj = JS_THIS_OBJECT(cx, vp);
-	js_proxy_t *proxy; JS_GET_NATIVE_PROXY(proxy, obj);
-	cocos2d::CCSpriteBatchNode* cobj = (cocos2d::CCSpriteBatchNode *)(proxy ? proxy->ptr : NULL);
-	TEST_NATIVE_OBJECT(cx, cobj)
-
-	if (argc == 0) {
-		ccBlendFunc ret = cobj->getBlendFunc();
-		jsval jsret;
-		#pragma warning NO CONVERSION FROM NATIVE FOR ccBlendFunc;
-		JS_SET_RVAL(cx, vp, jsret);
-		return JS_TRUE;
-	}
-	JS_ReportError(cx, "wrong number of arguments: %d, was expecting %d", argc, 0);
-	return JS_FALSE;
-}
 JSBool js_cocos2dx_CCSpriteBatchNode_initWithTexture(JSContext *cx, uint32_t argc, jsval *vp)
 {
 	jsval *argv = JS_ARGV(cx, vp);
@@ -24044,23 +23991,6 @@ JSBool js_cocos2dx_CCSpriteBatchNode_initWithFile(JSContext *cx, uint32_t argc, 
 		return JS_TRUE;
 	}
 	JS_ReportError(cx, "wrong number of arguments: %d, was expecting %d", argc, 2);
-	return JS_FALSE;
-}
-JSBool js_cocos2dx_CCSpriteBatchNode_setBlendFunc(JSContext *cx, uint32_t argc, jsval *vp)
-{
-	jsval *argv = JS_ARGV(cx, vp);
-	JSObject *obj = JS_THIS_OBJECT(cx, vp);
-	js_proxy_t *proxy; JS_GET_NATIVE_PROXY(proxy, obj);
-	cocos2d::CCSpriteBatchNode* cobj = (cocos2d::CCSpriteBatchNode *)(proxy ? proxy->ptr : NULL);
-	TEST_NATIVE_OBJECT(cx, cobj)
-
-	if (argc == 1) {
-		ccBlendFunc arg0;
-		#pragma warning NO CONVERSION TO NATIVE FOR ccBlendFunc;
-		cobj->setBlendFunc(arg0);
-		return JS_TRUE;
-	}
-	JS_ReportError(cx, "wrong number of arguments: %d, was expecting %d", argc, 1);
 	return JS_FALSE;
 }
 JSBool js_cocos2dx_CCSpriteBatchNode_rebuildIndexInOrder(JSContext *cx, uint32_t argc, jsval *vp)
@@ -24362,14 +24292,12 @@ void js_register_cocos2dx_CCSpriteBatchNode(JSContext *cx, JSObject *global) {
 		JS_FN("insertChild", js_cocos2dx_CCSpriteBatchNode_insertChild, 2, JSPROP_PERMANENT | JSPROP_SHARED),
 		JS_FN("lowestAtlasIndexInChild", js_cocos2dx_CCSpriteBatchNode_lowestAtlasIndexInChild, 1, JSPROP_PERMANENT | JSPROP_SHARED),
 		JS_FN("draw", js_cocos2dx_CCSpriteBatchNode_draw, 0, JSPROP_PERMANENT | JSPROP_SHARED),
-		JS_FN("getBlendFunc", js_cocos2dx_CCSpriteBatchNode_getBlendFunc, 0, JSPROP_PERMANENT | JSPROP_SHARED),
 		JS_FN("initWithTexture", js_cocos2dx_CCSpriteBatchNode_initWithTexture, 2, JSPROP_PERMANENT | JSPROP_SHARED),
 		JS_FN("setTextureAtlas", js_cocos2dx_CCSpriteBatchNode_setTextureAtlas, 1, JSPROP_PERMANENT | JSPROP_SHARED),
 		JS_FN("removeAllChildrenWithCleanup", js_cocos2dx_CCSpriteBatchNode_removeAllChildrenWithCleanup, 1, JSPROP_PERMANENT | JSPROP_SHARED),
 		JS_FN("sortAllChildren", js_cocos2dx_CCSpriteBatchNode_sortAllChildren, 0, JSPROP_PERMANENT | JSPROP_SHARED),
 		JS_FN("reorderChild", js_cocos2dx_CCSpriteBatchNode_reorderChild, 2, JSPROP_PERMANENT | JSPROP_SHARED),
 		JS_FN("initWithFile", js_cocos2dx_CCSpriteBatchNode_initWithFile, 2, JSPROP_PERMANENT | JSPROP_SHARED),
-		JS_FN("setBlendFunc", js_cocos2dx_CCSpriteBatchNode_setBlendFunc, 1, JSPROP_PERMANENT | JSPROP_SHARED),
 		JS_FN("rebuildIndexInOrder", js_cocos2dx_CCSpriteBatchNode_rebuildIndexInOrder, 2, JSPROP_PERMANENT | JSPROP_SHARED),
 		JS_FN("getTextureAtlas", js_cocos2dx_CCSpriteBatchNode_getTextureAtlas, 0, JSPROP_PERMANENT | JSPROP_SHARED),
 		JS_FN("getDescendants", js_cocos2dx_CCSpriteBatchNode_getDescendants, 0, JSPROP_PERMANENT | JSPROP_SHARED),
@@ -36671,23 +36599,6 @@ JSBool js_cocos2dx_CCParticleBatchNode_visit(JSContext *cx, uint32_t argc, jsval
 	JS_ReportError(cx, "wrong number of arguments: %d, was expecting %d", argc, 0);
 	return JS_FALSE;
 }
-JSBool js_cocos2dx_CCParticleBatchNode_setBlendFunc(JSContext *cx, uint32_t argc, jsval *vp)
-{
-	jsval *argv = JS_ARGV(cx, vp);
-	JSObject *obj = JS_THIS_OBJECT(cx, vp);
-	js_proxy_t *proxy; JS_GET_NATIVE_PROXY(proxy, obj);
-	cocos2d::CCParticleBatchNode* cobj = (cocos2d::CCParticleBatchNode *)(proxy ? proxy->ptr : NULL);
-	TEST_NATIVE_OBJECT(cx, cobj)
-
-	if (argc == 1) {
-		ccBlendFunc arg0;
-		#pragma warning NO CONVERSION TO NATIVE FOR ccBlendFunc;
-		cobj->setBlendFunc(arg0);
-		return JS_TRUE;
-	}
-	JS_ReportError(cx, "wrong number of arguments: %d, was expecting %d", argc, 1);
-	return JS_FALSE;
-}
 JSBool js_cocos2dx_CCParticleBatchNode_removeAllChildrenWithCleanup(JSContext *cx, uint32_t argc, jsval *vp)
 {
 	jsval *argv = JS_ARGV(cx, vp);
@@ -36752,23 +36663,6 @@ JSBool js_cocos2dx_CCParticleBatchNode_removeChild(JSContext *cx, uint32_t argc,
 		return JS_TRUE;
 	}
 	JS_ReportError(cx, "wrong number of arguments: %d, was expecting %d", argc, 2);
-	return JS_FALSE;
-}
-JSBool js_cocos2dx_CCParticleBatchNode_getBlendFunc(JSContext *cx, uint32_t argc, jsval *vp)
-{
-	JSObject *obj = JS_THIS_OBJECT(cx, vp);
-	js_proxy_t *proxy; JS_GET_NATIVE_PROXY(proxy, obj);
-	cocos2d::CCParticleBatchNode* cobj = (cocos2d::CCParticleBatchNode *)(proxy ? proxy->ptr : NULL);
-	TEST_NATIVE_OBJECT(cx, cobj)
-
-	if (argc == 0) {
-		ccBlendFunc ret = cobj->getBlendFunc();
-		jsval jsret;
-		#pragma warning NO CONVERSION FROM NATIVE FOR ccBlendFunc;
-		JS_SET_RVAL(cx, vp, jsret);
-		return JS_TRUE;
-	}
-	JS_ReportError(cx, "wrong number of arguments: %d, was expecting %d", argc, 0);
 	return JS_FALSE;
 }
 JSBool js_cocos2dx_CCParticleBatchNode_insertChild(JSContext *cx, uint32_t argc, jsval *vp)
@@ -37037,11 +36931,9 @@ void js_register_cocos2dx_CCParticleBatchNode(JSContext *cx, JSObject *global) {
 		JS_FN("disableParticle", js_cocos2dx_CCParticleBatchNode_disableParticle, 1, JSPROP_PERMANENT | JSPROP_SHARED),
 		JS_FN("getTexture", js_cocos2dx_CCParticleBatchNode_getTexture, 0, JSPROP_PERMANENT | JSPROP_SHARED),
 		JS_FN("visit", js_cocos2dx_CCParticleBatchNode_visit, 0, JSPROP_PERMANENT | JSPROP_SHARED),
-		JS_FN("setBlendFunc", js_cocos2dx_CCParticleBatchNode_setBlendFunc, 1, JSPROP_PERMANENT | JSPROP_SHARED),
 		JS_FN("removeAllChildrenWithCleanup", js_cocos2dx_CCParticleBatchNode_removeAllChildrenWithCleanup, 1, JSPROP_PERMANENT | JSPROP_SHARED),
 		JS_FN("getTextureAtlas", js_cocos2dx_CCParticleBatchNode_getTextureAtlas, 0, JSPROP_PERMANENT | JSPROP_SHARED),
 		JS_FN("removeChild", js_cocos2dx_CCParticleBatchNode_removeChild, 2, JSPROP_PERMANENT | JSPROP_SHARED),
-		JS_FN("getBlendFunc", js_cocos2dx_CCParticleBatchNode_getBlendFunc, 0, JSPROP_PERMANENT | JSPROP_SHARED),
 		JS_FN("insertChild", js_cocos2dx_CCParticleBatchNode_insertChild, 2, JSPROP_PERMANENT | JSPROP_SHARED),
 		JS_FN("initWithTexture", js_cocos2dx_CCParticleBatchNode_initWithTexture, 2, JSPROP_PERMANENT | JSPROP_SHARED),
 		JS_FN("reorderChild", js_cocos2dx_CCParticleBatchNode_reorderChild, 2, JSPROP_PERMANENT | JSPROP_SHARED),
@@ -38655,23 +38547,6 @@ JSBool js_cocos2dx_CCParticleSystem_getStartRadiusVar(JSContext *cx, uint32_t ar
 	JS_ReportError(cx, "wrong number of arguments: %d, was expecting %d", argc, 0);
 	return JS_FALSE;
 }
-JSBool js_cocos2dx_CCParticleSystem_getBlendFunc(JSContext *cx, uint32_t argc, jsval *vp)
-{
-	JSObject *obj = JS_THIS_OBJECT(cx, vp);
-	js_proxy_t *proxy; JS_GET_NATIVE_PROXY(proxy, obj);
-	cocos2d::CCParticleSystem* cobj = (cocos2d::CCParticleSystem *)(proxy ? proxy->ptr : NULL);
-	TEST_NATIVE_OBJECT(cx, cobj)
-
-	if (argc == 0) {
-		ccBlendFunc ret = cobj->getBlendFunc();
-		jsval jsret;
-		#pragma warning NO CONVERSION FROM NATIVE FOR ccBlendFunc;
-		JS_SET_RVAL(cx, vp, jsret);
-		return JS_TRUE;
-	}
-	JS_ReportError(cx, "wrong number of arguments: %d, was expecting %d", argc, 0);
-	return JS_FALSE;
-}
 JSBool js_cocos2dx_CCParticleSystem_setStartColorVar(JSContext *cx, uint32_t argc, jsval *vp)
 {
 	jsval *argv = JS_ARGV(cx, vp);
@@ -38812,23 +38687,6 @@ JSBool js_cocos2dx_CCParticleSystem_setStartRadiusVar(JSContext *cx, uint32_t ar
 		double arg0;
 		JS_ValueToNumber(cx, argv[0], &arg0);
 		cobj->setStartRadiusVar(arg0);
-		return JS_TRUE;
-	}
-	JS_ReportError(cx, "wrong number of arguments: %d, was expecting %d", argc, 1);
-	return JS_FALSE;
-}
-JSBool js_cocos2dx_CCParticleSystem_setBlendFunc(JSContext *cx, uint32_t argc, jsval *vp)
-{
-	jsval *argv = JS_ARGV(cx, vp);
-	JSObject *obj = JS_THIS_OBJECT(cx, vp);
-	js_proxy_t *proxy; JS_GET_NATIVE_PROXY(proxy, obj);
-	cocos2d::CCParticleSystem* cobj = (cocos2d::CCParticleSystem *)(proxy ? proxy->ptr : NULL);
-	TEST_NATIVE_OBJECT(cx, cobj)
-
-	if (argc == 1) {
-		ccBlendFunc arg0;
-		#pragma warning NO CONVERSION TO NATIVE FOR ccBlendFunc;
-		cobj->setBlendFunc(arg0);
 		return JS_TRUE;
 	}
 	JS_ReportError(cx, "wrong number of arguments: %d, was expecting %d", argc, 1);
@@ -39075,7 +38933,6 @@ void js_register_cocos2dx_CCParticleSystem(JSContext *cx, JSObject *global) {
 		JS_FN("getStartRadius", js_cocos2dx_CCParticleSystem_getStartRadius, 0, JSPROP_PERMANENT | JSPROP_SHARED),
 		JS_FN("getParticleCount", js_cocos2dx_CCParticleSystem_getParticleCount, 0, JSPROP_PERMANENT | JSPROP_SHARED),
 		JS_FN("getStartRadiusVar", js_cocos2dx_CCParticleSystem_getStartRadiusVar, 0, JSPROP_PERMANENT | JSPROP_SHARED),
-		JS_FN("getBlendFunc", js_cocos2dx_CCParticleSystem_getBlendFunc, 0, JSPROP_PERMANENT | JSPROP_SHARED),
 		JS_FN("setStartColorVar", js_cocos2dx_CCParticleSystem_setStartColorVar, 1, JSPROP_PERMANENT | JSPROP_SHARED),
 		JS_FN("setEndSpin", js_cocos2dx_CCParticleSystem_setEndSpin, 1, JSPROP_PERMANENT | JSPROP_SHARED),
 		JS_FN("update", js_cocos2dx_CCParticleSystem_update, 1, JSPROP_PERMANENT | JSPROP_SHARED),
@@ -39084,7 +38941,6 @@ void js_register_cocos2dx_CCParticleSystem(JSContext *cx, JSObject *global) {
 		JS_FN("isAutoRemoveOnFinish", js_cocos2dx_CCParticleSystem_isAutoRemoveOnFinish, 0, JSPROP_PERMANENT | JSPROP_SHARED),
 		JS_FN("getTotalParticles", js_cocos2dx_CCParticleSystem_getTotalParticles, 0, JSPROP_PERMANENT | JSPROP_SHARED),
 		JS_FN("setStartRadiusVar", js_cocos2dx_CCParticleSystem_setStartRadiusVar, 1, JSPROP_PERMANENT | JSPROP_SHARED),
-		JS_FN("setBlendFunc", js_cocos2dx_CCParticleSystem_setBlendFunc, 1, JSPROP_PERMANENT | JSPROP_SHARED),
 		JS_FN("getEndRadiusVar", js_cocos2dx_CCParticleSystem_getEndRadiusVar, 0, JSPROP_PERMANENT | JSPROP_SHARED),
 		JS_FN("getStartColorVar", js_cocos2dx_CCParticleSystem_getStartColorVar, 0, JSPROP_PERMANENT | JSPROP_SHARED),
 		JS_FS_END
