@@ -215,6 +215,72 @@ CCSpeed : function () {},
 };
 
 /**
+ * @class CCFollow
+ */
+cc.CCFollow = {
+
+/**
+ * @method initWithTarget
+ * @return A value converted from C/C++ "bool"
+ * @param {cocos2d::CCNode*}
+ * @param {cocos2d::CCRect}
+ */
+initWithTarget : function () {},
+
+/**
+ * @method stop
+ */
+stop : function () {},
+
+/**
+ * @method setBoudarySet
+ * @param {bool}
+ */
+setBoudarySet : function () {},
+
+/**
+ * @method step
+ * @param {float}
+ */
+step : function () {},
+
+/**
+ * @method isDone
+ * @return A value converted from C/C++ "bool"
+ */
+isDone : function () {},
+
+/**
+ * @method isBoundarySet
+ * @return A value converted from C/C++ "bool"
+ */
+isBoundarySet : function () {},
+
+/**
+ * @method create
+ * @return A value converted from C/C++ "cocos2d::CCFollow*"
+ * @param {cocos2d::CCNode*}
+ * @param {cocos2d::CCRect}
+ */
+create : function () {},
+
+/**
+ * @method actionWithTarget
+ * @return A value converted from C/C++ "cocos2d::CCFollow*"
+ * @param {cocos2d::CCNode*}
+ * @param {cocos2d::CCRect}
+ */
+actionWithTarget : function () {},
+
+/**
+ * @method CCFollow
+ * @constructor
+ */
+CCFollow : function () {},
+
+};
+
+/**
  * @class CCTouch
  */
 cc.CCTouch = {
@@ -471,18 +537,6 @@ stopActionByTag : function () {},
  * @param {int}
  */
 reorderChild : function () {},
-
-/**
- * @method setPositionY
- * @param {float}
- */
-setPositionY : function () {},
-
-/**
- * @method setPositionX
- * @param {float}
- */
-setPositionX : function () {},
 
 /**
  * @method getAnchorPoint
@@ -1996,6 +2050,52 @@ create : function () {},
  * @param {int}
  */
 actionWithDuration : function () {},
+
+};
+
+/**
+ * @class CCBezierBy
+ */
+cc.CCBezierBy = {
+
+/**
+ * @method startWithTarget
+ * @param {cocos2d::CCNode*}
+ */
+startWithTarget : function () {},
+
+/**
+ * @method reverse
+ * @return A value converted from C/C++ "cocos2d::CCActionInterval*"
+ */
+reverse : function () {},
+
+/**
+ * @method initWithDuration
+ * @return A value converted from C/C++ "bool"
+ * @param {float}
+ * @param {cocos2d::ccBezierConfig}
+ */
+initWithDuration : function () {},
+
+/**
+ * @method update
+ * @param {float}
+ */
+update : function () {},
+
+};
+
+/**
+ * @class CCBezierTo
+ */
+cc.CCBezierTo = {
+
+/**
+ * @method startWithTarget
+ * @param {cocos2d::CCNode*}
+ */
+startWithTarget : function () {},
 
 };
 
@@ -4520,12 +4620,6 @@ initWithDuration : function () {},
 getPoints : function () {},
 
 /**
- * @method setPoints
- * @param {cocos2d::CCPointArray*}
- */
-setPoints : function () {},
-
-/**
  * @method update
  * @param {float}
  */
@@ -4536,24 +4630,6 @@ update : function () {},
  * @param {cocos2d::CCPoint}
  */
 updatePosition : function () {},
-
-/**
- * @method create
- * @return A value converted from C/C++ "cocos2d::CCCardinalSplineTo*"
- * @param {float}
- * @param {cocos2d::CCPointArray*}
- * @param {float}
- */
-create : function () {},
-
-/**
- * @method actionWithDuration
- * @return A value converted from C/C++ "cocos2d::CCCardinalSplineTo*"
- * @param {float}
- * @param {cocos2d::CCPointArray*}
- * @param {float}
- */
-actionWithDuration : function () {},
 
 /**
  * @method CCCardinalSplineTo
@@ -4587,24 +4663,6 @@ updatePosition : function () {},
 reverse : function () {},
 
 /**
- * @method create
- * @return A value converted from C/C++ "cocos2d::CCCardinalSplineBy*"
- * @param {float}
- * @param {cocos2d::CCPointArray*}
- * @param {float}
- */
-create : function () {},
-
-/**
- * @method actionWithDuration
- * @return A value converted from C/C++ "cocos2d::CCCardinalSplineBy*"
- * @param {float}
- * @param {cocos2d::CCPointArray*}
- * @param {float}
- */
-actionWithDuration : function () {},
-
-/**
  * @method CCCardinalSplineBy
  * @constructor
  */
@@ -4625,22 +4683,6 @@ cc.CCCatmullRomTo = {
  */
 initWithDuration : function () {},
 
-/**
- * @method create
- * @return A value converted from C/C++ "cocos2d::CCCatmullRomTo*"
- * @param {float}
- * @param {cocos2d::CCPointArray*}
- */
-create : function () {},
-
-/**
- * @method actionWithDuration
- * @return A value converted from C/C++ "cocos2d::CCCatmullRomTo*"
- * @param {float}
- * @param {cocos2d::CCPointArray*}
- */
-actionWithDuration : function () {},
-
 };
 
 /**
@@ -4655,22 +4697,6 @@ cc.CCCatmullRomBy = {
  * @param {cocos2d::CCPointArray*}
  */
 initWithDuration : function () {},
-
-/**
- * @method create
- * @return A value converted from C/C++ "cocos2d::CCCatmullRomBy*"
- * @param {float}
- * @param {cocos2d::CCPointArray*}
- */
-create : function () {},
-
-/**
- * @method actionWithDuration
- * @return A value converted from C/C++ "cocos2d::CCCatmullRomBy*"
- * @param {float}
- * @param {cocos2d::CCPointArray*}
- */
-actionWithDuration : function () {},
 
 };
 
@@ -4852,12 +4878,6 @@ getBatchNode : function () {},
  * @return A value converted from C/C++ "cocos2d::CCPoint"
  */
 getOffsetPosition : function () {},
-
-/**
- * @method setPosition
- * @param {cocos2d::CCPoint}
- */
-setPosition : function () {},
 
 /**
  * @method isFlipX
