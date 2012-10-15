@@ -1499,7 +1499,6 @@ JSBool js_cocos2dx_CCDirector_setDepthTest(JSContext *cx, uint32_t argc, jsval *
 JSBool js_cocos2dx_CCDirector_getSecondsPerFrame(JSContext *cx, uint32_t argc, jsval *vp);
 JSBool js_cocos2dx_CCDirector_convertToUI(JSContext *cx, uint32_t argc, jsval *vp);
 JSBool js_cocos2dx_CCDirector_setAccelerometer(JSContext *cx, uint32_t argc, jsval *vp);
-JSBool js_cocos2dx_CCDirector_enableRetinaDisplay(JSContext *cx, uint32_t argc, jsval *vp);
 JSBool js_cocos2dx_CCDirector_init(JSContext *cx, uint32_t argc, jsval *vp);
 JSBool js_cocos2dx_CCDirector_setScheduler(JSContext *cx, uint32_t argc, jsval *vp);
 JSBool js_cocos2dx_CCDirector_reshapeProjection(JSContext *cx, uint32_t argc, jsval *vp);

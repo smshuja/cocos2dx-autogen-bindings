@@ -5328,13 +5328,6 @@ convertToUI : function () {},
 setAccelerometer : function () {},
 
 /**
- * @method enableRetinaDisplay
- * @return A value converted from C/C++ "bool"
- * @param {bool}
- */
-enableRetinaDisplay : function () {},
-
-/**
  * @method init
  * @return A value converted from C/C++ "bool"
  */

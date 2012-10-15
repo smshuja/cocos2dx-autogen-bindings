@@ -22687,26 +22687,6 @@ JSBool js_cocos2dx_CCDirector_setAccelerometer(JSContext *cx, uint32_t argc, jsv
 	JS_ReportError(cx, "wrong number of arguments: %d, was expecting %d", argc, 1);
 	return JS_FALSE;
 }
-JSBool js_cocos2dx_CCDirector_enableRetinaDisplay(JSContext *cx, uint32_t argc, jsval *vp)
-{
-	jsval *argv = JS_ARGV(cx, vp);
-	JSObject *obj = JS_THIS_OBJECT(cx, vp);
-	js_proxy_t *proxy; JS_GET_NATIVE_PROXY(proxy, obj);
-	cocos2d::CCDirector* cobj = (cocos2d::CCDirector *)(proxy ? proxy->ptr : NULL);
-	TEST_NATIVE_OBJECT(cx, cobj)
-
-	if (argc == 1) {
-		JSBool arg0;
-		JS_ValueToBoolean(cx, argv[0], &arg0);
-		bool ret = cobj->enableRetinaDisplay(arg0);
-		jsval jsret;
-		jsret = BOOLEAN_TO_JSVAL(ret);
-		JS_SET_RVAL(cx, vp, jsret);
-		return JS_TRUE;
-	}
-	JS_ReportError(cx, "wrong number of arguments: %d, was expecting %d", argc, 1);
-	return JS_FALSE;
-}
 JSBool js_cocos2dx_CCDirector_init(JSContext *cx, uint32_t argc, jsval *vp)
 {
 	JSObject *obj = JS_THIS_OBJECT(cx, vp);
@@ -23329,7 +23309,6 @@ void js_register_cocos2dx_CCDirector(JSContext *cx, JSObject *global) {
 		JS_FN("getSecondsPerFrame", js_cocos2dx_CCDirector_getSecondsPerFrame, 0, JSPROP_PERMANENT | JSPROP_SHARED),
 		JS_FN("convertToUI", js_cocos2dx_CCDirector_convertToUI, 1, JSPROP_PERMANENT | JSPROP_SHARED),
 		JS_FN("setAccelerometer", js_cocos2dx_CCDirector_setAccelerometer, 1, JSPROP_PERMANENT | JSPROP_SHARED),
-		JS_FN("enableRetinaDisplay", js_cocos2dx_CCDirector_enableRetinaDisplay, 1, JSPROP_PERMANENT | JSPROP_SHARED),
 		JS_FN("init", js_cocos2dx_CCDirector_init, 0, JSPROP_PERMANENT | JSPROP_SHARED),
 		JS_FN("setScheduler", js_cocos2dx_CCDirector_setScheduler, 1, JSPROP_PERMANENT | JSPROP_SHARED),
 		JS_FN("reshapeProjection", js_cocos2dx_CCDirector_reshapeProjection, 1, JSPROP_PERMANENT | JSPROP_SHARED),
