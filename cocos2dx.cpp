@@ -146,7 +146,7 @@ JSBool js_cocos2dx_CCAction_update(JSContext *cx, uint32_t argc, jsval *vp)
 
 	if (argc == 1) {
 		double arg0;
-		JS_ValueToNumber(cx, argv[0], &arg0);
+		arg0 = JSVAL_TO_DOUBLE(argv[0]);
 		cobj->update(arg0);
 		return JS_TRUE;
 	}
@@ -187,7 +187,7 @@ JSBool js_cocos2dx_CCAction_step(JSContext *cx, uint32_t argc, jsval *vp)
 
 	if (argc == 1) {
 		double arg0;
-		JS_ValueToNumber(cx, argv[0], &arg0);
+		arg0 = JSVAL_TO_DOUBLE(argv[0]);
 		cobj->step(arg0);
 		return JS_TRUE;
 	}
@@ -221,7 +221,7 @@ JSBool js_cocos2dx_CCAction_getTag(JSContext *cx, uint32_t argc, jsval *vp)
 	if (argc == 0) {
 		int ret = cobj->getTag();
 		jsval jsret;
-		JS_NewNumberValue(cx, ret, &jsret);
+		jsret = INT_TO_JSVAL(ret);
 		JS_SET_RVAL(cx, vp, jsret);
 		return JS_TRUE;
 	}
@@ -359,6 +359,9 @@ void js_register_cocos2dx_CCAction(JSContext *cx, JSObject *global) {
 		funcs,
 		NULL, // no static properties
 		st_funcs);
+	// make the class enumerable in the registered namespace
+	JSBool found;
+	JS_SetPropertyAttributes(cx, globalObj, "Action", JSPROP_ENUMERATE | JSPROP_READONLY, &found);
 
 	// add the proto and JSClass to the type->js info hash table
 	TypeTest<cocos2d::CCAction> t;
@@ -389,7 +392,7 @@ JSBool js_cocos2dx_CCFiniteTimeAction_setDuration(JSContext *cx, uint32_t argc, 
 
 	if (argc == 1) {
 		double arg0;
-		JS_ValueToNumber(cx, argv[0], &arg0);
+		arg0 = JSVAL_TO_DOUBLE(argv[0]);
 		cobj->setDuration(arg0);
 		return JS_TRUE;
 	}
@@ -406,7 +409,7 @@ JSBool js_cocos2dx_CCFiniteTimeAction_getDuration(JSContext *cx, uint32_t argc, 
 	if (argc == 0) {
 		float ret = cobj->getDuration();
 		jsval jsret;
-		JS_NewNumberValue(cx, ret, &jsret);
+		jsret = DOUBLE_TO_JSVAL(ret);
 		JS_SET_RVAL(cx, vp, jsret);
 		return JS_TRUE;
 	}
@@ -507,6 +510,9 @@ void js_register_cocos2dx_CCFiniteTimeAction(JSContext *cx, JSObject *global) {
 		funcs,
 		NULL, // no static properties
 		st_funcs);
+	// make the class enumerable in the registered namespace
+	JSBool found;
+	JS_SetPropertyAttributes(cx, globalObj, "FiniteTimeAction", JSPROP_ENUMERATE | JSPROP_READONLY, &found);
 
 	// add the proto and JSClass to the type->js info hash table
 	TypeTest<cocos2d::CCFiniteTimeAction> t;
@@ -621,7 +627,7 @@ JSBool js_cocos2dx_CCSpeed_step(JSContext *cx, uint32_t argc, jsval *vp)
 
 	if (argc == 1) {
 		double arg0;
-		JS_ValueToNumber(cx, argv[0], &arg0);
+		arg0 = JSVAL_TO_DOUBLE(argv[0]);
 		cobj->step(arg0);
 		return JS_TRUE;
 	}
@@ -638,7 +644,7 @@ JSBool js_cocos2dx_CCSpeed_setSpeed(JSContext *cx, uint32_t argc, jsval *vp)
 
 	if (argc == 1) {
 		double arg0;
-		JS_ValueToNumber(cx, argv[0], &arg0);
+		arg0 = JSVAL_TO_DOUBLE(argv[0]);
 		cobj->setSpeed(arg0);
 		return JS_TRUE;
 	}
@@ -663,7 +669,7 @@ JSBool js_cocos2dx_CCSpeed_initWithAction(JSContext *cx, uint32_t argc, jsval *v
 			arg0 = (cocos2d::CCActionInterval*)(proxy ? proxy->ptr : NULL);
 			TEST_NATIVE_OBJECT(cx, arg0)
 		} while (0);
-		JS_ValueToNumber(cx, argv[1], &arg1);
+		arg1 = JSVAL_TO_DOUBLE(argv[1]);
 		bool ret = cobj->initWithAction(arg0, arg1);
 		jsval jsret;
 		jsret = BOOLEAN_TO_JSVAL(ret);
@@ -724,7 +730,7 @@ JSBool js_cocos2dx_CCSpeed_getSpeed(JSContext *cx, uint32_t argc, jsval *vp)
 	if (argc == 0) {
 		float ret = cobj->getSpeed();
 		jsval jsret;
-		JS_NewNumberValue(cx, ret, &jsret);
+		jsret = DOUBLE_TO_JSVAL(ret);
 		JS_SET_RVAL(cx, vp, jsret);
 		return JS_TRUE;
 	}
@@ -745,7 +751,7 @@ JSBool js_cocos2dx_CCSpeed_create(JSContext *cx, uint32_t argc, jsval *vp)
 			arg0 = (cocos2d::CCActionInterval*)(proxy ? proxy->ptr : NULL);
 			TEST_NATIVE_OBJECT(cx, arg0)
 		} while (0);
-	JS_ValueToNumber(cx, argv[1], &arg1);
+	arg1 = JSVAL_TO_DOUBLE(argv[1]);
 	cocos2d::CCSpeed* ret = cocos2d::CCSpeed::create(arg0, arg1);
 	jsval jsret;
 	do {
@@ -774,7 +780,7 @@ JSBool js_cocos2dx_CCSpeed_actionWithAction(JSContext *cx, uint32_t argc, jsval 
 			arg0 = (cocos2d::CCActionInterval*)(proxy ? proxy->ptr : NULL);
 			TEST_NATIVE_OBJECT(cx, arg0)
 		} while (0);
-	JS_ValueToNumber(cx, argv[1], &arg1);
+	arg1 = JSVAL_TO_DOUBLE(argv[1]);
 	cocos2d::CCSpeed* ret = cocos2d::CCSpeed::actionWithAction(arg0, arg1);
 	jsval jsret;
 	do {
@@ -870,6 +876,9 @@ void js_register_cocos2dx_CCSpeed(JSContext *cx, JSObject *global) {
 		funcs,
 		NULL, // no static properties
 		st_funcs);
+	// make the class enumerable in the registered namespace
+	JSBool found;
+	JS_SetPropertyAttributes(cx, globalObj, "Speed", JSPROP_ENUMERATE | JSPROP_READONLY, &found);
 
 	// add the proto and JSClass to the type->js info hash table
 	TypeTest<cocos2d::CCSpeed> t;
@@ -959,7 +968,7 @@ JSBool js_cocos2dx_CCFollow_step(JSContext *cx, uint32_t argc, jsval *vp)
 
 	if (argc == 1) {
 		double arg0;
-		JS_ValueToNumber(cx, argv[0], &arg0);
+		arg0 = JSVAL_TO_DOUBLE(argv[0]);
 		cobj->step(arg0);
 		return JS_TRUE;
 	}
@@ -1135,6 +1144,9 @@ void js_register_cocos2dx_CCFollow(JSContext *cx, JSObject *global) {
 		funcs,
 		NULL, // no static properties
 		st_funcs);
+	// make the class enumerable in the registered namespace
+	JSBool found;
+	JS_SetPropertyAttributes(cx, globalObj, "Follow", JSPROP_ENUMERATE | JSPROP_READONLY, &found);
 
 	// add the proto and JSClass to the type->js info hash table
 	TypeTest<cocos2d::CCFollow> t;
@@ -1219,8 +1231,8 @@ JSBool js_cocos2dx_CCTouch_setTouchInfo(JSContext *cx, uint32_t argc, jsval *vp)
 		double arg1;
 		double arg2;
 		JS_ValueToInt32(cx, argv[0], (int32_t *)&arg0);
-		JS_ValueToNumber(cx, argv[1], &arg1);
-		JS_ValueToNumber(cx, argv[2], &arg2);
+		arg1 = JSVAL_TO_DOUBLE(argv[1]);
+		arg2 = JSVAL_TO_DOUBLE(argv[2]);
 		cobj->setTouchInfo(arg0, arg1, arg2);
 		return JS_TRUE;
 	}
@@ -1237,7 +1249,7 @@ JSBool js_cocos2dx_CCTouch_getID(JSContext *cx, uint32_t argc, jsval *vp)
 	if (argc == 0) {
 		int ret = cobj->getID();
 		jsval jsret;
-		JS_NewNumberValue(cx, ret, &jsret);
+		jsret = INT_TO_JSVAL(ret);
 		JS_SET_RVAL(cx, vp, jsret);
 		return JS_TRUE;
 	}
@@ -1388,6 +1400,9 @@ void js_register_cocos2dx_CCTouch(JSContext *cx, JSObject *global) {
 		funcs,
 		NULL, // no static properties
 		st_funcs);
+	// make the class enumerable in the registered namespace
+	JSBool found;
+	JS_SetPropertyAttributes(cx, globalObj, "Touch", JSPROP_ENUMERATE | JSPROP_READONLY, &found);
 
 	// add the proto and JSClass to the type->js info hash table
 	TypeTest<cocos2d::CCTouch> t;
@@ -1418,7 +1433,7 @@ JSBool js_cocos2dx_CCSet_count(JSContext *cx, uint32_t argc, jsval *vp)
 	if (argc == 0) {
 		int ret = cobj->count();
 		jsval jsret;
-		JS_NewNumberValue(cx, ret, &jsret);
+		jsret = INT_TO_JSVAL(ret);
 		JS_SET_RVAL(cx, vp, jsret);
 		return JS_TRUE;
 	}
@@ -1613,6 +1628,9 @@ void js_register_cocos2dx_CCSet(JSContext *cx, JSObject *global) {
 		funcs,
 		NULL, // no static properties
 		st_funcs);
+	// make the class enumerable in the registered namespace
+	JSBool found;
+	JS_SetPropertyAttributes(cx, globalObj, "Set", JSPROP_ENUMERATE | JSPROP_READONLY, &found);
 
 	// add the proto and JSClass to the type->js info hash table
 	TypeTest<cocos2d::CCSet> t;
@@ -1697,7 +1715,7 @@ JSBool js_cocos2dx_CCNode_getScriptHandler(JSContext *cx, uint32_t argc, jsval *
 	if (argc == 0) {
 		int ret = cobj->getScriptHandler();
 		jsval jsret;
-		JS_NewNumberValue(cx, ret, &jsret);
+		jsret = INT_TO_JSVAL(ret);
 		JS_SET_RVAL(cx, vp, jsret);
 		return JS_TRUE;
 	}
@@ -1751,7 +1769,7 @@ JSBool js_cocos2dx_CCNode_setRotation(JSContext *cx, uint32_t argc, jsval *vp)
 
 	if (argc == 1) {
 		double arg0;
-		JS_ValueToNumber(cx, argv[0], &arg0);
+		arg0 = JSVAL_TO_DOUBLE(argv[0]);
 		cobj->setRotation(arg0);
 		return JS_TRUE;
 	}
@@ -1768,7 +1786,7 @@ JSBool js_cocos2dx_CCNode_setScaleY(JSContext *cx, uint32_t argc, jsval *vp)
 
 	if (argc == 1) {
 		double arg0;
-		JS_ValueToNumber(cx, argv[0], &arg0);
+		arg0 = JSVAL_TO_DOUBLE(argv[0]);
 		cobj->setScaleY(arg0);
 		return JS_TRUE;
 	}
@@ -1785,7 +1803,7 @@ JSBool js_cocos2dx_CCNode_setScaleX(JSContext *cx, uint32_t argc, jsval *vp)
 
 	if (argc == 1) {
 		double arg0;
-		JS_ValueToNumber(cx, argv[0], &arg0);
+		arg0 = JSVAL_TO_DOUBLE(argv[0]);
 		cobj->setScaleX(arg0);
 		return JS_TRUE;
 	}
@@ -1833,7 +1851,7 @@ JSBool js_cocos2dx_CCNode_getTag(JSContext *cx, uint32_t argc, jsval *vp)
 	if (argc == 0) {
 		int ret = cobj->getTag();
 		jsval jsret;
-		JS_NewNumberValue(cx, ret, &jsret);
+		jsret = INT_TO_JSVAL(ret);
 		JS_SET_RVAL(cx, vp, jsret);
 		return JS_TRUE;
 	}
@@ -1895,7 +1913,7 @@ JSBool js_cocos2dx_CCNode_setSkewX(JSContext *cx, uint32_t argc, jsval *vp)
 
 	if (argc == 1) {
 		double arg0;
-		JS_ValueToNumber(cx, argv[0], &arg0);
+		arg0 = JSVAL_TO_DOUBLE(argv[0]);
 		cobj->setSkewX(arg0);
 		return JS_TRUE;
 	}
@@ -1912,7 +1930,7 @@ JSBool js_cocos2dx_CCNode_setSkewY(JSContext *cx, uint32_t argc, jsval *vp)
 
 	if (argc == 1) {
 		double arg0;
-		JS_ValueToNumber(cx, argv[0], &arg0);
+		arg0 = JSVAL_TO_DOUBLE(argv[0]);
 		cobj->setSkewY(arg0);
 		return JS_TRUE;
 	}
@@ -2023,7 +2041,7 @@ JSBool js_cocos2dx_CCNode_numberOfRunningActions(JSContext *cx, uint32_t argc, j
 	if (argc == 0) {
 		unsigned int ret = cobj->numberOfRunningActions();
 		jsval jsret;
-		JS_NewNumberValue(cx, ret, &jsret);
+		jsret = UINT_TO_JSVAL(ret);
 		JS_SET_RVAL(cx, vp, jsret);
 		return JS_TRUE;
 	}
@@ -2190,7 +2208,7 @@ JSBool js_cocos2dx_CCNode_getRotation(JSContext *cx, uint32_t argc, jsval *vp)
 	if (argc == 0) {
 		float ret = cobj->getRotation();
 		jsval jsret;
-		JS_NewNumberValue(cx, ret, &jsret);
+		jsret = DOUBLE_TO_JSVAL(ret);
 		JS_SET_RVAL(cx, vp, jsret);
 		return JS_TRUE;
 	}
@@ -2221,7 +2239,7 @@ JSBool js_cocos2dx_CCNode_getZOrder(JSContext *cx, uint32_t argc, jsval *vp)
 	if (argc == 0) {
 		int ret = cobj->getZOrder();
 		jsval jsret;
-		JS_NewNumberValue(cx, ret, &jsret);
+		jsret = INT_TO_JSVAL(ret);
 		JS_SET_RVAL(cx, vp, jsret);
 		return JS_TRUE;
 	}
@@ -2319,7 +2337,7 @@ JSBool js_cocos2dx_CCNode_setVertexZ(JSContext *cx, uint32_t argc, jsval *vp)
 
 	if (argc == 1) {
 		double arg0;
-		JS_ValueToNumber(cx, argv[0], &arg0);
+		arg0 = JSVAL_TO_DOUBLE(argv[0]);
 		cobj->setVertexZ(arg0);
 		return JS_TRUE;
 	}
@@ -2373,7 +2391,7 @@ JSBool js_cocos2dx_CCNode_getSkewX(JSContext *cx, uint32_t argc, jsval *vp)
 	if (argc == 0) {
 		float ret = cobj->getSkewX();
 		jsval jsret;
-		JS_NewNumberValue(cx, ret, &jsret);
+		jsret = DOUBLE_TO_JSVAL(ret);
 		JS_SET_RVAL(cx, vp, jsret);
 		return JS_TRUE;
 	}
@@ -2390,7 +2408,7 @@ JSBool js_cocos2dx_CCNode_getSkewY(JSContext *cx, uint32_t argc, jsval *vp)
 	if (argc == 0) {
 		float ret = cobj->getSkewY();
 		jsval jsret;
-		JS_NewNumberValue(cx, ret, &jsret);
+		jsret = DOUBLE_TO_JSVAL(ret);
 		JS_SET_RVAL(cx, vp, jsret);
 		return JS_TRUE;
 	}
@@ -2475,7 +2493,7 @@ JSBool js_cocos2dx_CCNode_getOrderOfArrival(JSContext *cx, uint32_t argc, jsval 
 	if (argc == 0) {
 		int ret = cobj->getOrderOfArrival();
 		jsval jsret;
-		JS_NewNumberValue(cx, ret, &jsret);
+		jsret = INT_TO_JSVAL(ret);
 		JS_SET_RVAL(cx, vp, jsret);
 		return JS_TRUE;
 	}
@@ -2599,7 +2617,7 @@ JSBool js_cocos2dx_CCNode_getPositionY(JSContext *cx, uint32_t argc, jsval *vp)
 	if (argc == 0) {
 		float ret = cobj->getPositionY();
 		jsval jsret;
-		JS_NewNumberValue(cx, ret, &jsret);
+		jsret = DOUBLE_TO_JSVAL(ret);
 		JS_SET_RVAL(cx, vp, jsret);
 		return JS_TRUE;
 	}
@@ -2616,7 +2634,7 @@ JSBool js_cocos2dx_CCNode_getPositionX(JSContext *cx, uint32_t argc, jsval *vp)
 	if (argc == 0) {
 		float ret = cobj->getPositionX();
 		jsval jsret;
-		JS_NewNumberValue(cx, ret, &jsret);
+		jsret = DOUBLE_TO_JSVAL(ret);
 		JS_SET_RVAL(cx, vp, jsret);
 		return JS_TRUE;
 	}
@@ -2683,7 +2701,7 @@ JSBool js_cocos2dx_CCNode_getVertexZ(JSContext *cx, uint32_t argc, jsval *vp)
 	if (argc == 0) {
 		float ret = cobj->getVertexZ();
 		jsval jsret;
-		JS_NewNumberValue(cx, ret, &jsret);
+		jsret = DOUBLE_TO_JSVAL(ret);
 		JS_SET_RVAL(cx, vp, jsret);
 		return JS_TRUE;
 	}
@@ -2717,7 +2735,7 @@ JSBool js_cocos2dx_CCNode_setScale(JSContext *cx, uint32_t argc, jsval *vp)
 
 	if (argc == 1) {
 		double arg0;
-		JS_ValueToNumber(cx, argv[0], &arg0);
+		arg0 = JSVAL_TO_DOUBLE(argv[0]);
 		cobj->setScale(arg0);
 		return JS_TRUE;
 	}
@@ -2778,7 +2796,7 @@ JSBool js_cocos2dx_CCNode_getScaleY(JSContext *cx, uint32_t argc, jsval *vp)
 	if (argc == 0) {
 		float ret = cobj->getScaleY();
 		jsval jsret;
-		JS_NewNumberValue(cx, ret, &jsret);
+		jsret = DOUBLE_TO_JSVAL(ret);
 		JS_SET_RVAL(cx, vp, jsret);
 		return JS_TRUE;
 	}
@@ -2795,7 +2813,7 @@ JSBool js_cocos2dx_CCNode_getScaleX(JSContext *cx, uint32_t argc, jsval *vp)
 	if (argc == 0) {
 		float ret = cobj->getScaleX();
 		jsval jsret;
-		JS_NewNumberValue(cx, ret, &jsret);
+		jsret = DOUBLE_TO_JSVAL(ret);
 		JS_SET_RVAL(cx, vp, jsret);
 		return JS_TRUE;
 	}
@@ -3028,7 +3046,7 @@ JSBool js_cocos2dx_CCNode_getScale(JSContext *cx, uint32_t argc, jsval *vp)
 	if (argc == 0) {
 		float ret = cobj->getScale();
 		jsval jsret;
-		JS_NewNumberValue(cx, ret, &jsret);
+		jsret = DOUBLE_TO_JSVAL(ret);
 		JS_SET_RVAL(cx, vp, jsret);
 		return JS_TRUE;
 	}
@@ -3294,6 +3312,9 @@ void js_register_cocos2dx_CCNode(JSContext *cx, JSObject *global) {
 		funcs,
 		NULL, // no static properties
 		st_funcs);
+	// make the class enumerable in the registered namespace
+	JSBool found;
+	JS_SetPropertyAttributes(cx, globalObj, "Node", JSPROP_ENUMERATE | JSPROP_READONLY, &found);
 
 	// add the proto and JSClass to the type->js info hash table
 	TypeTest<cocos2d::CCNode> t;
@@ -3348,7 +3369,7 @@ JSBool js_cocos2dx_CCTexture2D_getMaxT(JSContext *cx, uint32_t argc, jsval *vp)
 	if (argc == 0) {
 		float ret = cobj->getMaxT();
 		jsval jsret;
-		JS_NewNumberValue(cx, ret, &jsret);
+		jsret = DOUBLE_TO_JSVAL(ret);
 		JS_SET_RVAL(cx, vp, jsret);
 		return JS_TRUE;
 	}
@@ -3431,7 +3452,7 @@ JSBool js_cocos2dx_CCTexture2D_getMaxS(JSContext *cx, uint32_t argc, jsval *vp)
 	if (argc == 0) {
 		float ret = cobj->getMaxS();
 		jsval jsret;
-		JS_NewNumberValue(cx, ret, &jsret);
+		jsret = DOUBLE_TO_JSVAL(ret);
 		JS_SET_RVAL(cx, vp, jsret);
 		return JS_TRUE;
 	}
@@ -3482,7 +3503,7 @@ JSBool js_cocos2dx_CCTexture2D_getPixelsHigh(JSContext *cx, uint32_t argc, jsval
 	if (argc == 0) {
 		unsigned int ret = cobj->getPixelsHigh();
 		jsval jsret;
-		JS_NewNumberValue(cx, ret, &jsret);
+		jsret = UINT_TO_JSVAL(ret);
 		JS_SET_RVAL(cx, vp, jsret);
 		return JS_TRUE;
 	}
@@ -3520,13 +3541,13 @@ JSBool js_cocos2dx_CCTexture2D_bitsPerPixelForFormat(JSContext *cx, uint32_t arg
 		cocos2d::CCTexture2DPixelFormat arg0;
 		JS_ValueToInt32(cx, argv[0], (int32_t *)&arg0);
 		unsigned int ret = cobj->bitsPerPixelForFormat(arg0);
-		jsval jsret; JS_NewNumberValue(cx, ret, &jsret);
+		jsval jsret; jsret = UINT_TO_JSVAL(ret);
 		JS_SET_RVAL(cx, vp, jsret);
 		return JS_TRUE;
 	}
 	if (argc == 0) {
 		unsigned int ret = cobj->bitsPerPixelForFormat();
-		jsval jsret; JS_NewNumberValue(cx, ret, &jsret);
+		jsval jsret; jsret = UINT_TO_JSVAL(ret);
 		JS_SET_RVAL(cx, vp, jsret);
 		return JS_TRUE;
 	}
@@ -3570,7 +3591,7 @@ JSBool js_cocos2dx_CCTexture2D_getName(JSContext *cx, uint32_t argc, jsval *vp)
 	if (argc == 0) {
 		unsigned int ret = cobj->getName();
 		jsval jsret;
-		JS_NewNumberValue(cx, ret, &jsret);
+		jsret = UINT_TO_JSVAL(ret);
 		JS_SET_RVAL(cx, vp, jsret);
 		return JS_TRUE;
 	}
@@ -3593,7 +3614,7 @@ JSBool js_cocos2dx_CCTexture2D_initWithString(JSContext *cx, uint32_t argc, jsva
 		const char* arg1;
 		std::string arg1_tmp = jsval_to_std_string(cx, argv[1]); arg1 = arg1_tmp.c_str();
 		double arg2;
-		JS_ValueToNumber(cx, argv[2], &arg2);
+		arg2 = JSVAL_TO_DOUBLE(argv[2]);
 		bool ret = cobj->initWithString(arg0, arg1, arg2);
 		jsval jsret; jsret = BOOLEAN_TO_JSVAL(ret);
 		JS_SET_RVAL(cx, vp, jsret);
@@ -3611,7 +3632,7 @@ JSBool js_cocos2dx_CCTexture2D_initWithString(JSContext *cx, uint32_t argc, jsva
 		const char* arg4;
 		std::string arg4_tmp = jsval_to_std_string(cx, argv[4]); arg4 = arg4_tmp.c_str();
 		double arg5;
-		JS_ValueToNumber(cx, argv[5], &arg5);
+		arg5 = JSVAL_TO_DOUBLE(argv[5]);
 		bool ret = cobj->initWithString(arg0, arg1, arg2, arg3, arg4, arg5);
 		jsval jsret; jsret = BOOLEAN_TO_JSVAL(ret);
 		JS_SET_RVAL(cx, vp, jsret);
@@ -3629,7 +3650,7 @@ JSBool js_cocos2dx_CCTexture2D_setMaxT(JSContext *cx, uint32_t argc, jsval *vp)
 
 	if (argc == 1) {
 		double arg0;
-		JS_ValueToNumber(cx, argv[0], &arg0);
+		arg0 = JSVAL_TO_DOUBLE(argv[0]);
 		cobj->setMaxT(arg0);
 		return JS_TRUE;
 	}
@@ -3722,7 +3743,7 @@ JSBool js_cocos2dx_CCTexture2D_getPixelFormat(JSContext *cx, uint32_t argc, jsva
 	if (argc == 0) {
 		cocos2d::CCTexture2DPixelFormat ret = cobj->getPixelFormat();
 		jsval jsret;
-		JS_NewNumberValue(cx, ret, &jsret);
+		jsret = INT_TO_JSVAL(ret);
 		JS_SET_RVAL(cx, vp, jsret);
 		return JS_TRUE;
 	}
@@ -3778,7 +3799,7 @@ JSBool js_cocos2dx_CCTexture2D_getPixelsWide(JSContext *cx, uint32_t argc, jsval
 	if (argc == 0) {
 		unsigned int ret = cobj->getPixelsWide();
 		jsval jsret;
-		JS_NewNumberValue(cx, ret, &jsret);
+		jsret = UINT_TO_JSVAL(ret);
 		JS_SET_RVAL(cx, vp, jsret);
 		return JS_TRUE;
 	}
@@ -3849,7 +3870,7 @@ JSBool js_cocos2dx_CCTexture2D_setMaxS(JSContext *cx, uint32_t argc, jsval *vp)
 
 	if (argc == 1) {
 		double arg0;
-		JS_ValueToNumber(cx, argv[0], &arg0);
+		arg0 = JSVAL_TO_DOUBLE(argv[0]);
 		cobj->setMaxS(arg0);
 		return JS_TRUE;
 	}
@@ -3871,7 +3892,7 @@ JSBool js_cocos2dx_CCTexture2D_defaultAlphaPixelFormat(JSContext *cx, uint32_t a
 {
 	cocos2d::CCTexture2DPixelFormat ret = cocos2d::CCTexture2D::defaultAlphaPixelFormat();
 	jsval jsret;
-	JS_NewNumberValue(cx, ret, &jsret);
+	jsret = INT_TO_JSVAL(ret);
 	JS_SET_RVAL(cx, vp, jsret);
 	return JS_TRUE;
 }
@@ -3987,6 +4008,9 @@ void js_register_cocos2dx_CCTexture2D(JSContext *cx, JSObject *global) {
 		funcs,
 		NULL, // no static properties
 		st_funcs);
+	// make the class enumerable in the registered namespace
+	JSBool found;
+	JS_SetPropertyAttributes(cx, globalObj, "Texture2D", JSPROP_ENUMERATE | JSPROP_READONLY, &found);
 
 	// add the proto and JSClass to the type->js info hash table
 	TypeTest<cocos2d::CCTexture2D> t;
@@ -4653,6 +4677,9 @@ void js_register_cocos2dx_CCSpriteFrame(JSContext *cx, JSObject *global) {
 		funcs,
 		NULL, // no static properties
 		st_funcs);
+	// make the class enumerable in the registered namespace
+	JSBool found;
+	JS_SetPropertyAttributes(cx, globalObj, "SpriteFrame", JSPROP_ENUMERATE | JSPROP_READONLY, &found);
 
 	// add the proto and JSClass to the type->js info hash table
 	TypeTest<cocos2d::CCSpriteFrame> t;
@@ -4730,7 +4757,7 @@ JSBool js_cocos2dx_CCAnimationFrame_setDelayUnits(JSContext *cx, uint32_t argc, 
 
 	if (argc == 1) {
 		double arg0;
-		JS_ValueToNumber(cx, argv[0], &arg0);
+		arg0 = JSVAL_TO_DOUBLE(argv[0]);
 		cobj->setDelayUnits(arg0);
 		return JS_TRUE;
 	}
@@ -4771,7 +4798,7 @@ JSBool js_cocos2dx_CCAnimationFrame_getDelayUnits(JSContext *cx, uint32_t argc, 
 	if (argc == 0) {
 		float ret = cobj->getDelayUnits();
 		jsval jsret;
-		JS_NewNumberValue(cx, ret, &jsret);
+		jsret = DOUBLE_TO_JSVAL(ret);
 		JS_SET_RVAL(cx, vp, jsret);
 		return JS_TRUE;
 	}
@@ -4820,7 +4847,7 @@ JSBool js_cocos2dx_CCAnimationFrame_initWithSpriteFrame(JSContext *cx, uint32_t 
 			arg0 = (cocos2d::CCSpriteFrame*)(proxy ? proxy->ptr : NULL);
 			TEST_NATIVE_OBJECT(cx, arg0)
 		} while (0);
-		JS_ValueToNumber(cx, argv[1], &arg1);
+		arg1 = JSVAL_TO_DOUBLE(argv[1]);
 		do {
 			js_proxy_t *proxy;
 			JSObject *tmpObj = JSVAL_TO_OBJECT(argv[2]);
@@ -4911,6 +4938,9 @@ void js_register_cocos2dx_CCAnimationFrame(JSContext *cx, JSObject *global) {
 		funcs,
 		NULL, // no static properties
 		st_funcs);
+	// make the class enumerable in the registered namespace
+	JSBool found;
+	JS_SetPropertyAttributes(cx, globalObj, "AnimationFrame", JSPROP_ENUMERATE | JSPROP_READONLY, &found);
 
 	// add the proto and JSClass to the type->js info hash table
 	TypeTest<cocos2d::CCAnimationFrame> t;
@@ -5015,7 +5045,7 @@ JSBool js_cocos2dx_CCAnimation_setDelayPerUnit(JSContext *cx, uint32_t argc, jsv
 
 	if (argc == 1) {
 		double arg0;
-		JS_ValueToNumber(cx, argv[0], &arg0);
+		arg0 = JSVAL_TO_DOUBLE(argv[0]);
 		cobj->setDelayPerUnit(arg0);
 		return JS_TRUE;
 	}
@@ -5035,7 +5065,7 @@ JSBool js_cocos2dx_CCAnimation_initWithAnimationFrames(JSContext *cx, uint32_t a
 		double arg1;
 		unsigned int arg2;
 		arg0 = jsval_to_ccarray(cx, argv[0]);
-		JS_ValueToNumber(cx, argv[1], &arg1);
+		arg1 = JSVAL_TO_DOUBLE(argv[1]);
 		JS_ValueToECMAUint32(cx, argv[2], &arg2);
 		bool ret = cobj->initWithAnimationFrames(arg0, arg1, arg2);
 		jsval jsret;
@@ -5075,7 +5105,7 @@ JSBool js_cocos2dx_CCAnimation_initWithSpriteFrames(JSContext *cx, uint32_t argc
 		cocos2d::CCArray* arg0;
 		double arg1;
 		arg0 = jsval_to_ccarray(cx, argv[0]);
-		JS_ValueToNumber(cx, argv[1], &arg1);
+		arg1 = JSVAL_TO_DOUBLE(argv[1]);
 		bool ret = cobj->initWithSpriteFrames(arg0, arg1);
 		jsval jsret;
 		jsret = BOOLEAN_TO_JSVAL(ret);
@@ -5095,7 +5125,7 @@ JSBool js_cocos2dx_CCAnimation_getLoops(JSContext *cx, uint32_t argc, jsval *vp)
 	if (argc == 0) {
 		unsigned int ret = cobj->getLoops();
 		jsval jsret;
-		JS_NewNumberValue(cx, ret, &jsret);
+		jsret = UINT_TO_JSVAL(ret);
 		JS_SET_RVAL(cx, vp, jsret);
 		return JS_TRUE;
 	}
@@ -5146,7 +5176,7 @@ JSBool js_cocos2dx_CCAnimation_getTotalDelayUnits(JSContext *cx, uint32_t argc, 
 	if (argc == 0) {
 		float ret = cobj->getTotalDelayUnits();
 		jsval jsret;
-		JS_NewNumberValue(cx, ret, &jsret);
+		jsret = DOUBLE_TO_JSVAL(ret);
 		JS_SET_RVAL(cx, vp, jsret);
 		return JS_TRUE;
 	}
@@ -5163,7 +5193,7 @@ JSBool js_cocos2dx_CCAnimation_getDelayPerUnit(JSContext *cx, uint32_t argc, jsv
 	if (argc == 0) {
 		float ret = cobj->getDelayPerUnit();
 		jsval jsret;
-		JS_NewNumberValue(cx, ret, &jsret);
+		jsret = DOUBLE_TO_JSVAL(ret);
 		JS_SET_RVAL(cx, vp, jsret);
 		return JS_TRUE;
 	}
@@ -5197,7 +5227,7 @@ JSBool js_cocos2dx_CCAnimation_getDuration(JSContext *cx, uint32_t argc, jsval *
 	if (argc == 0) {
 		float ret = cobj->getDuration();
 		jsval jsret;
-		JS_NewNumberValue(cx, ret, &jsret);
+		jsret = DOUBLE_TO_JSVAL(ret);
 		JS_SET_RVAL(cx, vp, jsret);
 		return JS_TRUE;
 	}
@@ -5237,7 +5267,7 @@ JSBool js_cocos2dx_CCAnimation_animationWithSpriteFrames(JSContext *cx, uint32_t
 	assert(argc >= 2);
 
 	arg0 = jsval_to_ccarray(cx, argv[0]);
-	JS_ValueToNumber(cx, argv[1], &arg1);
+	arg1 = JSVAL_TO_DOUBLE(argv[1]);
 	cocos2d::CCAnimation* ret = cocos2d::CCAnimation::animationWithSpriteFrames(arg0, arg1);
 	jsval jsret;
 	do {
@@ -5277,7 +5307,7 @@ JSBool js_cocos2dx_CCAnimation_animationWithAnimationFrames(JSContext *cx, uint3
 	assert(argc >= 3);
 
 	arg0 = jsval_to_ccarray(cx, argv[0]);
-	JS_ValueToNumber(cx, argv[1], &arg1);
+	arg1 = JSVAL_TO_DOUBLE(argv[1]);
 	JS_ValueToECMAUint32(cx, argv[2], &arg2);
 	cocos2d::CCAnimation* ret = cocos2d::CCAnimation::animationWithAnimationFrames(arg0, arg1, arg2);
 	jsval jsret;
@@ -5381,6 +5411,9 @@ void js_register_cocos2dx_CCAnimation(JSContext *cx, JSObject *global) {
 		funcs,
 		NULL, // no static properties
 		st_funcs);
+	// make the class enumerable in the registered namespace
+	JSBool found;
+	JS_SetPropertyAttributes(cx, globalObj, "Animation", JSPROP_ENUMERATE | JSPROP_READONLY, &found);
 
 	// add the proto and JSClass to the type->js info hash table
 	TypeTest<cocos2d::CCAnimation> t;
@@ -5434,7 +5467,7 @@ JSBool js_cocos2dx_CCActionInterval_initWithDuration(JSContext *cx, uint32_t arg
 
 	if (argc == 1) {
 		double arg0;
-		JS_ValueToNumber(cx, argv[0], &arg0);
+		arg0 = JSVAL_TO_DOUBLE(argv[0]);
 		bool ret = cobj->initWithDuration(arg0);
 		jsval jsret;
 		jsret = BOOLEAN_TO_JSVAL(ret);
@@ -5454,7 +5487,7 @@ JSBool js_cocos2dx_CCActionInterval_setAmplitudeRate(JSContext *cx, uint32_t arg
 
 	if (argc == 1) {
 		double arg0;
-		JS_ValueToNumber(cx, argv[0], &arg0);
+		arg0 = JSVAL_TO_DOUBLE(argv[0]);
 		cobj->setAmplitudeRate(arg0);
 		return JS_TRUE;
 	}
@@ -5471,7 +5504,7 @@ JSBool js_cocos2dx_CCActionInterval_getAmplitudeRate(JSContext *cx, uint32_t arg
 	if (argc == 0) {
 		float ret = cobj->getAmplitudeRate();
 		jsval jsret;
-		JS_NewNumberValue(cx, ret, &jsret);
+		jsret = DOUBLE_TO_JSVAL(ret);
 		JS_SET_RVAL(cx, vp, jsret);
 		return JS_TRUE;
 	}
@@ -5488,7 +5521,7 @@ JSBool js_cocos2dx_CCActionInterval_step(JSContext *cx, uint32_t argc, jsval *vp
 
 	if (argc == 1) {
 		double arg0;
-		JS_ValueToNumber(cx, argv[0], &arg0);
+		arg0 = JSVAL_TO_DOUBLE(argv[0]);
 		cobj->step(arg0);
 		return JS_TRUE;
 	}
@@ -5505,7 +5538,7 @@ JSBool js_cocos2dx_CCActionInterval_getElapsed(JSContext *cx, uint32_t argc, jsv
 	if (argc == 0) {
 		float ret = cobj->getElapsed();
 		jsval jsret;
-		JS_NewNumberValue(cx, ret, &jsret);
+		jsret = DOUBLE_TO_JSVAL(ret);
 		JS_SET_RVAL(cx, vp, jsret);
 		return JS_TRUE;
 	}
@@ -5559,7 +5592,7 @@ JSBool js_cocos2dx_CCActionInterval_create(JSContext *cx, uint32_t argc, jsval *
 	double arg0;
 	assert(argc >= 1);
 
-	JS_ValueToNumber(cx, argv[0], &arg0);
+	arg0 = JSVAL_TO_DOUBLE(argv[0]);
 	cocos2d::CCActionInterval* ret = cocos2d::CCActionInterval::create(arg0);
 	jsval jsret;
 	do {
@@ -5580,7 +5613,7 @@ JSBool js_cocos2dx_CCActionInterval_actionWithDuration(JSContext *cx, uint32_t a
 	double arg0;
 	assert(argc >= 1);
 
-	JS_ValueToNumber(cx, argv[0], &arg0);
+	arg0 = JSVAL_TO_DOUBLE(argv[0]);
 	cocos2d::CCActionInterval* ret = cocos2d::CCActionInterval::actionWithDuration(arg0);
 	jsval jsret;
 	do {
@@ -5644,6 +5677,9 @@ void js_register_cocos2dx_CCActionInterval(JSContext *cx, JSObject *global) {
 		funcs,
 		NULL, // no static properties
 		st_funcs);
+	// make the class enumerable in the registered namespace
+	JSBool found;
+	JS_SetPropertyAttributes(cx, globalObj, "ActionInterval", JSPROP_ENUMERATE | JSPROP_READONLY, &found);
 
 	// add the proto and JSClass to the type->js info hash table
 	TypeTest<cocos2d::CCActionInterval> t;
@@ -5735,7 +5771,7 @@ JSBool js_cocos2dx_CCSequence_update(JSContext *cx, uint32_t argc, jsval *vp)
 
 	if (argc == 1) {
 		double arg0;
-		JS_ValueToNumber(cx, argv[0], &arg0);
+		arg0 = JSVAL_TO_DOUBLE(argv[0]);
 		cobj->update(arg0);
 		return JS_TRUE;
 	}
@@ -5878,6 +5914,9 @@ void js_register_cocos2dx_CCSequence(JSContext *cx, JSObject *global) {
 		funcs,
 		NULL, // no static properties
 		st_funcs);
+	// make the class enumerable in the registered namespace
+	JSBool found;
+	JS_SetPropertyAttributes(cx, globalObj, "Sequence", JSPROP_ENUMERATE | JSPROP_READONLY, &found);
 
 	// add the proto and JSClass to the type->js info hash table
 	TypeTest<cocos2d::CCSequence> t;
@@ -5968,7 +6007,7 @@ JSBool js_cocos2dx_CCRepeat_update(JSContext *cx, uint32_t argc, jsval *vp)
 
 	if (argc == 1) {
 		double arg0;
-		JS_ValueToNumber(cx, argv[0], &arg0);
+		arg0 = JSVAL_TO_DOUBLE(argv[0]);
 		cobj->update(arg0);
 		return JS_TRUE;
 	}
@@ -6175,6 +6214,9 @@ void js_register_cocos2dx_CCRepeat(JSContext *cx, JSObject *global) {
 		funcs,
 		NULL, // no static properties
 		st_funcs);
+	// make the class enumerable in the registered namespace
+	JSBool found;
+	JS_SetPropertyAttributes(cx, globalObj, "Repeat", JSPROP_ENUMERATE | JSPROP_READONLY, &found);
 
 	// add the proto and JSClass to the type->js info hash table
 	TypeTest<cocos2d::CCRepeat> t;
@@ -6251,7 +6293,7 @@ JSBool js_cocos2dx_CCRepeatForever_step(JSContext *cx, uint32_t argc, jsval *vp)
 
 	if (argc == 1) {
 		double arg0;
-		JS_ValueToNumber(cx, argv[0], &arg0);
+		arg0 = JSVAL_TO_DOUBLE(argv[0]);
 		cobj->step(arg0);
 		return JS_TRUE;
 	}
@@ -6481,6 +6523,9 @@ void js_register_cocos2dx_CCRepeatForever(JSContext *cx, JSObject *global) {
 		funcs,
 		NULL, // no static properties
 		st_funcs);
+	// make the class enumerable in the registered namespace
+	JSBool found;
+	JS_SetPropertyAttributes(cx, globalObj, "RepeatForever", JSPROP_ENUMERATE | JSPROP_READONLY, &found);
 
 	// add the proto and JSClass to the type->js info hash table
 	TypeTest<cocos2d::CCRepeatForever> t;
@@ -6572,7 +6617,7 @@ JSBool js_cocos2dx_CCSpawn_update(JSContext *cx, uint32_t argc, jsval *vp)
 
 	if (argc == 1) {
 		double arg0;
-		JS_ValueToNumber(cx, argv[0], &arg0);
+		arg0 = JSVAL_TO_DOUBLE(argv[0]);
 		cobj->update(arg0);
 		return JS_TRUE;
 	}
@@ -6715,6 +6760,9 @@ void js_register_cocos2dx_CCSpawn(JSContext *cx, JSObject *global) {
 		funcs,
 		NULL, // no static properties
 		st_funcs);
+	// make the class enumerable in the registered namespace
+	JSBool found;
+	JS_SetPropertyAttributes(cx, globalObj, "Spawn", JSPROP_ENUMERATE | JSPROP_READONLY, &found);
 
 	// add the proto and JSClass to the type->js info hash table
 	TypeTest<cocos2d::CCSpawn> t;
@@ -6769,8 +6817,8 @@ JSBool js_cocos2dx_CCRotateTo_initWithDuration(JSContext *cx, uint32_t argc, jsv
 	if (argc == 2) {
 		double arg0;
 		double arg1;
-		JS_ValueToNumber(cx, argv[0], &arg0);
-		JS_ValueToNumber(cx, argv[1], &arg1);
+		arg0 = JSVAL_TO_DOUBLE(argv[0]);
+		arg1 = JSVAL_TO_DOUBLE(argv[1]);
 		bool ret = cobj->initWithDuration(arg0, arg1);
 		jsval jsret;
 		jsret = BOOLEAN_TO_JSVAL(ret);
@@ -6790,7 +6838,7 @@ JSBool js_cocos2dx_CCRotateTo_update(JSContext *cx, uint32_t argc, jsval *vp)
 
 	if (argc == 1) {
 		double arg0;
-		JS_ValueToNumber(cx, argv[0], &arg0);
+		arg0 = JSVAL_TO_DOUBLE(argv[0]);
 		cobj->update(arg0);
 		return JS_TRUE;
 	}
@@ -6804,8 +6852,8 @@ JSBool js_cocos2dx_CCRotateTo_create(JSContext *cx, uint32_t argc, jsval *vp)
 	double arg1;
 	assert(argc >= 2);
 
-	JS_ValueToNumber(cx, argv[0], &arg0);
-	JS_ValueToNumber(cx, argv[1], &arg1);
+	arg0 = JSVAL_TO_DOUBLE(argv[0]);
+	arg1 = JSVAL_TO_DOUBLE(argv[1]);
 	cocos2d::CCRotateTo* ret = cocos2d::CCRotateTo::create(arg0, arg1);
 	jsval jsret;
 	do {
@@ -6827,8 +6875,8 @@ JSBool js_cocos2dx_CCRotateTo_actionWithDuration(JSContext *cx, uint32_t argc, j
 	double arg1;
 	assert(argc >= 2);
 
-	JS_ValueToNumber(cx, argv[0], &arg0);
-	JS_ValueToNumber(cx, argv[1], &arg1);
+	arg0 = JSVAL_TO_DOUBLE(argv[0]);
+	arg1 = JSVAL_TO_DOUBLE(argv[1]);
 	cocos2d::CCRotateTo* ret = cocos2d::CCRotateTo::actionWithDuration(arg0, arg1);
 	jsval jsret;
 	do {
@@ -6887,6 +6935,9 @@ void js_register_cocos2dx_CCRotateTo(JSContext *cx, JSObject *global) {
 		funcs,
 		NULL, // no static properties
 		st_funcs);
+	// make the class enumerable in the registered namespace
+	JSBool found;
+	JS_SetPropertyAttributes(cx, globalObj, "RotateTo", JSPROP_ENUMERATE | JSPROP_READONLY, &found);
 
 	// add the proto and JSClass to the type->js info hash table
 	TypeTest<cocos2d::CCRotateTo> t;
@@ -6965,8 +7016,8 @@ JSBool js_cocos2dx_CCRotateBy_initWithDuration(JSContext *cx, uint32_t argc, jsv
 	if (argc == 2) {
 		double arg0;
 		double arg1;
-		JS_ValueToNumber(cx, argv[0], &arg0);
-		JS_ValueToNumber(cx, argv[1], &arg1);
+		arg0 = JSVAL_TO_DOUBLE(argv[0]);
+		arg1 = JSVAL_TO_DOUBLE(argv[1]);
 		bool ret = cobj->initWithDuration(arg0, arg1);
 		jsval jsret;
 		jsret = BOOLEAN_TO_JSVAL(ret);
@@ -6986,7 +7037,7 @@ JSBool js_cocos2dx_CCRotateBy_update(JSContext *cx, uint32_t argc, jsval *vp)
 
 	if (argc == 1) {
 		double arg0;
-		JS_ValueToNumber(cx, argv[0], &arg0);
+		arg0 = JSVAL_TO_DOUBLE(argv[0]);
 		cobj->update(arg0);
 		return JS_TRUE;
 	}
@@ -7000,8 +7051,8 @@ JSBool js_cocos2dx_CCRotateBy_create(JSContext *cx, uint32_t argc, jsval *vp)
 	double arg1;
 	assert(argc >= 2);
 
-	JS_ValueToNumber(cx, argv[0], &arg0);
-	JS_ValueToNumber(cx, argv[1], &arg1);
+	arg0 = JSVAL_TO_DOUBLE(argv[0]);
+	arg1 = JSVAL_TO_DOUBLE(argv[1]);
 	cocos2d::CCRotateBy* ret = cocos2d::CCRotateBy::create(arg0, arg1);
 	jsval jsret;
 	do {
@@ -7023,8 +7074,8 @@ JSBool js_cocos2dx_CCRotateBy_actionWithDuration(JSContext *cx, uint32_t argc, j
 	double arg1;
 	assert(argc >= 2);
 
-	JS_ValueToNumber(cx, argv[0], &arg0);
-	JS_ValueToNumber(cx, argv[1], &arg1);
+	arg0 = JSVAL_TO_DOUBLE(argv[0]);
+	arg1 = JSVAL_TO_DOUBLE(argv[1]);
 	cocos2d::CCRotateBy* ret = cocos2d::CCRotateBy::actionWithDuration(arg0, arg1);
 	jsval jsret;
 	do {
@@ -7084,6 +7135,9 @@ void js_register_cocos2dx_CCRotateBy(JSContext *cx, JSObject *global) {
 		funcs,
 		NULL, // no static properties
 		st_funcs);
+	// make the class enumerable in the registered namespace
+	JSBool found;
+	JS_SetPropertyAttributes(cx, globalObj, "RotateBy", JSPROP_ENUMERATE | JSPROP_READONLY, &found);
 
 	// add the proto and JSClass to the type->js info hash table
 	TypeTest<cocos2d::CCRotateBy> t;
@@ -7138,7 +7192,7 @@ JSBool js_cocos2dx_CCMoveTo_initWithDuration(JSContext *cx, uint32_t argc, jsval
 	if (argc == 2) {
 		double arg0;
 		cocos2d::CCPoint arg1;
-		JS_ValueToNumber(cx, argv[0], &arg0);
+		arg0 = JSVAL_TO_DOUBLE(argv[0]);
 		arg1 = jsval_to_ccpoint(cx, argv[1]);
 		bool ret = cobj->initWithDuration(arg0, arg1);
 		jsval jsret;
@@ -7159,7 +7213,7 @@ JSBool js_cocos2dx_CCMoveTo_update(JSContext *cx, uint32_t argc, jsval *vp)
 
 	if (argc == 1) {
 		double arg0;
-		JS_ValueToNumber(cx, argv[0], &arg0);
+		arg0 = JSVAL_TO_DOUBLE(argv[0]);
 		cobj->update(arg0);
 		return JS_TRUE;
 	}
@@ -7173,7 +7227,7 @@ JSBool js_cocos2dx_CCMoveTo_create(JSContext *cx, uint32_t argc, jsval *vp)
 	cocos2d::CCPoint arg1;
 	assert(argc >= 2);
 
-	JS_ValueToNumber(cx, argv[0], &arg0);
+	arg0 = JSVAL_TO_DOUBLE(argv[0]);
 	arg1 = jsval_to_ccpoint(cx, argv[1]);
 	cocos2d::CCMoveTo* ret = cocos2d::CCMoveTo::create(arg0, arg1);
 	jsval jsret;
@@ -7196,7 +7250,7 @@ JSBool js_cocos2dx_CCMoveTo_actionWithDuration(JSContext *cx, uint32_t argc, jsv
 	cocos2d::CCPoint arg1;
 	assert(argc >= 2);
 
-	JS_ValueToNumber(cx, argv[0], &arg0);
+	arg0 = JSVAL_TO_DOUBLE(argv[0]);
 	arg1 = jsval_to_ccpoint(cx, argv[1]);
 	cocos2d::CCMoveTo* ret = cocos2d::CCMoveTo::actionWithDuration(arg0, arg1);
 	jsval jsret;
@@ -7256,6 +7310,9 @@ void js_register_cocos2dx_CCMoveTo(JSContext *cx, JSObject *global) {
 		funcs,
 		NULL, // no static properties
 		st_funcs);
+	// make the class enumerable in the registered namespace
+	JSBool found;
+	JS_SetPropertyAttributes(cx, globalObj, "MoveTo", JSPROP_ENUMERATE | JSPROP_READONLY, &found);
 
 	// add the proto and JSClass to the type->js info hash table
 	TypeTest<cocos2d::CCMoveTo> t;
@@ -7310,7 +7367,7 @@ JSBool js_cocos2dx_CCMoveBy_initWithDuration(JSContext *cx, uint32_t argc, jsval
 	if (argc == 2) {
 		double arg0;
 		cocos2d::CCPoint arg1;
-		JS_ValueToNumber(cx, argv[0], &arg0);
+		arg0 = JSVAL_TO_DOUBLE(argv[0]);
 		arg1 = jsval_to_ccpoint(cx, argv[1]);
 		bool ret = cobj->initWithDuration(arg0, arg1);
 		jsval jsret;
@@ -7352,7 +7409,7 @@ JSBool js_cocos2dx_CCMoveBy_create(JSContext *cx, uint32_t argc, jsval *vp)
 	cocos2d::CCPoint arg1;
 	assert(argc >= 2);
 
-	JS_ValueToNumber(cx, argv[0], &arg0);
+	arg0 = JSVAL_TO_DOUBLE(argv[0]);
 	arg1 = jsval_to_ccpoint(cx, argv[1]);
 	cocos2d::CCMoveBy* ret = cocos2d::CCMoveBy::create(arg0, arg1);
 	jsval jsret;
@@ -7375,7 +7432,7 @@ JSBool js_cocos2dx_CCMoveBy_actionWithDuration(JSContext *cx, uint32_t argc, jsv
 	cocos2d::CCPoint arg1;
 	assert(argc >= 2);
 
-	JS_ValueToNumber(cx, argv[0], &arg0);
+	arg0 = JSVAL_TO_DOUBLE(argv[0]);
 	arg1 = jsval_to_ccpoint(cx, argv[1]);
 	cocos2d::CCMoveBy* ret = cocos2d::CCMoveBy::actionWithDuration(arg0, arg1);
 	jsval jsret;
@@ -7433,6 +7490,9 @@ void js_register_cocos2dx_CCMoveBy(JSContext *cx, JSObject *global) {
 		funcs,
 		NULL, // no static properties
 		st_funcs);
+	// make the class enumerable in the registered namespace
+	JSBool found;
+	JS_SetPropertyAttributes(cx, globalObj, "MoveBy", JSPROP_ENUMERATE | JSPROP_READONLY, &found);
 
 	// add the proto and JSClass to the type->js info hash table
 	TypeTest<cocos2d::CCMoveBy> t;
@@ -7486,7 +7546,7 @@ JSBool js_cocos2dx_CCSkewTo_update(JSContext *cx, uint32_t argc, jsval *vp)
 
 	if (argc == 1) {
 		double arg0;
-		JS_ValueToNumber(cx, argv[0], &arg0);
+		arg0 = JSVAL_TO_DOUBLE(argv[0]);
 		cobj->update(arg0);
 		return JS_TRUE;
 	}
@@ -7505,9 +7565,9 @@ JSBool js_cocos2dx_CCSkewTo_initWithDuration(JSContext *cx, uint32_t argc, jsval
 		double arg0;
 		double arg1;
 		double arg2;
-		JS_ValueToNumber(cx, argv[0], &arg0);
-		JS_ValueToNumber(cx, argv[1], &arg1);
-		JS_ValueToNumber(cx, argv[2], &arg2);
+		arg0 = JSVAL_TO_DOUBLE(argv[0]);
+		arg1 = JSVAL_TO_DOUBLE(argv[1]);
+		arg2 = JSVAL_TO_DOUBLE(argv[2]);
 		bool ret = cobj->initWithDuration(arg0, arg1, arg2);
 		jsval jsret;
 		jsret = BOOLEAN_TO_JSVAL(ret);
@@ -7525,9 +7585,9 @@ JSBool js_cocos2dx_CCSkewTo_create(JSContext *cx, uint32_t argc, jsval *vp)
 	double arg2;
 	assert(argc >= 3);
 
-	JS_ValueToNumber(cx, argv[0], &arg0);
-	JS_ValueToNumber(cx, argv[1], &arg1);
-	JS_ValueToNumber(cx, argv[2], &arg2);
+	arg0 = JSVAL_TO_DOUBLE(argv[0]);
+	arg1 = JSVAL_TO_DOUBLE(argv[1]);
+	arg2 = JSVAL_TO_DOUBLE(argv[2]);
 	cocos2d::CCSkewTo* ret = cocos2d::CCSkewTo::create(arg0, arg1, arg2);
 	jsval jsret;
 	do {
@@ -7550,9 +7610,9 @@ JSBool js_cocos2dx_CCSkewTo_actionWithDuration(JSContext *cx, uint32_t argc, jsv
 	double arg2;
 	assert(argc >= 3);
 
-	JS_ValueToNumber(cx, argv[0], &arg0);
-	JS_ValueToNumber(cx, argv[1], &arg1);
-	JS_ValueToNumber(cx, argv[2], &arg2);
+	arg0 = JSVAL_TO_DOUBLE(argv[0]);
+	arg1 = JSVAL_TO_DOUBLE(argv[1]);
+	arg2 = JSVAL_TO_DOUBLE(argv[2]);
 	cocos2d::CCSkewTo* ret = cocos2d::CCSkewTo::actionWithDuration(arg0, arg1, arg2);
 	jsval jsret;
 	do {
@@ -7641,6 +7701,9 @@ void js_register_cocos2dx_CCSkewTo(JSContext *cx, JSObject *global) {
 		funcs,
 		NULL, // no static properties
 		st_funcs);
+	// make the class enumerable in the registered namespace
+	JSBool found;
+	JS_SetPropertyAttributes(cx, globalObj, "SkewTo", JSPROP_ENUMERATE | JSPROP_READONLY, &found);
 
 	// add the proto and JSClass to the type->js info hash table
 	TypeTest<cocos2d::CCSkewTo> t;
@@ -7720,9 +7783,9 @@ JSBool js_cocos2dx_CCSkewBy_initWithDuration(JSContext *cx, uint32_t argc, jsval
 		double arg0;
 		double arg1;
 		double arg2;
-		JS_ValueToNumber(cx, argv[0], &arg0);
-		JS_ValueToNumber(cx, argv[1], &arg1);
-		JS_ValueToNumber(cx, argv[2], &arg2);
+		arg0 = JSVAL_TO_DOUBLE(argv[0]);
+		arg1 = JSVAL_TO_DOUBLE(argv[1]);
+		arg2 = JSVAL_TO_DOUBLE(argv[2]);
 		bool ret = cobj->initWithDuration(arg0, arg1, arg2);
 		jsval jsret;
 		jsret = BOOLEAN_TO_JSVAL(ret);
@@ -7740,9 +7803,9 @@ JSBool js_cocos2dx_CCSkewBy_create(JSContext *cx, uint32_t argc, jsval *vp)
 	double arg2;
 	assert(argc >= 3);
 
-	JS_ValueToNumber(cx, argv[0], &arg0);
-	JS_ValueToNumber(cx, argv[1], &arg1);
-	JS_ValueToNumber(cx, argv[2], &arg2);
+	arg0 = JSVAL_TO_DOUBLE(argv[0]);
+	arg1 = JSVAL_TO_DOUBLE(argv[1]);
+	arg2 = JSVAL_TO_DOUBLE(argv[2]);
 	cocos2d::CCSkewBy* ret = cocos2d::CCSkewBy::create(arg0, arg1, arg2);
 	jsval jsret;
 	do {
@@ -7765,9 +7828,9 @@ JSBool js_cocos2dx_CCSkewBy_actionWithDuration(JSContext *cx, uint32_t argc, jsv
 	double arg2;
 	assert(argc >= 3);
 
-	JS_ValueToNumber(cx, argv[0], &arg0);
-	JS_ValueToNumber(cx, argv[1], &arg1);
-	JS_ValueToNumber(cx, argv[2], &arg2);
+	arg0 = JSVAL_TO_DOUBLE(argv[0]);
+	arg1 = JSVAL_TO_DOUBLE(argv[1]);
+	arg2 = JSVAL_TO_DOUBLE(argv[2]);
 	cocos2d::CCSkewBy* ret = cocos2d::CCSkewBy::actionWithDuration(arg0, arg1, arg2);
 	jsval jsret;
 	do {
@@ -7824,6 +7887,9 @@ void js_register_cocos2dx_CCSkewBy(JSContext *cx, JSObject *global) {
 		funcs,
 		NULL, // no static properties
 		st_funcs);
+	// make the class enumerable in the registered namespace
+	JSBool found;
+	JS_SetPropertyAttributes(cx, globalObj, "SkewBy", JSPROP_ENUMERATE | JSPROP_READONLY, &found);
 
 	// add the proto and JSClass to the type->js info hash table
 	TypeTest<cocos2d::CCSkewBy> t;
@@ -7904,9 +7970,9 @@ JSBool js_cocos2dx_CCJumpBy_initWithDuration(JSContext *cx, uint32_t argc, jsval
 		cocos2d::CCPoint arg1;
 		double arg2;
 		unsigned int arg3;
-		JS_ValueToNumber(cx, argv[0], &arg0);
+		arg0 = JSVAL_TO_DOUBLE(argv[0]);
 		arg1 = jsval_to_ccpoint(cx, argv[1]);
-		JS_ValueToNumber(cx, argv[2], &arg2);
+		arg2 = JSVAL_TO_DOUBLE(argv[2]);
 		JS_ValueToECMAUint32(cx, argv[3], &arg3);
 		bool ret = cobj->initWithDuration(arg0, arg1, arg2, arg3);
 		jsval jsret;
@@ -7927,7 +7993,7 @@ JSBool js_cocos2dx_CCJumpBy_update(JSContext *cx, uint32_t argc, jsval *vp)
 
 	if (argc == 1) {
 		double arg0;
-		JS_ValueToNumber(cx, argv[0], &arg0);
+		arg0 = JSVAL_TO_DOUBLE(argv[0]);
 		cobj->update(arg0);
 		return JS_TRUE;
 	}
@@ -7943,9 +8009,9 @@ JSBool js_cocos2dx_CCJumpBy_create(JSContext *cx, uint32_t argc, jsval *vp)
 	unsigned int arg3;
 	assert(argc >= 4);
 
-	JS_ValueToNumber(cx, argv[0], &arg0);
+	arg0 = JSVAL_TO_DOUBLE(argv[0]);
 	arg1 = jsval_to_ccpoint(cx, argv[1]);
-	JS_ValueToNumber(cx, argv[2], &arg2);
+	arg2 = JSVAL_TO_DOUBLE(argv[2]);
 	JS_ValueToECMAUint32(cx, argv[3], &arg3);
 	cocos2d::CCJumpBy* ret = cocos2d::CCJumpBy::create(arg0, arg1, arg2, arg3);
 	jsval jsret;
@@ -7970,9 +8036,9 @@ JSBool js_cocos2dx_CCJumpBy_actionWithDuration(JSContext *cx, uint32_t argc, jsv
 	unsigned int arg3;
 	assert(argc >= 4);
 
-	JS_ValueToNumber(cx, argv[0], &arg0);
+	arg0 = JSVAL_TO_DOUBLE(argv[0]);
 	arg1 = jsval_to_ccpoint(cx, argv[1]);
-	JS_ValueToNumber(cx, argv[2], &arg2);
+	arg2 = JSVAL_TO_DOUBLE(argv[2]);
 	JS_ValueToECMAUint32(cx, argv[3], &arg3);
 	cocos2d::CCJumpBy* ret = cocos2d::CCJumpBy::actionWithDuration(arg0, arg1, arg2, arg3);
 	jsval jsret;
@@ -8033,6 +8099,9 @@ void js_register_cocos2dx_CCJumpBy(JSContext *cx, JSObject *global) {
 		funcs,
 		NULL, // no static properties
 		st_funcs);
+	// make the class enumerable in the registered namespace
+	JSBool found;
+	JS_SetPropertyAttributes(cx, globalObj, "JumpBy", JSPROP_ENUMERATE | JSPROP_READONLY, &found);
 
 	// add the proto and JSClass to the type->js info hash table
 	TypeTest<cocos2d::CCJumpBy> t;
@@ -8085,9 +8154,9 @@ JSBool js_cocos2dx_CCJumpTo_create(JSContext *cx, uint32_t argc, jsval *vp)
 	int arg3;
 	assert(argc >= 4);
 
-	JS_ValueToNumber(cx, argv[0], &arg0);
+	arg0 = JSVAL_TO_DOUBLE(argv[0]);
 	arg1 = jsval_to_ccpoint(cx, argv[1]);
-	JS_ValueToNumber(cx, argv[2], &arg2);
+	arg2 = JSVAL_TO_DOUBLE(argv[2]);
 	JS_ValueToInt32(cx, argv[3], (int32_t *)&arg3);
 	cocos2d::CCJumpTo* ret = cocos2d::CCJumpTo::create(arg0, arg1, arg2, arg3);
 	jsval jsret;
@@ -8112,9 +8181,9 @@ JSBool js_cocos2dx_CCJumpTo_actionWithDuration(JSContext *cx, uint32_t argc, jsv
 	int arg3;
 	assert(argc >= 4);
 
-	JS_ValueToNumber(cx, argv[0], &arg0);
+	arg0 = JSVAL_TO_DOUBLE(argv[0]);
 	arg1 = jsval_to_ccpoint(cx, argv[1]);
-	JS_ValueToNumber(cx, argv[2], &arg2);
+	arg2 = JSVAL_TO_DOUBLE(argv[2]);
 	JS_ValueToInt32(cx, argv[3], (int32_t *)&arg3);
 	cocos2d::CCJumpTo* ret = cocos2d::CCJumpTo::actionWithDuration(arg0, arg1, arg2, arg3);
 	jsval jsret;
@@ -8170,6 +8239,9 @@ void js_register_cocos2dx_CCJumpTo(JSContext *cx, JSObject *global) {
 		funcs,
 		NULL, // no static properties
 		st_funcs);
+	// make the class enumerable in the registered namespace
+	JSBool found;
+	JS_SetPropertyAttributes(cx, globalObj, "JumpTo", JSPROP_ENUMERATE | JSPROP_READONLY, &found);
 
 	// add the proto and JSClass to the type->js info hash table
 	TypeTest<cocos2d::CCJumpTo> t;
@@ -8248,7 +8320,7 @@ JSBool js_cocos2dx_CCBezierBy_initWithDuration(JSContext *cx, uint32_t argc, jsv
 	if (argc == 2) {
 		double arg0;
 		cocos2d::ccBezierConfig arg1;
-		JS_ValueToNumber(cx, argv[0], &arg0);
+		arg0 = JSVAL_TO_DOUBLE(argv[0]);
 		#pragma warning NO CONVERSION TO NATIVE FOR const ccBezierConfig;
 		bool ret = cobj->initWithDuration(arg0, arg1);
 		jsval jsret;
@@ -8269,7 +8341,7 @@ JSBool js_cocos2dx_CCBezierBy_update(JSContext *cx, uint32_t argc, jsval *vp)
 
 	if (argc == 1) {
 		double arg0;
-		JS_ValueToNumber(cx, argv[0], &arg0);
+		arg0 = JSVAL_TO_DOUBLE(argv[0]);
 		cobj->update(arg0);
 		return JS_TRUE;
 	}
@@ -8317,6 +8389,9 @@ void js_register_cocos2dx_CCBezierBy(JSContext *cx, JSObject *global) {
 		funcs,
 		NULL, // no static properties
 		st_funcs);
+	// make the class enumerable in the registered namespace
+	JSBool found;
+	JS_SetPropertyAttributes(cx, globalObj, "BezierBy", JSPROP_ENUMERATE | JSPROP_READONLY, &found);
 
 	// add the proto and JSClass to the type->js info hash table
 	TypeTest<cocos2d::CCBezierBy> t;
@@ -8396,6 +8471,9 @@ void js_register_cocos2dx_CCBezierTo(JSContext *cx, JSObject *global) {
 		funcs,
 		NULL, // no static properties
 		st_funcs);
+	// make the class enumerable in the registered namespace
+	JSBool found;
+	JS_SetPropertyAttributes(cx, globalObj, "BezierTo", JSPROP_ENUMERATE | JSPROP_READONLY, &found);
 
 	// add the proto and JSClass to the type->js info hash table
 	TypeTest<cocos2d::CCBezierTo> t;
@@ -8451,11 +8529,11 @@ JSBool js_cocos2dx_CCScaleTo_initWithDuration(JSContext *cx, uint32_t argc, jsva
 
 	if (argc == 3) {
 		double arg0;
-		JS_ValueToNumber(cx, argv[0], &arg0);
+		arg0 = JSVAL_TO_DOUBLE(argv[0]);
 		double arg1;
-		JS_ValueToNumber(cx, argv[1], &arg1);
+		arg1 = JSVAL_TO_DOUBLE(argv[1]);
 		double arg2;
-		JS_ValueToNumber(cx, argv[2], &arg2);
+		arg2 = JSVAL_TO_DOUBLE(argv[2]);
 		bool ret = cobj->initWithDuration(arg0, arg1, arg2);
 		jsval jsret; jsret = BOOLEAN_TO_JSVAL(ret);
 		JS_SET_RVAL(cx, vp, jsret);
@@ -8463,9 +8541,9 @@ JSBool js_cocos2dx_CCScaleTo_initWithDuration(JSContext *cx, uint32_t argc, jsva
 	}
 	if (argc == 2) {
 		double arg0;
-		JS_ValueToNumber(cx, argv[0], &arg0);
+		arg0 = JSVAL_TO_DOUBLE(argv[0]);
 		double arg1;
-		JS_ValueToNumber(cx, argv[1], &arg1);
+		arg1 = JSVAL_TO_DOUBLE(argv[1]);
 		bool ret = cobj->initWithDuration(arg0, arg1);
 		jsval jsret; jsret = BOOLEAN_TO_JSVAL(ret);
 		JS_SET_RVAL(cx, vp, jsret);
@@ -8483,7 +8561,7 @@ JSBool js_cocos2dx_CCScaleTo_update(JSContext *cx, uint32_t argc, jsval *vp)
 
 	if (argc == 1) {
 		double arg0;
-		JS_ValueToNumber(cx, argv[0], &arg0);
+		arg0 = JSVAL_TO_DOUBLE(argv[0]);
 		cobj->update(arg0);
 		return JS_TRUE;
 	}
@@ -8495,11 +8573,11 @@ JSBool js_cocos2dx_CCScaleTo_create(JSContext *cx, uint32_t argc, jsval *vp)
 	jsval *argv = JS_ARGV(cx, vp);
 	if (argc == 3) {
 		double arg0;
-		JS_ValueToNumber(cx, argv[0], &arg0);
+		arg0 = JSVAL_TO_DOUBLE(argv[0]);
 		double arg1;
-		JS_ValueToNumber(cx, argv[1], &arg1);
+		arg1 = JSVAL_TO_DOUBLE(argv[1]);
 		double arg2;
-		JS_ValueToNumber(cx, argv[2], &arg2);
+		arg2 = JSVAL_TO_DOUBLE(argv[2]);
 		cocos2d::CCScaleTo* ret = cocos2d::CCScaleTo::create(arg0, arg1, arg2);
 		jsval jsret;
 		do {
@@ -8515,9 +8593,9 @@ JSBool js_cocos2dx_CCScaleTo_create(JSContext *cx, uint32_t argc, jsval *vp)
 	}
 	if (argc == 2) {
 		double arg0;
-		JS_ValueToNumber(cx, argv[0], &arg0);
+		arg0 = JSVAL_TO_DOUBLE(argv[0]);
 		double arg1;
-		JS_ValueToNumber(cx, argv[1], &arg1);
+		arg1 = JSVAL_TO_DOUBLE(argv[1]);
 		cocos2d::CCScaleTo* ret = cocos2d::CCScaleTo::create(arg0, arg1);
 		jsval jsret;
 		do {
@@ -8538,11 +8616,11 @@ JSBool js_cocos2dx_CCScaleTo_actionWithDuration(JSContext *cx, uint32_t argc, js
 	jsval *argv = JS_ARGV(cx, vp);
 	if (argc == 3) {
 		double arg0;
-		JS_ValueToNumber(cx, argv[0], &arg0);
+		arg0 = JSVAL_TO_DOUBLE(argv[0]);
 		double arg1;
-		JS_ValueToNumber(cx, argv[1], &arg1);
+		arg1 = JSVAL_TO_DOUBLE(argv[1]);
 		double arg2;
-		JS_ValueToNumber(cx, argv[2], &arg2);
+		arg2 = JSVAL_TO_DOUBLE(argv[2]);
 		cocos2d::CCScaleTo* ret = cocos2d::CCScaleTo::actionWithDuration(arg0, arg1, arg2);
 		jsval jsret;
 		do {
@@ -8558,9 +8636,9 @@ JSBool js_cocos2dx_CCScaleTo_actionWithDuration(JSContext *cx, uint32_t argc, js
 	}
 	if (argc == 2) {
 		double arg0;
-		JS_ValueToNumber(cx, argv[0], &arg0);
+		arg0 = JSVAL_TO_DOUBLE(argv[0]);
 		double arg1;
-		JS_ValueToNumber(cx, argv[1], &arg1);
+		arg1 = JSVAL_TO_DOUBLE(argv[1]);
 		cocos2d::CCScaleTo* ret = cocos2d::CCScaleTo::actionWithDuration(arg0, arg1);
 		jsval jsret;
 		do {
@@ -8620,6 +8698,9 @@ void js_register_cocos2dx_CCScaleTo(JSContext *cx, JSObject *global) {
 		funcs,
 		NULL, // no static properties
 		st_funcs);
+	// make the class enumerable in the registered namespace
+	JSBool found;
+	JS_SetPropertyAttributes(cx, globalObj, "ScaleTo", JSPROP_ENUMERATE | JSPROP_READONLY, &found);
 
 	// add the proto and JSClass to the type->js info hash table
 	TypeTest<cocos2d::CCScaleTo> t;
@@ -8692,11 +8773,11 @@ JSBool js_cocos2dx_CCScaleBy_create(JSContext *cx, uint32_t argc, jsval *vp)
 	jsval *argv = JS_ARGV(cx, vp);
 	if (argc == 3) {
 		double arg0;
-		JS_ValueToNumber(cx, argv[0], &arg0);
+		arg0 = JSVAL_TO_DOUBLE(argv[0]);
 		double arg1;
-		JS_ValueToNumber(cx, argv[1], &arg1);
+		arg1 = JSVAL_TO_DOUBLE(argv[1]);
 		double arg2;
-		JS_ValueToNumber(cx, argv[2], &arg2);
+		arg2 = JSVAL_TO_DOUBLE(argv[2]);
 		cocos2d::CCScaleBy* ret = cocos2d::CCScaleBy::create(arg0, arg1, arg2);
 		jsval jsret;
 		do {
@@ -8712,9 +8793,9 @@ JSBool js_cocos2dx_CCScaleBy_create(JSContext *cx, uint32_t argc, jsval *vp)
 	}
 	if (argc == 2) {
 		double arg0;
-		JS_ValueToNumber(cx, argv[0], &arg0);
+		arg0 = JSVAL_TO_DOUBLE(argv[0]);
 		double arg1;
-		JS_ValueToNumber(cx, argv[1], &arg1);
+		arg1 = JSVAL_TO_DOUBLE(argv[1]);
 		cocos2d::CCScaleBy* ret = cocos2d::CCScaleBy::create(arg0, arg1);
 		jsval jsret;
 		do {
@@ -8735,11 +8816,11 @@ JSBool js_cocos2dx_CCScaleBy_actionWithDuration(JSContext *cx, uint32_t argc, js
 	jsval *argv = JS_ARGV(cx, vp);
 	if (argc == 3) {
 		double arg0;
-		JS_ValueToNumber(cx, argv[0], &arg0);
+		arg0 = JSVAL_TO_DOUBLE(argv[0]);
 		double arg1;
-		JS_ValueToNumber(cx, argv[1], &arg1);
+		arg1 = JSVAL_TO_DOUBLE(argv[1]);
 		double arg2;
-		JS_ValueToNumber(cx, argv[2], &arg2);
+		arg2 = JSVAL_TO_DOUBLE(argv[2]);
 		cocos2d::CCScaleBy* ret = cocos2d::CCScaleBy::actionWithDuration(arg0, arg1, arg2);
 		jsval jsret;
 		do {
@@ -8755,9 +8836,9 @@ JSBool js_cocos2dx_CCScaleBy_actionWithDuration(JSContext *cx, uint32_t argc, js
 	}
 	if (argc == 2) {
 		double arg0;
-		JS_ValueToNumber(cx, argv[0], &arg0);
+		arg0 = JSVAL_TO_DOUBLE(argv[0]);
 		double arg1;
-		JS_ValueToNumber(cx, argv[1], &arg1);
+		arg1 = JSVAL_TO_DOUBLE(argv[1]);
 		cocos2d::CCScaleBy* ret = cocos2d::CCScaleBy::actionWithDuration(arg0, arg1);
 		jsval jsret;
 		do {
@@ -8814,6 +8895,9 @@ void js_register_cocos2dx_CCScaleBy(JSContext *cx, JSObject *global) {
 		funcs,
 		NULL, // no static properties
 		st_funcs);
+	// make the class enumerable in the registered namespace
+	JSBool found;
+	JS_SetPropertyAttributes(cx, globalObj, "ScaleBy", JSPROP_ENUMERATE | JSPROP_READONLY, &found);
 
 	// add the proto and JSClass to the type->js info hash table
 	TypeTest<cocos2d::CCScaleBy> t;
@@ -8869,7 +8953,7 @@ JSBool js_cocos2dx_CCBlink_initWithDuration(JSContext *cx, uint32_t argc, jsval 
 	if (argc == 2) {
 		double arg0;
 		unsigned int arg1;
-		JS_ValueToNumber(cx, argv[0], &arg0);
+		arg0 = JSVAL_TO_DOUBLE(argv[0]);
 		JS_ValueToECMAUint32(cx, argv[1], &arg1);
 		bool ret = cobj->initWithDuration(arg0, arg1);
 		jsval jsret;
@@ -8890,7 +8974,7 @@ JSBool js_cocos2dx_CCBlink_update(JSContext *cx, uint32_t argc, jsval *vp)
 
 	if (argc == 1) {
 		double arg0;
-		JS_ValueToNumber(cx, argv[0], &arg0);
+		arg0 = JSVAL_TO_DOUBLE(argv[0]);
 		cobj->update(arg0);
 		return JS_TRUE;
 	}
@@ -8904,7 +8988,7 @@ JSBool js_cocos2dx_CCBlink_create(JSContext *cx, uint32_t argc, jsval *vp)
 	unsigned int arg1;
 	assert(argc >= 2);
 
-	JS_ValueToNumber(cx, argv[0], &arg0);
+	arg0 = JSVAL_TO_DOUBLE(argv[0]);
 	JS_ValueToECMAUint32(cx, argv[1], &arg1);
 	cocos2d::CCBlink* ret = cocos2d::CCBlink::create(arg0, arg1);
 	jsval jsret;
@@ -8927,7 +9011,7 @@ JSBool js_cocos2dx_CCBlink_actionWithDuration(JSContext *cx, uint32_t argc, jsva
 	unsigned int arg1;
 	assert(argc >= 2);
 
-	JS_ValueToNumber(cx, argv[0], &arg0);
+	arg0 = JSVAL_TO_DOUBLE(argv[0]);
 	JS_ValueToECMAUint32(cx, argv[1], &arg1);
 	cocos2d::CCBlink* ret = cocos2d::CCBlink::actionWithDuration(arg0, arg1);
 	jsval jsret;
@@ -8987,6 +9071,9 @@ void js_register_cocos2dx_CCBlink(JSContext *cx, JSObject *global) {
 		funcs,
 		NULL, // no static properties
 		st_funcs);
+	// make the class enumerable in the registered namespace
+	JSBool found;
+	JS_SetPropertyAttributes(cx, globalObj, "Blink", JSPROP_ENUMERATE | JSPROP_READONLY, &found);
 
 	// add the proto and JSClass to the type->js info hash table
 	TypeTest<cocos2d::CCBlink> t;
@@ -9017,7 +9104,7 @@ JSBool js_cocos2dx_CCFadeIn_update(JSContext *cx, uint32_t argc, jsval *vp)
 
 	if (argc == 1) {
 		double arg0;
-		JS_ValueToNumber(cx, argv[0], &arg0);
+		arg0 = JSVAL_TO_DOUBLE(argv[0]);
 		cobj->update(arg0);
 		return JS_TRUE;
 	}
@@ -9054,7 +9141,7 @@ JSBool js_cocos2dx_CCFadeIn_create(JSContext *cx, uint32_t argc, jsval *vp)
 	double arg0;
 	assert(argc >= 1);
 
-	JS_ValueToNumber(cx, argv[0], &arg0);
+	arg0 = JSVAL_TO_DOUBLE(argv[0]);
 	cocos2d::CCFadeIn* ret = cocos2d::CCFadeIn::create(arg0);
 	jsval jsret;
 	do {
@@ -9075,7 +9162,7 @@ JSBool js_cocos2dx_CCFadeIn_actionWithDuration(JSContext *cx, uint32_t argc, jsv
 	double arg0;
 	assert(argc >= 1);
 
-	JS_ValueToNumber(cx, argv[0], &arg0);
+	arg0 = JSVAL_TO_DOUBLE(argv[0]);
 	cocos2d::CCFadeIn* ret = cocos2d::CCFadeIn::actionWithDuration(arg0);
 	jsval jsret;
 	do {
@@ -9131,6 +9218,9 @@ void js_register_cocos2dx_CCFadeIn(JSContext *cx, JSObject *global) {
 		funcs,
 		NULL, // no static properties
 		st_funcs);
+	// make the class enumerable in the registered namespace
+	JSBool found;
+	JS_SetPropertyAttributes(cx, globalObj, "FadeIn", JSPROP_ENUMERATE | JSPROP_READONLY, &found);
 
 	// add the proto and JSClass to the type->js info hash table
 	TypeTest<cocos2d::CCFadeIn> t;
@@ -9161,7 +9251,7 @@ JSBool js_cocos2dx_CCFadeOut_update(JSContext *cx, uint32_t argc, jsval *vp)
 
 	if (argc == 1) {
 		double arg0;
-		JS_ValueToNumber(cx, argv[0], &arg0);
+		arg0 = JSVAL_TO_DOUBLE(argv[0]);
 		cobj->update(arg0);
 		return JS_TRUE;
 	}
@@ -9198,7 +9288,7 @@ JSBool js_cocos2dx_CCFadeOut_create(JSContext *cx, uint32_t argc, jsval *vp)
 	double arg0;
 	assert(argc >= 1);
 
-	JS_ValueToNumber(cx, argv[0], &arg0);
+	arg0 = JSVAL_TO_DOUBLE(argv[0]);
 	cocos2d::CCFadeOut* ret = cocos2d::CCFadeOut::create(arg0);
 	jsval jsret;
 	do {
@@ -9219,7 +9309,7 @@ JSBool js_cocos2dx_CCFadeOut_actionWithDuration(JSContext *cx, uint32_t argc, js
 	double arg0;
 	assert(argc >= 1);
 
-	JS_ValueToNumber(cx, argv[0], &arg0);
+	arg0 = JSVAL_TO_DOUBLE(argv[0]);
 	cocos2d::CCFadeOut* ret = cocos2d::CCFadeOut::actionWithDuration(arg0);
 	jsval jsret;
 	do {
@@ -9275,6 +9365,9 @@ void js_register_cocos2dx_CCFadeOut(JSContext *cx, JSObject *global) {
 		funcs,
 		NULL, // no static properties
 		st_funcs);
+	// make the class enumerable in the registered namespace
+	JSBool found;
+	JS_SetPropertyAttributes(cx, globalObj, "FadeOut", JSPROP_ENUMERATE | JSPROP_READONLY, &found);
 
 	// add the proto and JSClass to the type->js info hash table
 	TypeTest<cocos2d::CCFadeOut> t;
@@ -9329,7 +9422,7 @@ JSBool js_cocos2dx_CCFadeTo_initWithDuration(JSContext *cx, uint32_t argc, jsval
 	if (argc == 2) {
 		double arg0;
 		uint16_t arg1;
-		JS_ValueToNumber(cx, argv[0], &arg0);
+		arg0 = JSVAL_TO_DOUBLE(argv[0]);
 		JS_ValueToUint16(cx, argv[1], &arg1);
 		bool ret = cobj->initWithDuration(arg0, arg1);
 		jsval jsret;
@@ -9350,7 +9443,7 @@ JSBool js_cocos2dx_CCFadeTo_update(JSContext *cx, uint32_t argc, jsval *vp)
 
 	if (argc == 1) {
 		double arg0;
-		JS_ValueToNumber(cx, argv[0], &arg0);
+		arg0 = JSVAL_TO_DOUBLE(argv[0]);
 		cobj->update(arg0);
 		return JS_TRUE;
 	}
@@ -9364,7 +9457,7 @@ JSBool js_cocos2dx_CCFadeTo_create(JSContext *cx, uint32_t argc, jsval *vp)
 	uint16_t arg1;
 	assert(argc >= 2);
 
-	JS_ValueToNumber(cx, argv[0], &arg0);
+	arg0 = JSVAL_TO_DOUBLE(argv[0]);
 	JS_ValueToUint16(cx, argv[1], &arg1);
 	cocos2d::CCFadeTo* ret = cocos2d::CCFadeTo::create(arg0, arg1);
 	jsval jsret;
@@ -9387,7 +9480,7 @@ JSBool js_cocos2dx_CCFadeTo_actionWithDuration(JSContext *cx, uint32_t argc, jsv
 	uint16_t arg1;
 	assert(argc >= 2);
 
-	JS_ValueToNumber(cx, argv[0], &arg0);
+	arg0 = JSVAL_TO_DOUBLE(argv[0]);
 	JS_ValueToUint16(cx, argv[1], &arg1);
 	cocos2d::CCFadeTo* ret = cocos2d::CCFadeTo::actionWithDuration(arg0, arg1);
 	jsval jsret;
@@ -9447,6 +9540,9 @@ void js_register_cocos2dx_CCFadeTo(JSContext *cx, JSObject *global) {
 		funcs,
 		NULL, // no static properties
 		st_funcs);
+	// make the class enumerable in the registered namespace
+	JSBool found;
+	JS_SetPropertyAttributes(cx, globalObj, "FadeTo", JSPROP_ENUMERATE | JSPROP_READONLY, &found);
 
 	// add the proto and JSClass to the type->js info hash table
 	TypeTest<cocos2d::CCFadeTo> t;
@@ -9503,7 +9599,7 @@ JSBool js_cocos2dx_CCTintTo_initWithDuration(JSContext *cx, uint32_t argc, jsval
 		uint16_t arg1;
 		uint16_t arg2;
 		uint16_t arg3;
-		JS_ValueToNumber(cx, argv[0], &arg0);
+		arg0 = JSVAL_TO_DOUBLE(argv[0]);
 		JS_ValueToUint16(cx, argv[1], &arg1);
 		JS_ValueToUint16(cx, argv[2], &arg2);
 		JS_ValueToUint16(cx, argv[3], &arg3);
@@ -9526,7 +9622,7 @@ JSBool js_cocos2dx_CCTintTo_update(JSContext *cx, uint32_t argc, jsval *vp)
 
 	if (argc == 1) {
 		double arg0;
-		JS_ValueToNumber(cx, argv[0], &arg0);
+		arg0 = JSVAL_TO_DOUBLE(argv[0]);
 		cobj->update(arg0);
 		return JS_TRUE;
 	}
@@ -9542,7 +9638,7 @@ JSBool js_cocos2dx_CCTintTo_create(JSContext *cx, uint32_t argc, jsval *vp)
 	uint16_t arg3;
 	assert(argc >= 4);
 
-	JS_ValueToNumber(cx, argv[0], &arg0);
+	arg0 = JSVAL_TO_DOUBLE(argv[0]);
 	JS_ValueToUint16(cx, argv[1], &arg1);
 	JS_ValueToUint16(cx, argv[2], &arg2);
 	JS_ValueToUint16(cx, argv[3], &arg3);
@@ -9569,7 +9665,7 @@ JSBool js_cocos2dx_CCTintTo_actionWithDuration(JSContext *cx, uint32_t argc, jsv
 	uint16_t arg3;
 	assert(argc >= 4);
 
-	JS_ValueToNumber(cx, argv[0], &arg0);
+	arg0 = JSVAL_TO_DOUBLE(argv[0]);
 	JS_ValueToUint16(cx, argv[1], &arg1);
 	JS_ValueToUint16(cx, argv[2], &arg2);
 	JS_ValueToUint16(cx, argv[3], &arg3);
@@ -9631,6 +9727,9 @@ void js_register_cocos2dx_CCTintTo(JSContext *cx, JSObject *global) {
 		funcs,
 		NULL, // no static properties
 		st_funcs);
+	// make the class enumerable in the registered namespace
+	JSBool found;
+	JS_SetPropertyAttributes(cx, globalObj, "TintTo", JSPROP_ENUMERATE | JSPROP_READONLY, &found);
 
 	// add the proto and JSClass to the type->js info hash table
 	TypeTest<cocos2d::CCTintTo> t;
@@ -9711,7 +9810,7 @@ JSBool js_cocos2dx_CCTintBy_initWithDuration(JSContext *cx, uint32_t argc, jsval
 		int32_t arg1;
 		int32_t arg2;
 		int32_t arg3;
-		JS_ValueToNumber(cx, argv[0], &arg0);
+		arg0 = JSVAL_TO_DOUBLE(argv[0]);
 		JS_ValueToInt32(cx, argv[1], &arg1);
 		JS_ValueToInt32(cx, argv[2], &arg2);
 		JS_ValueToInt32(cx, argv[3], &arg3);
@@ -9734,7 +9833,7 @@ JSBool js_cocos2dx_CCTintBy_update(JSContext *cx, uint32_t argc, jsval *vp)
 
 	if (argc == 1) {
 		double arg0;
-		JS_ValueToNumber(cx, argv[0], &arg0);
+		arg0 = JSVAL_TO_DOUBLE(argv[0]);
 		cobj->update(arg0);
 		return JS_TRUE;
 	}
@@ -9750,7 +9849,7 @@ JSBool js_cocos2dx_CCTintBy_create(JSContext *cx, uint32_t argc, jsval *vp)
 	int32_t arg3;
 	assert(argc >= 4);
 
-	JS_ValueToNumber(cx, argv[0], &arg0);
+	arg0 = JSVAL_TO_DOUBLE(argv[0]);
 	JS_ValueToInt32(cx, argv[1], &arg1);
 	JS_ValueToInt32(cx, argv[2], &arg2);
 	JS_ValueToInt32(cx, argv[3], &arg3);
@@ -9777,7 +9876,7 @@ JSBool js_cocos2dx_CCTintBy_actionWithDuration(JSContext *cx, uint32_t argc, jsv
 	int32_t arg3;
 	assert(argc >= 4);
 
-	JS_ValueToNumber(cx, argv[0], &arg0);
+	arg0 = JSVAL_TO_DOUBLE(argv[0]);
 	JS_ValueToInt32(cx, argv[1], &arg1);
 	JS_ValueToInt32(cx, argv[2], &arg2);
 	JS_ValueToInt32(cx, argv[3], &arg3);
@@ -9840,6 +9939,9 @@ void js_register_cocos2dx_CCTintBy(JSContext *cx, JSObject *global) {
 		funcs,
 		NULL, // no static properties
 		st_funcs);
+	// make the class enumerable in the registered namespace
+	JSBool found;
+	JS_SetPropertyAttributes(cx, globalObj, "TintBy", JSPROP_ENUMERATE | JSPROP_READONLY, &found);
 
 	// add the proto and JSClass to the type->js info hash table
 	TypeTest<cocos2d::CCTintBy> t;
@@ -9870,7 +9972,7 @@ JSBool js_cocos2dx_CCDelayTime_update(JSContext *cx, uint32_t argc, jsval *vp)
 
 	if (argc == 1) {
 		double arg0;
-		JS_ValueToNumber(cx, argv[0], &arg0);
+		arg0 = JSVAL_TO_DOUBLE(argv[0]);
 		cobj->update(arg0);
 		return JS_TRUE;
 	}
@@ -9907,7 +10009,7 @@ JSBool js_cocos2dx_CCDelayTime_create(JSContext *cx, uint32_t argc, jsval *vp)
 	double arg0;
 	assert(argc >= 1);
 
-	JS_ValueToNumber(cx, argv[0], &arg0);
+	arg0 = JSVAL_TO_DOUBLE(argv[0]);
 	cocos2d::CCDelayTime* ret = cocos2d::CCDelayTime::create(arg0);
 	jsval jsret;
 	do {
@@ -9928,7 +10030,7 @@ JSBool js_cocos2dx_CCDelayTime_actionWithDuration(JSContext *cx, uint32_t argc, 
 	double arg0;
 	assert(argc >= 1);
 
-	JS_ValueToNumber(cx, argv[0], &arg0);
+	arg0 = JSVAL_TO_DOUBLE(argv[0]);
 	cocos2d::CCDelayTime* ret = cocos2d::CCDelayTime::actionWithDuration(arg0);
 	jsval jsret;
 	do {
@@ -9984,6 +10086,9 @@ void js_register_cocos2dx_CCDelayTime(JSContext *cx, JSObject *global) {
 		funcs,
 		NULL, // no static properties
 		st_funcs);
+	// make the class enumerable in the registered namespace
+	JSBool found;
+	JS_SetPropertyAttributes(cx, globalObj, "DelayTime", JSPROP_ENUMERATE | JSPROP_READONLY, &found);
 
 	// add the proto and JSClass to the type->js info hash table
 	TypeTest<cocos2d::CCDelayTime> t;
@@ -10075,7 +10180,7 @@ JSBool js_cocos2dx_CCAnimate_update(JSContext *cx, uint32_t argc, jsval *vp)
 
 	if (argc == 1) {
 		double arg0;
-		JS_ValueToNumber(cx, argv[0], &arg0);
+		arg0 = JSVAL_TO_DOUBLE(argv[0]);
 		cobj->update(arg0);
 		return JS_TRUE;
 	}
@@ -10287,6 +10392,9 @@ void js_register_cocos2dx_CCAnimate(JSContext *cx, JSObject *global) {
 		funcs,
 		NULL, // no static properties
 		st_funcs);
+	// make the class enumerable in the registered namespace
+	JSBool found;
+	JS_SetPropertyAttributes(cx, globalObj, "Animate", JSPROP_ENUMERATE | JSPROP_READONLY, &found);
 
 	// add the proto and JSClass to the type->js info hash table
 	TypeTest<cocos2d::CCAnimate> t;
@@ -10411,7 +10519,7 @@ JSBool js_cocos2dx_CCTargetedAction_update(JSContext *cx, uint32_t argc, jsval *
 
 	if (argc == 1) {
 		double arg0;
-		JS_ValueToNumber(cx, argv[0], &arg0);
+		arg0 = JSVAL_TO_DOUBLE(argv[0]);
 		cobj->update(arg0);
 		return JS_TRUE;
 	}
@@ -10589,6 +10697,9 @@ void js_register_cocos2dx_CCTargetedAction(JSContext *cx, JSObject *global) {
 		funcs,
 		NULL, // no static properties
 		st_funcs);
+	// make the class enumerable in the registered namespace
+	JSBool found;
+	JS_SetPropertyAttributes(cx, globalObj, "TargetedAction", JSPROP_ENUMERATE | JSPROP_READONLY, &found);
 
 	// add the proto and JSClass to the type->js info hash table
 	TypeTest<cocos2d::CCTargetedAction> t;
@@ -10725,6 +10836,9 @@ void js_register_cocos2dx_CCActionCamera(JSContext *cx, JSObject *global) {
 		funcs,
 		NULL, // no static properties
 		st_funcs);
+	// make the class enumerable in the registered namespace
+	JSBool found;
+	JS_SetPropertyAttributes(cx, globalObj, "ActionCamera", JSPROP_ENUMERATE | JSPROP_READONLY, &found);
 
 	// add the proto and JSClass to the type->js info hash table
 	TypeTest<cocos2d::CCActionCamera> t;
@@ -10784,13 +10898,13 @@ JSBool js_cocos2dx_CCOrbitCamera_initWithDuration(JSContext *cx, uint32_t argc, 
 		double arg4;
 		double arg5;
 		double arg6;
-		JS_ValueToNumber(cx, argv[0], &arg0);
-		JS_ValueToNumber(cx, argv[1], &arg1);
-		JS_ValueToNumber(cx, argv[2], &arg2);
-		JS_ValueToNumber(cx, argv[3], &arg3);
-		JS_ValueToNumber(cx, argv[4], &arg4);
-		JS_ValueToNumber(cx, argv[5], &arg5);
-		JS_ValueToNumber(cx, argv[6], &arg6);
+		arg0 = JSVAL_TO_DOUBLE(argv[0]);
+		arg1 = JSVAL_TO_DOUBLE(argv[1]);
+		arg2 = JSVAL_TO_DOUBLE(argv[2]);
+		arg3 = JSVAL_TO_DOUBLE(argv[3]);
+		arg4 = JSVAL_TO_DOUBLE(argv[4]);
+		arg5 = JSVAL_TO_DOUBLE(argv[5]);
+		arg6 = JSVAL_TO_DOUBLE(argv[6]);
 		bool ret = cobj->initWithDuration(arg0, arg1, arg2, arg3, arg4, arg5, arg6);
 		jsval jsret;
 		jsret = BOOLEAN_TO_JSVAL(ret);
@@ -10831,7 +10945,7 @@ JSBool js_cocos2dx_CCOrbitCamera_update(JSContext *cx, uint32_t argc, jsval *vp)
 
 	if (argc == 1) {
 		double arg0;
-		JS_ValueToNumber(cx, argv[0], &arg0);
+		arg0 = JSVAL_TO_DOUBLE(argv[0]);
 		cobj->update(arg0);
 		return JS_TRUE;
 	}
@@ -10850,13 +10964,13 @@ JSBool js_cocos2dx_CCOrbitCamera_create(JSContext *cx, uint32_t argc, jsval *vp)
 	double arg6;
 	assert(argc >= 7);
 
-	JS_ValueToNumber(cx, argv[0], &arg0);
-	JS_ValueToNumber(cx, argv[1], &arg1);
-	JS_ValueToNumber(cx, argv[2], &arg2);
-	JS_ValueToNumber(cx, argv[3], &arg3);
-	JS_ValueToNumber(cx, argv[4], &arg4);
-	JS_ValueToNumber(cx, argv[5], &arg5);
-	JS_ValueToNumber(cx, argv[6], &arg6);
+	arg0 = JSVAL_TO_DOUBLE(argv[0]);
+	arg1 = JSVAL_TO_DOUBLE(argv[1]);
+	arg2 = JSVAL_TO_DOUBLE(argv[2]);
+	arg3 = JSVAL_TO_DOUBLE(argv[3]);
+	arg4 = JSVAL_TO_DOUBLE(argv[4]);
+	arg5 = JSVAL_TO_DOUBLE(argv[5]);
+	arg6 = JSVAL_TO_DOUBLE(argv[6]);
 	cocos2d::CCOrbitCamera* ret = cocos2d::CCOrbitCamera::create(arg0, arg1, arg2, arg3, arg4, arg5, arg6);
 	jsval jsret;
 	do {
@@ -10883,13 +10997,13 @@ JSBool js_cocos2dx_CCOrbitCamera_actionWithDuration(JSContext *cx, uint32_t argc
 	double arg6;
 	assert(argc >= 7);
 
-	JS_ValueToNumber(cx, argv[0], &arg0);
-	JS_ValueToNumber(cx, argv[1], &arg1);
-	JS_ValueToNumber(cx, argv[2], &arg2);
-	JS_ValueToNumber(cx, argv[3], &arg3);
-	JS_ValueToNumber(cx, argv[4], &arg4);
-	JS_ValueToNumber(cx, argv[5], &arg5);
-	JS_ValueToNumber(cx, argv[6], &arg6);
+	arg0 = JSVAL_TO_DOUBLE(argv[0]);
+	arg1 = JSVAL_TO_DOUBLE(argv[1]);
+	arg2 = JSVAL_TO_DOUBLE(argv[2]);
+	arg3 = JSVAL_TO_DOUBLE(argv[3]);
+	arg4 = JSVAL_TO_DOUBLE(argv[4]);
+	arg5 = JSVAL_TO_DOUBLE(argv[5]);
+	arg6 = JSVAL_TO_DOUBLE(argv[6]);
 	cocos2d::CCOrbitCamera* ret = cocos2d::CCOrbitCamera::actionWithDuration(arg0, arg1, arg2, arg3, arg4, arg5, arg6);
 	jsval jsret;
 	do {
@@ -10979,6 +11093,9 @@ void js_register_cocos2dx_CCOrbitCamera(JSContext *cx, JSObject *global) {
 		funcs,
 		NULL, // no static properties
 		st_funcs);
+	// make the class enumerable in the registered namespace
+	JSBool found;
+	JS_SetPropertyAttributes(cx, globalObj, "OrbitCamera", JSPROP_ENUMERATE | JSPROP_READONLY, &found);
 
 	// add the proto and JSClass to the type->js info hash table
 	TypeTest<cocos2d::CCOrbitCamera> t;
@@ -11240,7 +11357,7 @@ JSBool js_cocos2dx_CCActionManager_numberOfRunningActionsInTarget(JSContext *cx,
 		} while (0);
 		unsigned int ret = cobj->numberOfRunningActionsInTarget(arg0);
 		jsval jsret;
-		JS_NewNumberValue(cx, ret, &jsret);
+		jsret = UINT_TO_JSVAL(ret);
 		JS_SET_RVAL(cx, vp, jsret);
 		return JS_TRUE;
 	}
@@ -11349,6 +11466,9 @@ void js_register_cocos2dx_CCActionManager(JSContext *cx, JSObject *global) {
 		funcs,
 		NULL, // no static properties
 		st_funcs);
+	// make the class enumerable in the registered namespace
+	JSBool found;
+	JS_SetPropertyAttributes(cx, globalObj, "ActionManager", JSPROP_ENUMERATE | JSPROP_READONLY, &found);
 
 	// add the proto and JSClass to the type->js info hash table
 	TypeTest<cocos2d::CCActionManager> t;
@@ -11440,7 +11560,7 @@ JSBool js_cocos2dx_CCActionEase_update(JSContext *cx, uint32_t argc, jsval *vp)
 
 	if (argc == 1) {
 		double arg0;
-		JS_ValueToNumber(cx, argv[0], &arg0);
+		arg0 = JSVAL_TO_DOUBLE(argv[0]);
 		cobj->update(arg0);
 		return JS_TRUE;
 	}
@@ -11573,6 +11693,9 @@ void js_register_cocos2dx_CCActionEase(JSContext *cx, JSObject *global) {
 		funcs,
 		NULL, // no static properties
 		st_funcs);
+	// make the class enumerable in the registered namespace
+	JSBool found;
+	JS_SetPropertyAttributes(cx, globalObj, "ActionEase", JSPROP_ENUMERATE | JSPROP_READONLY, &found);
 
 	// add the proto and JSClass to the type->js info hash table
 	TypeTest<cocos2d::CCActionEase> t;
@@ -11603,7 +11726,7 @@ JSBool js_cocos2dx_CCEaseRateAction_setRate(JSContext *cx, uint32_t argc, jsval 
 
 	if (argc == 1) {
 		double arg0;
-		JS_ValueToNumber(cx, argv[0], &arg0);
+		arg0 = JSVAL_TO_DOUBLE(argv[0]);
 		cobj->setRate(arg0);
 		return JS_TRUE;
 	}
@@ -11628,7 +11751,7 @@ JSBool js_cocos2dx_CCEaseRateAction_initWithAction(JSContext *cx, uint32_t argc,
 			arg0 = (cocos2d::CCActionInterval*)(proxy ? proxy->ptr : NULL);
 			TEST_NATIVE_OBJECT(cx, arg0)
 		} while (0);
-		JS_ValueToNumber(cx, argv[1], &arg1);
+		arg1 = JSVAL_TO_DOUBLE(argv[1]);
 		bool ret = cobj->initWithAction(arg0, arg1);
 		jsval jsret;
 		jsret = BOOLEAN_TO_JSVAL(ret);
@@ -11672,7 +11795,7 @@ JSBool js_cocos2dx_CCEaseRateAction_getRate(JSContext *cx, uint32_t argc, jsval 
 	if (argc == 0) {
 		float ret = cobj->getRate();
 		jsval jsret;
-		JS_NewNumberValue(cx, ret, &jsret);
+		jsret = DOUBLE_TO_JSVAL(ret);
 		JS_SET_RVAL(cx, vp, jsret);
 		return JS_TRUE;
 	}
@@ -11693,7 +11816,7 @@ JSBool js_cocos2dx_CCEaseRateAction_create(JSContext *cx, uint32_t argc, jsval *
 			arg0 = (cocos2d::CCActionInterval*)(proxy ? proxy->ptr : NULL);
 			TEST_NATIVE_OBJECT(cx, arg0)
 		} while (0);
-	JS_ValueToNumber(cx, argv[1], &arg1);
+	arg1 = JSVAL_TO_DOUBLE(argv[1]);
 	cocos2d::CCEaseRateAction* ret = cocos2d::CCEaseRateAction::create(arg0, arg1);
 	jsval jsret;
 	do {
@@ -11722,7 +11845,7 @@ JSBool js_cocos2dx_CCEaseRateAction_actionWithAction(JSContext *cx, uint32_t arg
 			arg0 = (cocos2d::CCActionInterval*)(proxy ? proxy->ptr : NULL);
 			TEST_NATIVE_OBJECT(cx, arg0)
 		} while (0);
-	JS_ValueToNumber(cx, argv[1], &arg1);
+	arg1 = JSVAL_TO_DOUBLE(argv[1]);
 	cocos2d::CCEaseRateAction* ret = cocos2d::CCEaseRateAction::actionWithAction(arg0, arg1);
 	jsval jsret;
 	do {
@@ -11782,6 +11905,9 @@ void js_register_cocos2dx_CCEaseRateAction(JSContext *cx, JSObject *global) {
 		funcs,
 		NULL, // no static properties
 		st_funcs);
+	// make the class enumerable in the registered namespace
+	JSBool found;
+	JS_SetPropertyAttributes(cx, globalObj, "EaseRateAction", JSPROP_ENUMERATE | JSPROP_READONLY, &found);
 
 	// add the proto and JSClass to the type->js info hash table
 	TypeTest<cocos2d::CCEaseRateAction> t;
@@ -11812,7 +11938,7 @@ JSBool js_cocos2dx_CCEaseIn_update(JSContext *cx, uint32_t argc, jsval *vp)
 
 	if (argc == 1) {
 		double arg0;
-		JS_ValueToNumber(cx, argv[0], &arg0);
+		arg0 = JSVAL_TO_DOUBLE(argv[0]);
 		cobj->update(arg0);
 		return JS_TRUE;
 	}
@@ -11857,7 +11983,7 @@ JSBool js_cocos2dx_CCEaseIn_create(JSContext *cx, uint32_t argc, jsval *vp)
 			arg0 = (cocos2d::CCActionInterval*)(proxy ? proxy->ptr : NULL);
 			TEST_NATIVE_OBJECT(cx, arg0)
 		} while (0);
-	JS_ValueToNumber(cx, argv[1], &arg1);
+	arg1 = JSVAL_TO_DOUBLE(argv[1]);
 	cocos2d::CCEaseIn* ret = cocos2d::CCEaseIn::create(arg0, arg1);
 	jsval jsret;
 	do {
@@ -11886,7 +12012,7 @@ JSBool js_cocos2dx_CCEaseIn_actionWithAction(JSContext *cx, uint32_t argc, jsval
 			arg0 = (cocos2d::CCActionInterval*)(proxy ? proxy->ptr : NULL);
 			TEST_NATIVE_OBJECT(cx, arg0)
 		} while (0);
-	JS_ValueToNumber(cx, argv[1], &arg1);
+	arg1 = JSVAL_TO_DOUBLE(argv[1]);
 	cocos2d::CCEaseIn* ret = cocos2d::CCEaseIn::actionWithAction(arg0, arg1);
 	jsval jsret;
 	do {
@@ -11942,6 +12068,9 @@ void js_register_cocos2dx_CCEaseIn(JSContext *cx, JSObject *global) {
 		funcs,
 		NULL, // no static properties
 		st_funcs);
+	// make the class enumerable in the registered namespace
+	JSBool found;
+	JS_SetPropertyAttributes(cx, globalObj, "EaseIn", JSPROP_ENUMERATE | JSPROP_READONLY, &found);
 
 	// add the proto and JSClass to the type->js info hash table
 	TypeTest<cocos2d::CCEaseIn> t;
@@ -11972,7 +12101,7 @@ JSBool js_cocos2dx_CCEaseOut_update(JSContext *cx, uint32_t argc, jsval *vp)
 
 	if (argc == 1) {
 		double arg0;
-		JS_ValueToNumber(cx, argv[0], &arg0);
+		arg0 = JSVAL_TO_DOUBLE(argv[0]);
 		cobj->update(arg0);
 		return JS_TRUE;
 	}
@@ -12017,7 +12146,7 @@ JSBool js_cocos2dx_CCEaseOut_create(JSContext *cx, uint32_t argc, jsval *vp)
 			arg0 = (cocos2d::CCActionInterval*)(proxy ? proxy->ptr : NULL);
 			TEST_NATIVE_OBJECT(cx, arg0)
 		} while (0);
-	JS_ValueToNumber(cx, argv[1], &arg1);
+	arg1 = JSVAL_TO_DOUBLE(argv[1]);
 	cocos2d::CCEaseOut* ret = cocos2d::CCEaseOut::create(arg0, arg1);
 	jsval jsret;
 	do {
@@ -12046,7 +12175,7 @@ JSBool js_cocos2dx_CCEaseOut_actionWithAction(JSContext *cx, uint32_t argc, jsva
 			arg0 = (cocos2d::CCActionInterval*)(proxy ? proxy->ptr : NULL);
 			TEST_NATIVE_OBJECT(cx, arg0)
 		} while (0);
-	JS_ValueToNumber(cx, argv[1], &arg1);
+	arg1 = JSVAL_TO_DOUBLE(argv[1]);
 	cocos2d::CCEaseOut* ret = cocos2d::CCEaseOut::actionWithAction(arg0, arg1);
 	jsval jsret;
 	do {
@@ -12102,6 +12231,9 @@ void js_register_cocos2dx_CCEaseOut(JSContext *cx, JSObject *global) {
 		funcs,
 		NULL, // no static properties
 		st_funcs);
+	// make the class enumerable in the registered namespace
+	JSBool found;
+	JS_SetPropertyAttributes(cx, globalObj, "EaseOut", JSPROP_ENUMERATE | JSPROP_READONLY, &found);
 
 	// add the proto and JSClass to the type->js info hash table
 	TypeTest<cocos2d::CCEaseOut> t;
@@ -12156,7 +12288,7 @@ JSBool js_cocos2dx_CCEaseInOut_update(JSContext *cx, uint32_t argc, jsval *vp)
 
 	if (argc == 1) {
 		double arg0;
-		JS_ValueToNumber(cx, argv[0], &arg0);
+		arg0 = JSVAL_TO_DOUBLE(argv[0]);
 		cobj->update(arg0);
 		return JS_TRUE;
 	}
@@ -12177,7 +12309,7 @@ JSBool js_cocos2dx_CCEaseInOut_create(JSContext *cx, uint32_t argc, jsval *vp)
 			arg0 = (cocos2d::CCActionInterval*)(proxy ? proxy->ptr : NULL);
 			TEST_NATIVE_OBJECT(cx, arg0)
 		} while (0);
-	JS_ValueToNumber(cx, argv[1], &arg1);
+	arg1 = JSVAL_TO_DOUBLE(argv[1]);
 	cocos2d::CCEaseInOut* ret = cocos2d::CCEaseInOut::create(arg0, arg1);
 	jsval jsret;
 	do {
@@ -12206,7 +12338,7 @@ JSBool js_cocos2dx_CCEaseInOut_actionWithAction(JSContext *cx, uint32_t argc, js
 			arg0 = (cocos2d::CCActionInterval*)(proxy ? proxy->ptr : NULL);
 			TEST_NATIVE_OBJECT(cx, arg0)
 		} while (0);
-	JS_ValueToNumber(cx, argv[1], &arg1);
+	arg1 = JSVAL_TO_DOUBLE(argv[1]);
 	cocos2d::CCEaseInOut* ret = cocos2d::CCEaseInOut::actionWithAction(arg0, arg1);
 	jsval jsret;
 	do {
@@ -12262,6 +12394,9 @@ void js_register_cocos2dx_CCEaseInOut(JSContext *cx, JSObject *global) {
 		funcs,
 		NULL, // no static properties
 		st_funcs);
+	// make the class enumerable in the registered namespace
+	JSBool found;
+	JS_SetPropertyAttributes(cx, globalObj, "EaseInOut", JSPROP_ENUMERATE | JSPROP_READONLY, &found);
 
 	// add the proto and JSClass to the type->js info hash table
 	TypeTest<cocos2d::CCEaseInOut> t;
@@ -12292,7 +12427,7 @@ JSBool js_cocos2dx_CCEaseExponentialIn_update(JSContext *cx, uint32_t argc, jsva
 
 	if (argc == 1) {
 		double arg0;
-		JS_ValueToNumber(cx, argv[0], &arg0);
+		arg0 = JSVAL_TO_DOUBLE(argv[0]);
 		cobj->update(arg0);
 		return JS_TRUE;
 	}
@@ -12418,6 +12553,9 @@ void js_register_cocos2dx_CCEaseExponentialIn(JSContext *cx, JSObject *global) {
 		funcs,
 		NULL, // no static properties
 		st_funcs);
+	// make the class enumerable in the registered namespace
+	JSBool found;
+	JS_SetPropertyAttributes(cx, globalObj, "EaseExponentialIn", JSPROP_ENUMERATE | JSPROP_READONLY, &found);
 
 	// add the proto and JSClass to the type->js info hash table
 	TypeTest<cocos2d::CCEaseExponentialIn> t;
@@ -12448,7 +12586,7 @@ JSBool js_cocos2dx_CCEaseExponentialOut_update(JSContext *cx, uint32_t argc, jsv
 
 	if (argc == 1) {
 		double arg0;
-		JS_ValueToNumber(cx, argv[0], &arg0);
+		arg0 = JSVAL_TO_DOUBLE(argv[0]);
 		cobj->update(arg0);
 		return JS_TRUE;
 	}
@@ -12574,6 +12712,9 @@ void js_register_cocos2dx_CCEaseExponentialOut(JSContext *cx, JSObject *global) 
 		funcs,
 		NULL, // no static properties
 		st_funcs);
+	// make the class enumerable in the registered namespace
+	JSBool found;
+	JS_SetPropertyAttributes(cx, globalObj, "EaseExponentialOut", JSPROP_ENUMERATE | JSPROP_READONLY, &found);
 
 	// add the proto and JSClass to the type->js info hash table
 	TypeTest<cocos2d::CCEaseExponentialOut> t;
@@ -12628,7 +12769,7 @@ JSBool js_cocos2dx_CCEaseExponentialInOut_update(JSContext *cx, uint32_t argc, j
 
 	if (argc == 1) {
 		double arg0;
-		JS_ValueToNumber(cx, argv[0], &arg0);
+		arg0 = JSVAL_TO_DOUBLE(argv[0]);
 		cobj->update(arg0);
 		return JS_TRUE;
 	}
@@ -12730,6 +12871,9 @@ void js_register_cocos2dx_CCEaseExponentialInOut(JSContext *cx, JSObject *global
 		funcs,
 		NULL, // no static properties
 		st_funcs);
+	// make the class enumerable in the registered namespace
+	JSBool found;
+	JS_SetPropertyAttributes(cx, globalObj, "EaseExponentialInOut", JSPROP_ENUMERATE | JSPROP_READONLY, &found);
 
 	// add the proto and JSClass to the type->js info hash table
 	TypeTest<cocos2d::CCEaseExponentialInOut> t;
@@ -12760,7 +12904,7 @@ JSBool js_cocos2dx_CCEaseSineIn_update(JSContext *cx, uint32_t argc, jsval *vp)
 
 	if (argc == 1) {
 		double arg0;
-		JS_ValueToNumber(cx, argv[0], &arg0);
+		arg0 = JSVAL_TO_DOUBLE(argv[0]);
 		cobj->update(arg0);
 		return JS_TRUE;
 	}
@@ -12886,6 +13030,9 @@ void js_register_cocos2dx_CCEaseSineIn(JSContext *cx, JSObject *global) {
 		funcs,
 		NULL, // no static properties
 		st_funcs);
+	// make the class enumerable in the registered namespace
+	JSBool found;
+	JS_SetPropertyAttributes(cx, globalObj, "EaseSineIn", JSPROP_ENUMERATE | JSPROP_READONLY, &found);
 
 	// add the proto and JSClass to the type->js info hash table
 	TypeTest<cocos2d::CCEaseSineIn> t;
@@ -12916,7 +13063,7 @@ JSBool js_cocos2dx_CCEaseSineOut_update(JSContext *cx, uint32_t argc, jsval *vp)
 
 	if (argc == 1) {
 		double arg0;
-		JS_ValueToNumber(cx, argv[0], &arg0);
+		arg0 = JSVAL_TO_DOUBLE(argv[0]);
 		cobj->update(arg0);
 		return JS_TRUE;
 	}
@@ -13042,6 +13189,9 @@ void js_register_cocos2dx_CCEaseSineOut(JSContext *cx, JSObject *global) {
 		funcs,
 		NULL, // no static properties
 		st_funcs);
+	// make the class enumerable in the registered namespace
+	JSBool found;
+	JS_SetPropertyAttributes(cx, globalObj, "EaseSineOut", JSPROP_ENUMERATE | JSPROP_READONLY, &found);
 
 	// add the proto and JSClass to the type->js info hash table
 	TypeTest<cocos2d::CCEaseSineOut> t;
@@ -13096,7 +13246,7 @@ JSBool js_cocos2dx_CCEaseSineInOut_update(JSContext *cx, uint32_t argc, jsval *v
 
 	if (argc == 1) {
 		double arg0;
-		JS_ValueToNumber(cx, argv[0], &arg0);
+		arg0 = JSVAL_TO_DOUBLE(argv[0]);
 		cobj->update(arg0);
 		return JS_TRUE;
 	}
@@ -13198,6 +13348,9 @@ void js_register_cocos2dx_CCEaseSineInOut(JSContext *cx, JSObject *global) {
 		funcs,
 		NULL, // no static properties
 		st_funcs);
+	// make the class enumerable in the registered namespace
+	JSBool found;
+	JS_SetPropertyAttributes(cx, globalObj, "EaseSineInOut", JSPROP_ENUMERATE | JSPROP_READONLY, &found);
 
 	// add the proto and JSClass to the type->js info hash table
 	TypeTest<cocos2d::CCEaseSineInOut> t;
@@ -13228,7 +13381,7 @@ JSBool js_cocos2dx_CCEaseElastic_setPeriod(JSContext *cx, uint32_t argc, jsval *
 
 	if (argc == 1) {
 		double arg0;
-		JS_ValueToNumber(cx, argv[0], &arg0);
+		arg0 = JSVAL_TO_DOUBLE(argv[0]);
 		cobj->setPeriod(arg0);
 		return JS_TRUE;
 	}
@@ -13253,7 +13406,7 @@ JSBool js_cocos2dx_CCEaseElastic_initWithAction(JSContext *cx, uint32_t argc, js
 			arg0 = (cocos2d::CCActionInterval*)(proxy ? proxy->ptr : NULL);
 			TEST_NATIVE_OBJECT(cx, arg0)
 		} while (0);
-		JS_ValueToNumber(cx, argv[1], &arg1);
+		arg1 = JSVAL_TO_DOUBLE(argv[1]);
 		bool ret = cobj->initWithAction(arg0, arg1);
 		jsval jsret;
 		jsret = BOOLEAN_TO_JSVAL(ret);
@@ -13273,7 +13426,7 @@ JSBool js_cocos2dx_CCEaseElastic_getPeriod(JSContext *cx, uint32_t argc, jsval *
 	if (argc == 0) {
 		float ret = cobj->getPeriod();
 		jsval jsret;
-		JS_NewNumberValue(cx, ret, &jsret);
+		jsret = DOUBLE_TO_JSVAL(ret);
 		JS_SET_RVAL(cx, vp, jsret);
 		return JS_TRUE;
 	}
@@ -13339,7 +13492,7 @@ JSBool js_cocos2dx_CCEaseElastic_create(JSContext *cx, uint32_t argc, jsval *vp)
 			TEST_NATIVE_OBJECT(cx, arg0)
 		} while (0);
 		double arg1;
-		JS_ValueToNumber(cx, argv[1], &arg1);
+		arg1 = JSVAL_TO_DOUBLE(argv[1]);
 		cocos2d::CCEaseElastic* ret = cocos2d::CCEaseElastic::create(arg0, arg1);
 		jsval jsret;
 		do {
@@ -13369,7 +13522,7 @@ JSBool js_cocos2dx_CCEaseElastic_actionWithAction(JSContext *cx, uint32_t argc, 
 			arg0 = (cocos2d::CCActionInterval*)(proxy ? proxy->ptr : NULL);
 			TEST_NATIVE_OBJECT(cx, arg0)
 		} while (0);
-	JS_ValueToNumber(cx, argv[1], &arg1);
+	arg1 = JSVAL_TO_DOUBLE(argv[1]);
 	cocos2d::CCEaseElastic* ret = cocos2d::CCEaseElastic::actionWithAction(arg0, arg1);
 	jsval jsret;
 	do {
@@ -13429,6 +13582,9 @@ void js_register_cocos2dx_CCEaseElastic(JSContext *cx, JSObject *global) {
 		funcs,
 		NULL, // no static properties
 		st_funcs);
+	// make the class enumerable in the registered namespace
+	JSBool found;
+	JS_SetPropertyAttributes(cx, globalObj, "EaseElastic", JSPROP_ENUMERATE | JSPROP_READONLY, &found);
 
 	// add the proto and JSClass to the type->js info hash table
 	TypeTest<cocos2d::CCEaseElastic> t;
@@ -13459,7 +13615,7 @@ JSBool js_cocos2dx_CCEaseElasticIn_update(JSContext *cx, uint32_t argc, jsval *v
 
 	if (argc == 1) {
 		double arg0;
-		JS_ValueToNumber(cx, argv[0], &arg0);
+		arg0 = JSVAL_TO_DOUBLE(argv[0]);
 		cobj->update(arg0);
 		return JS_TRUE;
 	}
@@ -13525,7 +13681,7 @@ JSBool js_cocos2dx_CCEaseElasticIn_create(JSContext *cx, uint32_t argc, jsval *v
 			TEST_NATIVE_OBJECT(cx, arg0)
 		} while (0);
 		double arg1;
-		JS_ValueToNumber(cx, argv[1], &arg1);
+		arg1 = JSVAL_TO_DOUBLE(argv[1]);
 		cocos2d::CCEaseElasticIn* ret = cocos2d::CCEaseElasticIn::create(arg0, arg1);
 		jsval jsret;
 		do {
@@ -13555,7 +13711,7 @@ JSBool js_cocos2dx_CCEaseElasticIn_actionWithAction(JSContext *cx, uint32_t argc
 			arg0 = (cocos2d::CCActionInterval*)(proxy ? proxy->ptr : NULL);
 			TEST_NATIVE_OBJECT(cx, arg0)
 		} while (0);
-	JS_ValueToNumber(cx, argv[1], &arg1);
+	arg1 = JSVAL_TO_DOUBLE(argv[1]);
 	cocos2d::CCEaseElasticIn* ret = cocos2d::CCEaseElasticIn::actionWithAction(arg0, arg1);
 	jsval jsret;
 	do {
@@ -13611,6 +13767,9 @@ void js_register_cocos2dx_CCEaseElasticIn(JSContext *cx, JSObject *global) {
 		funcs,
 		NULL, // no static properties
 		st_funcs);
+	// make the class enumerable in the registered namespace
+	JSBool found;
+	JS_SetPropertyAttributes(cx, globalObj, "EaseElasticIn", JSPROP_ENUMERATE | JSPROP_READONLY, &found);
 
 	// add the proto and JSClass to the type->js info hash table
 	TypeTest<cocos2d::CCEaseElasticIn> t;
@@ -13641,7 +13800,7 @@ JSBool js_cocos2dx_CCEaseElasticOut_update(JSContext *cx, uint32_t argc, jsval *
 
 	if (argc == 1) {
 		double arg0;
-		JS_ValueToNumber(cx, argv[0], &arg0);
+		arg0 = JSVAL_TO_DOUBLE(argv[0]);
 		cobj->update(arg0);
 		return JS_TRUE;
 	}
@@ -13707,7 +13866,7 @@ JSBool js_cocos2dx_CCEaseElasticOut_create(JSContext *cx, uint32_t argc, jsval *
 			TEST_NATIVE_OBJECT(cx, arg0)
 		} while (0);
 		double arg1;
-		JS_ValueToNumber(cx, argv[1], &arg1);
+		arg1 = JSVAL_TO_DOUBLE(argv[1]);
 		cocos2d::CCEaseElasticOut* ret = cocos2d::CCEaseElasticOut::create(arg0, arg1);
 		jsval jsret;
 		do {
@@ -13737,7 +13896,7 @@ JSBool js_cocos2dx_CCEaseElasticOut_actionWithAction(JSContext *cx, uint32_t arg
 			arg0 = (cocos2d::CCActionInterval*)(proxy ? proxy->ptr : NULL);
 			TEST_NATIVE_OBJECT(cx, arg0)
 		} while (0);
-	JS_ValueToNumber(cx, argv[1], &arg1);
+	arg1 = JSVAL_TO_DOUBLE(argv[1]);
 	cocos2d::CCEaseElasticOut* ret = cocos2d::CCEaseElasticOut::actionWithAction(arg0, arg1);
 	jsval jsret;
 	do {
@@ -13793,6 +13952,9 @@ void js_register_cocos2dx_CCEaseElasticOut(JSContext *cx, JSObject *global) {
 		funcs,
 		NULL, // no static properties
 		st_funcs);
+	// make the class enumerable in the registered namespace
+	JSBool found;
+	JS_SetPropertyAttributes(cx, globalObj, "EaseElasticOut", JSPROP_ENUMERATE | JSPROP_READONLY, &found);
 
 	// add the proto and JSClass to the type->js info hash table
 	TypeTest<cocos2d::CCEaseElasticOut> t;
@@ -13823,7 +13985,7 @@ JSBool js_cocos2dx_CCEaseElasticInOut_update(JSContext *cx, uint32_t argc, jsval
 
 	if (argc == 1) {
 		double arg0;
-		JS_ValueToNumber(cx, argv[0], &arg0);
+		arg0 = JSVAL_TO_DOUBLE(argv[0]);
 		cobj->update(arg0);
 		return JS_TRUE;
 	}
@@ -13889,7 +14051,7 @@ JSBool js_cocos2dx_CCEaseElasticInOut_create(JSContext *cx, uint32_t argc, jsval
 			TEST_NATIVE_OBJECT(cx, arg0)
 		} while (0);
 		double arg1;
-		JS_ValueToNumber(cx, argv[1], &arg1);
+		arg1 = JSVAL_TO_DOUBLE(argv[1]);
 		cocos2d::CCEaseElasticInOut* ret = cocos2d::CCEaseElasticInOut::create(arg0, arg1);
 		jsval jsret;
 		do {
@@ -13919,7 +14081,7 @@ JSBool js_cocos2dx_CCEaseElasticInOut_actionWithAction(JSContext *cx, uint32_t a
 			arg0 = (cocos2d::CCActionInterval*)(proxy ? proxy->ptr : NULL);
 			TEST_NATIVE_OBJECT(cx, arg0)
 		} while (0);
-	JS_ValueToNumber(cx, argv[1], &arg1);
+	arg1 = JSVAL_TO_DOUBLE(argv[1]);
 	cocos2d::CCEaseElasticInOut* ret = cocos2d::CCEaseElasticInOut::actionWithAction(arg0, arg1);
 	jsval jsret;
 	do {
@@ -13975,6 +14137,9 @@ void js_register_cocos2dx_CCEaseElasticInOut(JSContext *cx, JSObject *global) {
 		funcs,
 		NULL, // no static properties
 		st_funcs);
+	// make the class enumerable in the registered namespace
+	JSBool found;
+	JS_SetPropertyAttributes(cx, globalObj, "EaseElasticInOut", JSPROP_ENUMERATE | JSPROP_READONLY, &found);
 
 	// add the proto and JSClass to the type->js info hash table
 	TypeTest<cocos2d::CCEaseElasticInOut> t;
@@ -14005,10 +14170,10 @@ JSBool js_cocos2dx_CCEaseBounce_bounceTime(JSContext *cx, uint32_t argc, jsval *
 
 	if (argc == 1) {
 		double arg0;
-		JS_ValueToNumber(cx, argv[0], &arg0);
+		arg0 = JSVAL_TO_DOUBLE(argv[0]);
 		float ret = cobj->bounceTime(arg0);
 		jsval jsret;
-		JS_NewNumberValue(cx, ret, &jsret);
+		jsret = DOUBLE_TO_JSVAL(ret);
 		JS_SET_RVAL(cx, vp, jsret);
 		return JS_TRUE;
 	}
@@ -14134,6 +14299,9 @@ void js_register_cocos2dx_CCEaseBounce(JSContext *cx, JSObject *global) {
 		funcs,
 		NULL, // no static properties
 		st_funcs);
+	// make the class enumerable in the registered namespace
+	JSBool found;
+	JS_SetPropertyAttributes(cx, globalObj, "EaseBounce", JSPROP_ENUMERATE | JSPROP_READONLY, &found);
 
 	// add the proto and JSClass to the type->js info hash table
 	TypeTest<cocos2d::CCEaseBounce> t;
@@ -14164,7 +14332,7 @@ JSBool js_cocos2dx_CCEaseBounceIn_update(JSContext *cx, uint32_t argc, jsval *vp
 
 	if (argc == 1) {
 		double arg0;
-		JS_ValueToNumber(cx, argv[0], &arg0);
+		arg0 = JSVAL_TO_DOUBLE(argv[0]);
 		cobj->update(arg0);
 		return JS_TRUE;
 	}
@@ -14290,6 +14458,9 @@ void js_register_cocos2dx_CCEaseBounceIn(JSContext *cx, JSObject *global) {
 		funcs,
 		NULL, // no static properties
 		st_funcs);
+	// make the class enumerable in the registered namespace
+	JSBool found;
+	JS_SetPropertyAttributes(cx, globalObj, "EaseBounceIn", JSPROP_ENUMERATE | JSPROP_READONLY, &found);
 
 	// add the proto and JSClass to the type->js info hash table
 	TypeTest<cocos2d::CCEaseBounceIn> t;
@@ -14320,7 +14491,7 @@ JSBool js_cocos2dx_CCEaseBounceOut_update(JSContext *cx, uint32_t argc, jsval *v
 
 	if (argc == 1) {
 		double arg0;
-		JS_ValueToNumber(cx, argv[0], &arg0);
+		arg0 = JSVAL_TO_DOUBLE(argv[0]);
 		cobj->update(arg0);
 		return JS_TRUE;
 	}
@@ -14446,6 +14617,9 @@ void js_register_cocos2dx_CCEaseBounceOut(JSContext *cx, JSObject *global) {
 		funcs,
 		NULL, // no static properties
 		st_funcs);
+	// make the class enumerable in the registered namespace
+	JSBool found;
+	JS_SetPropertyAttributes(cx, globalObj, "EaseBounceOut", JSPROP_ENUMERATE | JSPROP_READONLY, &found);
 
 	// add the proto and JSClass to the type->js info hash table
 	TypeTest<cocos2d::CCEaseBounceOut> t;
@@ -14500,7 +14674,7 @@ JSBool js_cocos2dx_CCEaseBounceInOut_update(JSContext *cx, uint32_t argc, jsval 
 
 	if (argc == 1) {
 		double arg0;
-		JS_ValueToNumber(cx, argv[0], &arg0);
+		arg0 = JSVAL_TO_DOUBLE(argv[0]);
 		cobj->update(arg0);
 		return JS_TRUE;
 	}
@@ -14602,6 +14776,9 @@ void js_register_cocos2dx_CCEaseBounceInOut(JSContext *cx, JSObject *global) {
 		funcs,
 		NULL, // no static properties
 		st_funcs);
+	// make the class enumerable in the registered namespace
+	JSBool found;
+	JS_SetPropertyAttributes(cx, globalObj, "EaseBounceInOut", JSPROP_ENUMERATE | JSPROP_READONLY, &found);
 
 	// add the proto and JSClass to the type->js info hash table
 	TypeTest<cocos2d::CCEaseBounceInOut> t;
@@ -14632,7 +14809,7 @@ JSBool js_cocos2dx_CCEaseBackIn_update(JSContext *cx, uint32_t argc, jsval *vp)
 
 	if (argc == 1) {
 		double arg0;
-		JS_ValueToNumber(cx, argv[0], &arg0);
+		arg0 = JSVAL_TO_DOUBLE(argv[0]);
 		cobj->update(arg0);
 		return JS_TRUE;
 	}
@@ -14758,6 +14935,9 @@ void js_register_cocos2dx_CCEaseBackIn(JSContext *cx, JSObject *global) {
 		funcs,
 		NULL, // no static properties
 		st_funcs);
+	// make the class enumerable in the registered namespace
+	JSBool found;
+	JS_SetPropertyAttributes(cx, globalObj, "EaseBackIn", JSPROP_ENUMERATE | JSPROP_READONLY, &found);
 
 	// add the proto and JSClass to the type->js info hash table
 	TypeTest<cocos2d::CCEaseBackIn> t;
@@ -14788,7 +14968,7 @@ JSBool js_cocos2dx_CCEaseBackOut_update(JSContext *cx, uint32_t argc, jsval *vp)
 
 	if (argc == 1) {
 		double arg0;
-		JS_ValueToNumber(cx, argv[0], &arg0);
+		arg0 = JSVAL_TO_DOUBLE(argv[0]);
 		cobj->update(arg0);
 		return JS_TRUE;
 	}
@@ -14914,6 +15094,9 @@ void js_register_cocos2dx_CCEaseBackOut(JSContext *cx, JSObject *global) {
 		funcs,
 		NULL, // no static properties
 		st_funcs);
+	// make the class enumerable in the registered namespace
+	JSBool found;
+	JS_SetPropertyAttributes(cx, globalObj, "EaseBackOut", JSPROP_ENUMERATE | JSPROP_READONLY, &found);
 
 	// add the proto and JSClass to the type->js info hash table
 	TypeTest<cocos2d::CCEaseBackOut> t;
@@ -14968,7 +15151,7 @@ JSBool js_cocos2dx_CCEaseBackInOut_update(JSContext *cx, uint32_t argc, jsval *v
 
 	if (argc == 1) {
 		double arg0;
-		JS_ValueToNumber(cx, argv[0], &arg0);
+		arg0 = JSVAL_TO_DOUBLE(argv[0]);
 		cobj->update(arg0);
 		return JS_TRUE;
 	}
@@ -15070,6 +15253,9 @@ void js_register_cocos2dx_CCEaseBackInOut(JSContext *cx, JSObject *global) {
 		funcs,
 		NULL, // no static properties
 		st_funcs);
+	// make the class enumerable in the registered namespace
+	JSBool found;
+	JS_SetPropertyAttributes(cx, globalObj, "EaseBackInOut", JSPROP_ENUMERATE | JSPROP_READONLY, &found);
 
 	// add the proto and JSClass to the type->js info hash table
 	TypeTest<cocos2d::CCEaseBackInOut> t;
@@ -15124,7 +15310,7 @@ JSBool js_cocos2dx_CCActionInstant_update(JSContext *cx, uint32_t argc, jsval *v
 
 	if (argc == 1) {
 		double arg0;
-		JS_ValueToNumber(cx, argv[0], &arg0);
+		arg0 = JSVAL_TO_DOUBLE(argv[0]);
 		cobj->update(arg0);
 		return JS_TRUE;
 	}
@@ -15141,7 +15327,7 @@ JSBool js_cocos2dx_CCActionInstant_step(JSContext *cx, uint32_t argc, jsval *vp)
 
 	if (argc == 1) {
 		double arg0;
-		JS_ValueToNumber(cx, argv[0], &arg0);
+		arg0 = JSVAL_TO_DOUBLE(argv[0]);
 		cobj->step(arg0);
 		return JS_TRUE;
 	}
@@ -15234,6 +15420,9 @@ void js_register_cocos2dx_CCActionInstant(JSContext *cx, JSObject *global) {
 		funcs,
 		NULL, // no static properties
 		st_funcs);
+	// make the class enumerable in the registered namespace
+	JSBool found;
+	JS_SetPropertyAttributes(cx, globalObj, "ActionInstant", JSPROP_ENUMERATE | JSPROP_READONLY, &found);
 
 	// add the proto and JSClass to the type->js info hash table
 	TypeTest<cocos2d::CCActionInstant> t;
@@ -15288,7 +15477,7 @@ JSBool js_cocos2dx_CCShow_update(JSContext *cx, uint32_t argc, jsval *vp)
 
 	if (argc == 1) {
 		double arg0;
-		JS_ValueToNumber(cx, argv[0], &arg0);
+		arg0 = JSVAL_TO_DOUBLE(argv[0]);
 		cobj->update(arg0);
 		return JS_TRUE;
 	}
@@ -15398,6 +15587,9 @@ void js_register_cocos2dx_CCShow(JSContext *cx, JSObject *global) {
 		funcs,
 		NULL, // no static properties
 		st_funcs);
+	// make the class enumerable in the registered namespace
+	JSBool found;
+	JS_SetPropertyAttributes(cx, globalObj, "Show", JSPROP_ENUMERATE | JSPROP_READONLY, &found);
 
 	// add the proto and JSClass to the type->js info hash table
 	TypeTest<cocos2d::CCShow> t;
@@ -15452,7 +15644,7 @@ JSBool js_cocos2dx_CCHide_update(JSContext *cx, uint32_t argc, jsval *vp)
 
 	if (argc == 1) {
 		double arg0;
-		JS_ValueToNumber(cx, argv[0], &arg0);
+		arg0 = JSVAL_TO_DOUBLE(argv[0]);
 		cobj->update(arg0);
 		return JS_TRUE;
 	}
@@ -15562,6 +15754,9 @@ void js_register_cocos2dx_CCHide(JSContext *cx, JSObject *global) {
 		funcs,
 		NULL, // no static properties
 		st_funcs);
+	// make the class enumerable in the registered namespace
+	JSBool found;
+	JS_SetPropertyAttributes(cx, globalObj, "Hide", JSPROP_ENUMERATE | JSPROP_READONLY, &found);
 
 	// add the proto and JSClass to the type->js info hash table
 	TypeTest<cocos2d::CCHide> t;
@@ -15592,7 +15787,7 @@ JSBool js_cocos2dx_CCToggleVisibility_update(JSContext *cx, uint32_t argc, jsval
 
 	if (argc == 1) {
 		double arg0;
-		JS_ValueToNumber(cx, argv[0], &arg0);
+		arg0 = JSVAL_TO_DOUBLE(argv[0]);
 		cobj->update(arg0);
 		return JS_TRUE;
 	}
@@ -15701,6 +15896,9 @@ void js_register_cocos2dx_CCToggleVisibility(JSContext *cx, JSObject *global) {
 		funcs,
 		NULL, // no static properties
 		st_funcs);
+	// make the class enumerable in the registered namespace
+	JSBool found;
+	JS_SetPropertyAttributes(cx, globalObj, "ToggleVisibility", JSPROP_ENUMERATE | JSPROP_READONLY, &found);
 
 	// add the proto and JSClass to the type->js info hash table
 	TypeTest<cocos2d::CCToggleVisibility> t;
@@ -15775,7 +15973,7 @@ JSBool js_cocos2dx_CCFlipX_update(JSContext *cx, uint32_t argc, jsval *vp)
 
 	if (argc == 1) {
 		double arg0;
-		JS_ValueToNumber(cx, argv[0], &arg0);
+		arg0 = JSVAL_TO_DOUBLE(argv[0]);
 		cobj->update(arg0);
 		return JS_TRUE;
 	}
@@ -15898,6 +16096,9 @@ void js_register_cocos2dx_CCFlipX(JSContext *cx, JSObject *global) {
 		funcs,
 		NULL, // no static properties
 		st_funcs);
+	// make the class enumerable in the registered namespace
+	JSBool found;
+	JS_SetPropertyAttributes(cx, globalObj, "FlipX", JSPROP_ENUMERATE | JSPROP_READONLY, &found);
 
 	// add the proto and JSClass to the type->js info hash table
 	TypeTest<cocos2d::CCFlipX> t;
@@ -15972,7 +16173,7 @@ JSBool js_cocos2dx_CCFlipY_update(JSContext *cx, uint32_t argc, jsval *vp)
 
 	if (argc == 1) {
 		double arg0;
-		JS_ValueToNumber(cx, argv[0], &arg0);
+		arg0 = JSVAL_TO_DOUBLE(argv[0]);
 		cobj->update(arg0);
 		return JS_TRUE;
 	}
@@ -16095,6 +16296,9 @@ void js_register_cocos2dx_CCFlipY(JSContext *cx, JSObject *global) {
 		funcs,
 		NULL, // no static properties
 		st_funcs);
+	// make the class enumerable in the registered namespace
+	JSBool found;
+	JS_SetPropertyAttributes(cx, globalObj, "FlipY", JSPROP_ENUMERATE | JSPROP_READONLY, &found);
 
 	// add the proto and JSClass to the type->js info hash table
 	TypeTest<cocos2d::CCFlipY> t;
@@ -16145,7 +16349,7 @@ JSBool js_cocos2dx_CCPlace_update(JSContext *cx, uint32_t argc, jsval *vp)
 
 	if (argc == 1) {
 		double arg0;
-		JS_ValueToNumber(cx, argv[0], &arg0);
+		arg0 = JSVAL_TO_DOUBLE(argv[0]);
 		cobj->update(arg0);
 		return JS_TRUE;
 	}
@@ -16267,6 +16471,9 @@ void js_register_cocos2dx_CCPlace(JSContext *cx, JSObject *global) {
 		funcs,
 		NULL, // no static properties
 		st_funcs);
+	// make the class enumerable in the registered namespace
+	JSBool found;
+	JS_SetPropertyAttributes(cx, globalObj, "Place", JSPROP_ENUMERATE | JSPROP_READONLY, &found);
 
 	// add the proto and JSClass to the type->js info hash table
 	TypeTest<cocos2d::CCPlace> t;
@@ -16337,7 +16544,7 @@ JSBool js_cocos2dx_CCCallFunc_update(JSContext *cx, uint32_t argc, jsval *vp)
 
 	if (argc == 1) {
 		double arg0;
-		JS_ValueToNumber(cx, argv[0], &arg0);
+		arg0 = JSVAL_TO_DOUBLE(argv[0]);
 		cobj->update(arg0);
 		return JS_TRUE;
 	}
@@ -16378,7 +16585,7 @@ JSBool js_cocos2dx_CCCallFunc_getScriptHandler(JSContext *cx, uint32_t argc, jsv
 	if (argc == 0) {
 		int ret = cobj->getScriptHandler();
 		jsval jsret;
-		JS_NewNumberValue(cx, ret, &jsret);
+		jsret = INT_TO_JSVAL(ret);
 		JS_SET_RVAL(cx, vp, jsret);
 		return JS_TRUE;
 	}
@@ -16481,6 +16688,9 @@ void js_register_cocos2dx_CCCallFunc(JSContext *cx, JSObject *global) {
 		funcs,
 		NULL, // no static properties
 		st_funcs);
+	// make the class enumerable in the registered namespace
+	JSBool found;
+	JS_SetPropertyAttributes(cx, globalObj, "CallFunc", JSPROP_ENUMERATE | JSPROP_READONLY, &found);
 
 	// add the proto and JSClass to the type->js info hash table
 	TypeTest<cocos2d::CCCallFunc> t;
@@ -16536,7 +16746,7 @@ JSBool js_cocos2dx_CCGridAction_initWithSize(JSContext *cx, uint32_t argc, jsval
 		cocos2d::ccGridSize arg0;
 		double arg1;
 		arg0 = jsval_to_ccgridsize(cx, argv[0]);
-		JS_ValueToNumber(cx, argv[1], &arg1);
+		arg1 = JSVAL_TO_DOUBLE(argv[1]);
 		bool ret = cobj->initWithSize(arg0, arg1);
 		jsval jsret;
 		jsret = BOOLEAN_TO_JSVAL(ret);
@@ -16602,7 +16812,7 @@ JSBool js_cocos2dx_CCGridAction_create(JSContext *cx, uint32_t argc, jsval *vp)
 	assert(argc >= 2);
 
 	arg0 = jsval_to_ccgridsize(cx, argv[0]);
-	JS_ValueToNumber(cx, argv[1], &arg1);
+	arg1 = JSVAL_TO_DOUBLE(argv[1]);
 	cocos2d::CCGridAction* ret = cocos2d::CCGridAction::create(arg0, arg1);
 	jsval jsret;
 	do {
@@ -16625,7 +16835,7 @@ JSBool js_cocos2dx_CCGridAction_actionWithSize(JSContext *cx, uint32_t argc, jsv
 	assert(argc >= 2);
 
 	arg0 = jsval_to_ccgridsize(cx, argv[0]);
-	JS_ValueToNumber(cx, argv[1], &arg1);
+	arg1 = JSVAL_TO_DOUBLE(argv[1]);
 	cocos2d::CCGridAction* ret = cocos2d::CCGridAction::actionWithSize(arg0, arg1);
 	jsval jsret;
 	do {
@@ -16685,6 +16895,9 @@ void js_register_cocos2dx_CCGridAction(JSContext *cx, JSObject *global) {
 		funcs,
 		NULL, // no static properties
 		st_funcs);
+	// make the class enumerable in the registered namespace
+	JSBool found;
+	JS_SetPropertyAttributes(cx, globalObj, "GridAction", JSPROP_ENUMERATE | JSPROP_READONLY, &found);
 
 	// add the proto and JSClass to the type->js info hash table
 	TypeTest<cocos2d::CCGridAction> t;
@@ -16827,6 +17040,9 @@ void js_register_cocos2dx_CCGrid3DAction(JSContext *cx, JSObject *global) {
 		funcs,
 		NULL, // no static properties
 		st_funcs);
+	// make the class enumerable in the registered namespace
+	JSBool found;
+	JS_SetPropertyAttributes(cx, globalObj, "Grid3DAction", JSPROP_ENUMERATE | JSPROP_READONLY, &found);
 
 	// add the proto and JSClass to the type->js info hash table
 	TypeTest<cocos2d::CCGrid3DAction> t;
@@ -16969,6 +17185,9 @@ void js_register_cocos2dx_CCTiledGrid3DAction(JSContext *cx, JSObject *global) {
 		funcs,
 		NULL, // no static properties
 		st_funcs);
+	// make the class enumerable in the registered namespace
+	JSBool found;
+	JS_SetPropertyAttributes(cx, globalObj, "TiledGrid3DAction", JSPROP_ENUMERATE | JSPROP_READONLY, &found);
 
 	// add the proto and JSClass to the type->js info hash table
 	TypeTest<cocos2d::CCTiledGrid3DAction> t;
@@ -16999,7 +17218,7 @@ JSBool js_cocos2dx_CCWaves3D_update(JSContext *cx, uint32_t argc, jsval *vp)
 
 	if (argc == 1) {
 		double arg0;
-		JS_ValueToNumber(cx, argv[0], &arg0);
+		arg0 = JSVAL_TO_DOUBLE(argv[0]);
 		cobj->update(arg0);
 		return JS_TRUE;
 	}
@@ -17016,7 +17235,7 @@ JSBool js_cocos2dx_CCWaves3D_getAmplitudeRate(JSContext *cx, uint32_t argc, jsva
 	if (argc == 0) {
 		float ret = cobj->getAmplitudeRate();
 		jsval jsret;
-		JS_NewNumberValue(cx, ret, &jsret);
+		jsret = DOUBLE_TO_JSVAL(ret);
 		JS_SET_RVAL(cx, vp, jsret);
 		return JS_TRUE;
 	}
@@ -17033,7 +17252,7 @@ JSBool js_cocos2dx_CCWaves3D_setAmplitude(JSContext *cx, uint32_t argc, jsval *v
 
 	if (argc == 1) {
 		double arg0;
-		JS_ValueToNumber(cx, argv[0], &arg0);
+		arg0 = JSVAL_TO_DOUBLE(argv[0]);
 		cobj->setAmplitude(arg0);
 		return JS_TRUE;
 	}
@@ -17050,7 +17269,7 @@ JSBool js_cocos2dx_CCWaves3D_getAmplitude(JSContext *cx, uint32_t argc, jsval *v
 	if (argc == 0) {
 		float ret = cobj->getAmplitude();
 		jsval jsret;
-		JS_NewNumberValue(cx, ret, &jsret);
+		jsret = DOUBLE_TO_JSVAL(ret);
 		JS_SET_RVAL(cx, vp, jsret);
 		return JS_TRUE;
 	}
@@ -17071,9 +17290,9 @@ JSBool js_cocos2dx_CCWaves3D_initWithWaves(JSContext *cx, uint32_t argc, jsval *
 		cocos2d::ccGridSize arg2;
 		double arg3;
 		JS_ValueToInt32(cx, argv[0], (int32_t *)&arg0);
-		JS_ValueToNumber(cx, argv[1], &arg1);
+		arg1 = JSVAL_TO_DOUBLE(argv[1]);
 		arg2 = jsval_to_ccgridsize(cx, argv[2]);
-		JS_ValueToNumber(cx, argv[3], &arg3);
+		arg3 = JSVAL_TO_DOUBLE(argv[3]);
 		bool ret = cobj->initWithWaves(arg0, arg1, arg2, arg3);
 		jsval jsret;
 		jsret = BOOLEAN_TO_JSVAL(ret);
@@ -17093,7 +17312,7 @@ JSBool js_cocos2dx_CCWaves3D_setAmplitudeRate(JSContext *cx, uint32_t argc, jsva
 
 	if (argc == 1) {
 		double arg0;
-		JS_ValueToNumber(cx, argv[0], &arg0);
+		arg0 = JSVAL_TO_DOUBLE(argv[0]);
 		cobj->setAmplitudeRate(arg0);
 		return JS_TRUE;
 	}
@@ -17110,9 +17329,9 @@ JSBool js_cocos2dx_CCWaves3D_create(JSContext *cx, uint32_t argc, jsval *vp)
 	assert(argc >= 4);
 
 	JS_ValueToInt32(cx, argv[0], (int32_t *)&arg0);
-	JS_ValueToNumber(cx, argv[1], &arg1);
+	arg1 = JSVAL_TO_DOUBLE(argv[1]);
 	arg2 = jsval_to_ccgridsize(cx, argv[2]);
-	JS_ValueToNumber(cx, argv[3], &arg3);
+	arg3 = JSVAL_TO_DOUBLE(argv[3]);
 	cocos2d::CCWaves3D* ret = cocos2d::CCWaves3D::create(arg0, arg1, arg2, arg3);
 	jsval jsret;
 	do {
@@ -17137,9 +17356,9 @@ JSBool js_cocos2dx_CCWaves3D_actionWithWaves(JSContext *cx, uint32_t argc, jsval
 	assert(argc >= 4);
 
 	JS_ValueToInt32(cx, argv[0], (int32_t *)&arg0);
-	JS_ValueToNumber(cx, argv[1], &arg1);
+	arg1 = JSVAL_TO_DOUBLE(argv[1]);
 	arg2 = jsval_to_ccgridsize(cx, argv[2]);
-	JS_ValueToNumber(cx, argv[3], &arg3);
+	arg3 = JSVAL_TO_DOUBLE(argv[3]);
 	cocos2d::CCWaves3D* ret = cocos2d::CCWaves3D::actionWithWaves(arg0, arg1, arg2, arg3);
 	jsval jsret;
 	do {
@@ -17201,6 +17420,9 @@ void js_register_cocos2dx_CCWaves3D(JSContext *cx, JSObject *global) {
 		funcs,
 		NULL, // no static properties
 		st_funcs);
+	// make the class enumerable in the registered namespace
+	JSBool found;
+	JS_SetPropertyAttributes(cx, globalObj, "Waves3D", JSPROP_ENUMERATE | JSPROP_READONLY, &found);
 
 	// add the proto and JSClass to the type->js info hash table
 	TypeTest<cocos2d::CCWaves3D> t;
@@ -17233,7 +17455,7 @@ JSBool js_cocos2dx_CCFlipX3D_initWithSize(JSContext *cx, uint32_t argc, jsval *v
 		cocos2d::ccGridSize arg0;
 		double arg1;
 		arg0 = jsval_to_ccgridsize(cx, argv[0]);
-		JS_ValueToNumber(cx, argv[1], &arg1);
+		arg1 = JSVAL_TO_DOUBLE(argv[1]);
 		bool ret = cobj->initWithSize(arg0, arg1);
 		jsval jsret;
 		jsret = BOOLEAN_TO_JSVAL(ret);
@@ -17253,7 +17475,7 @@ JSBool js_cocos2dx_CCFlipX3D_initWithDuration(JSContext *cx, uint32_t argc, jsva
 
 	if (argc == 1) {
 		double arg0;
-		JS_ValueToNumber(cx, argv[0], &arg0);
+		arg0 = JSVAL_TO_DOUBLE(argv[0]);
 		bool ret = cobj->initWithDuration(arg0);
 		jsval jsret;
 		jsret = BOOLEAN_TO_JSVAL(ret);
@@ -17273,7 +17495,7 @@ JSBool js_cocos2dx_CCFlipX3D_update(JSContext *cx, uint32_t argc, jsval *vp)
 
 	if (argc == 1) {
 		double arg0;
-		JS_ValueToNumber(cx, argv[0], &arg0);
+		arg0 = JSVAL_TO_DOUBLE(argv[0]);
 		cobj->update(arg0);
 		return JS_TRUE;
 	}
@@ -17286,7 +17508,7 @@ JSBool js_cocos2dx_CCFlipX3D_create(JSContext *cx, uint32_t argc, jsval *vp)
 	double arg0;
 	assert(argc >= 1);
 
-	JS_ValueToNumber(cx, argv[0], &arg0);
+	arg0 = JSVAL_TO_DOUBLE(argv[0]);
 	cocos2d::CCFlipX3D* ret = cocos2d::CCFlipX3D::create(arg0);
 	jsval jsret;
 	do {
@@ -17307,7 +17529,7 @@ JSBool js_cocos2dx_CCFlipX3D_actionWithDuration(JSContext *cx, uint32_t argc, js
 	double arg0;
 	assert(argc >= 1);
 
-	JS_ValueToNumber(cx, argv[0], &arg0);
+	arg0 = JSVAL_TO_DOUBLE(argv[0]);
 	cocos2d::CCFlipX3D* ret = cocos2d::CCFlipX3D::actionWithDuration(arg0);
 	jsval jsret;
 	do {
@@ -17364,6 +17586,9 @@ void js_register_cocos2dx_CCFlipX3D(JSContext *cx, JSObject *global) {
 		funcs,
 		NULL, // no static properties
 		st_funcs);
+	// make the class enumerable in the registered namespace
+	JSBool found;
+	JS_SetPropertyAttributes(cx, globalObj, "FlipX3D", JSPROP_ENUMERATE | JSPROP_READONLY, &found);
 
 	// add the proto and JSClass to the type->js info hash table
 	TypeTest<cocos2d::CCFlipX3D> t;
@@ -17394,7 +17619,7 @@ JSBool js_cocos2dx_CCFlipY3D_update(JSContext *cx, uint32_t argc, jsval *vp)
 
 	if (argc == 1) {
 		double arg0;
-		JS_ValueToNumber(cx, argv[0], &arg0);
+		arg0 = JSVAL_TO_DOUBLE(argv[0]);
 		cobj->update(arg0);
 		return JS_TRUE;
 	}
@@ -17407,7 +17632,7 @@ JSBool js_cocos2dx_CCFlipY3D_create(JSContext *cx, uint32_t argc, jsval *vp)
 	double arg0;
 	assert(argc >= 1);
 
-	JS_ValueToNumber(cx, argv[0], &arg0);
+	arg0 = JSVAL_TO_DOUBLE(argv[0]);
 	cocos2d::CCFlipY3D* ret = cocos2d::CCFlipY3D::create(arg0);
 	jsval jsret;
 	do {
@@ -17428,7 +17653,7 @@ JSBool js_cocos2dx_CCFlipY3D_actionWithDuration(JSContext *cx, uint32_t argc, js
 	double arg0;
 	assert(argc >= 1);
 
-	JS_ValueToNumber(cx, argv[0], &arg0);
+	arg0 = JSVAL_TO_DOUBLE(argv[0]);
 	cocos2d::CCFlipY3D* ret = cocos2d::CCFlipY3D::actionWithDuration(arg0);
 	jsval jsret;
 	do {
@@ -17483,6 +17708,9 @@ void js_register_cocos2dx_CCFlipY3D(JSContext *cx, JSObject *global) {
 		funcs,
 		NULL, // no static properties
 		st_funcs);
+	// make the class enumerable in the registered namespace
+	JSBool found;
+	JS_SetPropertyAttributes(cx, globalObj, "FlipY3D", JSPROP_ENUMERATE | JSPROP_READONLY, &found);
 
 	// add the proto and JSClass to the type->js info hash table
 	TypeTest<cocos2d::CCFlipY3D> t;
@@ -17519,7 +17747,7 @@ JSBool js_cocos2dx_CCShaky3D_initWithRange(JSContext *cx, uint32_t argc, jsval *
 		JS_ValueToInt32(cx, argv[0], (int32_t *)&arg0);
 		JS_ValueToBoolean(cx, argv[1], &arg1);
 		arg2 = jsval_to_ccgridsize(cx, argv[2]);
-		JS_ValueToNumber(cx, argv[3], &arg3);
+		arg3 = JSVAL_TO_DOUBLE(argv[3]);
 		bool ret = cobj->initWithRange(arg0, arg1, arg2, arg3);
 		jsval jsret;
 		jsret = BOOLEAN_TO_JSVAL(ret);
@@ -17539,7 +17767,7 @@ JSBool js_cocos2dx_CCShaky3D_update(JSContext *cx, uint32_t argc, jsval *vp)
 
 	if (argc == 1) {
 		double arg0;
-		JS_ValueToNumber(cx, argv[0], &arg0);
+		arg0 = JSVAL_TO_DOUBLE(argv[0]);
 		cobj->update(arg0);
 		return JS_TRUE;
 	}
@@ -17558,7 +17786,7 @@ JSBool js_cocos2dx_CCShaky3D_create(JSContext *cx, uint32_t argc, jsval *vp)
 	JS_ValueToInt32(cx, argv[0], (int32_t *)&arg0);
 	JS_ValueToBoolean(cx, argv[1], &arg1);
 	arg2 = jsval_to_ccgridsize(cx, argv[2]);
-	JS_ValueToNumber(cx, argv[3], &arg3);
+	arg3 = JSVAL_TO_DOUBLE(argv[3]);
 	cocos2d::CCShaky3D* ret = cocos2d::CCShaky3D::create(arg0, arg1, arg2, arg3);
 	jsval jsret;
 	do {
@@ -17585,7 +17813,7 @@ JSBool js_cocos2dx_CCShaky3D_actionWithRange(JSContext *cx, uint32_t argc, jsval
 	JS_ValueToInt32(cx, argv[0], (int32_t *)&arg0);
 	JS_ValueToBoolean(cx, argv[1], &arg1);
 	arg2 = jsval_to_ccgridsize(cx, argv[2]);
-	JS_ValueToNumber(cx, argv[3], &arg3);
+	arg3 = JSVAL_TO_DOUBLE(argv[3]);
 	cocos2d::CCShaky3D* ret = cocos2d::CCShaky3D::actionWithRange(arg0, arg1, arg2, arg3);
 	jsval jsret;
 	do {
@@ -17643,6 +17871,9 @@ void js_register_cocos2dx_CCShaky3D(JSContext *cx, JSObject *global) {
 		funcs,
 		NULL, // no static properties
 		st_funcs);
+	// make the class enumerable in the registered namespace
+	JSBool found;
+	JS_SetPropertyAttributes(cx, globalObj, "Shaky3D", JSPROP_ENUMERATE | JSPROP_READONLY, &found);
 
 	// add the proto and JSClass to the type->js info hash table
 	TypeTest<cocos2d::CCShaky3D> t;
@@ -17697,8 +17928,8 @@ JSBool js_cocos2dx_CCProgressTo_initWithDuration(JSContext *cx, uint32_t argc, j
 	if (argc == 2) {
 		double arg0;
 		double arg1;
-		JS_ValueToNumber(cx, argv[0], &arg0);
-		JS_ValueToNumber(cx, argv[1], &arg1);
+		arg0 = JSVAL_TO_DOUBLE(argv[0]);
+		arg1 = JSVAL_TO_DOUBLE(argv[1]);
 		bool ret = cobj->initWithDuration(arg0, arg1);
 		jsval jsret;
 		jsret = BOOLEAN_TO_JSVAL(ret);
@@ -17718,7 +17949,7 @@ JSBool js_cocos2dx_CCProgressTo_update(JSContext *cx, uint32_t argc, jsval *vp)
 
 	if (argc == 1) {
 		double arg0;
-		JS_ValueToNumber(cx, argv[0], &arg0);
+		arg0 = JSVAL_TO_DOUBLE(argv[0]);
 		cobj->update(arg0);
 		return JS_TRUE;
 	}
@@ -17732,8 +17963,8 @@ JSBool js_cocos2dx_CCProgressTo_create(JSContext *cx, uint32_t argc, jsval *vp)
 	double arg1;
 	assert(argc >= 2);
 
-	JS_ValueToNumber(cx, argv[0], &arg0);
-	JS_ValueToNumber(cx, argv[1], &arg1);
+	arg0 = JSVAL_TO_DOUBLE(argv[0]);
+	arg1 = JSVAL_TO_DOUBLE(argv[1]);
 	cocos2d::CCProgressTo* ret = cocos2d::CCProgressTo::create(arg0, arg1);
 	jsval jsret;
 	do {
@@ -17755,8 +17986,8 @@ JSBool js_cocos2dx_CCProgressTo_actionWithDuration(JSContext *cx, uint32_t argc,
 	double arg1;
 	assert(argc >= 2);
 
-	JS_ValueToNumber(cx, argv[0], &arg0);
-	JS_ValueToNumber(cx, argv[1], &arg1);
+	arg0 = JSVAL_TO_DOUBLE(argv[0]);
+	arg1 = JSVAL_TO_DOUBLE(argv[1]);
 	cocos2d::CCProgressTo* ret = cocos2d::CCProgressTo::actionWithDuration(arg0, arg1);
 	jsval jsret;
 	do {
@@ -17815,6 +18046,9 @@ void js_register_cocos2dx_CCProgressTo(JSContext *cx, JSObject *global) {
 		funcs,
 		NULL, // no static properties
 		st_funcs);
+	// make the class enumerable in the registered namespace
+	JSBool found;
+	JS_SetPropertyAttributes(cx, globalObj, "ProgressTo", JSPROP_ENUMERATE | JSPROP_READONLY, &found);
 
 	// add the proto and JSClass to the type->js info hash table
 	TypeTest<cocos2d::CCProgressTo> t;
@@ -17868,7 +18102,7 @@ JSBool js_cocos2dx_CCProgressFromTo_update(JSContext *cx, uint32_t argc, jsval *
 
 	if (argc == 1) {
 		double arg0;
-		JS_ValueToNumber(cx, argv[0], &arg0);
+		arg0 = JSVAL_TO_DOUBLE(argv[0]);
 		cobj->update(arg0);
 		return JS_TRUE;
 	}
@@ -17887,9 +18121,9 @@ JSBool js_cocos2dx_CCProgressFromTo_initWithDuration(JSContext *cx, uint32_t arg
 		double arg0;
 		double arg1;
 		double arg2;
-		JS_ValueToNumber(cx, argv[0], &arg0);
-		JS_ValueToNumber(cx, argv[1], &arg1);
-		JS_ValueToNumber(cx, argv[2], &arg2);
+		arg0 = JSVAL_TO_DOUBLE(argv[0]);
+		arg1 = JSVAL_TO_DOUBLE(argv[1]);
+		arg2 = JSVAL_TO_DOUBLE(argv[2]);
 		bool ret = cobj->initWithDuration(arg0, arg1, arg2);
 		jsval jsret;
 		jsret = BOOLEAN_TO_JSVAL(ret);
@@ -17931,9 +18165,9 @@ JSBool js_cocos2dx_CCProgressFromTo_create(JSContext *cx, uint32_t argc, jsval *
 	double arg2;
 	assert(argc >= 3);
 
-	JS_ValueToNumber(cx, argv[0], &arg0);
-	JS_ValueToNumber(cx, argv[1], &arg1);
-	JS_ValueToNumber(cx, argv[2], &arg2);
+	arg0 = JSVAL_TO_DOUBLE(argv[0]);
+	arg1 = JSVAL_TO_DOUBLE(argv[1]);
+	arg2 = JSVAL_TO_DOUBLE(argv[2]);
 	cocos2d::CCProgressFromTo* ret = cocos2d::CCProgressFromTo::create(arg0, arg1, arg2);
 	jsval jsret;
 	do {
@@ -17956,9 +18190,9 @@ JSBool js_cocos2dx_CCProgressFromTo_actionWithDuration(JSContext *cx, uint32_t a
 	double arg2;
 	assert(argc >= 3);
 
-	JS_ValueToNumber(cx, argv[0], &arg0);
-	JS_ValueToNumber(cx, argv[1], &arg1);
-	JS_ValueToNumber(cx, argv[2], &arg2);
+	arg0 = JSVAL_TO_DOUBLE(argv[0]);
+	arg1 = JSVAL_TO_DOUBLE(argv[1]);
+	arg2 = JSVAL_TO_DOUBLE(argv[2]);
 	cocos2d::CCProgressFromTo* ret = cocos2d::CCProgressFromTo::actionWithDuration(arg0, arg1, arg2);
 	jsval jsret;
 	do {
@@ -18018,6 +18252,9 @@ void js_register_cocos2dx_CCProgressFromTo(JSContext *cx, JSObject *global) {
 		funcs,
 		NULL, // no static properties
 		st_funcs);
+	// make the class enumerable in the registered namespace
+	JSBool found;
+	JS_SetPropertyAttributes(cx, globalObj, "ProgressFromTo", JSPROP_ENUMERATE | JSPROP_READONLY, &found);
 
 	// add the proto and JSClass to the type->js info hash table
 	TypeTest<cocos2d::CCProgressFromTo> t;
@@ -18084,7 +18321,7 @@ JSBool js_cocos2dx_CCFadeOutTRTiles_transformTile(JSContext *cx, uint32_t argc, 
 		cocos2d::ccGridSize arg0;
 		double arg1;
 		arg0 = jsval_to_ccgridsize(cx, argv[0]);
-		JS_ValueToNumber(cx, argv[1], &arg1);
+		arg1 = JSVAL_TO_DOUBLE(argv[1]);
 		cobj->transformTile(arg0, arg1);
 		return JS_TRUE;
 	}
@@ -18103,10 +18340,10 @@ JSBool js_cocos2dx_CCFadeOutTRTiles_testFunc(JSContext *cx, uint32_t argc, jsval
 		cocos2d::ccGridSize arg0;
 		double arg1;
 		arg0 = jsval_to_ccgridsize(cx, argv[0]);
-		JS_ValueToNumber(cx, argv[1], &arg1);
+		arg1 = JSVAL_TO_DOUBLE(argv[1]);
 		float ret = cobj->testFunc(arg0, arg1);
 		jsval jsret;
-		JS_NewNumberValue(cx, ret, &jsret);
+		jsret = DOUBLE_TO_JSVAL(ret);
 		JS_SET_RVAL(cx, vp, jsret);
 		return JS_TRUE;
 	}
@@ -18123,7 +18360,7 @@ JSBool js_cocos2dx_CCFadeOutTRTiles_update(JSContext *cx, uint32_t argc, jsval *
 
 	if (argc == 1) {
 		double arg0;
-		JS_ValueToNumber(cx, argv[0], &arg0);
+		arg0 = JSVAL_TO_DOUBLE(argv[0]);
 		cobj->update(arg0);
 		return JS_TRUE;
 	}
@@ -18138,7 +18375,7 @@ JSBool js_cocos2dx_CCFadeOutTRTiles_create(JSContext *cx, uint32_t argc, jsval *
 	assert(argc >= 2);
 
 	arg0 = jsval_to_ccgridsize(cx, argv[0]);
-	JS_ValueToNumber(cx, argv[1], &arg1);
+	arg1 = JSVAL_TO_DOUBLE(argv[1]);
 	cocos2d::CCFadeOutTRTiles* ret = cocos2d::CCFadeOutTRTiles::create(arg0, arg1);
 	jsval jsret;
 	do {
@@ -18161,7 +18398,7 @@ JSBool js_cocos2dx_CCFadeOutTRTiles_actionWithSize(JSContext *cx, uint32_t argc,
 	assert(argc >= 2);
 
 	arg0 = jsval_to_ccgridsize(cx, argv[0]);
-	JS_ValueToNumber(cx, argv[1], &arg1);
+	arg1 = JSVAL_TO_DOUBLE(argv[1]);
 	cocos2d::CCFadeOutTRTiles* ret = cocos2d::CCFadeOutTRTiles::actionWithSize(arg0, arg1);
 	jsval jsret;
 	do {
@@ -18220,6 +18457,9 @@ void js_register_cocos2dx_CCFadeOutTRTiles(JSContext *cx, JSObject *global) {
 		funcs,
 		NULL, // no static properties
 		st_funcs);
+	// make the class enumerable in the registered namespace
+	JSBool found;
+	JS_SetPropertyAttributes(cx, globalObj, "FadeOutTRTiles", JSPROP_ENUMERATE | JSPROP_READONLY, &found);
 
 	// add the proto and JSClass to the type->js info hash table
 	TypeTest<cocos2d::CCFadeOutTRTiles> t;
@@ -18252,10 +18492,10 @@ JSBool js_cocos2dx_CCFadeOutBLTiles_testFunc(JSContext *cx, uint32_t argc, jsval
 		cocos2d::ccGridSize arg0;
 		double arg1;
 		arg0 = jsval_to_ccgridsize(cx, argv[0]);
-		JS_ValueToNumber(cx, argv[1], &arg1);
+		arg1 = JSVAL_TO_DOUBLE(argv[1]);
 		float ret = cobj->testFunc(arg0, arg1);
 		jsval jsret;
-		JS_NewNumberValue(cx, ret, &jsret);
+		jsret = DOUBLE_TO_JSVAL(ret);
 		JS_SET_RVAL(cx, vp, jsret);
 		return JS_TRUE;
 	}
@@ -18270,7 +18510,7 @@ JSBool js_cocos2dx_CCFadeOutBLTiles_create(JSContext *cx, uint32_t argc, jsval *
 	assert(argc >= 2);
 
 	arg0 = jsval_to_ccgridsize(cx, argv[0]);
-	JS_ValueToNumber(cx, argv[1], &arg1);
+	arg1 = JSVAL_TO_DOUBLE(argv[1]);
 	cocos2d::CCFadeOutBLTiles* ret = cocos2d::CCFadeOutBLTiles::create(arg0, arg1);
 	jsval jsret;
 	do {
@@ -18293,7 +18533,7 @@ JSBool js_cocos2dx_CCFadeOutBLTiles_actionWithSize(JSContext *cx, uint32_t argc,
 	assert(argc >= 2);
 
 	arg0 = jsval_to_ccgridsize(cx, argv[0]);
-	JS_ValueToNumber(cx, argv[1], &arg1);
+	arg1 = JSVAL_TO_DOUBLE(argv[1]);
 	cocos2d::CCFadeOutBLTiles* ret = cocos2d::CCFadeOutBLTiles::actionWithSize(arg0, arg1);
 	jsval jsret;
 	do {
@@ -18348,6 +18588,9 @@ void js_register_cocos2dx_CCFadeOutBLTiles(JSContext *cx, JSObject *global) {
 		funcs,
 		NULL, // no static properties
 		st_funcs);
+	// make the class enumerable in the registered namespace
+	JSBool found;
+	JS_SetPropertyAttributes(cx, globalObj, "FadeOutBLTiles", JSPROP_ENUMERATE | JSPROP_READONLY, &found);
 
 	// add the proto and JSClass to the type->js info hash table
 	TypeTest<cocos2d::CCFadeOutBLTiles> t;
@@ -18380,7 +18623,7 @@ JSBool js_cocos2dx_CCFadeOutUpTiles_transformTile(JSContext *cx, uint32_t argc, 
 		cocos2d::ccGridSize arg0;
 		double arg1;
 		arg0 = jsval_to_ccgridsize(cx, argv[0]);
-		JS_ValueToNumber(cx, argv[1], &arg1);
+		arg1 = JSVAL_TO_DOUBLE(argv[1]);
 		cobj->transformTile(arg0, arg1);
 		return JS_TRUE;
 	}
@@ -18399,10 +18642,10 @@ JSBool js_cocos2dx_CCFadeOutUpTiles_testFunc(JSContext *cx, uint32_t argc, jsval
 		cocos2d::ccGridSize arg0;
 		double arg1;
 		arg0 = jsval_to_ccgridsize(cx, argv[0]);
-		JS_ValueToNumber(cx, argv[1], &arg1);
+		arg1 = JSVAL_TO_DOUBLE(argv[1]);
 		float ret = cobj->testFunc(arg0, arg1);
 		jsval jsret;
-		JS_NewNumberValue(cx, ret, &jsret);
+		jsret = DOUBLE_TO_JSVAL(ret);
 		JS_SET_RVAL(cx, vp, jsret);
 		return JS_TRUE;
 	}
@@ -18417,7 +18660,7 @@ JSBool js_cocos2dx_CCFadeOutUpTiles_create(JSContext *cx, uint32_t argc, jsval *
 	assert(argc >= 2);
 
 	arg0 = jsval_to_ccgridsize(cx, argv[0]);
-	JS_ValueToNumber(cx, argv[1], &arg1);
+	arg1 = JSVAL_TO_DOUBLE(argv[1]);
 	cocos2d::CCFadeOutUpTiles* ret = cocos2d::CCFadeOutUpTiles::create(arg0, arg1);
 	jsval jsret;
 	do {
@@ -18440,7 +18683,7 @@ JSBool js_cocos2dx_CCFadeOutUpTiles_actionWithSize(JSContext *cx, uint32_t argc,
 	assert(argc >= 2);
 
 	arg0 = jsval_to_ccgridsize(cx, argv[0]);
-	JS_ValueToNumber(cx, argv[1], &arg1);
+	arg1 = JSVAL_TO_DOUBLE(argv[1]);
 	cocos2d::CCFadeOutUpTiles* ret = cocos2d::CCFadeOutUpTiles::actionWithSize(arg0, arg1);
 	jsval jsret;
 	do {
@@ -18496,6 +18739,9 @@ void js_register_cocos2dx_CCFadeOutUpTiles(JSContext *cx, JSObject *global) {
 		funcs,
 		NULL, // no static properties
 		st_funcs);
+	// make the class enumerable in the registered namespace
+	JSBool found;
+	JS_SetPropertyAttributes(cx, globalObj, "FadeOutUpTiles", JSPROP_ENUMERATE | JSPROP_READONLY, &found);
 
 	// add the proto and JSClass to the type->js info hash table
 	TypeTest<cocos2d::CCFadeOutUpTiles> t;
@@ -18528,10 +18774,10 @@ JSBool js_cocos2dx_CCFadeOutDownTiles_testFunc(JSContext *cx, uint32_t argc, jsv
 		cocos2d::ccGridSize arg0;
 		double arg1;
 		arg0 = jsval_to_ccgridsize(cx, argv[0]);
-		JS_ValueToNumber(cx, argv[1], &arg1);
+		arg1 = JSVAL_TO_DOUBLE(argv[1]);
 		float ret = cobj->testFunc(arg0, arg1);
 		jsval jsret;
-		JS_NewNumberValue(cx, ret, &jsret);
+		jsret = DOUBLE_TO_JSVAL(ret);
 		JS_SET_RVAL(cx, vp, jsret);
 		return JS_TRUE;
 	}
@@ -18546,7 +18792,7 @@ JSBool js_cocos2dx_CCFadeOutDownTiles_create(JSContext *cx, uint32_t argc, jsval
 	assert(argc >= 2);
 
 	arg0 = jsval_to_ccgridsize(cx, argv[0]);
-	JS_ValueToNumber(cx, argv[1], &arg1);
+	arg1 = JSVAL_TO_DOUBLE(argv[1]);
 	cocos2d::CCFadeOutDownTiles* ret = cocos2d::CCFadeOutDownTiles::create(arg0, arg1);
 	jsval jsret;
 	do {
@@ -18569,7 +18815,7 @@ JSBool js_cocos2dx_CCFadeOutDownTiles_actionWithSize(JSContext *cx, uint32_t arg
 	assert(argc >= 2);
 
 	arg0 = jsval_to_ccgridsize(cx, argv[0]);
-	JS_ValueToNumber(cx, argv[1], &arg1);
+	arg1 = JSVAL_TO_DOUBLE(argv[1]);
 	cocos2d::CCFadeOutDownTiles* ret = cocos2d::CCFadeOutDownTiles::actionWithSize(arg0, arg1);
 	jsval jsret;
 	do {
@@ -18624,6 +18870,9 @@ void js_register_cocos2dx_CCFadeOutDownTiles(JSContext *cx, JSObject *global) {
 		funcs,
 		NULL, // no static properties
 		st_funcs);
+	// make the class enumerable in the registered namespace
+	JSBool found;
+	JS_SetPropertyAttributes(cx, globalObj, "FadeOutDownTiles", JSPROP_ENUMERATE | JSPROP_READONLY, &found);
 
 	// add the proto and JSClass to the type->js info hash table
 	TypeTest<cocos2d::CCFadeOutDownTiles> t;
@@ -18654,7 +18903,7 @@ JSBool js_cocos2dx_CCJumpTiles3D_setAmplitudeRate(JSContext *cx, uint32_t argc, 
 
 	if (argc == 1) {
 		double arg0;
-		JS_ValueToNumber(cx, argv[0], &arg0);
+		arg0 = JSVAL_TO_DOUBLE(argv[0]);
 		cobj->setAmplitudeRate(arg0);
 		return JS_TRUE;
 	}
@@ -18675,9 +18924,9 @@ JSBool js_cocos2dx_CCJumpTiles3D_initWithJumps(JSContext *cx, uint32_t argc, jsv
 		cocos2d::ccGridSize arg2;
 		double arg3;
 		JS_ValueToInt32(cx, argv[0], (int32_t *)&arg0);
-		JS_ValueToNumber(cx, argv[1], &arg1);
+		arg1 = JSVAL_TO_DOUBLE(argv[1]);
 		arg2 = jsval_to_ccgridsize(cx, argv[2]);
-		JS_ValueToNumber(cx, argv[3], &arg3);
+		arg3 = JSVAL_TO_DOUBLE(argv[3]);
 		bool ret = cobj->initWithJumps(arg0, arg1, arg2, arg3);
 		jsval jsret;
 		jsret = BOOLEAN_TO_JSVAL(ret);
@@ -18697,7 +18946,7 @@ JSBool js_cocos2dx_CCJumpTiles3D_update(JSContext *cx, uint32_t argc, jsval *vp)
 
 	if (argc == 1) {
 		double arg0;
-		JS_ValueToNumber(cx, argv[0], &arg0);
+		arg0 = JSVAL_TO_DOUBLE(argv[0]);
 		cobj->update(arg0);
 		return JS_TRUE;
 	}
@@ -18714,7 +18963,7 @@ JSBool js_cocos2dx_CCJumpTiles3D_getAmplitudeRate(JSContext *cx, uint32_t argc, 
 	if (argc == 0) {
 		float ret = cobj->getAmplitudeRate();
 		jsval jsret;
-		JS_NewNumberValue(cx, ret, &jsret);
+		jsret = DOUBLE_TO_JSVAL(ret);
 		JS_SET_RVAL(cx, vp, jsret);
 		return JS_TRUE;
 	}
@@ -18731,7 +18980,7 @@ JSBool js_cocos2dx_CCJumpTiles3D_setAmplitude(JSContext *cx, uint32_t argc, jsva
 
 	if (argc == 1) {
 		double arg0;
-		JS_ValueToNumber(cx, argv[0], &arg0);
+		arg0 = JSVAL_TO_DOUBLE(argv[0]);
 		cobj->setAmplitude(arg0);
 		return JS_TRUE;
 	}
@@ -18748,7 +18997,7 @@ JSBool js_cocos2dx_CCJumpTiles3D_getAmplitude(JSContext *cx, uint32_t argc, jsva
 	if (argc == 0) {
 		float ret = cobj->getAmplitude();
 		jsval jsret;
-		JS_NewNumberValue(cx, ret, &jsret);
+		jsret = DOUBLE_TO_JSVAL(ret);
 		JS_SET_RVAL(cx, vp, jsret);
 		return JS_TRUE;
 	}
@@ -18765,9 +19014,9 @@ JSBool js_cocos2dx_CCJumpTiles3D_actionWithJumps(JSContext *cx, uint32_t argc, j
 	assert(argc >= 4);
 
 	JS_ValueToInt32(cx, argv[0], (int32_t *)&arg0);
-	JS_ValueToNumber(cx, argv[1], &arg1);
+	arg1 = JSVAL_TO_DOUBLE(argv[1]);
 	arg2 = jsval_to_ccgridsize(cx, argv[2]);
-	JS_ValueToNumber(cx, argv[3], &arg3);
+	arg3 = JSVAL_TO_DOUBLE(argv[3]);
 	cocos2d::CCJumpTiles3D* ret = cocos2d::CCJumpTiles3D::actionWithJumps(arg0, arg1, arg2, arg3);
 	jsval jsret;
 	do {
@@ -18792,9 +19041,9 @@ JSBool js_cocos2dx_CCJumpTiles3D_create(JSContext *cx, uint32_t argc, jsval *vp)
 	assert(argc >= 4);
 
 	JS_ValueToInt32(cx, argv[0], (int32_t *)&arg0);
-	JS_ValueToNumber(cx, argv[1], &arg1);
+	arg1 = JSVAL_TO_DOUBLE(argv[1]);
 	arg2 = jsval_to_ccgridsize(cx, argv[2]);
-	JS_ValueToNumber(cx, argv[3], &arg3);
+	arg3 = JSVAL_TO_DOUBLE(argv[3]);
 	cocos2d::CCJumpTiles3D* ret = cocos2d::CCJumpTiles3D::create(arg0, arg1, arg2, arg3);
 	jsval jsret;
 	do {
@@ -18856,6 +19105,9 @@ void js_register_cocos2dx_CCJumpTiles3D(JSContext *cx, JSObject *global) {
 		funcs,
 		NULL, // no static properties
 		st_funcs);
+	// make the class enumerable in the registered namespace
+	JSBool found;
+	JS_SetPropertyAttributes(cx, globalObj, "JumpTiles3D", JSPROP_ENUMERATE | JSPROP_READONLY, &found);
 
 	// add the proto and JSClass to the type->js info hash table
 	TypeTest<cocos2d::CCJumpTiles3D> t;
@@ -18909,7 +19161,7 @@ JSBool js_cocos2dx_CCActionTween_update(JSContext *cx, uint32_t argc, jsval *vp)
 
 	if (argc == 1) {
 		double arg0;
-		JS_ValueToNumber(cx, argv[0], &arg0);
+		arg0 = JSVAL_TO_DOUBLE(argv[0]);
 		cobj->update(arg0);
 		return JS_TRUE;
 	}
@@ -18929,10 +19181,10 @@ JSBool js_cocos2dx_CCActionTween_initWithDuration(JSContext *cx, uint32_t argc, 
 		const char* arg1;
 		double arg2;
 		double arg3;
-		JS_ValueToNumber(cx, argv[0], &arg0);
+		arg0 = JSVAL_TO_DOUBLE(argv[0]);
 		std::string arg1_tmp = jsval_to_std_string(cx, argv[1]); arg1 = arg1_tmp.c_str();
-		JS_ValueToNumber(cx, argv[2], &arg2);
-		JS_ValueToNumber(cx, argv[3], &arg3);
+		arg2 = JSVAL_TO_DOUBLE(argv[2]);
+		arg3 = JSVAL_TO_DOUBLE(argv[3]);
 		bool ret = cobj->initWithDuration(arg0, arg1, arg2, arg3);
 		jsval jsret;
 		jsret = BOOLEAN_TO_JSVAL(ret);
@@ -18975,10 +19227,10 @@ JSBool js_cocos2dx_CCActionTween_create(JSContext *cx, uint32_t argc, jsval *vp)
 	double arg3;
 	assert(argc >= 4);
 
-	JS_ValueToNumber(cx, argv[0], &arg0);
+	arg0 = JSVAL_TO_DOUBLE(argv[0]);
 	std::string arg1_tmp = jsval_to_std_string(cx, argv[1]); arg1 = arg1_tmp.c_str();
-	JS_ValueToNumber(cx, argv[2], &arg2);
-	JS_ValueToNumber(cx, argv[3], &arg3);
+	arg2 = JSVAL_TO_DOUBLE(argv[2]);
+	arg3 = JSVAL_TO_DOUBLE(argv[3]);
 	cocos2d::CCActionTween* ret = cocos2d::CCActionTween::create(arg0, arg1, arg2, arg3);
 	jsval jsret;
 	do {
@@ -19002,10 +19254,10 @@ JSBool js_cocos2dx_CCActionTween_actionWithDuration(JSContext *cx, uint32_t argc
 	double arg3;
 	assert(argc >= 4);
 
-	JS_ValueToNumber(cx, argv[0], &arg0);
+	arg0 = JSVAL_TO_DOUBLE(argv[0]);
 	std::string arg1_tmp = jsval_to_std_string(cx, argv[1]); arg1 = arg1_tmp.c_str();
-	JS_ValueToNumber(cx, argv[2], &arg2);
-	JS_ValueToNumber(cx, argv[3], &arg3);
+	arg2 = JSVAL_TO_DOUBLE(argv[2]);
+	arg3 = JSVAL_TO_DOUBLE(argv[3]);
 	cocos2d::CCActionTween* ret = cocos2d::CCActionTween::actionWithDuration(arg0, arg1, arg2, arg3);
 	jsval jsret;
 	do {
@@ -19065,6 +19317,9 @@ void js_register_cocos2dx_CCActionTween(JSContext *cx, JSObject *global) {
 		funcs,
 		NULL, // no static properties
 		st_funcs);
+	// make the class enumerable in the registered namespace
+	JSBool found;
+	JS_SetPropertyAttributes(cx, globalObj, "ActionTween", JSPROP_ENUMERATE | JSPROP_READONLY, &found);
 
 	// add the proto and JSClass to the type->js info hash table
 	TypeTest<cocos2d::CCActionTween> t;
@@ -19095,7 +19350,7 @@ JSBool js_cocos2dx_CCPointArray_count(JSContext *cx, uint32_t argc, jsval *vp)
 	if (argc == 0) {
 		unsigned int ret = cobj->count();
 		jsval jsret;
-		JS_NewNumberValue(cx, ret, &jsret);
+		jsret = UINT_TO_JSVAL(ret);
 		JS_SET_RVAL(cx, vp, jsret);
 		return JS_TRUE;
 	}
@@ -19410,6 +19665,9 @@ void js_register_cocos2dx_CCPointArray(JSContext *cx, JSObject *global) {
 		funcs,
 		NULL, // no static properties
 		st_funcs);
+	// make the class enumerable in the registered namespace
+	JSBool found;
+	JS_SetPropertyAttributes(cx, globalObj, "PointArray", JSPROP_ENUMERATE | JSPROP_READONLY, &found);
 
 	// add the proto and JSClass to the type->js info hash table
 	TypeTest<cocos2d::CCPointArray> t;
@@ -19489,7 +19747,7 @@ JSBool js_cocos2dx_CCCardinalSplineTo_initWithDuration(JSContext *cx, uint32_t a
 		double arg0;
 		cocos2d::CCPointArray* arg1;
 		double arg2;
-		JS_ValueToNumber(cx, argv[0], &arg0);
+		arg0 = JSVAL_TO_DOUBLE(argv[0]);
 		do {
 			js_proxy_t *proxy;
 			JSObject *tmpObj = JSVAL_TO_OBJECT(argv[1]);
@@ -19497,7 +19755,7 @@ JSBool js_cocos2dx_CCCardinalSplineTo_initWithDuration(JSContext *cx, uint32_t a
 			arg1 = (cocos2d::CCPointArray*)(proxy ? proxy->ptr : NULL);
 			TEST_NATIVE_OBJECT(cx, arg1)
 		} while (0);
-		JS_ValueToNumber(cx, argv[2], &arg2);
+		arg2 = JSVAL_TO_DOUBLE(argv[2]);
 		bool ret = cobj->initWithDuration(arg0, arg1, arg2);
 		jsval jsret;
 		jsret = BOOLEAN_TO_JSVAL(ret);
@@ -19541,7 +19799,7 @@ JSBool js_cocos2dx_CCCardinalSplineTo_update(JSContext *cx, uint32_t argc, jsval
 
 	if (argc == 1) {
 		double arg0;
-		JS_ValueToNumber(cx, argv[0], &arg0);
+		arg0 = JSVAL_TO_DOUBLE(argv[0]);
 		cobj->update(arg0);
 		return JS_TRUE;
 	}
@@ -19638,6 +19896,9 @@ void js_register_cocos2dx_CCCardinalSplineTo(JSContext *cx, JSObject *global) {
 		funcs,
 		NULL, // no static properties
 		st_funcs);
+	// make the class enumerable in the registered namespace
+	JSBool found;
+	JS_SetPropertyAttributes(cx, globalObj, "CardinalSplineTo", JSPROP_ENUMERATE | JSPROP_READONLY, &found);
 
 	// add the proto and JSClass to the type->js info hash table
 	TypeTest<cocos2d::CCCardinalSplineTo> t;
@@ -19792,6 +20053,9 @@ void js_register_cocos2dx_CCCardinalSplineBy(JSContext *cx, JSObject *global) {
 		funcs,
 		NULL, // no static properties
 		st_funcs);
+	// make the class enumerable in the registered namespace
+	JSBool found;
+	JS_SetPropertyAttributes(cx, globalObj, "CardinalSplineBy", JSPROP_ENUMERATE | JSPROP_READONLY, &found);
 
 	// add the proto and JSClass to the type->js info hash table
 	TypeTest<cocos2d::CCCardinalSplineBy> t;
@@ -19823,7 +20087,7 @@ JSBool js_cocos2dx_CCCatmullRomTo_initWithDuration(JSContext *cx, uint32_t argc,
 	if (argc == 2) {
 		double arg0;
 		cocos2d::CCPointArray* arg1;
-		JS_ValueToNumber(cx, argv[0], &arg0);
+		arg0 = JSVAL_TO_DOUBLE(argv[0]);
 		do {
 			js_proxy_t *proxy;
 			JSObject *tmpObj = JSVAL_TO_OBJECT(argv[1]);
@@ -19876,6 +20140,9 @@ void js_register_cocos2dx_CCCatmullRomTo(JSContext *cx, JSObject *global) {
 		funcs,
 		NULL, // no static properties
 		st_funcs);
+	// make the class enumerable in the registered namespace
+	JSBool found;
+	JS_SetPropertyAttributes(cx, globalObj, "CatmullRomTo", JSPROP_ENUMERATE | JSPROP_READONLY, &found);
 
 	// add the proto and JSClass to the type->js info hash table
 	TypeTest<cocos2d::CCCatmullRomTo> t;
@@ -19907,7 +20174,7 @@ JSBool js_cocos2dx_CCCatmullRomBy_initWithDuration(JSContext *cx, uint32_t argc,
 	if (argc == 2) {
 		double arg0;
 		cocos2d::CCPointArray* arg1;
-		JS_ValueToNumber(cx, argv[0], &arg0);
+		arg0 = JSVAL_TO_DOUBLE(argv[0]);
 		do {
 			js_proxy_t *proxy;
 			JSObject *tmpObj = JSVAL_TO_OBJECT(argv[1]);
@@ -19960,6 +20227,9 @@ void js_register_cocos2dx_CCCatmullRomBy(JSContext *cx, JSObject *global) {
 		funcs,
 		NULL, // no static properties
 		st_funcs);
+	// make the class enumerable in the registered namespace
+	JSBool found;
+	JS_SetPropertyAttributes(cx, globalObj, "CatmullRomBy", JSPROP_ENUMERATE | JSPROP_READONLY, &found);
 
 	// add the proto and JSClass to the type->js info hash table
 	TypeTest<cocos2d::CCCatmullRomBy> t;
@@ -20132,7 +20402,7 @@ JSBool js_cocos2dx_CCAtlasNode_getQuadsToDraw(JSContext *cx, uint32_t argc, jsva
 	if (argc == 0) {
 		unsigned int ret = cobj->getQuadsToDraw();
 		jsval jsret;
-		JS_NewNumberValue(cx, ret, &jsret);
+		jsret = UINT_TO_JSVAL(ret);
 		JS_SET_RVAL(cx, vp, jsret);
 		return JS_TRUE;
 	}
@@ -20206,7 +20476,7 @@ JSBool js_cocos2dx_CCAtlasNode_getOpacity(JSContext *cx, uint32_t argc, jsval *v
 	if (argc == 0) {
 		unsigned char ret = cobj->getOpacity();
 		jsval jsret;
-		JS_NewNumberValue(cx, ret, &jsret);
+		jsret = UINT_TO_JSVAL(ret);
 		JS_SET_RVAL(cx, vp, jsret);
 		return JS_TRUE;
 	}
@@ -20368,6 +20638,9 @@ void js_register_cocos2dx_CCAtlasNode(JSContext *cx, JSObject *global) {
 		funcs,
 		NULL, // no static properties
 		st_funcs);
+	// make the class enumerable in the registered namespace
+	JSBool found;
+	JS_SetPropertyAttributes(cx, globalObj, "AtlasNode", JSPROP_ENUMERATE | JSPROP_READONLY, &found);
 
 	// add the proto and JSClass to the type->js info hash table
 	TypeTest<cocos2d::CCAtlasNode> t;
@@ -20509,7 +20782,7 @@ JSBool js_cocos2dx_CCSprite_setScaleY(JSContext *cx, uint32_t argc, jsval *vp)
 
 	if (argc == 1) {
 		double arg0;
-		JS_ValueToNumber(cx, argv[0], &arg0);
+		arg0 = JSVAL_TO_DOUBLE(argv[0]);
 		cobj->setScaleY(arg0);
 		return JS_TRUE;
 	}
@@ -20526,7 +20799,7 @@ JSBool js_cocos2dx_CCSprite_setScale(JSContext *cx, uint32_t argc, jsval *vp)
 
 	if (argc == 1) {
 		double arg0;
-		JS_ValueToNumber(cx, argv[0], &arg0);
+		arg0 = JSVAL_TO_DOUBLE(argv[0]);
 		cobj->setScale(arg0);
 		return JS_TRUE;
 	}
@@ -20579,7 +20852,7 @@ JSBool js_cocos2dx_CCSprite_setScaleX(JSContext *cx, uint32_t argc, jsval *vp)
 
 	if (argc == 1) {
 		double arg0;
-		JS_ValueToNumber(cx, argv[0], &arg0);
+		arg0 = JSVAL_TO_DOUBLE(argv[0]);
 		cobj->setScaleX(arg0);
 		return JS_TRUE;
 	}
@@ -20671,7 +20944,7 @@ JSBool js_cocos2dx_CCSprite_setVertexZ(JSContext *cx, uint32_t argc, jsval *vp)
 
 	if (argc == 1) {
 		double arg0;
-		JS_ValueToNumber(cx, argv[0], &arg0);
+		arg0 = JSVAL_TO_DOUBLE(argv[0]);
 		cobj->setVertexZ(arg0);
 		return JS_TRUE;
 	}
@@ -20784,7 +21057,7 @@ JSBool js_cocos2dx_CCSprite_getAtlasIndex(JSContext *cx, uint32_t argc, jsval *v
 	if (argc == 0) {
 		unsigned int ret = cobj->getAtlasIndex();
 		jsval jsret;
-		JS_NewNumberValue(cx, ret, &jsret);
+		jsret = UINT_TO_JSVAL(ret);
 		JS_SET_RVAL(cx, vp, jsret);
 		return JS_TRUE;
 	}
@@ -20824,7 +21097,7 @@ JSBool js_cocos2dx_CCSprite_getOpacity(JSContext *cx, uint32_t argc, jsval *vp)
 	if (argc == 0) {
 		unsigned char ret = cobj->getOpacity();
 		jsval jsret;
-		JS_NewNumberValue(cx, ret, &jsret);
+		jsret = UINT_TO_JSVAL(ret);
 		JS_SET_RVAL(cx, vp, jsret);
 		return JS_TRUE;
 	}
@@ -21066,7 +21339,7 @@ JSBool js_cocos2dx_CCSprite_setRotation(JSContext *cx, uint32_t argc, jsval *vp)
 
 	if (argc == 1) {
 		double arg0;
-		JS_ValueToNumber(cx, argv[0], &arg0);
+		arg0 = JSVAL_TO_DOUBLE(argv[0]);
 		cobj->setRotation(arg0);
 		return JS_TRUE;
 	}
@@ -21308,7 +21581,7 @@ JSBool js_cocos2dx_CCSprite_setSkewX(JSContext *cx, uint32_t argc, jsval *vp)
 
 	if (argc == 1) {
 		double arg0;
-		JS_ValueToNumber(cx, argv[0], &arg0);
+		arg0 = JSVAL_TO_DOUBLE(argv[0]);
 		cobj->setSkewX(arg0);
 		return JS_TRUE;
 	}
@@ -21325,7 +21598,7 @@ JSBool js_cocos2dx_CCSprite_setSkewY(JSContext *cx, uint32_t argc, jsval *vp)
 
 	if (argc == 1) {
 		double arg0;
-		JS_ValueToNumber(cx, argv[0], &arg0);
+		arg0 = JSVAL_TO_DOUBLE(argv[0]);
 		cobj->setSkewY(arg0);
 		return JS_TRUE;
 	}
@@ -21780,6 +22053,9 @@ void js_register_cocos2dx_CCSprite(JSContext *cx, JSObject *global) {
 		funcs,
 		NULL, // no static properties
 		st_funcs);
+	// make the class enumerable in the registered namespace
+	JSBool found;
+	JS_SetPropertyAttributes(cx, globalObj, "Sprite", JSPROP_ENUMERATE | JSPROP_READONLY, &found);
 
 	// add the proto and JSClass to the type->js info hash table
 	TypeTest<cocos2d::CCSprite> t;
@@ -21844,7 +22120,7 @@ JSBool js_cocos2dx_CCLabelTTF_getFontSize(JSContext *cx, uint32_t argc, jsval *v
 	if (argc == 0) {
 		float ret = cobj->getFontSize();
 		jsval jsret;
-		JS_NewNumberValue(cx, ret, &jsret);
+		jsret = DOUBLE_TO_JSVAL(ret);
 		JS_SET_RVAL(cx, vp, jsret);
 		return JS_TRUE;
 	}
@@ -21935,7 +22211,7 @@ JSBool js_cocos2dx_CCLabelTTF_initWithString(JSContext *cx, uint32_t argc, jsval
 		const char* arg1;
 		std::string arg1_tmp = jsval_to_std_string(cx, argv[1]); arg1 = arg1_tmp.c_str();
 		double arg2;
-		JS_ValueToNumber(cx, argv[2], &arg2);
+		arg2 = JSVAL_TO_DOUBLE(argv[2]);
 		cocos2d::CCSize arg3;
 		arg3 = jsval_to_ccsize(cx, argv[3]);
 		cocos2d::CCTextAlignment arg4;
@@ -21951,7 +22227,7 @@ JSBool js_cocos2dx_CCLabelTTF_initWithString(JSContext *cx, uint32_t argc, jsval
 		const char* arg1;
 		std::string arg1_tmp = jsval_to_std_string(cx, argv[1]); arg1 = arg1_tmp.c_str();
 		double arg2;
-		JS_ValueToNumber(cx, argv[2], &arg2);
+		arg2 = JSVAL_TO_DOUBLE(argv[2]);
 		bool ret = cobj->initWithString(arg0, arg1, arg2);
 		jsval jsret; jsret = BOOLEAN_TO_JSVAL(ret);
 		JS_SET_RVAL(cx, vp, jsret);
@@ -21963,7 +22239,7 @@ JSBool js_cocos2dx_CCLabelTTF_initWithString(JSContext *cx, uint32_t argc, jsval
 		const char* arg1;
 		std::string arg1_tmp = jsval_to_std_string(cx, argv[1]); arg1 = arg1_tmp.c_str();
 		double arg2;
-		JS_ValueToNumber(cx, argv[2], &arg2);
+		arg2 = JSVAL_TO_DOUBLE(argv[2]);
 		cocos2d::CCSize arg3;
 		arg3 = jsval_to_ccsize(cx, argv[3]);
 		cocos2d::CCTextAlignment arg4;
@@ -22004,7 +22280,7 @@ JSBool js_cocos2dx_CCLabelTTF_setFontSize(JSContext *cx, uint32_t argc, jsval *v
 
 	if (argc == 1) {
 		double arg0;
-		JS_ValueToNumber(cx, argv[0], &arg0);
+		arg0 = JSVAL_TO_DOUBLE(argv[0]);
 		cobj->setFontSize(arg0);
 		return JS_TRUE;
 	}
@@ -22055,7 +22331,7 @@ JSBool js_cocos2dx_CCLabelTTF_getVerticalAlignment(JSContext *cx, uint32_t argc,
 	if (argc == 0) {
 		cocos2d::CCVerticalTextAlignment ret = cobj->getVerticalAlignment();
 		jsval jsret;
-		JS_NewNumberValue(cx, ret, &jsret);
+		jsret = INT_TO_JSVAL(ret);
 		JS_SET_RVAL(cx, vp, jsret);
 		return JS_TRUE;
 	}
@@ -22072,7 +22348,7 @@ JSBool js_cocos2dx_CCLabelTTF_getHorizontalAlignment(JSContext *cx, uint32_t arg
 	if (argc == 0) {
 		cocos2d::CCTextAlignment ret = cobj->getHorizontalAlignment();
 		jsval jsret;
-		JS_NewNumberValue(cx, ret, &jsret);
+		jsret = INT_TO_JSVAL(ret);
 		JS_SET_RVAL(cx, vp, jsret);
 		return JS_TRUE;
 	}
@@ -22104,7 +22380,7 @@ JSBool js_cocos2dx_CCLabelTTF_create(JSContext *cx, uint32_t argc, jsval *vp)
 		const char* arg1;
 		std::string arg1_tmp = jsval_to_std_string(cx, argv[1]); arg1 = arg1_tmp.c_str();
 		double arg2;
-		JS_ValueToNumber(cx, argv[2], &arg2);
+		arg2 = JSVAL_TO_DOUBLE(argv[2]);
 		cocos2d::CCSize arg3;
 		arg3 = jsval_to_ccsize(cx, argv[3]);
 		cocos2d::CCTextAlignment arg4;
@@ -22128,7 +22404,7 @@ JSBool js_cocos2dx_CCLabelTTF_create(JSContext *cx, uint32_t argc, jsval *vp)
 		const char* arg1;
 		std::string arg1_tmp = jsval_to_std_string(cx, argv[1]); arg1 = arg1_tmp.c_str();
 		double arg2;
-		JS_ValueToNumber(cx, argv[2], &arg2);
+		arg2 = JSVAL_TO_DOUBLE(argv[2]);
 		cocos2d::CCLabelTTF* ret = cocos2d::CCLabelTTF::create(arg0, arg1, arg2);
 		jsval jsret;
 		do {
@@ -22148,7 +22424,7 @@ JSBool js_cocos2dx_CCLabelTTF_create(JSContext *cx, uint32_t argc, jsval *vp)
 		const char* arg1;
 		std::string arg1_tmp = jsval_to_std_string(cx, argv[1]); arg1 = arg1_tmp.c_str();
 		double arg2;
-		JS_ValueToNumber(cx, argv[2], &arg2);
+		arg2 = JSVAL_TO_DOUBLE(argv[2]);
 		cocos2d::CCSize arg3;
 		arg3 = jsval_to_ccsize(cx, argv[3]);
 		cocos2d::CCTextAlignment arg4;
@@ -22197,7 +22473,7 @@ JSBool js_cocos2dx_CCLabelTTF_labelWithString(JSContext *cx, uint32_t argc, jsva
 		const char* arg3;
 		std::string arg3_tmp = jsval_to_std_string(cx, argv[3]); arg3 = arg3_tmp.c_str();
 		double arg4;
-		JS_ValueToNumber(cx, argv[4], &arg4);
+		arg4 = JSVAL_TO_DOUBLE(argv[4]);
 		cocos2d::CCLabelTTF* ret = cocos2d::CCLabelTTF::labelWithString(arg0, arg1, arg2, arg3, arg4);
 		jsval jsret;
 		do {
@@ -22217,7 +22493,7 @@ JSBool js_cocos2dx_CCLabelTTF_labelWithString(JSContext *cx, uint32_t argc, jsva
 		const char* arg1;
 		std::string arg1_tmp = jsval_to_std_string(cx, argv[1]); arg1 = arg1_tmp.c_str();
 		double arg2;
-		JS_ValueToNumber(cx, argv[2], &arg2);
+		arg2 = JSVAL_TO_DOUBLE(argv[2]);
 		cocos2d::CCLabelTTF* ret = cocos2d::CCLabelTTF::labelWithString(arg0, arg1, arg2);
 		jsval jsret;
 		do {
@@ -22243,7 +22519,7 @@ JSBool js_cocos2dx_CCLabelTTF_labelWithString(JSContext *cx, uint32_t argc, jsva
 		const char* arg4;
 		std::string arg4_tmp = jsval_to_std_string(cx, argv[4]); arg4 = arg4_tmp.c_str();
 		double arg5;
-		JS_ValueToNumber(cx, argv[5], &arg5);
+		arg5 = JSVAL_TO_DOUBLE(argv[5]);
 		cocos2d::CCLabelTTF* ret = cocos2d::CCLabelTTF::labelWithString(arg0, arg1, arg2, arg3, arg4, arg5);
 		jsval jsret;
 		do {
@@ -22345,6 +22621,9 @@ void js_register_cocos2dx_CCLabelTTF(JSContext *cx, JSObject *global) {
 		funcs,
 		NULL, // no static properties
 		st_funcs);
+	// make the class enumerable in the registered namespace
+	JSBool found;
+	JS_SetPropertyAttributes(cx, globalObj, "LabelTTF", JSPROP_ENUMERATE | JSPROP_READONLY, &found);
 
 	// add the proto and JSClass to the type->js info hash table
 	TypeTest<cocos2d::CCLabelTTF> t;
@@ -22389,7 +22668,7 @@ JSBool js_cocos2dx_CCDirector_setContentScaleFactor(JSContext *cx, uint32_t argc
 
 	if (argc == 1) {
 		double arg0;
-		JS_ValueToNumber(cx, argv[0], &arg0);
+		arg0 = JSVAL_TO_DOUBLE(argv[0]);
 		cobj->setContentScaleFactor(arg0);
 		return JS_TRUE;
 	}
@@ -22406,7 +22685,7 @@ JSBool js_cocos2dx_CCDirector_getContentScaleFactor(JSContext *cx, uint32_t argc
 	if (argc == 0) {
 		float ret = cobj->getContentScaleFactor();
 		jsval jsret;
-		JS_NewNumberValue(cx, ret, &jsret);
+		jsret = DOUBLE_TO_JSVAL(ret);
 		JS_SET_RVAL(cx, vp, jsret);
 		return JS_TRUE;
 	}
@@ -22637,7 +22916,7 @@ JSBool js_cocos2dx_CCDirector_getSecondsPerFrame(JSContext *cx, uint32_t argc, j
 	if (argc == 0) {
 		float ret = cobj->getSecondsPerFrame();
 		jsval jsret;
-		JS_NewNumberValue(cx, ret, &jsret);
+		jsret = DOUBLE_TO_JSVAL(ret);
 		JS_SET_RVAL(cx, vp, jsret);
 		return JS_TRUE;
 	}
@@ -22931,7 +23210,7 @@ JSBool js_cocos2dx_CCDirector_getTotalFrames(JSContext *cx, uint32_t argc, jsval
 	if (argc == 0) {
 		unsigned int ret = cobj->getTotalFrames();
 		jsval jsret;
-		JS_NewNumberValue(cx, ret, &jsret);
+		jsret = UINT_TO_JSVAL(ret);
 		JS_SET_RVAL(cx, vp, jsret);
 		return JS_TRUE;
 	}
@@ -23056,7 +23335,7 @@ JSBool js_cocos2dx_CCDirector_getZEye(JSContext *cx, uint32_t argc, jsval *vp)
 	if (argc == 0) {
 		float ret = cobj->getZEye();
 		jsval jsret;
-		JS_NewNumberValue(cx, ret, &jsret);
+		jsret = DOUBLE_TO_JSVAL(ret);
 		JS_SET_RVAL(cx, vp, jsret);
 		return JS_TRUE;
 	}
@@ -23147,7 +23426,7 @@ JSBool js_cocos2dx_CCDirector_getAnimationInterval(JSContext *cx, uint32_t argc,
 	if (argc == 0) {
 		double ret = cobj->getAnimationInterval();
 		jsval jsret;
-		JS_NewNumberValue(cx, ret, &jsret);
+		jsret = DOUBLE_TO_JSVAL(ret);
 		JS_SET_RVAL(cx, vp, jsret);
 		return JS_TRUE;
 	}
@@ -23357,6 +23636,9 @@ void js_register_cocos2dx_CCDirector(JSContext *cx, JSObject *global) {
 		funcs,
 		NULL, // no static properties
 		st_funcs);
+	// make the class enumerable in the registered namespace
+	JSBool found;
+	JS_SetPropertyAttributes(cx, globalObj, "Director", JSPROP_ENUMERATE | JSPROP_READONLY, &found);
 
 	// add the proto and JSClass to the type->js info hash table
 	TypeTest<cocos2d::CCDirector> t;
@@ -23632,6 +23914,9 @@ void js_register_cocos2dx_CCLabelAtlas(JSContext *cx, JSObject *global) {
 		funcs,
 		NULL, // no static properties
 		st_funcs);
+	// make the class enumerable in the registered namespace
+	JSBool found;
+	JS_SetPropertyAttributes(cx, globalObj, "LabelAtlas", JSPROP_ENUMERATE | JSPROP_READONLY, &found);
 
 	// add the proto and JSClass to the type->js info hash table
 	TypeTest<cocos2d::CCLabelAtlas> t;
@@ -23846,7 +24131,7 @@ JSBool js_cocos2dx_CCSpriteBatchNode_atlasIndexForChild(JSContext *cx, uint32_t 
 		JS_ValueToInt32(cx, argv[1], (int32_t *)&arg1);
 		unsigned int ret = cobj->atlasIndexForChild(arg0, arg1);
 		jsval jsret;
-		JS_NewNumberValue(cx, ret, &jsret);
+		jsret = UINT_TO_JSVAL(ret);
 		JS_SET_RVAL(cx, vp, jsret);
 		return JS_TRUE;
 	}
@@ -23952,7 +24237,7 @@ JSBool js_cocos2dx_CCSpriteBatchNode_lowestAtlasIndexInChild(JSContext *cx, uint
 		} while (0);
 		unsigned int ret = cobj->lowestAtlasIndexInChild(arg0);
 		jsval jsret;
-		JS_NewNumberValue(cx, ret, &jsret);
+		jsret = UINT_TO_JSVAL(ret);
 		JS_SET_RVAL(cx, vp, jsret);
 		return JS_TRUE;
 	}
@@ -24123,7 +24408,7 @@ JSBool js_cocos2dx_CCSpriteBatchNode_rebuildIndexInOrder(JSContext *cx, uint32_t
 		JS_ValueToECMAUint32(cx, argv[1], &arg1);
 		unsigned int ret = cobj->rebuildIndexInOrder(arg0, arg1);
 		jsval jsret;
-		JS_NewNumberValue(cx, ret, &jsret);
+		jsret = UINT_TO_JSVAL(ret);
 		JS_SET_RVAL(cx, vp, jsret);
 		return JS_TRUE;
 	}
@@ -24215,7 +24500,7 @@ JSBool js_cocos2dx_CCSpriteBatchNode_highestAtlasIndexInChild(JSContext *cx, uin
 		} while (0);
 		unsigned int ret = cobj->highestAtlasIndexInChild(arg0);
 		jsval jsret;
-		JS_NewNumberValue(cx, ret, &jsret);
+		jsret = UINT_TO_JSVAL(ret);
 		JS_SET_RVAL(cx, vp, jsret);
 		return JS_TRUE;
 	}
@@ -24432,6 +24717,9 @@ void js_register_cocos2dx_CCSpriteBatchNode(JSContext *cx, JSObject *global) {
 		funcs,
 		NULL, // no static properties
 		st_funcs);
+	// make the class enumerable in the registered namespace
+	JSBool found;
+	JS_SetPropertyAttributes(cx, globalObj, "SpriteBatchNode", JSPROP_ENUMERATE | JSPROP_READONLY, &found);
 
 	// add the proto and JSClass to the type->js info hash table
 	TypeTest<cocos2d::CCSpriteBatchNode> t;
@@ -24510,7 +24798,7 @@ JSBool js_cocos2dx_CCLabelBMFont_setScale(JSContext *cx, uint32_t argc, jsval *v
 
 	if (argc == 1) {
 		double arg0;
-		JS_ValueToNumber(cx, argv[0], &arg0);
+		arg0 = JSVAL_TO_DOUBLE(argv[0]);
 		cobj->setScale(arg0);
 		return JS_TRUE;
 	}
@@ -24575,7 +24863,7 @@ JSBool js_cocos2dx_CCLabelBMFont_setWidth(JSContext *cx, uint32_t argc, jsval *v
 
 	if (argc == 1) {
 		double arg0;
-		JS_ValueToNumber(cx, argv[0], &arg0);
+		arg0 = JSVAL_TO_DOUBLE(argv[0]);
 		cobj->setWidth(arg0);
 		return JS_TRUE;
 	}
@@ -24624,7 +24912,7 @@ JSBool js_cocos2dx_CCLabelBMFont_initWithString(JSContext *cx, uint32_t argc, js
 		cocos2d::CCPoint arg4;
 		std::string arg0_tmp = jsval_to_std_string(cx, argv[0]); arg0 = arg0_tmp.c_str();
 		std::string arg1_tmp = jsval_to_std_string(cx, argv[1]); arg1 = arg1_tmp.c_str();
-		JS_ValueToNumber(cx, argv[2], &arg2);
+		arg2 = JSVAL_TO_DOUBLE(argv[2]);
 		JS_ValueToInt32(cx, argv[3], (int32_t *)&arg3);
 		arg4 = jsval_to_ccpoint(cx, argv[4]);
 		bool ret = cobj->initWithString(arg0, arg1, arg2, arg3, arg4);
@@ -24680,7 +24968,7 @@ JSBool js_cocos2dx_CCLabelBMFont_getOpacity(JSContext *cx, uint32_t argc, jsval 
 	if (argc == 0) {
 		unsigned char ret = cobj->getOpacity();
 		jsval jsret;
-		JS_NewNumberValue(cx, ret, &jsret);
+		jsret = UINT_TO_JSVAL(ret);
 		JS_SET_RVAL(cx, vp, jsret);
 		return JS_TRUE;
 	}
@@ -24714,7 +25002,7 @@ JSBool js_cocos2dx_CCLabelBMFont_setScaleY(JSContext *cx, uint32_t argc, jsval *
 
 	if (argc == 1) {
 		double arg0;
-		JS_ValueToNumber(cx, argv[0], &arg0);
+		arg0 = JSVAL_TO_DOUBLE(argv[0]);
 		cobj->setScaleY(arg0);
 		return JS_TRUE;
 	}
@@ -24731,7 +25019,7 @@ JSBool js_cocos2dx_CCLabelBMFont_setScaleX(JSContext *cx, uint32_t argc, jsval *
 
 	if (argc == 1) {
 		double arg0;
-		JS_ValueToNumber(cx, argv[0], &arg0);
+		arg0 = JSVAL_TO_DOUBLE(argv[0]);
 		cobj->setScaleX(arg0);
 		return JS_TRUE;
 	}
@@ -24854,7 +25142,7 @@ JSBool js_cocos2dx_CCLabelBMFont_create(JSContext *cx, uint32_t argc, jsval *vp)
 		const char* arg1;
 		std::string arg1_tmp = jsval_to_std_string(cx, argv[1]); arg1 = arg1_tmp.c_str();
 		double arg2;
-		JS_ValueToNumber(cx, argv[2], &arg2);
+		arg2 = JSVAL_TO_DOUBLE(argv[2]);
 		cocos2d::CCTextAlignment arg3;
 		JS_ValueToInt32(cx, argv[3], (int32_t *)&arg3);
 		cocos2d::CCLabelBMFont* ret = cocos2d::CCLabelBMFont::create(arg0, arg1, arg2, arg3);
@@ -24876,7 +25164,7 @@ JSBool js_cocos2dx_CCLabelBMFont_create(JSContext *cx, uint32_t argc, jsval *vp)
 		const char* arg1;
 		std::string arg1_tmp = jsval_to_std_string(cx, argv[1]); arg1 = arg1_tmp.c_str();
 		double arg2;
-		JS_ValueToNumber(cx, argv[2], &arg2);
+		arg2 = JSVAL_TO_DOUBLE(argv[2]);
 		cocos2d::CCTextAlignment arg3;
 		JS_ValueToInt32(cx, argv[3], (int32_t *)&arg3);
 		cocos2d::CCPoint arg4;
@@ -24900,7 +25188,7 @@ JSBool js_cocos2dx_CCLabelBMFont_create(JSContext *cx, uint32_t argc, jsval *vp)
 		const char* arg1;
 		std::string arg1_tmp = jsval_to_std_string(cx, argv[1]); arg1 = arg1_tmp.c_str();
 		double arg2;
-		JS_ValueToNumber(cx, argv[2], &arg2);
+		arg2 = JSVAL_TO_DOUBLE(argv[2]);
 		cocos2d::CCLabelBMFont* ret = cocos2d::CCLabelBMFont::create(arg0, arg1, arg2);
 		jsval jsret;
 		do {
@@ -24960,7 +25248,7 @@ JSBool js_cocos2dx_CCLabelBMFont_labelWithString(JSContext *cx, uint32_t argc, j
 
 	std::string arg0_tmp = jsval_to_std_string(cx, argv[0]); arg0 = arg0_tmp.c_str();
 	std::string arg1_tmp = jsval_to_std_string(cx, argv[1]); arg1 = arg1_tmp.c_str();
-	JS_ValueToNumber(cx, argv[2], &arg2);
+	arg2 = JSVAL_TO_DOUBLE(argv[2]);
 	JS_ValueToInt32(cx, argv[3], (int32_t *)&arg3);
 	arg4 = jsval_to_ccpoint(cx, argv[4]);
 	cocos2d::CCLabelBMFont* ret = cocos2d::CCLabelBMFont::labelWithString(arg0, arg1, arg2, arg3, arg4);
@@ -25071,6 +25359,9 @@ void js_register_cocos2dx_CCLabelBMFont(JSContext *cx, JSObject *global) {
 		funcs,
 		NULL, // no static properties
 		st_funcs);
+	// make the class enumerable in the registered namespace
+	JSBool found;
+	JS_SetPropertyAttributes(cx, globalObj, "LabelBMFont", JSPROP_ENUMERATE | JSPROP_READONLY, &found);
 
 	// add the proto and JSClass to the type->js info hash table
 	TypeTest<cocos2d::CCLabelBMFont> t;
@@ -25658,6 +25949,9 @@ void js_register_cocos2dx_CCLayer(JSContext *cx, JSObject *global) {
 		funcs,
 		NULL, // no static properties
 		st_funcs);
+	// make the class enumerable in the registered namespace
+	JSBool found;
+	JS_SetPropertyAttributes(cx, globalObj, "Layer", JSPROP_ENUMERATE | JSPROP_READONLY, &found);
 
 	// add the proto and JSClass to the type->js info hash table
 	TypeTest<cocos2d::CCLayer> t;
@@ -25737,8 +26031,8 @@ JSBool js_cocos2dx_CCLayerColor_changeWidthAndHeight(JSContext *cx, uint32_t arg
 	if (argc == 2) {
 		double arg0;
 		double arg1;
-		JS_ValueToNumber(cx, argv[0], &arg0);
-		JS_ValueToNumber(cx, argv[1], &arg1);
+		arg0 = JSVAL_TO_DOUBLE(argv[0]);
+		arg1 = JSVAL_TO_DOUBLE(argv[1]);
 		cobj->changeWidthAndHeight(arg0, arg1);
 		return JS_TRUE;
 	}
@@ -25801,9 +26095,9 @@ JSBool js_cocos2dx_CCLayerColor_initWithColor(JSContext *cx, uint32_t argc, jsva
 		cocos2d::ccColor4B arg0;
 		arg0 = jsval_to_cccolor4b(cx, argv[0]);
 		double arg1;
-		JS_ValueToNumber(cx, argv[1], &arg1);
+		arg1 = JSVAL_TO_DOUBLE(argv[1]);
 		double arg2;
-		JS_ValueToNumber(cx, argv[2], &arg2);
+		arg2 = JSVAL_TO_DOUBLE(argv[2]);
 		bool ret = cobj->initWithColor(arg0, arg1, arg2);
 		jsval jsret; jsret = BOOLEAN_TO_JSVAL(ret);
 		JS_SET_RVAL(cx, vp, jsret);
@@ -25821,7 +26115,7 @@ JSBool js_cocos2dx_CCLayerColor_changeWidth(JSContext *cx, uint32_t argc, jsval 
 
 	if (argc == 1) {
 		double arg0;
-		JS_ValueToNumber(cx, argv[0], &arg0);
+		arg0 = JSVAL_TO_DOUBLE(argv[0]);
 		cobj->changeWidth(arg0);
 		return JS_TRUE;
 	}
@@ -25838,7 +26132,7 @@ JSBool js_cocos2dx_CCLayerColor_getOpacity(JSContext *cx, uint32_t argc, jsval *
 	if (argc == 0) {
 		unsigned char ret = cobj->getOpacity();
 		jsval jsret;
-		JS_NewNumberValue(cx, ret, &jsret);
+		jsret = UINT_TO_JSVAL(ret);
 		JS_SET_RVAL(cx, vp, jsret);
 		return JS_TRUE;
 	}
@@ -25872,7 +26166,7 @@ JSBool js_cocos2dx_CCLayerColor_changeHeight(JSContext *cx, uint32_t argc, jsval
 
 	if (argc == 1) {
 		double arg0;
-		JS_ValueToNumber(cx, argv[0], &arg0);
+		arg0 = JSVAL_TO_DOUBLE(argv[0]);
 		cobj->changeHeight(arg0);
 		return JS_TRUE;
 	}
@@ -25918,9 +26212,9 @@ JSBool js_cocos2dx_CCLayerColor_layerWithColor(JSContext *cx, uint32_t argc, jsv
 		cocos2d::ccColor4B arg0;
 		arg0 = jsval_to_cccolor4b(cx, argv[0]);
 		double arg1;
-		JS_ValueToNumber(cx, argv[1], &arg1);
+		arg1 = JSVAL_TO_DOUBLE(argv[1]);
 		double arg2;
-		JS_ValueToNumber(cx, argv[2], &arg2);
+		arg2 = JSVAL_TO_DOUBLE(argv[2]);
 		cocos2d::CCLayerColor* ret = cocos2d::CCLayerColor::layerWithColor(arg0, arg1, arg2);
 		jsval jsret;
 		do {
@@ -25959,9 +26253,9 @@ JSBool js_cocos2dx_CCLayerColor_create(JSContext *cx, uint32_t argc, jsval *vp)
 		cocos2d::ccColor4B arg0;
 		arg0 = jsval_to_cccolor4b(cx, argv[0]);
 		double arg1;
-		JS_ValueToNumber(cx, argv[1], &arg1);
+		arg1 = JSVAL_TO_DOUBLE(argv[1]);
 		double arg2;
-		JS_ValueToNumber(cx, argv[2], &arg2);
+		arg2 = JSVAL_TO_DOUBLE(argv[2]);
 		cocos2d::CCLayerColor* ret = cocos2d::CCLayerColor::create(arg0, arg1, arg2);
 		jsval jsret;
 		do {
@@ -26074,6 +26368,9 @@ void js_register_cocos2dx_CCLayerColor(JSContext *cx, JSObject *global) {
 		funcs,
 		NULL, // no static properties
 		st_funcs);
+	// make the class enumerable in the registered namespace
+	JSBool found;
+	JS_SetPropertyAttributes(cx, globalObj, "LayerColor", JSPROP_ENUMERATE | JSPROP_READONLY, &found);
 
 	// add the proto and JSClass to the type->js info hash table
 	TypeTest<cocos2d::CCLayerColor> t;
@@ -26138,7 +26435,7 @@ JSBool js_cocos2dx_CCLayerGradient_getStartOpacity(JSContext *cx, uint32_t argc,
 	if (argc == 0) {
 		unsigned char ret = cobj->getStartOpacity();
 		jsval jsret;
-		JS_NewNumberValue(cx, ret, &jsret);
+		jsret = UINT_TO_JSVAL(ret);
 		JS_SET_RVAL(cx, vp, jsret);
 		return JS_TRUE;
 	}
@@ -26308,7 +26605,7 @@ JSBool js_cocos2dx_CCLayerGradient_getEndOpacity(JSContext *cx, uint32_t argc, j
 	if (argc == 0) {
 		unsigned char ret = cobj->getEndOpacity();
 		jsval jsret;
-		JS_NewNumberValue(cx, ret, &jsret);
+		jsret = UINT_TO_JSVAL(ret);
 		JS_SET_RVAL(cx, vp, jsret);
 		return JS_TRUE;
 	}
@@ -26503,6 +26800,9 @@ void js_register_cocos2dx_CCLayerGradient(JSContext *cx, JSObject *global) {
 		funcs,
 		NULL, // no static properties
 		st_funcs);
+	// make the class enumerable in the registered namespace
+	JSBool found;
+	JS_SetPropertyAttributes(cx, globalObj, "LayerGradient", JSPROP_ENUMERATE | JSPROP_READONLY, &found);
 
 	// add the proto and JSClass to the type->js info hash table
 	TypeTest<cocos2d::CCLayerGradient> t;
@@ -26642,6 +26942,9 @@ void js_register_cocos2dx_CCScene(JSContext *cx, JSObject *global) {
 		funcs,
 		NULL, // no static properties
 		st_funcs);
+	// make the class enumerable in the registered namespace
+	JSBool found;
+	JS_SetPropertyAttributes(cx, globalObj, "Scene", JSPROP_ENUMERATE | JSPROP_READONLY, &found);
 
 	// add the proto and JSClass to the type->js info hash table
 	TypeTest<cocos2d::CCScene> t;
@@ -26731,6 +27034,9 @@ void js_register_cocos2dx_CCTransitionEaseScene(JSContext *cx, JSObject *global)
 		funcs,
 		NULL, // no static properties
 		st_funcs);
+	// make the class enumerable in the registered namespace
+	JSBool found;
+	JS_SetPropertyAttributes(cx, globalObj, "TransitionEaseScene", JSPROP_ENUMERATE | JSPROP_READONLY, &found);
 
 	// add the proto and JSClass to the type->js info hash table
 	TypeTest<cocos2d::CCTransitionEaseScene> t;
@@ -26790,7 +27096,7 @@ JSBool js_cocos2dx_CCTransitionScene_initWithDuration(JSContext *cx, uint32_t ar
 	if (argc == 2) {
 		double arg0;
 		cocos2d::CCScene* arg1;
-		JS_ValueToNumber(cx, argv[0], &arg0);
+		arg0 = JSVAL_TO_DOUBLE(argv[0]);
 		do {
 			js_proxy_t *proxy;
 			JSObject *tmpObj = JSVAL_TO_OBJECT(argv[1]);
@@ -26842,7 +27148,7 @@ JSBool js_cocos2dx_CCTransitionScene_create(JSContext *cx, uint32_t argc, jsval 
 	cocos2d::CCScene* arg1;
 	assert(argc >= 2);
 
-	JS_ValueToNumber(cx, argv[0], &arg0);
+	arg0 = JSVAL_TO_DOUBLE(argv[0]);
 	do {
 			js_proxy_t *proxy;
 			JSObject *tmpObj = JSVAL_TO_OBJECT(argv[1]);
@@ -26871,7 +27177,7 @@ JSBool js_cocos2dx_CCTransitionScene_transitionWithDuration(JSContext *cx, uint3
 	cocos2d::CCScene* arg1;
 	assert(argc >= 2);
 
-	JS_ValueToNumber(cx, argv[0], &arg0);
+	arg0 = JSVAL_TO_DOUBLE(argv[0]);
 	do {
 			js_proxy_t *proxy;
 			JSObject *tmpObj = JSVAL_TO_OBJECT(argv[1]);
@@ -26969,6 +27275,9 @@ void js_register_cocos2dx_CCTransitionScene(JSContext *cx, JSObject *global) {
 		funcs,
 		NULL, // no static properties
 		st_funcs);
+	// make the class enumerable in the registered namespace
+	JSBool found;
+	JS_SetPropertyAttributes(cx, globalObj, "TransitionScene", JSPROP_ENUMERATE | JSPROP_READONLY, &found);
 
 	// add the proto and JSClass to the type->js info hash table
 	TypeTest<cocos2d::CCTransitionScene> t;
@@ -27001,7 +27310,7 @@ JSBool js_cocos2dx_CCTransitionSceneOriented_initWithDuration(JSContext *cx, uin
 		double arg0;
 		cocos2d::CCScene* arg1;
 		cocos2d::tOrientation arg2;
-		JS_ValueToNumber(cx, argv[0], &arg0);
+		arg0 = JSVAL_TO_DOUBLE(argv[0]);
 		do {
 			js_proxy_t *proxy;
 			JSObject *tmpObj = JSVAL_TO_OBJECT(argv[1]);
@@ -27027,7 +27336,7 @@ JSBool js_cocos2dx_CCTransitionSceneOriented_create(JSContext *cx, uint32_t argc
 	cocos2d::tOrientation arg2;
 	assert(argc >= 3);
 
-	JS_ValueToNumber(cx, argv[0], &arg0);
+	arg0 = JSVAL_TO_DOUBLE(argv[0]);
 	do {
 			js_proxy_t *proxy;
 			JSObject *tmpObj = JSVAL_TO_OBJECT(argv[1]);
@@ -27058,7 +27367,7 @@ JSBool js_cocos2dx_CCTransitionSceneOriented_transitionWithDuration(JSContext *c
 	cocos2d::tOrientation arg2;
 	assert(argc >= 3);
 
-	JS_ValueToNumber(cx, argv[0], &arg0);
+	arg0 = JSVAL_TO_DOUBLE(argv[0]);
 	do {
 			js_proxy_t *proxy;
 			JSObject *tmpObj = JSVAL_TO_OBJECT(argv[1]);
@@ -27153,6 +27462,9 @@ void js_register_cocos2dx_CCTransitionSceneOriented(JSContext *cx, JSObject *glo
 		funcs,
 		NULL, // no static properties
 		st_funcs);
+	// make the class enumerable in the registered namespace
+	JSBool found;
+	JS_SetPropertyAttributes(cx, globalObj, "TransitionSceneOriented", JSPROP_ENUMERATE | JSPROP_READONLY, &found);
 
 	// add the proto and JSClass to the type->js info hash table
 	TypeTest<cocos2d::CCTransitionSceneOriented> t;
@@ -27180,7 +27492,7 @@ JSBool js_cocos2dx_CCTransitionRotoZoom_create(JSContext *cx, uint32_t argc, jsv
 	cocos2d::CCScene* arg1;
 	assert(argc >= 2);
 
-	JS_ValueToNumber(cx, argv[0], &arg0);
+	arg0 = JSVAL_TO_DOUBLE(argv[0]);
 	do {
 			js_proxy_t *proxy;
 			JSObject *tmpObj = JSVAL_TO_OBJECT(argv[1]);
@@ -27209,7 +27521,7 @@ JSBool js_cocos2dx_CCTransitionRotoZoom_transitionWithDuration(JSContext *cx, ui
 	cocos2d::CCScene* arg1;
 	assert(argc >= 2);
 
-	JS_ValueToNumber(cx, argv[0], &arg0);
+	arg0 = JSVAL_TO_DOUBLE(argv[0]);
 	do {
 			js_proxy_t *proxy;
 			JSObject *tmpObj = JSVAL_TO_OBJECT(argv[1]);
@@ -27298,6 +27610,9 @@ void js_register_cocos2dx_CCTransitionRotoZoom(JSContext *cx, JSObject *global) 
 		funcs,
 		NULL, // no static properties
 		st_funcs);
+	// make the class enumerable in the registered namespace
+	JSBool found;
+	JS_SetPropertyAttributes(cx, globalObj, "TransitionRotoZoom", JSPROP_ENUMERATE | JSPROP_READONLY, &found);
 
 	// add the proto and JSClass to the type->js info hash table
 	TypeTest<cocos2d::CCTransitionRotoZoom> t;
@@ -27325,7 +27640,7 @@ JSBool js_cocos2dx_CCTransitionJumpZoom_create(JSContext *cx, uint32_t argc, jsv
 	cocos2d::CCScene* arg1;
 	assert(argc >= 2);
 
-	JS_ValueToNumber(cx, argv[0], &arg0);
+	arg0 = JSVAL_TO_DOUBLE(argv[0]);
 	do {
 			js_proxy_t *proxy;
 			JSObject *tmpObj = JSVAL_TO_OBJECT(argv[1]);
@@ -27354,7 +27669,7 @@ JSBool js_cocos2dx_CCTransitionJumpZoom_transitionWithDuration(JSContext *cx, ui
 	cocos2d::CCScene* arg1;
 	assert(argc >= 2);
 
-	JS_ValueToNumber(cx, argv[0], &arg0);
+	arg0 = JSVAL_TO_DOUBLE(argv[0]);
 	do {
 			js_proxy_t *proxy;
 			JSObject *tmpObj = JSVAL_TO_OBJECT(argv[1]);
@@ -27443,6 +27758,9 @@ void js_register_cocos2dx_CCTransitionJumpZoom(JSContext *cx, JSObject *global) 
 		funcs,
 		NULL, // no static properties
 		st_funcs);
+	// make the class enumerable in the registered namespace
+	JSBool found;
+	JS_SetPropertyAttributes(cx, globalObj, "TransitionJumpZoom", JSPROP_ENUMERATE | JSPROP_READONLY, &found);
 
 	// add the proto and JSClass to the type->js info hash table
 	TypeTest<cocos2d::CCTransitionJumpZoom> t;
@@ -27541,7 +27859,7 @@ JSBool js_cocos2dx_CCTransitionMoveInL_create(JSContext *cx, uint32_t argc, jsva
 	cocos2d::CCScene* arg1;
 	assert(argc >= 2);
 
-	JS_ValueToNumber(cx, argv[0], &arg0);
+	arg0 = JSVAL_TO_DOUBLE(argv[0]);
 	do {
 			js_proxy_t *proxy;
 			JSObject *tmpObj = JSVAL_TO_OBJECT(argv[1]);
@@ -27570,7 +27888,7 @@ JSBool js_cocos2dx_CCTransitionMoveInL_transitionWithDuration(JSContext *cx, uin
 	cocos2d::CCScene* arg1;
 	assert(argc >= 2);
 
-	JS_ValueToNumber(cx, argv[0], &arg0);
+	arg0 = JSVAL_TO_DOUBLE(argv[0]);
 	do {
 			js_proxy_t *proxy;
 			JSObject *tmpObj = JSVAL_TO_OBJECT(argv[1]);
@@ -27664,6 +27982,9 @@ void js_register_cocos2dx_CCTransitionMoveInL(JSContext *cx, JSObject *global) {
 		funcs,
 		NULL, // no static properties
 		st_funcs);
+	// make the class enumerable in the registered namespace
+	JSBool found;
+	JS_SetPropertyAttributes(cx, globalObj, "TransitionMoveInL", JSPROP_ENUMERATE | JSPROP_READONLY, &found);
 
 	// add the proto and JSClass to the type->js info hash table
 	TypeTest<cocos2d::CCTransitionMoveInL> t;
@@ -27705,7 +28026,7 @@ JSBool js_cocos2dx_CCTransitionMoveInR_create(JSContext *cx, uint32_t argc, jsva
 	cocos2d::CCScene* arg1;
 	assert(argc >= 2);
 
-	JS_ValueToNumber(cx, argv[0], &arg0);
+	arg0 = JSVAL_TO_DOUBLE(argv[0]);
 	do {
 			js_proxy_t *proxy;
 			JSObject *tmpObj = JSVAL_TO_OBJECT(argv[1]);
@@ -27734,7 +28055,7 @@ JSBool js_cocos2dx_CCTransitionMoveInR_transitionWithDuration(JSContext *cx, uin
 	cocos2d::CCScene* arg1;
 	assert(argc >= 2);
 
-	JS_ValueToNumber(cx, argv[0], &arg0);
+	arg0 = JSVAL_TO_DOUBLE(argv[0]);
 	do {
 			js_proxy_t *proxy;
 			JSObject *tmpObj = JSVAL_TO_OBJECT(argv[1]);
@@ -27826,6 +28147,9 @@ void js_register_cocos2dx_CCTransitionMoveInR(JSContext *cx, JSObject *global) {
 		funcs,
 		NULL, // no static properties
 		st_funcs);
+	// make the class enumerable in the registered namespace
+	JSBool found;
+	JS_SetPropertyAttributes(cx, globalObj, "TransitionMoveInR", JSPROP_ENUMERATE | JSPROP_READONLY, &found);
 
 	// add the proto and JSClass to the type->js info hash table
 	TypeTest<cocos2d::CCTransitionMoveInR> t;
@@ -27867,7 +28191,7 @@ JSBool js_cocos2dx_CCTransitionMoveInT_create(JSContext *cx, uint32_t argc, jsva
 	cocos2d::CCScene* arg1;
 	assert(argc >= 2);
 
-	JS_ValueToNumber(cx, argv[0], &arg0);
+	arg0 = JSVAL_TO_DOUBLE(argv[0]);
 	do {
 			js_proxy_t *proxy;
 			JSObject *tmpObj = JSVAL_TO_OBJECT(argv[1]);
@@ -27896,7 +28220,7 @@ JSBool js_cocos2dx_CCTransitionMoveInT_transitionWithDuration(JSContext *cx, uin
 	cocos2d::CCScene* arg1;
 	assert(argc >= 2);
 
-	JS_ValueToNumber(cx, argv[0], &arg0);
+	arg0 = JSVAL_TO_DOUBLE(argv[0]);
 	do {
 			js_proxy_t *proxy;
 			JSObject *tmpObj = JSVAL_TO_OBJECT(argv[1]);
@@ -27988,6 +28312,9 @@ void js_register_cocos2dx_CCTransitionMoveInT(JSContext *cx, JSObject *global) {
 		funcs,
 		NULL, // no static properties
 		st_funcs);
+	// make the class enumerable in the registered namespace
+	JSBool found;
+	JS_SetPropertyAttributes(cx, globalObj, "TransitionMoveInT", JSPROP_ENUMERATE | JSPROP_READONLY, &found);
 
 	// add the proto and JSClass to the type->js info hash table
 	TypeTest<cocos2d::CCTransitionMoveInT> t;
@@ -28029,7 +28356,7 @@ JSBool js_cocos2dx_CCTransitionMoveInB_create(JSContext *cx, uint32_t argc, jsva
 	cocos2d::CCScene* arg1;
 	assert(argc >= 2);
 
-	JS_ValueToNumber(cx, argv[0], &arg0);
+	arg0 = JSVAL_TO_DOUBLE(argv[0]);
 	do {
 			js_proxy_t *proxy;
 			JSObject *tmpObj = JSVAL_TO_OBJECT(argv[1]);
@@ -28058,7 +28385,7 @@ JSBool js_cocos2dx_CCTransitionMoveInB_transitionWithDuration(JSContext *cx, uin
 	cocos2d::CCScene* arg1;
 	assert(argc >= 2);
 
-	JS_ValueToNumber(cx, argv[0], &arg0);
+	arg0 = JSVAL_TO_DOUBLE(argv[0]);
 	do {
 			js_proxy_t *proxy;
 			JSObject *tmpObj = JSVAL_TO_OBJECT(argv[1]);
@@ -28150,6 +28477,9 @@ void js_register_cocos2dx_CCTransitionMoveInB(JSContext *cx, JSObject *global) {
 		funcs,
 		NULL, // no static properties
 		st_funcs);
+	// make the class enumerable in the registered namespace
+	JSBool found;
+	JS_SetPropertyAttributes(cx, globalObj, "TransitionMoveInB", JSPROP_ENUMERATE | JSPROP_READONLY, &found);
 
 	// add the proto and JSClass to the type->js info hash table
 	TypeTest<cocos2d::CCTransitionMoveInB> t;
@@ -28248,7 +28578,7 @@ JSBool js_cocos2dx_CCTransitionSlideInL_create(JSContext *cx, uint32_t argc, jsv
 	cocos2d::CCScene* arg1;
 	assert(argc >= 2);
 
-	JS_ValueToNumber(cx, argv[0], &arg0);
+	arg0 = JSVAL_TO_DOUBLE(argv[0]);
 	do {
 			js_proxy_t *proxy;
 			JSObject *tmpObj = JSVAL_TO_OBJECT(argv[1]);
@@ -28277,7 +28607,7 @@ JSBool js_cocos2dx_CCTransitionSlideInL_transitionWithDuration(JSContext *cx, ui
 	cocos2d::CCScene* arg1;
 	assert(argc >= 2);
 
-	JS_ValueToNumber(cx, argv[0], &arg0);
+	arg0 = JSVAL_TO_DOUBLE(argv[0]);
 	do {
 			js_proxy_t *proxy;
 			JSObject *tmpObj = JSVAL_TO_OBJECT(argv[1]);
@@ -28371,6 +28701,9 @@ void js_register_cocos2dx_CCTransitionSlideInL(JSContext *cx, JSObject *global) 
 		funcs,
 		NULL, // no static properties
 		st_funcs);
+	// make the class enumerable in the registered namespace
+	JSBool found;
+	JS_SetPropertyAttributes(cx, globalObj, "TransitionSlideInL", JSPROP_ENUMERATE | JSPROP_READONLY, &found);
 
 	// add the proto and JSClass to the type->js info hash table
 	TypeTest<cocos2d::CCTransitionSlideInL> t;
@@ -28436,7 +28769,7 @@ JSBool js_cocos2dx_CCTransitionSlideInR_create(JSContext *cx, uint32_t argc, jsv
 	cocos2d::CCScene* arg1;
 	assert(argc >= 2);
 
-	JS_ValueToNumber(cx, argv[0], &arg0);
+	arg0 = JSVAL_TO_DOUBLE(argv[0]);
 	do {
 			js_proxy_t *proxy;
 			JSObject *tmpObj = JSVAL_TO_OBJECT(argv[1]);
@@ -28465,7 +28798,7 @@ JSBool js_cocos2dx_CCTransitionSlideInR_transitionWithDuration(JSContext *cx, ui
 	cocos2d::CCScene* arg1;
 	assert(argc >= 2);
 
-	JS_ValueToNumber(cx, argv[0], &arg0);
+	arg0 = JSVAL_TO_DOUBLE(argv[0]);
 	do {
 			js_proxy_t *proxy;
 			JSObject *tmpObj = JSVAL_TO_OBJECT(argv[1]);
@@ -28558,6 +28891,9 @@ void js_register_cocos2dx_CCTransitionSlideInR(JSContext *cx, JSObject *global) 
 		funcs,
 		NULL, // no static properties
 		st_funcs);
+	// make the class enumerable in the registered namespace
+	JSBool found;
+	JS_SetPropertyAttributes(cx, globalObj, "TransitionSlideInR", JSPROP_ENUMERATE | JSPROP_READONLY, &found);
 
 	// add the proto and JSClass to the type->js info hash table
 	TypeTest<cocos2d::CCTransitionSlideInR> t;
@@ -28623,7 +28959,7 @@ JSBool js_cocos2dx_CCTransitionSlideInB_create(JSContext *cx, uint32_t argc, jsv
 	cocos2d::CCScene* arg1;
 	assert(argc >= 2);
 
-	JS_ValueToNumber(cx, argv[0], &arg0);
+	arg0 = JSVAL_TO_DOUBLE(argv[0]);
 	do {
 			js_proxy_t *proxy;
 			JSObject *tmpObj = JSVAL_TO_OBJECT(argv[1]);
@@ -28652,7 +28988,7 @@ JSBool js_cocos2dx_CCTransitionSlideInB_transitionWithDuration(JSContext *cx, ui
 	cocos2d::CCScene* arg1;
 	assert(argc >= 2);
 
-	JS_ValueToNumber(cx, argv[0], &arg0);
+	arg0 = JSVAL_TO_DOUBLE(argv[0]);
 	do {
 			js_proxy_t *proxy;
 			JSObject *tmpObj = JSVAL_TO_OBJECT(argv[1]);
@@ -28745,6 +29081,9 @@ void js_register_cocos2dx_CCTransitionSlideInB(JSContext *cx, JSObject *global) 
 		funcs,
 		NULL, // no static properties
 		st_funcs);
+	// make the class enumerable in the registered namespace
+	JSBool found;
+	JS_SetPropertyAttributes(cx, globalObj, "TransitionSlideInB", JSPROP_ENUMERATE | JSPROP_READONLY, &found);
 
 	// add the proto and JSClass to the type->js info hash table
 	TypeTest<cocos2d::CCTransitionSlideInB> t;
@@ -28810,7 +29149,7 @@ JSBool js_cocos2dx_CCTransitionSlideInT_create(JSContext *cx, uint32_t argc, jsv
 	cocos2d::CCScene* arg1;
 	assert(argc >= 2);
 
-	JS_ValueToNumber(cx, argv[0], &arg0);
+	arg0 = JSVAL_TO_DOUBLE(argv[0]);
 	do {
 			js_proxy_t *proxy;
 			JSObject *tmpObj = JSVAL_TO_OBJECT(argv[1]);
@@ -28839,7 +29178,7 @@ JSBool js_cocos2dx_CCTransitionSlideInT_transitionWithDuration(JSContext *cx, ui
 	cocos2d::CCScene* arg1;
 	assert(argc >= 2);
 
-	JS_ValueToNumber(cx, argv[0], &arg0);
+	arg0 = JSVAL_TO_DOUBLE(argv[0]);
 	do {
 			js_proxy_t *proxy;
 			JSObject *tmpObj = JSVAL_TO_OBJECT(argv[1]);
@@ -28932,6 +29271,9 @@ void js_register_cocos2dx_CCTransitionSlideInT(JSContext *cx, JSObject *global) 
 		funcs,
 		NULL, // no static properties
 		st_funcs);
+	// make the class enumerable in the registered namespace
+	JSBool found;
+	JS_SetPropertyAttributes(cx, globalObj, "TransitionSlideInT", JSPROP_ENUMERATE | JSPROP_READONLY, &found);
 
 	// add the proto and JSClass to the type->js info hash table
 	TypeTest<cocos2d::CCTransitionSlideInT> t;
@@ -28992,7 +29334,7 @@ JSBool js_cocos2dx_CCTransitionShrinkGrow_create(JSContext *cx, uint32_t argc, j
 	cocos2d::CCScene* arg1;
 	assert(argc >= 2);
 
-	JS_ValueToNumber(cx, argv[0], &arg0);
+	arg0 = JSVAL_TO_DOUBLE(argv[0]);
 	do {
 			js_proxy_t *proxy;
 			JSObject *tmpObj = JSVAL_TO_OBJECT(argv[1]);
@@ -29021,7 +29363,7 @@ JSBool js_cocos2dx_CCTransitionShrinkGrow_transitionWithDuration(JSContext *cx, 
 	cocos2d::CCScene* arg1;
 	assert(argc >= 2);
 
-	JS_ValueToNumber(cx, argv[0], &arg0);
+	arg0 = JSVAL_TO_DOUBLE(argv[0]);
 	do {
 			js_proxy_t *proxy;
 			JSObject *tmpObj = JSVAL_TO_OBJECT(argv[1]);
@@ -29113,6 +29455,9 @@ void js_register_cocos2dx_CCTransitionShrinkGrow(JSContext *cx, JSObject *global
 		funcs,
 		NULL, // no static properties
 		st_funcs);
+	// make the class enumerable in the registered namespace
+	JSBool found;
+	JS_SetPropertyAttributes(cx, globalObj, "TransitionShrinkGrow", JSPROP_ENUMERATE | JSPROP_READONLY, &found);
 
 	// add the proto and JSClass to the type->js info hash table
 	TypeTest<cocos2d::CCTransitionShrinkGrow> t;
@@ -29138,7 +29483,7 @@ JSBool js_cocos2dx_CCTransitionFlipX_create(JSContext *cx, uint32_t argc, jsval 
 	jsval *argv = JS_ARGV(cx, vp);
 	if (argc == 2) {
 		double arg0;
-		JS_ValueToNumber(cx, argv[0], &arg0);
+		arg0 = JSVAL_TO_DOUBLE(argv[0]);
 		cocos2d::CCScene* arg1;
 		do {
 			js_proxy_t *proxy;
@@ -29162,7 +29507,7 @@ JSBool js_cocos2dx_CCTransitionFlipX_create(JSContext *cx, uint32_t argc, jsval 
 	}
 	if (argc == 3) {
 		double arg0;
-		JS_ValueToNumber(cx, argv[0], &arg0);
+		arg0 = JSVAL_TO_DOUBLE(argv[0]);
 		cocos2d::CCScene* arg1;
 		do {
 			js_proxy_t *proxy;
@@ -29196,7 +29541,7 @@ JSBool js_cocos2dx_CCTransitionFlipX_transitionWithDuration(JSContext *cx, uint3
 	cocos2d::tOrientation arg2;
 	assert(argc >= 3);
 
-	JS_ValueToNumber(cx, argv[0], &arg0);
+	arg0 = JSVAL_TO_DOUBLE(argv[0]);
 	do {
 			js_proxy_t *proxy;
 			JSObject *tmpObj = JSVAL_TO_OBJECT(argv[1]);
@@ -29286,6 +29631,9 @@ void js_register_cocos2dx_CCTransitionFlipX(JSContext *cx, JSObject *global) {
 		funcs,
 		NULL, // no static properties
 		st_funcs);
+	// make the class enumerable in the registered namespace
+	JSBool found;
+	JS_SetPropertyAttributes(cx, globalObj, "TransitionFlipX", JSPROP_ENUMERATE | JSPROP_READONLY, &found);
 
 	// add the proto and JSClass to the type->js info hash table
 	TypeTest<cocos2d::CCTransitionFlipX> t;
@@ -29311,7 +29659,7 @@ JSBool js_cocos2dx_CCTransitionFlipY_create(JSContext *cx, uint32_t argc, jsval 
 	jsval *argv = JS_ARGV(cx, vp);
 	if (argc == 2) {
 		double arg0;
-		JS_ValueToNumber(cx, argv[0], &arg0);
+		arg0 = JSVAL_TO_DOUBLE(argv[0]);
 		cocos2d::CCScene* arg1;
 		do {
 			js_proxy_t *proxy;
@@ -29335,7 +29683,7 @@ JSBool js_cocos2dx_CCTransitionFlipY_create(JSContext *cx, uint32_t argc, jsval 
 	}
 	if (argc == 3) {
 		double arg0;
-		JS_ValueToNumber(cx, argv[0], &arg0);
+		arg0 = JSVAL_TO_DOUBLE(argv[0]);
 		cocos2d::CCScene* arg1;
 		do {
 			js_proxy_t *proxy;
@@ -29369,7 +29717,7 @@ JSBool js_cocos2dx_CCTransitionFlipY_transitionWithDuration(JSContext *cx, uint3
 	cocos2d::tOrientation arg2;
 	assert(argc >= 3);
 
-	JS_ValueToNumber(cx, argv[0], &arg0);
+	arg0 = JSVAL_TO_DOUBLE(argv[0]);
 	do {
 			js_proxy_t *proxy;
 			JSObject *tmpObj = JSVAL_TO_OBJECT(argv[1]);
@@ -29459,6 +29807,9 @@ void js_register_cocos2dx_CCTransitionFlipY(JSContext *cx, JSObject *global) {
 		funcs,
 		NULL, // no static properties
 		st_funcs);
+	// make the class enumerable in the registered namespace
+	JSBool found;
+	JS_SetPropertyAttributes(cx, globalObj, "TransitionFlipY", JSPROP_ENUMERATE | JSPROP_READONLY, &found);
 
 	// add the proto and JSClass to the type->js info hash table
 	TypeTest<cocos2d::CCTransitionFlipY> t;
@@ -29484,7 +29835,7 @@ JSBool js_cocos2dx_CCTransitionFlipAngular_create(JSContext *cx, uint32_t argc, 
 	jsval *argv = JS_ARGV(cx, vp);
 	if (argc == 2) {
 		double arg0;
-		JS_ValueToNumber(cx, argv[0], &arg0);
+		arg0 = JSVAL_TO_DOUBLE(argv[0]);
 		cocos2d::CCScene* arg1;
 		do {
 			js_proxy_t *proxy;
@@ -29508,7 +29859,7 @@ JSBool js_cocos2dx_CCTransitionFlipAngular_create(JSContext *cx, uint32_t argc, 
 	}
 	if (argc == 3) {
 		double arg0;
-		JS_ValueToNumber(cx, argv[0], &arg0);
+		arg0 = JSVAL_TO_DOUBLE(argv[0]);
 		cocos2d::CCScene* arg1;
 		do {
 			js_proxy_t *proxy;
@@ -29542,7 +29893,7 @@ JSBool js_cocos2dx_CCTransitionFlipAngular_transitionWithDuration(JSContext *cx,
 	cocos2d::tOrientation arg2;
 	assert(argc >= 3);
 
-	JS_ValueToNumber(cx, argv[0], &arg0);
+	arg0 = JSVAL_TO_DOUBLE(argv[0]);
 	do {
 			js_proxy_t *proxy;
 			JSObject *tmpObj = JSVAL_TO_OBJECT(argv[1]);
@@ -29632,6 +29983,9 @@ void js_register_cocos2dx_CCTransitionFlipAngular(JSContext *cx, JSObject *globa
 		funcs,
 		NULL, // no static properties
 		st_funcs);
+	// make the class enumerable in the registered namespace
+	JSBool found;
+	JS_SetPropertyAttributes(cx, globalObj, "TransitionFlipAngular", JSPROP_ENUMERATE | JSPROP_READONLY, &found);
 
 	// add the proto and JSClass to the type->js info hash table
 	TypeTest<cocos2d::CCTransitionFlipAngular> t;
@@ -29657,7 +30011,7 @@ JSBool js_cocos2dx_CCTransitionZoomFlipX_create(JSContext *cx, uint32_t argc, js
 	jsval *argv = JS_ARGV(cx, vp);
 	if (argc == 2) {
 		double arg0;
-		JS_ValueToNumber(cx, argv[0], &arg0);
+		arg0 = JSVAL_TO_DOUBLE(argv[0]);
 		cocos2d::CCScene* arg1;
 		do {
 			js_proxy_t *proxy;
@@ -29681,7 +30035,7 @@ JSBool js_cocos2dx_CCTransitionZoomFlipX_create(JSContext *cx, uint32_t argc, js
 	}
 	if (argc == 3) {
 		double arg0;
-		JS_ValueToNumber(cx, argv[0], &arg0);
+		arg0 = JSVAL_TO_DOUBLE(argv[0]);
 		cocos2d::CCScene* arg1;
 		do {
 			js_proxy_t *proxy;
@@ -29715,7 +30069,7 @@ JSBool js_cocos2dx_CCTransitionZoomFlipX_transitionWithDuration(JSContext *cx, u
 	cocos2d::tOrientation arg2;
 	assert(argc >= 3);
 
-	JS_ValueToNumber(cx, argv[0], &arg0);
+	arg0 = JSVAL_TO_DOUBLE(argv[0]);
 	do {
 			js_proxy_t *proxy;
 			JSObject *tmpObj = JSVAL_TO_OBJECT(argv[1]);
@@ -29805,6 +30159,9 @@ void js_register_cocos2dx_CCTransitionZoomFlipX(JSContext *cx, JSObject *global)
 		funcs,
 		NULL, // no static properties
 		st_funcs);
+	// make the class enumerable in the registered namespace
+	JSBool found;
+	JS_SetPropertyAttributes(cx, globalObj, "TransitionZoomFlipX", JSPROP_ENUMERATE | JSPROP_READONLY, &found);
 
 	// add the proto and JSClass to the type->js info hash table
 	TypeTest<cocos2d::CCTransitionZoomFlipX> t;
@@ -29830,7 +30187,7 @@ JSBool js_cocos2dx_CCTransitionZoomFlipY_create(JSContext *cx, uint32_t argc, js
 	jsval *argv = JS_ARGV(cx, vp);
 	if (argc == 2) {
 		double arg0;
-		JS_ValueToNumber(cx, argv[0], &arg0);
+		arg0 = JSVAL_TO_DOUBLE(argv[0]);
 		cocos2d::CCScene* arg1;
 		do {
 			js_proxy_t *proxy;
@@ -29854,7 +30211,7 @@ JSBool js_cocos2dx_CCTransitionZoomFlipY_create(JSContext *cx, uint32_t argc, js
 	}
 	if (argc == 3) {
 		double arg0;
-		JS_ValueToNumber(cx, argv[0], &arg0);
+		arg0 = JSVAL_TO_DOUBLE(argv[0]);
 		cocos2d::CCScene* arg1;
 		do {
 			js_proxy_t *proxy;
@@ -29888,7 +30245,7 @@ JSBool js_cocos2dx_CCTransitionZoomFlipY_transitionWithDuration(JSContext *cx, u
 	cocos2d::tOrientation arg2;
 	assert(argc >= 3);
 
-	JS_ValueToNumber(cx, argv[0], &arg0);
+	arg0 = JSVAL_TO_DOUBLE(argv[0]);
 	do {
 			js_proxy_t *proxy;
 			JSObject *tmpObj = JSVAL_TO_OBJECT(argv[1]);
@@ -29978,6 +30335,9 @@ void js_register_cocos2dx_CCTransitionZoomFlipY(JSContext *cx, JSObject *global)
 		funcs,
 		NULL, // no static properties
 		st_funcs);
+	// make the class enumerable in the registered namespace
+	JSBool found;
+	JS_SetPropertyAttributes(cx, globalObj, "TransitionZoomFlipY", JSPROP_ENUMERATE | JSPROP_READONLY, &found);
 
 	// add the proto and JSClass to the type->js info hash table
 	TypeTest<cocos2d::CCTransitionZoomFlipY> t;
@@ -30003,7 +30363,7 @@ JSBool js_cocos2dx_CCTransitionZoomFlipAngular_create(JSContext *cx, uint32_t ar
 	jsval *argv = JS_ARGV(cx, vp);
 	if (argc == 2) {
 		double arg0;
-		JS_ValueToNumber(cx, argv[0], &arg0);
+		arg0 = JSVAL_TO_DOUBLE(argv[0]);
 		cocos2d::CCScene* arg1;
 		do {
 			js_proxy_t *proxy;
@@ -30027,7 +30387,7 @@ JSBool js_cocos2dx_CCTransitionZoomFlipAngular_create(JSContext *cx, uint32_t ar
 	}
 	if (argc == 3) {
 		double arg0;
-		JS_ValueToNumber(cx, argv[0], &arg0);
+		arg0 = JSVAL_TO_DOUBLE(argv[0]);
 		cocos2d::CCScene* arg1;
 		do {
 			js_proxy_t *proxy;
@@ -30061,7 +30421,7 @@ JSBool js_cocos2dx_CCTransitionZoomFlipAngular_transitionWithDuration(JSContext 
 	cocos2d::tOrientation arg2;
 	assert(argc >= 3);
 
-	JS_ValueToNumber(cx, argv[0], &arg0);
+	arg0 = JSVAL_TO_DOUBLE(argv[0]);
 	do {
 			js_proxy_t *proxy;
 			JSObject *tmpObj = JSVAL_TO_OBJECT(argv[1]);
@@ -30151,6 +30511,9 @@ void js_register_cocos2dx_CCTransitionZoomFlipAngular(JSContext *cx, JSObject *g
 		funcs,
 		NULL, // no static properties
 		st_funcs);
+	// make the class enumerable in the registered namespace
+	JSBool found;
+	JS_SetPropertyAttributes(cx, globalObj, "TransitionZoomFlipAngular", JSPROP_ENUMERATE | JSPROP_READONLY, &found);
 
 	// add the proto and JSClass to the type->js info hash table
 	TypeTest<cocos2d::CCTransitionZoomFlipAngular> t;
@@ -30183,7 +30546,7 @@ JSBool js_cocos2dx_CCTransitionFade_initWithDuration(JSContext *cx, uint32_t arg
 
 	if (argc == 2) {
 		double arg0;
-		JS_ValueToNumber(cx, argv[0], &arg0);
+		arg0 = JSVAL_TO_DOUBLE(argv[0]);
 		cocos2d::CCScene* arg1;
 		do {
 			js_proxy_t *proxy;
@@ -30199,7 +30562,7 @@ JSBool js_cocos2dx_CCTransitionFade_initWithDuration(JSContext *cx, uint32_t arg
 	}
 	if (argc == 3) {
 		double arg0;
-		JS_ValueToNumber(cx, argv[0], &arg0);
+		arg0 = JSVAL_TO_DOUBLE(argv[0]);
 		cocos2d::CCScene* arg1;
 		do {
 			js_proxy_t *proxy;
@@ -30222,7 +30585,7 @@ JSBool js_cocos2dx_CCTransitionFade_create(JSContext *cx, uint32_t argc, jsval *
 	jsval *argv = JS_ARGV(cx, vp);
 	if (argc == 2) {
 		double arg0;
-		JS_ValueToNumber(cx, argv[0], &arg0);
+		arg0 = JSVAL_TO_DOUBLE(argv[0]);
 		cocos2d::CCScene* arg1;
 		do {
 			js_proxy_t *proxy;
@@ -30246,7 +30609,7 @@ JSBool js_cocos2dx_CCTransitionFade_create(JSContext *cx, uint32_t argc, jsval *
 	}
 	if (argc == 3) {
 		double arg0;
-		JS_ValueToNumber(cx, argv[0], &arg0);
+		arg0 = JSVAL_TO_DOUBLE(argv[0]);
 		cocos2d::CCScene* arg1;
 		do {
 			js_proxy_t *proxy;
@@ -30280,7 +30643,7 @@ JSBool js_cocos2dx_CCTransitionFade_transitionWithDuration(JSContext *cx, uint32
 	cocos2d::ccColor3B arg2;
 	assert(argc >= 3);
 
-	JS_ValueToNumber(cx, argv[0], &arg0);
+	arg0 = JSVAL_TO_DOUBLE(argv[0]);
 	do {
 			js_proxy_t *proxy;
 			JSObject *tmpObj = JSVAL_TO_OBJECT(argv[1]);
@@ -30375,6 +30738,9 @@ void js_register_cocos2dx_CCTransitionFade(JSContext *cx, JSObject *global) {
 		funcs,
 		NULL, // no static properties
 		st_funcs);
+	// make the class enumerable in the registered namespace
+	JSBool found;
+	JS_SetPropertyAttributes(cx, globalObj, "TransitionFade", JSPROP_ENUMERATE | JSPROP_READONLY, &found);
 
 	// add the proto and JSClass to the type->js info hash table
 	TypeTest<cocos2d::CCTransitionFade> t;
@@ -30416,7 +30782,7 @@ JSBool js_cocos2dx_CCTransitionCrossFade_create(JSContext *cx, uint32_t argc, js
 	cocos2d::CCScene* arg1;
 	assert(argc >= 2);
 
-	JS_ValueToNumber(cx, argv[0], &arg0);
+	arg0 = JSVAL_TO_DOUBLE(argv[0]);
 	do {
 			js_proxy_t *proxy;
 			JSObject *tmpObj = JSVAL_TO_OBJECT(argv[1]);
@@ -30445,7 +30811,7 @@ JSBool js_cocos2dx_CCTransitionCrossFade_transitionWithDuration(JSContext *cx, u
 	cocos2d::CCScene* arg1;
 	assert(argc >= 2);
 
-	JS_ValueToNumber(cx, argv[0], &arg0);
+	arg0 = JSVAL_TO_DOUBLE(argv[0]);
 	do {
 			js_proxy_t *proxy;
 			JSObject *tmpObj = JSVAL_TO_OBJECT(argv[1]);
@@ -30537,6 +30903,9 @@ void js_register_cocos2dx_CCTransitionCrossFade(JSContext *cx, JSObject *global)
 		funcs,
 		NULL, // no static properties
 		st_funcs);
+	// make the class enumerable in the registered namespace
+	JSBool found;
+	JS_SetPropertyAttributes(cx, globalObj, "TransitionCrossFade", JSPROP_ENUMERATE | JSPROP_READONLY, &found);
 
 	// add the proto and JSClass to the type->js info hash table
 	TypeTest<cocos2d::CCTransitionCrossFade> t;
@@ -30597,7 +30966,7 @@ JSBool js_cocos2dx_CCTransitionTurnOffTiles_create(JSContext *cx, uint32_t argc,
 	cocos2d::CCScene* arg1;
 	assert(argc >= 2);
 
-	JS_ValueToNumber(cx, argv[0], &arg0);
+	arg0 = JSVAL_TO_DOUBLE(argv[0]);
 	do {
 			js_proxy_t *proxy;
 			JSObject *tmpObj = JSVAL_TO_OBJECT(argv[1]);
@@ -30626,7 +30995,7 @@ JSBool js_cocos2dx_CCTransitionTurnOffTiles_transitionWithDuration(JSContext *cx
 	cocos2d::CCScene* arg1;
 	assert(argc >= 2);
 
-	JS_ValueToNumber(cx, argv[0], &arg0);
+	arg0 = JSVAL_TO_DOUBLE(argv[0]);
 	do {
 			js_proxy_t *proxy;
 			JSObject *tmpObj = JSVAL_TO_OBJECT(argv[1]);
@@ -30718,6 +31087,9 @@ void js_register_cocos2dx_CCTransitionTurnOffTiles(JSContext *cx, JSObject *glob
 		funcs,
 		NULL, // no static properties
 		st_funcs);
+	// make the class enumerable in the registered namespace
+	JSBool found;
+	JS_SetPropertyAttributes(cx, globalObj, "TransitionTurnOffTiles", JSPROP_ENUMERATE | JSPROP_READONLY, &found);
 
 	// add the proto and JSClass to the type->js info hash table
 	TypeTest<cocos2d::CCTransitionTurnOffTiles> t;
@@ -30802,7 +31174,7 @@ JSBool js_cocos2dx_CCTransitionSplitCols_create(JSContext *cx, uint32_t argc, js
 	cocos2d::CCScene* arg1;
 	assert(argc >= 2);
 
-	JS_ValueToNumber(cx, argv[0], &arg0);
+	arg0 = JSVAL_TO_DOUBLE(argv[0]);
 	do {
 			js_proxy_t *proxy;
 			JSObject *tmpObj = JSVAL_TO_OBJECT(argv[1]);
@@ -30831,7 +31203,7 @@ JSBool js_cocos2dx_CCTransitionSplitCols_transitionWithDuration(JSContext *cx, u
 	cocos2d::CCScene* arg1;
 	assert(argc >= 2);
 
-	JS_ValueToNumber(cx, argv[0], &arg0);
+	arg0 = JSVAL_TO_DOUBLE(argv[0]);
 	do {
 			js_proxy_t *proxy;
 			JSObject *tmpObj = JSVAL_TO_OBJECT(argv[1]);
@@ -30924,6 +31296,9 @@ void js_register_cocos2dx_CCTransitionSplitCols(JSContext *cx, JSObject *global)
 		funcs,
 		NULL, // no static properties
 		st_funcs);
+	// make the class enumerable in the registered namespace
+	JSBool found;
+	JS_SetPropertyAttributes(cx, globalObj, "TransitionSplitCols", JSPROP_ENUMERATE | JSPROP_READONLY, &found);
 
 	// add the proto and JSClass to the type->js info hash table
 	TypeTest<cocos2d::CCTransitionSplitCols> t;
@@ -30975,7 +31350,7 @@ JSBool js_cocos2dx_CCTransitionSplitRows_create(JSContext *cx, uint32_t argc, js
 	cocos2d::CCScene* arg1;
 	assert(argc >= 2);
 
-	JS_ValueToNumber(cx, argv[0], &arg0);
+	arg0 = JSVAL_TO_DOUBLE(argv[0]);
 	do {
 			js_proxy_t *proxy;
 			JSObject *tmpObj = JSVAL_TO_OBJECT(argv[1]);
@@ -31004,7 +31379,7 @@ JSBool js_cocos2dx_CCTransitionSplitRows_transitionWithDuration(JSContext *cx, u
 	cocos2d::CCScene* arg1;
 	assert(argc >= 2);
 
-	JS_ValueToNumber(cx, argv[0], &arg0);
+	arg0 = JSVAL_TO_DOUBLE(argv[0]);
 	do {
 			js_proxy_t *proxy;
 			JSObject *tmpObj = JSVAL_TO_OBJECT(argv[1]);
@@ -31096,6 +31471,9 @@ void js_register_cocos2dx_CCTransitionSplitRows(JSContext *cx, JSObject *global)
 		funcs,
 		NULL, // no static properties
 		st_funcs);
+	// make the class enumerable in the registered namespace
+	JSBool found;
+	JS_SetPropertyAttributes(cx, globalObj, "TransitionSplitRows", JSPROP_ENUMERATE | JSPROP_READONLY, &found);
 
 	// add the proto and JSClass to the type->js info hash table
 	TypeTest<cocos2d::CCTransitionSplitRows> t;
@@ -31183,7 +31561,7 @@ JSBool js_cocos2dx_CCTransitionFadeTR_create(JSContext *cx, uint32_t argc, jsval
 	cocos2d::CCScene* arg1;
 	assert(argc >= 2);
 
-	JS_ValueToNumber(cx, argv[0], &arg0);
+	arg0 = JSVAL_TO_DOUBLE(argv[0]);
 	do {
 			js_proxy_t *proxy;
 			JSObject *tmpObj = JSVAL_TO_OBJECT(argv[1]);
@@ -31212,7 +31590,7 @@ JSBool js_cocos2dx_CCTransitionFadeTR_transitionWithDuration(JSContext *cx, uint
 	cocos2d::CCScene* arg1;
 	assert(argc >= 2);
 
-	JS_ValueToNumber(cx, argv[0], &arg0);
+	arg0 = JSVAL_TO_DOUBLE(argv[0]);
 	do {
 			js_proxy_t *proxy;
 			JSObject *tmpObj = JSVAL_TO_OBJECT(argv[1]);
@@ -31305,6 +31683,9 @@ void js_register_cocos2dx_CCTransitionFadeTR(JSContext *cx, JSObject *global) {
 		funcs,
 		NULL, // no static properties
 		st_funcs);
+	// make the class enumerable in the registered namespace
+	JSBool found;
+	JS_SetPropertyAttributes(cx, globalObj, "TransitionFadeTR", JSPROP_ENUMERATE | JSPROP_READONLY, &found);
 
 	// add the proto and JSClass to the type->js info hash table
 	TypeTest<cocos2d::CCTransitionFadeTR> t;
@@ -31359,7 +31740,7 @@ JSBool js_cocos2dx_CCTransitionFadeBL_create(JSContext *cx, uint32_t argc, jsval
 	cocos2d::CCScene* arg1;
 	assert(argc >= 2);
 
-	JS_ValueToNumber(cx, argv[0], &arg0);
+	arg0 = JSVAL_TO_DOUBLE(argv[0]);
 	do {
 			js_proxy_t *proxy;
 			JSObject *tmpObj = JSVAL_TO_OBJECT(argv[1]);
@@ -31388,7 +31769,7 @@ JSBool js_cocos2dx_CCTransitionFadeBL_transitionWithDuration(JSContext *cx, uint
 	cocos2d::CCScene* arg1;
 	assert(argc >= 2);
 
-	JS_ValueToNumber(cx, argv[0], &arg0);
+	arg0 = JSVAL_TO_DOUBLE(argv[0]);
 	do {
 			js_proxy_t *proxy;
 			JSObject *tmpObj = JSVAL_TO_OBJECT(argv[1]);
@@ -31480,6 +31861,9 @@ void js_register_cocos2dx_CCTransitionFadeBL(JSContext *cx, JSObject *global) {
 		funcs,
 		NULL, // no static properties
 		st_funcs);
+	// make the class enumerable in the registered namespace
+	JSBool found;
+	JS_SetPropertyAttributes(cx, globalObj, "TransitionFadeBL", JSPROP_ENUMERATE | JSPROP_READONLY, &found);
 
 	// add the proto and JSClass to the type->js info hash table
 	TypeTest<cocos2d::CCTransitionFadeBL> t;
@@ -31534,7 +31918,7 @@ JSBool js_cocos2dx_CCTransitionFadeUp_create(JSContext *cx, uint32_t argc, jsval
 	cocos2d::CCScene* arg1;
 	assert(argc >= 2);
 
-	JS_ValueToNumber(cx, argv[0], &arg0);
+	arg0 = JSVAL_TO_DOUBLE(argv[0]);
 	do {
 			js_proxy_t *proxy;
 			JSObject *tmpObj = JSVAL_TO_OBJECT(argv[1]);
@@ -31563,7 +31947,7 @@ JSBool js_cocos2dx_CCTransitionFadeUp_transitionWithDuration(JSContext *cx, uint
 	cocos2d::CCScene* arg1;
 	assert(argc >= 2);
 
-	JS_ValueToNumber(cx, argv[0], &arg0);
+	arg0 = JSVAL_TO_DOUBLE(argv[0]);
 	do {
 			js_proxy_t *proxy;
 			JSObject *tmpObj = JSVAL_TO_OBJECT(argv[1]);
@@ -31655,6 +32039,9 @@ void js_register_cocos2dx_CCTransitionFadeUp(JSContext *cx, JSObject *global) {
 		funcs,
 		NULL, // no static properties
 		st_funcs);
+	// make the class enumerable in the registered namespace
+	JSBool found;
+	JS_SetPropertyAttributes(cx, globalObj, "TransitionFadeUp", JSPROP_ENUMERATE | JSPROP_READONLY, &found);
 
 	// add the proto and JSClass to the type->js info hash table
 	TypeTest<cocos2d::CCTransitionFadeUp> t;
@@ -31709,7 +32096,7 @@ JSBool js_cocos2dx_CCTransitionFadeDown_create(JSContext *cx, uint32_t argc, jsv
 	cocos2d::CCScene* arg1;
 	assert(argc >= 2);
 
-	JS_ValueToNumber(cx, argv[0], &arg0);
+	arg0 = JSVAL_TO_DOUBLE(argv[0]);
 	do {
 			js_proxy_t *proxy;
 			JSObject *tmpObj = JSVAL_TO_OBJECT(argv[1]);
@@ -31738,7 +32125,7 @@ JSBool js_cocos2dx_CCTransitionFadeDown_transitionWithDuration(JSContext *cx, ui
 	cocos2d::CCScene* arg1;
 	assert(argc >= 2);
 
-	JS_ValueToNumber(cx, argv[0], &arg0);
+	arg0 = JSVAL_TO_DOUBLE(argv[0]);
 	do {
 			js_proxy_t *proxy;
 			JSObject *tmpObj = JSVAL_TO_OBJECT(argv[1]);
@@ -31830,6 +32217,9 @@ void js_register_cocos2dx_CCTransitionFadeDown(JSContext *cx, JSObject *global) 
 		funcs,
 		NULL, // no static properties
 		st_funcs);
+	// make the class enumerable in the registered namespace
+	JSBool found;
+	JS_SetPropertyAttributes(cx, globalObj, "TransitionFadeDown", JSPROP_ENUMERATE | JSPROP_READONLY, &found);
 
 	// add the proto and JSClass to the type->js info hash table
 	TypeTest<cocos2d::CCTransitionFadeDown> t;
@@ -31889,7 +32279,7 @@ JSBool js_cocos2dx_CCTransitionPageTurn_initWithDuration(JSContext *cx, uint32_t
 		double arg0;
 		cocos2d::CCScene* arg1;
 		JSBool arg2;
-		JS_ValueToNumber(cx, argv[0], &arg0);
+		arg0 = JSVAL_TO_DOUBLE(argv[0]);
 		do {
 			js_proxy_t *proxy;
 			JSObject *tmpObj = JSVAL_TO_OBJECT(argv[1]);
@@ -31915,7 +32305,7 @@ JSBool js_cocos2dx_CCTransitionPageTurn_create(JSContext *cx, uint32_t argc, jsv
 	JSBool arg2;
 	assert(argc >= 3);
 
-	JS_ValueToNumber(cx, argv[0], &arg0);
+	arg0 = JSVAL_TO_DOUBLE(argv[0]);
 	do {
 			js_proxy_t *proxy;
 			JSObject *tmpObj = JSVAL_TO_OBJECT(argv[1]);
@@ -31946,7 +32336,7 @@ JSBool js_cocos2dx_CCTransitionPageTurn_transitionWithDuration(JSContext *cx, ui
 	JSBool arg2;
 	assert(argc >= 3);
 
-	JS_ValueToNumber(cx, argv[0], &arg0);
+	arg0 = JSVAL_TO_DOUBLE(argv[0]);
 	do {
 			js_proxy_t *proxy;
 			JSObject *tmpObj = JSVAL_TO_OBJECT(argv[1]);
@@ -32042,6 +32432,9 @@ void js_register_cocos2dx_CCTransitionPageTurn(JSContext *cx, JSObject *global) 
 		funcs,
 		NULL, // no static properties
 		st_funcs);
+	// make the class enumerable in the registered namespace
+	JSBool found;
+	JS_SetPropertyAttributes(cx, globalObj, "TransitionPageTurn", JSPROP_ENUMERATE | JSPROP_READONLY, &found);
 
 	// add the proto and JSClass to the type->js info hash table
 	TypeTest<cocos2d::CCTransitionPageTurn> t;
@@ -32069,7 +32462,7 @@ JSBool js_cocos2dx_CCTransitionProgress_create(JSContext *cx, uint32_t argc, jsv
 	cocos2d::CCScene* arg1;
 	assert(argc >= 2);
 
-	JS_ValueToNumber(cx, argv[0], &arg0);
+	arg0 = JSVAL_TO_DOUBLE(argv[0]);
 	do {
 			js_proxy_t *proxy;
 			JSObject *tmpObj = JSVAL_TO_OBJECT(argv[1]);
@@ -32098,7 +32491,7 @@ JSBool js_cocos2dx_CCTransitionProgress_transitionWithDuration(JSContext *cx, ui
 	cocos2d::CCScene* arg1;
 	assert(argc >= 2);
 
-	JS_ValueToNumber(cx, argv[0], &arg0);
+	arg0 = JSVAL_TO_DOUBLE(argv[0]);
 	do {
 			js_proxy_t *proxy;
 			JSObject *tmpObj = JSVAL_TO_OBJECT(argv[1]);
@@ -32189,6 +32582,9 @@ void js_register_cocos2dx_CCTransitionProgress(JSContext *cx, JSObject *global) 
 		funcs,
 		NULL, // no static properties
 		st_funcs);
+	// make the class enumerable in the registered namespace
+	JSBool found;
+	JS_SetPropertyAttributes(cx, globalObj, "TransitionProgress", JSPROP_ENUMERATE | JSPROP_READONLY, &found);
 
 	// add the proto and JSClass to the type->js info hash table
 	TypeTest<cocos2d::CCTransitionProgress> t;
@@ -32216,7 +32612,7 @@ JSBool js_cocos2dx_CCTransitionProgressRadialCCW_create(JSContext *cx, uint32_t 
 	cocos2d::CCScene* arg1;
 	assert(argc >= 2);
 
-	JS_ValueToNumber(cx, argv[0], &arg0);
+	arg0 = JSVAL_TO_DOUBLE(argv[0]);
 	do {
 			js_proxy_t *proxy;
 			JSObject *tmpObj = JSVAL_TO_OBJECT(argv[1]);
@@ -32245,7 +32641,7 @@ JSBool js_cocos2dx_CCTransitionProgressRadialCCW_transitionWithDuration(JSContex
 	cocos2d::CCScene* arg1;
 	assert(argc >= 2);
 
-	JS_ValueToNumber(cx, argv[0], &arg0);
+	arg0 = JSVAL_TO_DOUBLE(argv[0]);
 	do {
 			js_proxy_t *proxy;
 			JSObject *tmpObj = JSVAL_TO_OBJECT(argv[1]);
@@ -32304,6 +32700,9 @@ void js_register_cocos2dx_CCTransitionProgressRadialCCW(JSContext *cx, JSObject 
 		funcs,
 		NULL, // no static properties
 		st_funcs);
+	// make the class enumerable in the registered namespace
+	JSBool found;
+	JS_SetPropertyAttributes(cx, globalObj, "TransitionProgressRadialW", JSPROP_ENUMERATE | JSPROP_READONLY, &found);
 
 	// add the proto and JSClass to the type->js info hash table
 	TypeTest<cocos2d::CCTransitionProgressRadialCCW> t;
@@ -32331,7 +32730,7 @@ JSBool js_cocos2dx_CCTransitionProgressRadialCW_create(JSContext *cx, uint32_t a
 	cocos2d::CCScene* arg1;
 	assert(argc >= 2);
 
-	JS_ValueToNumber(cx, argv[0], &arg0);
+	arg0 = JSVAL_TO_DOUBLE(argv[0]);
 	do {
 			js_proxy_t *proxy;
 			JSObject *tmpObj = JSVAL_TO_OBJECT(argv[1]);
@@ -32360,7 +32759,7 @@ JSBool js_cocos2dx_CCTransitionProgressRadialCW_transitionWithDuration(JSContext
 	cocos2d::CCScene* arg1;
 	assert(argc >= 2);
 
-	JS_ValueToNumber(cx, argv[0], &arg0);
+	arg0 = JSVAL_TO_DOUBLE(argv[0]);
 	do {
 			js_proxy_t *proxy;
 			JSObject *tmpObj = JSVAL_TO_OBJECT(argv[1]);
@@ -32419,6 +32818,9 @@ void js_register_cocos2dx_CCTransitionProgressRadialCW(JSContext *cx, JSObject *
 		funcs,
 		NULL, // no static properties
 		st_funcs);
+	// make the class enumerable in the registered namespace
+	JSBool found;
+	JS_SetPropertyAttributes(cx, globalObj, "TransitionProgressRadialCW", JSPROP_ENUMERATE | JSPROP_READONLY, &found);
 
 	// add the proto and JSClass to the type->js info hash table
 	TypeTest<cocos2d::CCTransitionProgressRadialCW> t;
@@ -32446,7 +32848,7 @@ JSBool js_cocos2dx_CCTransitionProgressHorizontal_create(JSContext *cx, uint32_t
 	cocos2d::CCScene* arg1;
 	assert(argc >= 2);
 
-	JS_ValueToNumber(cx, argv[0], &arg0);
+	arg0 = JSVAL_TO_DOUBLE(argv[0]);
 	do {
 			js_proxy_t *proxy;
 			JSObject *tmpObj = JSVAL_TO_OBJECT(argv[1]);
@@ -32475,7 +32877,7 @@ JSBool js_cocos2dx_CCTransitionProgressHorizontal_transitionWithDuration(JSConte
 	cocos2d::CCScene* arg1;
 	assert(argc >= 2);
 
-	JS_ValueToNumber(cx, argv[0], &arg0);
+	arg0 = JSVAL_TO_DOUBLE(argv[0]);
 	do {
 			js_proxy_t *proxy;
 			JSObject *tmpObj = JSVAL_TO_OBJECT(argv[1]);
@@ -32534,6 +32936,9 @@ void js_register_cocos2dx_CCTransitionProgressHorizontal(JSContext *cx, JSObject
 		funcs,
 		NULL, // no static properties
 		st_funcs);
+	// make the class enumerable in the registered namespace
+	JSBool found;
+	JS_SetPropertyAttributes(cx, globalObj, "TransitionProgressHorizontal", JSPROP_ENUMERATE | JSPROP_READONLY, &found);
 
 	// add the proto and JSClass to the type->js info hash table
 	TypeTest<cocos2d::CCTransitionProgressHorizontal> t;
@@ -32561,7 +32966,7 @@ JSBool js_cocos2dx_CCTransitionProgressVertical_create(JSContext *cx, uint32_t a
 	cocos2d::CCScene* arg1;
 	assert(argc >= 2);
 
-	JS_ValueToNumber(cx, argv[0], &arg0);
+	arg0 = JSVAL_TO_DOUBLE(argv[0]);
 	do {
 			js_proxy_t *proxy;
 			JSObject *tmpObj = JSVAL_TO_OBJECT(argv[1]);
@@ -32590,7 +32995,7 @@ JSBool js_cocos2dx_CCTransitionProgressVertical_transitionWithDuration(JSContext
 	cocos2d::CCScene* arg1;
 	assert(argc >= 2);
 
-	JS_ValueToNumber(cx, argv[0], &arg0);
+	arg0 = JSVAL_TO_DOUBLE(argv[0]);
 	do {
 			js_proxy_t *proxy;
 			JSObject *tmpObj = JSVAL_TO_OBJECT(argv[1]);
@@ -32649,6 +33054,9 @@ void js_register_cocos2dx_CCTransitionProgressVertical(JSContext *cx, JSObject *
 		funcs,
 		NULL, // no static properties
 		st_funcs);
+	// make the class enumerable in the registered namespace
+	JSBool found;
+	JS_SetPropertyAttributes(cx, globalObj, "TransitionProgressVertical", JSPROP_ENUMERATE | JSPROP_READONLY, &found);
 
 	// add the proto and JSClass to the type->js info hash table
 	TypeTest<cocos2d::CCTransitionProgressVertical> t;
@@ -32676,7 +33084,7 @@ JSBool js_cocos2dx_CCTransitionProgressInOut_create(JSContext *cx, uint32_t argc
 	cocos2d::CCScene* arg1;
 	assert(argc >= 2);
 
-	JS_ValueToNumber(cx, argv[0], &arg0);
+	arg0 = JSVAL_TO_DOUBLE(argv[0]);
 	do {
 			js_proxy_t *proxy;
 			JSObject *tmpObj = JSVAL_TO_OBJECT(argv[1]);
@@ -32705,7 +33113,7 @@ JSBool js_cocos2dx_CCTransitionProgressInOut_transitionWithDuration(JSContext *c
 	cocos2d::CCScene* arg1;
 	assert(argc >= 2);
 
-	JS_ValueToNumber(cx, argv[0], &arg0);
+	arg0 = JSVAL_TO_DOUBLE(argv[0]);
 	do {
 			js_proxy_t *proxy;
 			JSObject *tmpObj = JSVAL_TO_OBJECT(argv[1]);
@@ -32764,6 +33172,9 @@ void js_register_cocos2dx_CCTransitionProgressInOut(JSContext *cx, JSObject *glo
 		funcs,
 		NULL, // no static properties
 		st_funcs);
+	// make the class enumerable in the registered namespace
+	JSBool found;
+	JS_SetPropertyAttributes(cx, globalObj, "TransitionProgressInOut", JSPROP_ENUMERATE | JSPROP_READONLY, &found);
 
 	// add the proto and JSClass to the type->js info hash table
 	TypeTest<cocos2d::CCTransitionProgressInOut> t;
@@ -32791,7 +33202,7 @@ JSBool js_cocos2dx_CCTransitionProgressOutIn_create(JSContext *cx, uint32_t argc
 	cocos2d::CCScene* arg1;
 	assert(argc >= 2);
 
-	JS_ValueToNumber(cx, argv[0], &arg0);
+	arg0 = JSVAL_TO_DOUBLE(argv[0]);
 	do {
 			js_proxy_t *proxy;
 			JSObject *tmpObj = JSVAL_TO_OBJECT(argv[1]);
@@ -32820,7 +33231,7 @@ JSBool js_cocos2dx_CCTransitionProgressOutIn_transitionWithDuration(JSContext *c
 	cocos2d::CCScene* arg1;
 	assert(argc >= 2);
 
-	JS_ValueToNumber(cx, argv[0], &arg0);
+	arg0 = JSVAL_TO_DOUBLE(argv[0]);
 	do {
 			js_proxy_t *proxy;
 			JSObject *tmpObj = JSVAL_TO_OBJECT(argv[1]);
@@ -32879,6 +33290,9 @@ void js_register_cocos2dx_CCTransitionProgressOutIn(JSContext *cx, JSObject *glo
 		funcs,
 		NULL, // no static properties
 		st_funcs);
+	// make the class enumerable in the registered namespace
+	JSBool found;
+	JS_SetPropertyAttributes(cx, globalObj, "TransitionProgressOutIn", JSPROP_ENUMERATE | JSPROP_READONLY, &found);
 
 	// add the proto and JSClass to the type->js info hash table
 	TypeTest<cocos2d::CCTransitionProgressOutIn> t;
@@ -32985,7 +33399,7 @@ JSBool js_cocos2dx_CCMenuItem_getScriptTapHandler(JSContext *cx, uint32_t argc, 
 	if (argc == 0) {
 		int ret = cobj->getScriptTapHandler();
 		jsval jsret;
-		JS_NewNumberValue(cx, ret, &jsret);
+		jsret = INT_TO_JSVAL(ret);
 		JS_SET_RVAL(cx, vp, jsret);
 		return JS_TRUE;
 	}
@@ -33134,6 +33548,9 @@ void js_register_cocos2dx_CCMenuItem(JSContext *cx, JSObject *global) {
 		funcs,
 		NULL, // no static properties
 		st_funcs);
+	// make the class enumerable in the registered namespace
+	JSBool found;
+	JS_SetPropertyAttributes(cx, globalObj, "MenuItem", JSPROP_ENUMERATE | JSPROP_READONLY, &found);
 
 	// add the proto and JSClass to the type->js info hash table
 	TypeTest<cocos2d::CCMenuItem> t;
@@ -33341,7 +33758,7 @@ JSBool js_cocos2dx_CCMenuItemLabel_getOpacity(JSContext *cx, uint32_t argc, jsva
 	if (argc == 0) {
 		unsigned char ret = cobj->getOpacity();
 		jsval jsret;
-		JS_NewNumberValue(cx, ret, &jsret);
+		jsret = UINT_TO_JSVAL(ret);
 		JS_SET_RVAL(cx, vp, jsret);
 		return JS_TRUE;
 	}
@@ -33489,6 +33906,9 @@ void js_register_cocos2dx_CCMenuItemLabel(JSContext *cx, JSObject *global) {
 		funcs,
 		NULL, // no static properties
 		st_funcs);
+	// make the class enumerable in the registered namespace
+	JSBool found;
+	JS_SetPropertyAttributes(cx, globalObj, "MenuItemLabel", JSPROP_ENUMERATE | JSPROP_READONLY, &found);
 
 	// add the proto and JSClass to the type->js info hash table
 	TypeTest<cocos2d::CCMenuItemLabel> t;
@@ -33604,6 +34024,9 @@ void js_register_cocos2dx_CCMenuItemAtlasFont(JSContext *cx, JSObject *global) {
 		funcs,
 		NULL, // no static properties
 		st_funcs);
+	// make the class enumerable in the registered namespace
+	JSBool found;
+	JS_SetPropertyAttributes(cx, globalObj, "MenuItemAtlasFont", JSPROP_ENUMERATE | JSPROP_READONLY, &found);
 
 	// add the proto and JSClass to the type->js info hash table
 	TypeTest<cocos2d::CCMenuItemAtlasFont> t;
@@ -33685,7 +34108,7 @@ JSBool js_cocos2dx_CCMenuItemFont_fontSizeObj(JSContext *cx, uint32_t argc, jsva
 	if (argc == 0) {
 		unsigned int ret = cobj->fontSizeObj();
 		jsval jsret;
-		JS_NewNumberValue(cx, ret, &jsret);
+		jsret = UINT_TO_JSVAL(ret);
 		JS_SET_RVAL(cx, vp, jsret);
 		return JS_TRUE;
 	}
@@ -33716,7 +34139,7 @@ JSBool js_cocos2dx_CCMenuItemFont_fontSize(JSContext *cx, uint32_t argc, jsval *
 {
 	unsigned int ret = cocos2d::CCMenuItemFont::fontSize();
 	jsval jsret;
-	JS_NewNumberValue(cx, ret, &jsret);
+	jsret = UINT_TO_JSVAL(ret);
 	JS_SET_RVAL(cx, vp, jsret);
 	return JS_TRUE;
 }
@@ -33831,6 +34254,9 @@ void js_register_cocos2dx_CCMenuItemFont(JSContext *cx, JSObject *global) {
 		funcs,
 		NULL, // no static properties
 		st_funcs);
+	// make the class enumerable in the registered namespace
+	JSBool found;
+	JS_SetPropertyAttributes(cx, globalObj, "MenuItemFont", JSPROP_ENUMERATE | JSPROP_READONLY, &found);
 
 	// add the proto and JSClass to the type->js info hash table
 	TypeTest<cocos2d::CCMenuItemFont> t;
@@ -34084,7 +34510,7 @@ JSBool js_cocos2dx_CCMenuItemSprite_getOpacity(JSContext *cx, uint32_t argc, jsv
 	if (argc == 0) {
 		unsigned char ret = cobj->getOpacity();
 		jsval jsret;
-		JS_NewNumberValue(cx, ret, &jsret);
+		jsret = UINT_TO_JSVAL(ret);
 		JS_SET_RVAL(cx, vp, jsret);
 		return JS_TRUE;
 	}
@@ -34231,6 +34657,9 @@ void js_register_cocos2dx_CCMenuItemSprite(JSContext *cx, JSObject *global) {
 		funcs,
 		NULL, // no static properties
 		st_funcs);
+	// make the class enumerable in the registered namespace
+	JSBool found;
+	JS_SetPropertyAttributes(cx, globalObj, "MenuItemSprite", JSPROP_ENUMERATE | JSPROP_READONLY, &found);
 
 	// add the proto and JSClass to the type->js info hash table
 	TypeTest<cocos2d::CCMenuItemSprite> t;
@@ -34469,6 +34898,9 @@ void js_register_cocos2dx_CCMenuItemImage(JSContext *cx, JSObject *global) {
 		funcs,
 		NULL, // no static properties
 		st_funcs);
+	// make the class enumerable in the registered namespace
+	JSBool found;
+	JS_SetPropertyAttributes(cx, globalObj, "MenuItemImage", JSPROP_ENUMERATE | JSPROP_READONLY, &found);
 
 	// add the proto and JSClass to the type->js info hash table
 	TypeTest<cocos2d::CCMenuItemImage> t;
@@ -34576,7 +35008,7 @@ JSBool js_cocos2dx_CCMenuItemToggle_getSelectedIndex(JSContext *cx, uint32_t arg
 	if (argc == 0) {
 		unsigned int ret = cobj->getSelectedIndex();
 		jsval jsret;
-		JS_NewNumberValue(cx, ret, &jsret);
+		jsret = UINT_TO_JSVAL(ret);
 		JS_SET_RVAL(cx, vp, jsret);
 		return JS_TRUE;
 	}
@@ -34678,7 +35110,7 @@ JSBool js_cocos2dx_CCMenuItemToggle_getOpacity(JSContext *cx, uint32_t argc, jsv
 	if (argc == 0) {
 		unsigned char ret = cobj->getOpacity();
 		jsval jsret;
-		JS_NewNumberValue(cx, ret, &jsret);
+		jsret = UINT_TO_JSVAL(ret);
 		JS_SET_RVAL(cx, vp, jsret);
 		return JS_TRUE;
 	}
@@ -34851,6 +35283,9 @@ void js_register_cocos2dx_CCMenuItemToggle(JSContext *cx, JSObject *global) {
 		funcs,
 		NULL, // no static properties
 		st_funcs);
+	// make the class enumerable in the registered namespace
+	JSBool found;
+	JS_SetPropertyAttributes(cx, globalObj, "MenuItemToggle", JSPROP_ENUMERATE | JSPROP_READONLY, &found);
 
 	// add the proto and JSClass to the type->js info hash table
 	TypeTest<cocos2d::CCMenuItemToggle> t;
@@ -35102,7 +35537,7 @@ JSBool js_cocos2dx_CCMenu_alignItemsHorizontallyWithPadding(JSContext *cx, uint3
 
 	if (argc == 1) {
 		double arg0;
-		JS_ValueToNumber(cx, argv[0], &arg0);
+		arg0 = JSVAL_TO_DOUBLE(argv[0]);
 		cobj->alignItemsHorizontallyWithPadding(arg0);
 		return JS_TRUE;
 	}
@@ -35150,7 +35585,7 @@ JSBool js_cocos2dx_CCMenu_getOpacity(JSContext *cx, uint32_t argc, jsval *vp)
 	if (argc == 0) {
 		unsigned char ret = cobj->getOpacity();
 		jsval jsret;
-		JS_NewNumberValue(cx, ret, &jsret);
+		jsret = UINT_TO_JSVAL(ret);
 		JS_SET_RVAL(cx, vp, jsret);
 		return JS_TRUE;
 	}
@@ -35263,7 +35698,7 @@ JSBool js_cocos2dx_CCMenu_alignItemsVerticallyWithPadding(JSContext *cx, uint32_
 
 	if (argc == 1) {
 		double arg0;
-		JS_ValueToNumber(cx, argv[0], &arg0);
+		arg0 = JSVAL_TO_DOUBLE(argv[0]);
 		cobj->alignItemsVerticallyWithPadding(arg0);
 		return JS_TRUE;
 	}
@@ -35439,6 +35874,9 @@ void js_register_cocos2dx_CCMenu(JSContext *cx, JSObject *global) {
 		funcs,
 		NULL, // no static properties
 		st_funcs);
+	// make the class enumerable in the registered namespace
+	JSBool found;
+	JS_SetPropertyAttributes(cx, globalObj, "Menu", JSPROP_ENUMERATE | JSPROP_READONLY, &found);
 
 	// add the proto and JSClass to the type->js info hash table
 	TypeTest<cocos2d::CCMenu> t;
@@ -35527,7 +35965,7 @@ JSBool js_cocos2dx_CCProgressTimer_setPercentage(JSContext *cx, uint32_t argc, j
 
 	if (argc == 1) {
 		double arg0;
-		JS_ValueToNumber(cx, argv[0], &arg0);
+		arg0 = JSVAL_TO_DOUBLE(argv[0]);
 		cobj->setPercentage(arg0);
 		return JS_TRUE;
 	}
@@ -35561,7 +35999,7 @@ JSBool js_cocos2dx_CCProgressTimer_getPercentage(JSContext *cx, uint32_t argc, j
 	if (argc == 0) {
 		float ret = cobj->getPercentage();
 		jsval jsret;
-		JS_NewNumberValue(cx, ret, &jsret);
+		jsret = DOUBLE_TO_JSVAL(ret);
 		JS_SET_RVAL(cx, vp, jsret);
 		return JS_TRUE;
 	}
@@ -35659,7 +36097,7 @@ JSBool js_cocos2dx_CCProgressTimer_getOpacity(JSContext *cx, uint32_t argc, jsva
 	if (argc == 0) {
 		unsigned char ret = cobj->getOpacity();
 		jsval jsret;
-		JS_NewNumberValue(cx, ret, &jsret);
+		jsret = UINT_TO_JSVAL(ret);
 		JS_SET_RVAL(cx, vp, jsret);
 		return JS_TRUE;
 	}
@@ -35724,7 +36162,7 @@ JSBool js_cocos2dx_CCProgressTimer_getType(JSContext *cx, uint32_t argc, jsval *
 	if (argc == 0) {
 		cocos2d::CCProgressTimerType ret = cobj->getType();
 		jsval jsret;
-		JS_NewNumberValue(cx, ret, &jsret);
+		jsret = INT_TO_JSVAL(ret);
 		JS_SET_RVAL(cx, vp, jsret);
 		return JS_TRUE;
 	}
@@ -35952,6 +36390,9 @@ void js_register_cocos2dx_CCProgressTimer(JSContext *cx, JSObject *global) {
 		funcs,
 		NULL, // no static properties
 		st_funcs);
+	// make the class enumerable in the registered namespace
+	JSBool found;
+	JS_SetPropertyAttributes(cx, globalObj, "ProgressTimer", JSPROP_ENUMERATE | JSPROP_READONLY, &found);
 
 	// add the proto and JSClass to the type->js info hash table
 	TypeTest<cocos2d::CCProgressTimer> t;
@@ -36100,10 +36541,10 @@ JSBool js_cocos2dx_CCRenderTexture_clear(JSContext *cx, uint32_t argc, jsval *vp
 		double arg1;
 		double arg2;
 		double arg3;
-		JS_ValueToNumber(cx, argv[0], &arg0);
-		JS_ValueToNumber(cx, argv[1], &arg1);
-		JS_ValueToNumber(cx, argv[2], &arg2);
-		JS_ValueToNumber(cx, argv[3], &arg3);
+		arg0 = JSVAL_TO_DOUBLE(argv[0]);
+		arg1 = JSVAL_TO_DOUBLE(argv[1]);
+		arg2 = JSVAL_TO_DOUBLE(argv[2]);
+		arg3 = JSVAL_TO_DOUBLE(argv[3]);
 		cobj->clear(arg0, arg1, arg2, arg3);
 		return JS_TRUE;
 	}
@@ -36122,41 +36563,41 @@ JSBool js_cocos2dx_CCRenderTexture_beginWithClear(JSContext *cx, uint32_t argc, 
 
 	if (argc == 5) {
 		double arg0;
-		JS_ValueToNumber(cx, argv[0], &arg0);
+		arg0 = JSVAL_TO_DOUBLE(argv[0]);
 		double arg1;
-		JS_ValueToNumber(cx, argv[1], &arg1);
+		arg1 = JSVAL_TO_DOUBLE(argv[1]);
 		double arg2;
-		JS_ValueToNumber(cx, argv[2], &arg2);
+		arg2 = JSVAL_TO_DOUBLE(argv[2]);
 		double arg3;
-		JS_ValueToNumber(cx, argv[3], &arg3);
+		arg3 = JSVAL_TO_DOUBLE(argv[3]);
 		double arg4;
-		JS_ValueToNumber(cx, argv[4], &arg4);
+		arg4 = JSVAL_TO_DOUBLE(argv[4]);
 		cobj->beginWithClear(arg0, arg1, arg2, arg3, arg4);
 		return JS_TRUE;
 	}
 	if (argc == 4) {
 		double arg0;
-		JS_ValueToNumber(cx, argv[0], &arg0);
+		arg0 = JSVAL_TO_DOUBLE(argv[0]);
 		double arg1;
-		JS_ValueToNumber(cx, argv[1], &arg1);
+		arg1 = JSVAL_TO_DOUBLE(argv[1]);
 		double arg2;
-		JS_ValueToNumber(cx, argv[2], &arg2);
+		arg2 = JSVAL_TO_DOUBLE(argv[2]);
 		double arg3;
-		JS_ValueToNumber(cx, argv[3], &arg3);
+		arg3 = JSVAL_TO_DOUBLE(argv[3]);
 		cobj->beginWithClear(arg0, arg1, arg2, arg3);
 		return JS_TRUE;
 	}
 	if (argc == 6) {
 		double arg0;
-		JS_ValueToNumber(cx, argv[0], &arg0);
+		arg0 = JSVAL_TO_DOUBLE(argv[0]);
 		double arg1;
-		JS_ValueToNumber(cx, argv[1], &arg1);
+		arg1 = JSVAL_TO_DOUBLE(argv[1]);
 		double arg2;
-		JS_ValueToNumber(cx, argv[2], &arg2);
+		arg2 = JSVAL_TO_DOUBLE(argv[2]);
 		double arg3;
-		JS_ValueToNumber(cx, argv[3], &arg3);
+		arg3 = JSVAL_TO_DOUBLE(argv[3]);
 		double arg4;
-		JS_ValueToNumber(cx, argv[4], &arg4);
+		arg4 = JSVAL_TO_DOUBLE(argv[4]);
 		int arg5;
 		JS_ValueToInt32(cx, argv[5], (int32_t *)&arg5);
 		cobj->beginWithClear(arg0, arg1, arg2, arg3, arg4, arg5);
@@ -36242,7 +36683,7 @@ JSBool js_cocos2dx_CCRenderTexture_clearDepth(JSContext *cx, uint32_t argc, jsva
 
 	if (argc == 1) {
 		double arg0;
-		JS_ValueToNumber(cx, argv[0], &arg0);
+		arg0 = JSVAL_TO_DOUBLE(argv[0]);
 		cobj->clearDepth(arg0);
 		return JS_TRUE;
 	}
@@ -36501,6 +36942,9 @@ void js_register_cocos2dx_CCRenderTexture(JSContext *cx, JSObject *global) {
 		funcs,
 		NULL, // no static properties
 		st_funcs);
+	// make the class enumerable in the registered namespace
+	JSBool found;
+	JS_SetPropertyAttributes(cx, globalObj, "RenderTexture", JSPROP_ENUMERATE | JSPROP_READONLY, &found);
 
 	// add the proto and JSClass to the type->js info hash table
 	TypeTest<cocos2d::CCRenderTexture> t;
@@ -37067,6 +37511,9 @@ void js_register_cocos2dx_CCParticleBatchNode(JSContext *cx, JSObject *global) {
 		funcs,
 		NULL, // no static properties
 		st_funcs);
+	// make the class enumerable in the registered namespace
+	JSBool found;
+	JS_SetPropertyAttributes(cx, globalObj, "ParticleBatchNode", JSPROP_ENUMERATE | JSPROP_READONLY, &found);
 
 	// add the proto and JSClass to the type->js info hash table
 	TypeTest<cocos2d::CCParticleBatchNode> t;
@@ -37097,7 +37544,7 @@ JSBool js_cocos2dx_CCParticleSystem_getStartSizeVar(JSContext *cx, uint32_t argc
 	if (argc == 0) {
 		float ret = cobj->getStartSizeVar();
 		jsval jsret;
-		JS_NewNumberValue(cx, ret, &jsret);
+		jsret = DOUBLE_TO_JSVAL(ret);
 		JS_SET_RVAL(cx, vp, jsret);
 		return JS_TRUE;
 	}
@@ -37196,7 +37643,7 @@ JSBool js_cocos2dx_CCParticleSystem_getPositionType(JSContext *cx, uint32_t argc
 	if (argc == 0) {
 		cocos2d::tCCPositionType ret = cobj->getPositionType();
 		jsval jsret;
-		JS_NewNumberValue(cx, ret, &jsret);
+		jsret = INT_TO_JSVAL(ret);
 		JS_SET_RVAL(cx, vp, jsret);
 		return JS_TRUE;
 	}
@@ -37230,7 +37677,7 @@ JSBool js_cocos2dx_CCParticleSystem_getEndSpin(JSContext *cx, uint32_t argc, jsv
 	if (argc == 0) {
 		float ret = cobj->getEndSpin();
 		jsval jsret;
-		JS_NewNumberValue(cx, ret, &jsret);
+		jsret = DOUBLE_TO_JSVAL(ret);
 		JS_SET_RVAL(cx, vp, jsret);
 		return JS_TRUE;
 	}
@@ -37247,7 +37694,7 @@ JSBool js_cocos2dx_CCParticleSystem_setRotatePerSecondVar(JSContext *cx, uint32_
 
 	if (argc == 1) {
 		double arg0;
-		JS_ValueToNumber(cx, argv[0], &arg0);
+		arg0 = JSVAL_TO_DOUBLE(argv[0]);
 		cobj->setRotatePerSecondVar(arg0);
 		return JS_TRUE;
 	}
@@ -37264,7 +37711,7 @@ JSBool js_cocos2dx_CCParticleSystem_getStartSpinVar(JSContext *cx, uint32_t argc
 	if (argc == 0) {
 		float ret = cobj->getStartSpinVar();
 		jsval jsret;
-		JS_NewNumberValue(cx, ret, &jsret);
+		jsret = DOUBLE_TO_JSVAL(ret);
 		JS_SET_RVAL(cx, vp, jsret);
 		return JS_TRUE;
 	}
@@ -37281,7 +37728,7 @@ JSBool js_cocos2dx_CCParticleSystem_getEndSpinVar(JSContext *cx, uint32_t argc, 
 	if (argc == 0) {
 		float ret = cobj->getEndSpinVar();
 		jsval jsret;
-		JS_NewNumberValue(cx, ret, &jsret);
+		jsret = DOUBLE_TO_JSVAL(ret);
 		JS_SET_RVAL(cx, vp, jsret);
 		return JS_TRUE;
 	}
@@ -37329,7 +37776,7 @@ JSBool js_cocos2dx_CCParticleSystem_getEndSizeVar(JSContext *cx, uint32_t argc, 
 	if (argc == 0) {
 		float ret = cobj->getEndSizeVar();
 		jsval jsret;
-		JS_NewNumberValue(cx, ret, &jsret);
+		jsret = DOUBLE_TO_JSVAL(ret);
 		JS_SET_RVAL(cx, vp, jsret);
 		return JS_TRUE;
 	}
@@ -37346,7 +37793,7 @@ JSBool js_cocos2dx_CCParticleSystem_setRotation(JSContext *cx, uint32_t argc, js
 
 	if (argc == 1) {
 		double arg0;
-		JS_ValueToNumber(cx, argv[0], &arg0);
+		arg0 = JSVAL_TO_DOUBLE(argv[0]);
 		cobj->setRotation(arg0);
 		return JS_TRUE;
 	}
@@ -37363,7 +37810,7 @@ JSBool js_cocos2dx_CCParticleSystem_setTangentialAccel(JSContext *cx, uint32_t a
 
 	if (argc == 1) {
 		double arg0;
-		JS_ValueToNumber(cx, argv[0], &arg0);
+		arg0 = JSVAL_TO_DOUBLE(argv[0]);
 		cobj->setTangentialAccel(arg0);
 		return JS_TRUE;
 	}
@@ -37380,7 +37827,7 @@ JSBool js_cocos2dx_CCParticleSystem_setScaleY(JSContext *cx, uint32_t argc, jsva
 
 	if (argc == 1) {
 		double arg0;
-		JS_ValueToNumber(cx, argv[0], &arg0);
+		arg0 = JSVAL_TO_DOUBLE(argv[0]);
 		cobj->setScaleY(arg0);
 		return JS_TRUE;
 	}
@@ -37397,7 +37844,7 @@ JSBool js_cocos2dx_CCParticleSystem_setScaleX(JSContext *cx, uint32_t argc, jsva
 
 	if (argc == 1) {
 		double arg0;
-		JS_ValueToNumber(cx, argv[0], &arg0);
+		arg0 = JSVAL_TO_DOUBLE(argv[0]);
 		cobj->setScaleX(arg0);
 		return JS_TRUE;
 	}
@@ -37414,7 +37861,7 @@ JSBool js_cocos2dx_CCParticleSystem_getRadialAccel(JSContext *cx, uint32_t argc,
 	if (argc == 0) {
 		float ret = cobj->getRadialAccel();
 		jsval jsret;
-		JS_NewNumberValue(cx, ret, &jsret);
+		jsret = DOUBLE_TO_JSVAL(ret);
 		JS_SET_RVAL(cx, vp, jsret);
 		return JS_TRUE;
 	}
@@ -37431,7 +37878,7 @@ JSBool js_cocos2dx_CCParticleSystem_setStartRadius(JSContext *cx, uint32_t argc,
 
 	if (argc == 1) {
 		double arg0;
-		JS_ValueToNumber(cx, argv[0], &arg0);
+		arg0 = JSVAL_TO_DOUBLE(argv[0]);
 		cobj->setStartRadius(arg0);
 		return JS_TRUE;
 	}
@@ -37448,7 +37895,7 @@ JSBool js_cocos2dx_CCParticleSystem_setRotatePerSecond(JSContext *cx, uint32_t a
 
 	if (argc == 1) {
 		double arg0;
-		JS_ValueToNumber(cx, argv[0], &arg0);
+		arg0 = JSVAL_TO_DOUBLE(argv[0]);
 		cobj->setRotatePerSecond(arg0);
 		return JS_TRUE;
 	}
@@ -37465,7 +37912,7 @@ JSBool js_cocos2dx_CCParticleSystem_setEndSize(JSContext *cx, uint32_t argc, jsv
 
 	if (argc == 1) {
 		double arg0;
-		JS_ValueToNumber(cx, argv[0], &arg0);
+		arg0 = JSVAL_TO_DOUBLE(argv[0]);
 		cobj->setEndSize(arg0);
 		return JS_TRUE;
 	}
@@ -37499,7 +37946,7 @@ JSBool js_cocos2dx_CCParticleSystem_getTangentialAccel(JSContext *cx, uint32_t a
 	if (argc == 0) {
 		float ret = cobj->getTangentialAccel();
 		jsval jsret;
-		JS_NewNumberValue(cx, ret, &jsret);
+		jsret = DOUBLE_TO_JSVAL(ret);
 		JS_SET_RVAL(cx, vp, jsret);
 		return JS_TRUE;
 	}
@@ -37516,7 +37963,7 @@ JSBool js_cocos2dx_CCParticleSystem_setEndRadius(JSContext *cx, uint32_t argc, j
 
 	if (argc == 1) {
 		double arg0;
-		JS_ValueToNumber(cx, argv[0], &arg0);
+		arg0 = JSVAL_TO_DOUBLE(argv[0]);
 		cobj->setEndRadius(arg0);
 		return JS_TRUE;
 	}
@@ -37533,7 +37980,7 @@ JSBool js_cocos2dx_CCParticleSystem_getAngle(JSContext *cx, uint32_t argc, jsval
 	if (argc == 0) {
 		float ret = cobj->getAngle();
 		jsval jsret;
-		JS_NewNumberValue(cx, ret, &jsret);
+		jsret = DOUBLE_TO_JSVAL(ret);
 		JS_SET_RVAL(cx, vp, jsret);
 		return JS_TRUE;
 	}
@@ -37550,7 +37997,7 @@ JSBool js_cocos2dx_CCParticleSystem_getSpeed(JSContext *cx, uint32_t argc, jsval
 	if (argc == 0) {
 		float ret = cobj->getSpeed();
 		jsval jsret;
-		JS_NewNumberValue(cx, ret, &jsret);
+		jsret = DOUBLE_TO_JSVAL(ret);
 		JS_SET_RVAL(cx, vp, jsret);
 		return JS_TRUE;
 	}
@@ -37584,7 +38031,7 @@ JSBool js_cocos2dx_CCParticleSystem_setStartSpin(JSContext *cx, uint32_t argc, j
 
 	if (argc == 1) {
 		double arg0;
-		JS_ValueToNumber(cx, argv[0], &arg0);
+		arg0 = JSVAL_TO_DOUBLE(argv[0]);
 		cobj->setStartSpin(arg0);
 		return JS_TRUE;
 	}
@@ -37601,7 +38048,7 @@ JSBool js_cocos2dx_CCParticleSystem_setDuration(JSContext *cx, uint32_t argc, js
 
 	if (argc == 1) {
 		double arg0;
-		JS_ValueToNumber(cx, argv[0], &arg0);
+		arg0 = JSVAL_TO_DOUBLE(argv[0]);
 		cobj->setDuration(arg0);
 		return JS_TRUE;
 	}
@@ -37709,7 +38156,7 @@ JSBool js_cocos2dx_CCParticleSystem_getAngleVar(JSContext *cx, uint32_t argc, js
 	if (argc == 0) {
 		float ret = cobj->getAngleVar();
 		jsval jsret;
-		JS_NewNumberValue(cx, ret, &jsret);
+		jsret = DOUBLE_TO_JSVAL(ret);
 		JS_SET_RVAL(cx, vp, jsret);
 		return JS_TRUE;
 	}
@@ -37743,7 +38190,7 @@ JSBool js_cocos2dx_CCParticleSystem_getEndRadius(JSContext *cx, uint32_t argc, j
 	if (argc == 0) {
 		float ret = cobj->getEndRadius();
 		jsval jsret;
-		JS_NewNumberValue(cx, ret, &jsret);
+		jsret = DOUBLE_TO_JSVAL(ret);
 		JS_SET_RVAL(cx, vp, jsret);
 		return JS_TRUE;
 	}
@@ -37777,7 +38224,7 @@ JSBool js_cocos2dx_CCParticleSystem_setLifeVar(JSContext *cx, uint32_t argc, jsv
 
 	if (argc == 1) {
 		double arg0;
-		JS_ValueToNumber(cx, argv[0], &arg0);
+		arg0 = JSVAL_TO_DOUBLE(argv[0]);
 		cobj->setLifeVar(arg0);
 		return JS_TRUE;
 	}
@@ -37847,7 +38294,7 @@ JSBool js_cocos2dx_CCParticleSystem_getAtlasIndex(JSContext *cx, uint32_t argc, 
 	if (argc == 0) {
 		unsigned int ret = cobj->getAtlasIndex();
 		jsval jsret;
-		JS_NewNumberValue(cx, ret, &jsret);
+		jsret = UINT_TO_JSVAL(ret);
 		JS_SET_RVAL(cx, vp, jsret);
 		return JS_TRUE;
 	}
@@ -37864,7 +38311,7 @@ JSBool js_cocos2dx_CCParticleSystem_getStartSize(JSContext *cx, uint32_t argc, j
 	if (argc == 0) {
 		float ret = cobj->getStartSize();
 		jsval jsret;
-		JS_NewNumberValue(cx, ret, &jsret);
+		jsret = DOUBLE_TO_JSVAL(ret);
 		JS_SET_RVAL(cx, vp, jsret);
 		return JS_TRUE;
 	}
@@ -37881,7 +38328,7 @@ JSBool js_cocos2dx_CCParticleSystem_setStartSpinVar(JSContext *cx, uint32_t argc
 
 	if (argc == 1) {
 		double arg0;
-		JS_ValueToNumber(cx, argv[0], &arg0);
+		arg0 = JSVAL_TO_DOUBLE(argv[0]);
 		cobj->setStartSpinVar(arg0);
 		return JS_TRUE;
 	}
@@ -37929,7 +38376,7 @@ JSBool js_cocos2dx_CCParticleSystem_setTangentialAccelVar(JSContext *cx, uint32_
 
 	if (argc == 1) {
 		double arg0;
-		JS_ValueToNumber(cx, argv[0], &arg0);
+		arg0 = JSVAL_TO_DOUBLE(argv[0]);
 		cobj->setTangentialAccelVar(arg0);
 		return JS_TRUE;
 	}
@@ -37946,7 +38393,7 @@ JSBool js_cocos2dx_CCParticleSystem_setEndRadiusVar(JSContext *cx, uint32_t argc
 
 	if (argc == 1) {
 		double arg0;
-		JS_ValueToNumber(cx, argv[0], &arg0);
+		arg0 = JSVAL_TO_DOUBLE(argv[0]);
 		cobj->setEndRadiusVar(arg0);
 		return JS_TRUE;
 	}
@@ -37980,7 +38427,7 @@ JSBool js_cocos2dx_CCParticleSystem_setRadialAccelVar(JSContext *cx, uint32_t ar
 
 	if (argc == 1) {
 		double arg0;
-		JS_ValueToNumber(cx, argv[0], &arg0);
+		arg0 = JSVAL_TO_DOUBLE(argv[0]);
 		cobj->setRadialAccelVar(arg0);
 		return JS_TRUE;
 	}
@@ -37997,7 +38444,7 @@ JSBool js_cocos2dx_CCParticleSystem_setStartSize(JSContext *cx, uint32_t argc, j
 
 	if (argc == 1) {
 		double arg0;
-		JS_ValueToNumber(cx, argv[0], &arg0);
+		arg0 = JSVAL_TO_DOUBLE(argv[0]);
 		cobj->setStartSize(arg0);
 		return JS_TRUE;
 	}
@@ -38014,7 +38461,7 @@ JSBool js_cocos2dx_CCParticleSystem_setSpeed(JSContext *cx, uint32_t argc, jsval
 
 	if (argc == 1) {
 		double arg0;
-		JS_ValueToNumber(cx, argv[0], &arg0);
+		arg0 = JSVAL_TO_DOUBLE(argv[0]);
 		cobj->setSpeed(arg0);
 		return JS_TRUE;
 	}
@@ -38031,7 +38478,7 @@ JSBool js_cocos2dx_CCParticleSystem_getStartSpin(JSContext *cx, uint32_t argc, j
 	if (argc == 0) {
 		float ret = cobj->getStartSpin();
 		jsval jsret;
-		JS_NewNumberValue(cx, ret, &jsret);
+		jsret = DOUBLE_TO_JSVAL(ret);
 		JS_SET_RVAL(cx, vp, jsret);
 		return JS_TRUE;
 	}
@@ -38048,7 +38495,7 @@ JSBool js_cocos2dx_CCParticleSystem_getRotatePerSecond(JSContext *cx, uint32_t a
 	if (argc == 0) {
 		float ret = cobj->getRotatePerSecond();
 		jsval jsret;
-		JS_NewNumberValue(cx, ret, &jsret);
+		jsret = DOUBLE_TO_JSVAL(ret);
 		JS_SET_RVAL(cx, vp, jsret);
 		return JS_TRUE;
 	}
@@ -38099,7 +38546,7 @@ JSBool js_cocos2dx_CCParticleSystem_getDuration(JSContext *cx, uint32_t argc, js
 	if (argc == 0) {
 		float ret = cobj->getDuration();
 		jsval jsret;
-		JS_NewNumberValue(cx, ret, &jsret);
+		jsret = DOUBLE_TO_JSVAL(ret);
 		JS_SET_RVAL(cx, vp, jsret);
 		return JS_TRUE;
 	}
@@ -38133,7 +38580,7 @@ JSBool js_cocos2dx_CCParticleSystem_getRadialAccelVar(JSContext *cx, uint32_t ar
 	if (argc == 0) {
 		float ret = cobj->getRadialAccelVar();
 		jsval jsret;
-		JS_NewNumberValue(cx, ret, &jsret);
+		jsret = DOUBLE_TO_JSVAL(ret);
 		JS_SET_RVAL(cx, vp, jsret);
 		return JS_TRUE;
 	}
@@ -38167,7 +38614,7 @@ JSBool js_cocos2dx_CCParticleSystem_setLife(JSContext *cx, uint32_t argc, jsval 
 
 	if (argc == 1) {
 		double arg0;
-		JS_ValueToNumber(cx, argv[0], &arg0);
+		arg0 = JSVAL_TO_DOUBLE(argv[0]);
 		cobj->setLife(arg0);
 		return JS_TRUE;
 	}
@@ -38184,7 +38631,7 @@ JSBool js_cocos2dx_CCParticleSystem_setAngleVar(JSContext *cx, uint32_t argc, js
 
 	if (argc == 1) {
 		double arg0;
-		JS_ValueToNumber(cx, argv[0], &arg0);
+		arg0 = JSVAL_TO_DOUBLE(argv[0]);
 		cobj->setAngleVar(arg0);
 		return JS_TRUE;
 	}
@@ -38201,7 +38648,7 @@ JSBool js_cocos2dx_CCParticleSystem_setEndSizeVar(JSContext *cx, uint32_t argc, 
 
 	if (argc == 1) {
 		double arg0;
-		JS_ValueToNumber(cx, argv[0], &arg0);
+		arg0 = JSVAL_TO_DOUBLE(argv[0]);
 		cobj->setEndSizeVar(arg0);
 		return JS_TRUE;
 	}
@@ -38218,7 +38665,7 @@ JSBool js_cocos2dx_CCParticleSystem_setAngle(JSContext *cx, uint32_t argc, jsval
 
 	if (argc == 1) {
 		double arg0;
-		JS_ValueToNumber(cx, argv[0], &arg0);
+		arg0 = JSVAL_TO_DOUBLE(argv[0]);
 		cobj->setAngle(arg0);
 		return JS_TRUE;
 	}
@@ -38258,7 +38705,7 @@ JSBool js_cocos2dx_CCParticleSystem_getTangentialAccelVar(JSContext *cx, uint32_
 	if (argc == 0) {
 		float ret = cobj->getTangentialAccelVar();
 		jsval jsret;
-		JS_NewNumberValue(cx, ret, &jsret);
+		jsret = DOUBLE_TO_JSVAL(ret);
 		JS_SET_RVAL(cx, vp, jsret);
 		return JS_TRUE;
 	}
@@ -38275,7 +38722,7 @@ JSBool js_cocos2dx_CCParticleSystem_getEmitterMode(JSContext *cx, uint32_t argc,
 	if (argc == 0) {
 		int ret = cobj->getEmitterMode();
 		jsval jsret;
-		JS_NewNumberValue(cx, ret, &jsret);
+		jsret = INT_TO_JSVAL(ret);
 		JS_SET_RVAL(cx, vp, jsret);
 		return JS_TRUE;
 	}
@@ -38292,7 +38739,7 @@ JSBool js_cocos2dx_CCParticleSystem_setEndSpinVar(JSContext *cx, uint32_t argc, 
 
 	if (argc == 1) {
 		double arg0;
-		JS_ValueToNumber(cx, argv[0], &arg0);
+		arg0 = JSVAL_TO_DOUBLE(argv[0]);
 		cobj->setEndSpinVar(arg0);
 		return JS_TRUE;
 	}
@@ -38329,7 +38776,7 @@ JSBool js_cocos2dx_CCParticleSystem_getSpeedVar(JSContext *cx, uint32_t argc, js
 	if (argc == 0) {
 		float ret = cobj->getSpeedVar();
 		jsval jsret;
-		JS_NewNumberValue(cx, ret, &jsret);
+		jsret = DOUBLE_TO_JSVAL(ret);
 		JS_SET_RVAL(cx, vp, jsret);
 		return JS_TRUE;
 	}
@@ -38363,7 +38810,7 @@ JSBool js_cocos2dx_CCParticleSystem_getRotatePerSecondVar(JSContext *cx, uint32_
 	if (argc == 0) {
 		float ret = cobj->getRotatePerSecondVar();
 		jsval jsret;
-		JS_NewNumberValue(cx, ret, &jsret);
+		jsret = DOUBLE_TO_JSVAL(ret);
 		JS_SET_RVAL(cx, vp, jsret);
 		return JS_TRUE;
 	}
@@ -38380,7 +38827,7 @@ JSBool js_cocos2dx_CCParticleSystem_getEndSize(JSContext *cx, uint32_t argc, jsv
 	if (argc == 0) {
 		float ret = cobj->getEndSize();
 		jsval jsret;
-		JS_NewNumberValue(cx, ret, &jsret);
+		jsret = DOUBLE_TO_JSVAL(ret);
 		JS_SET_RVAL(cx, vp, jsret);
 		return JS_TRUE;
 	}
@@ -38397,7 +38844,7 @@ JSBool js_cocos2dx_CCParticleSystem_getLife(JSContext *cx, uint32_t argc, jsval 
 	if (argc == 0) {
 		float ret = cobj->getLife();
 		jsval jsret;
-		JS_NewNumberValue(cx, ret, &jsret);
+		jsret = DOUBLE_TO_JSVAL(ret);
 		JS_SET_RVAL(cx, vp, jsret);
 		return JS_TRUE;
 	}
@@ -38414,7 +38861,7 @@ JSBool js_cocos2dx_CCParticleSystem_setSpeedVar(JSContext *cx, uint32_t argc, js
 
 	if (argc == 1) {
 		double arg0;
-		JS_ValueToNumber(cx, argv[0], &arg0);
+		arg0 = JSVAL_TO_DOUBLE(argv[0]);
 		cobj->setSpeedVar(arg0);
 		return JS_TRUE;
 	}
@@ -38479,7 +38926,7 @@ JSBool js_cocos2dx_CCParticleSystem_setEmissionRate(JSContext *cx, uint32_t argc
 
 	if (argc == 1) {
 		double arg0;
-		JS_ValueToNumber(cx, argv[0], &arg0);
+		arg0 = JSVAL_TO_DOUBLE(argv[0]);
 		cobj->setEmissionRate(arg0);
 		return JS_TRUE;
 	}
@@ -38513,7 +38960,7 @@ JSBool js_cocos2dx_CCParticleSystem_setScale(JSContext *cx, uint32_t argc, jsval
 
 	if (argc == 1) {
 		double arg0;
-		JS_ValueToNumber(cx, argv[0], &arg0);
+		arg0 = JSVAL_TO_DOUBLE(argv[0]);
 		cobj->setScale(arg0);
 		return JS_TRUE;
 	}
@@ -38530,7 +38977,7 @@ JSBool js_cocos2dx_CCParticleSystem_getEmissionRate(JSContext *cx, uint32_t argc
 	if (argc == 0) {
 		float ret = cobj->getEmissionRate();
 		jsval jsret;
-		JS_NewNumberValue(cx, ret, &jsret);
+		jsret = DOUBLE_TO_JSVAL(ret);
 		JS_SET_RVAL(cx, vp, jsret);
 		return JS_TRUE;
 	}
@@ -38564,7 +39011,7 @@ JSBool js_cocos2dx_CCParticleSystem_getLifeVar(JSContext *cx, uint32_t argc, jsv
 	if (argc == 0) {
 		float ret = cobj->getLifeVar();
 		jsval jsret;
-		JS_NewNumberValue(cx, ret, &jsret);
+		jsret = DOUBLE_TO_JSVAL(ret);
 		JS_SET_RVAL(cx, vp, jsret);
 		return JS_TRUE;
 	}
@@ -38581,7 +39028,7 @@ JSBool js_cocos2dx_CCParticleSystem_setStartSizeVar(JSContext *cx, uint32_t argc
 
 	if (argc == 1) {
 		double arg0;
-		JS_ValueToNumber(cx, argv[0], &arg0);
+		arg0 = JSVAL_TO_DOUBLE(argv[0]);
 		cobj->setStartSizeVar(arg0);
 		return JS_TRUE;
 	}
@@ -38615,7 +39062,7 @@ JSBool js_cocos2dx_CCParticleSystem_getStartRadius(JSContext *cx, uint32_t argc,
 	if (argc == 0) {
 		float ret = cobj->getStartRadius();
 		jsval jsret;
-		JS_NewNumberValue(cx, ret, &jsret);
+		jsret = DOUBLE_TO_JSVAL(ret);
 		JS_SET_RVAL(cx, vp, jsret);
 		return JS_TRUE;
 	}
@@ -38632,7 +39079,7 @@ JSBool js_cocos2dx_CCParticleSystem_getParticleCount(JSContext *cx, uint32_t arg
 	if (argc == 0) {
 		unsigned int ret = cobj->getParticleCount();
 		jsval jsret;
-		JS_NewNumberValue(cx, ret, &jsret);
+		jsret = UINT_TO_JSVAL(ret);
 		JS_SET_RVAL(cx, vp, jsret);
 		return JS_TRUE;
 	}
@@ -38649,7 +39096,7 @@ JSBool js_cocos2dx_CCParticleSystem_getStartRadiusVar(JSContext *cx, uint32_t ar
 	if (argc == 0) {
 		float ret = cobj->getStartRadiusVar();
 		jsval jsret;
-		JS_NewNumberValue(cx, ret, &jsret);
+		jsret = DOUBLE_TO_JSVAL(ret);
 		JS_SET_RVAL(cx, vp, jsret);
 		return JS_TRUE;
 	}
@@ -38683,7 +39130,7 @@ JSBool js_cocos2dx_CCParticleSystem_setEndSpin(JSContext *cx, uint32_t argc, jsv
 
 	if (argc == 1) {
 		double arg0;
-		JS_ValueToNumber(cx, argv[0], &arg0);
+		arg0 = JSVAL_TO_DOUBLE(argv[0]);
 		cobj->setEndSpin(arg0);
 		return JS_TRUE;
 	}
@@ -38700,7 +39147,7 @@ JSBool js_cocos2dx_CCParticleSystem_update(JSContext *cx, uint32_t argc, jsval *
 
 	if (argc == 1) {
 		double arg0;
-		JS_ValueToNumber(cx, argv[0], &arg0);
+		arg0 = JSVAL_TO_DOUBLE(argv[0]);
 		cobj->update(arg0);
 		return JS_TRUE;
 	}
@@ -38717,7 +39164,7 @@ JSBool js_cocos2dx_CCParticleSystem_setRadialAccel(JSContext *cx, uint32_t argc,
 
 	if (argc == 1) {
 		double arg0;
-		JS_ValueToNumber(cx, argv[0], &arg0);
+		arg0 = JSVAL_TO_DOUBLE(argv[0]);
 		cobj->setRadialAccel(arg0);
 		return JS_TRUE;
 	}
@@ -38777,7 +39224,7 @@ JSBool js_cocos2dx_CCParticleSystem_getTotalParticles(JSContext *cx, uint32_t ar
 	if (argc == 0) {
 		unsigned int ret = cobj->getTotalParticles();
 		jsval jsret;
-		JS_NewNumberValue(cx, ret, &jsret);
+		jsret = UINT_TO_JSVAL(ret);
 		JS_SET_RVAL(cx, vp, jsret);
 		return JS_TRUE;
 	}
@@ -38794,7 +39241,7 @@ JSBool js_cocos2dx_CCParticleSystem_setStartRadiusVar(JSContext *cx, uint32_t ar
 
 	if (argc == 1) {
 		double arg0;
-		JS_ValueToNumber(cx, argv[0], &arg0);
+		arg0 = JSVAL_TO_DOUBLE(argv[0]);
 		cobj->setStartRadiusVar(arg0);
 		return JS_TRUE;
 	}
@@ -38811,7 +39258,7 @@ JSBool js_cocos2dx_CCParticleSystem_getEndRadiusVar(JSContext *cx, uint32_t argc
 	if (argc == 0) {
 		float ret = cobj->getEndRadiusVar();
 		jsval jsret;
-		JS_NewNumberValue(cx, ret, &jsret);
+		jsret = DOUBLE_TO_JSVAL(ret);
 		JS_SET_RVAL(cx, vp, jsret);
 		return JS_TRUE;
 	}
@@ -39071,6 +39518,9 @@ void js_register_cocos2dx_CCParticleSystem(JSContext *cx, JSObject *global) {
 		funcs,
 		NULL, // no static properties
 		st_funcs);
+	// make the class enumerable in the registered namespace
+	JSBool found;
+	JS_SetPropertyAttributes(cx, globalObj, "ParticleSystem", JSPROP_ENUMERATE | JSPROP_READONLY, &found);
 
 	// add the proto and JSClass to the type->js info hash table
 	TypeTest<cocos2d::CCParticleSystem> t;
@@ -39286,6 +39736,9 @@ void js_register_cocos2dx_CCParticleSystemQuad(JSContext *cx, JSObject *global) 
 		funcs,
 		NULL, // no static properties
 		st_funcs);
+	// make the class enumerable in the registered namespace
+	JSBool found;
+	JS_SetPropertyAttributes(cx, globalObj, "ParticleSystemQuad", JSPROP_ENUMERATE | JSPROP_READONLY, &found);
 
 	// add the proto and JSClass to the type->js info hash table
 	TypeTest<cocos2d::CCParticleSystemQuad> t;
@@ -39446,6 +39899,9 @@ void js_register_cocos2dx_CCParticleFire(JSContext *cx, JSObject *global) {
 		funcs,
 		NULL, // no static properties
 		st_funcs);
+	// make the class enumerable in the registered namespace
+	JSBool found;
+	JS_SetPropertyAttributes(cx, globalObj, "ParticleFire", JSPROP_ENUMERATE | JSPROP_READONLY, &found);
 
 	// add the proto and JSClass to the type->js info hash table
 	TypeTest<cocos2d::CCParticleFire> t;
@@ -39606,6 +40062,9 @@ void js_register_cocos2dx_CCParticleFireworks(JSContext *cx, JSObject *global) {
 		funcs,
 		NULL, // no static properties
 		st_funcs);
+	// make the class enumerable in the registered namespace
+	JSBool found;
+	JS_SetPropertyAttributes(cx, globalObj, "ParticleFireworks", JSPROP_ENUMERATE | JSPROP_READONLY, &found);
 
 	// add the proto and JSClass to the type->js info hash table
 	TypeTest<cocos2d::CCParticleFireworks> t;
@@ -39766,6 +40225,9 @@ void js_register_cocos2dx_CCParticleSun(JSContext *cx, JSObject *global) {
 		funcs,
 		NULL, // no static properties
 		st_funcs);
+	// make the class enumerable in the registered namespace
+	JSBool found;
+	JS_SetPropertyAttributes(cx, globalObj, "ParticleSun", JSPROP_ENUMERATE | JSPROP_READONLY, &found);
 
 	// add the proto and JSClass to the type->js info hash table
 	TypeTest<cocos2d::CCParticleSun> t;
@@ -39926,6 +40388,9 @@ void js_register_cocos2dx_CCParticleGalaxy(JSContext *cx, JSObject *global) {
 		funcs,
 		NULL, // no static properties
 		st_funcs);
+	// make the class enumerable in the registered namespace
+	JSBool found;
+	JS_SetPropertyAttributes(cx, globalObj, "ParticleGalaxy", JSPROP_ENUMERATE | JSPROP_READONLY, &found);
 
 	// add the proto and JSClass to the type->js info hash table
 	TypeTest<cocos2d::CCParticleGalaxy> t;
@@ -40086,6 +40551,9 @@ void js_register_cocos2dx_CCParticleFlower(JSContext *cx, JSObject *global) {
 		funcs,
 		NULL, // no static properties
 		st_funcs);
+	// make the class enumerable in the registered namespace
+	JSBool found;
+	JS_SetPropertyAttributes(cx, globalObj, "ParticleFlower", JSPROP_ENUMERATE | JSPROP_READONLY, &found);
 
 	// add the proto and JSClass to the type->js info hash table
 	TypeTest<cocos2d::CCParticleFlower> t;
@@ -40246,6 +40714,9 @@ void js_register_cocos2dx_CCParticleMeteor(JSContext *cx, JSObject *global) {
 		funcs,
 		NULL, // no static properties
 		st_funcs);
+	// make the class enumerable in the registered namespace
+	JSBool found;
+	JS_SetPropertyAttributes(cx, globalObj, "ParticleMeteor", JSPROP_ENUMERATE | JSPROP_READONLY, &found);
 
 	// add the proto and JSClass to the type->js info hash table
 	TypeTest<cocos2d::CCParticleMeteor> t;
@@ -40406,6 +40877,9 @@ void js_register_cocos2dx_CCParticleSpiral(JSContext *cx, JSObject *global) {
 		funcs,
 		NULL, // no static properties
 		st_funcs);
+	// make the class enumerable in the registered namespace
+	JSBool found;
+	JS_SetPropertyAttributes(cx, globalObj, "ParticleSpiral", JSPROP_ENUMERATE | JSPROP_READONLY, &found);
 
 	// add the proto and JSClass to the type->js info hash table
 	TypeTest<cocos2d::CCParticleSpiral> t;
@@ -40566,6 +41040,9 @@ void js_register_cocos2dx_CCParticleExplosion(JSContext *cx, JSObject *global) {
 		funcs,
 		NULL, // no static properties
 		st_funcs);
+	// make the class enumerable in the registered namespace
+	JSBool found;
+	JS_SetPropertyAttributes(cx, globalObj, "ParticleExplosion", JSPROP_ENUMERATE | JSPROP_READONLY, &found);
 
 	// add the proto and JSClass to the type->js info hash table
 	TypeTest<cocos2d::CCParticleExplosion> t;
@@ -40726,6 +41203,9 @@ void js_register_cocos2dx_CCParticleSmoke(JSContext *cx, JSObject *global) {
 		funcs,
 		NULL, // no static properties
 		st_funcs);
+	// make the class enumerable in the registered namespace
+	JSBool found;
+	JS_SetPropertyAttributes(cx, globalObj, "ParticleSmoke", JSPROP_ENUMERATE | JSPROP_READONLY, &found);
 
 	// add the proto and JSClass to the type->js info hash table
 	TypeTest<cocos2d::CCParticleSmoke> t;
@@ -40886,6 +41366,9 @@ void js_register_cocos2dx_CCParticleSnow(JSContext *cx, JSObject *global) {
 		funcs,
 		NULL, // no static properties
 		st_funcs);
+	// make the class enumerable in the registered namespace
+	JSBool found;
+	JS_SetPropertyAttributes(cx, globalObj, "ParticleSnow", JSPROP_ENUMERATE | JSPROP_READONLY, &found);
 
 	// add the proto and JSClass to the type->js info hash table
 	TypeTest<cocos2d::CCParticleSnow> t;
@@ -41046,6 +41529,9 @@ void js_register_cocos2dx_CCParticleRain(JSContext *cx, JSObject *global) {
 		funcs,
 		NULL, // no static properties
 		st_funcs);
+	// make the class enumerable in the registered namespace
+	JSBool found;
+	JS_SetPropertyAttributes(cx, globalObj, "ParticleRain", JSPROP_ENUMERATE | JSPROP_READONLY, &found);
 
 	// add the proto and JSClass to the type->js info hash table
 	TypeTest<cocos2d::CCParticleRain> t;
@@ -41291,6 +41777,9 @@ void js_register_cocos2dx_CCAnimationCache(JSContext *cx, JSObject *global) {
 		funcs,
 		NULL, // no static properties
 		st_funcs);
+	// make the class enumerable in the registered namespace
+	JSBool found;
+	JS_SetPropertyAttributes(cx, globalObj, "AnimationCache", JSPROP_ENUMERATE | JSPROP_READONLY, &found);
 
 	// add the proto and JSClass to the type->js info hash table
 	TypeTest<cocos2d::CCAnimationCache> t;
@@ -41577,6 +42066,9 @@ void js_register_cocos2dx_CCSpriteFrameCache(JSContext *cx, JSObject *global) {
 		funcs,
 		NULL, // no static properties
 		st_funcs);
+	// make the class enumerable in the registered namespace
+	JSBool found;
+	JS_SetPropertyAttributes(cx, globalObj, "SpriteFrameCache", JSPROP_ENUMERATE | JSPROP_READONLY, &found);
 
 	// add the proto and JSClass to the type->js info hash table
 	TypeTest<cocos2d::CCSpriteFrameCache> t;
@@ -41929,6 +42421,9 @@ void js_register_cocos2dx_CCTextureCache(JSContext *cx, JSObject *global) {
 		funcs,
 		NULL, // no static properties
 		st_funcs);
+	// make the class enumerable in the registered namespace
+	JSBool found;
+	JS_SetPropertyAttributes(cx, globalObj, "TextureCache", JSPROP_ENUMERATE | JSPROP_READONLY, &found);
 
 	// add the proto and JSClass to the type->js info hash table
 	TypeTest<cocos2d::CCTextureCache> t;
@@ -42194,6 +42689,9 @@ void js_register_cocos2dx_CCParallaxNode(JSContext *cx, JSObject *global) {
 		funcs,
 		NULL, // no static properties
 		st_funcs);
+	// make the class enumerable in the registered namespace
+	JSBool found;
+	JS_SetPropertyAttributes(cx, globalObj, "ParallaxNode", JSPROP_ENUMERATE | JSPROP_READONLY, &found);
 
 	// add the proto and JSClass to the type->js info hash table
 	TypeTest<cocos2d::CCParallaxNode> t;
@@ -42494,6 +42992,9 @@ void js_register_cocos2dx_CCTMXObjectGroup(JSContext *cx, JSObject *global) {
 		funcs,
 		NULL, // no static properties
 		st_funcs);
+	// make the class enumerable in the registered namespace
+	JSBool found;
+	JS_SetPropertyAttributes(cx, globalObj, "TMXObjectGroup", JSPROP_ENUMERATE | JSPROP_READONLY, &found);
 
 	// add the proto and JSClass to the type->js info hash table
 	TypeTest<cocos2d::CCTMXObjectGroup> t;
@@ -42630,6 +43131,9 @@ void js_register_cocos2dx_CCTMXLayerInfo(JSContext *cx, JSObject *global) {
 		funcs,
 		NULL, // no static properties
 		st_funcs);
+	// make the class enumerable in the registered namespace
+	JSBool found;
+	JS_SetPropertyAttributes(cx, globalObj, "TMXLayerInfo", JSPROP_ENUMERATE | JSPROP_READONLY, &found);
 
 	// add the proto and JSClass to the type->js info hash table
 	TypeTest<cocos2d::CCTMXLayerInfo> t;
@@ -42738,6 +43242,9 @@ void js_register_cocos2dx_CCTMXTilesetInfo(JSContext *cx, JSObject *global) {
 		funcs,
 		NULL, // no static properties
 		st_funcs);
+	// make the class enumerable in the registered namespace
+	JSBool found;
+	JS_SetPropertyAttributes(cx, globalObj, "TMXTilesetInfo", JSPROP_ENUMERATE | JSPROP_READONLY, &found);
 
 	// add the proto and JSClass to the type->js info hash table
 	TypeTest<cocos2d::CCTMXTilesetInfo> t;
@@ -42846,7 +43353,7 @@ JSBool js_cocos2dx_CCTMXMapInfo_getOrientation(JSContext *cx, uint32_t argc, jsv
 	if (argc == 0) {
 		int ret = cobj->getOrientation();
 		jsval jsret;
-		JS_NewNumberValue(cx, ret, &jsret);
+		jsret = INT_TO_JSVAL(ret);
 		JS_SET_RVAL(cx, vp, jsret);
 		return JS_TRUE;
 	}
@@ -42931,7 +43438,7 @@ JSBool js_cocos2dx_CCTMXMapInfo_getParentElement(JSContext *cx, uint32_t argc, j
 	if (argc == 0) {
 		int ret = cobj->getParentElement();
 		jsval jsret;
-		JS_NewNumberValue(cx, ret, &jsret);
+		jsret = INT_TO_JSVAL(ret);
 		JS_SET_RVAL(cx, vp, jsret);
 		return JS_TRUE;
 	}
@@ -42948,7 +43455,7 @@ JSBool js_cocos2dx_CCTMXMapInfo_getLayerAttribs(JSContext *cx, uint32_t argc, js
 	if (argc == 0) {
 		int ret = cobj->getLayerAttribs();
 		jsval jsret;
-		JS_NewNumberValue(cx, ret, &jsret);
+		jsret = INT_TO_JSVAL(ret);
 		JS_SET_RVAL(cx, vp, jsret);
 		return JS_TRUE;
 	}
@@ -42999,7 +43506,7 @@ JSBool js_cocos2dx_CCTMXMapInfo_getParentGID(JSContext *cx, uint32_t argc, jsval
 	if (argc == 0) {
 		unsigned int ret = cobj->getParentGID();
 		jsval jsret;
-		JS_NewNumberValue(cx, ret, &jsret);
+		jsret = UINT_TO_JSVAL(ret);
 		JS_SET_RVAL(cx, vp, jsret);
 		return JS_TRUE;
 	}
@@ -43489,6 +43996,9 @@ void js_register_cocos2dx_CCTMXMapInfo(JSContext *cx, JSObject *global) {
 		funcs,
 		NULL, // no static properties
 		st_funcs);
+	// make the class enumerable in the registered namespace
+	JSBool found;
+	JS_SetPropertyAttributes(cx, globalObj, "TMXMapInfo", JSPROP_ENUMERATE | JSPROP_READONLY, &found);
 
 	// add the proto and JSClass to the type->js info hash table
 	TypeTest<cocos2d::CCTMXMapInfo> t;
@@ -43647,7 +44157,7 @@ JSBool js_cocos2dx_CCTMXLayer_tileGIDAt(JSContext *cx, uint32_t argc, jsval *vp)
 		cocos2d::ccTMXTileFlags* arg1;
 		#pragma warning NO CONVERSION TO NATIVE FOR cocos2d::ccTMXTileFlags*;
 		unsigned int ret = cobj->tileGIDAt(arg0, arg1);
-		jsval jsret; JS_NewNumberValue(cx, ret, &jsret);
+		jsval jsret; jsret = UINT_TO_JSVAL(ret);
 		JS_SET_RVAL(cx, vp, jsret);
 		return JS_TRUE;
 	}
@@ -43655,7 +44165,7 @@ JSBool js_cocos2dx_CCTMXLayer_tileGIDAt(JSContext *cx, uint32_t argc, jsval *vp)
 		cocos2d::CCPoint arg0;
 		arg0 = jsval_to_ccpoint(cx, argv[0]);
 		unsigned int ret = cobj->tileGIDAt(arg0);
-		jsval jsret; JS_NewNumberValue(cx, ret, &jsret);
+		jsval jsret; jsret = UINT_TO_JSVAL(ret);
 		JS_SET_RVAL(cx, vp, jsret);
 		return JS_TRUE;
 	}
@@ -43722,7 +44232,7 @@ JSBool js_cocos2dx_CCTMXLayer_getLayerOrientation(JSContext *cx, uint32_t argc, 
 	if (argc == 0) {
 		unsigned int ret = cobj->getLayerOrientation();
 		jsval jsret;
-		JS_NewNumberValue(cx, ret, &jsret);
+		jsret = UINT_TO_JSVAL(ret);
 		JS_SET_RVAL(cx, vp, jsret);
 		return JS_TRUE;
 	}
@@ -44228,6 +44738,9 @@ void js_register_cocos2dx_CCTMXLayer(JSContext *cx, JSObject *global) {
 		funcs,
 		NULL, // no static properties
 		st_funcs);
+	// make the class enumerable in the registered namespace
+	JSBool found;
+	JS_SetPropertyAttributes(cx, globalObj, "TMXLayer", JSPROP_ENUMERATE | JSPROP_READONLY, &found);
 
 	// add the proto and JSClass to the type->js info hash table
 	TypeTest<cocos2d::CCTMXLayer> t;
@@ -44574,7 +45087,7 @@ JSBool js_cocos2dx_CCTMXTiledMap_getMapOrientation(JSContext *cx, uint32_t argc,
 	if (argc == 0) {
 		int ret = cobj->getMapOrientation();
 		jsval jsret;
-		JS_NewNumberValue(cx, ret, &jsret);
+		jsret = INT_TO_JSVAL(ret);
 		JS_SET_RVAL(cx, vp, jsret);
 		return JS_TRUE;
 	}
@@ -44758,6 +45271,9 @@ void js_register_cocos2dx_CCTMXTiledMap(JSContext *cx, JSObject *global) {
 		funcs,
 		NULL, // no static properties
 		st_funcs);
+	// make the class enumerable in the registered namespace
+	JSBool found;
+	JS_SetPropertyAttributes(cx, globalObj, "TMXTiledMap", JSPROP_ENUMERATE | JSPROP_READONLY, &found);
 
 	// add the proto and JSClass to the type->js info hash table
 	TypeTest<cocos2d::CCTMXTiledMap> t;
@@ -45022,6 +45538,9 @@ void js_register_cocos2dx_CCTileMapAtlas(JSContext *cx, JSObject *global) {
 		funcs,
 		NULL, // no static properties
 		st_funcs);
+	// make the class enumerable in the registered namespace
+	JSBool found;
+	JS_SetPropertyAttributes(cx, globalObj, "TileMapAtlas", JSPROP_ENUMERATE | JSPROP_READONLY, &found);
 
 	// add the proto and JSClass to the type->js info hash table
 	TypeTest<cocos2d::CCTileMapAtlas> t;
@@ -45052,7 +45571,7 @@ JSBool js_cocos2dx_CCTimer_getInterval(JSContext *cx, uint32_t argc, jsval *vp)
 	if (argc == 0) {
 		float ret = cobj->getInterval();
 		jsval jsret;
-		JS_NewNumberValue(cx, ret, &jsret);
+		jsret = DOUBLE_TO_JSVAL(ret);
 		JS_SET_RVAL(cx, vp, jsret);
 		return JS_TRUE;
 	}
@@ -45069,7 +45588,7 @@ JSBool js_cocos2dx_CCTimer_setInterval(JSContext *cx, uint32_t argc, jsval *vp)
 
 	if (argc == 1) {
 		double arg0;
-		JS_ValueToNumber(cx, argv[0], &arg0);
+		arg0 = JSVAL_TO_DOUBLE(argv[0]);
 		cobj->setInterval(arg0);
 		return JS_TRUE;
 	}
@@ -45088,7 +45607,7 @@ JSBool js_cocos2dx_CCTimer_initWithScriptHandler(JSContext *cx, uint32_t argc, j
 		int arg0;
 		double arg1;
 		JS_ValueToInt32(cx, argv[0], (int32_t *)&arg0);
-		JS_ValueToNumber(cx, argv[1], &arg1);
+		arg1 = JSVAL_TO_DOUBLE(argv[1]);
 		bool ret = cobj->initWithScriptHandler(arg0, arg1);
 		jsval jsret;
 		jsret = BOOLEAN_TO_JSVAL(ret);
@@ -45108,7 +45627,7 @@ JSBool js_cocos2dx_CCTimer_update(JSContext *cx, uint32_t argc, jsval *vp)
 
 	if (argc == 1) {
 		double arg0;
-		JS_ValueToNumber(cx, argv[0], &arg0);
+		arg0 = JSVAL_TO_DOUBLE(argv[0]);
 		cobj->update(arg0);
 		return JS_TRUE;
 	}
@@ -45125,7 +45644,7 @@ JSBool js_cocos2dx_CCTimer_getScriptHandler(JSContext *cx, uint32_t argc, jsval 
 	if (argc == 0) {
 		int ret = cobj->getScriptHandler();
 		jsval jsret;
-		JS_NewNumberValue(cx, ret, &jsret);
+		jsret = INT_TO_JSVAL(ret);
 		JS_SET_RVAL(cx, vp, jsret);
 		return JS_TRUE;
 	}
@@ -45140,7 +45659,7 @@ JSBool js_cocos2dx_CCTimer_timerWithScriptHandler(JSContext *cx, uint32_t argc, 
 	assert(argc >= 2);
 
 	JS_ValueToInt32(cx, argv[0], (int32_t *)&arg0);
-	JS_ValueToNumber(cx, argv[1], &arg1);
+	arg1 = JSVAL_TO_DOUBLE(argv[1]);
 	cocos2d::CCTimer* ret = cocos2d::CCTimer::timerWithScriptHandler(arg0, arg1);
 	jsval jsret;
 	do {
@@ -45230,6 +45749,9 @@ void js_register_cocos2dx_CCTimer(JSContext *cx, JSObject *global) {
 		funcs,
 		NULL, // no static properties
 		st_funcs);
+	// make the class enumerable in the registered namespace
+	JSBool found;
+	JS_SetPropertyAttributes(cx, globalObj, "Timer", JSPROP_ENUMERATE | JSPROP_READONLY, &found);
 
 	// add the proto and JSClass to the type->js info hash table
 	TypeTest<cocos2d::CCTimer> t;
@@ -45284,7 +45806,7 @@ JSBool js_cocos2dx_CCScheduler_setTimeScale(JSContext *cx, uint32_t argc, jsval 
 
 	if (argc == 1) {
 		double arg0;
-		JS_ValueToNumber(cx, argv[0], &arg0);
+		arg0 = JSVAL_TO_DOUBLE(argv[0]);
 		cobj->setTimeScale(arg0);
 		return JS_TRUE;
 	}
@@ -45394,7 +45916,7 @@ JSBool js_cocos2dx_CCScheduler_update(JSContext *cx, uint32_t argc, jsval *vp)
 
 	if (argc == 1) {
 		double arg0;
-		JS_ValueToNumber(cx, argv[0], &arg0);
+		arg0 = JSVAL_TO_DOUBLE(argv[0]);
 		cobj->update(arg0);
 		return JS_TRUE;
 	}
@@ -45564,11 +46086,11 @@ JSBool js_cocos2dx_CCScheduler_scheduleScriptFunc(JSContext *cx, uint32_t argc, 
 		double arg1;
 		JSBool arg2;
 		JS_ValueToECMAUint32(cx, argv[0], &arg0);
-		JS_ValueToNumber(cx, argv[1], &arg1);
+		arg1 = JSVAL_TO_DOUBLE(argv[1]);
 		JS_ValueToBoolean(cx, argv[2], &arg2);
 		unsigned int ret = cobj->scheduleScriptFunc(arg0, arg1, arg2);
 		jsval jsret;
-		JS_NewNumberValue(cx, ret, &jsret);
+		jsret = UINT_TO_JSVAL(ret);
 		JS_SET_RVAL(cx, vp, jsret);
 		return JS_TRUE;
 	}
@@ -45585,7 +46107,7 @@ JSBool js_cocos2dx_CCScheduler_getTimeScale(JSContext *cx, uint32_t argc, jsval 
 	if (argc == 0) {
 		float ret = cobj->getTimeScale();
 		jsval jsret;
-		JS_NewNumberValue(cx, ret, &jsret);
+		jsret = DOUBLE_TO_JSVAL(ret);
 		JS_SET_RVAL(cx, vp, jsret);
 		return JS_TRUE;
 	}
@@ -45675,6 +46197,9 @@ void js_register_cocos2dx_CCScheduler(JSContext *cx, JSObject *global) {
 		funcs,
 		NULL, // no static properties
 		st_funcs);
+	// make the class enumerable in the registered namespace
+	JSBool found;
+	JS_SetPropertyAttributes(cx, globalObj, "Scheduler", JSPROP_ENUMERATE | JSPROP_READONLY, &found);
 
 	// add the proto and JSClass to the type->js info hash table
 	TypeTest<cocos2d::CCScheduler> t;
@@ -45719,7 +46244,7 @@ JSBool js_cocos2dx_SimpleAudioEngine_getEffectsVolume(JSContext *cx, uint32_t ar
 	if (argc == 0) {
 		float ret = cobj->getEffectsVolume();
 		jsval jsret;
-		JS_NewNumberValue(cx, ret, &jsret);
+		jsret = DOUBLE_TO_JSVAL(ret);
 		JS_SET_RVAL(cx, vp, jsret);
 		return JS_TRUE;
 	}
@@ -45753,7 +46278,7 @@ JSBool js_cocos2dx_SimpleAudioEngine_getBackgroundMusicVolume(JSContext *cx, uin
 	if (argc == 0) {
 		float ret = cobj->getBackgroundMusicVolume();
 		jsval jsret;
-		JS_NewNumberValue(cx, ret, &jsret);
+		jsret = DOUBLE_TO_JSVAL(ret);
 		JS_SET_RVAL(cx, vp, jsret);
 		return JS_TRUE;
 	}
@@ -45787,7 +46312,7 @@ JSBool js_cocos2dx_SimpleAudioEngine_setBackgroundMusicVolume(JSContext *cx, uin
 
 	if (argc == 1) {
 		double arg0;
-		JS_ValueToNumber(cx, argv[0], &arg0);
+		arg0 = JSVAL_TO_DOUBLE(argv[0]);
 		cobj->setBackgroundMusicVolume(arg0);
 		return JS_TRUE;
 	}
@@ -45932,7 +46457,7 @@ JSBool js_cocos2dx_SimpleAudioEngine_playEffect(JSContext *cx, uint32_t argc, js
 		const char* arg0;
 		std::string arg0_tmp = jsval_to_std_string(cx, argv[0]); arg0 = arg0_tmp.c_str();
 		unsigned int ret = cobj->playEffect(arg0);
-		jsval jsret; JS_NewNumberValue(cx, ret, &jsret);
+		jsval jsret; jsret = UINT_TO_JSVAL(ret);
 		JS_SET_RVAL(cx, vp, jsret);
 		return JS_TRUE;
 	}
@@ -45942,7 +46467,7 @@ JSBool js_cocos2dx_SimpleAudioEngine_playEffect(JSContext *cx, uint32_t argc, js
 		JSBool arg1;
 		JS_ValueToBoolean(cx, argv[1], &arg1);
 		unsigned int ret = cobj->playEffect(arg0, arg1);
-		jsval jsret; JS_NewNumberValue(cx, ret, &jsret);
+		jsval jsret; jsret = UINT_TO_JSVAL(ret);
 		JS_SET_RVAL(cx, vp, jsret);
 		return JS_TRUE;
 	}
@@ -46054,7 +46579,7 @@ JSBool js_cocos2dx_SimpleAudioEngine_setEffectsVolume(JSContext *cx, uint32_t ar
 
 	if (argc == 1) {
 		double arg0;
-		JS_ValueToNumber(cx, argv[0], &arg0);
+		arg0 = JSVAL_TO_DOUBLE(argv[0]);
 		cobj->setEffectsVolume(arg0);
 		return JS_TRUE;
 	}
@@ -46161,6 +46686,9 @@ void js_register_cocos2dx_SimpleAudioEngine(JSContext *cx, JSObject *global) {
 		funcs,
 		NULL, // no static properties
 		st_funcs);
+	// make the class enumerable in the registered namespace
+	JSBool found;
+	JS_SetPropertyAttributes(cx, globalObj, "AudioEngine", JSPROP_ENUMERATE | JSPROP_READONLY, &found);
 
 	// add the proto and JSClass to the type->js info hash table
 	TypeTest<CocosDenshion::SimpleAudioEngine> t;
