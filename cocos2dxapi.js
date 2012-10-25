@@ -5340,12 +5340,6 @@ init : function () {},
 setScheduler : function () {},
 
 /**
- * @method reshapeProjection
- * @param {cocos2d::CCSize}
- */
-reshapeProjection : function () {},
-
-/**
  * @method startAnimation
  */
 startAnimation : function () {},
