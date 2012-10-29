@@ -25436,21 +25436,21 @@ JSBool js_cocos2dx_CCLayer_ccTouchBegan(JSContext *cx, uint32_t argc, jsval *vp)
 	JS_ReportError(cx, "wrong number of arguments: %d, was expecting %d", argc, 2);
 	return JS_FALSE;
 }
-JSBool js_cocos2dx_CCLayer_isKeypadEnabled(JSContext *cx, uint32_t argc, jsval *vp)
+JSBool js_cocos2dx_CCLayer_setAccelerometerInterval(JSContext *cx, uint32_t argc, jsval *vp)
 {
+	jsval *argv = JS_ARGV(cx, vp);
 	JSObject *obj = JS_THIS_OBJECT(cx, vp);
 	js_proxy_t *proxy; JS_GET_NATIVE_PROXY(proxy, obj);
 	cocos2d::CCLayer* cobj = (cocos2d::CCLayer *)(proxy ? proxy->ptr : NULL);
 	TEST_NATIVE_OBJECT(cx, cobj)
 
-	if (argc == 0) {
-		bool ret = cobj->isKeypadEnabled();
-		jsval jsret;
-		jsret = BOOLEAN_TO_JSVAL(ret);
-		JS_SET_RVAL(cx, vp, jsret);
+	if (argc == 1) {
+		double arg0;
+		JS_ValueToNumber(cx, argv[0], &arg0);
+		cobj->setAccelerometerInterval(arg0);
 		return JS_TRUE;
 	}
-	JS_ReportError(cx, "wrong number of arguments: %d, was expecting %d", argc, 0);
+	JS_ReportError(cx, "wrong number of arguments: %d, was expecting %d", argc, 1);
 	return JS_FALSE;
 }
 JSBool js_cocos2dx_CCLayer_ccTouchesCancelled(JSContext *cx, uint32_t argc, jsval *vp)
@@ -25513,6 +25513,23 @@ JSBool js_cocos2dx_CCLayer_ccTouchesMoved(JSContext *cx, uint32_t argc, jsval *v
 		return JS_TRUE;
 	}
 	JS_ReportError(cx, "wrong number of arguments: %d, was expecting %d", argc, 2);
+	return JS_FALSE;
+}
+JSBool js_cocos2dx_CCLayer_getTouchMode(JSContext *cx, uint32_t argc, jsval *vp)
+{
+	JSObject *obj = JS_THIS_OBJECT(cx, vp);
+	js_proxy_t *proxy; JS_GET_NATIVE_PROXY(proxy, obj);
+	cocos2d::CCLayer* cobj = (cocos2d::CCLayer *)(proxy ? proxy->ptr : NULL);
+	TEST_NATIVE_OBJECT(cx, cobj)
+
+	if (argc == 0) {
+		int ret = cobj->getTouchMode();
+		jsval jsret;
+		jsret = INT_TO_JSVAL(ret);
+		JS_SET_RVAL(cx, vp, jsret);
+		return JS_TRUE;
+	}
+	JS_ReportError(cx, "wrong number of arguments: %d, was expecting %d", argc, 0);
 	return JS_FALSE;
 }
 JSBool js_cocos2dx_CCLayer_setAccelerometerEnabled(JSContext *cx, uint32_t argc, jsval *vp)
@@ -25614,6 +25631,23 @@ JSBool js_cocos2dx_CCLayer_setTouchEnabled(JSContext *cx, uint32_t argc, jsval *
 	JS_ReportError(cx, "wrong number of arguments: %d, was expecting %d", argc, 1);
 	return JS_FALSE;
 }
+JSBool js_cocos2dx_CCLayer_isKeypadEnabled(JSContext *cx, uint32_t argc, jsval *vp)
+{
+	JSObject *obj = JS_THIS_OBJECT(cx, vp);
+	js_proxy_t *proxy; JS_GET_NATIVE_PROXY(proxy, obj);
+	cocos2d::CCLayer* cobj = (cocos2d::CCLayer *)(proxy ? proxy->ptr : NULL);
+	TEST_NATIVE_OBJECT(cx, cobj)
+
+	if (argc == 0) {
+		bool ret = cobj->isKeypadEnabled();
+		jsval jsret;
+		jsret = BOOLEAN_TO_JSVAL(ret);
+		JS_SET_RVAL(cx, vp, jsret);
+		return JS_TRUE;
+	}
+	JS_ReportError(cx, "wrong number of arguments: %d, was expecting %d", argc, 0);
+	return JS_FALSE;
+}
 JSBool js_cocos2dx_CCLayer_ccTouchesEnded(JSContext *cx, uint32_t argc, jsval *vp)
 {
 	jsval *argv = JS_ARGV(cx, vp);
@@ -25643,6 +25677,23 @@ JSBool js_cocos2dx_CCLayer_ccTouchesEnded(JSContext *cx, uint32_t argc, jsval *v
 		return JS_TRUE;
 	}
 	JS_ReportError(cx, "wrong number of arguments: %d, was expecting %d", argc, 2);
+	return JS_FALSE;
+}
+JSBool js_cocos2dx_CCLayer_setTouchMode(JSContext *cx, uint32_t argc, jsval *vp)
+{
+	jsval *argv = JS_ARGV(cx, vp);
+	JSObject *obj = JS_THIS_OBJECT(cx, vp);
+	js_proxy_t *proxy; JS_GET_NATIVE_PROXY(proxy, obj);
+	cocos2d::CCLayer* cobj = (cocos2d::CCLayer *)(proxy ? proxy->ptr : NULL);
+	TEST_NATIVE_OBJECT(cx, cobj)
+
+	if (argc == 1) {
+		cocos2d::ccTouchesMode arg0;
+		JS_ValueToInt32(cx, argv[0], (int32_t *)&arg0);
+		cobj->setTouchMode(arg0);
+		return JS_TRUE;
+	}
+	JS_ReportError(cx, "wrong number of arguments: %d, was expecting %d", argc, 1);
 	return JS_FALSE;
 }
 JSBool js_cocos2dx_CCLayer_isAccelerometerEnabled(JSContext *cx, uint32_t argc, jsval *vp)
@@ -25778,6 +25829,40 @@ JSBool js_cocos2dx_CCLayer_ccTouchesBegan(JSContext *cx, uint32_t argc, jsval *v
 	JS_ReportError(cx, "wrong number of arguments: %d, was expecting %d", argc, 2);
 	return JS_FALSE;
 }
+JSBool js_cocos2dx_CCLayer_setTouchPriority(JSContext *cx, uint32_t argc, jsval *vp)
+{
+	jsval *argv = JS_ARGV(cx, vp);
+	JSObject *obj = JS_THIS_OBJECT(cx, vp);
+	js_proxy_t *proxy; JS_GET_NATIVE_PROXY(proxy, obj);
+	cocos2d::CCLayer* cobj = (cocos2d::CCLayer *)(proxy ? proxy->ptr : NULL);
+	TEST_NATIVE_OBJECT(cx, cobj)
+
+	if (argc == 1) {
+		int arg0;
+		JS_ValueToInt32(cx, argv[0], (int32_t *)&arg0);
+		cobj->setTouchPriority(arg0);
+		return JS_TRUE;
+	}
+	JS_ReportError(cx, "wrong number of arguments: %d, was expecting %d", argc, 1);
+	return JS_FALSE;
+}
+JSBool js_cocos2dx_CCLayer_getTouchPriority(JSContext *cx, uint32_t argc, jsval *vp)
+{
+	JSObject *obj = JS_THIS_OBJECT(cx, vp);
+	js_proxy_t *proxy; JS_GET_NATIVE_PROXY(proxy, obj);
+	cocos2d::CCLayer* cobj = (cocos2d::CCLayer *)(proxy ? proxy->ptr : NULL);
+	TEST_NATIVE_OBJECT(cx, cobj)
+
+	if (argc == 0) {
+		int ret = cobj->getTouchPriority();
+		jsval jsret;
+		jsret = INT_TO_JSVAL(ret);
+		JS_SET_RVAL(cx, vp, jsret);
+		return JS_TRUE;
+	}
+	JS_ReportError(cx, "wrong number of arguments: %d, was expecting %d", argc, 0);
+	return JS_FALSE;
+}
 JSBool js_cocos2dx_CCLayer_setKeypadEnabled(JSContext *cx, uint32_t argc, jsval *vp)
 {
 	jsval *argv = JS_ARGV(cx, vp);
@@ -25897,20 +25982,25 @@ void js_register_cocos2dx_CCLayer(JSContext *cx, JSObject *global) {
 		JS_FN("unregisterScriptTouchHandler", js_cocos2dx_CCLayer_unregisterScriptTouchHandler, 0, JSPROP_PERMANENT | JSPROP_SHARED),
 		JS_FN("getScriptHandlerEntry", js_cocos2dx_CCLayer_getScriptHandlerEntry, 0, JSPROP_PERMANENT | JSPROP_SHARED),
 		JS_FN("ccTouchBegan", js_cocos2dx_CCLayer_ccTouchBegan, 2, JSPROP_PERMANENT | JSPROP_SHARED),
-		JS_FN("isKeypadEnabled", js_cocos2dx_CCLayer_isKeypadEnabled, 0, JSPROP_PERMANENT | JSPROP_SHARED),
+		JS_FN("setAccelerometerInterval", js_cocos2dx_CCLayer_setAccelerometerInterval, 1, JSPROP_PERMANENT | JSPROP_SHARED),
 		JS_FN("ccTouchesCancelled", js_cocos2dx_CCLayer_ccTouchesCancelled, 2, JSPROP_PERMANENT | JSPROP_SHARED),
 		JS_FN("ccTouchesMoved", js_cocos2dx_CCLayer_ccTouchesMoved, 2, JSPROP_PERMANENT | JSPROP_SHARED),
+		JS_FN("getTouchMode", js_cocos2dx_CCLayer_getTouchMode, 0, JSPROP_PERMANENT | JSPROP_SHARED),
 		JS_FN("setAccelerometerEnabled", js_cocos2dx_CCLayer_setAccelerometerEnabled, 1, JSPROP_PERMANENT | JSPROP_SHARED),
 		JS_FN("init", js_cocos2dx_CCLayer_init, 0, JSPROP_PERMANENT | JSPROP_SHARED),
 		JS_FN("isTouchEnabled", js_cocos2dx_CCLayer_isTouchEnabled, 0, JSPROP_PERMANENT | JSPROP_SHARED),
 		JS_FN("ccTouchMoved", js_cocos2dx_CCLayer_ccTouchMoved, 2, JSPROP_PERMANENT | JSPROP_SHARED),
 		JS_FN("setTouchEnabled", js_cocos2dx_CCLayer_setTouchEnabled, 1, JSPROP_PERMANENT | JSPROP_SHARED),
+		JS_FN("isKeypadEnabled", js_cocos2dx_CCLayer_isKeypadEnabled, 0, JSPROP_PERMANENT | JSPROP_SHARED),
 		JS_FN("ccTouchesEnded", js_cocos2dx_CCLayer_ccTouchesEnded, 2, JSPROP_PERMANENT | JSPROP_SHARED),
+		JS_FN("setTouchMode", js_cocos2dx_CCLayer_setTouchMode, 1, JSPROP_PERMANENT | JSPROP_SHARED),
 		JS_FN("isAccelerometerEnabled", js_cocos2dx_CCLayer_isAccelerometerEnabled, 0, JSPROP_PERMANENT | JSPROP_SHARED),
 		JS_FN("ccTouchEnded", js_cocos2dx_CCLayer_ccTouchEnded, 2, JSPROP_PERMANENT | JSPROP_SHARED),
 		JS_FN("registerScriptTouchHandler", js_cocos2dx_CCLayer_registerScriptTouchHandler, 4, JSPROP_PERMANENT | JSPROP_SHARED),
 		JS_FN("ccTouchCancelled", js_cocos2dx_CCLayer_ccTouchCancelled, 2, JSPROP_PERMANENT | JSPROP_SHARED),
 		JS_FN("ccTouchesBegan", js_cocos2dx_CCLayer_ccTouchesBegan, 2, JSPROP_PERMANENT | JSPROP_SHARED),
+		JS_FN("setTouchPriority", js_cocos2dx_CCLayer_setTouchPriority, 1, JSPROP_PERMANENT | JSPROP_SHARED),
+		JS_FN("getTouchPriority", js_cocos2dx_CCLayer_getTouchPriority, 0, JSPROP_PERMANENT | JSPROP_SHARED),
 		JS_FN("setKeypadEnabled", js_cocos2dx_CCLayer_setKeypadEnabled, 1, JSPROP_PERMANENT | JSPROP_SHARED),
 		JS_FN("registerWithTouchDispatcher", js_cocos2dx_CCLayer_registerWithTouchDispatcher, 0, JSPROP_PERMANENT | JSPROP_SHARED),
 		JS_FS_END

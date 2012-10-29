@@ -5899,10 +5899,10 @@ getScriptHandlerEntry : function () {},
 ccTouchBegan : function () {},
 
 /**
- * @method isKeypadEnabled
- * @return A value converted from C/C++ "bool"
+ * @method setAccelerometerInterval
+ * @param {double}
  */
-isKeypadEnabled : function () {},
+setAccelerometerInterval : function () {},
 
 /**
  * @method ccTouchesCancelled
@@ -5917,6 +5917,12 @@ ccTouchesCancelled : function () {},
  * @param {cocos2d::CCEvent*}
  */
 ccTouchesMoved : function () {},
+
+/**
+ * @method getTouchMode
+ * @return A value converted from C/C++ "int"
+ */
+getTouchMode : function () {},
 
 /**
  * @method setAccelerometerEnabled
@@ -5950,11 +5956,23 @@ ccTouchMoved : function () {},
 setTouchEnabled : function () {},
 
 /**
+ * @method isKeypadEnabled
+ * @return A value converted from C/C++ "bool"
+ */
+isKeypadEnabled : function () {},
+
+/**
  * @method ccTouchesEnded
  * @param {cocos2d::CCSet*}
  * @param {cocos2d::CCEvent*}
  */
 ccTouchesEnded : function () {},
+
+/**
+ * @method setTouchMode
+ * @param {cocos2d::ccTouchesMode}
+ */
+setTouchMode : function () {},
 
 /**
  * @method isAccelerometerEnabled
@@ -5991,6 +6009,18 @@ ccTouchCancelled : function () {},
  * @param {cocos2d::CCEvent*}
  */
 ccTouchesBegan : function () {},
+
+/**
+ * @method setTouchPriority
+ * @param {int}
+ */
+setTouchPriority : function () {},
+
+/**
+ * @method getTouchPriority
+ * @return A value converted from C/C++ "int"
+ */
+getTouchPriority : function () {},
 
 /**
  * @method setKeypadEnabled
