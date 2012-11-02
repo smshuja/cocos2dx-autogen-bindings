@@ -837,6 +837,12 @@ convertToNodeSpace : function () {},
 getScale : function () {},
 
 /**
+ * @method getCamera
+ * @return A value converted from C/C++ "cocos2d::CCCamera*"
+ */
+getCamera : function () {},
+
+/**
  * @method setTag
  * @param {int}
  */
@@ -4810,6 +4816,100 @@ atlasWithTileFile : function () {},
  * @constructor
  */
 CCAtlasNode : function () {},
+
+};
+
+/**
+ * @class CCCamera
+ */
+cc.CCCamera = {
+
+/**
+ * @method locate
+ */
+locate : function () {},
+
+/**
+ * @method restore
+ */
+restore : function () {},
+
+/**
+ * @method setUpXYZ
+ * @param {float}
+ * @param {float}
+ * @param {float}
+ */
+setUpXYZ : function () {},
+
+/**
+ * @method setCenterXYZ
+ * @param {float}
+ * @param {float}
+ * @param {float}
+ */
+setCenterXYZ : function () {},
+
+/**
+ * @method setEyeXYZ
+ * @param {float}
+ * @param {float}
+ * @param {float}
+ */
+setEyeXYZ : function () {},
+
+/**
+ * @method getCenterXYZ
+ * @param {float*}
+ * @param {float*}
+ * @param {float*}
+ */
+getCenterXYZ : function () {},
+
+/**
+ * @method getEyeXYZ
+ * @param {float*}
+ * @param {float*}
+ * @param {float*}
+ */
+getEyeXYZ : function () {},
+
+/**
+ * @method isDirty
+ * @return A value converted from C/C++ "bool"
+ */
+isDirty : function () {},
+
+/**
+ * @method init
+ */
+init : function () {},
+
+/**
+ * @method getUpXYZ
+ * @param {float*}
+ * @param {float*}
+ * @param {float*}
+ */
+getUpXYZ : function () {},
+
+/**
+ * @method setDirty
+ * @param {bool}
+ */
+setDirty : function () {},
+
+/**
+ * @method getZEye
+ * @return A value converted from C/C++ "float"
+ */
+getZEye : function () {},
+
+/**
+ * @method CCCamera
+ * @constructor
+ */
+CCCamera : function () {},
 
 };
 
@@ -10824,5 +10924,793 @@ end : function () {},
  * @return A value converted from C/C++ "CocosDenshion::SimpleAudioEngine*"
  */
 sharedEngine : function () {},
+
+};
+
+/**
+ * @class CCBReader
+ */
+cc.CCBReader = {
+
+/**
+ * @method getOwnerCallbackNames
+ * @return A value converted from C/C++ "cocos2d::CCArray*"
+ */
+getOwnerCallbackNames : function () {},
+
+/**
+ * @method getOwnerCallbackNodes
+ * @return A value converted from C/C++ "cocos2d::CCArray*"
+ */
+getOwnerCallbackNodes : function () {},
+
+/**
+ * @method getNodesWithAnimationManagers
+ * @return A value converted from C/C++ "cocos2d::CCArray*"
+ */
+getNodesWithAnimationManagers : function () {},
+
+/**
+ * @method getOwnerOutletNodes
+ * @return A value converted from C/C++ "cocos2d::CCArray*"
+ */
+getOwnerOutletNodes : function () {},
+
+/**
+ * @method getOwnerOutletNames
+ * @return A value converted from C/C++ "cocos2d::CCArray*"
+ */
+getOwnerOutletNames : function () {},
+
+/**
+ * @method setAnimationManager
+ * @param {cocos2d::extension::CCBAnimationManager*}
+ */
+setAnimationManager : function () {},
+
+/**
+ * @method getAnimationManager
+ * @return A value converted from C/C++ "cocos2d::extension::CCBAnimationManager*"
+ */
+getAnimationManager : function () {},
+
+};
+
+/**
+ * @class CCScale9Sprite
+ */
+cc.CCScale9Sprite = {
+
+/**
+ * @method getCapInsets
+ * @return A value converted from C/C++ "cocos2d::CCRect"
+ */
+getCapInsets : function () {},
+
+/**
+ * @method updateWithBatchNode
+ * @return A value converted from C/C++ "bool"
+ * @param {cocos2d::CCSpriteBatchNode*}
+ * @param {cocos2d::CCRect}
+ * @param {bool}
+ * @param {cocos2d::CCRect}
+ */
+updateWithBatchNode : function () {},
+
+/**
+ * @method setInsetBottom
+ * @param {float}
+ */
+setInsetBottom : function () {},
+
+/**
+ * @method visit
+ */
+visit : function () {},
+
+/**
+ * @method setOpacity
+ * @param {unsigned char}
+ */
+setOpacity : function () {},
+
+/**
+ * @method setInsetTop
+ * @param {float}
+ */
+setInsetTop : function () {},
+
+/**
+ * @method init
+ * @return A value converted from C/C++ "bool"
+ */
+init : function () {},
+
+/**
+ * @method setPreferredSize
+ * @param {cocos2d::CCSize}
+ */
+setPreferredSize : function () {},
+
+/**
+ * @method getOpacity
+ * @return A value converted from C/C++ "unsigned char"
+ */
+getOpacity : function () {},
+
+/**
+ * @method setSpriteFrame
+ * @param {cocos2d::CCSpriteFrame*}
+ */
+setSpriteFrame : function () {},
+
+/**
+ * @method getColor
+ * @return A value converted from C/C++ "cocos2d::ccColor3B"
+ */
+getColor : function () {},
+
+/**
+ * @method getInsetBottom
+ * @return A value converted from C/C++ "float"
+ */
+getInsetBottom : function () {},
+
+/**
+ * @method resizableSpriteWithCapInsets
+ * @return A value converted from C/C++ "cocos2d::extension::CCScale9Sprite*"
+ * @param {cocos2d::CCRect}
+ */
+resizableSpriteWithCapInsets : function () {},
+
+/**
+ * @method setContentSize
+ * @param {cocos2d::CCSize}
+ */
+setContentSize : function () {},
+
+/**
+ * @method getInsetRight
+ * @return A value converted from C/C++ "float"
+ */
+getInsetRight : function () {},
+
+/**
+ * @method getOriginalSize
+ * @return A value converted from C/C++ "cocos2d::CCSize"
+ */
+getOriginalSize : function () {},
+
+/**
+ * @method setColor
+ * @param {cocos2d::ccColor3B}
+ */
+setColor : function () {},
+
+/**
+ * @method getInsetTop
+ * @return A value converted from C/C++ "float"
+ */
+getInsetTop : function () {},
+
+/**
+ * @method setInsetLeft
+ * @param {float}
+ */
+setInsetLeft : function () {},
+
+/**
+ * @method getPreferredSize
+ * @return A value converted from C/C++ "cocos2d::CCSize"
+ */
+getPreferredSize : function () {},
+
+/**
+ * @method setCapInsets
+ * @param {cocos2d::CCRect}
+ */
+setCapInsets : function () {},
+
+/**
+ * @method getInsetLeft
+ * @return A value converted from C/C++ "float"
+ */
+getInsetLeft : function () {},
+
+/**
+ * @method setInsetRight
+ * @param {float}
+ */
+setInsetRight : function () {},
+
+/**
+ * @method node
+ * @return A value converted from C/C++ "cocos2d::extension::CCScale9Sprite*"
+ */
+node : function () {},
+
+/**
+ * @method CCScale9Sprite
+ * @constructor
+ */
+CCScale9Sprite : function () {},
+
+};
+
+/**
+ * @class CCControlButton
+ */
+cc.CCControlButton = {
+
+/**
+ * @method setTitleColorDispatchTable
+ * @param {cocos2d::CCDictionary*}
+ */
+setTitleColorDispatchTable : function () {},
+
+/**
+ * @method isPushed
+ * @return A value converted from C/C++ "bool"
+ */
+isPushed : function () {},
+
+/**
+ * @method setSelected
+ * @param {bool}
+ */
+setSelected : function () {},
+
+/**
+ * @method setTitleLabel
+ * @param {cocos2d::CCNode*}
+ */
+setTitleLabel : function () {},
+
+/**
+ * @method ccTouchBegan
+ * @return A value converted from C/C++ "bool"
+ * @param {cocos2d::CCTouch*}
+ * @param {cocos2d::CCEvent*}
+ */
+ccTouchBegan : function () {},
+
+/**
+ * @method setTitleTTFSizeForState
+ * @param {float}
+ * @param {unsigned int}
+ */
+setTitleTTFSizeForState : function () {},
+
+/**
+ * @method setAdjustBackgroundImage
+ * @param {bool}
+ */
+setAdjustBackgroundImage : function () {},
+
+/**
+ * @method ccTouchEnded
+ * @param {cocos2d::CCTouch*}
+ * @param {cocos2d::CCEvent*}
+ */
+ccTouchEnded : function () {},
+
+/**
+ * @method setHighlighted
+ * @param {bool}
+ */
+setHighlighted : function () {},
+
+/**
+ * @method setBackgroundSpriteDispatchTable
+ * @param {cocos2d::CCDictionary*}
+ */
+setBackgroundSpriteDispatchTable : function () {},
+
+/**
+ * @method setZoomOnTouchDown
+ * @param {bool}
+ */
+setZoomOnTouchDown : function () {},
+
+/**
+ * @method getTitleDispatchTable
+ * @return A value converted from C/C++ "cocos2d::CCDictionary*"
+ */
+getTitleDispatchTable : function () {},
+
+/**
+ * @method setLabelAnchorPoint
+ * @param {cocos2d::CCPoint}
+ */
+setLabelAnchorPoint : function () {},
+
+/**
+ * @method ccTouchCancelled
+ * @param {cocos2d::CCTouch*}
+ * @param {cocos2d::CCEvent*}
+ */
+ccTouchCancelled : function () {},
+
+/**
+ * @method getLabelAnchorPoint
+ * @return A value converted from C/C++ "cocos2d::CCPoint"
+ */
+getLabelAnchorPoint : function () {},
+
+/**
+ * @method initWithBackgroundSprite
+ * @return A value converted from C/C++ "bool"
+ * @param {cocos2d::extension::CCScale9Sprite*}
+ */
+initWithBackgroundSprite : function () {},
+
+/**
+ * @method getTitleTTFSizeForState
+ * @return A value converted from C/C++ "float"
+ * @param {unsigned int}
+ */
+getTitleTTFSizeForState : function () {},
+
+/**
+ * @method setTitleDispatchTable
+ * @param {cocos2d::CCDictionary*}
+ */
+setTitleDispatchTable : function () {},
+
+/**
+ * @method setOpacity
+ * @param {unsigned char}
+ */
+setOpacity : function () {},
+
+/**
+ * @method init
+ * @return A value converted from C/C++ "bool"
+ */
+init : function () {},
+
+/**
+ * @method setTitleTTFForState
+ * @param {const char*}
+ * @param {unsigned int}
+ */
+setTitleTTFForState : function () {},
+
+/**
+ * @method setPreferredSize
+ * @param {cocos2d::CCSize}
+ */
+setPreferredSize : function () {},
+
+/**
+ * @method setTitleLabelForState
+ * @param {cocos2d::CCNode*}
+ * @param {unsigned int}
+ */
+setTitleLabelForState : function () {},
+
+/**
+ * @method ccTouchMoved
+ * @param {cocos2d::CCTouch*}
+ * @param {cocos2d::CCEvent*}
+ */
+ccTouchMoved : function () {},
+
+/**
+ * @method getOpacity
+ * @return A value converted from C/C++ "unsigned char"
+ */
+getOpacity : function () {},
+
+/**
+ * @method getCurrentTitleColor
+ * @return A value converted from C/C++ "cocos2d::ccColor3B"
+ */
+getCurrentTitleColor : function () {},
+
+/**
+ * @method getTitleColorDispatchTable
+ * @return A value converted from C/C++ "cocos2d::CCDictionary*"
+ */
+getTitleColorDispatchTable : function () {},
+
+/**
+ * @method setEnabled
+ * @param {bool}
+ */
+setEnabled : function () {},
+
+/**
+ * @method getBackgroundSpriteForState
+ * @return A value converted from C/C++ "cocos2d::extension::CCScale9Sprite*"
+ * @param {unsigned int}
+ */
+getBackgroundSpriteForState : function () {},
+
+/**
+ * @method getHorizontalOrigin
+ * @return A value converted from C/C++ "int"
+ */
+getHorizontalOrigin : function () {},
+
+/**
+ * @method setMargins
+ * @param {int}
+ * @param {int}
+ */
+setMargins : function () {},
+
+/**
+ * @method needsLayout
+ */
+needsLayout : function () {},
+
+/**
+ * @method initWithTitleAndFontNameAndFontSize
+ * @return A value converted from C/C++ "bool"
+ * @param {std::string}
+ * @param {const char*}
+ * @param {float}
+ */
+initWithTitleAndFontNameAndFontSize : function () {},
+
+/**
+ * @method setTitleBMFontForState
+ * @param {const char*}
+ * @param {unsigned int}
+ */
+setTitleBMFontForState : function () {},
+
+/**
+ * @method getTitleTTFForState
+ * @return A value converted from C/C++ "const char*"
+ * @param {unsigned int}
+ */
+getTitleTTFForState : function () {},
+
+/**
+ * @method getBackgroundSprite
+ * @return A value converted from C/C++ "cocos2d::extension::CCScale9Sprite*"
+ */
+getBackgroundSprite : function () {},
+
+/**
+ * @method getTitleColorForState
+ * @return A value converted from C/C++ "const ccColor3B"
+ * @param {unsigned int}
+ */
+getTitleColorForState : function () {},
+
+/**
+ * @method setTitleColorForState
+ * @param {ccColor3B}
+ * @param {unsigned int}
+ */
+setTitleColorForState : function () {},
+
+/**
+ * @method doesAdjustBackgroundImage
+ * @return A value converted from C/C++ "bool"
+ */
+doesAdjustBackgroundImage : function () {},
+
+/**
+ * @method setBackgroundSpriteFrameForState
+ * @param {cocos2d::CCSpriteFrame*}
+ * @param {unsigned int}
+ */
+setBackgroundSpriteFrameForState : function () {},
+
+/**
+ * @method setBackgroundSpriteForState
+ * @param {cocos2d::extension::CCScale9Sprite*}
+ * @param {unsigned int}
+ */
+setBackgroundSpriteForState : function () {},
+
+/**
+ * @method getTitleLabelDispatchTable
+ * @return A value converted from C/C++ "cocos2d::CCDictionary*"
+ */
+getTitleLabelDispatchTable : function () {},
+
+/**
+ * @method initWithLabelAndBackgroundSprite
+ * @return A value converted from C/C++ "bool"
+ * @param {cocos2d::CCNode*}
+ * @param {cocos2d::extension::CCScale9Sprite*}
+ */
+initWithLabelAndBackgroundSprite : function () {},
+
+/**
+ * @method setTitleLabelDispatchTable
+ * @param {cocos2d::CCDictionary*}
+ */
+setTitleLabelDispatchTable : function () {},
+
+/**
+ * @method getTitleLabel
+ * @return A value converted from C/C++ "cocos2d::CCNode*"
+ */
+getTitleLabel : function () {},
+
+/**
+ * @method getPreferredSize
+ * @return A value converted from C/C++ "cocos2d::CCSize"
+ */
+getPreferredSize : function () {},
+
+/**
+ * @method getVerticalMargin
+ * @return A value converted from C/C++ "int"
+ */
+getVerticalMargin : function () {},
+
+/**
+ * @method getBackgroundSpriteDispatchTable
+ * @return A value converted from C/C++ "cocos2d::CCDictionary*"
+ */
+getBackgroundSpriteDispatchTable : function () {},
+
+/**
+ * @method getTitleLabelForState
+ * @return A value converted from C/C++ "cocos2d::CCNode*"
+ * @param {unsigned int}
+ */
+getTitleLabelForState : function () {},
+
+/**
+ * @method getCurrentTitle
+ * @return A value converted from C/C++ "cocos2d::CCString*"
+ */
+getCurrentTitle : function () {},
+
+/**
+ * @method getTitleBMFontForState
+ * @return A value converted from C/C++ "const char*"
+ * @param {unsigned int}
+ */
+getTitleBMFontForState : function () {},
+
+/**
+ * @method setTitleForState
+ * @param {cocos2d::CCString*}
+ * @param {unsigned int}
+ */
+setTitleForState : function () {},
+
+/**
+ * @method setBackgroundSprite
+ * @param {cocos2d::extension::CCScale9Sprite*}
+ */
+setBackgroundSprite : function () {},
+
+/**
+ * @method getZoomOnTouchDown
+ * @return A value converted from C/C++ "bool"
+ */
+getZoomOnTouchDown : function () {},
+
+/**
+ * @method getTitleForState
+ * @return A value converted from C/C++ "cocos2d::CCString*"
+ * @param {unsigned int}
+ */
+getTitleForState : function () {},
+
+/**
+ * @method buttonWithLabelAndBackgroundSprite
+ * @return A value converted from C/C++ "cocos2d::extension::CCControlButton*"
+ * @param {cocos2d::CCNode*}
+ * @param {cocos2d::extension::CCScale9Sprite*}
+ */
+buttonWithLabelAndBackgroundSprite : function () {},
+
+/**
+ * @method buttonWithBackgroundSprite
+ * @return A value converted from C/C++ "cocos2d::extension::CCControlButton*"
+ * @param {cocos2d::extension::CCScale9Sprite*}
+ */
+buttonWithBackgroundSprite : function () {},
+
+/**
+ * @method buttonWithTitleAndFontNameAndFontSize
+ * @return A value converted from C/C++ "cocos2d::extension::CCControlButton*"
+ * @param {std::string}
+ * @param {const char*}
+ * @param {float}
+ */
+buttonWithTitleAndFontNameAndFontSize : function () {},
+
+/**
+ * @method node
+ * @return A value converted from C/C++ "cocos2d::extension::CCControlButton*"
+ */
+node : function () {},
+
+/**
+ * @method CCControlButton
+ * @constructor
+ */
+CCControlButton : function () {},
+
+};
+
+/**
+ * @class CCBAnimationManager
+ */
+cc.CCBAnimationManager = {
+
+/**
+ * @method moveAnimationsFromNode
+ * @param {cocos2d::CCNode*}
+ * @param {cocos2d::CCNode*}
+ */
+moveAnimationsFromNode : function () {},
+
+/**
+ * @method setAutoPlaySequenceId
+ * @param {int}
+ */
+setAutoPlaySequenceId : function () {},
+
+/**
+ * @method getDocumentCallbackNames
+ * @return A value converted from C/C++ "cocos2d::CCArray*"
+ */
+getDocumentCallbackNames : function () {},
+
+/**
+ * @method setBaseValue
+ * @param {cocos2d::CCObject*}
+ * @param {cocos2d::CCNode*}
+ * @param {const char*}
+ */
+setBaseValue : function () {},
+
+/**
+ * @method getDocumentOutletNodes
+ * @return A value converted from C/C++ "cocos2d::CCArray*"
+ */
+getDocumentOutletNodes : function () {},
+
+/**
+ * @method addNode
+ * @param {cocos2d::CCNode*}
+ * @param {cocos2d::CCDictionary*}
+ */
+addNode : function () {},
+
+/**
+ * @method getLastCompletedSequenceName
+ * @return A value converted from C/C++ "std::string"
+ */
+getLastCompletedSequenceName : function () {},
+
+/**
+ * @method setRootNode
+ * @param {cocos2d::CCNode*}
+ */
+setRootNode : function () {},
+
+/**
+ * @method addDocumentOutletName
+ * @param {std::string}
+ */
+addDocumentOutletName : function () {},
+
+/**
+ * @method getSequences
+ * @return A value converted from C/C++ "cocos2d::CCArray*"
+ */
+getSequences : function () {},
+
+/**
+ * @method getRootContainerSize
+ * @return A value converted from C/C++ "cocos2d::CCSize"
+ */
+getRootContainerSize : function () {},
+
+/**
+ * @method setDocumentControllerName
+ * @param {std::string}
+ */
+setDocumentControllerName : function () {},
+
+/**
+ * @method getContainerSize
+ * @return A value converted from C/C++ "cocos2d::CCSize"
+ * @param {cocos2d::CCNode*}
+ */
+getContainerSize : function () {},
+
+/**
+ * @method getDocumentOutletNames
+ * @return A value converted from C/C++ "cocos2d::CCArray*"
+ */
+getDocumentOutletNames : function () {},
+
+/**
+ * @method init
+ * @return A value converted from C/C++ "bool"
+ */
+init : function () {},
+
+/**
+ * @method setRootContainerSize
+ * @param {cocos2d::CCSize}
+ */
+setRootContainerSize : function () {},
+
+/**
+ * @method getRunningSequenceName
+ * @return A value converted from C/C++ "const char*"
+ */
+getRunningSequenceName : function () {},
+
+/**
+ * @method getAutoPlaySequenceId
+ * @return A value converted from C/C++ "int"
+ */
+getAutoPlaySequenceId : function () {},
+
+/**
+ * @method addDocumentCallbackName
+ * @param {std::string}
+ */
+addDocumentCallbackName : function () {},
+
+/**
+ * @method getRootNode
+ * @return A value converted from C/C++ "cocos2d::CCNode*"
+ */
+getRootNode : function () {},
+
+/**
+ * @method addDocumentOutletNode
+ * @param {cocos2d::CCNode*}
+ */
+addDocumentOutletNode : function () {},
+
+/**
+ * @method setDelegate
+ * @param {cocos2d::extension::CCBAnimationManagerDelegate*}
+ */
+setDelegate : function () {},
+
+/**
+ * @method addDocumentCallbackNode
+ * @param {cocos2d::CCNode*}
+ */
+addDocumentCallbackNode : function () {},
+
+/**
+ * @method getDelegate
+ * @return A value converted from C/C++ "cocos2d::extension::CCBAnimationManagerDelegate*"
+ */
+getDelegate : function () {},
+
+/**
+ * @method getDocumentCallbackNodes
+ * @return A value converted from C/C++ "cocos2d::CCArray*"
+ */
+getDocumentCallbackNodes : function () {},
+
+/**
+ * @method debug
+ */
+debug : function () {},
+
+/**
+ * @method getDocumentControllerName
+ * @return A value converted from C/C++ "std::string"
+ */
+getDocumentControllerName : function () {},
+
+/**
+ * @method CCBAnimationManager
+ * @constructor
+ */
+CCBAnimationManager : function () {},
 
 };
