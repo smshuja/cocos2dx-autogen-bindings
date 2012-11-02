@@ -26305,22 +26305,6 @@ JSBool js_cocos2dx_CCLayerColor_layerWithColor(JSContext *cx, uint32_t argc, jsv
 JSBool js_cocos2dx_CCLayerColor_create(JSContext *cx, uint32_t argc, jsval *vp)
 {
 	jsval *argv = JS_ARGV(cx, vp);
-	if (argc == 1) {
-		cocos2d::ccColor4B arg0;
-		arg0 = jsval_to_cccolor4b(cx, argv[0]);
-		cocos2d::CCLayerColor* ret = cocos2d::CCLayerColor::create(arg0);
-		jsval jsret;
-		do {
-			if (ret) {
-				js_proxy_t *proxy = js_get_or_create_proxy<cocos2d::CCLayerColor>(cx, ret);
-				jsret = OBJECT_TO_JSVAL(proxy->obj);
-			} else {
-				jsret = JSVAL_NULL;
-			}
-		} while (0);
-		JS_SET_RVAL(cx, vp, jsret);
-		return JS_TRUE;
-	}
 	if (argc == 3) {
 		cocos2d::ccColor4B arg0;
 		arg0 = jsval_to_cccolor4b(cx, argv[0]);
@@ -26343,6 +26327,22 @@ JSBool js_cocos2dx_CCLayerColor_create(JSContext *cx, uint32_t argc, jsval *vp)
 	}
 	if (argc == 0) {
 		cocos2d::CCLayerColor* ret = cocos2d::CCLayerColor::create();
+		jsval jsret;
+		do {
+			if (ret) {
+				js_proxy_t *proxy = js_get_or_create_proxy<cocos2d::CCLayerColor>(cx, ret);
+				jsret = OBJECT_TO_JSVAL(proxy->obj);
+			} else {
+				jsret = JSVAL_NULL;
+			}
+		} while (0);
+		JS_SET_RVAL(cx, vp, jsret);
+		return JS_TRUE;
+	}
+	if (argc == 1) {
+		cocos2d::ccColor4B arg0;
+		arg0 = jsval_to_cccolor4b(cx, argv[0]);
+		cocos2d::CCLayerColor* ret = cocos2d::CCLayerColor::create(arg0);
 		jsval jsret;
 		do {
 			if (ret) {
@@ -26609,6 +26609,22 @@ JSBool js_cocos2dx_CCLayerGradient_initWithColor(JSContext *cx, uint32_t argc, j
 	cobj = (cocos2d::CCLayerGradient *)(proxy ? proxy->ptr : NULL);
 	TEST_NATIVE_OBJECT(cx, cobj)
 
+	if (argc == 2) {
+		cocos2d::ccColor4B arg0;
+		arg0 = jsval_to_cccolor4b(cx, argv[0]);
+		cocos2d::ccColor4B arg1;
+		arg1 = jsval_to_cccolor4b(cx, argv[1]);
+		bool ret = cobj->initWithColor(arg0, arg1);
+		jsval jsret; jsret = BOOLEAN_TO_JSVAL(ret);
+		JS_SET_RVAL(cx, vp, jsret);
+		return JS_TRUE;
+	}
+	if (argc == 0) {
+		bool ret = cobj->init();
+		jsval jsret; jsret = BOOLEAN_TO_JSVAL(ret);
+		JS_SET_RVAL(cx, vp, jsret);
+		return JS_TRUE;
+	}
 	if (argc == 3) {
 		cocos2d::ccColor4B arg0;
 		arg0 = jsval_to_cccolor4b(cx, argv[0]);
@@ -26617,16 +26633,6 @@ JSBool js_cocos2dx_CCLayerGradient_initWithColor(JSContext *cx, uint32_t argc, j
 		cocos2d::CCPoint arg2;
 		arg2 = jsval_to_ccpoint(cx, argv[2]);
 		bool ret = cobj->initWithColor(arg0, arg1, arg2);
-		jsval jsret; jsret = BOOLEAN_TO_JSVAL(ret);
-		JS_SET_RVAL(cx, vp, jsret);
-		return JS_TRUE;
-	}
-	if (argc == 2) {
-		cocos2d::ccColor4B arg0;
-		arg0 = jsval_to_cccolor4b(cx, argv[0]);
-		cocos2d::ccColor4B arg1;
-		arg1 = jsval_to_cccolor4b(cx, argv[1]);
-		bool ret = cobj->initWithColor(arg0, arg1);
 		jsval jsret; jsret = BOOLEAN_TO_JSVAL(ret);
 		JS_SET_RVAL(cx, vp, jsret);
 		return JS_TRUE;
@@ -26848,7 +26854,7 @@ void js_register_cocos2dx_CCLayerGradient(JSContext *cx, JSObject *global) {
 		JS_FN("setCompressedInterpolation", js_cocos2dx_CCLayerGradient_setCompressedInterpolation, 1, JSPROP_PERMANENT | JSPROP_SHARED),
 		JS_FN("setEndOpacity", js_cocos2dx_CCLayerGradient_setEndOpacity, 1, JSPROP_PERMANENT | JSPROP_SHARED),
 		JS_FN("getVector", js_cocos2dx_CCLayerGradient_getVector, 0, JSPROP_PERMANENT | JSPROP_SHARED),
-		JS_FN("init", js_cocos2dx_CCLayerGradient_initWithColor, 2, JSPROP_PERMANENT | JSPROP_SHARED),
+		JS_FN("init", js_cocos2dx_CCLayerGradient_initWithColor, 0, JSPROP_PERMANENT | JSPROP_SHARED),
 		JS_FN("setEndColor", js_cocos2dx_CCLayerGradient_setEndColor, 1, JSPROP_PERMANENT | JSPROP_SHARED),
 		JS_FN("getEndColor", js_cocos2dx_CCLayerGradient_getEndColor, 0, JSPROP_PERMANENT | JSPROP_SHARED),
 		JS_FN("getEndOpacity", js_cocos2dx_CCLayerGradient_getEndOpacity, 0, JSPROP_PERMANENT | JSPROP_SHARED),
@@ -44118,6 +44124,36 @@ JSBool js_cocos2dx_CCTMXLayer_addChild(JSContext *cx, uint32_t argc, jsval *vp)
 	JS_ReportError(cx, "wrong number of arguments: %d, was expecting %d", argc, 3);
 	return JS_FALSE;
 }
+JSBool js_cocos2dx_CCTMXLayer_tileGIDAt(JSContext *cx, uint32_t argc, jsval *vp)
+{
+	jsval *argv = JS_ARGV(cx, vp);
+	JSObject *obj;
+	cocos2d::CCTMXLayer* cobj;
+	obj = JS_THIS_OBJECT(cx, vp);
+	js_proxy_t *proxy; JS_GET_NATIVE_PROXY(proxy, obj);
+	cobj = (cocos2d::CCTMXLayer *)(proxy ? proxy->ptr : NULL);
+	TEST_NATIVE_OBJECT(cx, cobj)
+
+	if (argc == 2) {
+		cocos2d::CCPoint arg0;
+		arg0 = jsval_to_ccpoint(cx, argv[0]);
+		cocos2d::ccTMXTileFlags* arg1;
+		#pragma warning NO CONVERSION TO NATIVE FOR cocos2d::ccTMXTileFlags*;
+		unsigned int ret = cobj->tileGIDAt(arg0, arg1);
+		jsval jsret; jsret = UINT_TO_JSVAL(ret);
+		JS_SET_RVAL(cx, vp, jsret);
+		return JS_TRUE;
+	}
+	if (argc == 1) {
+		cocos2d::CCPoint arg0;
+		arg0 = jsval_to_ccpoint(cx, argv[0]);
+		unsigned int ret = cobj->tileGIDAt(arg0);
+		jsval jsret; jsret = UINT_TO_JSVAL(ret);
+		JS_SET_RVAL(cx, vp, jsret);
+		return JS_TRUE;
+	}
+	return JS_FALSE;
+}
 JSBool js_cocos2dx_CCTMXLayer_positionAt(JSContext *cx, uint32_t argc, jsval *vp)
 {
 	jsval *argv = JS_ARGV(cx, vp);
@@ -44211,36 +44247,6 @@ JSBool js_cocos2dx_CCTMXLayer_releaseMap(JSContext *cx, uint32_t argc, jsval *vp
 		return JS_TRUE;
 	}
 	JS_ReportError(cx, "wrong number of arguments: %d, was expecting %d", argc, 0);
-	return JS_FALSE;
-}
-JSBool js_cocos2dx_CCTMXLayer_tileGIDAt(JSContext *cx, uint32_t argc, jsval *vp)
-{
-	jsval *argv = JS_ARGV(cx, vp);
-	JSObject *obj;
-	cocos2d::CCTMXLayer* cobj;
-	obj = JS_THIS_OBJECT(cx, vp);
-	js_proxy_t *proxy; JS_GET_NATIVE_PROXY(proxy, obj);
-	cobj = (cocos2d::CCTMXLayer *)(proxy ? proxy->ptr : NULL);
-	TEST_NATIVE_OBJECT(cx, cobj)
-
-	if (argc == 2) {
-		cocos2d::CCPoint arg0;
-		arg0 = jsval_to_ccpoint(cx, argv[0]);
-		cocos2d::ccTMXTileFlags* arg1;
-		#pragma warning NO CONVERSION TO NATIVE FOR cocos2d::ccTMXTileFlags*;
-		unsigned int ret = cobj->tileGIDAt(arg0, arg1);
-		jsval jsret; jsret = UINT_TO_JSVAL(ret);
-		JS_SET_RVAL(cx, vp, jsret);
-		return JS_TRUE;
-	}
-	if (argc == 1) {
-		cocos2d::CCPoint arg0;
-		arg0 = jsval_to_ccpoint(cx, argv[0]);
-		unsigned int ret = cobj->tileGIDAt(arg0);
-		jsval jsret; jsret = UINT_TO_JSVAL(ret);
-		JS_SET_RVAL(cx, vp, jsret);
-		return JS_TRUE;
-	}
 	return JS_FALSE;
 }
 JSBool js_cocos2dx_CCTMXLayer_setTiles(JSContext *cx, uint32_t argc, jsval *vp)
@@ -44505,33 +44511,6 @@ JSBool js_cocos2dx_CCTMXLayer_getLayerName(JSContext *cx, uint32_t argc, jsval *
 	JS_ReportError(cx, "wrong number of arguments: %d, was expecting %d", argc, 0);
 	return JS_FALSE;
 }
-JSBool js_cocos2dx_CCTMXLayer_tileAt(JSContext *cx, uint32_t argc, jsval *vp)
-{
-	jsval *argv = JS_ARGV(cx, vp);
-	JSObject *obj = JS_THIS_OBJECT(cx, vp);
-	js_proxy_t *proxy; JS_GET_NATIVE_PROXY(proxy, obj);
-	cocos2d::CCTMXLayer* cobj = (cocos2d::CCTMXLayer *)(proxy ? proxy->ptr : NULL);
-	TEST_NATIVE_OBJECT(cx, cobj)
-
-	if (argc == 1) {
-		cocos2d::CCPoint arg0;
-		arg0 = jsval_to_ccpoint(cx, argv[0]);
-		cocos2d::CCSprite* ret = cobj->tileAt(arg0);
-		jsval jsret;
-		do {
-			if (ret) {
-				js_proxy_t *proxy = js_get_or_create_proxy<cocos2d::CCSprite>(cx, ret);
-				jsret = OBJECT_TO_JSVAL(proxy->obj);
-			} else {
-				jsret = JSVAL_NULL;
-			}
-		} while (0);
-		JS_SET_RVAL(cx, vp, jsret);
-		return JS_TRUE;
-	}
-	JS_ReportError(cx, "wrong number of arguments: %d, was expecting %d", argc, 1);
-	return JS_FALSE;
-}
 JSBool js_cocos2dx_CCTMXLayer_setTileSet(JSContext *cx, uint32_t argc, jsval *vp)
 {
 	jsval *argv = JS_ARGV(cx, vp);
@@ -44626,6 +44605,33 @@ JSBool js_cocos2dx_CCTMXLayer_getProperties(JSContext *cx, uint32_t argc, jsval 
 		return JS_TRUE;
 	}
 	JS_ReportError(cx, "wrong number of arguments: %d, was expecting %d", argc, 0);
+	return JS_FALSE;
+}
+JSBool js_cocos2dx_CCTMXLayer_tileAt(JSContext *cx, uint32_t argc, jsval *vp)
+{
+	jsval *argv = JS_ARGV(cx, vp);
+	JSObject *obj = JS_THIS_OBJECT(cx, vp);
+	js_proxy_t *proxy; JS_GET_NATIVE_PROXY(proxy, obj);
+	cocos2d::CCTMXLayer* cobj = (cocos2d::CCTMXLayer *)(proxy ? proxy->ptr : NULL);
+	TEST_NATIVE_OBJECT(cx, cobj)
+
+	if (argc == 1) {
+		cocos2d::CCPoint arg0;
+		arg0 = jsval_to_ccpoint(cx, argv[0]);
+		cocos2d::CCSprite* ret = cobj->tileAt(arg0);
+		jsval jsret;
+		do {
+			if (ret) {
+				js_proxy_t *proxy = js_get_or_create_proxy<cocos2d::CCSprite>(cx, ret);
+				jsret = OBJECT_TO_JSVAL(proxy->obj);
+			} else {
+				jsret = JSVAL_NULL;
+			}
+		} while (0);
+		JS_SET_RVAL(cx, vp, jsret);
+		return JS_TRUE;
+	}
+	JS_ReportError(cx, "wrong number of arguments: %d, was expecting %d", argc, 1);
 	return JS_FALSE;
 }
 JSBool js_cocos2dx_CCTMXLayer_layerWithTilesetInfo(JSContext *cx, uint32_t argc, jsval *vp)
@@ -44768,12 +44774,12 @@ void js_register_cocos2dx_CCTMXLayer(JSContext *cx, JSObject *global) {
 
 	static JSFunctionSpec funcs[] = {
 		JS_FN("addChild", js_cocos2dx_CCTMXLayer_addChild, 3, JSPROP_PERMANENT | JSPROP_SHARED),
+		JS_FN("getTileGIDAt", js_cocos2dx_CCTMXLayer_tileGIDAt, 1, JSPROP_PERMANENT | JSPROP_SHARED),
 		JS_FN("positionAt", js_cocos2dx_CCTMXLayer_positionAt, 1, JSPROP_PERMANENT | JSPROP_SHARED),
 		JS_FN("setLayerOrientation", js_cocos2dx_CCTMXLayer_setLayerOrientation, 1, JSPROP_PERMANENT | JSPROP_SHARED),
 		JS_FN("propertyNamed", js_cocos2dx_CCTMXLayer_propertyNamed, 1, JSPROP_PERMANENT | JSPROP_SHARED),
 		JS_FN("getTiles", js_cocos2dx_CCTMXLayer_getTiles, 0, JSPROP_PERMANENT | JSPROP_SHARED),
 		JS_FN("releaseMap", js_cocos2dx_CCTMXLayer_releaseMap, 0, JSPROP_PERMANENT | JSPROP_SHARED),
-		JS_FN("tileGIDAt", js_cocos2dx_CCTMXLayer_tileGIDAt, 1, JSPROP_PERMANENT | JSPROP_SHARED),
 		JS_FN("setTiles", js_cocos2dx_CCTMXLayer_setTiles, 1, JSPROP_PERMANENT | JSPROP_SHARED),
 		JS_FN("getLayerSize", js_cocos2dx_CCTMXLayer_getLayerSize, 0, JSPROP_PERMANENT | JSPROP_SHARED),
 		JS_FN("setMapTileSize", js_cocos2dx_CCTMXLayer_setMapTileSize, 1, JSPROP_PERMANENT | JSPROP_SHARED),
@@ -44787,11 +44793,11 @@ void js_register_cocos2dx_CCTMXLayer(JSContext *cx, JSObject *global) {
 		JS_FN("getMapTileSize", js_cocos2dx_CCTMXLayer_getMapTileSize, 0, JSPROP_PERMANENT | JSPROP_SHARED),
 		JS_FN("setLayerSize", js_cocos2dx_CCTMXLayer_setLayerSize, 1, JSPROP_PERMANENT | JSPROP_SHARED),
 		JS_FN("getLayerName", js_cocos2dx_CCTMXLayer_getLayerName, 0, JSPROP_PERMANENT | JSPROP_SHARED),
-		JS_FN("tileAt", js_cocos2dx_CCTMXLayer_tileAt, 1, JSPROP_PERMANENT | JSPROP_SHARED),
 		JS_FN("setTileSet", js_cocos2dx_CCTMXLayer_setTileSet, 1, JSPROP_PERMANENT | JSPROP_SHARED),
 		JS_FN("removeChild", js_cocos2dx_CCTMXLayer_removeChild, 2, JSPROP_PERMANENT | JSPROP_SHARED),
 		JS_FN("getTileSet", js_cocos2dx_CCTMXLayer_getTileSet, 0, JSPROP_PERMANENT | JSPROP_SHARED),
 		JS_FN("getProperties", js_cocos2dx_CCTMXLayer_getProperties, 0, JSPROP_PERMANENT | JSPROP_SHARED),
+		JS_FN("getTileAt", js_cocos2dx_CCTMXLayer_tileAt, 1, JSPROP_PERMANENT | JSPROP_SHARED),
 		JS_FS_END
 	};
 
@@ -44877,6 +44883,33 @@ JSBool js_cocos2dx_CCTMXTiledMap_setObjectGroups(JSContext *cx, uint32_t argc, j
 	JS_ReportError(cx, "wrong number of arguments: %d, was expecting %d", argc, 1);
 	return JS_FALSE;
 }
+JSBool js_cocos2dx_CCTMXTiledMap_propertyNamed(JSContext *cx, uint32_t argc, jsval *vp)
+{
+	jsval *argv = JS_ARGV(cx, vp);
+	JSObject *obj = JS_THIS_OBJECT(cx, vp);
+	js_proxy_t *proxy; JS_GET_NATIVE_PROXY(proxy, obj);
+	cocos2d::CCTMXTiledMap* cobj = (cocos2d::CCTMXTiledMap *)(proxy ? proxy->ptr : NULL);
+	TEST_NATIVE_OBJECT(cx, cobj)
+
+	if (argc == 1) {
+		const char* arg0;
+		std::string arg0_tmp = jsval_to_std_string(cx, argv[0]); arg0 = arg0_tmp.c_str();
+		cocos2d::CCString* ret = cobj->propertyNamed(arg0);
+		jsval jsret;
+		do {
+			if (ret) {
+				js_proxy_t *proxy = js_get_or_create_proxy<cocos2d::CCString>(cx, ret);
+				jsret = OBJECT_TO_JSVAL(proxy->obj);
+			} else {
+				jsret = JSVAL_NULL;
+			}
+		} while (0);
+		JS_SET_RVAL(cx, vp, jsret);
+		return JS_TRUE;
+	}
+	JS_ReportError(cx, "wrong number of arguments: %d, was expecting %d", argc, 1);
+	return JS_FALSE;
+}
 JSBool js_cocos2dx_CCTMXTiledMap_setTileSize(JSContext *cx, uint32_t argc, jsval *vp)
 {
 	jsval *argv = JS_ARGV(cx, vp);
@@ -44926,33 +44959,6 @@ JSBool js_cocos2dx_CCTMXTiledMap_getTileSize(JSContext *cx, uint32_t argc, jsval
 		return JS_TRUE;
 	}
 	JS_ReportError(cx, "wrong number of arguments: %d, was expecting %d", argc, 0);
-	return JS_FALSE;
-}
-JSBool js_cocos2dx_CCTMXTiledMap_objectGroupNamed(JSContext *cx, uint32_t argc, jsval *vp)
-{
-	jsval *argv = JS_ARGV(cx, vp);
-	JSObject *obj = JS_THIS_OBJECT(cx, vp);
-	js_proxy_t *proxy; JS_GET_NATIVE_PROXY(proxy, obj);
-	cocos2d::CCTMXTiledMap* cobj = (cocos2d::CCTMXTiledMap *)(proxy ? proxy->ptr : NULL);
-	TEST_NATIVE_OBJECT(cx, cobj)
-
-	if (argc == 1) {
-		const char* arg0;
-		std::string arg0_tmp = jsval_to_std_string(cx, argv[0]); arg0 = arg0_tmp.c_str();
-		cocos2d::CCTMXObjectGroup* ret = cobj->objectGroupNamed(arg0);
-		jsval jsret;
-		do {
-			if (ret) {
-				js_proxy_t *proxy = js_get_or_create_proxy<cocos2d::CCTMXObjectGroup>(cx, ret);
-				jsret = OBJECT_TO_JSVAL(proxy->obj);
-			} else {
-				jsret = JSVAL_NULL;
-			}
-		} while (0);
-		JS_SET_RVAL(cx, vp, jsret);
-		return JS_TRUE;
-	}
-	JS_ReportError(cx, "wrong number of arguments: %d, was expecting %d", argc, 1);
 	return JS_FALSE;
 }
 JSBool js_cocos2dx_CCTMXTiledMap_getObjectGroups(JSContext *cx, uint32_t argc, jsval *vp)
@@ -45014,6 +45020,33 @@ JSBool js_cocos2dx_CCTMXTiledMap_initWithTMXFile(JSContext *cx, uint32_t argc, j
 	JS_ReportError(cx, "wrong number of arguments: %d, was expecting %d", argc, 1);
 	return JS_FALSE;
 }
+JSBool js_cocos2dx_CCTMXTiledMap_objectGroupNamed(JSContext *cx, uint32_t argc, jsval *vp)
+{
+	jsval *argv = JS_ARGV(cx, vp);
+	JSObject *obj = JS_THIS_OBJECT(cx, vp);
+	js_proxy_t *proxy; JS_GET_NATIVE_PROXY(proxy, obj);
+	cocos2d::CCTMXTiledMap* cobj = (cocos2d::CCTMXTiledMap *)(proxy ? proxy->ptr : NULL);
+	TEST_NATIVE_OBJECT(cx, cobj)
+
+	if (argc == 1) {
+		const char* arg0;
+		std::string arg0_tmp = jsval_to_std_string(cx, argv[0]); arg0 = arg0_tmp.c_str();
+		cocos2d::CCTMXObjectGroup* ret = cobj->objectGroupNamed(arg0);
+		jsval jsret;
+		do {
+			if (ret) {
+				js_proxy_t *proxy = js_get_or_create_proxy<cocos2d::CCTMXObjectGroup>(cx, ret);
+				jsret = OBJECT_TO_JSVAL(proxy->obj);
+			} else {
+				jsret = JSVAL_NULL;
+			}
+		} while (0);
+		JS_SET_RVAL(cx, vp, jsret);
+		return JS_TRUE;
+	}
+	JS_ReportError(cx, "wrong number of arguments: %d, was expecting %d", argc, 1);
+	return JS_FALSE;
+}
 JSBool js_cocos2dx_CCTMXTiledMap_getMapSize(JSContext *cx, uint32_t argc, jsval *vp)
 {
 	JSObject *obj = JS_THIS_OBJECT(cx, vp);
@@ -45053,33 +45086,6 @@ JSBool js_cocos2dx_CCTMXTiledMap_getProperties(JSContext *cx, uint32_t argc, jsv
 		return JS_TRUE;
 	}
 	JS_ReportError(cx, "wrong number of arguments: %d, was expecting %d", argc, 0);
-	return JS_FALSE;
-}
-JSBool js_cocos2dx_CCTMXTiledMap_layerNamed(JSContext *cx, uint32_t argc, jsval *vp)
-{
-	jsval *argv = JS_ARGV(cx, vp);
-	JSObject *obj = JS_THIS_OBJECT(cx, vp);
-	js_proxy_t *proxy; JS_GET_NATIVE_PROXY(proxy, obj);
-	cocos2d::CCTMXTiledMap* cobj = (cocos2d::CCTMXTiledMap *)(proxy ? proxy->ptr : NULL);
-	TEST_NATIVE_OBJECT(cx, cobj)
-
-	if (argc == 1) {
-		const char* arg0;
-		std::string arg0_tmp = jsval_to_std_string(cx, argv[0]); arg0 = arg0_tmp.c_str();
-		cocos2d::CCTMXLayer* ret = cobj->layerNamed(arg0);
-		jsval jsret;
-		do {
-			if (ret) {
-				js_proxy_t *proxy = js_get_or_create_proxy<cocos2d::CCTMXLayer>(cx, ret);
-				jsret = OBJECT_TO_JSVAL(proxy->obj);
-			} else {
-				jsret = JSVAL_NULL;
-			}
-		} while (0);
-		JS_SET_RVAL(cx, vp, jsret);
-		return JS_TRUE;
-	}
-	JS_ReportError(cx, "wrong number of arguments: %d, was expecting %d", argc, 1);
 	return JS_FALSE;
 }
 JSBool js_cocos2dx_CCTMXTiledMap_setMapOrientation(JSContext *cx, uint32_t argc, jsval *vp)
@@ -45122,7 +45128,7 @@ JSBool js_cocos2dx_CCTMXTiledMap_setProperties(JSContext *cx, uint32_t argc, jsv
 	JS_ReportError(cx, "wrong number of arguments: %d, was expecting %d", argc, 1);
 	return JS_FALSE;
 }
-JSBool js_cocos2dx_CCTMXTiledMap_propertyNamed(JSContext *cx, uint32_t argc, jsval *vp)
+JSBool js_cocos2dx_CCTMXTiledMap_layerNamed(JSContext *cx, uint32_t argc, jsval *vp)
 {
 	jsval *argv = JS_ARGV(cx, vp);
 	JSObject *obj = JS_THIS_OBJECT(cx, vp);
@@ -45133,11 +45139,11 @@ JSBool js_cocos2dx_CCTMXTiledMap_propertyNamed(JSContext *cx, uint32_t argc, jsv
 	if (argc == 1) {
 		const char* arg0;
 		std::string arg0_tmp = jsval_to_std_string(cx, argv[0]); arg0 = arg0_tmp.c_str();
-		cocos2d::CCString* ret = cobj->propertyNamed(arg0);
+		cocos2d::CCTMXLayer* ret = cobj->layerNamed(arg0);
 		jsval jsret;
 		do {
 			if (ret) {
-				js_proxy_t *proxy = js_get_or_create_proxy<cocos2d::CCString>(cx, ret);
+				js_proxy_t *proxy = js_get_or_create_proxy<cocos2d::CCTMXLayer>(cx, ret);
 				jsret = OBJECT_TO_JSVAL(proxy->obj);
 			} else {
 				jsret = JSVAL_NULL;
@@ -45309,19 +45315,19 @@ void js_register_cocos2dx_CCTMXTiledMap(JSContext *cx, JSObject *global) {
 	static JSFunctionSpec funcs[] = {
 		JS_FN("propertiesForGID", js_cocos2dx_CCTMXTiledMap_propertiesForGID, 1, JSPROP_PERMANENT | JSPROP_SHARED),
 		JS_FN("setObjectGroups", js_cocos2dx_CCTMXTiledMap_setObjectGroups, 1, JSPROP_PERMANENT | JSPROP_SHARED),
+		JS_FN("propertyNamed", js_cocos2dx_CCTMXTiledMap_propertyNamed, 1, JSPROP_PERMANENT | JSPROP_SHARED),
 		JS_FN("setTileSize", js_cocos2dx_CCTMXTiledMap_setTileSize, 1, JSPROP_PERMANENT | JSPROP_SHARED),
 		JS_FN("setMapSize", js_cocos2dx_CCTMXTiledMap_setMapSize, 1, JSPROP_PERMANENT | JSPROP_SHARED),
 		JS_FN("getTileSize", js_cocos2dx_CCTMXTiledMap_getTileSize, 0, JSPROP_PERMANENT | JSPROP_SHARED),
-		JS_FN("objectGroupNamed", js_cocos2dx_CCTMXTiledMap_objectGroupNamed, 1, JSPROP_PERMANENT | JSPROP_SHARED),
 		JS_FN("getObjectGroups", js_cocos2dx_CCTMXTiledMap_getObjectGroups, 0, JSPROP_PERMANENT | JSPROP_SHARED),
 		JS_FN("initWithXML", js_cocos2dx_CCTMXTiledMap_initWithXML, 2, JSPROP_PERMANENT | JSPROP_SHARED),
 		JS_FN("initWithTMXFile", js_cocos2dx_CCTMXTiledMap_initWithTMXFile, 1, JSPROP_PERMANENT | JSPROP_SHARED),
+		JS_FN("getObjectGroup", js_cocos2dx_CCTMXTiledMap_objectGroupNamed, 1, JSPROP_PERMANENT | JSPROP_SHARED),
 		JS_FN("getMapSize", js_cocos2dx_CCTMXTiledMap_getMapSize, 0, JSPROP_PERMANENT | JSPROP_SHARED),
 		JS_FN("getProperties", js_cocos2dx_CCTMXTiledMap_getProperties, 0, JSPROP_PERMANENT | JSPROP_SHARED),
-		JS_FN("layerNamed", js_cocos2dx_CCTMXTiledMap_layerNamed, 1, JSPROP_PERMANENT | JSPROP_SHARED),
 		JS_FN("setMapOrientation", js_cocos2dx_CCTMXTiledMap_setMapOrientation, 1, JSPROP_PERMANENT | JSPROP_SHARED),
 		JS_FN("setProperties", js_cocos2dx_CCTMXTiledMap_setProperties, 1, JSPROP_PERMANENT | JSPROP_SHARED),
-		JS_FN("propertyNamed", js_cocos2dx_CCTMXTiledMap_propertyNamed, 1, JSPROP_PERMANENT | JSPROP_SHARED),
+		JS_FN("getLayer", js_cocos2dx_CCTMXTiledMap_layerNamed, 1, JSPROP_PERMANENT | JSPROP_SHARED),
 		JS_FN("getMapOrientation", js_cocos2dx_CCTMXTiledMap_getMapOrientation, 0, JSPROP_PERMANENT | JSPROP_SHARED),
 		JS_FS_END
 	};
@@ -45406,6 +45412,23 @@ JSBool js_cocos2dx_CCTileMapAtlas_releaseMap(JSContext *cx, uint32_t argc, jsval
 	JS_ReportError(cx, "wrong number of arguments: %d, was expecting %d", argc, 0);
 	return JS_FALSE;
 }
+JSBool js_cocos2dx_CCTileMapAtlas_getTGAInfo(JSContext *cx, uint32_t argc, jsval *vp)
+{
+	JSObject *obj = JS_THIS_OBJECT(cx, vp);
+	js_proxy_t *proxy; JS_GET_NATIVE_PROXY(proxy, obj);
+	cocos2d::CCTileMapAtlas* cobj = (cocos2d::CCTileMapAtlas *)(proxy ? proxy->ptr : NULL);
+	TEST_NATIVE_OBJECT(cx, cobj)
+
+	if (argc == 0) {
+		sImageTGA* ret = cobj->getTGAInfo();
+		jsval jsret;
+		#pragma warning NO CONVERSION FROM NATIVE FOR sImageTGA*;
+		JS_SET_RVAL(cx, vp, jsret);
+		return JS_TRUE;
+	}
+	JS_ReportError(cx, "wrong number of arguments: %d, was expecting %d", argc, 0);
+	return JS_FALSE;
+}
 JSBool js_cocos2dx_CCTileMapAtlas_tileAt(JSContext *cx, uint32_t argc, jsval *vp)
 {
 	jsval *argv = JS_ARGV(cx, vp);
@@ -45424,23 +45447,6 @@ JSBool js_cocos2dx_CCTileMapAtlas_tileAt(JSContext *cx, uint32_t argc, jsval *vp
 		return JS_TRUE;
 	}
 	JS_ReportError(cx, "wrong number of arguments: %d, was expecting %d", argc, 1);
-	return JS_FALSE;
-}
-JSBool js_cocos2dx_CCTileMapAtlas_getTGAInfo(JSContext *cx, uint32_t argc, jsval *vp)
-{
-	JSObject *obj = JS_THIS_OBJECT(cx, vp);
-	js_proxy_t *proxy; JS_GET_NATIVE_PROXY(proxy, obj);
-	cocos2d::CCTileMapAtlas* cobj = (cocos2d::CCTileMapAtlas *)(proxy ? proxy->ptr : NULL);
-	TEST_NATIVE_OBJECT(cx, cobj)
-
-	if (argc == 0) {
-		sImageTGA* ret = cobj->getTGAInfo();
-		jsval jsret;
-		#pragma warning NO CONVERSION FROM NATIVE FOR sImageTGA*;
-		JS_SET_RVAL(cx, vp, jsret);
-		return JS_TRUE;
-	}
-	JS_ReportError(cx, "wrong number of arguments: %d, was expecting %d", argc, 0);
 	return JS_FALSE;
 }
 JSBool js_cocos2dx_CCTileMapAtlas_setTile(JSContext *cx, uint32_t argc, jsval *vp)
@@ -45588,8 +45594,8 @@ void js_register_cocos2dx_CCTileMapAtlas(JSContext *cx, JSObject *global) {
 	static JSFunctionSpec funcs[] = {
 		JS_FN("initWithTileFile", js_cocos2dx_CCTileMapAtlas_initWithTileFile, 4, JSPROP_PERMANENT | JSPROP_SHARED),
 		JS_FN("releaseMap", js_cocos2dx_CCTileMapAtlas_releaseMap, 0, JSPROP_PERMANENT | JSPROP_SHARED),
-		JS_FN("tileAt", js_cocos2dx_CCTileMapAtlas_tileAt, 1, JSPROP_PERMANENT | JSPROP_SHARED),
 		JS_FN("getTGAInfo", js_cocos2dx_CCTileMapAtlas_getTGAInfo, 0, JSPROP_PERMANENT | JSPROP_SHARED),
+		JS_FN("getTileAt", js_cocos2dx_CCTileMapAtlas_tileAt, 1, JSPROP_PERMANENT | JSPROP_SHARED),
 		JS_FN("setTile", js_cocos2dx_CCTileMapAtlas_setTile, 2, JSPROP_PERMANENT | JSPROP_SHARED),
 		JS_FN("setTGAInfo", js_cocos2dx_CCTileMapAtlas_setTGAInfo, 1, JSPROP_PERMANENT | JSPROP_SHARED),
 		JS_FS_END

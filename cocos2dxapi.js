@@ -10256,13 +10256,6 @@ setLayerSize : function () {},
 getLayerName : function () {},
 
 /**
- * @method tileAt
- * @return A value converted from C/C++ "cocos2d::CCSprite*"
- * @param {cocos2d::CCPoint}
- */
-tileAt : function () {},
-
-/**
  * @method setTileSet
  * @param {cocos2d::CCTMXTilesetInfo*}
  */
@@ -10286,6 +10279,13 @@ getTileSet : function () {},
  * @return A value converted from C/C++ "cocos2d::CCDictionary*"
  */
 getProperties : function () {},
+
+/**
+ * @method tileAt
+ * @return A value converted from C/C++ "cocos2d::CCSprite*"
+ * @param {cocos2d::CCPoint}
+ */
+tileAt : function () {},
 
 /**
  * @method layerWithTilesetInfo
@@ -10332,6 +10332,13 @@ propertiesForGID : function () {},
 setObjectGroups : function () {},
 
 /**
+ * @method propertyNamed
+ * @return A value converted from C/C++ "cocos2d::CCString*"
+ * @param {const char*}
+ */
+propertyNamed : function () {},
+
+/**
  * @method setTileSize
  * @param {cocos2d::CCSize}
  */
@@ -10348,13 +10355,6 @@ setMapSize : function () {},
  * @return A value converted from C/C++ "cocos2d::CCSize"
  */
 getTileSize : function () {},
-
-/**
- * @method objectGroupNamed
- * @return A value converted from C/C++ "cocos2d::CCTMXObjectGroup*"
- * @param {const char*}
- */
-objectGroupNamed : function () {},
 
 /**
  * @method getObjectGroups
@@ -10378,6 +10378,13 @@ initWithXML : function () {},
 initWithTMXFile : function () {},
 
 /**
+ * @method objectGroupNamed
+ * @return A value converted from C/C++ "cocos2d::CCTMXObjectGroup*"
+ * @param {const char*}
+ */
+objectGroupNamed : function () {},
+
+/**
  * @method getMapSize
  * @return A value converted from C/C++ "cocos2d::CCSize"
  */
@@ -10388,13 +10395,6 @@ getMapSize : function () {},
  * @return A value converted from C/C++ "cocos2d::CCDictionary*"
  */
 getProperties : function () {},
-
-/**
- * @method layerNamed
- * @return A value converted from C/C++ "cocos2d::CCTMXLayer*"
- * @param {const char*}
- */
-layerNamed : function () {},
 
 /**
  * @method setMapOrientation
@@ -10409,11 +10409,11 @@ setMapOrientation : function () {},
 setProperties : function () {},
 
 /**
- * @method propertyNamed
- * @return A value converted from C/C++ "cocos2d::CCString*"
+ * @method layerNamed
+ * @return A value converted from C/C++ "cocos2d::CCTMXLayer*"
  * @param {const char*}
  */
-propertyNamed : function () {},
+layerNamed : function () {},
 
 /**
  * @method getMapOrientation
@@ -10480,17 +10480,17 @@ initWithTileFile : function () {},
 releaseMap : function () {},
 
 /**
+ * @method getTGAInfo
+ * @return A value converted from C/C++ "sImageTGA*"
+ */
+getTGAInfo : function () {},
+
+/**
  * @method tileAt
  * @return A value converted from C/C++ "ccColor3B"
  * @param {cocos2d::ccGridSize}
  */
 tileAt : function () {},
-
-/**
- * @method getTGAInfo
- * @return A value converted from C/C++ "sImageTGA*"
- */
-getTGAInfo : function () {},
 
 /**
  * @method setTile
