@@ -459,13 +459,6 @@ unregisterScriptHandler : function () {},
 getTag : function () {},
 
 /**
- * @method removeChild
- * @param {cocos2d::CCNode*}
- * @param {bool}
- */
-removeChild : function () {},
-
-/**
  * @method convertToWorldSpace
  * @return A value converted from C/C++ "cocos2d::CCPoint"
  * @param {cocos2d::CCPoint}
@@ -490,6 +483,11 @@ setSkewY : function () {},
  * @param {cocos2d::CCTouch*}
  */
 convertTouchToNodeSpace : function () {},
+
+/**
+ * @method removeAllChildren
+ */
+removeAllChildren : function () {},
 
 /**
  * @method unscheduleUpdate
@@ -518,12 +516,6 @@ removeAllChildrenWithCleanup : function () {},
  * @return A value converted from C/C++ "unsigned int"
  */
 numberOfRunningActions : function () {},
-
-/**
- * @method removeFromParentAndCleanup
- * @param {bool}
- */
-removeFromParentAndCleanup : function () {},
 
 /**
  * @method stopActionByTag
@@ -698,13 +690,6 @@ getPositionY : function () {},
  * @return A value converted from C/C++ "float"
  */
 getPositionX : function () {},
-
-/**
- * @method removeChildByTag
- * @param {int}
- * @param {bool}
- */
-removeChildByTag : function () {},
 
 /**
  * @method setVisible
@@ -1245,10 +1230,10 @@ CCAnimationFrame : function () {},
 cc.CCAnimation = {
 
 /**
- * @method addSpriteFrameWithFileName
- * @param {const char*}
+ * @method getLoops
+ * @return A value converted from C/C++ "unsigned int"
  */
-addSpriteFrameWithFileName : function () {},
+getLoops : function () {},
 
 /**
  * @method setFrames
@@ -1267,6 +1252,12 @@ getFrames : function () {},
  * @param {cocos2d::CCSpriteFrame*}
  */
 addSpriteFrame : function () {},
+
+/**
+ * @method setRestoreOriginalFrame
+ * @param {bool}
+ */
+setRestoreOriginalFrame : function () {},
 
 /**
  * @method setDelayPerUnit
@@ -1298,22 +1289,16 @@ init : function () {},
 initWithSpriteFrames : function () {},
 
 /**
- * @method getLoops
- * @return A value converted from C/C++ "unsigned int"
- */
-getLoops : function () {},
-
-/**
  * @method setLoops
  * @param {unsigned int}
  */
 setLoops : function () {},
 
 /**
- * @method setRestoreOriginalFrame
- * @param {bool}
+ * @method addSpriteFrameWithFileName
+ * @param {const char*}
  */
-setRestoreOriginalFrame : function () {},
+addSpriteFrameWithFileName : function () {},
 
 /**
  * @method getTotalDelayUnits
@@ -6189,12 +6174,6 @@ changeWidthAndHeight : function () {},
 setOpacity : function () {},
 
 /**
- * @method init
- * @return A value converted from C/C++ "bool"
- */
-init : function () {},
-
-/**
  * @method changeWidth
  * @param {float}
  */
@@ -9637,12 +9616,6 @@ animationByName : function () {},
 addAnimationsWithFile : function () {},
 
 /**
- * @method removeAnimationByName
- * @param {const char*}
- */
-removeAnimationByName : function () {},
-
-/**
  * @method init
  * @return A value converted from C/C++ "bool"
  */
@@ -9653,6 +9626,12 @@ init : function () {},
  * @param {cocos2d::CCDictionary*}
  */
 addAnimationsWithDictionary : function () {},
+
+/**
+ * @method removeAnimationByName
+ * @param {const char*}
+ */
+removeAnimationByName : function () {},
 
 /**
  * @method addAnimation
@@ -10264,13 +10243,6 @@ positionAt : function () {},
 setLayerOrientation : function () {},
 
 /**
- * @method propertyNamed
- * @return A value converted from C/C++ "cocos2d::CCString*"
- * @param {const char*}
- */
-propertyNamed : function () {},
-
-/**
  * @method getTiles
  * @return A value converted from C/C++ "unsigned int*"
  */
@@ -10342,6 +10314,13 @@ setupTiles : function () {},
  * @return A value converted from C/C++ "cocos2d::CCSize"
  */
 getMapTileSize : function () {},
+
+/**
+ * @method propertyNamed
+ * @return A value converted from C/C++ "cocos2d::CCString*"
+ * @param {const char*}
+ */
+propertyNamed : function () {},
 
 /**
  * @method setLayerSize
@@ -10812,39 +10791,10 @@ cc.SimpleAudioEngine = {
 stopAllEffects : function () {},
 
 /**
- * @method getEffectsVolume
- * @return A value converted from C/C++ "float"
- */
-getEffectsVolume : function () {},
-
-/**
- * @method stopEffect
- * @param {unsigned int}
- */
-stopEffect : function () {},
-
-/**
  * @method getBackgroundMusicVolume
  * @return A value converted from C/C++ "float"
  */
 getBackgroundMusicVolume : function () {},
-
-/**
- * @method willPlayBackgroundMusic
- * @return A value converted from C/C++ "bool"
- */
-willPlayBackgroundMusic : function () {},
-
-/**
- * @method setBackgroundMusicVolume
- * @param {float}
- */
-setBackgroundMusicVolume : function () {},
-
-/**
- * @method pauseBackgroundMusic
- */
-pauseBackgroundMusic : function () {},
 
 /**
  * @method isBackgroundMusicPlaying
@@ -10853,9 +10803,22 @@ pauseBackgroundMusic : function () {},
 isBackgroundMusicPlaying : function () {},
 
 /**
- * @method resumeAllEffects
+ * @method getEffectsVolume
+ * @return A value converted from C/C++ "float"
  */
-resumeAllEffects : function () {},
+getEffectsVolume : function () {},
+
+/**
+ * @method setBackgroundMusicVolume
+ * @param {float}
+ */
+setBackgroundMusicVolume : function () {},
+
+/**
+ * @method stopEffect
+ * @param {unsigned int}
+ */
+stopEffect : function () {},
 
 /**
  * @method pauseAllEffects
@@ -10869,10 +10832,20 @@ pauseAllEffects : function () {},
 preloadBackgroundMusic : function () {},
 
 /**
- * @method preloadEffect
- * @param {const char*}
+ * @method resumeBackgroundMusic
  */
-preloadEffect : function () {},
+resumeBackgroundMusic : function () {},
+
+/**
+ * @method rewindBackgroundMusic
+ */
+rewindBackgroundMusic : function () {},
+
+/**
+ * @method willPlayBackgroundMusic
+ * @return A value converted from C/C++ "bool"
+ */
+willPlayBackgroundMusic : function () {},
 
 /**
  * @method unloadEffect
@@ -10881,9 +10854,16 @@ preloadEffect : function () {},
 unloadEffect : function () {},
 
 /**
- * @method rewindBackgroundMusic
+ * @method preloadEffect
+ * @param {const char*}
  */
-rewindBackgroundMusic : function () {},
+preloadEffect : function () {},
+
+/**
+ * @method setEffectsVolume
+ * @param {float}
+ */
+setEffectsVolume : function () {},
 
 /**
  * @method pauseEffect
@@ -10898,15 +10878,14 @@ pauseEffect : function () {},
 getClassTypeInfo : function () {},
 
 /**
- * @method resumeBackgroundMusic
+ * @method resumeAllEffects
  */
-resumeBackgroundMusic : function () {},
+resumeAllEffects : function () {},
 
 /**
- * @method setEffectsVolume
- * @param {float}
+ * @method pauseBackgroundMusic
  */
-setEffectsVolume : function () {},
+pauseBackgroundMusic : function () {},
 
 /**
  * @method resumeEffect
