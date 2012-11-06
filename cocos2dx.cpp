@@ -33117,7 +33117,7 @@ void js_cocos2dx_CCTransitionProgressRadialCCW_finalize(JSFreeOp *fop, JSObject 
 
 void js_register_cocos2dx_CCTransitionProgressRadialCCW(JSContext *cx, JSObject *global) {
 	js_cocos2dx_CCTransitionProgressRadialCCW_class = (JSClass *)calloc(1, sizeof(JSClass));
-	js_cocos2dx_CCTransitionProgressRadialCCW_class->name = "TransitionProgressRadialW";
+	js_cocos2dx_CCTransitionProgressRadialCCW_class->name = "TransitionProgressRadialCCW";
 	js_cocos2dx_CCTransitionProgressRadialCCW_class->addProperty = JS_PropertyStub;
 	js_cocos2dx_CCTransitionProgressRadialCCW_class->delProperty = JS_PropertyStub;
 	js_cocos2dx_CCTransitionProgressRadialCCW_class->getProperty = JS_PropertyStub;
@@ -33149,7 +33149,7 @@ void js_register_cocos2dx_CCTransitionProgressRadialCCW(JSContext *cx, JSObject 
 		st_funcs);
 	// make the class enumerable in the registered namespace
 	JSBool found;
-	JS_SetPropertyAttributes(cx, global, "TransitionProgressRadialW", JSPROP_ENUMERATE | JSPROP_READONLY, &found);
+	JS_SetPropertyAttributes(cx, global, "TransitionProgressRadialCCW", JSPROP_ENUMERATE | JSPROP_READONLY, &found);
 
 	// add the proto and JSClass to the type->js info hash table
 	TypeTest<cocos2d::CCTransitionProgressRadialCCW> t;
