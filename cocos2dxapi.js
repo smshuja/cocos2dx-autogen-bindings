@@ -478,16 +478,16 @@ setSkewX : function () {},
 setSkewY : function () {},
 
 /**
+ * @method unscheduleAllSelectors
+ */
+unscheduleAllSelectors : function () {},
+
+/**
  * @method convertTouchToNodeSpace
  * @return A value converted from C/C++ "cocos2d::CCPoint"
  * @param {cocos2d::CCTouch*}
  */
 convertTouchToNodeSpace : function () {},
-
-/**
- * @method removeAllChildren
- */
-removeAllChildren : function () {},
 
 /**
  * @method unscheduleUpdate
@@ -499,17 +499,6 @@ unscheduleUpdate : function () {},
  * @param {cocos2d::CCNode*}
  */
 setParent : function () {},
-
-/**
- * @method unscheduleAllSelectors
- */
-unscheduleAllSelectors : function () {},
-
-/**
- * @method removeAllChildrenWithCleanup
- * @param {bool}
- */
-removeAllChildrenWithCleanup : function () {},
 
 /**
  * @method numberOfRunningActions
@@ -913,12 +902,6 @@ setShaderProgram : function () {},
 getMaxS : function () {},
 
 /**
- * @method releaseData
- * @param {void*}
- */
-releaseData : function () {},
-
-/**
  * @method hasPremultipliedAlpha
  * @return A value converted from C/C++ "bool"
  */
@@ -929,23 +912,6 @@ hasPremultipliedAlpha : function () {},
  * @return A value converted from C/C++ "unsigned int"
  */
 getPixelsHigh : function () {},
-
-/**
- * @method setTexParameters
- * @param {ccTexParams*}
- */
-setTexParameters : function () {},
-
-/**
- * @method initWithData
- * @return A value converted from C/C++ "bool"
- * @param {const void*}
- * @param {cocos2d::CCTexture2DPixelFormat}
- * @param {unsigned int}
- * @param {unsigned int}
- * @param {cocos2d::CCSize}
- */
-initWithData : function () {},
 
 /**
  * @method getName
@@ -991,14 +957,6 @@ generateMipmap : function () {},
  * @return A value converted from C/C++ "cocos2d::CCTexture2DPixelFormat"
  */
 getPixelFormat : function () {},
-
-/**
- * @method keepData
- * @return A value converted from C/C++ "void*"
- * @param {void*}
- * @param {unsigned int}
- */
-keepData : function () {},
 
 /**
  * @method getContentSizeInPixels
@@ -4934,12 +4892,6 @@ setScaleY : function () {},
 setScale : function () {},
 
 /**
- * @method isFlipY
- * @return A value converted from C/C++ "bool"
- */
-isFlipY : function () {},
-
-/**
  * @method setDisplayFrameWithAnimationName
  * @param {const char*}
  * @param {int}
@@ -4965,10 +4917,10 @@ getBatchNode : function () {},
 getOffsetPosition : function () {},
 
 /**
- * @method isFlipX
- * @return A value converted from C/C++ "bool"
+ * @method getTexture
+ * @return A value converted from C/C++ "cocos2d::CCTexture2D*"
  */
-isFlipX : function () {},
+getTexture : function () {},
 
 /**
  * @method setOpacity
@@ -5098,6 +5050,12 @@ isTextureRectRotated : function () {},
 sortAllChildren : function () {},
 
 /**
+ * @method getTextureRect
+ * @return A value converted from C/C++ "cocos2d::CCRect"
+ */
+getTextureRect : function () {},
+
+/**
  * @method ignoreAnchorPointForPosition
  * @param {bool}
  */
@@ -5110,6 +5068,11 @@ ignoreAnchorPointForPosition : function () {},
 setColor : function () {},
 
 /**
+ * @method updateTransform
+ */
+updateTransform : function () {},
+
+/**
  * @method setFlipX
  * @param {bool}
  */
@@ -5119,6 +5082,12 @@ setFlipX : function () {},
  * @method updateColor
  */
 updateColor : function () {},
+
+/**
+ * @method getTextureAtlas
+ * @return A value converted from C/C++ "cocos2d::CCTextureAtlas*"
+ */
+getTextureAtlas : function () {},
 
 /**
  * @method initWithSpriteFrame
@@ -5135,9 +5104,16 @@ initWithSpriteFrame : function () {},
 removeChild : function () {},
 
 /**
- * @method updateTransform
+ * @method isFlipX
+ * @return A value converted from C/C++ "bool"
  */
-updateTransform : function () {},
+isFlipX : function () {},
+
+/**
+ * @method isFlipY
+ * @return A value converted from C/C++ "bool"
+ */
+isFlipY : function () {},
 
 /**
  * @method setVertexRect
@@ -5537,6 +5513,12 @@ setNextDeltaTimeZero : function () {},
  * @return A value converted from C/C++ "cocos2d::CCSize"
  */
 getVisibleSize : function () {},
+
+/**
+ * @method getScheduler
+ * @return A value converted from C/C++ "cocos2d::CCScheduler*"
+ */
+getScheduler : function () {},
 
 /**
  * @method pushScene
@@ -10677,6 +10659,12 @@ cc.CCScheduler = {
 pauseAllTargets : function () {},
 
 /**
+ * @method unscheduleAllSelectorsForTarget
+ * @param {cocos2d::CCObject*}
+ */
+unscheduleAllSelectorsForTarget : function () {},
+
+/**
  * @method setTimeScale
  * @param {float}
  */
@@ -10695,6 +10683,11 @@ unscheduleUpdateForTarget : function () {},
  * @param {bool}
  */
 scheduleUpdateForTarget : function () {},
+
+/**
+ * @method unscheduleAllSelectors
+ */
+unscheduleAllSelectors : function () {},
 
 /**
  * @method unscheduleAllSelectorsWithMinPriority
@@ -10732,17 +10725,6 @@ unscheduleScriptEntry : function () {},
  * @param {cocos2d::CCSet*}
  */
 resumeTargets : function () {},
-
-/**
- * @method unscheduleAllSelectors
- */
-unscheduleAllSelectors : function () {},
-
-/**
- * @method unscheduleAllSelectorsForTarget
- * @param {cocos2d::CCObject*}
- */
-unscheduleAllSelectorsForTarget : function () {},
 
 /**
  * @method pauseTarget
