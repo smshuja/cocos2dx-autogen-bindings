@@ -40270,6 +40270,27 @@ JSBool js_cocos2dx_CCParticleFire_create(JSContext *cx, uint32_t argc, jsval *vp
 	return JS_TRUE;
 }
 
+JSBool js_cocos2dx_CCParticleFire_createWithTotalParticles(JSContext *cx, uint32_t argc, jsval *vp)
+{
+	jsval *argv = JS_ARGV(cx, vp);
+	unsigned int arg0;
+	assert(argc >= 1);
+
+	JS_ValueToECMAUint32(cx, argv[0], &arg0);
+	cocos2d::CCParticleFire* ret = cocos2d::CCParticleFire::createWithTotalParticles(arg0);
+	jsval jsret;
+	do {
+		if (ret) {
+			js_proxy_t *proxy = js_get_or_create_proxy<cocos2d::CCParticleFire>(cx, ret);
+			jsret = OBJECT_TO_JSVAL(proxy->obj);
+		} else {
+			jsret = JSVAL_NULL;
+		}
+	} while (0);
+	JS_SET_RVAL(cx, vp, jsret);
+	return JS_TRUE;
+}
+
 JSBool js_cocos2dx_CCParticleFire_constructor(JSContext *cx, uint32_t argc, jsval *vp)
 {
 
@@ -40329,6 +40350,7 @@ void js_register_cocos2dx_CCParticleFire(JSContext *cx, JSObject *global) {
 	static JSFunctionSpec st_funcs[] = {
 		JS_FN("node", js_cocos2dx_CCParticleFire_node, 0, JSPROP_PERMANENT | JSPROP_SHARED),
 		JS_FN("create", js_cocos2dx_CCParticleFire_create, 0, JSPROP_PERMANENT | JSPROP_SHARED),
+		JS_FN("createWithTotalParticles", js_cocos2dx_CCParticleFire_createWithTotalParticles, 1, JSPROP_PERMANENT | JSPROP_SHARED),
 		JS_FS_END
 	};
 
@@ -40433,6 +40455,27 @@ JSBool js_cocos2dx_CCParticleFireworks_create(JSContext *cx, uint32_t argc, jsva
 	return JS_TRUE;
 }
 
+JSBool js_cocos2dx_CCParticleFireworks_createWithTotalParticles(JSContext *cx, uint32_t argc, jsval *vp)
+{
+	jsval *argv = JS_ARGV(cx, vp);
+	unsigned int arg0;
+	assert(argc >= 1);
+
+	JS_ValueToECMAUint32(cx, argv[0], &arg0);
+	cocos2d::CCParticleFireworks* ret = cocos2d::CCParticleFireworks::createWithTotalParticles(arg0);
+	jsval jsret;
+	do {
+		if (ret) {
+			js_proxy_t *proxy = js_get_or_create_proxy<cocos2d::CCParticleFireworks>(cx, ret);
+			jsret = OBJECT_TO_JSVAL(proxy->obj);
+		} else {
+			jsret = JSVAL_NULL;
+		}
+	} while (0);
+	JS_SET_RVAL(cx, vp, jsret);
+	return JS_TRUE;
+}
+
 JSBool js_cocos2dx_CCParticleFireworks_constructor(JSContext *cx, uint32_t argc, jsval *vp)
 {
 
@@ -40492,6 +40535,7 @@ void js_register_cocos2dx_CCParticleFireworks(JSContext *cx, JSObject *global) {
 	static JSFunctionSpec st_funcs[] = {
 		JS_FN("node", js_cocos2dx_CCParticleFireworks_node, 0, JSPROP_PERMANENT | JSPROP_SHARED),
 		JS_FN("create", js_cocos2dx_CCParticleFireworks_create, 0, JSPROP_PERMANENT | JSPROP_SHARED),
+		JS_FN("createWithTotalParticles", js_cocos2dx_CCParticleFireworks_createWithTotalParticles, 1, JSPROP_PERMANENT | JSPROP_SHARED),
 		JS_FS_END
 	};
 
@@ -40596,6 +40640,27 @@ JSBool js_cocos2dx_CCParticleSun_create(JSContext *cx, uint32_t argc, jsval *vp)
 	return JS_TRUE;
 }
 
+JSBool js_cocos2dx_CCParticleSun_createWithTotalParticles(JSContext *cx, uint32_t argc, jsval *vp)
+{
+	jsval *argv = JS_ARGV(cx, vp);
+	unsigned int arg0;
+	assert(argc >= 1);
+
+	JS_ValueToECMAUint32(cx, argv[0], &arg0);
+	cocos2d::CCParticleSun* ret = cocos2d::CCParticleSun::createWithTotalParticles(arg0);
+	jsval jsret;
+	do {
+		if (ret) {
+			js_proxy_t *proxy = js_get_or_create_proxy<cocos2d::CCParticleSun>(cx, ret);
+			jsret = OBJECT_TO_JSVAL(proxy->obj);
+		} else {
+			jsret = JSVAL_NULL;
+		}
+	} while (0);
+	JS_SET_RVAL(cx, vp, jsret);
+	return JS_TRUE;
+}
+
 JSBool js_cocos2dx_CCParticleSun_constructor(JSContext *cx, uint32_t argc, jsval *vp)
 {
 
@@ -40655,6 +40720,7 @@ void js_register_cocos2dx_CCParticleSun(JSContext *cx, JSObject *global) {
 	static JSFunctionSpec st_funcs[] = {
 		JS_FN("node", js_cocos2dx_CCParticleSun_node, 0, JSPROP_PERMANENT | JSPROP_SHARED),
 		JS_FN("create", js_cocos2dx_CCParticleSun_create, 0, JSPROP_PERMANENT | JSPROP_SHARED),
+		JS_FN("createWithTotalParticles", js_cocos2dx_CCParticleSun_createWithTotalParticles, 1, JSPROP_PERMANENT | JSPROP_SHARED),
 		JS_FS_END
 	};
 
@@ -40759,6 +40825,27 @@ JSBool js_cocos2dx_CCParticleGalaxy_create(JSContext *cx, uint32_t argc, jsval *
 	return JS_TRUE;
 }
 
+JSBool js_cocos2dx_CCParticleGalaxy_createWithTotalParticles(JSContext *cx, uint32_t argc, jsval *vp)
+{
+	jsval *argv = JS_ARGV(cx, vp);
+	unsigned int arg0;
+	assert(argc >= 1);
+
+	JS_ValueToECMAUint32(cx, argv[0], &arg0);
+	cocos2d::CCParticleGalaxy* ret = cocos2d::CCParticleGalaxy::createWithTotalParticles(arg0);
+	jsval jsret;
+	do {
+		if (ret) {
+			js_proxy_t *proxy = js_get_or_create_proxy<cocos2d::CCParticleGalaxy>(cx, ret);
+			jsret = OBJECT_TO_JSVAL(proxy->obj);
+		} else {
+			jsret = JSVAL_NULL;
+		}
+	} while (0);
+	JS_SET_RVAL(cx, vp, jsret);
+	return JS_TRUE;
+}
+
 JSBool js_cocos2dx_CCParticleGalaxy_constructor(JSContext *cx, uint32_t argc, jsval *vp)
 {
 
@@ -40818,6 +40905,7 @@ void js_register_cocos2dx_CCParticleGalaxy(JSContext *cx, JSObject *global) {
 	static JSFunctionSpec st_funcs[] = {
 		JS_FN("node", js_cocos2dx_CCParticleGalaxy_node, 0, JSPROP_PERMANENT | JSPROP_SHARED),
 		JS_FN("create", js_cocos2dx_CCParticleGalaxy_create, 0, JSPROP_PERMANENT | JSPROP_SHARED),
+		JS_FN("createWithTotalParticles", js_cocos2dx_CCParticleGalaxy_createWithTotalParticles, 1, JSPROP_PERMANENT | JSPROP_SHARED),
 		JS_FS_END
 	};
 
@@ -40922,6 +41010,27 @@ JSBool js_cocos2dx_CCParticleFlower_create(JSContext *cx, uint32_t argc, jsval *
 	return JS_TRUE;
 }
 
+JSBool js_cocos2dx_CCParticleFlower_createWithTotalParticles(JSContext *cx, uint32_t argc, jsval *vp)
+{
+	jsval *argv = JS_ARGV(cx, vp);
+	unsigned int arg0;
+	assert(argc >= 1);
+
+	JS_ValueToECMAUint32(cx, argv[0], &arg0);
+	cocos2d::CCParticleFlower* ret = cocos2d::CCParticleFlower::createWithTotalParticles(arg0);
+	jsval jsret;
+	do {
+		if (ret) {
+			js_proxy_t *proxy = js_get_or_create_proxy<cocos2d::CCParticleFlower>(cx, ret);
+			jsret = OBJECT_TO_JSVAL(proxy->obj);
+		} else {
+			jsret = JSVAL_NULL;
+		}
+	} while (0);
+	JS_SET_RVAL(cx, vp, jsret);
+	return JS_TRUE;
+}
+
 JSBool js_cocos2dx_CCParticleFlower_constructor(JSContext *cx, uint32_t argc, jsval *vp)
 {
 
@@ -40981,6 +41090,7 @@ void js_register_cocos2dx_CCParticleFlower(JSContext *cx, JSObject *global) {
 	static JSFunctionSpec st_funcs[] = {
 		JS_FN("node", js_cocos2dx_CCParticleFlower_node, 0, JSPROP_PERMANENT | JSPROP_SHARED),
 		JS_FN("create", js_cocos2dx_CCParticleFlower_create, 0, JSPROP_PERMANENT | JSPROP_SHARED),
+		JS_FN("createWithTotalParticles", js_cocos2dx_CCParticleFlower_createWithTotalParticles, 1, JSPROP_PERMANENT | JSPROP_SHARED),
 		JS_FS_END
 	};
 
@@ -41085,6 +41195,27 @@ JSBool js_cocos2dx_CCParticleMeteor_create(JSContext *cx, uint32_t argc, jsval *
 	return JS_TRUE;
 }
 
+JSBool js_cocos2dx_CCParticleMeteor_createWithTotalParticles(JSContext *cx, uint32_t argc, jsval *vp)
+{
+	jsval *argv = JS_ARGV(cx, vp);
+	unsigned int arg0;
+	assert(argc >= 1);
+
+	JS_ValueToECMAUint32(cx, argv[0], &arg0);
+	cocos2d::CCParticleMeteor* ret = cocos2d::CCParticleMeteor::createWithTotalParticles(arg0);
+	jsval jsret;
+	do {
+		if (ret) {
+			js_proxy_t *proxy = js_get_or_create_proxy<cocos2d::CCParticleMeteor>(cx, ret);
+			jsret = OBJECT_TO_JSVAL(proxy->obj);
+		} else {
+			jsret = JSVAL_NULL;
+		}
+	} while (0);
+	JS_SET_RVAL(cx, vp, jsret);
+	return JS_TRUE;
+}
+
 JSBool js_cocos2dx_CCParticleMeteor_constructor(JSContext *cx, uint32_t argc, jsval *vp)
 {
 
@@ -41144,6 +41275,7 @@ void js_register_cocos2dx_CCParticleMeteor(JSContext *cx, JSObject *global) {
 	static JSFunctionSpec st_funcs[] = {
 		JS_FN("node", js_cocos2dx_CCParticleMeteor_node, 0, JSPROP_PERMANENT | JSPROP_SHARED),
 		JS_FN("create", js_cocos2dx_CCParticleMeteor_create, 0, JSPROP_PERMANENT | JSPROP_SHARED),
+		JS_FN("createWithTotalParticles", js_cocos2dx_CCParticleMeteor_createWithTotalParticles, 1, JSPROP_PERMANENT | JSPROP_SHARED),
 		JS_FS_END
 	};
 
@@ -41248,6 +41380,27 @@ JSBool js_cocos2dx_CCParticleSpiral_create(JSContext *cx, uint32_t argc, jsval *
 	return JS_TRUE;
 }
 
+JSBool js_cocos2dx_CCParticleSpiral_createWithTotalParticles(JSContext *cx, uint32_t argc, jsval *vp)
+{
+	jsval *argv = JS_ARGV(cx, vp);
+	unsigned int arg0;
+	assert(argc >= 1);
+
+	JS_ValueToECMAUint32(cx, argv[0], &arg0);
+	cocos2d::CCParticleSpiral* ret = cocos2d::CCParticleSpiral::createWithTotalParticles(arg0);
+	jsval jsret;
+	do {
+		if (ret) {
+			js_proxy_t *proxy = js_get_or_create_proxy<cocos2d::CCParticleSpiral>(cx, ret);
+			jsret = OBJECT_TO_JSVAL(proxy->obj);
+		} else {
+			jsret = JSVAL_NULL;
+		}
+	} while (0);
+	JS_SET_RVAL(cx, vp, jsret);
+	return JS_TRUE;
+}
+
 JSBool js_cocos2dx_CCParticleSpiral_constructor(JSContext *cx, uint32_t argc, jsval *vp)
 {
 
@@ -41307,6 +41460,7 @@ void js_register_cocos2dx_CCParticleSpiral(JSContext *cx, JSObject *global) {
 	static JSFunctionSpec st_funcs[] = {
 		JS_FN("node", js_cocos2dx_CCParticleSpiral_node, 0, JSPROP_PERMANENT | JSPROP_SHARED),
 		JS_FN("create", js_cocos2dx_CCParticleSpiral_create, 0, JSPROP_PERMANENT | JSPROP_SHARED),
+		JS_FN("createWithTotalParticles", js_cocos2dx_CCParticleSpiral_createWithTotalParticles, 1, JSPROP_PERMANENT | JSPROP_SHARED),
 		JS_FS_END
 	};
 
@@ -41411,6 +41565,27 @@ JSBool js_cocos2dx_CCParticleExplosion_create(JSContext *cx, uint32_t argc, jsva
 	return JS_TRUE;
 }
 
+JSBool js_cocos2dx_CCParticleExplosion_createWithTotalParticles(JSContext *cx, uint32_t argc, jsval *vp)
+{
+	jsval *argv = JS_ARGV(cx, vp);
+	unsigned int arg0;
+	assert(argc >= 1);
+
+	JS_ValueToECMAUint32(cx, argv[0], &arg0);
+	cocos2d::CCParticleExplosion* ret = cocos2d::CCParticleExplosion::createWithTotalParticles(arg0);
+	jsval jsret;
+	do {
+		if (ret) {
+			js_proxy_t *proxy = js_get_or_create_proxy<cocos2d::CCParticleExplosion>(cx, ret);
+			jsret = OBJECT_TO_JSVAL(proxy->obj);
+		} else {
+			jsret = JSVAL_NULL;
+		}
+	} while (0);
+	JS_SET_RVAL(cx, vp, jsret);
+	return JS_TRUE;
+}
+
 JSBool js_cocos2dx_CCParticleExplosion_constructor(JSContext *cx, uint32_t argc, jsval *vp)
 {
 
@@ -41470,6 +41645,7 @@ void js_register_cocos2dx_CCParticleExplosion(JSContext *cx, JSObject *global) {
 	static JSFunctionSpec st_funcs[] = {
 		JS_FN("node", js_cocos2dx_CCParticleExplosion_node, 0, JSPROP_PERMANENT | JSPROP_SHARED),
 		JS_FN("create", js_cocos2dx_CCParticleExplosion_create, 0, JSPROP_PERMANENT | JSPROP_SHARED),
+		JS_FN("createWithTotalParticles", js_cocos2dx_CCParticleExplosion_createWithTotalParticles, 1, JSPROP_PERMANENT | JSPROP_SHARED),
 		JS_FS_END
 	};
 
@@ -41574,6 +41750,27 @@ JSBool js_cocos2dx_CCParticleSmoke_create(JSContext *cx, uint32_t argc, jsval *v
 	return JS_TRUE;
 }
 
+JSBool js_cocos2dx_CCParticleSmoke_createWithTotalParticles(JSContext *cx, uint32_t argc, jsval *vp)
+{
+	jsval *argv = JS_ARGV(cx, vp);
+	unsigned int arg0;
+	assert(argc >= 1);
+
+	JS_ValueToECMAUint32(cx, argv[0], &arg0);
+	cocos2d::CCParticleSmoke* ret = cocos2d::CCParticleSmoke::createWithTotalParticles(arg0);
+	jsval jsret;
+	do {
+		if (ret) {
+			js_proxy_t *proxy = js_get_or_create_proxy<cocos2d::CCParticleSmoke>(cx, ret);
+			jsret = OBJECT_TO_JSVAL(proxy->obj);
+		} else {
+			jsret = JSVAL_NULL;
+		}
+	} while (0);
+	JS_SET_RVAL(cx, vp, jsret);
+	return JS_TRUE;
+}
+
 JSBool js_cocos2dx_CCParticleSmoke_constructor(JSContext *cx, uint32_t argc, jsval *vp)
 {
 
@@ -41633,6 +41830,7 @@ void js_register_cocos2dx_CCParticleSmoke(JSContext *cx, JSObject *global) {
 	static JSFunctionSpec st_funcs[] = {
 		JS_FN("node", js_cocos2dx_CCParticleSmoke_node, 0, JSPROP_PERMANENT | JSPROP_SHARED),
 		JS_FN("create", js_cocos2dx_CCParticleSmoke_create, 0, JSPROP_PERMANENT | JSPROP_SHARED),
+		JS_FN("createWithTotalParticles", js_cocos2dx_CCParticleSmoke_createWithTotalParticles, 1, JSPROP_PERMANENT | JSPROP_SHARED),
 		JS_FS_END
 	};
 
@@ -41737,6 +41935,27 @@ JSBool js_cocos2dx_CCParticleSnow_create(JSContext *cx, uint32_t argc, jsval *vp
 	return JS_TRUE;
 }
 
+JSBool js_cocos2dx_CCParticleSnow_createWithTotalParticles(JSContext *cx, uint32_t argc, jsval *vp)
+{
+	jsval *argv = JS_ARGV(cx, vp);
+	unsigned int arg0;
+	assert(argc >= 1);
+
+	JS_ValueToECMAUint32(cx, argv[0], &arg0);
+	cocos2d::CCParticleSnow* ret = cocos2d::CCParticleSnow::createWithTotalParticles(arg0);
+	jsval jsret;
+	do {
+		if (ret) {
+			js_proxy_t *proxy = js_get_or_create_proxy<cocos2d::CCParticleSnow>(cx, ret);
+			jsret = OBJECT_TO_JSVAL(proxy->obj);
+		} else {
+			jsret = JSVAL_NULL;
+		}
+	} while (0);
+	JS_SET_RVAL(cx, vp, jsret);
+	return JS_TRUE;
+}
+
 JSBool js_cocos2dx_CCParticleSnow_constructor(JSContext *cx, uint32_t argc, jsval *vp)
 {
 
@@ -41796,6 +42015,7 @@ void js_register_cocos2dx_CCParticleSnow(JSContext *cx, JSObject *global) {
 	static JSFunctionSpec st_funcs[] = {
 		JS_FN("node", js_cocos2dx_CCParticleSnow_node, 0, JSPROP_PERMANENT | JSPROP_SHARED),
 		JS_FN("create", js_cocos2dx_CCParticleSnow_create, 0, JSPROP_PERMANENT | JSPROP_SHARED),
+		JS_FN("createWithTotalParticles", js_cocos2dx_CCParticleSnow_createWithTotalParticles, 1, JSPROP_PERMANENT | JSPROP_SHARED),
 		JS_FS_END
 	};
 
@@ -41900,6 +42120,27 @@ JSBool js_cocos2dx_CCParticleRain_create(JSContext *cx, uint32_t argc, jsval *vp
 	return JS_TRUE;
 }
 
+JSBool js_cocos2dx_CCParticleRain_createWithTotalParticles(JSContext *cx, uint32_t argc, jsval *vp)
+{
+	jsval *argv = JS_ARGV(cx, vp);
+	unsigned int arg0;
+	assert(argc >= 1);
+
+	JS_ValueToECMAUint32(cx, argv[0], &arg0);
+	cocos2d::CCParticleRain* ret = cocos2d::CCParticleRain::createWithTotalParticles(arg0);
+	jsval jsret;
+	do {
+		if (ret) {
+			js_proxy_t *proxy = js_get_or_create_proxy<cocos2d::CCParticleRain>(cx, ret);
+			jsret = OBJECT_TO_JSVAL(proxy->obj);
+		} else {
+			jsret = JSVAL_NULL;
+		}
+	} while (0);
+	JS_SET_RVAL(cx, vp, jsret);
+	return JS_TRUE;
+}
+
 JSBool js_cocos2dx_CCParticleRain_constructor(JSContext *cx, uint32_t argc, jsval *vp)
 {
 
@@ -41959,6 +42200,7 @@ void js_register_cocos2dx_CCParticleRain(JSContext *cx, JSObject *global) {
 	static JSFunctionSpec st_funcs[] = {
 		JS_FN("node", js_cocos2dx_CCParticleRain_node, 0, JSPROP_PERMANENT | JSPROP_SHARED),
 		JS_FN("create", js_cocos2dx_CCParticleRain_create, 0, JSPROP_PERMANENT | JSPROP_SHARED),
+		JS_FN("createWithTotalParticles", js_cocos2dx_CCParticleRain_createWithTotalParticles, 1, JSPROP_PERMANENT | JSPROP_SHARED),
 		JS_FS_END
 	};
 

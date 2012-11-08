@@ -9192,6 +9192,13 @@ node : function () {},
 create : function () {},
 
 /**
+ * @method createWithTotalParticles
+ * @return A value converted from C/C++ "cocos2d::CCParticleFire*"
+ * @param {unsigned int}
+ */
+createWithTotalParticles : function () {},
+
+/**
  * @method CCParticleFire
  * @constructor
  */
@@ -9228,6 +9235,13 @@ node : function () {},
  * @return A value converted from C/C++ "cocos2d::CCParticleFireworks*"
  */
 create : function () {},
+
+/**
+ * @method createWithTotalParticles
+ * @return A value converted from C/C++ "cocos2d::CCParticleFireworks*"
+ * @param {unsigned int}
+ */
+createWithTotalParticles : function () {},
 
 /**
  * @method CCParticleFireworks
@@ -9268,6 +9282,13 @@ node : function () {},
 create : function () {},
 
 /**
+ * @method createWithTotalParticles
+ * @return A value converted from C/C++ "cocos2d::CCParticleSun*"
+ * @param {unsigned int}
+ */
+createWithTotalParticles : function () {},
+
+/**
  * @method CCParticleSun
  * @constructor
  */
@@ -9304,6 +9325,13 @@ node : function () {},
  * @return A value converted from C/C++ "cocos2d::CCParticleGalaxy*"
  */
 create : function () {},
+
+/**
+ * @method createWithTotalParticles
+ * @return A value converted from C/C++ "cocos2d::CCParticleGalaxy*"
+ * @param {unsigned int}
+ */
+createWithTotalParticles : function () {},
 
 /**
  * @method CCParticleGalaxy
@@ -9344,6 +9372,13 @@ node : function () {},
 create : function () {},
 
 /**
+ * @method createWithTotalParticles
+ * @return A value converted from C/C++ "cocos2d::CCParticleFlower*"
+ * @param {unsigned int}
+ */
+createWithTotalParticles : function () {},
+
+/**
  * @method CCParticleFlower
  * @constructor
  */
@@ -9380,6 +9415,13 @@ node : function () {},
  * @return A value converted from C/C++ "cocos2d::CCParticleMeteor*"
  */
 create : function () {},
+
+/**
+ * @method createWithTotalParticles
+ * @return A value converted from C/C++ "cocos2d::CCParticleMeteor*"
+ * @param {unsigned int}
+ */
+createWithTotalParticles : function () {},
 
 /**
  * @method CCParticleMeteor
@@ -9420,6 +9462,13 @@ node : function () {},
 create : function () {},
 
 /**
+ * @method createWithTotalParticles
+ * @return A value converted from C/C++ "cocos2d::CCParticleSpiral*"
+ * @param {unsigned int}
+ */
+createWithTotalParticles : function () {},
+
+/**
  * @method CCParticleSpiral
  * @constructor
  */
@@ -9456,6 +9505,13 @@ node : function () {},
  * @return A value converted from C/C++ "cocos2d::CCParticleExplosion*"
  */
 create : function () {},
+
+/**
+ * @method createWithTotalParticles
+ * @return A value converted from C/C++ "cocos2d::CCParticleExplosion*"
+ * @param {unsigned int}
+ */
+createWithTotalParticles : function () {},
 
 /**
  * @method CCParticleExplosion
@@ -9496,6 +9552,13 @@ node : function () {},
 create : function () {},
 
 /**
+ * @method createWithTotalParticles
+ * @return A value converted from C/C++ "cocos2d::CCParticleSmoke*"
+ * @param {unsigned int}
+ */
+createWithTotalParticles : function () {},
+
+/**
  * @method CCParticleSmoke
  * @constructor
  */
@@ -9534,6 +9597,13 @@ node : function () {},
 create : function () {},
 
 /**
+ * @method createWithTotalParticles
+ * @return A value converted from C/C++ "cocos2d::CCParticleSnow*"
+ * @param {unsigned int}
+ */
+createWithTotalParticles : function () {},
+
+/**
  * @method CCParticleSnow
  * @constructor
  */
@@ -9570,6 +9640,13 @@ node : function () {},
  * @return A value converted from C/C++ "cocos2d::CCParticleRain*"
  */
 create : function () {},
+
+/**
+ * @method createWithTotalParticles
+ * @return A value converted from C/C++ "cocos2d::CCParticleRain*"
+ * @param {unsigned int}
+ */
+createWithTotalParticles : function () {},
 
 /**
  * @method CCParticleRain

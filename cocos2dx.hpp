@@ -2549,6 +2549,7 @@ JSBool js_cocos2dx_CCParticleFire_init(JSContext *cx, uint32_t argc, jsval *vp);
 JSBool js_cocos2dx_CCParticleFire_initWithTotalParticles(JSContext *cx, uint32_t argc, jsval *vp);
 JSBool js_cocos2dx_CCParticleFire_node(JSContext *cx, uint32_t argc, jsval *vp);
 JSBool js_cocos2dx_CCParticleFire_create(JSContext *cx, uint32_t argc, jsval *vp);
+JSBool js_cocos2dx_CCParticleFire_createWithTotalParticles(JSContext *cx, uint32_t argc, jsval *vp);
 JSBool js_cocos2dx_CCParticleFire_CCParticleFire(JSContext *cx, uint32_t argc, jsval *vp);
 
 extern JSClass  *js_cocos2dx_CCParticleFireworks_class;
@@ -2562,6 +2563,7 @@ JSBool js_cocos2dx_CCParticleFireworks_init(JSContext *cx, uint32_t argc, jsval 
 JSBool js_cocos2dx_CCParticleFireworks_initWithTotalParticles(JSContext *cx, uint32_t argc, jsval *vp);
 JSBool js_cocos2dx_CCParticleFireworks_node(JSContext *cx, uint32_t argc, jsval *vp);
 JSBool js_cocos2dx_CCParticleFireworks_create(JSContext *cx, uint32_t argc, jsval *vp);
+JSBool js_cocos2dx_CCParticleFireworks_createWithTotalParticles(JSContext *cx, uint32_t argc, jsval *vp);
 JSBool js_cocos2dx_CCParticleFireworks_CCParticleFireworks(JSContext *cx, uint32_t argc, jsval *vp);
 
 extern JSClass  *js_cocos2dx_CCParticleSun_class;
@@ -2575,6 +2577,7 @@ JSBool js_cocos2dx_CCParticleSun_init(JSContext *cx, uint32_t argc, jsval *vp);
 JSBool js_cocos2dx_CCParticleSun_initWithTotalParticles(JSContext *cx, uint32_t argc, jsval *vp);
 JSBool js_cocos2dx_CCParticleSun_node(JSContext *cx, uint32_t argc, jsval *vp);
 JSBool js_cocos2dx_CCParticleSun_create(JSContext *cx, uint32_t argc, jsval *vp);
+JSBool js_cocos2dx_CCParticleSun_createWithTotalParticles(JSContext *cx, uint32_t argc, jsval *vp);
 JSBool js_cocos2dx_CCParticleSun_CCParticleSun(JSContext *cx, uint32_t argc, jsval *vp);
 
 extern JSClass  *js_cocos2dx_CCParticleGalaxy_class;
@@ -2588,6 +2591,7 @@ JSBool js_cocos2dx_CCParticleGalaxy_init(JSContext *cx, uint32_t argc, jsval *vp
 JSBool js_cocos2dx_CCParticleGalaxy_initWithTotalParticles(JSContext *cx, uint32_t argc, jsval *vp);
 JSBool js_cocos2dx_CCParticleGalaxy_node(JSContext *cx, uint32_t argc, jsval *vp);
 JSBool js_cocos2dx_CCParticleGalaxy_create(JSContext *cx, uint32_t argc, jsval *vp);
+JSBool js_cocos2dx_CCParticleGalaxy_createWithTotalParticles(JSContext *cx, uint32_t argc, jsval *vp);
 JSBool js_cocos2dx_CCParticleGalaxy_CCParticleGalaxy(JSContext *cx, uint32_t argc, jsval *vp);
 
 extern JSClass  *js_cocos2dx_CCParticleFlower_class;
@@ -2601,6 +2605,7 @@ JSBool js_cocos2dx_CCParticleFlower_init(JSContext *cx, uint32_t argc, jsval *vp
 JSBool js_cocos2dx_CCParticleFlower_initWithTotalParticles(JSContext *cx, uint32_t argc, jsval *vp);
 JSBool js_cocos2dx_CCParticleFlower_node(JSContext *cx, uint32_t argc, jsval *vp);
 JSBool js_cocos2dx_CCParticleFlower_create(JSContext *cx, uint32_t argc, jsval *vp);
+JSBool js_cocos2dx_CCParticleFlower_createWithTotalParticles(JSContext *cx, uint32_t argc, jsval *vp);
 JSBool js_cocos2dx_CCParticleFlower_CCParticleFlower(JSContext *cx, uint32_t argc, jsval *vp);
 
 extern JSClass  *js_cocos2dx_CCParticleMeteor_class;
@@ -2614,6 +2619,7 @@ JSBool js_cocos2dx_CCParticleMeteor_init(JSContext *cx, uint32_t argc, jsval *vp
 JSBool js_cocos2dx_CCParticleMeteor_initWithTotalParticles(JSContext *cx, uint32_t argc, jsval *vp);
 JSBool js_cocos2dx_CCParticleMeteor_node(JSContext *cx, uint32_t argc, jsval *vp);
 JSBool js_cocos2dx_CCParticleMeteor_create(JSContext *cx, uint32_t argc, jsval *vp);
+JSBool js_cocos2dx_CCParticleMeteor_createWithTotalParticles(JSContext *cx, uint32_t argc, jsval *vp);
 JSBool js_cocos2dx_CCParticleMeteor_CCParticleMeteor(JSContext *cx, uint32_t argc, jsval *vp);
 
 extern JSClass  *js_cocos2dx_CCParticleSpiral_class;
@@ -2627,6 +2633,7 @@ JSBool js_cocos2dx_CCParticleSpiral_init(JSContext *cx, uint32_t argc, jsval *vp
 JSBool js_cocos2dx_CCParticleSpiral_initWithTotalParticles(JSContext *cx, uint32_t argc, jsval *vp);
 JSBool js_cocos2dx_CCParticleSpiral_node(JSContext *cx, uint32_t argc, jsval *vp);
 JSBool js_cocos2dx_CCParticleSpiral_create(JSContext *cx, uint32_t argc, jsval *vp);
+JSBool js_cocos2dx_CCParticleSpiral_createWithTotalParticles(JSContext *cx, uint32_t argc, jsval *vp);
 JSBool js_cocos2dx_CCParticleSpiral_CCParticleSpiral(JSContext *cx, uint32_t argc, jsval *vp);
 
 extern JSClass  *js_cocos2dx_CCParticleExplosion_class;
@@ -2640,6 +2647,7 @@ JSBool js_cocos2dx_CCParticleExplosion_init(JSContext *cx, uint32_t argc, jsval 
 JSBool js_cocos2dx_CCParticleExplosion_initWithTotalParticles(JSContext *cx, uint32_t argc, jsval *vp);
 JSBool js_cocos2dx_CCParticleExplosion_node(JSContext *cx, uint32_t argc, jsval *vp);
 JSBool js_cocos2dx_CCParticleExplosion_create(JSContext *cx, uint32_t argc, jsval *vp);
+JSBool js_cocos2dx_CCParticleExplosion_createWithTotalParticles(JSContext *cx, uint32_t argc, jsval *vp);
 JSBool js_cocos2dx_CCParticleExplosion_CCParticleExplosion(JSContext *cx, uint32_t argc, jsval *vp);
 
 extern JSClass  *js_cocos2dx_CCParticleSmoke_class;
@@ -2653,6 +2661,7 @@ JSBool js_cocos2dx_CCParticleSmoke_init(JSContext *cx, uint32_t argc, jsval *vp)
 JSBool js_cocos2dx_CCParticleSmoke_initWithTotalParticles(JSContext *cx, uint32_t argc, jsval *vp);
 JSBool js_cocos2dx_CCParticleSmoke_node(JSContext *cx, uint32_t argc, jsval *vp);
 JSBool js_cocos2dx_CCParticleSmoke_create(JSContext *cx, uint32_t argc, jsval *vp);
+JSBool js_cocos2dx_CCParticleSmoke_createWithTotalParticles(JSContext *cx, uint32_t argc, jsval *vp);
 JSBool js_cocos2dx_CCParticleSmoke_CCParticleSmoke(JSContext *cx, uint32_t argc, jsval *vp);
 
 extern JSClass  *js_cocos2dx_CCParticleSnow_class;
@@ -2666,6 +2675,7 @@ JSBool js_cocos2dx_CCParticleSnow_init(JSContext *cx, uint32_t argc, jsval *vp);
 JSBool js_cocos2dx_CCParticleSnow_initWithTotalParticles(JSContext *cx, uint32_t argc, jsval *vp);
 JSBool js_cocos2dx_CCParticleSnow_node(JSContext *cx, uint32_t argc, jsval *vp);
 JSBool js_cocos2dx_CCParticleSnow_create(JSContext *cx, uint32_t argc, jsval *vp);
+JSBool js_cocos2dx_CCParticleSnow_createWithTotalParticles(JSContext *cx, uint32_t argc, jsval *vp);
 JSBool js_cocos2dx_CCParticleSnow_CCParticleSnow(JSContext *cx, uint32_t argc, jsval *vp);
 
 extern JSClass  *js_cocos2dx_CCParticleRain_class;
@@ -2679,6 +2689,7 @@ JSBool js_cocos2dx_CCParticleRain_init(JSContext *cx, uint32_t argc, jsval *vp);
 JSBool js_cocos2dx_CCParticleRain_initWithTotalParticles(JSContext *cx, uint32_t argc, jsval *vp);
 JSBool js_cocos2dx_CCParticleRain_node(JSContext *cx, uint32_t argc, jsval *vp);
 JSBool js_cocos2dx_CCParticleRain_create(JSContext *cx, uint32_t argc, jsval *vp);
+JSBool js_cocos2dx_CCParticleRain_createWithTotalParticles(JSContext *cx, uint32_t argc, jsval *vp);
 JSBool js_cocos2dx_CCParticleRain_CCParticleRain(JSContext *cx, uint32_t argc, jsval *vp);
 
 extern JSClass  *js_cocos2dx_CCAnimationCache_class;
