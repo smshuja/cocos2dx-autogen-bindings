@@ -51379,7 +51379,7 @@ void js_cocos2dx_CCBAnimationManager_finalize(JSFreeOp *fop, JSObject *obj) {
 
 void js_register_cocos2dx_CCBAnimationManager(JSContext *cx, JSObject *global) {
 	js_cocos2dx_CCBAnimationManager_class = (JSClass *)calloc(1, sizeof(JSClass));
-	js_cocos2dx_CCBAnimationManager_class->name = "Animation";
+	js_cocos2dx_CCBAnimationManager_class->name = "AnimationManager";
 	js_cocos2dx_CCBAnimationManager_class->addProperty = JS_PropertyStub;
 	js_cocos2dx_CCBAnimationManager_class->delProperty = JS_PropertyStub;
 	js_cocos2dx_CCBAnimationManager_class->getProperty = JS_PropertyStub;
@@ -51439,7 +51439,7 @@ void js_register_cocos2dx_CCBAnimationManager(JSContext *cx, JSObject *global) {
 		st_funcs);
 	// make the class enumerable in the registered namespace
 	JSBool found;
-	JS_SetPropertyAttributes(cx, global, "Animation", JSPROP_ENUMERATE | JSPROP_READONLY, &found);
+	JS_SetPropertyAttributes(cx, global, "AnimationManager", JSPROP_ENUMERATE | JSPROP_READONLY, &found);
 
 	// add the proto and JSClass to the type->js info hash table
 	TypeTest<cocos2d::extension::CCBAnimationManager> t;
