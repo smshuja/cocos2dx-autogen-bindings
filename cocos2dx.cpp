@@ -20828,6 +20828,209 @@ void js_register_cocos2dx_CCAtlasNode(JSContext *cx, JSObject *global) {
 }
 
 
+JSClass  *js_cocos2dx_CCDrawNode_class;
+JSObject *js_cocos2dx_CCDrawNode_prototype;
+
+JSBool js_cocos2dx_CCDrawNode_draw(JSContext *cx, uint32_t argc, jsval *vp)
+{
+	JSObject *obj = JS_THIS_OBJECT(cx, vp);
+	js_proxy_t *proxy; JS_GET_NATIVE_PROXY(proxy, obj);
+	cocos2d::CCDrawNode* cobj = (cocos2d::CCDrawNode *)(proxy ? proxy->ptr : NULL);
+	TEST_NATIVE_OBJECT(cx, cobj)
+
+	if (argc == 0) {
+		cobj->draw();
+		return JS_TRUE;
+	}
+	JS_ReportError(cx, "wrong number of arguments: %d, was expecting %d", argc, 0);
+	return JS_FALSE;
+}
+JSBool js_cocos2dx_CCDrawNode_clear(JSContext *cx, uint32_t argc, jsval *vp)
+{
+	JSObject *obj = JS_THIS_OBJECT(cx, vp);
+	js_proxy_t *proxy; JS_GET_NATIVE_PROXY(proxy, obj);
+	cocos2d::CCDrawNode* cobj = (cocos2d::CCDrawNode *)(proxy ? proxy->ptr : NULL);
+	TEST_NATIVE_OBJECT(cx, cobj)
+
+	if (argc == 0) {
+		cobj->clear();
+		return JS_TRUE;
+	}
+	JS_ReportError(cx, "wrong number of arguments: %d, was expecting %d", argc, 0);
+	return JS_FALSE;
+}
+JSBool js_cocos2dx_CCDrawNode_init(JSContext *cx, uint32_t argc, jsval *vp)
+{
+	JSObject *obj = JS_THIS_OBJECT(cx, vp);
+	js_proxy_t *proxy; JS_GET_NATIVE_PROXY(proxy, obj);
+	cocos2d::CCDrawNode* cobj = (cocos2d::CCDrawNode *)(proxy ? proxy->ptr : NULL);
+	TEST_NATIVE_OBJECT(cx, cobj)
+
+	if (argc == 0) {
+		bool ret = cobj->init();
+		jsval jsret;
+		jsret = BOOLEAN_TO_JSVAL(ret);
+		JS_SET_RVAL(cx, vp, jsret);
+		return JS_TRUE;
+	}
+	JS_ReportError(cx, "wrong number of arguments: %d, was expecting %d", argc, 0);
+	return JS_FALSE;
+}
+JSBool js_cocos2dx_CCDrawNode_drawDot(JSContext *cx, uint32_t argc, jsval *vp)
+{
+	jsval *argv = JS_ARGV(cx, vp);
+	JSObject *obj = JS_THIS_OBJECT(cx, vp);
+	js_proxy_t *proxy; JS_GET_NATIVE_PROXY(proxy, obj);
+	cocos2d::CCDrawNode* cobj = (cocos2d::CCDrawNode *)(proxy ? proxy->ptr : NULL);
+	TEST_NATIVE_OBJECT(cx, cobj)
+
+	if (argc == 3) {
+		cocos2d::CCPoint arg0;
+		double arg1;
+		cocos2d::ccColor4F arg2;
+		arg0 = jsval_to_ccpoint(cx, argv[0]);
+		JS_ValueToNumber(cx, argv[1], &arg1);
+		arg2 = jsval_to_cccolor4f(cx, argv[2]);
+		cobj->drawDot(arg0, arg1, arg2);
+		return JS_TRUE;
+	}
+	JS_ReportError(cx, "wrong number of arguments: %d, was expecting %d", argc, 3);
+	return JS_FALSE;
+}
+JSBool js_cocos2dx_CCDrawNode_drawSegment(JSContext *cx, uint32_t argc, jsval *vp)
+{
+	jsval *argv = JS_ARGV(cx, vp);
+	JSObject *obj = JS_THIS_OBJECT(cx, vp);
+	js_proxy_t *proxy; JS_GET_NATIVE_PROXY(proxy, obj);
+	cocos2d::CCDrawNode* cobj = (cocos2d::CCDrawNode *)(proxy ? proxy->ptr : NULL);
+	TEST_NATIVE_OBJECT(cx, cobj)
+
+	if (argc == 4) {
+		cocos2d::CCPoint arg0;
+		cocos2d::CCPoint arg1;
+		double arg2;
+		cocos2d::ccColor4F arg3;
+		arg0 = jsval_to_ccpoint(cx, argv[0]);
+		arg1 = jsval_to_ccpoint(cx, argv[1]);
+		JS_ValueToNumber(cx, argv[2], &arg2);
+		arg3 = jsval_to_cccolor4f(cx, argv[3]);
+		cobj->drawSegment(arg0, arg1, arg2, arg3);
+		return JS_TRUE;
+	}
+	JS_ReportError(cx, "wrong number of arguments: %d, was expecting %d", argc, 4);
+	return JS_FALSE;
+}
+JSBool js_cocos2dx_CCDrawNode_create(JSContext *cx, uint32_t argc, jsval *vp)
+{
+	cocos2d::CCDrawNode* ret = cocos2d::CCDrawNode::create();
+	jsval jsret;
+	do {
+		if (ret) {
+			js_proxy_t *proxy = js_get_or_create_proxy<cocos2d::CCDrawNode>(cx, ret);
+			jsret = OBJECT_TO_JSVAL(proxy->obj);
+		} else {
+			jsret = JSVAL_NULL;
+		}
+	} while (0);
+	JS_SET_RVAL(cx, vp, jsret);
+	return JS_TRUE;
+}
+
+JSBool js_cocos2dx_CCDrawNode_constructor(JSContext *cx, uint32_t argc, jsval *vp)
+{
+
+	if (argc == 0) {
+		cocos2d::CCDrawNode* cobj = new cocos2d::CCDrawNode();
+#ifdef COCOS2D_JAVASCRIPT
+		cocos2d::CCObject *_ccobj = dynamic_cast<cocos2d::CCObject *>(cobj);
+		if (_ccobj) {
+			_ccobj->autorelease();
+		}
+#endif
+		TypeTest<cocos2d::CCDrawNode> t;
+		js_type_class_t *typeClass;
+		uint32_t typeId = t.s_id();
+		HASH_FIND_INT(_js_global_type_ht, &typeId, typeClass);
+		assert(typeClass);
+		JSObject *obj = JS_NewObject(cx, typeClass->jsclass, typeClass->proto, typeClass->parentProto);
+		JS_SET_RVAL(cx, vp, OBJECT_TO_JSVAL(obj));
+		// link the native object with the javascript object
+		js_proxy_t *p;
+		JS_NEW_PROXY(p, cobj, obj);
+#ifdef COCOS2D_JAVASCRIPT
+		JS_AddNamedObjectRoot(cx, &p->obj, "cocos2d::CCDrawNode");
+#endif
+		return JS_TRUE;
+	}
+	JS_ReportError(cx, "wrong number of arguments: %d, was expecting %d", argc, 0);
+	return JS_FALSE;
+}
+
+
+
+void js_cocos2dx_CCDrawNode_finalize(JSFreeOp *fop, JSObject *obj) {
+}
+
+void js_register_cocos2dx_CCDrawNode(JSContext *cx, JSObject *global) {
+	js_cocos2dx_CCDrawNode_class = (JSClass *)calloc(1, sizeof(JSClass));
+	js_cocos2dx_CCDrawNode_class->name = "DrawNode";
+	js_cocos2dx_CCDrawNode_class->addProperty = JS_PropertyStub;
+	js_cocos2dx_CCDrawNode_class->delProperty = JS_PropertyStub;
+	js_cocos2dx_CCDrawNode_class->getProperty = JS_PropertyStub;
+	js_cocos2dx_CCDrawNode_class->setProperty = JS_StrictPropertyStub;
+	js_cocos2dx_CCDrawNode_class->enumerate = JS_EnumerateStub;
+	js_cocos2dx_CCDrawNode_class->resolve = JS_ResolveStub;
+	js_cocos2dx_CCDrawNode_class->convert = JS_ConvertStub;
+	js_cocos2dx_CCDrawNode_class->finalize = js_cocos2dx_CCDrawNode_finalize;
+	js_cocos2dx_CCDrawNode_class->flags = JSCLASS_HAS_RESERVED_SLOTS(2);
+
+	static JSPropertySpec properties[] = {
+		{0, 0, 0, 0, 0}
+	};
+
+	static JSFunctionSpec funcs[] = {
+		JS_FN("draw", js_cocos2dx_CCDrawNode_draw, 0, JSPROP_PERMANENT | JSPROP_SHARED),
+		JS_FN("clear", js_cocos2dx_CCDrawNode_clear, 0, JSPROP_PERMANENT | JSPROP_SHARED),
+		JS_FN("init", js_cocos2dx_CCDrawNode_init, 0, JSPROP_PERMANENT | JSPROP_SHARED),
+		JS_FN("drawDot", js_cocos2dx_CCDrawNode_drawDot, 3, JSPROP_PERMANENT | JSPROP_SHARED),
+		JS_FN("drawSegment", js_cocos2dx_CCDrawNode_drawSegment, 4, JSPROP_PERMANENT | JSPROP_SHARED),
+		JS_FS_END
+	};
+
+	static JSFunctionSpec st_funcs[] = {
+		JS_FN("create", js_cocos2dx_CCDrawNode_create, 0, JSPROP_PERMANENT | JSPROP_SHARED),
+		JS_FS_END
+	};
+
+	js_cocos2dx_CCDrawNode_prototype = JS_InitClass(
+		cx, global,
+		js_cocos2dx_CCNode_prototype,
+		js_cocos2dx_CCDrawNode_class,
+		js_cocos2dx_CCDrawNode_constructor, 0, // constructor
+		properties,
+		funcs,
+		NULL, // no static properties
+		st_funcs);
+	// make the class enumerable in the registered namespace
+	JSBool found;
+	JS_SetPropertyAttributes(cx, global, "DrawNode", JSPROP_ENUMERATE | JSPROP_READONLY, &found);
+
+	// add the proto and JSClass to the type->js info hash table
+	TypeTest<cocos2d::CCDrawNode> t;
+	js_type_class_t *p;
+	uint32_t typeId = t.s_id();
+	HASH_FIND_INT(_js_global_type_ht, &typeId, p);
+	if (!p) {
+		p = (js_type_class_t *)malloc(sizeof(js_type_class_t));
+		p->type = typeId;
+		p->jsclass = js_cocos2dx_CCDrawNode_class;
+		p->proto = js_cocos2dx_CCDrawNode_prototype;
+		p->parentProto = js_cocos2dx_CCNode_prototype;
+		HASH_ADD_INT(_js_global_type_ht, type, p);
+	}
+}
+
+
 JSClass  *js_cocos2dx_CCCamera_class;
 JSObject *js_cocos2dx_CCCamera_prototype;
 
@@ -51414,6 +51617,7 @@ void register_all_cocos2dx(JSContext* cx, JSObject* obj) {
 	js_register_cocos2dx_CCMenu(cx, obj);
 	js_register_cocos2dx_CCCallFunc(cx, obj);
 	js_register_cocos2dx_CCTransitionProgressInOut(cx, obj);
+	js_register_cocos2dx_CCDrawNode(cx, obj);
 	js_register_cocos2dx_CCBlink(cx, obj);
 	js_register_cocos2dx_CCScale9Sprite(cx, obj);
 	js_register_cocos2dx_CCEaseBounce(cx, obj);

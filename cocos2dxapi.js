@@ -4781,6 +4781,58 @@ CCAtlasNode : function () {},
 };
 
 /**
+ * @class CCDrawNode
+ */
+cc.CCDrawNode = {
+
+/**
+ * @method draw
+ */
+draw : function () {},
+
+/**
+ * @method clear
+ */
+clear : function () {},
+
+/**
+ * @method init
+ * @return A value converted from C/C++ "bool"
+ */
+init : function () {},
+
+/**
+ * @method drawDot
+ * @param {cocos2d::CCPoint}
+ * @param {float}
+ * @param {cocos2d::ccColor4F}
+ */
+drawDot : function () {},
+
+/**
+ * @method drawSegment
+ * @param {cocos2d::CCPoint}
+ * @param {cocos2d::CCPoint}
+ * @param {float}
+ * @param {cocos2d::ccColor4F}
+ */
+drawSegment : function () {},
+
+/**
+ * @method create
+ * @return A value converted from C/C++ "cocos2d::CCDrawNode*"
+ */
+create : function () {},
+
+/**
+ * @method CCDrawNode
+ * @constructor
+ */
+CCDrawNode : function () {},
+
+};
+
+/**
  * @class CCCamera
  */
 cc.CCCamera = {

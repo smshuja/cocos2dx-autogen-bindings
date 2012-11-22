@@ -1388,6 +1388,21 @@ JSBool js_cocos2dx_CCAtlasNode_create(JSContext *cx, uint32_t argc, jsval *vp);
 JSBool js_cocos2dx_CCAtlasNode_atlasWithTileFile(JSContext *cx, uint32_t argc, jsval *vp);
 JSBool js_cocos2dx_CCAtlasNode_CCAtlasNode(JSContext *cx, uint32_t argc, jsval *vp);
 
+extern JSClass  *js_cocos2dx_CCDrawNode_class;
+extern JSObject *js_cocos2dx_CCDrawNode_prototype;
+
+JSBool js_cocos2dx_CCDrawNode_constructor(JSContext *cx, uint32_t argc, jsval *vp);
+void js_cocos2dx_CCDrawNode_finalize(JSContext *cx, JSObject *obj);
+void js_register_cocos2dx_CCDrawNode(JSContext *cx, JSObject *global);
+void register_all_cocos2dx(JSContext* cx, JSObject* obj);
+JSBool js_cocos2dx_CCDrawNode_draw(JSContext *cx, uint32_t argc, jsval *vp);
+JSBool js_cocos2dx_CCDrawNode_clear(JSContext *cx, uint32_t argc, jsval *vp);
+JSBool js_cocos2dx_CCDrawNode_init(JSContext *cx, uint32_t argc, jsval *vp);
+JSBool js_cocos2dx_CCDrawNode_drawDot(JSContext *cx, uint32_t argc, jsval *vp);
+JSBool js_cocos2dx_CCDrawNode_drawSegment(JSContext *cx, uint32_t argc, jsval *vp);
+JSBool js_cocos2dx_CCDrawNode_create(JSContext *cx, uint32_t argc, jsval *vp);
+JSBool js_cocos2dx_CCDrawNode_CCDrawNode(JSContext *cx, uint32_t argc, jsval *vp);
+
 extern JSClass  *js_cocos2dx_CCCamera_class;
 extern JSObject *js_cocos2dx_CCCamera_prototype;
 
