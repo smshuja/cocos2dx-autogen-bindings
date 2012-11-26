@@ -11867,6 +11867,12 @@ getDelegate : function () {},
 getDocumentCallbackNodes : function () {},
 
 /**
+ * @method setSequences
+ * @param {cocos2d::CCArray*}
+ */
+setSequences : function () {},
+
+/**
  * @method debug
  */
 debug : function () {},
