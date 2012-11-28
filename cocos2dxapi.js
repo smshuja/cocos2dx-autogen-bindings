@@ -11097,6 +11097,12 @@ sharedEngine : function () {},
 cc.CCBReader = {
 
 /**
+ * @method readUTF8
+ * @return A value converted from C/C++ "std::string"
+ */
+readUTF8 : function () {},
+
+/**
  * @method getOwnerCallbackNames
  * @return A value converted from C/C++ "cocos2d::CCArray*"
  */
@@ -11807,10 +11813,24 @@ getDocumentOutletNames : function () {},
 init : function () {},
 
 /**
+ * @method runAnimationsForSequenceNamedTweenDuration
+ * @param {const char*}
+ * @param {float}
+ */
+runAnimationsForSequenceNamedTweenDuration : function () {},
+
+/**
  * @method setRootContainerSize
  * @param {cocos2d::CCSize}
  */
 setRootContainerSize : function () {},
+
+/**
+ * @method runAnimationsForSequenceIdTweenDuration
+ * @param {int}
+ * @param {float}
+ */
+runAnimationsForSequenceIdTweenDuration : function () {},
 
 /**
  * @method getRunningSequenceName
@@ -11859,6 +11879,12 @@ addDocumentCallbackNode : function () {},
  * @return A value converted from C/C++ "cocos2d::extension::CCBAnimationManagerDelegate*"
  */
 getDelegate : function () {},
+
+/**
+ * @method runAnimationsForSequenceNamed
+ * @param {const char*}
+ */
+runAnimationsForSequenceNamed : function () {},
 
 /**
  * @method getDocumentCallbackNodes

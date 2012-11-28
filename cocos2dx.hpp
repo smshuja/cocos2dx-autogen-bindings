@@ -3045,6 +3045,7 @@ JSBool js_cocos2dx_CCBReader_constructor(JSContext *cx, uint32_t argc, jsval *vp
 void js_cocos2dx_CCBReader_finalize(JSContext *cx, JSObject *obj);
 void js_register_cocos2dx_CCBReader(JSContext *cx, JSObject *global);
 void register_all_cocos2dx(JSContext* cx, JSObject* obj);
+JSBool js_cocos2dx_CCBReader_readUTF8(JSContext *cx, uint32_t argc, jsval *vp);
 JSBool js_cocos2dx_CCBReader_getOwnerCallbackNames(JSContext *cx, uint32_t argc, jsval *vp);
 JSBool js_cocos2dx_CCBReader_getOwnerCallbackNodes(JSContext *cx, uint32_t argc, jsval *vp);
 JSBool js_cocos2dx_CCBReader_getNodesWithAnimationManagers(JSContext *cx, uint32_t argc, jsval *vp);
@@ -3189,7 +3190,9 @@ JSBool js_cocos2dx_CCBAnimationManager_setDocumentControllerName(JSContext *cx, 
 JSBool js_cocos2dx_CCBAnimationManager_getContainerSize(JSContext *cx, uint32_t argc, jsval *vp);
 JSBool js_cocos2dx_CCBAnimationManager_getDocumentOutletNames(JSContext *cx, uint32_t argc, jsval *vp);
 JSBool js_cocos2dx_CCBAnimationManager_init(JSContext *cx, uint32_t argc, jsval *vp);
+JSBool js_cocos2dx_CCBAnimationManager_runAnimationsForSequenceNamedTweenDuration(JSContext *cx, uint32_t argc, jsval *vp);
 JSBool js_cocos2dx_CCBAnimationManager_setRootContainerSize(JSContext *cx, uint32_t argc, jsval *vp);
+JSBool js_cocos2dx_CCBAnimationManager_runAnimationsForSequenceIdTweenDuration(JSContext *cx, uint32_t argc, jsval *vp);
 JSBool js_cocos2dx_CCBAnimationManager_getRunningSequenceName(JSContext *cx, uint32_t argc, jsval *vp);
 JSBool js_cocos2dx_CCBAnimationManager_getAutoPlaySequenceId(JSContext *cx, uint32_t argc, jsval *vp);
 JSBool js_cocos2dx_CCBAnimationManager_addDocumentCallbackName(JSContext *cx, uint32_t argc, jsval *vp);
@@ -3199,6 +3202,7 @@ JSBool js_cocos2dx_CCBAnimationManager_setDelegate(JSContext *cx, uint32_t argc,
 JSBool js_cocos2dx_CCBAnimationManager_addDocumentCallbackNode(JSContext *cx, uint32_t argc, jsval *vp);
 JSBool js_cocos2dx_CCBAnimationManager_getDelegate(JSContext *cx, uint32_t argc, jsval *vp);
 JSBool js_cocos2dx_CCBAnimationManager_runAnimations(JSContext *cx, uint32_t argc, jsval *vp);
+JSBool js_cocos2dx_CCBAnimationManager_runAnimationsForSequenceNamed(JSContext *cx, uint32_t argc, jsval *vp);
 JSBool js_cocos2dx_CCBAnimationManager_getDocumentCallbackNodes(JSContext *cx, uint32_t argc, jsval *vp);
 JSBool js_cocos2dx_CCBAnimationManager_setSequences(JSContext *cx, uint32_t argc, jsval *vp);
 JSBool js_cocos2dx_CCBAnimationManager_debug(JSContext *cx, uint32_t argc, jsval *vp);

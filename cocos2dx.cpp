@@ -9,6 +9,7 @@ template<class T>
 static JSBool dummy_constructor(JSContext *cx, uint32_t argc, jsval *vp) {
 	TypeTest<T> t;
 	T* cobj = new T();
+	cobj->autorelease();
 	js_type_class_t *p;
 	uint32_t typeId = t.s_id();
 	HASH_FIND_INT(_js_global_type_ht, &typeId, p);
@@ -47867,6 +47868,23 @@ void js_register_cocos2dx_SimpleAudioEngine(JSContext *cx, JSObject *global) {
 JSClass  *js_cocos2dx_CCBReader_class;
 JSObject *js_cocos2dx_CCBReader_prototype;
 
+JSBool js_cocos2dx_CCBReader_readUTF8(JSContext *cx, uint32_t argc, jsval *vp)
+{
+	JSObject *obj = JS_THIS_OBJECT(cx, vp);
+	js_proxy_t *proxy; JS_GET_NATIVE_PROXY(proxy, obj);
+	cocos2d::extension::CCBReader* cobj = (cocos2d::extension::CCBReader *)(proxy ? proxy->ptr : NULL);
+	TEST_NATIVE_OBJECT(cx, cobj)
+
+	if (argc == 0) {
+		std::string ret = cobj->readUTF8();
+		jsval jsret;
+		jsret = std_string_to_jsval(cx, ret);
+		JS_SET_RVAL(cx, vp, jsret);
+		return JS_TRUE;
+	}
+	JS_ReportError(cx, "wrong number of arguments: %d, was expecting %d", argc, 0);
+	return JS_FALSE;
+}
 JSBool js_cocos2dx_CCBReader_getOwnerCallbackNames(JSContext *cx, uint32_t argc, jsval *vp)
 {
 	JSObject *obj = JS_THIS_OBJECT(cx, vp);
@@ -48152,6 +48170,7 @@ void js_register_cocos2dx_CCBReader(JSContext *cx, JSObject *global) {
 	};
 
 	static JSFunctionSpec funcs[] = {
+		JS_FN("readUTF8", js_cocos2dx_CCBReader_readUTF8, 0, JSPROP_PERMANENT | JSPROP_SHARED),
 		JS_FN("getOwnerCallbackNames", js_cocos2dx_CCBReader_getOwnerCallbackNames, 0, JSPROP_PERMANENT | JSPROP_SHARED),
 		JS_FN("getOwnerCallbackNodes", js_cocos2dx_CCBReader_getOwnerCallbackNodes, 0, JSPROP_PERMANENT | JSPROP_SHARED),
 		JS_FN("getNodesWithAnimationManagers", js_cocos2dx_CCBReader_getNodesWithAnimationManagers, 0, JSPROP_PERMANENT | JSPROP_SHARED),
@@ -51075,6 +51094,25 @@ JSBool js_cocos2dx_CCBAnimationManager_init(JSContext *cx, uint32_t argc, jsval 
 	JS_ReportError(cx, "wrong number of arguments: %d, was expecting %d", argc, 0);
 	return JS_FALSE;
 }
+JSBool js_cocos2dx_CCBAnimationManager_runAnimationsForSequenceNamedTweenDuration(JSContext *cx, uint32_t argc, jsval *vp)
+{
+	jsval *argv = JS_ARGV(cx, vp);
+	JSObject *obj = JS_THIS_OBJECT(cx, vp);
+	js_proxy_t *proxy; JS_GET_NATIVE_PROXY(proxy, obj);
+	cocos2d::extension::CCBAnimationManager* cobj = (cocos2d::extension::CCBAnimationManager *)(proxy ? proxy->ptr : NULL);
+	TEST_NATIVE_OBJECT(cx, cobj)
+
+	if (argc == 2) {
+		const char* arg0;
+		double arg1;
+		std::string arg0_tmp = jsval_to_std_string(cx, argv[0]); arg0 = arg0_tmp.c_str();
+		JS_ValueToNumber(cx, argv[1], &arg1);
+		cobj->runAnimationsForSequenceNamedTweenDuration(arg0, arg1);
+		return JS_TRUE;
+	}
+	JS_ReportError(cx, "wrong number of arguments: %d, was expecting %d", argc, 2);
+	return JS_FALSE;
+}
 JSBool js_cocos2dx_CCBAnimationManager_setRootContainerSize(JSContext *cx, uint32_t argc, jsval *vp)
 {
 	jsval *argv = JS_ARGV(cx, vp);
@@ -51090,6 +51128,25 @@ JSBool js_cocos2dx_CCBAnimationManager_setRootContainerSize(JSContext *cx, uint3
 		return JS_TRUE;
 	}
 	JS_ReportError(cx, "wrong number of arguments: %d, was expecting %d", argc, 1);
+	return JS_FALSE;
+}
+JSBool js_cocos2dx_CCBAnimationManager_runAnimationsForSequenceIdTweenDuration(JSContext *cx, uint32_t argc, jsval *vp)
+{
+	jsval *argv = JS_ARGV(cx, vp);
+	JSObject *obj = JS_THIS_OBJECT(cx, vp);
+	js_proxy_t *proxy; JS_GET_NATIVE_PROXY(proxy, obj);
+	cocos2d::extension::CCBAnimationManager* cobj = (cocos2d::extension::CCBAnimationManager *)(proxy ? proxy->ptr : NULL);
+	TEST_NATIVE_OBJECT(cx, cobj)
+
+	if (argc == 2) {
+		int arg0;
+		double arg1;
+		JS_ValueToInt32(cx, argv[0], (int32_t *)&arg0);
+		JS_ValueToNumber(cx, argv[1], &arg1);
+		cobj->runAnimationsForSequenceIdTweenDuration(arg0, arg1);
+		return JS_TRUE;
+	}
+	JS_ReportError(cx, "wrong number of arguments: %d, was expecting %d", argc, 2);
 	return JS_FALSE;
 }
 JSBool js_cocos2dx_CCBAnimationManager_getRunningSequenceName(JSContext *cx, uint32_t argc, jsval *vp)
@@ -51294,6 +51351,23 @@ JSBool js_cocos2dx_CCBAnimationManager_runAnimations(JSContext *cx, uint32_t arg
 	}
 	return JS_FALSE;
 }
+JSBool js_cocos2dx_CCBAnimationManager_runAnimationsForSequenceNamed(JSContext *cx, uint32_t argc, jsval *vp)
+{
+	jsval *argv = JS_ARGV(cx, vp);
+	JSObject *obj = JS_THIS_OBJECT(cx, vp);
+	js_proxy_t *proxy; JS_GET_NATIVE_PROXY(proxy, obj);
+	cocos2d::extension::CCBAnimationManager* cobj = (cocos2d::extension::CCBAnimationManager *)(proxy ? proxy->ptr : NULL);
+	TEST_NATIVE_OBJECT(cx, cobj)
+
+	if (argc == 1) {
+		const char* arg0;
+		std::string arg0_tmp = jsval_to_std_string(cx, argv[0]); arg0 = arg0_tmp.c_str();
+		cobj->runAnimationsForSequenceNamed(arg0);
+		return JS_TRUE;
+	}
+	JS_ReportError(cx, "wrong number of arguments: %d, was expecting %d", argc, 1);
+	return JS_FALSE;
+}
 JSBool js_cocos2dx_CCBAnimationManager_getDocumentCallbackNodes(JSContext *cx, uint32_t argc, jsval *vp)
 {
 	JSObject *obj = JS_THIS_OBJECT(cx, vp);
@@ -51427,7 +51501,9 @@ void js_register_cocos2dx_CCBAnimationManager(JSContext *cx, JSObject *global) {
 		JS_FN("getContainerSize", js_cocos2dx_CCBAnimationManager_getContainerSize, 1, JSPROP_PERMANENT | JSPROP_SHARED),
 		JS_FN("getDocumentOutletNames", js_cocos2dx_CCBAnimationManager_getDocumentOutletNames, 0, JSPROP_PERMANENT | JSPROP_SHARED),
 		JS_FN("init", js_cocos2dx_CCBAnimationManager_init, 0, JSPROP_PERMANENT | JSPROP_SHARED),
+		JS_FN("runAnimationsForSequenceNamedTweenDuration", js_cocos2dx_CCBAnimationManager_runAnimationsForSequenceNamedTweenDuration, 2, JSPROP_PERMANENT | JSPROP_SHARED),
 		JS_FN("setRootContainerSize", js_cocos2dx_CCBAnimationManager_setRootContainerSize, 1, JSPROP_PERMANENT | JSPROP_SHARED),
+		JS_FN("runAnimationsForSequenceIdTweenDuration", js_cocos2dx_CCBAnimationManager_runAnimationsForSequenceIdTweenDuration, 2, JSPROP_PERMANENT | JSPROP_SHARED),
 		JS_FN("getRunningSequenceName", js_cocos2dx_CCBAnimationManager_getRunningSequenceName, 0, JSPROP_PERMANENT | JSPROP_SHARED),
 		JS_FN("getAutoPlaySequenceId", js_cocos2dx_CCBAnimationManager_getAutoPlaySequenceId, 0, JSPROP_PERMANENT | JSPROP_SHARED),
 		JS_FN("addDocumentCallbackName", js_cocos2dx_CCBAnimationManager_addDocumentCallbackName, 1, JSPROP_PERMANENT | JSPROP_SHARED),
@@ -51437,6 +51513,7 @@ void js_register_cocos2dx_CCBAnimationManager(JSContext *cx, JSObject *global) {
 		JS_FN("addDocumentCallbackNode", js_cocos2dx_CCBAnimationManager_addDocumentCallbackNode, 1, JSPROP_PERMANENT | JSPROP_SHARED),
 		JS_FN("getDelegate", js_cocos2dx_CCBAnimationManager_getDelegate, 0, JSPROP_PERMANENT | JSPROP_SHARED),
 		JS_FN("runAnimations", js_cocos2dx_CCBAnimationManager_runAnimations, 1, JSPROP_PERMANENT | JSPROP_SHARED),
+		JS_FN("runAnimationsForSequenceNamed", js_cocos2dx_CCBAnimationManager_runAnimationsForSequenceNamed, 1, JSPROP_PERMANENT | JSPROP_SHARED),
 		JS_FN("getDocumentCallbackNodes", js_cocos2dx_CCBAnimationManager_getDocumentCallbackNodes, 0, JSPROP_PERMANENT | JSPROP_SHARED),
 		JS_FN("setSequences", js_cocos2dx_CCBAnimationManager_setSequences, 1, JSPROP_PERMANENT | JSPROP_SHARED),
 		JS_FN("debug", js_cocos2dx_CCBAnimationManager_debug, 0, JSPROP_PERMANENT | JSPROP_SHARED),
