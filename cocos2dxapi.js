@@ -6373,6 +6373,50 @@ node : function () {},
 };
 
 /**
+ * @class CCLayerMultiplex
+ */
+cc.CCLayerMultiplex = {
+
+/**
+ * @method initWithArray
+ * @return A value converted from C/C++ "bool"
+ * @param {cocos2d::CCArray*}
+ */
+initWithArray : function () {},
+
+/**
+ * @method switchToAndReleaseMe
+ * @param {unsigned int}
+ */
+switchToAndReleaseMe : function () {},
+
+/**
+ * @method addLayer
+ * @param {cocos2d::CCLayer*}
+ */
+addLayer : function () {},
+
+/**
+ * @method switchTo
+ * @param {unsigned int}
+ */
+switchTo : function () {},
+
+/**
+ * @method node
+ * @return A value converted from C/C++ "cocos2d::CCLayerMultiplex*"
+ */
+node : function () {},
+
+/**
+ * @method CCLayerMultiplex
+ * @constructor
+ */
+CCLayerMultiplex : function () {},
+
+};
+
+/**
  * @class CCScene
  */
 cc.CCScene = {
@@ -7596,6 +7640,12 @@ transitionWithDuration : function () {},
 cc.CCMenuItem = {
 
 /**
+ * @method setEnabled
+ * @param {bool}
+ */
+setEnabled : function () {},
+
+/**
  * @method activate
  */
 activate : function () {},
@@ -7604,12 +7654,6 @@ activate : function () {},
  * @method unregisterScriptTapHandler
  */
 unregisterScriptTapHandler : function () {},
-
-/**
- * @method setEnabled
- * @param {bool}
- */
-setEnabled : function () {},
 
 /**
  * @method isEnabled
@@ -10907,6 +10951,11 @@ unscheduleUpdateForTarget : function () {},
 scheduleUpdateForTarget : function () {},
 
 /**
+ * @method unscheduleAll
+ */
+unscheduleAll : function () {},
+
+/**
  * @method unscheduleAllWithMinPriority
  * @param {int}
  */
@@ -10930,11 +10979,6 @@ update : function () {},
  * @param {unsigned int}
  */
 unscheduleScriptEntry : function () {},
-
-/**
- * @method unscheduleAll
- */
-unscheduleAll : function () {},
 
 /**
  * @method unscheduleAllForTarget

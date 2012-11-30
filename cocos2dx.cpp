@@ -27753,6 +27753,196 @@ void js_register_cocos2dx_CCLayerGradient(JSContext *cx, JSObject *global) {
 }
 
 
+JSClass  *js_cocos2dx_CCLayerMultiplex_class;
+JSObject *js_cocos2dx_CCLayerMultiplex_prototype;
+
+JSBool js_cocos2dx_CCLayerMultiplex_initWithArray(JSContext *cx, uint32_t argc, jsval *vp)
+{
+	jsval *argv = JS_ARGV(cx, vp);
+	JSObject *obj = JS_THIS_OBJECT(cx, vp);
+	js_proxy_t *proxy; JS_GET_NATIVE_PROXY(proxy, obj);
+	cocos2d::CCLayerMultiplex* cobj = (cocos2d::CCLayerMultiplex *)(proxy ? proxy->ptr : NULL);
+	TEST_NATIVE_OBJECT(cx, cobj)
+
+	if (argc == 1) {
+		cocos2d::CCArray* arg0;
+		arg0 = jsval_to_ccarray(cx, argv[0]);
+		bool ret = cobj->initWithArray(arg0);
+		jsval jsret;
+		jsret = BOOLEAN_TO_JSVAL(ret);
+		JS_SET_RVAL(cx, vp, jsret);
+		return JS_TRUE;
+	}
+	JS_ReportError(cx, "wrong number of arguments: %d, was expecting %d", argc, 1);
+	return JS_FALSE;
+}
+JSBool js_cocos2dx_CCLayerMultiplex_switchToAndReleaseMe(JSContext *cx, uint32_t argc, jsval *vp)
+{
+	jsval *argv = JS_ARGV(cx, vp);
+	JSObject *obj = JS_THIS_OBJECT(cx, vp);
+	js_proxy_t *proxy; JS_GET_NATIVE_PROXY(proxy, obj);
+	cocos2d::CCLayerMultiplex* cobj = (cocos2d::CCLayerMultiplex *)(proxy ? proxy->ptr : NULL);
+	TEST_NATIVE_OBJECT(cx, cobj)
+
+	if (argc == 1) {
+		unsigned int arg0;
+		JS_ValueToECMAUint32(cx, argv[0], &arg0);
+		cobj->switchToAndReleaseMe(arg0);
+		return JS_TRUE;
+	}
+	JS_ReportError(cx, "wrong number of arguments: %d, was expecting %d", argc, 1);
+	return JS_FALSE;
+}
+JSBool js_cocos2dx_CCLayerMultiplex_addLayer(JSContext *cx, uint32_t argc, jsval *vp)
+{
+	jsval *argv = JS_ARGV(cx, vp);
+	JSObject *obj = JS_THIS_OBJECT(cx, vp);
+	js_proxy_t *proxy; JS_GET_NATIVE_PROXY(proxy, obj);
+	cocos2d::CCLayerMultiplex* cobj = (cocos2d::CCLayerMultiplex *)(proxy ? proxy->ptr : NULL);
+	TEST_NATIVE_OBJECT(cx, cobj)
+
+	if (argc == 1) {
+		cocos2d::CCLayer* arg0;
+		do {
+			js_proxy_t *proxy;
+			JSObject *tmpObj = JSVAL_TO_OBJECT(argv[0]);
+			JS_GET_NATIVE_PROXY(proxy, tmpObj);
+			arg0 = (cocos2d::CCLayer*)(proxy ? proxy->ptr : NULL);
+			TEST_NATIVE_OBJECT(cx, arg0)
+		} while (0);
+		cobj->addLayer(arg0);
+		return JS_TRUE;
+	}
+	JS_ReportError(cx, "wrong number of arguments: %d, was expecting %d", argc, 1);
+	return JS_FALSE;
+}
+JSBool js_cocos2dx_CCLayerMultiplex_switchTo(JSContext *cx, uint32_t argc, jsval *vp)
+{
+	jsval *argv = JS_ARGV(cx, vp);
+	JSObject *obj = JS_THIS_OBJECT(cx, vp);
+	js_proxy_t *proxy; JS_GET_NATIVE_PROXY(proxy, obj);
+	cocos2d::CCLayerMultiplex* cobj = (cocos2d::CCLayerMultiplex *)(proxy ? proxy->ptr : NULL);
+	TEST_NATIVE_OBJECT(cx, cobj)
+
+	if (argc == 1) {
+		unsigned int arg0;
+		JS_ValueToECMAUint32(cx, argv[0], &arg0);
+		cobj->switchTo(arg0);
+		return JS_TRUE;
+	}
+	JS_ReportError(cx, "wrong number of arguments: %d, was expecting %d", argc, 1);
+	return JS_FALSE;
+}
+JSBool js_cocos2dx_CCLayerMultiplex_node(JSContext *cx, uint32_t argc, jsval *vp)
+{
+	cocos2d::CCLayerMultiplex* ret = cocos2d::CCLayerMultiplex::node();
+	jsval jsret;
+	do {
+		if (ret) {
+			js_proxy_t *proxy = js_get_or_create_proxy<cocos2d::CCLayerMultiplex>(cx, ret);
+			jsret = OBJECT_TO_JSVAL(proxy->obj);
+		} else {
+			jsret = JSVAL_NULL;
+		}
+	} while (0);
+	JS_SET_RVAL(cx, vp, jsret);
+	return JS_TRUE;
+}
+
+JSBool js_cocos2dx_CCLayerMultiplex_constructor(JSContext *cx, uint32_t argc, jsval *vp)
+{
+
+	if (argc == 0) {
+		cocos2d::CCLayerMultiplex* cobj = new cocos2d::CCLayerMultiplex();
+#ifdef COCOS2D_JAVASCRIPT
+		cocos2d::CCObject *_ccobj = dynamic_cast<cocos2d::CCObject *>(cobj);
+		if (_ccobj) {
+			_ccobj->autorelease();
+		}
+#endif
+		TypeTest<cocos2d::CCLayerMultiplex> t;
+		js_type_class_t *typeClass;
+		uint32_t typeId = t.s_id();
+		HASH_FIND_INT(_js_global_type_ht, &typeId, typeClass);
+		assert(typeClass);
+		JSObject *obj = JS_NewObject(cx, typeClass->jsclass, typeClass->proto, typeClass->parentProto);
+		JS_SET_RVAL(cx, vp, OBJECT_TO_JSVAL(obj));
+		// link the native object with the javascript object
+		js_proxy_t *p;
+		JS_NEW_PROXY(p, cobj, obj);
+#ifdef COCOS2D_JAVASCRIPT
+		JS_AddNamedObjectRoot(cx, &p->obj, "cocos2d::CCLayerMultiplex");
+#endif
+		return JS_TRUE;
+	}
+	JS_ReportError(cx, "wrong number of arguments: %d, was expecting %d", argc, 0);
+	return JS_FALSE;
+}
+
+
+
+void js_cocos2dx_CCLayerMultiplex_finalize(JSFreeOp *fop, JSObject *obj) {
+}
+
+void js_register_cocos2dx_CCLayerMultiplex(JSContext *cx, JSObject *global) {
+	js_cocos2dx_CCLayerMultiplex_class = (JSClass *)calloc(1, sizeof(JSClass));
+	js_cocos2dx_CCLayerMultiplex_class->name = "LayerMultiplex";
+	js_cocos2dx_CCLayerMultiplex_class->addProperty = JS_PropertyStub;
+	js_cocos2dx_CCLayerMultiplex_class->delProperty = JS_PropertyStub;
+	js_cocos2dx_CCLayerMultiplex_class->getProperty = JS_PropertyStub;
+	js_cocos2dx_CCLayerMultiplex_class->setProperty = JS_StrictPropertyStub;
+	js_cocos2dx_CCLayerMultiplex_class->enumerate = JS_EnumerateStub;
+	js_cocos2dx_CCLayerMultiplex_class->resolve = JS_ResolveStub;
+	js_cocos2dx_CCLayerMultiplex_class->convert = JS_ConvertStub;
+	js_cocos2dx_CCLayerMultiplex_class->finalize = js_cocos2dx_CCLayerMultiplex_finalize;
+	js_cocos2dx_CCLayerMultiplex_class->flags = JSCLASS_HAS_RESERVED_SLOTS(2);
+
+	static JSPropertySpec properties[] = {
+		{0, 0, 0, 0, 0}
+	};
+
+	static JSFunctionSpec funcs[] = {
+		JS_FN("initWithArray", js_cocos2dx_CCLayerMultiplex_initWithArray, 1, JSPROP_PERMANENT | JSPROP_SHARED),
+		JS_FN("switchToAndReleaseMe", js_cocos2dx_CCLayerMultiplex_switchToAndReleaseMe, 1, JSPROP_PERMANENT | JSPROP_SHARED),
+		JS_FN("addLayer", js_cocos2dx_CCLayerMultiplex_addLayer, 1, JSPROP_PERMANENT | JSPROP_SHARED),
+		JS_FN("switchTo", js_cocos2dx_CCLayerMultiplex_switchTo, 1, JSPROP_PERMANENT | JSPROP_SHARED),
+		JS_FS_END
+	};
+
+	static JSFunctionSpec st_funcs[] = {
+		JS_FN("node", js_cocos2dx_CCLayerMultiplex_node, 0, JSPROP_PERMANENT | JSPROP_SHARED),
+		JS_FS_END
+	};
+
+	js_cocos2dx_CCLayerMultiplex_prototype = JS_InitClass(
+		cx, global,
+		js_cocos2dx_CCLayer_prototype,
+		js_cocos2dx_CCLayerMultiplex_class,
+		js_cocos2dx_CCLayerMultiplex_constructor, 0, // constructor
+		properties,
+		funcs,
+		NULL, // no static properties
+		st_funcs);
+	// make the class enumerable in the registered namespace
+	JSBool found;
+	JS_SetPropertyAttributes(cx, global, "LayerMultiplex", JSPROP_ENUMERATE | JSPROP_READONLY, &found);
+
+	// add the proto and JSClass to the type->js info hash table
+	TypeTest<cocos2d::CCLayerMultiplex> t;
+	js_type_class_t *p;
+	uint32_t typeId = t.s_id();
+	HASH_FIND_INT(_js_global_type_ht, &typeId, p);
+	if (!p) {
+		p = (js_type_class_t *)malloc(sizeof(js_type_class_t));
+		p->type = typeId;
+		p->jsclass = js_cocos2dx_CCLayerMultiplex_class;
+		p->proto = js_cocos2dx_CCLayerMultiplex_prototype;
+		p->parentProto = js_cocos2dx_CCLayer_prototype;
+		HASH_ADD_INT(_js_global_type_ht, type, p);
+	}
+}
+
+
 JSClass  *js_cocos2dx_CCScene_class;
 JSObject *js_cocos2dx_CCScene_prototype;
 
@@ -34246,6 +34436,23 @@ void js_register_cocos2dx_CCTransitionProgressOutIn(JSContext *cx, JSObject *glo
 JSClass  *js_cocos2dx_CCMenuItem_class;
 JSObject *js_cocos2dx_CCMenuItem_prototype;
 
+JSBool js_cocos2dx_CCMenuItem_setEnabled(JSContext *cx, uint32_t argc, jsval *vp)
+{
+	jsval *argv = JS_ARGV(cx, vp);
+	JSObject *obj = JS_THIS_OBJECT(cx, vp);
+	js_proxy_t *proxy; JS_GET_NATIVE_PROXY(proxy, obj);
+	cocos2d::CCMenuItem* cobj = (cocos2d::CCMenuItem *)(proxy ? proxy->ptr : NULL);
+	TEST_NATIVE_OBJECT(cx, cobj)
+
+	if (argc == 1) {
+		JSBool arg0;
+		JS_ValueToBoolean(cx, argv[0], &arg0);
+		cobj->setEnabled(arg0);
+		return JS_TRUE;
+	}
+	JS_ReportError(cx, "wrong number of arguments: %d, was expecting %d", argc, 1);
+	return JS_FALSE;
+}
 JSBool js_cocos2dx_CCMenuItem_activate(JSContext *cx, uint32_t argc, jsval *vp)
 {
 	JSObject *obj = JS_THIS_OBJECT(cx, vp);
@@ -34272,23 +34479,6 @@ JSBool js_cocos2dx_CCMenuItem_unregisterScriptTapHandler(JSContext *cx, uint32_t
 		return JS_TRUE;
 	}
 	JS_ReportError(cx, "wrong number of arguments: %d, was expecting %d", argc, 0);
-	return JS_FALSE;
-}
-JSBool js_cocos2dx_CCMenuItem_setEnabled(JSContext *cx, uint32_t argc, jsval *vp)
-{
-	jsval *argv = JS_ARGV(cx, vp);
-	JSObject *obj = JS_THIS_OBJECT(cx, vp);
-	js_proxy_t *proxy; JS_GET_NATIVE_PROXY(proxy, obj);
-	cocos2d::CCMenuItem* cobj = (cocos2d::CCMenuItem *)(proxy ? proxy->ptr : NULL);
-	TEST_NATIVE_OBJECT(cx, cobj)
-
-	if (argc == 1) {
-		JSBool arg0;
-		JS_ValueToBoolean(cx, argv[0], &arg0);
-		cobj->setEnabled(arg0);
-		return JS_TRUE;
-	}
-	JS_ReportError(cx, "wrong number of arguments: %d, was expecting %d", argc, 1);
 	return JS_FALSE;
 }
 JSBool js_cocos2dx_CCMenuItem_isEnabled(JSContext *cx, uint32_t argc, jsval *vp)
@@ -34457,9 +34647,9 @@ void js_register_cocos2dx_CCMenuItem(JSContext *cx, JSObject *global) {
 	};
 
 	static JSFunctionSpec funcs[] = {
+		JS_FN("setEnabled", js_cocos2dx_CCMenuItem_setEnabled, 1, JSPROP_PERMANENT | JSPROP_SHARED),
 		JS_FN("activate", js_cocos2dx_CCMenuItem_activate, 0, JSPROP_PERMANENT | JSPROP_SHARED),
 		JS_FN("unregisterScriptTapHandler", js_cocos2dx_CCMenuItem_unregisterScriptTapHandler, 0, JSPROP_PERMANENT | JSPROP_SHARED),
-		JS_FN("setIsEnabled", js_cocos2dx_CCMenuItem_setEnabled, 1, JSPROP_PERMANENT | JSPROP_SHARED),
 		JS_FN("isEnabled", js_cocos2dx_CCMenuItem_isEnabled, 0, JSPROP_PERMANENT | JSPROP_SHARED),
 		JS_FN("selected", js_cocos2dx_CCMenuItem_selected, 0, JSPROP_PERMANENT | JSPROP_SHARED),
 		JS_FN("getScriptTapHandler", js_cocos2dx_CCMenuItem_getScriptTapHandler, 0, JSPROP_PERMANENT | JSPROP_SHARED),
@@ -47123,6 +47313,20 @@ JSBool js_cocos2dx_CCScheduler_scheduleUpdateForTarget(JSContext *cx, uint32_t a
 	JS_ReportError(cx, "wrong number of arguments: %d, was expecting %d", argc, 3);
 	return JS_FALSE;
 }
+JSBool js_cocos2dx_CCScheduler_unscheduleAll(JSContext *cx, uint32_t argc, jsval *vp)
+{
+	JSObject *obj = JS_THIS_OBJECT(cx, vp);
+	js_proxy_t *proxy; JS_GET_NATIVE_PROXY(proxy, obj);
+	cocos2d::CCScheduler* cobj = (cocos2d::CCScheduler *)(proxy ? proxy->ptr : NULL);
+	TEST_NATIVE_OBJECT(cx, cobj)
+
+	if (argc == 0) {
+		cobj->unscheduleAll();
+		return JS_TRUE;
+	}
+	JS_ReportError(cx, "wrong number of arguments: %d, was expecting %d", argc, 0);
+	return JS_FALSE;
+}
 JSBool js_cocos2dx_CCScheduler_unscheduleAllWithMinPriority(JSContext *cx, uint32_t argc, jsval *vp)
 {
 	jsval *argv = JS_ARGV(cx, vp);
@@ -47198,20 +47402,6 @@ JSBool js_cocos2dx_CCScheduler_unscheduleScriptEntry(JSContext *cx, uint32_t arg
 		return JS_TRUE;
 	}
 	JS_ReportError(cx, "wrong number of arguments: %d, was expecting %d", argc, 1);
-	return JS_FALSE;
-}
-JSBool js_cocos2dx_CCScheduler_unscheduleAll(JSContext *cx, uint32_t argc, jsval *vp)
-{
-	JSObject *obj = JS_THIS_OBJECT(cx, vp);
-	js_proxy_t *proxy; JS_GET_NATIVE_PROXY(proxy, obj);
-	cocos2d::CCScheduler* cobj = (cocos2d::CCScheduler *)(proxy ? proxy->ptr : NULL);
-	TEST_NATIVE_OBJECT(cx, cobj)
-
-	if (argc == 0) {
-		cobj->unscheduleAll();
-		return JS_TRUE;
-	}
-	JS_ReportError(cx, "wrong number of arguments: %d, was expecting %d", argc, 0);
 	return JS_FALSE;
 }
 JSBool js_cocos2dx_CCScheduler_unscheduleAllForTarget(JSContext *cx, uint32_t argc, jsval *vp)
@@ -47334,11 +47524,11 @@ void js_register_cocos2dx_CCScheduler(JSContext *cx, JSObject *global) {
 		JS_FN("setTimeScale", js_cocos2dx_CCScheduler_setTimeScale, 1, JSPROP_PERMANENT | JSPROP_SHARED),
 		JS_FN("unscheduleUpdateForTarget", js_cocos2dx_CCScheduler_unscheduleUpdateForTarget, 1, JSPROP_PERMANENT | JSPROP_SHARED),
 		JS_FN("scheduleUpdateForTarget", js_cocos2dx_CCScheduler_scheduleUpdateForTarget, 3, JSPROP_PERMANENT | JSPROP_SHARED),
+		JS_FN("unscheduleAllCallbacks", js_cocos2dx_CCScheduler_unscheduleAll, 0, JSPROP_PERMANENT | JSPROP_SHARED),
 		JS_FN("unscheduleAllWithMinPriority", js_cocos2dx_CCScheduler_unscheduleAllWithMinPriority, 1, JSPROP_PERMANENT | JSPROP_SHARED),
 		JS_FN("isTargetPaused", js_cocos2dx_CCScheduler_isTargetPaused, 1, JSPROP_PERMANENT | JSPROP_SHARED),
 		JS_FN("update", js_cocos2dx_CCScheduler_update, 1, JSPROP_PERMANENT | JSPROP_SHARED),
 		JS_FN("unscheduleScriptEntry", js_cocos2dx_CCScheduler_unscheduleScriptEntry, 1, JSPROP_PERMANENT | JSPROP_SHARED),
-		JS_FN("unscheduleAll", js_cocos2dx_CCScheduler_unscheduleAll, 0, JSPROP_PERMANENT | JSPROP_SHARED),
 		JS_FN("unscheduleAllForTarget", js_cocos2dx_CCScheduler_unscheduleAllForTarget, 1, JSPROP_PERMANENT | JSPROP_SHARED),
 		JS_FN("scheduleScriptFunc", js_cocos2dx_CCScheduler_scheduleScriptFunc, 3, JSPROP_PERMANENT | JSPROP_SHARED),
 		JS_FN("getTimeScale", js_cocos2dx_CCScheduler_getTimeScale, 0, JSPROP_PERMANENT | JSPROP_SHARED),
@@ -51641,7 +51831,7 @@ void register_all_cocos2dx(JSContext* cx, JSObject* obj) {
 	js_register_cocos2dx_CCAnimationCache(cx, obj);
 	js_register_cocos2dx_CCRepeatForever(cx, obj);
 	js_register_cocos2dx_CCFadeIn(cx, obj);
-	js_register_cocos2dx_CCParticleSun(cx, obj);
+	js_register_cocos2dx_CCLayerMultiplex(cx, obj);
 	js_register_cocos2dx_CCTransitionProgressVertical(cx, obj);
 	js_register_cocos2dx_CCAtlasNode(cx, obj);
 	js_register_cocos2dx_CCTileMapAtlas(cx, obj);
@@ -51691,6 +51881,7 @@ void register_all_cocos2dx(JSContext* cx, JSObject* obj) {
 	js_register_cocos2dx_CCParticleFire(cx, obj);
 	js_register_cocos2dx_CCTransitionProgressRadialCCW(cx, obj);
 	js_register_cocos2dx_CCParticleSmoke(cx, obj);
+	js_register_cocos2dx_CCParticleSun(cx, obj);
 	js_register_cocos2dx_CCTMXLayerInfo(cx, obj);
 	js_register_cocos2dx_CCTransitionZoomFlipY(cx, obj);
 	js_register_cocos2dx_CCTMXMapInfo(cx, obj);

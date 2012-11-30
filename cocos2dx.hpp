@@ -1747,6 +1747,20 @@ JSBool js_cocos2dx_CCLayerGradient_node(JSContext *cx, uint32_t argc, jsval *vp)
 JSBool js_cocos2dx_CCLayerGradient_layerWithColor(JSContext *cx, uint32_t argc, jsval *vp);
 JSBool js_cocos2dx_CCLayerGradient_create(JSContext *cx, uint32_t argc, jsval *vp);
 
+extern JSClass  *js_cocos2dx_CCLayerMultiplex_class;
+extern JSObject *js_cocos2dx_CCLayerMultiplex_prototype;
+
+JSBool js_cocos2dx_CCLayerMultiplex_constructor(JSContext *cx, uint32_t argc, jsval *vp);
+void js_cocos2dx_CCLayerMultiplex_finalize(JSContext *cx, JSObject *obj);
+void js_register_cocos2dx_CCLayerMultiplex(JSContext *cx, JSObject *global);
+void register_all_cocos2dx(JSContext* cx, JSObject* obj);
+JSBool js_cocos2dx_CCLayerMultiplex_initWithArray(JSContext *cx, uint32_t argc, jsval *vp);
+JSBool js_cocos2dx_CCLayerMultiplex_switchToAndReleaseMe(JSContext *cx, uint32_t argc, jsval *vp);
+JSBool js_cocos2dx_CCLayerMultiplex_addLayer(JSContext *cx, uint32_t argc, jsval *vp);
+JSBool js_cocos2dx_CCLayerMultiplex_switchTo(JSContext *cx, uint32_t argc, jsval *vp);
+JSBool js_cocos2dx_CCLayerMultiplex_node(JSContext *cx, uint32_t argc, jsval *vp);
+JSBool js_cocos2dx_CCLayerMultiplex_CCLayerMultiplex(JSContext *cx, uint32_t argc, jsval *vp);
+
 extern JSClass  *js_cocos2dx_CCScene_class;
 extern JSObject *js_cocos2dx_CCScene_prototype;
 
@@ -2200,9 +2214,9 @@ JSBool js_cocos2dx_CCMenuItem_constructor(JSContext *cx, uint32_t argc, jsval *v
 void js_cocos2dx_CCMenuItem_finalize(JSContext *cx, JSObject *obj);
 void js_register_cocos2dx_CCMenuItem(JSContext *cx, JSObject *global);
 void register_all_cocos2dx(JSContext* cx, JSObject* obj);
+JSBool js_cocos2dx_CCMenuItem_setEnabled(JSContext *cx, uint32_t argc, jsval *vp);
 JSBool js_cocos2dx_CCMenuItem_activate(JSContext *cx, uint32_t argc, jsval *vp);
 JSBool js_cocos2dx_CCMenuItem_unregisterScriptTapHandler(JSContext *cx, uint32_t argc, jsval *vp);
-JSBool js_cocos2dx_CCMenuItem_setEnabled(JSContext *cx, uint32_t argc, jsval *vp);
 JSBool js_cocos2dx_CCMenuItem_isEnabled(JSContext *cx, uint32_t argc, jsval *vp);
 JSBool js_cocos2dx_CCMenuItem_selected(JSContext *cx, uint32_t argc, jsval *vp);
 JSBool js_cocos2dx_CCMenuItem_getScriptTapHandler(JSContext *cx, uint32_t argc, jsval *vp);
@@ -2996,11 +3010,11 @@ void register_all_cocos2dx(JSContext* cx, JSObject* obj);
 JSBool js_cocos2dx_CCScheduler_setTimeScale(JSContext *cx, uint32_t argc, jsval *vp);
 JSBool js_cocos2dx_CCScheduler_unscheduleUpdateForTarget(JSContext *cx, uint32_t argc, jsval *vp);
 JSBool js_cocos2dx_CCScheduler_scheduleUpdateForTarget(JSContext *cx, uint32_t argc, jsval *vp);
+JSBool js_cocos2dx_CCScheduler_unscheduleAll(JSContext *cx, uint32_t argc, jsval *vp);
 JSBool js_cocos2dx_CCScheduler_unscheduleAllWithMinPriority(JSContext *cx, uint32_t argc, jsval *vp);
 JSBool js_cocos2dx_CCScheduler_isTargetPaused(JSContext *cx, uint32_t argc, jsval *vp);
 JSBool js_cocos2dx_CCScheduler_update(JSContext *cx, uint32_t argc, jsval *vp);
 JSBool js_cocos2dx_CCScheduler_unscheduleScriptEntry(JSContext *cx, uint32_t argc, jsval *vp);
-JSBool js_cocos2dx_CCScheduler_unscheduleAll(JSContext *cx, uint32_t argc, jsval *vp);
 JSBool js_cocos2dx_CCScheduler_unscheduleAllForTarget(JSContext *cx, uint32_t argc, jsval *vp);
 JSBool js_cocos2dx_CCScheduler_scheduleScriptFunc(JSContext *cx, uint32_t argc, jsval *vp);
 JSBool js_cocos2dx_CCScheduler_getTimeScale(JSContext *cx, uint32_t argc, jsval *vp);
