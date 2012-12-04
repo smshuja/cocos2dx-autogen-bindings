@@ -26245,7 +26245,7 @@ JSBool js_cocos2dx_CCLayer_unregisterScriptTouchHandler(JSContext *cx, uint32_t 
 	JS_ReportError(cx, "wrong number of arguments: %d, was expecting %d", argc, 0);
 	return JS_FALSE;
 }
-JSBool js_cocos2dx_CCLayer_getScriptHandlerEntry(JSContext *cx, uint32_t argc, jsval *vp)
+JSBool js_cocos2dx_CCLayer_keyBackClicked(JSContext *cx, uint32_t argc, jsval *vp)
 {
 	JSObject *obj = JS_THIS_OBJECT(cx, vp);
 	js_proxy_t *proxy; JS_GET_NATIVE_PROXY(proxy, obj);
@@ -26253,17 +26253,7 @@ JSBool js_cocos2dx_CCLayer_getScriptHandlerEntry(JSContext *cx, uint32_t argc, j
 	TEST_NATIVE_OBJECT(cx, cobj)
 
 	if (argc == 0) {
-		cocos2d::CCTouchScriptHandlerEntry* ret = cobj->getScriptHandlerEntry();
-		jsval jsret;
-		do {
-			if (ret) {
-				js_proxy_t *proxy = js_get_or_create_proxy<cocos2d::CCTouchScriptHandlerEntry>(cx, ret);
-				jsret = OBJECT_TO_JSVAL(proxy->obj);
-			} else {
-				jsret = JSVAL_NULL;
-			}
-		} while (0);
-		JS_SET_RVAL(cx, vp, jsret);
+		cobj->keyBackClicked();
 		return JS_TRUE;
 	}
 	JS_ReportError(cx, "wrong number of arguments: %d, was expecting %d", argc, 0);
@@ -26351,6 +26341,20 @@ JSBool js_cocos2dx_CCLayer_ccTouchesCancelled(JSContext *cx, uint32_t argc, jsva
 	JS_ReportError(cx, "wrong number of arguments: %d, was expecting %d", argc, 2);
 	return JS_FALSE;
 }
+JSBool js_cocos2dx_CCLayer_unregisterScriptAccelerateHandler(JSContext *cx, uint32_t argc, jsval *vp)
+{
+	JSObject *obj = JS_THIS_OBJECT(cx, vp);
+	js_proxy_t *proxy; JS_GET_NATIVE_PROXY(proxy, obj);
+	cocos2d::CCLayer* cobj = (cocos2d::CCLayer *)(proxy ? proxy->ptr : NULL);
+	TEST_NATIVE_OBJECT(cx, cobj)
+
+	if (argc == 0) {
+		cobj->unregisterScriptAccelerateHandler();
+		return JS_TRUE;
+	}
+	JS_ReportError(cx, "wrong number of arguments: %d, was expecting %d", argc, 0);
+	return JS_FALSE;
+}
 JSBool js_cocos2dx_CCLayer_ccTouchesMoved(JSContext *cx, uint32_t argc, jsval *vp)
 {
 	jsval *argv = JS_ARGV(cx, vp);
@@ -26380,6 +26384,23 @@ JSBool js_cocos2dx_CCLayer_ccTouchesMoved(JSContext *cx, uint32_t argc, jsval *v
 		return JS_TRUE;
 	}
 	JS_ReportError(cx, "wrong number of arguments: %d, was expecting %d", argc, 2);
+	return JS_FALSE;
+}
+JSBool js_cocos2dx_CCLayer_registerScriptAccelerateHandler(JSContext *cx, uint32_t argc, jsval *vp)
+{
+	jsval *argv = JS_ARGV(cx, vp);
+	JSObject *obj = JS_THIS_OBJECT(cx, vp);
+	js_proxy_t *proxy; JS_GET_NATIVE_PROXY(proxy, obj);
+	cocos2d::CCLayer* cobj = (cocos2d::CCLayer *)(proxy ? proxy->ptr : NULL);
+	TEST_NATIVE_OBJECT(cx, cobj)
+
+	if (argc == 1) {
+		int arg0;
+		JS_ValueToInt32(cx, argv[0], (int32_t *)&arg0);
+		cobj->registerScriptAccelerateHandler(arg0);
+		return JS_TRUE;
+	}
+	JS_ReportError(cx, "wrong number of arguments: %d, was expecting %d", argc, 1);
 	return JS_FALSE;
 }
 JSBool js_cocos2dx_CCLayer_getTouchMode(JSContext *cx, uint32_t argc, jsval *vp)
@@ -26450,6 +26471,54 @@ JSBool js_cocos2dx_CCLayer_isTouchEnabled(JSContext *cx, uint32_t argc, jsval *v
 	JS_ReportError(cx, "wrong number of arguments: %d, was expecting %d", argc, 0);
 	return JS_FALSE;
 }
+JSBool js_cocos2dx_CCLayer_getScriptAccelerateHandlerEntry(JSContext *cx, uint32_t argc, jsval *vp)
+{
+	JSObject *obj = JS_THIS_OBJECT(cx, vp);
+	js_proxy_t *proxy; JS_GET_NATIVE_PROXY(proxy, obj);
+	cocos2d::CCLayer* cobj = (cocos2d::CCLayer *)(proxy ? proxy->ptr : NULL);
+	TEST_NATIVE_OBJECT(cx, cobj)
+
+	if (argc == 0) {
+		cocos2d::CCScriptHandlerEntry* ret = cobj->getScriptAccelerateHandlerEntry();
+		jsval jsret;
+		do {
+			if (ret) {
+				js_proxy_t *proxy = js_get_or_create_proxy<cocos2d::CCScriptHandlerEntry>(cx, ret);
+				jsret = OBJECT_TO_JSVAL(proxy->obj);
+			} else {
+				jsret = JSVAL_NULL;
+			}
+		} while (0);
+		JS_SET_RVAL(cx, vp, jsret);
+		return JS_TRUE;
+	}
+	JS_ReportError(cx, "wrong number of arguments: %d, was expecting %d", argc, 0);
+	return JS_FALSE;
+}
+JSBool js_cocos2dx_CCLayer_getScriptKeypadHandlerEntry(JSContext *cx, uint32_t argc, jsval *vp)
+{
+	JSObject *obj = JS_THIS_OBJECT(cx, vp);
+	js_proxy_t *proxy; JS_GET_NATIVE_PROXY(proxy, obj);
+	cocos2d::CCLayer* cobj = (cocos2d::CCLayer *)(proxy ? proxy->ptr : NULL);
+	TEST_NATIVE_OBJECT(cx, cobj)
+
+	if (argc == 0) {
+		cocos2d::CCScriptHandlerEntry* ret = cobj->getScriptKeypadHandlerEntry();
+		jsval jsret;
+		do {
+			if (ret) {
+				js_proxy_t *proxy = js_get_or_create_proxy<cocos2d::CCScriptHandlerEntry>(cx, ret);
+				jsret = OBJECT_TO_JSVAL(proxy->obj);
+			} else {
+				jsret = JSVAL_NULL;
+			}
+		} while (0);
+		JS_SET_RVAL(cx, vp, jsret);
+		return JS_TRUE;
+	}
+	JS_ReportError(cx, "wrong number of arguments: %d, was expecting %d", argc, 0);
+	return JS_FALSE;
+}
 JSBool js_cocos2dx_CCLayer_ccTouchMoved(JSContext *cx, uint32_t argc, jsval *vp)
 {
 	jsval *argv = JS_ARGV(cx, vp);
@@ -26496,6 +26565,20 @@ JSBool js_cocos2dx_CCLayer_setTouchEnabled(JSContext *cx, uint32_t argc, jsval *
 		return JS_TRUE;
 	}
 	JS_ReportError(cx, "wrong number of arguments: %d, was expecting %d", argc, 1);
+	return JS_FALSE;
+}
+JSBool js_cocos2dx_CCLayer_unregisterScriptKeypadHandler(JSContext *cx, uint32_t argc, jsval *vp)
+{
+	JSObject *obj = JS_THIS_OBJECT(cx, vp);
+	js_proxy_t *proxy; JS_GET_NATIVE_PROXY(proxy, obj);
+	cocos2d::CCLayer* cobj = (cocos2d::CCLayer *)(proxy ? proxy->ptr : NULL);
+	TEST_NATIVE_OBJECT(cx, cobj)
+
+	if (argc == 0) {
+		cobj->unregisterScriptKeypadHandler();
+		return JS_TRUE;
+	}
+	JS_ReportError(cx, "wrong number of arguments: %d, was expecting %d", argc, 0);
 	return JS_FALSE;
 }
 JSBool js_cocos2dx_CCLayer_isKeypadEnabled(JSContext *cx, uint32_t argc, jsval *vp)
@@ -26665,6 +26748,30 @@ JSBool js_cocos2dx_CCLayer_ccTouchCancelled(JSContext *cx, uint32_t argc, jsval 
 	JS_ReportError(cx, "wrong number of arguments: %d, was expecting %d", argc, 2);
 	return JS_FALSE;
 }
+JSBool js_cocos2dx_CCLayer_getScriptTouchHandlerEntry(JSContext *cx, uint32_t argc, jsval *vp)
+{
+	JSObject *obj = JS_THIS_OBJECT(cx, vp);
+	js_proxy_t *proxy; JS_GET_NATIVE_PROXY(proxy, obj);
+	cocos2d::CCLayer* cobj = (cocos2d::CCLayer *)(proxy ? proxy->ptr : NULL);
+	TEST_NATIVE_OBJECT(cx, cobj)
+
+	if (argc == 0) {
+		cocos2d::CCTouchScriptHandlerEntry* ret = cobj->getScriptTouchHandlerEntry();
+		jsval jsret;
+		do {
+			if (ret) {
+				js_proxy_t *proxy = js_get_or_create_proxy<cocos2d::CCTouchScriptHandlerEntry>(cx, ret);
+				jsret = OBJECT_TO_JSVAL(proxy->obj);
+			} else {
+				jsret = JSVAL_NULL;
+			}
+		} while (0);
+		JS_SET_RVAL(cx, vp, jsret);
+		return JS_TRUE;
+	}
+	JS_ReportError(cx, "wrong number of arguments: %d, was expecting %d", argc, 0);
+	return JS_FALSE;
+}
 JSBool js_cocos2dx_CCLayer_ccTouchesBegan(JSContext *cx, uint32_t argc, jsval *vp)
 {
 	jsval *argv = JS_ARGV(cx, vp);
@@ -26761,6 +26868,37 @@ JSBool js_cocos2dx_CCLayer_registerWithTouchDispatcher(JSContext *cx, uint32_t a
 	JS_ReportError(cx, "wrong number of arguments: %d, was expecting %d", argc, 0);
 	return JS_FALSE;
 }
+JSBool js_cocos2dx_CCLayer_keyMenuClicked(JSContext *cx, uint32_t argc, jsval *vp)
+{
+	JSObject *obj = JS_THIS_OBJECT(cx, vp);
+	js_proxy_t *proxy; JS_GET_NATIVE_PROXY(proxy, obj);
+	cocos2d::CCLayer* cobj = (cocos2d::CCLayer *)(proxy ? proxy->ptr : NULL);
+	TEST_NATIVE_OBJECT(cx, cobj)
+
+	if (argc == 0) {
+		cobj->keyMenuClicked();
+		return JS_TRUE;
+	}
+	JS_ReportError(cx, "wrong number of arguments: %d, was expecting %d", argc, 0);
+	return JS_FALSE;
+}
+JSBool js_cocos2dx_CCLayer_registerScriptKeypadHandler(JSContext *cx, uint32_t argc, jsval *vp)
+{
+	jsval *argv = JS_ARGV(cx, vp);
+	JSObject *obj = JS_THIS_OBJECT(cx, vp);
+	js_proxy_t *proxy; JS_GET_NATIVE_PROXY(proxy, obj);
+	cocos2d::CCLayer* cobj = (cocos2d::CCLayer *)(proxy ? proxy->ptr : NULL);
+	TEST_NATIVE_OBJECT(cx, cobj)
+
+	if (argc == 1) {
+		int arg0;
+		JS_ValueToInt32(cx, argv[0], (int32_t *)&arg0);
+		cobj->registerScriptKeypadHandler(arg0);
+		return JS_TRUE;
+	}
+	JS_ReportError(cx, "wrong number of arguments: %d, was expecting %d", argc, 1);
+	return JS_FALSE;
+}
 JSBool js_cocos2dx_CCLayer_node(JSContext *cx, uint32_t argc, jsval *vp)
 {
 	cocos2d::CCLayer* ret = cocos2d::CCLayer::node();
@@ -26847,17 +26985,22 @@ void js_register_cocos2dx_CCLayer(JSContext *cx, JSObject *global) {
 
 	static JSFunctionSpec funcs[] = {
 		JS_FN("unregisterScriptTouchHandler", js_cocos2dx_CCLayer_unregisterScriptTouchHandler, 0, JSPROP_PERMANENT | JSPROP_SHARED),
-		JS_FN("getScriptHandlerEntry", js_cocos2dx_CCLayer_getScriptHandlerEntry, 0, JSPROP_PERMANENT | JSPROP_SHARED),
+		JS_FN("keyBackClicked", js_cocos2dx_CCLayer_keyBackClicked, 0, JSPROP_PERMANENT | JSPROP_SHARED),
 		JS_FN("ccTouchBegan", js_cocos2dx_CCLayer_ccTouchBegan, 2, JSPROP_PERMANENT | JSPROP_SHARED),
 		JS_FN("setAccelerometerInterval", js_cocos2dx_CCLayer_setAccelerometerInterval, 1, JSPROP_PERMANENT | JSPROP_SHARED),
 		JS_FN("ccTouchesCancelled", js_cocos2dx_CCLayer_ccTouchesCancelled, 2, JSPROP_PERMANENT | JSPROP_SHARED),
+		JS_FN("unregisterScriptAccelerateHandler", js_cocos2dx_CCLayer_unregisterScriptAccelerateHandler, 0, JSPROP_PERMANENT | JSPROP_SHARED),
 		JS_FN("ccTouchesMoved", js_cocos2dx_CCLayer_ccTouchesMoved, 2, JSPROP_PERMANENT | JSPROP_SHARED),
+		JS_FN("registerScriptAccelerateHandler", js_cocos2dx_CCLayer_registerScriptAccelerateHandler, 1, JSPROP_PERMANENT | JSPROP_SHARED),
 		JS_FN("getTouchMode", js_cocos2dx_CCLayer_getTouchMode, 0, JSPROP_PERMANENT | JSPROP_SHARED),
 		JS_FN("setAccelerometerEnabled", js_cocos2dx_CCLayer_setAccelerometerEnabled, 1, JSPROP_PERMANENT | JSPROP_SHARED),
 		JS_FN("init", js_cocos2dx_CCLayer_init, 0, JSPROP_PERMANENT | JSPROP_SHARED),
 		JS_FN("isTouchEnabled", js_cocos2dx_CCLayer_isTouchEnabled, 0, JSPROP_PERMANENT | JSPROP_SHARED),
+		JS_FN("getScriptAccelerateHandlerEntry", js_cocos2dx_CCLayer_getScriptAccelerateHandlerEntry, 0, JSPROP_PERMANENT | JSPROP_SHARED),
+		JS_FN("getScriptKeypadHandlerEntry", js_cocos2dx_CCLayer_getScriptKeypadHandlerEntry, 0, JSPROP_PERMANENT | JSPROP_SHARED),
 		JS_FN("ccTouchMoved", js_cocos2dx_CCLayer_ccTouchMoved, 2, JSPROP_PERMANENT | JSPROP_SHARED),
 		JS_FN("setTouchEnabled", js_cocos2dx_CCLayer_setTouchEnabled, 1, JSPROP_PERMANENT | JSPROP_SHARED),
+		JS_FN("unregisterScriptKeypadHandler", js_cocos2dx_CCLayer_unregisterScriptKeypadHandler, 0, JSPROP_PERMANENT | JSPROP_SHARED),
 		JS_FN("isKeypadEnabled", js_cocos2dx_CCLayer_isKeypadEnabled, 0, JSPROP_PERMANENT | JSPROP_SHARED),
 		JS_FN("ccTouchesEnded", js_cocos2dx_CCLayer_ccTouchesEnded, 2, JSPROP_PERMANENT | JSPROP_SHARED),
 		JS_FN("setTouchMode", js_cocos2dx_CCLayer_setTouchMode, 1, JSPROP_PERMANENT | JSPROP_SHARED),
@@ -26865,11 +27008,14 @@ void js_register_cocos2dx_CCLayer(JSContext *cx, JSObject *global) {
 		JS_FN("ccTouchEnded", js_cocos2dx_CCLayer_ccTouchEnded, 2, JSPROP_PERMANENT | JSPROP_SHARED),
 		JS_FN("registerScriptTouchHandler", js_cocos2dx_CCLayer_registerScriptTouchHandler, 4, JSPROP_PERMANENT | JSPROP_SHARED),
 		JS_FN("ccTouchCancelled", js_cocos2dx_CCLayer_ccTouchCancelled, 2, JSPROP_PERMANENT | JSPROP_SHARED),
+		JS_FN("getScriptTouchHandlerEntry", js_cocos2dx_CCLayer_getScriptTouchHandlerEntry, 0, JSPROP_PERMANENT | JSPROP_SHARED),
 		JS_FN("ccTouchesBegan", js_cocos2dx_CCLayer_ccTouchesBegan, 2, JSPROP_PERMANENT | JSPROP_SHARED),
 		JS_FN("setTouchPriority", js_cocos2dx_CCLayer_setTouchPriority, 1, JSPROP_PERMANENT | JSPROP_SHARED),
 		JS_FN("getTouchPriority", js_cocos2dx_CCLayer_getTouchPriority, 0, JSPROP_PERMANENT | JSPROP_SHARED),
 		JS_FN("setKeypadEnabled", js_cocos2dx_CCLayer_setKeypadEnabled, 1, JSPROP_PERMANENT | JSPROP_SHARED),
 		JS_FN("registerWithTouchDispatcher", js_cocos2dx_CCLayer_registerWithTouchDispatcher, 0, JSPROP_PERMANENT | JSPROP_SHARED),
+		JS_FN("keyMenuClicked", js_cocos2dx_CCLayer_keyMenuClicked, 0, JSPROP_PERMANENT | JSPROP_SHARED),
+		JS_FN("registerScriptKeypadHandler", js_cocos2dx_CCLayer_registerScriptKeypadHandler, 1, JSPROP_PERMANENT | JSPROP_SHARED),
 		JS_FS_END
 	};
 
@@ -48058,23 +48204,6 @@ void js_register_cocos2dx_SimpleAudioEngine(JSContext *cx, JSObject *global) {
 JSClass  *js_cocos2dx_CCBReader_class;
 JSObject *js_cocos2dx_CCBReader_prototype;
 
-JSBool js_cocos2dx_CCBReader_readUTF8(JSContext *cx, uint32_t argc, jsval *vp)
-{
-	JSObject *obj = JS_THIS_OBJECT(cx, vp);
-	js_proxy_t *proxy; JS_GET_NATIVE_PROXY(proxy, obj);
-	cocos2d::extension::CCBReader* cobj = (cocos2d::extension::CCBReader *)(proxy ? proxy->ptr : NULL);
-	TEST_NATIVE_OBJECT(cx, cobj)
-
-	if (argc == 0) {
-		std::string ret = cobj->readUTF8();
-		jsval jsret;
-		jsret = std_string_to_jsval(cx, ret);
-		JS_SET_RVAL(cx, vp, jsret);
-		return JS_TRUE;
-	}
-	JS_ReportError(cx, "wrong number of arguments: %d, was expecting %d", argc, 0);
-	return JS_FALSE;
-}
 JSBool js_cocos2dx_CCBReader_getOwnerCallbackNames(JSContext *cx, uint32_t argc, jsval *vp)
 {
 	JSObject *obj = JS_THIS_OBJECT(cx, vp);
@@ -48090,6 +48219,23 @@ JSBool js_cocos2dx_CCBReader_getOwnerCallbackNames(JSContext *cx, uint32_t argc,
 		return JS_TRUE;
 	}
 	JS_ReportError(cx, "wrong number of arguments: %d, was expecting %d", argc, 0);
+	return JS_FALSE;
+}
+JSBool js_cocos2dx_CCBReader_setCCBRootPath(JSContext *cx, uint32_t argc, jsval *vp)
+{
+	jsval *argv = JS_ARGV(cx, vp);
+	JSObject *obj = JS_THIS_OBJECT(cx, vp);
+	js_proxy_t *proxy; JS_GET_NATIVE_PROXY(proxy, obj);
+	cocos2d::extension::CCBReader* cobj = (cocos2d::extension::CCBReader *)(proxy ? proxy->ptr : NULL);
+	TEST_NATIVE_OBJECT(cx, cobj)
+
+	if (argc == 1) {
+		const char* arg0;
+		std::string arg0_tmp = jsval_to_std_string(cx, argv[0]); arg0 = arg0_tmp.c_str();
+		cobj->setCCBRootPath(arg0);
+		return JS_TRUE;
+	}
+	JS_ReportError(cx, "wrong number of arguments: %d, was expecting %d", argc, 1);
 	return JS_FALSE;
 }
 JSBool js_cocos2dx_CCBReader_getOwnerCallbackNodes(JSContext *cx, uint32_t argc, jsval *vp)
@@ -48109,7 +48255,7 @@ JSBool js_cocos2dx_CCBReader_getOwnerCallbackNodes(JSContext *cx, uint32_t argc,
 	JS_ReportError(cx, "wrong number of arguments: %d, was expecting %d", argc, 0);
 	return JS_FALSE;
 }
-JSBool js_cocos2dx_CCBReader_getNodesWithAnimationManagers(JSContext *cx, uint32_t argc, jsval *vp)
+JSBool js_cocos2dx_CCBReader_getOwnerOutletNames(JSContext *cx, uint32_t argc, jsval *vp)
 {
 	JSObject *obj = JS_THIS_OBJECT(cx, vp);
 	js_proxy_t *proxy; JS_GET_NATIVE_PROXY(proxy, obj);
@@ -48117,9 +48263,26 @@ JSBool js_cocos2dx_CCBReader_getNodesWithAnimationManagers(JSContext *cx, uint32
 	TEST_NATIVE_OBJECT(cx, cobj)
 
 	if (argc == 0) {
-		cocos2d::CCArray* ret = cobj->getNodesWithAnimationManagers();
+		cocos2d::CCArray* ret = cobj->getOwnerOutletNames();
 		jsval jsret;
 		jsret = ccarray_to_jsval(cx, ret);
+		JS_SET_RVAL(cx, vp, jsret);
+		return JS_TRUE;
+	}
+	JS_ReportError(cx, "wrong number of arguments: %d, was expecting %d", argc, 0);
+	return JS_FALSE;
+}
+JSBool js_cocos2dx_CCBReader_getCCBRootPath(JSContext *cx, uint32_t argc, jsval *vp)
+{
+	JSObject *obj = JS_THIS_OBJECT(cx, vp);
+	js_proxy_t *proxy; JS_GET_NATIVE_PROXY(proxy, obj);
+	cocos2d::extension::CCBReader* cobj = (cocos2d::extension::CCBReader *)(proxy ? proxy->ptr : NULL);
+	TEST_NATIVE_OBJECT(cx, cobj)
+
+	if (argc == 0) {
+		std::string ret = cobj->getCCBRootPath();
+		jsval jsret;
+		jsret = std_string_to_jsval(cx, ret);
 		JS_SET_RVAL(cx, vp, jsret);
 		return JS_TRUE;
 	}
@@ -48143,7 +48306,7 @@ JSBool js_cocos2dx_CCBReader_getOwnerOutletNodes(JSContext *cx, uint32_t argc, j
 	JS_ReportError(cx, "wrong number of arguments: %d, was expecting %d", argc, 0);
 	return JS_FALSE;
 }
-JSBool js_cocos2dx_CCBReader_getOwnerOutletNames(JSContext *cx, uint32_t argc, jsval *vp)
+JSBool js_cocos2dx_CCBReader_readUTF8(JSContext *cx, uint32_t argc, jsval *vp)
 {
 	JSObject *obj = JS_THIS_OBJECT(cx, vp);
 	js_proxy_t *proxy; JS_GET_NATIVE_PROXY(proxy, obj);
@@ -48151,9 +48314,9 @@ JSBool js_cocos2dx_CCBReader_getOwnerOutletNames(JSContext *cx, uint32_t argc, j
 	TEST_NATIVE_OBJECT(cx, cobj)
 
 	if (argc == 0) {
-		cocos2d::CCArray* ret = cobj->getOwnerOutletNames();
+		std::string ret = cobj->readUTF8();
 		jsval jsret;
-		jsret = ccarray_to_jsval(cx, ret);
+		jsret = std_string_to_jsval(cx, ret);
 		JS_SET_RVAL(cx, vp, jsret);
 		return JS_TRUE;
 	}
@@ -48192,6 +48355,23 @@ JSBool js_cocos2dx_CCBReader_getAnimationManagersForNodes(JSContext *cx, uint32_
 
 	if (argc == 0) {
 		cocos2d::CCArray* ret = cobj->getAnimationManagersForNodes();
+		jsval jsret;
+		jsret = ccarray_to_jsval(cx, ret);
+		JS_SET_RVAL(cx, vp, jsret);
+		return JS_TRUE;
+	}
+	JS_ReportError(cx, "wrong number of arguments: %d, was expecting %d", argc, 0);
+	return JS_FALSE;
+}
+JSBool js_cocos2dx_CCBReader_getNodesWithAnimationManagers(JSContext *cx, uint32_t argc, jsval *vp)
+{
+	JSObject *obj = JS_THIS_OBJECT(cx, vp);
+	js_proxy_t *proxy; JS_GET_NATIVE_PROXY(proxy, obj);
+	cocos2d::extension::CCBReader* cobj = (cocos2d::extension::CCBReader *)(proxy ? proxy->ptr : NULL);
+	TEST_NATIVE_OBJECT(cx, cobj)
+
+	if (argc == 0) {
+		cocos2d::CCArray* ret = cobj->getNodesWithAnimationManagers();
 		jsval jsret;
 		jsret = ccarray_to_jsval(cx, ret);
 		JS_SET_RVAL(cx, vp, jsret);
@@ -48360,14 +48540,16 @@ void js_register_cocos2dx_CCBReader(JSContext *cx, JSObject *global) {
 	};
 
 	static JSFunctionSpec funcs[] = {
-		JS_FN("readUTF8", js_cocos2dx_CCBReader_readUTF8, 0, JSPROP_PERMANENT | JSPROP_SHARED),
 		JS_FN("getOwnerCallbackNames", js_cocos2dx_CCBReader_getOwnerCallbackNames, 0, JSPROP_PERMANENT | JSPROP_SHARED),
+		JS_FN("setCCBRootPath", js_cocos2dx_CCBReader_setCCBRootPath, 1, JSPROP_PERMANENT | JSPROP_SHARED),
 		JS_FN("getOwnerCallbackNodes", js_cocos2dx_CCBReader_getOwnerCallbackNodes, 0, JSPROP_PERMANENT | JSPROP_SHARED),
-		JS_FN("getNodesWithAnimationManagers", js_cocos2dx_CCBReader_getNodesWithAnimationManagers, 0, JSPROP_PERMANENT | JSPROP_SHARED),
-		JS_FN("getOwnerOutletNodes", js_cocos2dx_CCBReader_getOwnerOutletNodes, 0, JSPROP_PERMANENT | JSPROP_SHARED),
 		JS_FN("getOwnerOutletNames", js_cocos2dx_CCBReader_getOwnerOutletNames, 0, JSPROP_PERMANENT | JSPROP_SHARED),
+		JS_FN("getCCBRootPath", js_cocos2dx_CCBReader_getCCBRootPath, 0, JSPROP_PERMANENT | JSPROP_SHARED),
+		JS_FN("getOwnerOutletNodes", js_cocos2dx_CCBReader_getOwnerOutletNodes, 0, JSPROP_PERMANENT | JSPROP_SHARED),
+		JS_FN("readUTF8", js_cocos2dx_CCBReader_readUTF8, 0, JSPROP_PERMANENT | JSPROP_SHARED),
 		JS_FN("setActionManager", js_cocos2dx_CCBReader_setAnimationManager, 1, JSPROP_PERMANENT | JSPROP_SHARED),
 		JS_FN("getAnimationManagersForNodes", js_cocos2dx_CCBReader_getAnimationManagersForNodes, 0, JSPROP_PERMANENT | JSPROP_SHARED),
+		JS_FN("getNodesWithAnimationManagers", js_cocos2dx_CCBReader_getNodesWithAnimationManagers, 0, JSPROP_PERMANENT | JSPROP_SHARED),
 		JS_FN("getActionManager", js_cocos2dx_CCBReader_getAnimationManager, 0, JSPROP_PERMANENT | JSPROP_SHARED),
 		JS_FS_END
 	};

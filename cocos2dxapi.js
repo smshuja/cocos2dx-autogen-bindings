@@ -6046,10 +6046,9 @@ cc.CCLayer = {
 unregisterScriptTouchHandler : function () {},
 
 /**
- * @method getScriptHandlerEntry
- * @return A value converted from C/C++ "cocos2d::CCTouchScriptHandlerEntry*"
+ * @method keyBackClicked
  */
-getScriptHandlerEntry : function () {},
+keyBackClicked : function () {},
 
 /**
  * @method ccTouchBegan
@@ -6073,11 +6072,22 @@ setAccelerometerInterval : function () {},
 ccTouchesCancelled : function () {},
 
 /**
+ * @method unregisterScriptAccelerateHandler
+ */
+unregisterScriptAccelerateHandler : function () {},
+
+/**
  * @method ccTouchesMoved
  * @param {cocos2d::CCSet*}
  * @param {cocos2d::CCEvent*}
  */
 ccTouchesMoved : function () {},
+
+/**
+ * @method registerScriptAccelerateHandler
+ * @param {int}
+ */
+registerScriptAccelerateHandler : function () {},
 
 /**
  * @method getTouchMode
@@ -6104,6 +6114,18 @@ init : function () {},
 isTouchEnabled : function () {},
 
 /**
+ * @method getScriptAccelerateHandlerEntry
+ * @return A value converted from C/C++ "cocos2d::CCScriptHandlerEntry*"
+ */
+getScriptAccelerateHandlerEntry : function () {},
+
+/**
+ * @method getScriptKeypadHandlerEntry
+ * @return A value converted from C/C++ "cocos2d::CCScriptHandlerEntry*"
+ */
+getScriptKeypadHandlerEntry : function () {},
+
+/**
  * @method ccTouchMoved
  * @param {cocos2d::CCTouch*}
  * @param {cocos2d::CCEvent*}
@@ -6115,6 +6137,11 @@ ccTouchMoved : function () {},
  * @param {bool}
  */
 setTouchEnabled : function () {},
+
+/**
+ * @method unregisterScriptKeypadHandler
+ */
+unregisterScriptKeypadHandler : function () {},
 
 /**
  * @method isKeypadEnabled
@@ -6165,6 +6192,12 @@ registerScriptTouchHandler : function () {},
 ccTouchCancelled : function () {},
 
 /**
+ * @method getScriptTouchHandlerEntry
+ * @return A value converted from C/C++ "cocos2d::CCTouchScriptHandlerEntry*"
+ */
+getScriptTouchHandlerEntry : function () {},
+
+/**
  * @method ccTouchesBegan
  * @param {cocos2d::CCSet*}
  * @param {cocos2d::CCEvent*}
@@ -6193,6 +6226,17 @@ setKeypadEnabled : function () {},
  * @method registerWithTouchDispatcher
  */
 registerWithTouchDispatcher : function () {},
+
+/**
+ * @method keyMenuClicked
+ */
+keyMenuClicked : function () {},
+
+/**
+ * @method registerScriptKeypadHandler
+ * @param {int}
+ */
+registerScriptKeypadHandler : function () {},
 
 /**
  * @method node
@@ -11141,16 +11185,16 @@ sharedEngine : function () {},
 cc.CCBReader = {
 
 /**
- * @method readUTF8
- * @return A value converted from C/C++ "std::string"
- */
-readUTF8 : function () {},
-
-/**
  * @method getOwnerCallbackNames
  * @return A value converted from C/C++ "cocos2d::CCArray*"
  */
 getOwnerCallbackNames : function () {},
+
+/**
+ * @method setCCBRootPath
+ * @param {const char*}
+ */
+setCCBRootPath : function () {},
 
 /**
  * @method getOwnerCallbackNodes
@@ -11159,10 +11203,16 @@ getOwnerCallbackNames : function () {},
 getOwnerCallbackNodes : function () {},
 
 /**
- * @method getNodesWithAnimationManagers
+ * @method getOwnerOutletNames
  * @return A value converted from C/C++ "cocos2d::CCArray*"
  */
-getNodesWithAnimationManagers : function () {},
+getOwnerOutletNames : function () {},
+
+/**
+ * @method getCCBRootPath
+ * @return A value converted from C/C++ "std::string"
+ */
+getCCBRootPath : function () {},
 
 /**
  * @method getOwnerOutletNodes
@@ -11171,10 +11221,10 @@ getNodesWithAnimationManagers : function () {},
 getOwnerOutletNodes : function () {},
 
 /**
- * @method getOwnerOutletNames
- * @return A value converted from C/C++ "cocos2d::CCArray*"
+ * @method readUTF8
+ * @return A value converted from C/C++ "std::string"
  */
-getOwnerOutletNames : function () {},
+readUTF8 : function () {},
 
 /**
  * @method setAnimationManager
@@ -11187,6 +11237,12 @@ setAnimationManager : function () {},
  * @return A value converted from C/C++ "cocos2d::CCArray*"
  */
 getAnimationManagersForNodes : function () {},
+
+/**
+ * @method getNodesWithAnimationManagers
+ * @return A value converted from C/C++ "cocos2d::CCArray*"
+ */
+getNodesWithAnimationManagers : function () {},
 
 /**
  * @method getAnimationManager
