@@ -379,6 +379,11 @@ mutableCopy : function () {},
 anyObject : function () {},
 
 /**
+ * @method removeAllObjects
+ */
+removeAllObjects : function () {},
+
+/**
  * @method removeObject
  * @param {cocos2d::CCObject*}
  */
@@ -8473,6 +8478,12 @@ clearStencil : function () {},
 begin : function () {},
 
 /**
+ * @method listenToForeground
+ * @param {cocos2d::CCObject*}
+ */
+listenToForeground : function () {},
+
+/**
  * @method getClearDepth
  * @return A value converted from C/C++ "float"
  */
@@ -8576,6 +8587,7 @@ getClearFlags : function () {},
 /**
  * @method newCCImage
  * @return A value converted from C/C++ "cocos2d::CCImage*"
+ * @param {bool}
  */
 newCCImage : function () {},
 

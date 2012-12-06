@@ -1513,6 +1513,20 @@ JSBool js_cocos2dx_CCSet_anyObject(JSContext *cx, uint32_t argc, jsval *vp)
 	JS_ReportError(cx, "wrong number of arguments: %d, was expecting %d", argc, 0);
 	return JS_FALSE;
 }
+JSBool js_cocos2dx_CCSet_removeAllObjects(JSContext *cx, uint32_t argc, jsval *vp)
+{
+	JSObject *obj = JS_THIS_OBJECT(cx, vp);
+	js_proxy_t *proxy; JS_GET_NATIVE_PROXY(proxy, obj);
+	cocos2d::CCSet* cobj = (cocos2d::CCSet *)(proxy ? proxy->ptr : NULL);
+	TEST_NATIVE_OBJECT(cx, cobj)
+
+	if (argc == 0) {
+		cobj->removeAllObjects();
+		return JS_TRUE;
+	}
+	JS_ReportError(cx, "wrong number of arguments: %d, was expecting %d", argc, 0);
+	return JS_FALSE;
+}
 JSBool js_cocos2dx_CCSet_removeObject(JSContext *cx, uint32_t argc, jsval *vp)
 {
 	jsval *argv = JS_ARGV(cx, vp);
@@ -1613,6 +1627,7 @@ void js_register_cocos2dx_CCSet(JSContext *cx, JSObject *global) {
 		JS_FN("addObject", js_cocos2dx_CCSet_addObject, 1, JSPROP_PERMANENT | JSPROP_SHARED),
 		JS_FN("mutableCopy", js_cocos2dx_CCSet_mutableCopy, 0, JSPROP_PERMANENT | JSPROP_SHARED),
 		JS_FN("anyObject", js_cocos2dx_CCSet_anyObject, 0, JSPROP_PERMANENT | JSPROP_SHARED),
+		JS_FN("removeAllObjects", js_cocos2dx_CCSet_removeAllObjects, 0, JSPROP_PERMANENT | JSPROP_SHARED),
 		JS_FN("removeObject", js_cocos2dx_CCSet_removeObject, 1, JSPROP_PERMANENT | JSPROP_SHARED),
 		JS_FN("copy", js_cocos2dx_CCSet_copy, 0, JSPROP_PERMANENT | JSPROP_SHARED),
 		JS_FN("containsObject", js_cocos2dx_CCSet_containsObject, 1, JSPROP_PERMANENT | JSPROP_SHARED),
@@ -20630,7 +20645,7 @@ JSBool js_cocos2dx_CCAtlasNode_getColor(JSContext *cx, uint32_t argc, jsval *vp)
 	if (argc == 0) {
 		ccColor3B ret = cobj->getColor();
 		jsval jsret;
-		#pragma warning NO CONVERSION FROM NATIVE FOR ccColor3B;
+		jsret = cccolor3b_to_jsval(cx, ret);
 		JS_SET_RVAL(cx, vp, jsret);
 		return JS_TRUE;
 	}
@@ -21967,7 +21982,7 @@ JSBool js_cocos2dx_CCSprite_getColor(JSContext *cx, uint32_t argc, jsval *vp)
 	if (argc == 0) {
 		ccColor3B ret = cobj->getColor();
 		jsval jsret;
-		#pragma warning NO CONVERSION FROM NATIVE FOR ccColor3B;
+		jsret = cccolor3b_to_jsval(cx, ret);
 		JS_SET_RVAL(cx, vp, jsret);
 		return JS_TRUE;
 	}
@@ -25885,7 +25900,7 @@ JSBool js_cocos2dx_CCLabelBMFont_getColor(JSContext *cx, uint32_t argc, jsval *v
 	if (argc == 0) {
 		ccColor3B ret = cobj->getColor();
 		jsval jsret;
-		#pragma warning NO CONVERSION FROM NATIVE FOR ccColor3B;
+		jsret = cccolor3b_to_jsval(cx, ret);
 		JS_SET_RVAL(cx, vp, jsret);
 		return JS_TRUE;
 	}
@@ -27098,7 +27113,7 @@ JSBool js_cocos2dx_CCLayerColor_getColor(JSContext *cx, uint32_t argc, jsval *vp
 	if (argc == 0) {
 		ccColor3B ret = cobj->getColor();
 		jsval jsret;
-		#pragma warning NO CONVERSION FROM NATIVE FOR ccColor3B;
+		jsret = cccolor3b_to_jsval(cx, ret);
 		JS_SET_RVAL(cx, vp, jsret);
 		return JS_TRUE;
 	}
@@ -27474,7 +27489,7 @@ JSBool js_cocos2dx_CCLayerGradient_getStartColor(JSContext *cx, uint32_t argc, j
 	if (argc == 0) {
 		ccColor3B ret = cobj->getStartColor();
 		jsval jsret;
-		#pragma warning NO CONVERSION FROM NATIVE FOR ccColor3B;
+		jsret = cccolor3b_to_jsval(cx, ret);
 		JS_SET_RVAL(cx, vp, jsret);
 		return JS_TRUE;
 	}
@@ -27667,7 +27682,7 @@ JSBool js_cocos2dx_CCLayerGradient_getEndColor(JSContext *cx, uint32_t argc, jsv
 	if (argc == 0) {
 		ccColor3B ret = cobj->getEndColor();
 		jsval jsret;
-		#pragma warning NO CONVERSION FROM NATIVE FOR ccColor3B;
+		jsret = cccolor3b_to_jsval(cx, ret);
 		JS_SET_RVAL(cx, vp, jsret);
 		return JS_TRUE;
 	}
@@ -34921,7 +34936,7 @@ JSBool js_cocos2dx_CCMenuItemLabel_getDisabledColor(JSContext *cx, uint32_t argc
 	if (argc == 0) {
 		ccColor3B ret = cobj->getDisabledColor();
 		jsval jsret;
-		#pragma warning NO CONVERSION FROM NATIVE FOR ccColor3B;
+		jsret = cccolor3b_to_jsval(cx, ret);
 		JS_SET_RVAL(cx, vp, jsret);
 		return JS_TRUE;
 	}
@@ -35044,7 +35059,7 @@ JSBool js_cocos2dx_CCMenuItemLabel_getColor(JSContext *cx, uint32_t argc, jsval 
 	if (argc == 0) {
 		ccColor3B ret = cobj->getColor();
 		jsval jsret;
-		#pragma warning NO CONVERSION FROM NATIVE FOR ccColor3B;
+		jsret = cccolor3b_to_jsval(cx, ret);
 		JS_SET_RVAL(cx, vp, jsret);
 		return JS_TRUE;
 	}
@@ -35650,7 +35665,7 @@ JSBool js_cocos2dx_CCMenuItemSprite_getColor(JSContext *cx, uint32_t argc, jsval
 	if (argc == 0) {
 		ccColor3B ret = cobj->getColor();
 		jsval jsret;
-		#pragma warning NO CONVERSION FROM NATIVE FOR ccColor3B;
+		jsret = cccolor3b_to_jsval(cx, ret);
 		JS_SET_RVAL(cx, vp, jsret);
 		return JS_TRUE;
 	}
@@ -36362,7 +36377,7 @@ JSBool js_cocos2dx_CCMenuItemToggle_getColor(JSContext *cx, uint32_t argc, jsval
 	if (argc == 0) {
 		ccColor3B ret = cobj->getColor();
 		jsval jsret;
-		#pragma warning NO CONVERSION FROM NATIVE FOR ccColor3B;
+		jsret = cccolor3b_to_jsval(cx, ret);
 		JS_SET_RVAL(cx, vp, jsret);
 		return JS_TRUE;
 	}
@@ -36871,7 +36886,7 @@ JSBool js_cocos2dx_CCMenu_getColor(JSContext *cx, uint32_t argc, jsval *vp)
 	if (argc == 0) {
 		ccColor3B ret = cobj->getColor();
 		jsval jsret;
-		#pragma warning NO CONVERSION FROM NATIVE FOR ccColor3B;
+		jsret = cccolor3b_to_jsval(cx, ret);
 		JS_SET_RVAL(cx, vp, jsret);
 		return JS_TRUE;
 	}
@@ -37414,7 +37429,7 @@ JSBool js_cocos2dx_CCProgressTimer_getColor(JSContext *cx, uint32_t argc, jsval 
 	if (argc == 0) {
 		ccColor3B ret = cobj->getColor();
 		jsval jsret;
-		#pragma warning NO CONVERSION FROM NATIVE FOR ccColor3B;
+		jsret = cccolor3b_to_jsval(cx, ret);
 		JS_SET_RVAL(cx, vp, jsret);
 		return JS_TRUE;
 	}
@@ -37711,6 +37726,29 @@ JSBool js_cocos2dx_CCRenderTexture_begin(JSContext *cx, uint32_t argc, jsval *vp
 		return JS_TRUE;
 	}
 	JS_ReportError(cx, "wrong number of arguments: %d, was expecting %d", argc, 0);
+	return JS_FALSE;
+}
+JSBool js_cocos2dx_CCRenderTexture_listenToForeground(JSContext *cx, uint32_t argc, jsval *vp)
+{
+	jsval *argv = JS_ARGV(cx, vp);
+	JSObject *obj = JS_THIS_OBJECT(cx, vp);
+	js_proxy_t *proxy; JS_GET_NATIVE_PROXY(proxy, obj);
+	cocos2d::CCRenderTexture* cobj = (cocos2d::CCRenderTexture *)(proxy ? proxy->ptr : NULL);
+	TEST_NATIVE_OBJECT(cx, cobj)
+
+	if (argc == 1) {
+		cocos2d::CCObject* arg0;
+		do {
+			js_proxy_t *proxy;
+			JSObject *tmpObj = JSVAL_TO_OBJECT(argv[0]);
+			JS_GET_NATIVE_PROXY(proxy, tmpObj);
+			arg0 = (cocos2d::CCObject*)(proxy ? proxy->ptr : NULL);
+			TEST_NATIVE_OBJECT(cx, arg0)
+		} while (0);
+		cobj->listenToForeground(arg0);
+		return JS_TRUE;
+	}
+	JS_ReportError(cx, "wrong number of arguments: %d, was expecting %d", argc, 1);
 	return JS_FALSE;
 }
 JSBool js_cocos2dx_CCRenderTexture_getClearDepth(JSContext *cx, uint32_t argc, jsval *vp)
@@ -38133,13 +38171,16 @@ JSBool js_cocos2dx_CCRenderTexture_getClearFlags(JSContext *cx, uint32_t argc, j
 }
 JSBool js_cocos2dx_CCRenderTexture_newCCImage(JSContext *cx, uint32_t argc, jsval *vp)
 {
+	jsval *argv = JS_ARGV(cx, vp);
 	JSObject *obj = JS_THIS_OBJECT(cx, vp);
 	js_proxy_t *proxy; JS_GET_NATIVE_PROXY(proxy, obj);
 	cocos2d::CCRenderTexture* cobj = (cocos2d::CCRenderTexture *)(proxy ? proxy->ptr : NULL);
 	TEST_NATIVE_OBJECT(cx, cobj)
 
-	if (argc == 0) {
-		cocos2d::CCImage* ret = cobj->newCCImage();
+	if (argc == 1) {
+		JSBool arg0;
+		JS_ValueToBoolean(cx, argv[0], &arg0);
+		cocos2d::CCImage* ret = cobj->newCCImage(arg0);
 		jsval jsret;
 		do {
 			if (ret) {
@@ -38152,7 +38193,7 @@ JSBool js_cocos2dx_CCRenderTexture_newCCImage(JSContext *cx, uint32_t argc, jsva
 		JS_SET_RVAL(cx, vp, jsret);
 		return JS_TRUE;
 	}
-	JS_ReportError(cx, "wrong number of arguments: %d, was expecting %d", argc, 0);
+	JS_ReportError(cx, "wrong number of arguments: %d, was expecting %d", argc, 1);
 	return JS_FALSE;
 }
 JSBool js_cocos2dx_CCRenderTexture_setClearDepth(JSContext *cx, uint32_t argc, jsval *vp)
@@ -38380,6 +38421,7 @@ void js_register_cocos2dx_CCRenderTexture(JSContext *cx, JSObject *global) {
 	static JSFunctionSpec funcs[] = {
 		JS_FN("clearStencil", js_cocos2dx_CCRenderTexture_clearStencil, 1, JSPROP_PERMANENT | JSPROP_SHARED),
 		JS_FN("begin", js_cocos2dx_CCRenderTexture_begin, 0, JSPROP_PERMANENT | JSPROP_SHARED),
+		JS_FN("listenToForeground", js_cocos2dx_CCRenderTexture_listenToForeground, 1, JSPROP_PERMANENT | JSPROP_SHARED),
 		JS_FN("getClearDepth", js_cocos2dx_CCRenderTexture_getClearDepth, 0, JSPROP_PERMANENT | JSPROP_SHARED),
 		JS_FN("getClearStencil", js_cocos2dx_CCRenderTexture_getClearStencil, 0, JSPROP_PERMANENT | JSPROP_SHARED),
 		JS_FN("end", js_cocos2dx_CCRenderTexture_end, 0, JSPROP_PERMANENT | JSPROP_SHARED),
@@ -38400,7 +38442,7 @@ void js_register_cocos2dx_CCRenderTexture(JSContext *cx, JSObject *global) {
 		JS_FN("listenToBackground", js_cocos2dx_CCRenderTexture_listenToBackground, 1, JSPROP_PERMANENT | JSPROP_SHARED),
 		JS_FN("clear", js_cocos2dx_CCRenderTexture_clear, 4, JSPROP_PERMANENT | JSPROP_SHARED),
 		JS_FN("getClearFlags", js_cocos2dx_CCRenderTexture_getClearFlags, 0, JSPROP_PERMANENT | JSPROP_SHARED),
-		JS_FN("newCCImage", js_cocos2dx_CCRenderTexture_newCCImage, 0, JSPROP_PERMANENT | JSPROP_SHARED),
+		JS_FN("newCCImage", js_cocos2dx_CCRenderTexture_newCCImage, 1, JSPROP_PERMANENT | JSPROP_SHARED),
 		JS_FN("setClearDepth", js_cocos2dx_CCRenderTexture_setClearDepth, 1, JSPROP_PERMANENT | JSPROP_SHARED),
 		JS_FN("setSprite", js_cocos2dx_CCRenderTexture_setSprite, 1, JSPROP_PERMANENT | JSPROP_SHARED),
 		JS_FS_END
@@ -39105,7 +39147,7 @@ JSBool js_cocos2dx_CCParticleSystem_getStartColor(JSContext *cx, uint32_t argc, 
 	if (argc == 0) {
 		ccColor4F ret = cobj->getStartColor();
 		jsval jsret;
-		#pragma warning NO CONVERSION FROM NATIVE FOR ccColor4F;
+		jsret = cccolor4f_to_jsval(cx, ret);
 		JS_SET_RVAL(cx, vp, jsret);
 		return JS_TRUE;
 	}
@@ -40422,7 +40464,7 @@ JSBool js_cocos2dx_CCParticleSystem_getEndColorVar(JSContext *cx, uint32_t argc,
 	if (argc == 0) {
 		ccColor4F ret = cobj->getEndColorVar();
 		jsval jsret;
-		#pragma warning NO CONVERSION FROM NATIVE FOR ccColor4F;
+		jsret = cccolor4f_to_jsval(cx, ret);
 		JS_SET_RVAL(cx, vp, jsret);
 		return JS_TRUE;
 	}
@@ -40473,7 +40515,7 @@ JSBool js_cocos2dx_CCParticleSystem_getEndColor(JSContext *cx, uint32_t argc, js
 	if (argc == 0) {
 		ccColor4F ret = cobj->getEndColor();
 		jsval jsret;
-		#pragma warning NO CONVERSION FROM NATIVE FOR ccColor4F;
+		jsret = cccolor4f_to_jsval(cx, ret);
 		JS_SET_RVAL(cx, vp, jsret);
 		return JS_TRUE;
 	}
@@ -40758,7 +40800,7 @@ JSBool js_cocos2dx_CCParticleSystem_getStartColorVar(JSContext *cx, uint32_t arg
 	if (argc == 0) {
 		ccColor4F ret = cobj->getStartColorVar();
 		jsval jsret;
-		#pragma warning NO CONVERSION FROM NATIVE FOR ccColor4F;
+		jsret = cccolor4f_to_jsval(cx, ret);
 		JS_SET_RVAL(cx, vp, jsret);
 		return JS_TRUE;
 	}
@@ -46984,7 +47026,7 @@ JSBool js_cocos2dx_CCTileMapAtlas_tileAt(JSContext *cx, uint32_t argc, jsval *vp
 		arg0 = jsval_to_ccgridsize(cx, argv[0]);
 		ccColor3B ret = cobj->tileAt(arg0);
 		jsval jsret;
-		#pragma warning NO CONVERSION FROM NATIVE FOR ccColor3B;
+		jsret = cccolor3b_to_jsval(cx, ret);
 		JS_SET_RVAL(cx, vp, jsret);
 		return JS_TRUE;
 	}
@@ -48816,7 +48858,7 @@ JSBool js_cocos2dx_CCScale9Sprite_getColor(JSContext *cx, uint32_t argc, jsval *
 	if (argc == 0) {
 		ccColor3B ret = cobj->getColor();
 		jsval jsret;
-		#pragma warning NO CONVERSION FROM NATIVE FOR ccColor3B;
+		jsret = cccolor3b_to_jsval(cx, ret);
 		JS_SET_RVAL(cx, vp, jsret);
 		return JS_TRUE;
 	}
@@ -50195,7 +50237,7 @@ JSBool js_cocos2dx_CCControlButton_getCurrentTitleColor(JSContext *cx, uint32_t 
 	if (argc == 0) {
 		ccColor3B ret = cobj->getCurrentTitleColor();
 		jsval jsret;
-		#pragma warning NO CONVERSION FROM NATIVE FOR ccColor3B;
+		jsret = cccolor3b_to_jsval(cx, ret);
 		JS_SET_RVAL(cx, vp, jsret);
 		return JS_TRUE;
 	}
