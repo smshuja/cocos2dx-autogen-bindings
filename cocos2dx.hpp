@@ -23,7 +23,6 @@ JSBool js_cocos2dx_CCAction_step(JSContext *cx, uint32_t argc, jsval *vp);
 JSBool js_cocos2dx_CCAction_setTag(JSContext *cx, uint32_t argc, jsval *vp);
 JSBool js_cocos2dx_CCAction_getTag(JSContext *cx, uint32_t argc, jsval *vp);
 JSBool js_cocos2dx_CCAction_isDone(JSContext *cx, uint32_t argc, jsval *vp);
-JSBool js_cocos2dx_CCAction_action(JSContext *cx, uint32_t argc, jsval *vp);
 JSBool js_cocos2dx_CCAction_create(JSContext *cx, uint32_t argc, jsval *vp);
 JSBool js_cocos2dx_CCAction_CCAction(JSContext *cx, uint32_t argc, jsval *vp);
 
@@ -57,7 +56,6 @@ JSBool js_cocos2dx_CCSpeed_getInnerAction(JSContext *cx, uint32_t argc, jsval *v
 JSBool js_cocos2dx_CCSpeed_isDone(JSContext *cx, uint32_t argc, jsval *vp);
 JSBool js_cocos2dx_CCSpeed_getSpeed(JSContext *cx, uint32_t argc, jsval *vp);
 JSBool js_cocos2dx_CCSpeed_create(JSContext *cx, uint32_t argc, jsval *vp);
-JSBool js_cocos2dx_CCSpeed_actionWithAction(JSContext *cx, uint32_t argc, jsval *vp);
 JSBool js_cocos2dx_CCSpeed_CCSpeed(JSContext *cx, uint32_t argc, jsval *vp);
 
 extern JSClass  *js_cocos2dx_CCFollow_class;
@@ -74,7 +72,6 @@ JSBool js_cocos2dx_CCFollow_step(JSContext *cx, uint32_t argc, jsval *vp);
 JSBool js_cocos2dx_CCFollow_isDone(JSContext *cx, uint32_t argc, jsval *vp);
 JSBool js_cocos2dx_CCFollow_isBoundarySet(JSContext *cx, uint32_t argc, jsval *vp);
 JSBool js_cocos2dx_CCFollow_create(JSContext *cx, uint32_t argc, jsval *vp);
-JSBool js_cocos2dx_CCFollow_actionWithTarget(JSContext *cx, uint32_t argc, jsval *vp);
 JSBool js_cocos2dx_CCFollow_CCFollow(JSContext *cx, uint32_t argc, jsval *vp);
 
 extern JSClass  *js_cocos2dx_CCTouch_class;
@@ -90,8 +87,6 @@ JSBool js_cocos2dx_CCTouch_getDelta(JSContext *cx, uint32_t argc, jsval *vp);
 JSBool js_cocos2dx_CCTouch_setTouchInfo(JSContext *cx, uint32_t argc, jsval *vp);
 JSBool js_cocos2dx_CCTouch_getID(JSContext *cx, uint32_t argc, jsval *vp);
 JSBool js_cocos2dx_CCTouch_getLocationInView(JSContext *cx, uint32_t argc, jsval *vp);
-JSBool js_cocos2dx_CCTouch_locationInView(JSContext *cx, uint32_t argc, jsval *vp);
-JSBool js_cocos2dx_CCTouch_previousLocationInView(JSContext *cx, uint32_t argc, jsval *vp);
 JSBool js_cocos2dx_CCTouch_getPreviousLocation(JSContext *cx, uint32_t argc, jsval *vp);
 JSBool js_cocos2dx_CCTouch_CCTouch(JSContext *cx, uint32_t argc, jsval *vp);
 
@@ -202,7 +197,6 @@ JSBool js_cocos2dx_CCNode_setTag(JSContext *cx, uint32_t argc, jsval *vp);
 JSBool js_cocos2dx_CCNode_scheduleUpdate(JSContext *cx, uint32_t argc, jsval *vp);
 JSBool js_cocos2dx_CCNode_stopAction(JSContext *cx, uint32_t argc, jsval *vp);
 JSBool js_cocos2dx_CCNode_getActionManager(JSContext *cx, uint32_t argc, jsval *vp);
-JSBool js_cocos2dx_CCNode_node(JSContext *cx, uint32_t argc, jsval *vp);
 JSBool js_cocos2dx_CCNode_create(JSContext *cx, uint32_t argc, jsval *vp);
 JSBool js_cocos2dx_CCNode_CCNode(JSContext *cx, uint32_t argc, jsval *vp);
 
@@ -267,10 +261,8 @@ JSBool js_cocos2dx_CCSpriteFrame_initWithTextureFilename(JSContext *cx, uint32_t
 JSBool js_cocos2dx_CCSpriteFrame_setRect(JSContext *cx, uint32_t argc, jsval *vp);
 JSBool js_cocos2dx_CCSpriteFrame_getOffsetInPixels(JSContext *cx, uint32_t argc, jsval *vp);
 JSBool js_cocos2dx_CCSpriteFrame_getOriginalSize(JSContext *cx, uint32_t argc, jsval *vp);
-JSBool js_cocos2dx_CCSpriteFrame_frameWithTexture(JSContext *cx, uint32_t argc, jsval *vp);
 JSBool js_cocos2dx_CCSpriteFrame_create(JSContext *cx, uint32_t argc, jsval *vp);
 JSBool js_cocos2dx_CCSpriteFrame_createWithTexture(JSContext *cx, uint32_t argc, jsval *vp);
-JSBool js_cocos2dx_CCSpriteFrame_frameWithTextureFilename(JSContext *cx, uint32_t argc, jsval *vp);
 
 extern JSClass  *js_cocos2dx_CCAnimationFrame_class;
 extern JSObject *js_cocos2dx_CCAnimationFrame_prototype;
@@ -311,9 +303,6 @@ JSBool js_cocos2dx_CCAnimation_getDelayPerUnit(JSContext *cx, uint32_t argc, jsv
 JSBool js_cocos2dx_CCAnimation_getRestoreOriginalFrame(JSContext *cx, uint32_t argc, jsval *vp);
 JSBool js_cocos2dx_CCAnimation_getDuration(JSContext *cx, uint32_t argc, jsval *vp);
 JSBool js_cocos2dx_CCAnimation_addSpriteFrameWithTexture(JSContext *cx, uint32_t argc, jsval *vp);
-JSBool js_cocos2dx_CCAnimation_animationWithSpriteFrames(JSContext *cx, uint32_t argc, jsval *vp);
-JSBool js_cocos2dx_CCAnimation_animation(JSContext *cx, uint32_t argc, jsval *vp);
-JSBool js_cocos2dx_CCAnimation_animationWithAnimationFrames(JSContext *cx, uint32_t argc, jsval *vp);
 JSBool js_cocos2dx_CCAnimation_CCAnimation(JSContext *cx, uint32_t argc, jsval *vp);
 
 extern JSClass  *js_cocos2dx_CCActionInterval_class;
@@ -332,7 +321,6 @@ JSBool js_cocos2dx_CCActionInterval_getElapsed(JSContext *cx, uint32_t argc, jsv
 JSBool js_cocos2dx_CCActionInterval_isDone(JSContext *cx, uint32_t argc, jsval *vp);
 JSBool js_cocos2dx_CCActionInterval_reverse(JSContext *cx, uint32_t argc, jsval *vp);
 JSBool js_cocos2dx_CCActionInterval_create(JSContext *cx, uint32_t argc, jsval *vp);
-JSBool js_cocos2dx_CCActionInterval_actionWithDuration(JSContext *cx, uint32_t argc, jsval *vp);
 
 extern JSClass  *js_cocos2dx_CCSequence_class;
 extern JSObject *js_cocos2dx_CCSequence_prototype;
@@ -346,8 +334,6 @@ JSBool js_cocos2dx_CCSequence_reverse(JSContext *cx, uint32_t argc, jsval *vp);
 JSBool js_cocos2dx_CCSequence_stop(JSContext *cx, uint32_t argc, jsval *vp);
 JSBool js_cocos2dx_CCSequence_update(JSContext *cx, uint32_t argc, jsval *vp);
 JSBool js_cocos2dx_CCSequence_initWithTwoActions(JSContext *cx, uint32_t argc, jsval *vp);
-JSBool js_cocos2dx_CCSequence_actionWithArray(JSContext *cx, uint32_t argc, jsval *vp);
-JSBool js_cocos2dx_CCSequence_actionOneTwo(JSContext *cx, uint32_t argc, jsval *vp);
 
 extern JSClass  *js_cocos2dx_CCRepeat_class;
 extern JSObject *js_cocos2dx_CCRepeat_prototype;
@@ -365,7 +351,6 @@ JSBool js_cocos2dx_CCRepeat_getInnerAction(JSContext *cx, uint32_t argc, jsval *
 JSBool js_cocos2dx_CCRepeat_isDone(JSContext *cx, uint32_t argc, jsval *vp);
 JSBool js_cocos2dx_CCRepeat_reverse(JSContext *cx, uint32_t argc, jsval *vp);
 JSBool js_cocos2dx_CCRepeat_create(JSContext *cx, uint32_t argc, jsval *vp);
-JSBool js_cocos2dx_CCRepeat_actionWithAction(JSContext *cx, uint32_t argc, jsval *vp);
 
 extern JSClass  *js_cocos2dx_CCRepeatForever_class;
 extern JSObject *js_cocos2dx_CCRepeatForever_prototype;
@@ -382,7 +367,6 @@ JSBool js_cocos2dx_CCRepeatForever_getInnerAction(JSContext *cx, uint32_t argc, 
 JSBool js_cocos2dx_CCRepeatForever_isDone(JSContext *cx, uint32_t argc, jsval *vp);
 JSBool js_cocos2dx_CCRepeatForever_reverse(JSContext *cx, uint32_t argc, jsval *vp);
 JSBool js_cocos2dx_CCRepeatForever_create(JSContext *cx, uint32_t argc, jsval *vp);
-JSBool js_cocos2dx_CCRepeatForever_actionWithAction(JSContext *cx, uint32_t argc, jsval *vp);
 JSBool js_cocos2dx_CCRepeatForever_CCRepeatForever(JSContext *cx, uint32_t argc, jsval *vp);
 
 extern JSClass  *js_cocos2dx_CCSpawn_class;
@@ -397,8 +381,6 @@ JSBool js_cocos2dx_CCSpawn_reverse(JSContext *cx, uint32_t argc, jsval *vp);
 JSBool js_cocos2dx_CCSpawn_stop(JSContext *cx, uint32_t argc, jsval *vp);
 JSBool js_cocos2dx_CCSpawn_update(JSContext *cx, uint32_t argc, jsval *vp);
 JSBool js_cocos2dx_CCSpawn_initWithTwoActions(JSContext *cx, uint32_t argc, jsval *vp);
-JSBool js_cocos2dx_CCSpawn_actionWithArray(JSContext *cx, uint32_t argc, jsval *vp);
-JSBool js_cocos2dx_CCSpawn_actionOneTwo(JSContext *cx, uint32_t argc, jsval *vp);
 
 extern JSClass  *js_cocos2dx_CCRotateTo_class;
 extern JSObject *js_cocos2dx_CCRotateTo_prototype;
@@ -411,7 +393,6 @@ JSBool js_cocos2dx_CCRotateTo_startWithTarget(JSContext *cx, uint32_t argc, jsva
 JSBool js_cocos2dx_CCRotateTo_initWithDuration(JSContext *cx, uint32_t argc, jsval *vp);
 JSBool js_cocos2dx_CCRotateTo_update(JSContext *cx, uint32_t argc, jsval *vp);
 JSBool js_cocos2dx_CCRotateTo_create(JSContext *cx, uint32_t argc, jsval *vp);
-JSBool js_cocos2dx_CCRotateTo_actionWithDuration(JSContext *cx, uint32_t argc, jsval *vp);
 
 extern JSClass  *js_cocos2dx_CCRotateBy_class;
 extern JSObject *js_cocos2dx_CCRotateBy_prototype;
@@ -425,7 +406,6 @@ JSBool js_cocos2dx_CCRotateBy_reverse(JSContext *cx, uint32_t argc, jsval *vp);
 JSBool js_cocos2dx_CCRotateBy_initWithDuration(JSContext *cx, uint32_t argc, jsval *vp);
 JSBool js_cocos2dx_CCRotateBy_update(JSContext *cx, uint32_t argc, jsval *vp);
 JSBool js_cocos2dx_CCRotateBy_create(JSContext *cx, uint32_t argc, jsval *vp);
-JSBool js_cocos2dx_CCRotateBy_actionWithDuration(JSContext *cx, uint32_t argc, jsval *vp);
 
 extern JSClass  *js_cocos2dx_CCMoveTo_class;
 extern JSObject *js_cocos2dx_CCMoveTo_prototype;
@@ -438,7 +418,6 @@ JSBool js_cocos2dx_CCMoveTo_startWithTarget(JSContext *cx, uint32_t argc, jsval 
 JSBool js_cocos2dx_CCMoveTo_initWithDuration(JSContext *cx, uint32_t argc, jsval *vp);
 JSBool js_cocos2dx_CCMoveTo_update(JSContext *cx, uint32_t argc, jsval *vp);
 JSBool js_cocos2dx_CCMoveTo_create(JSContext *cx, uint32_t argc, jsval *vp);
-JSBool js_cocos2dx_CCMoveTo_actionWithDuration(JSContext *cx, uint32_t argc, jsval *vp);
 
 extern JSClass  *js_cocos2dx_CCMoveBy_class;
 extern JSObject *js_cocos2dx_CCMoveBy_prototype;
@@ -451,7 +430,6 @@ JSBool js_cocos2dx_CCMoveBy_startWithTarget(JSContext *cx, uint32_t argc, jsval 
 JSBool js_cocos2dx_CCMoveBy_initWithDuration(JSContext *cx, uint32_t argc, jsval *vp);
 JSBool js_cocos2dx_CCMoveBy_reverse(JSContext *cx, uint32_t argc, jsval *vp);
 JSBool js_cocos2dx_CCMoveBy_create(JSContext *cx, uint32_t argc, jsval *vp);
-JSBool js_cocos2dx_CCMoveBy_actionWithDuration(JSContext *cx, uint32_t argc, jsval *vp);
 
 extern JSClass  *js_cocos2dx_CCSkewTo_class;
 extern JSObject *js_cocos2dx_CCSkewTo_prototype;
@@ -464,7 +442,6 @@ JSBool js_cocos2dx_CCSkewTo_startWithTarget(JSContext *cx, uint32_t argc, jsval 
 JSBool js_cocos2dx_CCSkewTo_update(JSContext *cx, uint32_t argc, jsval *vp);
 JSBool js_cocos2dx_CCSkewTo_initWithDuration(JSContext *cx, uint32_t argc, jsval *vp);
 JSBool js_cocos2dx_CCSkewTo_create(JSContext *cx, uint32_t argc, jsval *vp);
-JSBool js_cocos2dx_CCSkewTo_actionWithDuration(JSContext *cx, uint32_t argc, jsval *vp);
 JSBool js_cocos2dx_CCSkewTo_CCSkewTo(JSContext *cx, uint32_t argc, jsval *vp);
 
 extern JSClass  *js_cocos2dx_CCSkewBy_class;
@@ -478,7 +455,6 @@ JSBool js_cocos2dx_CCSkewBy_startWithTarget(JSContext *cx, uint32_t argc, jsval 
 JSBool js_cocos2dx_CCSkewBy_reverse(JSContext *cx, uint32_t argc, jsval *vp);
 JSBool js_cocos2dx_CCSkewBy_initWithDuration(JSContext *cx, uint32_t argc, jsval *vp);
 JSBool js_cocos2dx_CCSkewBy_create(JSContext *cx, uint32_t argc, jsval *vp);
-JSBool js_cocos2dx_CCSkewBy_actionWithDuration(JSContext *cx, uint32_t argc, jsval *vp);
 
 extern JSClass  *js_cocos2dx_CCJumpBy_class;
 extern JSObject *js_cocos2dx_CCJumpBy_prototype;
@@ -492,7 +468,6 @@ JSBool js_cocos2dx_CCJumpBy_reverse(JSContext *cx, uint32_t argc, jsval *vp);
 JSBool js_cocos2dx_CCJumpBy_initWithDuration(JSContext *cx, uint32_t argc, jsval *vp);
 JSBool js_cocos2dx_CCJumpBy_update(JSContext *cx, uint32_t argc, jsval *vp);
 JSBool js_cocos2dx_CCJumpBy_create(JSContext *cx, uint32_t argc, jsval *vp);
-JSBool js_cocos2dx_CCJumpBy_actionWithDuration(JSContext *cx, uint32_t argc, jsval *vp);
 
 extern JSClass  *js_cocos2dx_CCJumpTo_class;
 extern JSObject *js_cocos2dx_CCJumpTo_prototype;
@@ -503,7 +478,6 @@ void js_register_cocos2dx_CCJumpTo(JSContext *cx, JSObject *global);
 void register_all_cocos2dx(JSContext* cx, JSObject* obj);
 JSBool js_cocos2dx_CCJumpTo_startWithTarget(JSContext *cx, uint32_t argc, jsval *vp);
 JSBool js_cocos2dx_CCJumpTo_create(JSContext *cx, uint32_t argc, jsval *vp);
-JSBool js_cocos2dx_CCJumpTo_actionWithDuration(JSContext *cx, uint32_t argc, jsval *vp);
 
 extern JSClass  *js_cocos2dx_CCBezierBy_class;
 extern JSObject *js_cocos2dx_CCBezierBy_prototype;
@@ -538,7 +512,6 @@ JSBool js_cocos2dx_CCScaleTo_startWithTarget(JSContext *cx, uint32_t argc, jsval
 JSBool js_cocos2dx_CCScaleTo_initWithDuration(JSContext *cx, uint32_t argc, jsval *vp);
 JSBool js_cocos2dx_CCScaleTo_update(JSContext *cx, uint32_t argc, jsval *vp);
 JSBool js_cocos2dx_CCScaleTo_create(JSContext *cx, uint32_t argc, jsval *vp);
-JSBool js_cocos2dx_CCScaleTo_actionWithDuration(JSContext *cx, uint32_t argc, jsval *vp);
 
 extern JSClass  *js_cocos2dx_CCScaleBy_class;
 extern JSObject *js_cocos2dx_CCScaleBy_prototype;
@@ -550,7 +523,6 @@ void register_all_cocos2dx(JSContext* cx, JSObject* obj);
 JSBool js_cocos2dx_CCScaleBy_startWithTarget(JSContext *cx, uint32_t argc, jsval *vp);
 JSBool js_cocos2dx_CCScaleBy_reverse(JSContext *cx, uint32_t argc, jsval *vp);
 JSBool js_cocos2dx_CCScaleBy_create(JSContext *cx, uint32_t argc, jsval *vp);
-JSBool js_cocos2dx_CCScaleBy_actionWithDuration(JSContext *cx, uint32_t argc, jsval *vp);
 
 extern JSClass  *js_cocos2dx_CCBlink_class;
 extern JSObject *js_cocos2dx_CCBlink_prototype;
@@ -565,7 +537,6 @@ JSBool js_cocos2dx_CCBlink_initWithDuration(JSContext *cx, uint32_t argc, jsval 
 JSBool js_cocos2dx_CCBlink_stop(JSContext *cx, uint32_t argc, jsval *vp);
 JSBool js_cocos2dx_CCBlink_update(JSContext *cx, uint32_t argc, jsval *vp);
 JSBool js_cocos2dx_CCBlink_create(JSContext *cx, uint32_t argc, jsval *vp);
-JSBool js_cocos2dx_CCBlink_actionWithDuration(JSContext *cx, uint32_t argc, jsval *vp);
 
 extern JSClass  *js_cocos2dx_CCFadeIn_class;
 extern JSObject *js_cocos2dx_CCFadeIn_prototype;
@@ -577,7 +548,6 @@ void register_all_cocos2dx(JSContext* cx, JSObject* obj);
 JSBool js_cocos2dx_CCFadeIn_update(JSContext *cx, uint32_t argc, jsval *vp);
 JSBool js_cocos2dx_CCFadeIn_reverse(JSContext *cx, uint32_t argc, jsval *vp);
 JSBool js_cocos2dx_CCFadeIn_create(JSContext *cx, uint32_t argc, jsval *vp);
-JSBool js_cocos2dx_CCFadeIn_actionWithDuration(JSContext *cx, uint32_t argc, jsval *vp);
 
 extern JSClass  *js_cocos2dx_CCFadeOut_class;
 extern JSObject *js_cocos2dx_CCFadeOut_prototype;
@@ -589,7 +559,6 @@ void register_all_cocos2dx(JSContext* cx, JSObject* obj);
 JSBool js_cocos2dx_CCFadeOut_update(JSContext *cx, uint32_t argc, jsval *vp);
 JSBool js_cocos2dx_CCFadeOut_reverse(JSContext *cx, uint32_t argc, jsval *vp);
 JSBool js_cocos2dx_CCFadeOut_create(JSContext *cx, uint32_t argc, jsval *vp);
-JSBool js_cocos2dx_CCFadeOut_actionWithDuration(JSContext *cx, uint32_t argc, jsval *vp);
 
 extern JSClass  *js_cocos2dx_CCFadeTo_class;
 extern JSObject *js_cocos2dx_CCFadeTo_prototype;
@@ -602,7 +571,6 @@ JSBool js_cocos2dx_CCFadeTo_startWithTarget(JSContext *cx, uint32_t argc, jsval 
 JSBool js_cocos2dx_CCFadeTo_initWithDuration(JSContext *cx, uint32_t argc, jsval *vp);
 JSBool js_cocos2dx_CCFadeTo_update(JSContext *cx, uint32_t argc, jsval *vp);
 JSBool js_cocos2dx_CCFadeTo_create(JSContext *cx, uint32_t argc, jsval *vp);
-JSBool js_cocos2dx_CCFadeTo_actionWithDuration(JSContext *cx, uint32_t argc, jsval *vp);
 
 extern JSClass  *js_cocos2dx_CCTintTo_class;
 extern JSObject *js_cocos2dx_CCTintTo_prototype;
@@ -615,7 +583,6 @@ JSBool js_cocos2dx_CCTintTo_startWithTarget(JSContext *cx, uint32_t argc, jsval 
 JSBool js_cocos2dx_CCTintTo_initWithDuration(JSContext *cx, uint32_t argc, jsval *vp);
 JSBool js_cocos2dx_CCTintTo_update(JSContext *cx, uint32_t argc, jsval *vp);
 JSBool js_cocos2dx_CCTintTo_create(JSContext *cx, uint32_t argc, jsval *vp);
-JSBool js_cocos2dx_CCTintTo_actionWithDuration(JSContext *cx, uint32_t argc, jsval *vp);
 
 extern JSClass  *js_cocos2dx_CCTintBy_class;
 extern JSObject *js_cocos2dx_CCTintBy_prototype;
@@ -629,7 +596,6 @@ JSBool js_cocos2dx_CCTintBy_reverse(JSContext *cx, uint32_t argc, jsval *vp);
 JSBool js_cocos2dx_CCTintBy_initWithDuration(JSContext *cx, uint32_t argc, jsval *vp);
 JSBool js_cocos2dx_CCTintBy_update(JSContext *cx, uint32_t argc, jsval *vp);
 JSBool js_cocos2dx_CCTintBy_create(JSContext *cx, uint32_t argc, jsval *vp);
-JSBool js_cocos2dx_CCTintBy_actionWithDuration(JSContext *cx, uint32_t argc, jsval *vp);
 
 extern JSClass  *js_cocos2dx_CCDelayTime_class;
 extern JSObject *js_cocos2dx_CCDelayTime_prototype;
@@ -641,7 +607,6 @@ void register_all_cocos2dx(JSContext* cx, JSObject* obj);
 JSBool js_cocos2dx_CCDelayTime_update(JSContext *cx, uint32_t argc, jsval *vp);
 JSBool js_cocos2dx_CCDelayTime_reverse(JSContext *cx, uint32_t argc, jsval *vp);
 JSBool js_cocos2dx_CCDelayTime_create(JSContext *cx, uint32_t argc, jsval *vp);
-JSBool js_cocos2dx_CCDelayTime_actionWithDuration(JSContext *cx, uint32_t argc, jsval *vp);
 
 extern JSClass  *js_cocos2dx_CCAnimate_class;
 extern JSObject *js_cocos2dx_CCAnimate_prototype;
@@ -658,7 +623,6 @@ JSBool js_cocos2dx_CCAnimate_initWithAnimation(JSContext *cx, uint32_t argc, jsv
 JSBool js_cocos2dx_CCAnimate_setAnimation(JSContext *cx, uint32_t argc, jsval *vp);
 JSBool js_cocos2dx_CCAnimate_reverse(JSContext *cx, uint32_t argc, jsval *vp);
 JSBool js_cocos2dx_CCAnimate_create(JSContext *cx, uint32_t argc, jsval *vp);
-JSBool js_cocos2dx_CCAnimate_actionWithAnimation(JSContext *cx, uint32_t argc, jsval *vp);
 JSBool js_cocos2dx_CCAnimate_CCAnimate(JSContext *cx, uint32_t argc, jsval *vp);
 
 extern JSClass  *js_cocos2dx_CCTargetedAction_class;
@@ -675,7 +639,6 @@ JSBool js_cocos2dx_CCTargetedAction_stop(JSContext *cx, uint32_t argc, jsval *vp
 JSBool js_cocos2dx_CCTargetedAction_update(JSContext *cx, uint32_t argc, jsval *vp);
 JSBool js_cocos2dx_CCTargetedAction_getForcedTarget(JSContext *cx, uint32_t argc, jsval *vp);
 JSBool js_cocos2dx_CCTargetedAction_create(JSContext *cx, uint32_t argc, jsval *vp);
-JSBool js_cocos2dx_CCTargetedAction_actionWithTarget(JSContext *cx, uint32_t argc, jsval *vp);
 JSBool js_cocos2dx_CCTargetedAction_CCTargetedAction(JSContext *cx, uint32_t argc, jsval *vp);
 
 extern JSClass  *js_cocos2dx_CCActionCamera_class;
@@ -701,7 +664,6 @@ JSBool js_cocos2dx_CCOrbitCamera_initWithDuration(JSContext *cx, uint32_t argc, 
 JSBool js_cocos2dx_CCOrbitCamera_sphericalRadius(JSContext *cx, uint32_t argc, jsval *vp);
 JSBool js_cocos2dx_CCOrbitCamera_update(JSContext *cx, uint32_t argc, jsval *vp);
 JSBool js_cocos2dx_CCOrbitCamera_create(JSContext *cx, uint32_t argc, jsval *vp);
-JSBool js_cocos2dx_CCOrbitCamera_actionWithDuration(JSContext *cx, uint32_t argc, jsval *vp);
 JSBool js_cocos2dx_CCOrbitCamera_CCOrbitCamera(JSContext *cx, uint32_t argc, jsval *vp);
 
 extern JSClass  *js_cocos2dx_CCActionManager_class;
@@ -737,7 +699,6 @@ JSBool js_cocos2dx_CCActionEase_stop(JSContext *cx, uint32_t argc, jsval *vp);
 JSBool js_cocos2dx_CCActionEase_update(JSContext *cx, uint32_t argc, jsval *vp);
 JSBool js_cocos2dx_CCActionEase_initWithAction(JSContext *cx, uint32_t argc, jsval *vp);
 JSBool js_cocos2dx_CCActionEase_create(JSContext *cx, uint32_t argc, jsval *vp);
-JSBool js_cocos2dx_CCActionEase_actionWithAction(JSContext *cx, uint32_t argc, jsval *vp);
 
 extern JSClass  *js_cocos2dx_CCEaseRateAction_class;
 extern JSObject *js_cocos2dx_CCEaseRateAction_prototype;
@@ -751,7 +712,6 @@ JSBool js_cocos2dx_CCEaseRateAction_initWithAction(JSContext *cx, uint32_t argc,
 JSBool js_cocos2dx_CCEaseRateAction_reverse(JSContext *cx, uint32_t argc, jsval *vp);
 JSBool js_cocos2dx_CCEaseRateAction_getRate(JSContext *cx, uint32_t argc, jsval *vp);
 JSBool js_cocos2dx_CCEaseRateAction_create(JSContext *cx, uint32_t argc, jsval *vp);
-JSBool js_cocos2dx_CCEaseRateAction_actionWithAction(JSContext *cx, uint32_t argc, jsval *vp);
 
 extern JSClass  *js_cocos2dx_CCEaseIn_class;
 extern JSObject *js_cocos2dx_CCEaseIn_prototype;
@@ -763,7 +723,6 @@ void register_all_cocos2dx(JSContext* cx, JSObject* obj);
 JSBool js_cocos2dx_CCEaseIn_update(JSContext *cx, uint32_t argc, jsval *vp);
 JSBool js_cocos2dx_CCEaseIn_reverse(JSContext *cx, uint32_t argc, jsval *vp);
 JSBool js_cocos2dx_CCEaseIn_create(JSContext *cx, uint32_t argc, jsval *vp);
-JSBool js_cocos2dx_CCEaseIn_actionWithAction(JSContext *cx, uint32_t argc, jsval *vp);
 
 extern JSClass  *js_cocos2dx_CCEaseOut_class;
 extern JSObject *js_cocos2dx_CCEaseOut_prototype;
@@ -775,7 +734,6 @@ void register_all_cocos2dx(JSContext* cx, JSObject* obj);
 JSBool js_cocos2dx_CCEaseOut_update(JSContext *cx, uint32_t argc, jsval *vp);
 JSBool js_cocos2dx_CCEaseOut_reverse(JSContext *cx, uint32_t argc, jsval *vp);
 JSBool js_cocos2dx_CCEaseOut_create(JSContext *cx, uint32_t argc, jsval *vp);
-JSBool js_cocos2dx_CCEaseOut_actionWithAction(JSContext *cx, uint32_t argc, jsval *vp);
 
 extern JSClass  *js_cocos2dx_CCEaseInOut_class;
 extern JSObject *js_cocos2dx_CCEaseInOut_prototype;
@@ -787,7 +745,6 @@ void register_all_cocos2dx(JSContext* cx, JSObject* obj);
 JSBool js_cocos2dx_CCEaseInOut_reverse(JSContext *cx, uint32_t argc, jsval *vp);
 JSBool js_cocos2dx_CCEaseInOut_update(JSContext *cx, uint32_t argc, jsval *vp);
 JSBool js_cocos2dx_CCEaseInOut_create(JSContext *cx, uint32_t argc, jsval *vp);
-JSBool js_cocos2dx_CCEaseInOut_actionWithAction(JSContext *cx, uint32_t argc, jsval *vp);
 
 extern JSClass  *js_cocos2dx_CCEaseExponentialIn_class;
 extern JSObject *js_cocos2dx_CCEaseExponentialIn_prototype;
@@ -799,7 +756,6 @@ void register_all_cocos2dx(JSContext* cx, JSObject* obj);
 JSBool js_cocos2dx_CCEaseExponentialIn_update(JSContext *cx, uint32_t argc, jsval *vp);
 JSBool js_cocos2dx_CCEaseExponentialIn_reverse(JSContext *cx, uint32_t argc, jsval *vp);
 JSBool js_cocos2dx_CCEaseExponentialIn_create(JSContext *cx, uint32_t argc, jsval *vp);
-JSBool js_cocos2dx_CCEaseExponentialIn_actionWithAction(JSContext *cx, uint32_t argc, jsval *vp);
 
 extern JSClass  *js_cocos2dx_CCEaseExponentialOut_class;
 extern JSObject *js_cocos2dx_CCEaseExponentialOut_prototype;
@@ -811,7 +767,6 @@ void register_all_cocos2dx(JSContext* cx, JSObject* obj);
 JSBool js_cocos2dx_CCEaseExponentialOut_update(JSContext *cx, uint32_t argc, jsval *vp);
 JSBool js_cocos2dx_CCEaseExponentialOut_reverse(JSContext *cx, uint32_t argc, jsval *vp);
 JSBool js_cocos2dx_CCEaseExponentialOut_create(JSContext *cx, uint32_t argc, jsval *vp);
-JSBool js_cocos2dx_CCEaseExponentialOut_actionWithAction(JSContext *cx, uint32_t argc, jsval *vp);
 
 extern JSClass  *js_cocos2dx_CCEaseExponentialInOut_class;
 extern JSObject *js_cocos2dx_CCEaseExponentialInOut_prototype;
@@ -823,7 +778,6 @@ void register_all_cocos2dx(JSContext* cx, JSObject* obj);
 JSBool js_cocos2dx_CCEaseExponentialInOut_reverse(JSContext *cx, uint32_t argc, jsval *vp);
 JSBool js_cocos2dx_CCEaseExponentialInOut_update(JSContext *cx, uint32_t argc, jsval *vp);
 JSBool js_cocos2dx_CCEaseExponentialInOut_create(JSContext *cx, uint32_t argc, jsval *vp);
-JSBool js_cocos2dx_CCEaseExponentialInOut_actionWithAction(JSContext *cx, uint32_t argc, jsval *vp);
 
 extern JSClass  *js_cocos2dx_CCEaseSineIn_class;
 extern JSObject *js_cocos2dx_CCEaseSineIn_prototype;
@@ -835,7 +789,6 @@ void register_all_cocos2dx(JSContext* cx, JSObject* obj);
 JSBool js_cocos2dx_CCEaseSineIn_update(JSContext *cx, uint32_t argc, jsval *vp);
 JSBool js_cocos2dx_CCEaseSineIn_reverse(JSContext *cx, uint32_t argc, jsval *vp);
 JSBool js_cocos2dx_CCEaseSineIn_create(JSContext *cx, uint32_t argc, jsval *vp);
-JSBool js_cocos2dx_CCEaseSineIn_actionWithAction(JSContext *cx, uint32_t argc, jsval *vp);
 
 extern JSClass  *js_cocos2dx_CCEaseSineOut_class;
 extern JSObject *js_cocos2dx_CCEaseSineOut_prototype;
@@ -847,7 +800,6 @@ void register_all_cocos2dx(JSContext* cx, JSObject* obj);
 JSBool js_cocos2dx_CCEaseSineOut_update(JSContext *cx, uint32_t argc, jsval *vp);
 JSBool js_cocos2dx_CCEaseSineOut_reverse(JSContext *cx, uint32_t argc, jsval *vp);
 JSBool js_cocos2dx_CCEaseSineOut_create(JSContext *cx, uint32_t argc, jsval *vp);
-JSBool js_cocos2dx_CCEaseSineOut_actionWithAction(JSContext *cx, uint32_t argc, jsval *vp);
 
 extern JSClass  *js_cocos2dx_CCEaseSineInOut_class;
 extern JSObject *js_cocos2dx_CCEaseSineInOut_prototype;
@@ -859,7 +811,6 @@ void register_all_cocos2dx(JSContext* cx, JSObject* obj);
 JSBool js_cocos2dx_CCEaseSineInOut_reverse(JSContext *cx, uint32_t argc, jsval *vp);
 JSBool js_cocos2dx_CCEaseSineInOut_update(JSContext *cx, uint32_t argc, jsval *vp);
 JSBool js_cocos2dx_CCEaseSineInOut_create(JSContext *cx, uint32_t argc, jsval *vp);
-JSBool js_cocos2dx_CCEaseSineInOut_actionWithAction(JSContext *cx, uint32_t argc, jsval *vp);
 
 extern JSClass  *js_cocos2dx_CCEaseElastic_class;
 extern JSObject *js_cocos2dx_CCEaseElastic_prototype;
@@ -873,7 +824,6 @@ JSBool js_cocos2dx_CCEaseElastic_initWithAction(JSContext *cx, uint32_t argc, js
 JSBool js_cocos2dx_CCEaseElastic_getPeriod(JSContext *cx, uint32_t argc, jsval *vp);
 JSBool js_cocos2dx_CCEaseElastic_reverse(JSContext *cx, uint32_t argc, jsval *vp);
 JSBool js_cocos2dx_CCEaseElastic_create(JSContext *cx, uint32_t argc, jsval *vp);
-JSBool js_cocos2dx_CCEaseElastic_actionWithAction(JSContext *cx, uint32_t argc, jsval *vp);
 
 extern JSClass  *js_cocos2dx_CCEaseElasticIn_class;
 extern JSObject *js_cocos2dx_CCEaseElasticIn_prototype;
@@ -885,7 +835,6 @@ void register_all_cocos2dx(JSContext* cx, JSObject* obj);
 JSBool js_cocos2dx_CCEaseElasticIn_update(JSContext *cx, uint32_t argc, jsval *vp);
 JSBool js_cocos2dx_CCEaseElasticIn_reverse(JSContext *cx, uint32_t argc, jsval *vp);
 JSBool js_cocos2dx_CCEaseElasticIn_create(JSContext *cx, uint32_t argc, jsval *vp);
-JSBool js_cocos2dx_CCEaseElasticIn_actionWithAction(JSContext *cx, uint32_t argc, jsval *vp);
 
 extern JSClass  *js_cocos2dx_CCEaseElasticOut_class;
 extern JSObject *js_cocos2dx_CCEaseElasticOut_prototype;
@@ -897,7 +846,6 @@ void register_all_cocos2dx(JSContext* cx, JSObject* obj);
 JSBool js_cocos2dx_CCEaseElasticOut_update(JSContext *cx, uint32_t argc, jsval *vp);
 JSBool js_cocos2dx_CCEaseElasticOut_reverse(JSContext *cx, uint32_t argc, jsval *vp);
 JSBool js_cocos2dx_CCEaseElasticOut_create(JSContext *cx, uint32_t argc, jsval *vp);
-JSBool js_cocos2dx_CCEaseElasticOut_actionWithAction(JSContext *cx, uint32_t argc, jsval *vp);
 
 extern JSClass  *js_cocos2dx_CCEaseElasticInOut_class;
 extern JSObject *js_cocos2dx_CCEaseElasticInOut_prototype;
@@ -909,7 +857,6 @@ void register_all_cocos2dx(JSContext* cx, JSObject* obj);
 JSBool js_cocos2dx_CCEaseElasticInOut_update(JSContext *cx, uint32_t argc, jsval *vp);
 JSBool js_cocos2dx_CCEaseElasticInOut_reverse(JSContext *cx, uint32_t argc, jsval *vp);
 JSBool js_cocos2dx_CCEaseElasticInOut_create(JSContext *cx, uint32_t argc, jsval *vp);
-JSBool js_cocos2dx_CCEaseElasticInOut_actionWithAction(JSContext *cx, uint32_t argc, jsval *vp);
 
 extern JSClass  *js_cocos2dx_CCEaseBounce_class;
 extern JSObject *js_cocos2dx_CCEaseBounce_prototype;
@@ -921,7 +868,6 @@ void register_all_cocos2dx(JSContext* cx, JSObject* obj);
 JSBool js_cocos2dx_CCEaseBounce_bounceTime(JSContext *cx, uint32_t argc, jsval *vp);
 JSBool js_cocos2dx_CCEaseBounce_reverse(JSContext *cx, uint32_t argc, jsval *vp);
 JSBool js_cocos2dx_CCEaseBounce_create(JSContext *cx, uint32_t argc, jsval *vp);
-JSBool js_cocos2dx_CCEaseBounce_actionWithAction(JSContext *cx, uint32_t argc, jsval *vp);
 
 extern JSClass  *js_cocos2dx_CCEaseBounceIn_class;
 extern JSObject *js_cocos2dx_CCEaseBounceIn_prototype;
@@ -933,7 +879,6 @@ void register_all_cocos2dx(JSContext* cx, JSObject* obj);
 JSBool js_cocos2dx_CCEaseBounceIn_update(JSContext *cx, uint32_t argc, jsval *vp);
 JSBool js_cocos2dx_CCEaseBounceIn_reverse(JSContext *cx, uint32_t argc, jsval *vp);
 JSBool js_cocos2dx_CCEaseBounceIn_create(JSContext *cx, uint32_t argc, jsval *vp);
-JSBool js_cocos2dx_CCEaseBounceIn_actionWithAction(JSContext *cx, uint32_t argc, jsval *vp);
 
 extern JSClass  *js_cocos2dx_CCEaseBounceOut_class;
 extern JSObject *js_cocos2dx_CCEaseBounceOut_prototype;
@@ -945,7 +890,6 @@ void register_all_cocos2dx(JSContext* cx, JSObject* obj);
 JSBool js_cocos2dx_CCEaseBounceOut_update(JSContext *cx, uint32_t argc, jsval *vp);
 JSBool js_cocos2dx_CCEaseBounceOut_reverse(JSContext *cx, uint32_t argc, jsval *vp);
 JSBool js_cocos2dx_CCEaseBounceOut_create(JSContext *cx, uint32_t argc, jsval *vp);
-JSBool js_cocos2dx_CCEaseBounceOut_actionWithAction(JSContext *cx, uint32_t argc, jsval *vp);
 
 extern JSClass  *js_cocos2dx_CCEaseBounceInOut_class;
 extern JSObject *js_cocos2dx_CCEaseBounceInOut_prototype;
@@ -957,7 +901,6 @@ void register_all_cocos2dx(JSContext* cx, JSObject* obj);
 JSBool js_cocos2dx_CCEaseBounceInOut_reverse(JSContext *cx, uint32_t argc, jsval *vp);
 JSBool js_cocos2dx_CCEaseBounceInOut_update(JSContext *cx, uint32_t argc, jsval *vp);
 JSBool js_cocos2dx_CCEaseBounceInOut_create(JSContext *cx, uint32_t argc, jsval *vp);
-JSBool js_cocos2dx_CCEaseBounceInOut_actionWithAction(JSContext *cx, uint32_t argc, jsval *vp);
 
 extern JSClass  *js_cocos2dx_CCEaseBackIn_class;
 extern JSObject *js_cocos2dx_CCEaseBackIn_prototype;
@@ -969,7 +912,6 @@ void register_all_cocos2dx(JSContext* cx, JSObject* obj);
 JSBool js_cocos2dx_CCEaseBackIn_update(JSContext *cx, uint32_t argc, jsval *vp);
 JSBool js_cocos2dx_CCEaseBackIn_reverse(JSContext *cx, uint32_t argc, jsval *vp);
 JSBool js_cocos2dx_CCEaseBackIn_create(JSContext *cx, uint32_t argc, jsval *vp);
-JSBool js_cocos2dx_CCEaseBackIn_actionWithAction(JSContext *cx, uint32_t argc, jsval *vp);
 
 extern JSClass  *js_cocos2dx_CCEaseBackOut_class;
 extern JSObject *js_cocos2dx_CCEaseBackOut_prototype;
@@ -981,7 +923,6 @@ void register_all_cocos2dx(JSContext* cx, JSObject* obj);
 JSBool js_cocos2dx_CCEaseBackOut_update(JSContext *cx, uint32_t argc, jsval *vp);
 JSBool js_cocos2dx_CCEaseBackOut_reverse(JSContext *cx, uint32_t argc, jsval *vp);
 JSBool js_cocos2dx_CCEaseBackOut_create(JSContext *cx, uint32_t argc, jsval *vp);
-JSBool js_cocos2dx_CCEaseBackOut_actionWithAction(JSContext *cx, uint32_t argc, jsval *vp);
 
 extern JSClass  *js_cocos2dx_CCEaseBackInOut_class;
 extern JSObject *js_cocos2dx_CCEaseBackInOut_prototype;
@@ -993,7 +934,6 @@ void register_all_cocos2dx(JSContext* cx, JSObject* obj);
 JSBool js_cocos2dx_CCEaseBackInOut_reverse(JSContext *cx, uint32_t argc, jsval *vp);
 JSBool js_cocos2dx_CCEaseBackInOut_update(JSContext *cx, uint32_t argc, jsval *vp);
 JSBool js_cocos2dx_CCEaseBackInOut_create(JSContext *cx, uint32_t argc, jsval *vp);
-JSBool js_cocos2dx_CCEaseBackInOut_actionWithAction(JSContext *cx, uint32_t argc, jsval *vp);
 
 extern JSClass  *js_cocos2dx_CCActionInstant_class;
 extern JSObject *js_cocos2dx_CCActionInstant_prototype;
@@ -1017,7 +957,6 @@ void js_register_cocos2dx_CCShow(JSContext *cx, JSObject *global);
 void register_all_cocos2dx(JSContext* cx, JSObject* obj);
 JSBool js_cocos2dx_CCShow_reverse(JSContext *cx, uint32_t argc, jsval *vp);
 JSBool js_cocos2dx_CCShow_update(JSContext *cx, uint32_t argc, jsval *vp);
-JSBool js_cocos2dx_CCShow_action(JSContext *cx, uint32_t argc, jsval *vp);
 JSBool js_cocos2dx_CCShow_create(JSContext *cx, uint32_t argc, jsval *vp);
 JSBool js_cocos2dx_CCShow_CCShow(JSContext *cx, uint32_t argc, jsval *vp);
 
@@ -1030,7 +969,6 @@ void js_register_cocos2dx_CCHide(JSContext *cx, JSObject *global);
 void register_all_cocos2dx(JSContext* cx, JSObject* obj);
 JSBool js_cocos2dx_CCHide_reverse(JSContext *cx, uint32_t argc, jsval *vp);
 JSBool js_cocos2dx_CCHide_update(JSContext *cx, uint32_t argc, jsval *vp);
-JSBool js_cocos2dx_CCHide_action(JSContext *cx, uint32_t argc, jsval *vp);
 JSBool js_cocos2dx_CCHide_create(JSContext *cx, uint32_t argc, jsval *vp);
 JSBool js_cocos2dx_CCHide_CCHide(JSContext *cx, uint32_t argc, jsval *vp);
 
@@ -1042,7 +980,6 @@ void js_cocos2dx_CCToggleVisibility_finalize(JSContext *cx, JSObject *obj);
 void js_register_cocos2dx_CCToggleVisibility(JSContext *cx, JSObject *global);
 void register_all_cocos2dx(JSContext* cx, JSObject* obj);
 JSBool js_cocos2dx_CCToggleVisibility_update(JSContext *cx, uint32_t argc, jsval *vp);
-JSBool js_cocos2dx_CCToggleVisibility_action(JSContext *cx, uint32_t argc, jsval *vp);
 JSBool js_cocos2dx_CCToggleVisibility_create(JSContext *cx, uint32_t argc, jsval *vp);
 JSBool js_cocos2dx_CCToggleVisibility_CCToggleVisibility(JSContext *cx, uint32_t argc, jsval *vp);
 
@@ -1056,7 +993,6 @@ void register_all_cocos2dx(JSContext* cx, JSObject* obj);
 JSBool js_cocos2dx_CCFlipX_initWithFlipX(JSContext *cx, uint32_t argc, jsval *vp);
 JSBool js_cocos2dx_CCFlipX_reverse(JSContext *cx, uint32_t argc, jsval *vp);
 JSBool js_cocos2dx_CCFlipX_update(JSContext *cx, uint32_t argc, jsval *vp);
-JSBool js_cocos2dx_CCFlipX_actionWithFlipX(JSContext *cx, uint32_t argc, jsval *vp);
 JSBool js_cocos2dx_CCFlipX_create(JSContext *cx, uint32_t argc, jsval *vp);
 JSBool js_cocos2dx_CCFlipX_CCFlipX(JSContext *cx, uint32_t argc, jsval *vp);
 
@@ -1071,7 +1007,6 @@ JSBool js_cocos2dx_CCFlipY_initWithFlipY(JSContext *cx, uint32_t argc, jsval *vp
 JSBool js_cocos2dx_CCFlipY_reverse(JSContext *cx, uint32_t argc, jsval *vp);
 JSBool js_cocos2dx_CCFlipY_update(JSContext *cx, uint32_t argc, jsval *vp);
 JSBool js_cocos2dx_CCFlipY_create(JSContext *cx, uint32_t argc, jsval *vp);
-JSBool js_cocos2dx_CCFlipY_actionWithFlipY(JSContext *cx, uint32_t argc, jsval *vp);
 JSBool js_cocos2dx_CCFlipY_CCFlipY(JSContext *cx, uint32_t argc, jsval *vp);
 
 extern JSClass  *js_cocos2dx_CCPlace_class;
@@ -1083,7 +1018,6 @@ void js_register_cocos2dx_CCPlace(JSContext *cx, JSObject *global);
 void register_all_cocos2dx(JSContext* cx, JSObject* obj);
 JSBool js_cocos2dx_CCPlace_initWithPosition(JSContext *cx, uint32_t argc, jsval *vp);
 JSBool js_cocos2dx_CCPlace_update(JSContext *cx, uint32_t argc, jsval *vp);
-JSBool js_cocos2dx_CCPlace_actionWithPosition(JSContext *cx, uint32_t argc, jsval *vp);
 JSBool js_cocos2dx_CCPlace_create(JSContext *cx, uint32_t argc, jsval *vp);
 JSBool js_cocos2dx_CCPlace_CCPlace(JSContext *cx, uint32_t argc, jsval *vp);
 
@@ -1114,7 +1048,6 @@ JSBool js_cocos2dx_CCGridAction_initWithSize(JSContext *cx, uint32_t argc, jsval
 JSBool js_cocos2dx_CCGridAction_getGrid(JSContext *cx, uint32_t argc, jsval *vp);
 JSBool js_cocos2dx_CCGridAction_reverse(JSContext *cx, uint32_t argc, jsval *vp);
 JSBool js_cocos2dx_CCGridAction_create(JSContext *cx, uint32_t argc, jsval *vp);
-JSBool js_cocos2dx_CCGridAction_actionWithSize(JSContext *cx, uint32_t argc, jsval *vp);
 
 extern JSClass  *js_cocos2dx_CCGrid3DAction_class;
 extern JSObject *js_cocos2dx_CCGrid3DAction_prototype;
@@ -1154,7 +1087,6 @@ JSBool js_cocos2dx_CCWaves3D_getAmplitude(JSContext *cx, uint32_t argc, jsval *v
 JSBool js_cocos2dx_CCWaves3D_initWithWaves(JSContext *cx, uint32_t argc, jsval *vp);
 JSBool js_cocos2dx_CCWaves3D_setAmplitudeRate(JSContext *cx, uint32_t argc, jsval *vp);
 JSBool js_cocos2dx_CCWaves3D_create(JSContext *cx, uint32_t argc, jsval *vp);
-JSBool js_cocos2dx_CCWaves3D_actionWithWaves(JSContext *cx, uint32_t argc, jsval *vp);
 
 extern JSClass  *js_cocos2dx_CCFlipX3D_class;
 extern JSObject *js_cocos2dx_CCFlipX3D_prototype;
@@ -1167,7 +1099,6 @@ JSBool js_cocos2dx_CCFlipX3D_initWithSize(JSContext *cx, uint32_t argc, jsval *v
 JSBool js_cocos2dx_CCFlipX3D_initWithDuration(JSContext *cx, uint32_t argc, jsval *vp);
 JSBool js_cocos2dx_CCFlipX3D_update(JSContext *cx, uint32_t argc, jsval *vp);
 JSBool js_cocos2dx_CCFlipX3D_create(JSContext *cx, uint32_t argc, jsval *vp);
-JSBool js_cocos2dx_CCFlipX3D_actionWithDuration(JSContext *cx, uint32_t argc, jsval *vp);
 
 extern JSClass  *js_cocos2dx_CCFlipY3D_class;
 extern JSObject *js_cocos2dx_CCFlipY3D_prototype;
@@ -1178,7 +1109,6 @@ void js_register_cocos2dx_CCFlipY3D(JSContext *cx, JSObject *global);
 void register_all_cocos2dx(JSContext* cx, JSObject* obj);
 JSBool js_cocos2dx_CCFlipY3D_update(JSContext *cx, uint32_t argc, jsval *vp);
 JSBool js_cocos2dx_CCFlipY3D_create(JSContext *cx, uint32_t argc, jsval *vp);
-JSBool js_cocos2dx_CCFlipY3D_actionWithDuration(JSContext *cx, uint32_t argc, jsval *vp);
 
 extern JSClass  *js_cocos2dx_CCShaky3D_class;
 extern JSObject *js_cocos2dx_CCShaky3D_prototype;
@@ -1190,7 +1120,6 @@ void register_all_cocos2dx(JSContext* cx, JSObject* obj);
 JSBool js_cocos2dx_CCShaky3D_initWithRange(JSContext *cx, uint32_t argc, jsval *vp);
 JSBool js_cocos2dx_CCShaky3D_update(JSContext *cx, uint32_t argc, jsval *vp);
 JSBool js_cocos2dx_CCShaky3D_create(JSContext *cx, uint32_t argc, jsval *vp);
-JSBool js_cocos2dx_CCShaky3D_actionWithRange(JSContext *cx, uint32_t argc, jsval *vp);
 
 extern JSClass  *js_cocos2dx_CCProgressTo_class;
 extern JSObject *js_cocos2dx_CCProgressTo_prototype;
@@ -1203,7 +1132,6 @@ JSBool js_cocos2dx_CCProgressTo_startWithTarget(JSContext *cx, uint32_t argc, js
 JSBool js_cocos2dx_CCProgressTo_initWithDuration(JSContext *cx, uint32_t argc, jsval *vp);
 JSBool js_cocos2dx_CCProgressTo_update(JSContext *cx, uint32_t argc, jsval *vp);
 JSBool js_cocos2dx_CCProgressTo_create(JSContext *cx, uint32_t argc, jsval *vp);
-JSBool js_cocos2dx_CCProgressTo_actionWithDuration(JSContext *cx, uint32_t argc, jsval *vp);
 
 extern JSClass  *js_cocos2dx_CCProgressFromTo_class;
 extern JSObject *js_cocos2dx_CCProgressFromTo_prototype;
@@ -1217,7 +1145,6 @@ JSBool js_cocos2dx_CCProgressFromTo_update(JSContext *cx, uint32_t argc, jsval *
 JSBool js_cocos2dx_CCProgressFromTo_initWithDuration(JSContext *cx, uint32_t argc, jsval *vp);
 JSBool js_cocos2dx_CCProgressFromTo_reverse(JSContext *cx, uint32_t argc, jsval *vp);
 JSBool js_cocos2dx_CCProgressFromTo_create(JSContext *cx, uint32_t argc, jsval *vp);
-JSBool js_cocos2dx_CCProgressFromTo_actionWithDuration(JSContext *cx, uint32_t argc, jsval *vp);
 
 extern JSClass  *js_cocos2dx_CCFadeOutTRTiles_class;
 extern JSObject *js_cocos2dx_CCFadeOutTRTiles_prototype;
@@ -1232,7 +1159,6 @@ JSBool js_cocos2dx_CCFadeOutTRTiles_transformTile(JSContext *cx, uint32_t argc, 
 JSBool js_cocos2dx_CCFadeOutTRTiles_testFunc(JSContext *cx, uint32_t argc, jsval *vp);
 JSBool js_cocos2dx_CCFadeOutTRTiles_update(JSContext *cx, uint32_t argc, jsval *vp);
 JSBool js_cocos2dx_CCFadeOutTRTiles_create(JSContext *cx, uint32_t argc, jsval *vp);
-JSBool js_cocos2dx_CCFadeOutTRTiles_actionWithSize(JSContext *cx, uint32_t argc, jsval *vp);
 
 extern JSClass  *js_cocos2dx_CCFadeOutBLTiles_class;
 extern JSObject *js_cocos2dx_CCFadeOutBLTiles_prototype;
@@ -1243,7 +1169,6 @@ void js_register_cocos2dx_CCFadeOutBLTiles(JSContext *cx, JSObject *global);
 void register_all_cocos2dx(JSContext* cx, JSObject* obj);
 JSBool js_cocos2dx_CCFadeOutBLTiles_testFunc(JSContext *cx, uint32_t argc, jsval *vp);
 JSBool js_cocos2dx_CCFadeOutBLTiles_create(JSContext *cx, uint32_t argc, jsval *vp);
-JSBool js_cocos2dx_CCFadeOutBLTiles_actionWithSize(JSContext *cx, uint32_t argc, jsval *vp);
 
 extern JSClass  *js_cocos2dx_CCFadeOutUpTiles_class;
 extern JSObject *js_cocos2dx_CCFadeOutUpTiles_prototype;
@@ -1255,7 +1180,6 @@ void register_all_cocos2dx(JSContext* cx, JSObject* obj);
 JSBool js_cocos2dx_CCFadeOutUpTiles_transformTile(JSContext *cx, uint32_t argc, jsval *vp);
 JSBool js_cocos2dx_CCFadeOutUpTiles_testFunc(JSContext *cx, uint32_t argc, jsval *vp);
 JSBool js_cocos2dx_CCFadeOutUpTiles_create(JSContext *cx, uint32_t argc, jsval *vp);
-JSBool js_cocos2dx_CCFadeOutUpTiles_actionWithSize(JSContext *cx, uint32_t argc, jsval *vp);
 
 extern JSClass  *js_cocos2dx_CCFadeOutDownTiles_class;
 extern JSObject *js_cocos2dx_CCFadeOutDownTiles_prototype;
@@ -1266,7 +1190,6 @@ void js_register_cocos2dx_CCFadeOutDownTiles(JSContext *cx, JSObject *global);
 void register_all_cocos2dx(JSContext* cx, JSObject* obj);
 JSBool js_cocos2dx_CCFadeOutDownTiles_testFunc(JSContext *cx, uint32_t argc, jsval *vp);
 JSBool js_cocos2dx_CCFadeOutDownTiles_create(JSContext *cx, uint32_t argc, jsval *vp);
-JSBool js_cocos2dx_CCFadeOutDownTiles_actionWithSize(JSContext *cx, uint32_t argc, jsval *vp);
 
 extern JSClass  *js_cocos2dx_CCJumpTiles3D_class;
 extern JSObject *js_cocos2dx_CCJumpTiles3D_prototype;
@@ -1281,7 +1204,6 @@ JSBool js_cocos2dx_CCJumpTiles3D_update(JSContext *cx, uint32_t argc, jsval *vp)
 JSBool js_cocos2dx_CCJumpTiles3D_getAmplitudeRate(JSContext *cx, uint32_t argc, jsval *vp);
 JSBool js_cocos2dx_CCJumpTiles3D_setAmplitude(JSContext *cx, uint32_t argc, jsval *vp);
 JSBool js_cocos2dx_CCJumpTiles3D_getAmplitude(JSContext *cx, uint32_t argc, jsval *vp);
-JSBool js_cocos2dx_CCJumpTiles3D_actionWithJumps(JSContext *cx, uint32_t argc, jsval *vp);
 JSBool js_cocos2dx_CCJumpTiles3D_create(JSContext *cx, uint32_t argc, jsval *vp);
 
 extern JSClass  *js_cocos2dx_CCActionTween_class;
@@ -1296,7 +1218,6 @@ JSBool js_cocos2dx_CCActionTween_update(JSContext *cx, uint32_t argc, jsval *vp)
 JSBool js_cocos2dx_CCActionTween_initWithDuration(JSContext *cx, uint32_t argc, jsval *vp);
 JSBool js_cocos2dx_CCActionTween_reverse(JSContext *cx, uint32_t argc, jsval *vp);
 JSBool js_cocos2dx_CCActionTween_create(JSContext *cx, uint32_t argc, jsval *vp);
-JSBool js_cocos2dx_CCActionTween_actionWithDuration(JSContext *cx, uint32_t argc, jsval *vp);
 
 extern JSClass  *js_cocos2dx_CCPointArray_class;
 extern JSObject *js_cocos2dx_CCPointArray_prototype;
@@ -1317,7 +1238,6 @@ JSBool js_cocos2dx_CCPointArray_getControlPointAtIndex(JSContext *cx, uint32_t a
 JSBool js_cocos2dx_CCPointArray_reverseInline(JSContext *cx, uint32_t argc, jsval *vp);
 JSBool js_cocos2dx_CCPointArray_getControlPoints(JSContext *cx, uint32_t argc, jsval *vp);
 JSBool js_cocos2dx_CCPointArray_create(JSContext *cx, uint32_t argc, jsval *vp);
-JSBool js_cocos2dx_CCPointArray_arrayWithCapacity(JSContext *cx, uint32_t argc, jsval *vp);
 JSBool js_cocos2dx_CCPointArray_CCPointArray(JSContext *cx, uint32_t argc, jsval *vp);
 
 extern JSClass  *js_cocos2dx_CCCardinalSplineTo_class;
@@ -1386,7 +1306,6 @@ JSBool js_cocos2dx_CCAtlasNode_getColor(JSContext *cx, uint32_t argc, jsval *vp)
 JSBool js_cocos2dx_CCAtlasNode_getOpacity(JSContext *cx, uint32_t argc, jsval *vp);
 JSBool js_cocos2dx_CCAtlasNode_setQuadsToDraw(JSContext *cx, uint32_t argc, jsval *vp);
 JSBool js_cocos2dx_CCAtlasNode_create(JSContext *cx, uint32_t argc, jsval *vp);
-JSBool js_cocos2dx_CCAtlasNode_atlasWithTileFile(JSContext *cx, uint32_t argc, jsval *vp);
 JSBool js_cocos2dx_CCAtlasNode_CCAtlasNode(JSContext *cx, uint32_t argc, jsval *vp);
 
 extern JSClass  *js_cocos2dx_CCDrawNode_class;
@@ -1484,15 +1403,10 @@ JSBool js_cocos2dx_CCSprite_setVertexRect(JSContext *cx, uint32_t argc, jsval *v
 JSBool js_cocos2dx_CCSprite_setSkewX(JSContext *cx, uint32_t argc, jsval *vp);
 JSBool js_cocos2dx_CCSprite_setSkewY(JSContext *cx, uint32_t argc, jsval *vp);
 JSBool js_cocos2dx_CCSprite_setVisible(JSContext *cx, uint32_t argc, jsval *vp);
-JSBool js_cocos2dx_CCSprite_node(JSContext *cx, uint32_t argc, jsval *vp);
-JSBool js_cocos2dx_CCSprite_spriteWithSpriteFrame(JSContext *cx, uint32_t argc, jsval *vp);
-JSBool js_cocos2dx_CCSprite_spriteWithFile(JSContext *cx, uint32_t argc, jsval *vp);
 JSBool js_cocos2dx_CCSprite_create(JSContext *cx, uint32_t argc, jsval *vp);
-JSBool js_cocos2dx_CCSprite_spriteWithSpriteFrameName(JSContext *cx, uint32_t argc, jsval *vp);
-JSBool js_cocos2dx_CCSprite_createWithSpriteFrameName(JSContext *cx, uint32_t argc, jsval *vp);
-JSBool js_cocos2dx_CCSprite_spriteWithTexture(JSContext *cx, uint32_t argc, jsval *vp);
-JSBool js_cocos2dx_CCSprite_createWithSpriteFrame(JSContext *cx, uint32_t argc, jsval *vp);
 JSBool js_cocos2dx_CCSprite_createWithTexture(JSContext *cx, uint32_t argc, jsval *vp);
+JSBool js_cocos2dx_CCSprite_createWithSpriteFrameName(JSContext *cx, uint32_t argc, jsval *vp);
+JSBool js_cocos2dx_CCSprite_createWithSpriteFrame(JSContext *cx, uint32_t argc, jsval *vp);
 JSBool js_cocos2dx_CCSprite_CCSprite(JSContext *cx, uint32_t argc, jsval *vp);
 
 extern JSClass  *js_cocos2dx_CCLabelTTF_class;
@@ -1518,7 +1432,6 @@ JSBool js_cocos2dx_CCLabelTTF_getVerticalAlignment(JSContext *cx, uint32_t argc,
 JSBool js_cocos2dx_CCLabelTTF_getHorizontalAlignment(JSContext *cx, uint32_t argc, jsval *vp);
 JSBool js_cocos2dx_CCLabelTTF_node(JSContext *cx, uint32_t argc, jsval *vp);
 JSBool js_cocos2dx_CCLabelTTF_create(JSContext *cx, uint32_t argc, jsval *vp);
-JSBool js_cocos2dx_CCLabelTTF_labelWithString(JSContext *cx, uint32_t argc, jsval *vp);
 JSBool js_cocos2dx_CCLabelTTF_CCLabelTTF(JSContext *cx, uint32_t argc, jsval *vp);
 
 extern JSClass  *js_cocos2dx_CCDirector_class;
@@ -1593,7 +1506,6 @@ JSBool js_cocos2dx_CCLabelAtlas_initWithString(JSContext *cx, uint32_t argc, jsv
 JSBool js_cocos2dx_CCLabelAtlas_updateAtlasValues(JSContext *cx, uint32_t argc, jsval *vp);
 JSBool js_cocos2dx_CCLabelAtlas_getString(JSContext *cx, uint32_t argc, jsval *vp);
 JSBool js_cocos2dx_CCLabelAtlas_create(JSContext *cx, uint32_t argc, jsval *vp);
-JSBool js_cocos2dx_CCLabelAtlas_labelWithString(JSContext *cx, uint32_t argc, jsval *vp);
 JSBool js_cocos2dx_CCLabelAtlas_CCLabelAtlas(JSContext *cx, uint32_t argc, jsval *vp);
 
 extern JSClass  *js_cocos2dx_CCSpriteBatchNode_class;
@@ -1628,10 +1540,8 @@ JSBool js_cocos2dx_CCSpriteBatchNode_getTextureAtlas(JSContext *cx, uint32_t arg
 JSBool js_cocos2dx_CCSpriteBatchNode_getDescendants(JSContext *cx, uint32_t argc, jsval *vp);
 JSBool js_cocos2dx_CCSpriteBatchNode_removeChild(JSContext *cx, uint32_t argc, jsval *vp);
 JSBool js_cocos2dx_CCSpriteBatchNode_highestAtlasIndexInChild(JSContext *cx, uint32_t argc, jsval *vp);
-JSBool js_cocos2dx_CCSpriteBatchNode_batchNodeWithTexture(JSContext *cx, uint32_t argc, jsval *vp);
 JSBool js_cocos2dx_CCSpriteBatchNode_create(JSContext *cx, uint32_t argc, jsval *vp);
 JSBool js_cocos2dx_CCSpriteBatchNode_createWithTexture(JSContext *cx, uint32_t argc, jsval *vp);
-JSBool js_cocos2dx_CCSpriteBatchNode_batchNodeWithFile(JSContext *cx, uint32_t argc, jsval *vp);
 
 extern JSClass  *js_cocos2dx_CCLabelBMFont_class;
 extern JSObject *js_cocos2dx_CCLabelBMFont_prototype;
@@ -1662,9 +1572,7 @@ JSBool js_cocos2dx_CCLabelBMFont_setColor(JSContext *cx, uint32_t argc, jsval *v
 JSBool js_cocos2dx_CCLabelBMFont_setCString(JSContext *cx, uint32_t argc, jsval *vp);
 JSBool js_cocos2dx_CCLabelBMFont_setAlignment(JSContext *cx, uint32_t argc, jsval *vp);
 JSBool js_cocos2dx_CCLabelBMFont_purgeCachedData(JSContext *cx, uint32_t argc, jsval *vp);
-JSBool js_cocos2dx_CCLabelBMFont_node(JSContext *cx, uint32_t argc, jsval *vp);
 JSBool js_cocos2dx_CCLabelBMFont_create(JSContext *cx, uint32_t argc, jsval *vp);
-JSBool js_cocos2dx_CCLabelBMFont_labelWithString(JSContext *cx, uint32_t argc, jsval *vp);
 JSBool js_cocos2dx_CCLabelBMFont_CCLabelBMFont(JSContext *cx, uint32_t argc, jsval *vp);
 
 extern JSClass  *js_cocos2dx_CCLayer_class;
@@ -1706,7 +1614,6 @@ JSBool js_cocos2dx_CCLayer_setKeypadEnabled(JSContext *cx, uint32_t argc, jsval 
 JSBool js_cocos2dx_CCLayer_registerWithTouchDispatcher(JSContext *cx, uint32_t argc, jsval *vp);
 JSBool js_cocos2dx_CCLayer_keyMenuClicked(JSContext *cx, uint32_t argc, jsval *vp);
 JSBool js_cocos2dx_CCLayer_registerScriptKeypadHandler(JSContext *cx, uint32_t argc, jsval *vp);
-JSBool js_cocos2dx_CCLayer_node(JSContext *cx, uint32_t argc, jsval *vp);
 JSBool js_cocos2dx_CCLayer_create(JSContext *cx, uint32_t argc, jsval *vp);
 JSBool js_cocos2dx_CCLayer_CCLayer(JSContext *cx, uint32_t argc, jsval *vp);
 
@@ -1728,7 +1635,6 @@ JSBool js_cocos2dx_CCLayerColor_getOpacity(JSContext *cx, uint32_t argc, jsval *
 JSBool js_cocos2dx_CCLayerColor_setContentSize(JSContext *cx, uint32_t argc, jsval *vp);
 JSBool js_cocos2dx_CCLayerColor_changeHeight(JSContext *cx, uint32_t argc, jsval *vp);
 JSBool js_cocos2dx_CCLayerColor_node(JSContext *cx, uint32_t argc, jsval *vp);
-JSBool js_cocos2dx_CCLayerColor_layerWithColor(JSContext *cx, uint32_t argc, jsval *vp);
 JSBool js_cocos2dx_CCLayerColor_create(JSContext *cx, uint32_t argc, jsval *vp);
 JSBool js_cocos2dx_CCLayerColor_CCLayerColor(JSContext *cx, uint32_t argc, jsval *vp);
 
@@ -1753,7 +1659,6 @@ JSBool js_cocos2dx_CCLayerGradient_getEndColor(JSContext *cx, uint32_t argc, jsv
 JSBool js_cocos2dx_CCLayerGradient_getEndOpacity(JSContext *cx, uint32_t argc, jsval *vp);
 JSBool js_cocos2dx_CCLayerGradient_setStartColor(JSContext *cx, uint32_t argc, jsval *vp);
 JSBool js_cocos2dx_CCLayerGradient_node(JSContext *cx, uint32_t argc, jsval *vp);
-JSBool js_cocos2dx_CCLayerGradient_layerWithColor(JSContext *cx, uint32_t argc, jsval *vp);
 JSBool js_cocos2dx_CCLayerGradient_create(JSContext *cx, uint32_t argc, jsval *vp);
 
 extern JSClass  *js_cocos2dx_CCLayerMultiplex_class;
@@ -1778,7 +1683,6 @@ void js_cocos2dx_CCScene_finalize(JSContext *cx, JSObject *obj);
 void js_register_cocos2dx_CCScene(JSContext *cx, JSObject *global);
 void register_all_cocos2dx(JSContext* cx, JSObject* obj);
 JSBool js_cocos2dx_CCScene_init(JSContext *cx, uint32_t argc, jsval *vp);
-JSBool js_cocos2dx_CCScene_node(JSContext *cx, uint32_t argc, jsval *vp);
 JSBool js_cocos2dx_CCScene_create(JSContext *cx, uint32_t argc, jsval *vp);
 JSBool js_cocos2dx_CCScene_CCScene(JSContext *cx, uint32_t argc, jsval *vp);
 
@@ -1804,7 +1708,6 @@ JSBool js_cocos2dx_CCTransitionScene_initWithDuration(JSContext *cx, uint32_t ar
 JSBool js_cocos2dx_CCTransitionScene_cleanup(JSContext *cx, uint32_t argc, jsval *vp);
 JSBool js_cocos2dx_CCTransitionScene_hideOutShowIn(JSContext *cx, uint32_t argc, jsval *vp);
 JSBool js_cocos2dx_CCTransitionScene_create(JSContext *cx, uint32_t argc, jsval *vp);
-JSBool js_cocos2dx_CCTransitionScene_transitionWithDuration(JSContext *cx, uint32_t argc, jsval *vp);
 JSBool js_cocos2dx_CCTransitionScene_CCTransitionScene(JSContext *cx, uint32_t argc, jsval *vp);
 
 extern JSClass  *js_cocos2dx_CCTransitionSceneOriented_class;
@@ -1816,7 +1719,6 @@ void js_register_cocos2dx_CCTransitionSceneOriented(JSContext *cx, JSObject *glo
 void register_all_cocos2dx(JSContext* cx, JSObject* obj);
 JSBool js_cocos2dx_CCTransitionSceneOriented_initWithDuration(JSContext *cx, uint32_t argc, jsval *vp);
 JSBool js_cocos2dx_CCTransitionSceneOriented_create(JSContext *cx, uint32_t argc, jsval *vp);
-JSBool js_cocos2dx_CCTransitionSceneOriented_transitionWithDuration(JSContext *cx, uint32_t argc, jsval *vp);
 JSBool js_cocos2dx_CCTransitionSceneOriented_CCTransitionSceneOriented(JSContext *cx, uint32_t argc, jsval *vp);
 
 extern JSClass  *js_cocos2dx_CCTransitionRotoZoom_class;
@@ -1827,7 +1729,6 @@ void js_cocos2dx_CCTransitionRotoZoom_finalize(JSContext *cx, JSObject *obj);
 void js_register_cocos2dx_CCTransitionRotoZoom(JSContext *cx, JSObject *global);
 void register_all_cocos2dx(JSContext* cx, JSObject* obj);
 JSBool js_cocos2dx_CCTransitionRotoZoom_create(JSContext *cx, uint32_t argc, jsval *vp);
-JSBool js_cocos2dx_CCTransitionRotoZoom_transitionWithDuration(JSContext *cx, uint32_t argc, jsval *vp);
 JSBool js_cocos2dx_CCTransitionRotoZoom_CCTransitionRotoZoom(JSContext *cx, uint32_t argc, jsval *vp);
 
 extern JSClass  *js_cocos2dx_CCTransitionJumpZoom_class;
@@ -1838,7 +1739,6 @@ void js_cocos2dx_CCTransitionJumpZoom_finalize(JSContext *cx, JSObject *obj);
 void js_register_cocos2dx_CCTransitionJumpZoom(JSContext *cx, JSObject *global);
 void register_all_cocos2dx(JSContext* cx, JSObject* obj);
 JSBool js_cocos2dx_CCTransitionJumpZoom_create(JSContext *cx, uint32_t argc, jsval *vp);
-JSBool js_cocos2dx_CCTransitionJumpZoom_transitionWithDuration(JSContext *cx, uint32_t argc, jsval *vp);
 JSBool js_cocos2dx_CCTransitionJumpZoom_CCTransitionJumpZoom(JSContext *cx, uint32_t argc, jsval *vp);
 
 extern JSClass  *js_cocos2dx_CCTransitionMoveInL_class;
@@ -1852,7 +1752,6 @@ JSBool js_cocos2dx_CCTransitionMoveInL_action(JSContext *cx, uint32_t argc, jsva
 JSBool js_cocos2dx_CCTransitionMoveInL_easeActionWithAction(JSContext *cx, uint32_t argc, jsval *vp);
 JSBool js_cocos2dx_CCTransitionMoveInL_initScenes(JSContext *cx, uint32_t argc, jsval *vp);
 JSBool js_cocos2dx_CCTransitionMoveInL_create(JSContext *cx, uint32_t argc, jsval *vp);
-JSBool js_cocos2dx_CCTransitionMoveInL_transitionWithDuration(JSContext *cx, uint32_t argc, jsval *vp);
 JSBool js_cocos2dx_CCTransitionMoveInL_CCTransitionMoveInL(JSContext *cx, uint32_t argc, jsval *vp);
 
 extern JSClass  *js_cocos2dx_CCTransitionMoveInR_class;
@@ -1864,7 +1763,6 @@ void js_register_cocos2dx_CCTransitionMoveInR(JSContext *cx, JSObject *global);
 void register_all_cocos2dx(JSContext* cx, JSObject* obj);
 JSBool js_cocos2dx_CCTransitionMoveInR_initScenes(JSContext *cx, uint32_t argc, jsval *vp);
 JSBool js_cocos2dx_CCTransitionMoveInR_create(JSContext *cx, uint32_t argc, jsval *vp);
-JSBool js_cocos2dx_CCTransitionMoveInR_transitionWithDuration(JSContext *cx, uint32_t argc, jsval *vp);
 JSBool js_cocos2dx_CCTransitionMoveInR_CCTransitionMoveInR(JSContext *cx, uint32_t argc, jsval *vp);
 
 extern JSClass  *js_cocos2dx_CCTransitionMoveInT_class;
@@ -1876,7 +1774,6 @@ void js_register_cocos2dx_CCTransitionMoveInT(JSContext *cx, JSObject *global);
 void register_all_cocos2dx(JSContext* cx, JSObject* obj);
 JSBool js_cocos2dx_CCTransitionMoveInT_initScenes(JSContext *cx, uint32_t argc, jsval *vp);
 JSBool js_cocos2dx_CCTransitionMoveInT_create(JSContext *cx, uint32_t argc, jsval *vp);
-JSBool js_cocos2dx_CCTransitionMoveInT_transitionWithDuration(JSContext *cx, uint32_t argc, jsval *vp);
 JSBool js_cocos2dx_CCTransitionMoveInT_CCTransitionMoveInT(JSContext *cx, uint32_t argc, jsval *vp);
 
 extern JSClass  *js_cocos2dx_CCTransitionMoveInB_class;
@@ -1888,7 +1785,6 @@ void js_register_cocos2dx_CCTransitionMoveInB(JSContext *cx, JSObject *global);
 void register_all_cocos2dx(JSContext* cx, JSObject* obj);
 JSBool js_cocos2dx_CCTransitionMoveInB_initScenes(JSContext *cx, uint32_t argc, jsval *vp);
 JSBool js_cocos2dx_CCTransitionMoveInB_create(JSContext *cx, uint32_t argc, jsval *vp);
-JSBool js_cocos2dx_CCTransitionMoveInB_transitionWithDuration(JSContext *cx, uint32_t argc, jsval *vp);
 JSBool js_cocos2dx_CCTransitionMoveInB_CCTransitionMoveInB(JSContext *cx, uint32_t argc, jsval *vp);
 
 extern JSClass  *js_cocos2dx_CCTransitionSlideInL_class;
@@ -1902,7 +1798,6 @@ JSBool js_cocos2dx_CCTransitionSlideInL_action(JSContext *cx, uint32_t argc, jsv
 JSBool js_cocos2dx_CCTransitionSlideInL_easeActionWithAction(JSContext *cx, uint32_t argc, jsval *vp);
 JSBool js_cocos2dx_CCTransitionSlideInL_initScenes(JSContext *cx, uint32_t argc, jsval *vp);
 JSBool js_cocos2dx_CCTransitionSlideInL_create(JSContext *cx, uint32_t argc, jsval *vp);
-JSBool js_cocos2dx_CCTransitionSlideInL_transitionWithDuration(JSContext *cx, uint32_t argc, jsval *vp);
 JSBool js_cocos2dx_CCTransitionSlideInL_CCTransitionSlideInL(JSContext *cx, uint32_t argc, jsval *vp);
 
 extern JSClass  *js_cocos2dx_CCTransitionSlideInR_class;
@@ -1915,7 +1810,6 @@ void register_all_cocos2dx(JSContext* cx, JSObject* obj);
 JSBool js_cocos2dx_CCTransitionSlideInR_action(JSContext *cx, uint32_t argc, jsval *vp);
 JSBool js_cocos2dx_CCTransitionSlideInR_initScenes(JSContext *cx, uint32_t argc, jsval *vp);
 JSBool js_cocos2dx_CCTransitionSlideInR_create(JSContext *cx, uint32_t argc, jsval *vp);
-JSBool js_cocos2dx_CCTransitionSlideInR_transitionWithDuration(JSContext *cx, uint32_t argc, jsval *vp);
 JSBool js_cocos2dx_CCTransitionSlideInR_CCTransitionSlideInR(JSContext *cx, uint32_t argc, jsval *vp);
 
 extern JSClass  *js_cocos2dx_CCTransitionSlideInB_class;
@@ -1928,7 +1822,6 @@ void register_all_cocos2dx(JSContext* cx, JSObject* obj);
 JSBool js_cocos2dx_CCTransitionSlideInB_action(JSContext *cx, uint32_t argc, jsval *vp);
 JSBool js_cocos2dx_CCTransitionSlideInB_initScenes(JSContext *cx, uint32_t argc, jsval *vp);
 JSBool js_cocos2dx_CCTransitionSlideInB_create(JSContext *cx, uint32_t argc, jsval *vp);
-JSBool js_cocos2dx_CCTransitionSlideInB_transitionWithDuration(JSContext *cx, uint32_t argc, jsval *vp);
 JSBool js_cocos2dx_CCTransitionSlideInB_CCTransitionSlideInB(JSContext *cx, uint32_t argc, jsval *vp);
 
 extern JSClass  *js_cocos2dx_CCTransitionSlideInT_class;
@@ -1941,7 +1834,6 @@ void register_all_cocos2dx(JSContext* cx, JSObject* obj);
 JSBool js_cocos2dx_CCTransitionSlideInT_action(JSContext *cx, uint32_t argc, jsval *vp);
 JSBool js_cocos2dx_CCTransitionSlideInT_initScenes(JSContext *cx, uint32_t argc, jsval *vp);
 JSBool js_cocos2dx_CCTransitionSlideInT_create(JSContext *cx, uint32_t argc, jsval *vp);
-JSBool js_cocos2dx_CCTransitionSlideInT_transitionWithDuration(JSContext *cx, uint32_t argc, jsval *vp);
 JSBool js_cocos2dx_CCTransitionSlideInT_CCTransitionSlideInT(JSContext *cx, uint32_t argc, jsval *vp);
 
 extern JSClass  *js_cocos2dx_CCTransitionShrinkGrow_class;
@@ -1953,7 +1845,6 @@ void js_register_cocos2dx_CCTransitionShrinkGrow(JSContext *cx, JSObject *global
 void register_all_cocos2dx(JSContext* cx, JSObject* obj);
 JSBool js_cocos2dx_CCTransitionShrinkGrow_easeActionWithAction(JSContext *cx, uint32_t argc, jsval *vp);
 JSBool js_cocos2dx_CCTransitionShrinkGrow_create(JSContext *cx, uint32_t argc, jsval *vp);
-JSBool js_cocos2dx_CCTransitionShrinkGrow_transitionWithDuration(JSContext *cx, uint32_t argc, jsval *vp);
 JSBool js_cocos2dx_CCTransitionShrinkGrow_CCTransitionShrinkGrow(JSContext *cx, uint32_t argc, jsval *vp);
 
 extern JSClass  *js_cocos2dx_CCTransitionFlipX_class;
@@ -1964,7 +1855,6 @@ void js_cocos2dx_CCTransitionFlipX_finalize(JSContext *cx, JSObject *obj);
 void js_register_cocos2dx_CCTransitionFlipX(JSContext *cx, JSObject *global);
 void register_all_cocos2dx(JSContext* cx, JSObject* obj);
 JSBool js_cocos2dx_CCTransitionFlipX_create(JSContext *cx, uint32_t argc, jsval *vp);
-JSBool js_cocos2dx_CCTransitionFlipX_transitionWithDuration(JSContext *cx, uint32_t argc, jsval *vp);
 JSBool js_cocos2dx_CCTransitionFlipX_CCTransitionFlipX(JSContext *cx, uint32_t argc, jsval *vp);
 
 extern JSClass  *js_cocos2dx_CCTransitionFlipY_class;
@@ -1975,7 +1865,6 @@ void js_cocos2dx_CCTransitionFlipY_finalize(JSContext *cx, JSObject *obj);
 void js_register_cocos2dx_CCTransitionFlipY(JSContext *cx, JSObject *global);
 void register_all_cocos2dx(JSContext* cx, JSObject* obj);
 JSBool js_cocos2dx_CCTransitionFlipY_create(JSContext *cx, uint32_t argc, jsval *vp);
-JSBool js_cocos2dx_CCTransitionFlipY_transitionWithDuration(JSContext *cx, uint32_t argc, jsval *vp);
 JSBool js_cocos2dx_CCTransitionFlipY_CCTransitionFlipY(JSContext *cx, uint32_t argc, jsval *vp);
 
 extern JSClass  *js_cocos2dx_CCTransitionFlipAngular_class;
@@ -1986,7 +1875,6 @@ void js_cocos2dx_CCTransitionFlipAngular_finalize(JSContext *cx, JSObject *obj);
 void js_register_cocos2dx_CCTransitionFlipAngular(JSContext *cx, JSObject *global);
 void register_all_cocos2dx(JSContext* cx, JSObject* obj);
 JSBool js_cocos2dx_CCTransitionFlipAngular_create(JSContext *cx, uint32_t argc, jsval *vp);
-JSBool js_cocos2dx_CCTransitionFlipAngular_transitionWithDuration(JSContext *cx, uint32_t argc, jsval *vp);
 JSBool js_cocos2dx_CCTransitionFlipAngular_CCTransitionFlipAngular(JSContext *cx, uint32_t argc, jsval *vp);
 
 extern JSClass  *js_cocos2dx_CCTransitionZoomFlipX_class;
@@ -1997,7 +1885,6 @@ void js_cocos2dx_CCTransitionZoomFlipX_finalize(JSContext *cx, JSObject *obj);
 void js_register_cocos2dx_CCTransitionZoomFlipX(JSContext *cx, JSObject *global);
 void register_all_cocos2dx(JSContext* cx, JSObject* obj);
 JSBool js_cocos2dx_CCTransitionZoomFlipX_create(JSContext *cx, uint32_t argc, jsval *vp);
-JSBool js_cocos2dx_CCTransitionZoomFlipX_transitionWithDuration(JSContext *cx, uint32_t argc, jsval *vp);
 JSBool js_cocos2dx_CCTransitionZoomFlipX_CCTransitionZoomFlipX(JSContext *cx, uint32_t argc, jsval *vp);
 
 extern JSClass  *js_cocos2dx_CCTransitionZoomFlipY_class;
@@ -2008,7 +1895,6 @@ void js_cocos2dx_CCTransitionZoomFlipY_finalize(JSContext *cx, JSObject *obj);
 void js_register_cocos2dx_CCTransitionZoomFlipY(JSContext *cx, JSObject *global);
 void register_all_cocos2dx(JSContext* cx, JSObject* obj);
 JSBool js_cocos2dx_CCTransitionZoomFlipY_create(JSContext *cx, uint32_t argc, jsval *vp);
-JSBool js_cocos2dx_CCTransitionZoomFlipY_transitionWithDuration(JSContext *cx, uint32_t argc, jsval *vp);
 JSBool js_cocos2dx_CCTransitionZoomFlipY_CCTransitionZoomFlipY(JSContext *cx, uint32_t argc, jsval *vp);
 
 extern JSClass  *js_cocos2dx_CCTransitionZoomFlipAngular_class;
@@ -2019,7 +1905,6 @@ void js_cocos2dx_CCTransitionZoomFlipAngular_finalize(JSContext *cx, JSObject *o
 void js_register_cocos2dx_CCTransitionZoomFlipAngular(JSContext *cx, JSObject *global);
 void register_all_cocos2dx(JSContext* cx, JSObject* obj);
 JSBool js_cocos2dx_CCTransitionZoomFlipAngular_create(JSContext *cx, uint32_t argc, jsval *vp);
-JSBool js_cocos2dx_CCTransitionZoomFlipAngular_transitionWithDuration(JSContext *cx, uint32_t argc, jsval *vp);
 JSBool js_cocos2dx_CCTransitionZoomFlipAngular_CCTransitionZoomFlipAngular(JSContext *cx, uint32_t argc, jsval *vp);
 
 extern JSClass  *js_cocos2dx_CCTransitionFade_class;
@@ -2031,7 +1916,6 @@ void js_register_cocos2dx_CCTransitionFade(JSContext *cx, JSObject *global);
 void register_all_cocos2dx(JSContext* cx, JSObject* obj);
 JSBool js_cocos2dx_CCTransitionFade_initWithDuration(JSContext *cx, uint32_t argc, jsval *vp);
 JSBool js_cocos2dx_CCTransitionFade_create(JSContext *cx, uint32_t argc, jsval *vp);
-JSBool js_cocos2dx_CCTransitionFade_transitionWithDuration(JSContext *cx, uint32_t argc, jsval *vp);
 JSBool js_cocos2dx_CCTransitionFade_CCTransitionFade(JSContext *cx, uint32_t argc, jsval *vp);
 
 extern JSClass  *js_cocos2dx_CCTransitionCrossFade_class;
@@ -2043,7 +1927,6 @@ void js_register_cocos2dx_CCTransitionCrossFade(JSContext *cx, JSObject *global)
 void register_all_cocos2dx(JSContext* cx, JSObject* obj);
 JSBool js_cocos2dx_CCTransitionCrossFade_draw(JSContext *cx, uint32_t argc, jsval *vp);
 JSBool js_cocos2dx_CCTransitionCrossFade_create(JSContext *cx, uint32_t argc, jsval *vp);
-JSBool js_cocos2dx_CCTransitionCrossFade_transitionWithDuration(JSContext *cx, uint32_t argc, jsval *vp);
 JSBool js_cocos2dx_CCTransitionCrossFade_CCTransitionCrossFade(JSContext *cx, uint32_t argc, jsval *vp);
 
 extern JSClass  *js_cocos2dx_CCTransitionTurnOffTiles_class;
@@ -2055,7 +1938,6 @@ void js_register_cocos2dx_CCTransitionTurnOffTiles(JSContext *cx, JSObject *glob
 void register_all_cocos2dx(JSContext* cx, JSObject* obj);
 JSBool js_cocos2dx_CCTransitionTurnOffTiles_easeActionWithAction(JSContext *cx, uint32_t argc, jsval *vp);
 JSBool js_cocos2dx_CCTransitionTurnOffTiles_create(JSContext *cx, uint32_t argc, jsval *vp);
-JSBool js_cocos2dx_CCTransitionTurnOffTiles_transitionWithDuration(JSContext *cx, uint32_t argc, jsval *vp);
 JSBool js_cocos2dx_CCTransitionTurnOffTiles_CCTransitionTurnOffTiles(JSContext *cx, uint32_t argc, jsval *vp);
 
 extern JSClass  *js_cocos2dx_CCTransitionSplitCols_class;
@@ -2068,7 +1950,6 @@ void register_all_cocos2dx(JSContext* cx, JSObject* obj);
 JSBool js_cocos2dx_CCTransitionSplitCols_action(JSContext *cx, uint32_t argc, jsval *vp);
 JSBool js_cocos2dx_CCTransitionSplitCols_easeActionWithAction(JSContext *cx, uint32_t argc, jsval *vp);
 JSBool js_cocos2dx_CCTransitionSplitCols_create(JSContext *cx, uint32_t argc, jsval *vp);
-JSBool js_cocos2dx_CCTransitionSplitCols_transitionWithDuration(JSContext *cx, uint32_t argc, jsval *vp);
 JSBool js_cocos2dx_CCTransitionSplitCols_CCTransitionSplitCols(JSContext *cx, uint32_t argc, jsval *vp);
 
 extern JSClass  *js_cocos2dx_CCTransitionSplitRows_class;
@@ -2080,7 +1961,6 @@ void js_register_cocos2dx_CCTransitionSplitRows(JSContext *cx, JSObject *global)
 void register_all_cocos2dx(JSContext* cx, JSObject* obj);
 JSBool js_cocos2dx_CCTransitionSplitRows_action(JSContext *cx, uint32_t argc, jsval *vp);
 JSBool js_cocos2dx_CCTransitionSplitRows_create(JSContext *cx, uint32_t argc, jsval *vp);
-JSBool js_cocos2dx_CCTransitionSplitRows_transitionWithDuration(JSContext *cx, uint32_t argc, jsval *vp);
 JSBool js_cocos2dx_CCTransitionSplitRows_CCTransitionSplitRows(JSContext *cx, uint32_t argc, jsval *vp);
 
 extern JSClass  *js_cocos2dx_CCTransitionFadeTR_class;
@@ -2093,7 +1973,6 @@ void register_all_cocos2dx(JSContext* cx, JSObject* obj);
 JSBool js_cocos2dx_CCTransitionFadeTR_easeActionWithAction(JSContext *cx, uint32_t argc, jsval *vp);
 JSBool js_cocos2dx_CCTransitionFadeTR_actionWithSize(JSContext *cx, uint32_t argc, jsval *vp);
 JSBool js_cocos2dx_CCTransitionFadeTR_create(JSContext *cx, uint32_t argc, jsval *vp);
-JSBool js_cocos2dx_CCTransitionFadeTR_transitionWithDuration(JSContext *cx, uint32_t argc, jsval *vp);
 JSBool js_cocos2dx_CCTransitionFadeTR_CCTransitionFadeTR(JSContext *cx, uint32_t argc, jsval *vp);
 
 extern JSClass  *js_cocos2dx_CCTransitionFadeBL_class;
@@ -2105,7 +1984,6 @@ void js_register_cocos2dx_CCTransitionFadeBL(JSContext *cx, JSObject *global);
 void register_all_cocos2dx(JSContext* cx, JSObject* obj);
 JSBool js_cocos2dx_CCTransitionFadeBL_actionWithSize(JSContext *cx, uint32_t argc, jsval *vp);
 JSBool js_cocos2dx_CCTransitionFadeBL_create(JSContext *cx, uint32_t argc, jsval *vp);
-JSBool js_cocos2dx_CCTransitionFadeBL_transitionWithDuration(JSContext *cx, uint32_t argc, jsval *vp);
 JSBool js_cocos2dx_CCTransitionFadeBL_CCTransitionFadeBL(JSContext *cx, uint32_t argc, jsval *vp);
 
 extern JSClass  *js_cocos2dx_CCTransitionFadeUp_class;
@@ -2117,7 +1995,6 @@ void js_register_cocos2dx_CCTransitionFadeUp(JSContext *cx, JSObject *global);
 void register_all_cocos2dx(JSContext* cx, JSObject* obj);
 JSBool js_cocos2dx_CCTransitionFadeUp_actionWithSize(JSContext *cx, uint32_t argc, jsval *vp);
 JSBool js_cocos2dx_CCTransitionFadeUp_create(JSContext *cx, uint32_t argc, jsval *vp);
-JSBool js_cocos2dx_CCTransitionFadeUp_transitionWithDuration(JSContext *cx, uint32_t argc, jsval *vp);
 JSBool js_cocos2dx_CCTransitionFadeUp_CCTransitionFadeUp(JSContext *cx, uint32_t argc, jsval *vp);
 
 extern JSClass  *js_cocos2dx_CCTransitionFadeDown_class;
@@ -2129,7 +2006,6 @@ void js_register_cocos2dx_CCTransitionFadeDown(JSContext *cx, JSObject *global);
 void register_all_cocos2dx(JSContext* cx, JSObject* obj);
 JSBool js_cocos2dx_CCTransitionFadeDown_actionWithSize(JSContext *cx, uint32_t argc, jsval *vp);
 JSBool js_cocos2dx_CCTransitionFadeDown_create(JSContext *cx, uint32_t argc, jsval *vp);
-JSBool js_cocos2dx_CCTransitionFadeDown_transitionWithDuration(JSContext *cx, uint32_t argc, jsval *vp);
 JSBool js_cocos2dx_CCTransitionFadeDown_CCTransitionFadeDown(JSContext *cx, uint32_t argc, jsval *vp);
 
 extern JSClass  *js_cocos2dx_CCTransitionPageTurn_class;
@@ -2142,7 +2018,6 @@ void register_all_cocos2dx(JSContext* cx, JSObject* obj);
 JSBool js_cocos2dx_CCTransitionPageTurn_actionWithSize(JSContext *cx, uint32_t argc, jsval *vp);
 JSBool js_cocos2dx_CCTransitionPageTurn_initWithDuration(JSContext *cx, uint32_t argc, jsval *vp);
 JSBool js_cocos2dx_CCTransitionPageTurn_create(JSContext *cx, uint32_t argc, jsval *vp);
-JSBool js_cocos2dx_CCTransitionPageTurn_transitionWithDuration(JSContext *cx, uint32_t argc, jsval *vp);
 JSBool js_cocos2dx_CCTransitionPageTurn_CCTransitionPageTurn(JSContext *cx, uint32_t argc, jsval *vp);
 
 extern JSClass  *js_cocos2dx_CCTransitionProgress_class;
@@ -2153,7 +2028,6 @@ void js_cocos2dx_CCTransitionProgress_finalize(JSContext *cx, JSObject *obj);
 void js_register_cocos2dx_CCTransitionProgress(JSContext *cx, JSObject *global);
 void register_all_cocos2dx(JSContext* cx, JSObject* obj);
 JSBool js_cocos2dx_CCTransitionProgress_create(JSContext *cx, uint32_t argc, jsval *vp);
-JSBool js_cocos2dx_CCTransitionProgress_transitionWithDuration(JSContext *cx, uint32_t argc, jsval *vp);
 JSBool js_cocos2dx_CCTransitionProgress_CCTransitionProgress(JSContext *cx, uint32_t argc, jsval *vp);
 
 extern JSClass  *js_cocos2dx_CCTransitionProgressRadialCCW_class;
@@ -2164,7 +2038,6 @@ void js_cocos2dx_CCTransitionProgressRadialCCW_finalize(JSContext *cx, JSObject 
 void js_register_cocos2dx_CCTransitionProgressRadialCCW(JSContext *cx, JSObject *global);
 void register_all_cocos2dx(JSContext* cx, JSObject* obj);
 JSBool js_cocos2dx_CCTransitionProgressRadialCCW_create(JSContext *cx, uint32_t argc, jsval *vp);
-JSBool js_cocos2dx_CCTransitionProgressRadialCCW_transitionWithDuration(JSContext *cx, uint32_t argc, jsval *vp);
 
 extern JSClass  *js_cocos2dx_CCTransitionProgressRadialCW_class;
 extern JSObject *js_cocos2dx_CCTransitionProgressRadialCW_prototype;
@@ -2174,7 +2047,6 @@ void js_cocos2dx_CCTransitionProgressRadialCW_finalize(JSContext *cx, JSObject *
 void js_register_cocos2dx_CCTransitionProgressRadialCW(JSContext *cx, JSObject *global);
 void register_all_cocos2dx(JSContext* cx, JSObject* obj);
 JSBool js_cocos2dx_CCTransitionProgressRadialCW_create(JSContext *cx, uint32_t argc, jsval *vp);
-JSBool js_cocos2dx_CCTransitionProgressRadialCW_transitionWithDuration(JSContext *cx, uint32_t argc, jsval *vp);
 
 extern JSClass  *js_cocos2dx_CCTransitionProgressHorizontal_class;
 extern JSObject *js_cocos2dx_CCTransitionProgressHorizontal_prototype;
@@ -2184,7 +2056,6 @@ void js_cocos2dx_CCTransitionProgressHorizontal_finalize(JSContext *cx, JSObject
 void js_register_cocos2dx_CCTransitionProgressHorizontal(JSContext *cx, JSObject *global);
 void register_all_cocos2dx(JSContext* cx, JSObject* obj);
 JSBool js_cocos2dx_CCTransitionProgressHorizontal_create(JSContext *cx, uint32_t argc, jsval *vp);
-JSBool js_cocos2dx_CCTransitionProgressHorizontal_transitionWithDuration(JSContext *cx, uint32_t argc, jsval *vp);
 
 extern JSClass  *js_cocos2dx_CCTransitionProgressVertical_class;
 extern JSObject *js_cocos2dx_CCTransitionProgressVertical_prototype;
@@ -2194,7 +2065,6 @@ void js_cocos2dx_CCTransitionProgressVertical_finalize(JSContext *cx, JSObject *
 void js_register_cocos2dx_CCTransitionProgressVertical(JSContext *cx, JSObject *global);
 void register_all_cocos2dx(JSContext* cx, JSObject* obj);
 JSBool js_cocos2dx_CCTransitionProgressVertical_create(JSContext *cx, uint32_t argc, jsval *vp);
-JSBool js_cocos2dx_CCTransitionProgressVertical_transitionWithDuration(JSContext *cx, uint32_t argc, jsval *vp);
 
 extern JSClass  *js_cocos2dx_CCTransitionProgressInOut_class;
 extern JSObject *js_cocos2dx_CCTransitionProgressInOut_prototype;
@@ -2204,7 +2074,6 @@ void js_cocos2dx_CCTransitionProgressInOut_finalize(JSContext *cx, JSObject *obj
 void js_register_cocos2dx_CCTransitionProgressInOut(JSContext *cx, JSObject *global);
 void register_all_cocos2dx(JSContext* cx, JSObject* obj);
 JSBool js_cocos2dx_CCTransitionProgressInOut_create(JSContext *cx, uint32_t argc, jsval *vp);
-JSBool js_cocos2dx_CCTransitionProgressInOut_transitionWithDuration(JSContext *cx, uint32_t argc, jsval *vp);
 
 extern JSClass  *js_cocos2dx_CCTransitionProgressOutIn_class;
 extern JSObject *js_cocos2dx_CCTransitionProgressOutIn_prototype;
@@ -2214,7 +2083,6 @@ void js_cocos2dx_CCTransitionProgressOutIn_finalize(JSContext *cx, JSObject *obj
 void js_register_cocos2dx_CCTransitionProgressOutIn(JSContext *cx, JSObject *global);
 void register_all_cocos2dx(JSContext* cx, JSObject* obj);
 JSBool js_cocos2dx_CCTransitionProgressOutIn_create(JSContext *cx, uint32_t argc, jsval *vp);
-JSBool js_cocos2dx_CCTransitionProgressOutIn_transitionWithDuration(JSContext *cx, uint32_t argc, jsval *vp);
 
 extern JSClass  *js_cocos2dx_CCMenuItem_class;
 extern JSObject *js_cocos2dx_CCMenuItem_prototype;
@@ -2255,7 +2123,6 @@ JSBool js_cocos2dx_CCMenuItemLabel_getLabel(JSContext *cx, uint32_t argc, jsval 
 JSBool js_cocos2dx_CCMenuItemLabel_getOpacity(JSContext *cx, uint32_t argc, jsval *vp);
 JSBool js_cocos2dx_CCMenuItemLabel_getColor(JSContext *cx, uint32_t argc, jsval *vp);
 JSBool js_cocos2dx_CCMenuItemLabel_unselected(JSContext *cx, uint32_t argc, jsval *vp);
-JSBool js_cocos2dx_CCMenuItemLabel_itemWithLabel(JSContext *cx, uint32_t argc, jsval *vp);
 JSBool js_cocos2dx_CCMenuItemLabel_CCMenuItemLabel(JSContext *cx, uint32_t argc, jsval *vp);
 
 extern JSClass  *js_cocos2dx_CCMenuItemAtlasFont_class;
@@ -2265,7 +2132,6 @@ JSBool js_cocos2dx_CCMenuItemAtlasFont_constructor(JSContext *cx, uint32_t argc,
 void js_cocos2dx_CCMenuItemAtlasFont_finalize(JSContext *cx, JSObject *obj);
 void js_register_cocos2dx_CCMenuItemAtlasFont(JSContext *cx, JSObject *global);
 void register_all_cocos2dx(JSContext* cx, JSObject* obj);
-JSBool js_cocos2dx_CCMenuItemAtlasFont_itemWithString(JSContext *cx, uint32_t argc, jsval *vp);
 JSBool js_cocos2dx_CCMenuItemAtlasFont_CCMenuItemAtlasFont(JSContext *cx, uint32_t argc, jsval *vp);
 
 extern JSClass  *js_cocos2dx_CCMenuItemFont_class;
@@ -2283,7 +2149,6 @@ JSBool js_cocos2dx_CCMenuItemFont_setFontName(JSContext *cx, uint32_t argc, jsva
 JSBool js_cocos2dx_CCMenuItemFont_fontName(JSContext *cx, uint32_t argc, jsval *vp);
 JSBool js_cocos2dx_CCMenuItemFont_fontSize(JSContext *cx, uint32_t argc, jsval *vp);
 JSBool js_cocos2dx_CCMenuItemFont_setFontSize(JSContext *cx, uint32_t argc, jsval *vp);
-JSBool js_cocos2dx_CCMenuItemFont_itemWithString(JSContext *cx, uint32_t argc, jsval *vp);
 JSBool js_cocos2dx_CCMenuItemFont_CCMenuItemFont(JSContext *cx, uint32_t argc, jsval *vp);
 
 extern JSClass  *js_cocos2dx_CCMenuItemSprite_class;
@@ -2306,7 +2171,6 @@ JSBool js_cocos2dx_CCMenuItemSprite_getSelectedImage(JSContext *cx, uint32_t arg
 JSBool js_cocos2dx_CCMenuItemSprite_getNormalImage(JSContext *cx, uint32_t argc, jsval *vp);
 JSBool js_cocos2dx_CCMenuItemSprite_getOpacity(JSContext *cx, uint32_t argc, jsval *vp);
 JSBool js_cocos2dx_CCMenuItemSprite_unselected(JSContext *cx, uint32_t argc, jsval *vp);
-JSBool js_cocos2dx_CCMenuItemSprite_itemWithNormalSprite(JSContext *cx, uint32_t argc, jsval *vp);
 JSBool js_cocos2dx_CCMenuItemSprite_CCMenuItemSprite(JSContext *cx, uint32_t argc, jsval *vp);
 
 extern JSClass  *js_cocos2dx_CCMenuItemImage_class;
@@ -2320,8 +2184,6 @@ JSBool js_cocos2dx_CCMenuItemImage_setDisabledSpriteFrame(JSContext *cx, uint32_
 JSBool js_cocos2dx_CCMenuItemImage_setSelectedSpriteFrame(JSContext *cx, uint32_t argc, jsval *vp);
 JSBool js_cocos2dx_CCMenuItemImage_init(JSContext *cx, uint32_t argc, jsval *vp);
 JSBool js_cocos2dx_CCMenuItemImage_setNormalSpriteFrame(JSContext *cx, uint32_t argc, jsval *vp);
-JSBool js_cocos2dx_CCMenuItemImage_node(JSContext *cx, uint32_t argc, jsval *vp);
-JSBool js_cocos2dx_CCMenuItemImage_itemWithNormalImage(JSContext *cx, uint32_t argc, jsval *vp);
 JSBool js_cocos2dx_CCMenuItemImage_CCMenuItemImage(JSContext *cx, uint32_t argc, jsval *vp);
 
 extern JSClass  *js_cocos2dx_CCMenuItemToggle_class;
@@ -2345,7 +2207,6 @@ JSBool js_cocos2dx_CCMenuItemToggle_getOpacity(JSContext *cx, uint32_t argc, jsv
 JSBool js_cocos2dx_CCMenuItemToggle_unselected(JSContext *cx, uint32_t argc, jsval *vp);
 JSBool js_cocos2dx_CCMenuItemToggle_selectedItem(JSContext *cx, uint32_t argc, jsval *vp);
 JSBool js_cocos2dx_CCMenuItemToggle_setColor(JSContext *cx, uint32_t argc, jsval *vp);
-JSBool js_cocos2dx_CCMenuItemToggle_itemWithItem(JSContext *cx, uint32_t argc, jsval *vp);
 JSBool js_cocos2dx_CCMenuItemToggle_CCMenuItemToggle(JSContext *cx, uint32_t argc, jsval *vp);
 
 extern JSClass  *js_cocos2dx_CCMenu_class;
@@ -2374,9 +2235,6 @@ JSBool js_cocos2dx_CCMenu_setColor(JSContext *cx, uint32_t argc, jsval *vp);
 JSBool js_cocos2dx_CCMenu_ccTouchCancelled(JSContext *cx, uint32_t argc, jsval *vp);
 JSBool js_cocos2dx_CCMenu_alignItemsVerticallyWithPadding(JSContext *cx, uint32_t argc, jsval *vp);
 JSBool js_cocos2dx_CCMenu_registerWithTouchDispatcher(JSContext *cx, uint32_t argc, jsval *vp);
-JSBool js_cocos2dx_CCMenu_node(JSContext *cx, uint32_t argc, jsval *vp);
-JSBool js_cocos2dx_CCMenu_menuWithArray(JSContext *cx, uint32_t argc, jsval *vp);
-JSBool js_cocos2dx_CCMenu_menuWithItem(JSContext *cx, uint32_t argc, jsval *vp);
 JSBool js_cocos2dx_CCMenu_CCMenu(JSContext *cx, uint32_t argc, jsval *vp);
 
 extern JSClass  *js_cocos2dx_CCProgressTimer_class;
@@ -2406,7 +2264,6 @@ JSBool js_cocos2dx_CCProgressTimer_setColor(JSContext *cx, uint32_t argc, jsval 
 JSBool js_cocos2dx_CCProgressTimer_getBarChangeRate(JSContext *cx, uint32_t argc, jsval *vp);
 JSBool js_cocos2dx_CCProgressTimer_initWithSprite(JSContext *cx, uint32_t argc, jsval *vp);
 JSBool js_cocos2dx_CCProgressTimer_create(JSContext *cx, uint32_t argc, jsval *vp);
-JSBool js_cocos2dx_CCProgressTimer_progressWithSprite(JSContext *cx, uint32_t argc, jsval *vp);
 JSBool js_cocos2dx_CCProgressTimer_CCProgressTimer(JSContext *cx, uint32_t argc, jsval *vp);
 
 extern JSClass  *js_cocos2dx_CCRenderTexture_class;
@@ -2442,7 +2299,6 @@ JSBool js_cocos2dx_CCRenderTexture_getClearFlags(JSContext *cx, uint32_t argc, j
 JSBool js_cocos2dx_CCRenderTexture_newCCImage(JSContext *cx, uint32_t argc, jsval *vp);
 JSBool js_cocos2dx_CCRenderTexture_setClearDepth(JSContext *cx, uint32_t argc, jsval *vp);
 JSBool js_cocos2dx_CCRenderTexture_setSprite(JSContext *cx, uint32_t argc, jsval *vp);
-JSBool js_cocos2dx_CCRenderTexture_renderTextureWithWidthAndHeight(JSContext *cx, uint32_t argc, jsval *vp);
 JSBool js_cocos2dx_CCRenderTexture_create(JSContext *cx, uint32_t argc, jsval *vp);
 JSBool js_cocos2dx_CCRenderTexture_CCRenderTexture(JSContext *cx, uint32_t argc, jsval *vp);
 
@@ -2468,10 +2324,8 @@ JSBool js_cocos2dx_CCParticleBatchNode_insertChild(JSContext *cx, uint32_t argc,
 JSBool js_cocos2dx_CCParticleBatchNode_initWithTexture(JSContext *cx, uint32_t argc, jsval *vp);
 JSBool js_cocos2dx_CCParticleBatchNode_reorderChild(JSContext *cx, uint32_t argc, jsval *vp);
 JSBool js_cocos2dx_CCParticleBatchNode_setTextureAtlas(JSContext *cx, uint32_t argc, jsval *vp);
-JSBool js_cocos2dx_CCParticleBatchNode_batchNodeWithTexture(JSContext *cx, uint32_t argc, jsval *vp);
 JSBool js_cocos2dx_CCParticleBatchNode_create(JSContext *cx, uint32_t argc, jsval *vp);
 JSBool js_cocos2dx_CCParticleBatchNode_createWithTexture(JSContext *cx, uint32_t argc, jsval *vp);
-JSBool js_cocos2dx_CCParticleBatchNode_batchNodeWithFile(JSContext *cx, uint32_t argc, jsval *vp);
 JSBool js_cocos2dx_CCParticleBatchNode_CCParticleBatchNode(JSContext *cx, uint32_t argc, jsval *vp);
 
 extern JSClass  *js_cocos2dx_CCParticleSystem_class;
@@ -2582,7 +2436,6 @@ JSBool js_cocos2dx_CCParticleSystem_getTotalParticles(JSContext *cx, uint32_t ar
 JSBool js_cocos2dx_CCParticleSystem_setStartRadiusVar(JSContext *cx, uint32_t argc, jsval *vp);
 JSBool js_cocos2dx_CCParticleSystem_getEndRadiusVar(JSContext *cx, uint32_t argc, jsval *vp);
 JSBool js_cocos2dx_CCParticleSystem_getStartColorVar(JSContext *cx, uint32_t argc, jsval *vp);
-JSBool js_cocos2dx_CCParticleSystem_particleWithFile(JSContext *cx, uint32_t argc, jsval *vp);
 JSBool js_cocos2dx_CCParticleSystem_create(JSContext *cx, uint32_t argc, jsval *vp);
 JSBool js_cocos2dx_CCParticleSystem_createWithTotalParticles(JSContext *cx, uint32_t argc, jsval *vp);
 JSBool js_cocos2dx_CCParticleSystem_CCParticleSystem(JSContext *cx, uint32_t argc, jsval *vp);
@@ -2610,7 +2463,6 @@ void js_register_cocos2dx_CCParticleFire(JSContext *cx, JSObject *global);
 void register_all_cocos2dx(JSContext* cx, JSObject* obj);
 JSBool js_cocos2dx_CCParticleFire_init(JSContext *cx, uint32_t argc, jsval *vp);
 JSBool js_cocos2dx_CCParticleFire_initWithTotalParticles(JSContext *cx, uint32_t argc, jsval *vp);
-JSBool js_cocos2dx_CCParticleFire_node(JSContext *cx, uint32_t argc, jsval *vp);
 JSBool js_cocos2dx_CCParticleFire_create(JSContext *cx, uint32_t argc, jsval *vp);
 JSBool js_cocos2dx_CCParticleFire_createWithTotalParticles(JSContext *cx, uint32_t argc, jsval *vp);
 JSBool js_cocos2dx_CCParticleFire_CCParticleFire(JSContext *cx, uint32_t argc, jsval *vp);
@@ -2624,7 +2476,6 @@ void js_register_cocos2dx_CCParticleFireworks(JSContext *cx, JSObject *global);
 void register_all_cocos2dx(JSContext* cx, JSObject* obj);
 JSBool js_cocos2dx_CCParticleFireworks_init(JSContext *cx, uint32_t argc, jsval *vp);
 JSBool js_cocos2dx_CCParticleFireworks_initWithTotalParticles(JSContext *cx, uint32_t argc, jsval *vp);
-JSBool js_cocos2dx_CCParticleFireworks_node(JSContext *cx, uint32_t argc, jsval *vp);
 JSBool js_cocos2dx_CCParticleFireworks_create(JSContext *cx, uint32_t argc, jsval *vp);
 JSBool js_cocos2dx_CCParticleFireworks_createWithTotalParticles(JSContext *cx, uint32_t argc, jsval *vp);
 JSBool js_cocos2dx_CCParticleFireworks_CCParticleFireworks(JSContext *cx, uint32_t argc, jsval *vp);
@@ -2638,7 +2489,6 @@ void js_register_cocos2dx_CCParticleSun(JSContext *cx, JSObject *global);
 void register_all_cocos2dx(JSContext* cx, JSObject* obj);
 JSBool js_cocos2dx_CCParticleSun_init(JSContext *cx, uint32_t argc, jsval *vp);
 JSBool js_cocos2dx_CCParticleSun_initWithTotalParticles(JSContext *cx, uint32_t argc, jsval *vp);
-JSBool js_cocos2dx_CCParticleSun_node(JSContext *cx, uint32_t argc, jsval *vp);
 JSBool js_cocos2dx_CCParticleSun_create(JSContext *cx, uint32_t argc, jsval *vp);
 JSBool js_cocos2dx_CCParticleSun_createWithTotalParticles(JSContext *cx, uint32_t argc, jsval *vp);
 JSBool js_cocos2dx_CCParticleSun_CCParticleSun(JSContext *cx, uint32_t argc, jsval *vp);
@@ -2652,7 +2502,6 @@ void js_register_cocos2dx_CCParticleGalaxy(JSContext *cx, JSObject *global);
 void register_all_cocos2dx(JSContext* cx, JSObject* obj);
 JSBool js_cocos2dx_CCParticleGalaxy_init(JSContext *cx, uint32_t argc, jsval *vp);
 JSBool js_cocos2dx_CCParticleGalaxy_initWithTotalParticles(JSContext *cx, uint32_t argc, jsval *vp);
-JSBool js_cocos2dx_CCParticleGalaxy_node(JSContext *cx, uint32_t argc, jsval *vp);
 JSBool js_cocos2dx_CCParticleGalaxy_create(JSContext *cx, uint32_t argc, jsval *vp);
 JSBool js_cocos2dx_CCParticleGalaxy_createWithTotalParticles(JSContext *cx, uint32_t argc, jsval *vp);
 JSBool js_cocos2dx_CCParticleGalaxy_CCParticleGalaxy(JSContext *cx, uint32_t argc, jsval *vp);
@@ -2666,7 +2515,6 @@ void js_register_cocos2dx_CCParticleFlower(JSContext *cx, JSObject *global);
 void register_all_cocos2dx(JSContext* cx, JSObject* obj);
 JSBool js_cocos2dx_CCParticleFlower_init(JSContext *cx, uint32_t argc, jsval *vp);
 JSBool js_cocos2dx_CCParticleFlower_initWithTotalParticles(JSContext *cx, uint32_t argc, jsval *vp);
-JSBool js_cocos2dx_CCParticleFlower_node(JSContext *cx, uint32_t argc, jsval *vp);
 JSBool js_cocos2dx_CCParticleFlower_create(JSContext *cx, uint32_t argc, jsval *vp);
 JSBool js_cocos2dx_CCParticleFlower_createWithTotalParticles(JSContext *cx, uint32_t argc, jsval *vp);
 JSBool js_cocos2dx_CCParticleFlower_CCParticleFlower(JSContext *cx, uint32_t argc, jsval *vp);
@@ -2680,7 +2528,6 @@ void js_register_cocos2dx_CCParticleMeteor(JSContext *cx, JSObject *global);
 void register_all_cocos2dx(JSContext* cx, JSObject* obj);
 JSBool js_cocos2dx_CCParticleMeteor_init(JSContext *cx, uint32_t argc, jsval *vp);
 JSBool js_cocos2dx_CCParticleMeteor_initWithTotalParticles(JSContext *cx, uint32_t argc, jsval *vp);
-JSBool js_cocos2dx_CCParticleMeteor_node(JSContext *cx, uint32_t argc, jsval *vp);
 JSBool js_cocos2dx_CCParticleMeteor_create(JSContext *cx, uint32_t argc, jsval *vp);
 JSBool js_cocos2dx_CCParticleMeteor_createWithTotalParticles(JSContext *cx, uint32_t argc, jsval *vp);
 JSBool js_cocos2dx_CCParticleMeteor_CCParticleMeteor(JSContext *cx, uint32_t argc, jsval *vp);
@@ -2694,7 +2541,6 @@ void js_register_cocos2dx_CCParticleSpiral(JSContext *cx, JSObject *global);
 void register_all_cocos2dx(JSContext* cx, JSObject* obj);
 JSBool js_cocos2dx_CCParticleSpiral_init(JSContext *cx, uint32_t argc, jsval *vp);
 JSBool js_cocos2dx_CCParticleSpiral_initWithTotalParticles(JSContext *cx, uint32_t argc, jsval *vp);
-JSBool js_cocos2dx_CCParticleSpiral_node(JSContext *cx, uint32_t argc, jsval *vp);
 JSBool js_cocos2dx_CCParticleSpiral_create(JSContext *cx, uint32_t argc, jsval *vp);
 JSBool js_cocos2dx_CCParticleSpiral_createWithTotalParticles(JSContext *cx, uint32_t argc, jsval *vp);
 JSBool js_cocos2dx_CCParticleSpiral_CCParticleSpiral(JSContext *cx, uint32_t argc, jsval *vp);
@@ -2708,7 +2554,6 @@ void js_register_cocos2dx_CCParticleExplosion(JSContext *cx, JSObject *global);
 void register_all_cocos2dx(JSContext* cx, JSObject* obj);
 JSBool js_cocos2dx_CCParticleExplosion_init(JSContext *cx, uint32_t argc, jsval *vp);
 JSBool js_cocos2dx_CCParticleExplosion_initWithTotalParticles(JSContext *cx, uint32_t argc, jsval *vp);
-JSBool js_cocos2dx_CCParticleExplosion_node(JSContext *cx, uint32_t argc, jsval *vp);
 JSBool js_cocos2dx_CCParticleExplosion_create(JSContext *cx, uint32_t argc, jsval *vp);
 JSBool js_cocos2dx_CCParticleExplosion_createWithTotalParticles(JSContext *cx, uint32_t argc, jsval *vp);
 JSBool js_cocos2dx_CCParticleExplosion_CCParticleExplosion(JSContext *cx, uint32_t argc, jsval *vp);
@@ -2722,7 +2567,6 @@ void js_register_cocos2dx_CCParticleSmoke(JSContext *cx, JSObject *global);
 void register_all_cocos2dx(JSContext* cx, JSObject* obj);
 JSBool js_cocos2dx_CCParticleSmoke_init(JSContext *cx, uint32_t argc, jsval *vp);
 JSBool js_cocos2dx_CCParticleSmoke_initWithTotalParticles(JSContext *cx, uint32_t argc, jsval *vp);
-JSBool js_cocos2dx_CCParticleSmoke_node(JSContext *cx, uint32_t argc, jsval *vp);
 JSBool js_cocos2dx_CCParticleSmoke_create(JSContext *cx, uint32_t argc, jsval *vp);
 JSBool js_cocos2dx_CCParticleSmoke_createWithTotalParticles(JSContext *cx, uint32_t argc, jsval *vp);
 JSBool js_cocos2dx_CCParticleSmoke_CCParticleSmoke(JSContext *cx, uint32_t argc, jsval *vp);
@@ -2736,7 +2580,6 @@ void js_register_cocos2dx_CCParticleSnow(JSContext *cx, JSObject *global);
 void register_all_cocos2dx(JSContext* cx, JSObject* obj);
 JSBool js_cocos2dx_CCParticleSnow_init(JSContext *cx, uint32_t argc, jsval *vp);
 JSBool js_cocos2dx_CCParticleSnow_initWithTotalParticles(JSContext *cx, uint32_t argc, jsval *vp);
-JSBool js_cocos2dx_CCParticleSnow_node(JSContext *cx, uint32_t argc, jsval *vp);
 JSBool js_cocos2dx_CCParticleSnow_create(JSContext *cx, uint32_t argc, jsval *vp);
 JSBool js_cocos2dx_CCParticleSnow_createWithTotalParticles(JSContext *cx, uint32_t argc, jsval *vp);
 JSBool js_cocos2dx_CCParticleSnow_CCParticleSnow(JSContext *cx, uint32_t argc, jsval *vp);
@@ -2750,7 +2593,6 @@ void js_register_cocos2dx_CCParticleRain(JSContext *cx, JSObject *global);
 void register_all_cocos2dx(JSContext* cx, JSObject* obj);
 JSBool js_cocos2dx_CCParticleRain_init(JSContext *cx, uint32_t argc, jsval *vp);
 JSBool js_cocos2dx_CCParticleRain_initWithTotalParticles(JSContext *cx, uint32_t argc, jsval *vp);
-JSBool js_cocos2dx_CCParticleRain_node(JSContext *cx, uint32_t argc, jsval *vp);
 JSBool js_cocos2dx_CCParticleRain_create(JSContext *cx, uint32_t argc, jsval *vp);
 JSBool js_cocos2dx_CCParticleRain_createWithTotalParticles(JSContext *cx, uint32_t argc, jsval *vp);
 JSBool js_cocos2dx_CCParticleRain_CCParticleRain(JSContext *cx, uint32_t argc, jsval *vp);
@@ -2826,7 +2668,6 @@ JSBool js_cocos2dx_CCParallaxNode_removeAllChildrenWithCleanup(JSContext *cx, ui
 JSBool js_cocos2dx_CCParallaxNode_removeChild(JSContext *cx, uint32_t argc, jsval *vp);
 JSBool js_cocos2dx_CCParallaxNode_getParallaxArray(JSContext *cx, uint32_t argc, jsval *vp);
 JSBool js_cocos2dx_CCParallaxNode_setParallaxArray(JSContext *cx, uint32_t argc, jsval *vp);
-JSBool js_cocos2dx_CCParallaxNode_node(JSContext *cx, uint32_t argc, jsval *vp);
 JSBool js_cocos2dx_CCParallaxNode_create(JSContext *cx, uint32_t argc, jsval *vp);
 JSBool js_cocos2dx_CCParallaxNode_CCParallaxNode(JSContext *cx, uint32_t argc, jsval *vp);
 
@@ -2945,7 +2786,6 @@ JSBool js_cocos2dx_CCTMXLayer_removeChild(JSContext *cx, uint32_t argc, jsval *v
 JSBool js_cocos2dx_CCTMXLayer_getTileSet(JSContext *cx, uint32_t argc, jsval *vp);
 JSBool js_cocos2dx_CCTMXLayer_getProperties(JSContext *cx, uint32_t argc, jsval *vp);
 JSBool js_cocos2dx_CCTMXLayer_tileAt(JSContext *cx, uint32_t argc, jsval *vp);
-JSBool js_cocos2dx_CCTMXLayer_layerWithTilesetInfo(JSContext *cx, uint32_t argc, jsval *vp);
 JSBool js_cocos2dx_CCTMXLayer_create(JSContext *cx, uint32_t argc, jsval *vp);
 JSBool js_cocos2dx_CCTMXLayer_CCTMXLayer(JSContext *cx, uint32_t argc, jsval *vp);
 
@@ -2972,8 +2812,6 @@ JSBool js_cocos2dx_CCTMXTiledMap_setProperties(JSContext *cx, uint32_t argc, jsv
 JSBool js_cocos2dx_CCTMXTiledMap_layerNamed(JSContext *cx, uint32_t argc, jsval *vp);
 JSBool js_cocos2dx_CCTMXTiledMap_getMapOrientation(JSContext *cx, uint32_t argc, jsval *vp);
 JSBool js_cocos2dx_CCTMXTiledMap_propertyNamed(JSContext *cx, uint32_t argc, jsval *vp);
-JSBool js_cocos2dx_CCTMXTiledMap_tiledMapWithTMXFile(JSContext *cx, uint32_t argc, jsval *vp);
-JSBool js_cocos2dx_CCTMXTiledMap_tiledMapWithXML(JSContext *cx, uint32_t argc, jsval *vp);
 JSBool js_cocos2dx_CCTMXTiledMap_create(JSContext *cx, uint32_t argc, jsval *vp);
 JSBool js_cocos2dx_CCTMXTiledMap_createWithXML(JSContext *cx, uint32_t argc, jsval *vp);
 JSBool js_cocos2dx_CCTMXTiledMap_CCTMXTiledMap(JSContext *cx, uint32_t argc, jsval *vp);
@@ -2992,7 +2830,6 @@ JSBool js_cocos2dx_CCTileMapAtlas_tileAt(JSContext *cx, uint32_t argc, jsval *vp
 JSBool js_cocos2dx_CCTileMapAtlas_setTile(JSContext *cx, uint32_t argc, jsval *vp);
 JSBool js_cocos2dx_CCTileMapAtlas_setTGAInfo(JSContext *cx, uint32_t argc, jsval *vp);
 JSBool js_cocos2dx_CCTileMapAtlas_create(JSContext *cx, uint32_t argc, jsval *vp);
-JSBool js_cocos2dx_CCTileMapAtlas_tileMapAtlasWithTileFile(JSContext *cx, uint32_t argc, jsval *vp);
 JSBool js_cocos2dx_CCTileMapAtlas_CCTileMapAtlas(JSContext *cx, uint32_t argc, jsval *vp);
 
 extern JSClass  *js_cocos2dx_CCTimer_class;
@@ -3116,12 +2953,8 @@ JSBool js_cocos2dx_CCScale9Sprite_getPreferredSize(JSContext *cx, uint32_t argc,
 JSBool js_cocos2dx_CCScale9Sprite_setCapInsets(JSContext *cx, uint32_t argc, jsval *vp);
 JSBool js_cocos2dx_CCScale9Sprite_getInsetLeft(JSContext *cx, uint32_t argc, jsval *vp);
 JSBool js_cocos2dx_CCScale9Sprite_setInsetRight(JSContext *cx, uint32_t argc, jsval *vp);
-JSBool js_cocos2dx_CCScale9Sprite_node(JSContext *cx, uint32_t argc, jsval *vp);
-JSBool js_cocos2dx_CCScale9Sprite_spriteWithFile(JSContext *cx, uint32_t argc, jsval *vp);
 JSBool js_cocos2dx_CCScale9Sprite_create(JSContext *cx, uint32_t argc, jsval *vp);
-JSBool js_cocos2dx_CCScale9Sprite_spriteWithSpriteFrameName(JSContext *cx, uint32_t argc, jsval *vp);
 JSBool js_cocos2dx_CCScale9Sprite_createWithSpriteFrameName(JSContext *cx, uint32_t argc, jsval *vp);
-JSBool js_cocos2dx_CCScale9Sprite_spriteWithSpriteFrame(JSContext *cx, uint32_t argc, jsval *vp);
 JSBool js_cocos2dx_CCScale9Sprite_createWithSpriteFrame(JSContext *cx, uint32_t argc, jsval *vp);
 JSBool js_cocos2dx_CCScale9Sprite_CCScale9Sprite(JSContext *cx, uint32_t argc, jsval *vp);
 
@@ -3187,11 +3020,7 @@ JSBool js_cocos2dx_CCControlButton_setTitleForState(JSContext *cx, uint32_t argc
 JSBool js_cocos2dx_CCControlButton_setBackgroundSprite(JSContext *cx, uint32_t argc, jsval *vp);
 JSBool js_cocos2dx_CCControlButton_getZoomOnTouchDown(JSContext *cx, uint32_t argc, jsval *vp);
 JSBool js_cocos2dx_CCControlButton_getTitleForState(JSContext *cx, uint32_t argc, jsval *vp);
-JSBool js_cocos2dx_CCControlButton_buttonWithLabelAndBackgroundSprite(JSContext *cx, uint32_t argc, jsval *vp);
-JSBool js_cocos2dx_CCControlButton_buttonWithBackgroundSprite(JSContext *cx, uint32_t argc, jsval *vp);
 JSBool js_cocos2dx_CCControlButton_create(JSContext *cx, uint32_t argc, jsval *vp);
-JSBool js_cocos2dx_CCControlButton_buttonWithTitleAndFontNameAndFontSize(JSContext *cx, uint32_t argc, jsval *vp);
-JSBool js_cocos2dx_CCControlButton_node(JSContext *cx, uint32_t argc, jsval *vp);
 JSBool js_cocos2dx_CCControlButton_CCControlButton(JSContext *cx, uint32_t argc, jsval *vp);
 
 extern JSClass  *js_cocos2dx_CCBAnimationManager_class;
