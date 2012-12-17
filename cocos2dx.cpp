@@ -2163,6 +2163,25 @@ JSBool js_cocos2dx_CCNode_setShaderProgram(JSContext *cx, uint32_t argc, jsval *
 	JS_ReportError(cx, "wrong number of arguments: %d, was expecting %d", argc, 1);
 	return JS_FALSE;
 }
+JSBool js_cocos2dx_CCNode_scheduleUpdateWithPriorityLua(JSContext *cx, uint32_t argc, jsval *vp)
+{
+	jsval *argv = JS_ARGV(cx, vp);
+	JSObject *obj = JS_THIS_OBJECT(cx, vp);
+	js_proxy_t *proxy; JS_GET_NATIVE_PROXY(proxy, obj);
+	cocos2d::CCNode* cobj = (cocos2d::CCNode *)(proxy ? proxy->ptr : NULL);
+	TEST_NATIVE_OBJECT(cx, cobj)
+
+	if (argc == 2) {
+		int arg0;
+		int arg1;
+		JS_ValueToInt32(cx, argv[0], (int32_t *)&arg0);
+		JS_ValueToInt32(cx, argv[1], (int32_t *)&arg1);
+		cobj->scheduleUpdateWithPriorityLua(arg0, arg1);
+		return JS_TRUE;
+	}
+	JS_ReportError(cx, "wrong number of arguments: %d, was expecting %d", argc, 2);
+	return JS_FALSE;
+}
 JSBool js_cocos2dx_CCNode_getRotation(JSContext *cx, uint32_t argc, jsval *vp)
 {
 	JSObject *obj = JS_THIS_OBJECT(cx, vp);
@@ -3276,6 +3295,7 @@ void js_register_cocos2dx_CCNode(JSContext *cx, JSObject *global) {
 		JS_FN("convertToNodeSpaceAR", js_cocos2dx_CCNode_convertToNodeSpaceAR, 1, JSPROP_PERMANENT | JSPROP_SHARED),
 		JS_FN("visit", js_cocos2dx_CCNode_visit, 0, JSPROP_PERMANENT | JSPROP_SHARED),
 		JS_FN("setShaderProgram", js_cocos2dx_CCNode_setShaderProgram, 1, JSPROP_PERMANENT | JSPROP_SHARED),
+		JS_FN("scheduleUpdateWithPriorityLua", js_cocos2dx_CCNode_scheduleUpdateWithPriorityLua, 2, JSPROP_PERMANENT | JSPROP_SHARED),
 		JS_FN("getRotation", js_cocos2dx_CCNode_getRotation, 0, JSPROP_PERMANENT | JSPROP_SHARED),
 		JS_FN("resumeSchedulerAndActions", js_cocos2dx_CCNode_resumeSchedulerAndActions, 0, JSPROP_PERMANENT | JSPROP_SHARED),
 		JS_FN("getZOrder", js_cocos2dx_CCNode_getZOrder, 0, JSPROP_PERMANENT | JSPROP_SHARED),

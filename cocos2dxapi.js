@@ -540,6 +540,13 @@ visit : function () {},
 setShaderProgram : function () {},
 
 /**
+ * @method scheduleUpdateWithPriorityLua
+ * @param {int}
+ * @param {int}
+ */
+scheduleUpdateWithPriorityLua : function () {},
+
+/**
  * @method getRotation
  * @return A value converted from C/C++ "float"
  */
