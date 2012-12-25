@@ -2089,6 +2089,40 @@ JSBool js_cocos2dx_CCNode_reorderChild(JSContext *cx, uint32_t argc, jsval *vp)
 	JS_ReportError(cx, "wrong number of arguments: %d, was expecting %d", argc, 2);
 	return JS_FALSE;
 }
+JSBool js_cocos2dx_CCNode_setPositionY(JSContext *cx, uint32_t argc, jsval *vp)
+{
+	jsval *argv = JS_ARGV(cx, vp);
+	JSObject *obj = JS_THIS_OBJECT(cx, vp);
+	js_proxy_t *proxy; JS_GET_NATIVE_PROXY(proxy, obj);
+	cocos2d::CCNode* cobj = (cocos2d::CCNode *)(proxy ? proxy->ptr : NULL);
+	TEST_NATIVE_OBJECT(cx, cobj)
+
+	if (argc == 1) {
+		double arg0;
+		JS_ValueToNumber(cx, argv[0], &arg0);
+		cobj->setPositionY(arg0);
+		return JS_TRUE;
+	}
+	JS_ReportError(cx, "wrong number of arguments: %d, was expecting %d", argc, 1);
+	return JS_FALSE;
+}
+JSBool js_cocos2dx_CCNode_setPositionX(JSContext *cx, uint32_t argc, jsval *vp)
+{
+	jsval *argv = JS_ARGV(cx, vp);
+	JSObject *obj = JS_THIS_OBJECT(cx, vp);
+	js_proxy_t *proxy; JS_GET_NATIVE_PROXY(proxy, obj);
+	cocos2d::CCNode* cobj = (cocos2d::CCNode *)(proxy ? proxy->ptr : NULL);
+	TEST_NATIVE_OBJECT(cx, cobj)
+
+	if (argc == 1) {
+		double arg0;
+		JS_ValueToNumber(cx, argv[0], &arg0);
+		cobj->setPositionX(arg0);
+		return JS_TRUE;
+	}
+	JS_ReportError(cx, "wrong number of arguments: %d, was expecting %d", argc, 1);
+	return JS_FALSE;
+}
 JSBool js_cocos2dx_CCNode_getAnchorPoint(JSContext *cx, uint32_t argc, jsval *vp)
 {
 	JSObject *obj = JS_THIS_OBJECT(cx, vp);
@@ -3291,6 +3325,8 @@ void js_register_cocos2dx_CCNode(JSContext *cx, JSObject *global) {
 		JS_FN("numberOfRunningActions", js_cocos2dx_CCNode_numberOfRunningActions, 0, JSPROP_PERMANENT | JSPROP_SHARED),
 		JS_FN("stopActionByTag", js_cocos2dx_CCNode_stopActionByTag, 1, JSPROP_PERMANENT | JSPROP_SHARED),
 		JS_FN("reorderChild", js_cocos2dx_CCNode_reorderChild, 2, JSPROP_PERMANENT | JSPROP_SHARED),
+		JS_FN("setPositionY", js_cocos2dx_CCNode_setPositionY, 1, JSPROP_PERMANENT | JSPROP_SHARED),
+		JS_FN("setPositionX", js_cocos2dx_CCNode_setPositionX, 1, JSPROP_PERMANENT | JSPROP_SHARED),
 		JS_FN("getAnchorPoint", js_cocos2dx_CCNode_getAnchorPoint, 0, JSPROP_PERMANENT | JSPROP_SHARED),
 		JS_FN("convertToNodeSpaceAR", js_cocos2dx_CCNode_convertToNodeSpaceAR, 1, JSPROP_PERMANENT | JSPROP_SHARED),
 		JS_FN("visit", js_cocos2dx_CCNode_visit, 0, JSPROP_PERMANENT | JSPROP_SHARED),

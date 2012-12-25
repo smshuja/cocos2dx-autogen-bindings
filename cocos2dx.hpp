@@ -139,6 +139,8 @@ JSBool js_cocos2dx_CCNode_setParent(JSContext *cx, uint32_t argc, jsval *vp);
 JSBool js_cocos2dx_CCNode_numberOfRunningActions(JSContext *cx, uint32_t argc, jsval *vp);
 JSBool js_cocos2dx_CCNode_stopActionByTag(JSContext *cx, uint32_t argc, jsval *vp);
 JSBool js_cocos2dx_CCNode_reorderChild(JSContext *cx, uint32_t argc, jsval *vp);
+JSBool js_cocos2dx_CCNode_setPositionY(JSContext *cx, uint32_t argc, jsval *vp);
+JSBool js_cocos2dx_CCNode_setPositionX(JSContext *cx, uint32_t argc, jsval *vp);
 JSBool js_cocos2dx_CCNode_getAnchorPoint(JSContext *cx, uint32_t argc, jsval *vp);
 JSBool js_cocos2dx_CCNode_convertToNodeSpaceAR(JSContext *cx, uint32_t argc, jsval *vp);
 JSBool js_cocos2dx_CCNode_visit(JSContext *cx, uint32_t argc, jsval *vp);

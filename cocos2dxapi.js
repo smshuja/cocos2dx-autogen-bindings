@@ -516,6 +516,18 @@ stopActionByTag : function () {},
 reorderChild : function () {},
 
 /**
+ * @method setPositionY
+ * @param {float}
+ */
+setPositionY : function () {},
+
+/**
+ * @method setPositionX
+ * @param {float}
+ */
+setPositionX : function () {},
+
+/**
  * @method getAnchorPoint
  * @return A value converted from C/C++ "cocos2d::CCPoint"
  */
