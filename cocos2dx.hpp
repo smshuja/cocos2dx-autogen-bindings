@@ -410,6 +410,19 @@ JSBool js_cocos2dx_CCRotateBy_initWithDuration(JSContext *cx, uint32_t argc, jsv
 JSBool js_cocos2dx_CCRotateBy_update(JSContext *cx, uint32_t argc, jsval *vp);
 JSBool js_cocos2dx_CCRotateBy_create(JSContext *cx, uint32_t argc, jsval *vp);
 
+extern JSClass  *js_cocos2dx_CCMoveBy_class;
+extern JSObject *js_cocos2dx_CCMoveBy_prototype;
+
+JSBool js_cocos2dx_CCMoveBy_constructor(JSContext *cx, uint32_t argc, jsval *vp);
+void js_cocos2dx_CCMoveBy_finalize(JSContext *cx, JSObject *obj);
+void js_register_cocos2dx_CCMoveBy(JSContext *cx, JSObject *global);
+void register_all_cocos2dx(JSContext* cx, JSObject* obj);
+JSBool js_cocos2dx_CCMoveBy_startWithTarget(JSContext *cx, uint32_t argc, jsval *vp);
+JSBool js_cocos2dx_CCMoveBy_update(JSContext *cx, uint32_t argc, jsval *vp);
+JSBool js_cocos2dx_CCMoveBy_initWithDuration(JSContext *cx, uint32_t argc, jsval *vp);
+JSBool js_cocos2dx_CCMoveBy_reverse(JSContext *cx, uint32_t argc, jsval *vp);
+JSBool js_cocos2dx_CCMoveBy_create(JSContext *cx, uint32_t argc, jsval *vp);
+
 extern JSClass  *js_cocos2dx_CCMoveTo_class;
 extern JSObject *js_cocos2dx_CCMoveTo_prototype;
 
@@ -419,20 +432,7 @@ void js_register_cocos2dx_CCMoveTo(JSContext *cx, JSObject *global);
 void register_all_cocos2dx(JSContext* cx, JSObject* obj);
 JSBool js_cocos2dx_CCMoveTo_startWithTarget(JSContext *cx, uint32_t argc, jsval *vp);
 JSBool js_cocos2dx_CCMoveTo_initWithDuration(JSContext *cx, uint32_t argc, jsval *vp);
-JSBool js_cocos2dx_CCMoveTo_update(JSContext *cx, uint32_t argc, jsval *vp);
 JSBool js_cocos2dx_CCMoveTo_create(JSContext *cx, uint32_t argc, jsval *vp);
-
-extern JSClass  *js_cocos2dx_CCMoveBy_class;
-extern JSObject *js_cocos2dx_CCMoveBy_prototype;
-
-JSBool js_cocos2dx_CCMoveBy_constructor(JSContext *cx, uint32_t argc, jsval *vp);
-void js_cocos2dx_CCMoveBy_finalize(JSContext *cx, JSObject *obj);
-void js_register_cocos2dx_CCMoveBy(JSContext *cx, JSObject *global);
-void register_all_cocos2dx(JSContext* cx, JSObject* obj);
-JSBool js_cocos2dx_CCMoveBy_startWithTarget(JSContext *cx, uint32_t argc, jsval *vp);
-JSBool js_cocos2dx_CCMoveBy_initWithDuration(JSContext *cx, uint32_t argc, jsval *vp);
-JSBool js_cocos2dx_CCMoveBy_reverse(JSContext *cx, uint32_t argc, jsval *vp);
-JSBool js_cocos2dx_CCMoveBy_create(JSContext *cx, uint32_t argc, jsval *vp);
 
 extern JSClass  *js_cocos2dx_CCSkewTo_class;
 extern JSObject *js_cocos2dx_CCSkewTo_prototype;
@@ -1047,8 +1047,8 @@ void js_cocos2dx_CCGridAction_finalize(JSContext *cx, JSObject *obj);
 void js_register_cocos2dx_CCGridAction(JSContext *cx, JSObject *global);
 void register_all_cocos2dx(JSContext* cx, JSObject* obj);
 JSBool js_cocos2dx_CCGridAction_startWithTarget(JSContext *cx, uint32_t argc, jsval *vp);
-JSBool js_cocos2dx_CCGridAction_initWithSize(JSContext *cx, uint32_t argc, jsval *vp);
 JSBool js_cocos2dx_CCGridAction_getGrid(JSContext *cx, uint32_t argc, jsval *vp);
+JSBool js_cocos2dx_CCGridAction_initWithDuration(JSContext *cx, uint32_t argc, jsval *vp);
 JSBool js_cocos2dx_CCGridAction_reverse(JSContext *cx, uint32_t argc, jsval *vp);
 JSBool js_cocos2dx_CCGridAction_create(JSContext *cx, uint32_t argc, jsval *vp);
 
@@ -1083,11 +1083,11 @@ JSBool js_cocos2dx_CCWaves3D_constructor(JSContext *cx, uint32_t argc, jsval *vp
 void js_cocos2dx_CCWaves3D_finalize(JSContext *cx, JSObject *obj);
 void js_register_cocos2dx_CCWaves3D(JSContext *cx, JSObject *global);
 void register_all_cocos2dx(JSContext* cx, JSObject* obj);
+JSBool js_cocos2dx_CCWaves3D_initWithDuration(JSContext *cx, uint32_t argc, jsval *vp);
 JSBool js_cocos2dx_CCWaves3D_update(JSContext *cx, uint32_t argc, jsval *vp);
 JSBool js_cocos2dx_CCWaves3D_getAmplitudeRate(JSContext *cx, uint32_t argc, jsval *vp);
 JSBool js_cocos2dx_CCWaves3D_setAmplitude(JSContext *cx, uint32_t argc, jsval *vp);
 JSBool js_cocos2dx_CCWaves3D_getAmplitude(JSContext *cx, uint32_t argc, jsval *vp);
-JSBool js_cocos2dx_CCWaves3D_initWithWaves(JSContext *cx, uint32_t argc, jsval *vp);
 JSBool js_cocos2dx_CCWaves3D_setAmplitudeRate(JSContext *cx, uint32_t argc, jsval *vp);
 JSBool js_cocos2dx_CCWaves3D_create(JSContext *cx, uint32_t argc, jsval *vp);
 
@@ -1113,6 +1113,38 @@ void register_all_cocos2dx(JSContext* cx, JSObject* obj);
 JSBool js_cocos2dx_CCFlipY3D_update(JSContext *cx, uint32_t argc, jsval *vp);
 JSBool js_cocos2dx_CCFlipY3D_create(JSContext *cx, uint32_t argc, jsval *vp);
 
+extern JSClass  *js_cocos2dx_CCLens3D_class;
+extern JSObject *js_cocos2dx_CCLens3D_prototype;
+
+JSBool js_cocos2dx_CCLens3D_constructor(JSContext *cx, uint32_t argc, jsval *vp);
+void js_cocos2dx_CCLens3D_finalize(JSContext *cx, JSObject *obj);
+void js_register_cocos2dx_CCLens3D(JSContext *cx, JSObject *global);
+void register_all_cocos2dx(JSContext* cx, JSObject* obj);
+JSBool js_cocos2dx_CCLens3D_initWithDuration(JSContext *cx, uint32_t argc, jsval *vp);
+JSBool js_cocos2dx_CCLens3D_setLensEffect(JSContext *cx, uint32_t argc, jsval *vp);
+JSBool js_cocos2dx_CCLens3D_update(JSContext *cx, uint32_t argc, jsval *vp);
+JSBool js_cocos2dx_CCLens3D_getLensEffect(JSContext *cx, uint32_t argc, jsval *vp);
+JSBool js_cocos2dx_CCLens3D_setPosition(JSContext *cx, uint32_t argc, jsval *vp);
+JSBool js_cocos2dx_CCLens3D_getPosition(JSContext *cx, uint32_t argc, jsval *vp);
+JSBool js_cocos2dx_CCLens3D_create(JSContext *cx, uint32_t argc, jsval *vp);
+
+extern JSClass  *js_cocos2dx_CCRipple3D_class;
+extern JSObject *js_cocos2dx_CCRipple3D_prototype;
+
+JSBool js_cocos2dx_CCRipple3D_constructor(JSContext *cx, uint32_t argc, jsval *vp);
+void js_cocos2dx_CCRipple3D_finalize(JSContext *cx, JSObject *obj);
+void js_register_cocos2dx_CCRipple3D(JSContext *cx, JSObject *global);
+void register_all_cocos2dx(JSContext* cx, JSObject* obj);
+JSBool js_cocos2dx_CCRipple3D_setAmplitudeRate(JSContext *cx, uint32_t argc, jsval *vp);
+JSBool js_cocos2dx_CCRipple3D_initWithDuration(JSContext *cx, uint32_t argc, jsval *vp);
+JSBool js_cocos2dx_CCRipple3D_update(JSContext *cx, uint32_t argc, jsval *vp);
+JSBool js_cocos2dx_CCRipple3D_getAmplitudeRate(JSContext *cx, uint32_t argc, jsval *vp);
+JSBool js_cocos2dx_CCRipple3D_setAmplitude(JSContext *cx, uint32_t argc, jsval *vp);
+JSBool js_cocos2dx_CCRipple3D_getAmplitude(JSContext *cx, uint32_t argc, jsval *vp);
+JSBool js_cocos2dx_CCRipple3D_setPosition(JSContext *cx, uint32_t argc, jsval *vp);
+JSBool js_cocos2dx_CCRipple3D_getPosition(JSContext *cx, uint32_t argc, jsval *vp);
+JSBool js_cocos2dx_CCRipple3D_create(JSContext *cx, uint32_t argc, jsval *vp);
+
 extern JSClass  *js_cocos2dx_CCShaky3D_class;
 extern JSObject *js_cocos2dx_CCShaky3D_prototype;
 
@@ -1120,9 +1152,66 @@ JSBool js_cocos2dx_CCShaky3D_constructor(JSContext *cx, uint32_t argc, jsval *vp
 void js_cocos2dx_CCShaky3D_finalize(JSContext *cx, JSObject *obj);
 void js_register_cocos2dx_CCShaky3D(JSContext *cx, JSObject *global);
 void register_all_cocos2dx(JSContext* cx, JSObject* obj);
-JSBool js_cocos2dx_CCShaky3D_initWithRange(JSContext *cx, uint32_t argc, jsval *vp);
+JSBool js_cocos2dx_CCShaky3D_initWithDuration(JSContext *cx, uint32_t argc, jsval *vp);
 JSBool js_cocos2dx_CCShaky3D_update(JSContext *cx, uint32_t argc, jsval *vp);
 JSBool js_cocos2dx_CCShaky3D_create(JSContext *cx, uint32_t argc, jsval *vp);
+
+extern JSClass  *js_cocos2dx_CCLiquid_class;
+extern JSObject *js_cocos2dx_CCLiquid_prototype;
+
+JSBool js_cocos2dx_CCLiquid_constructor(JSContext *cx, uint32_t argc, jsval *vp);
+void js_cocos2dx_CCLiquid_finalize(JSContext *cx, JSObject *obj);
+void js_register_cocos2dx_CCLiquid(JSContext *cx, JSObject *global);
+void register_all_cocos2dx(JSContext* cx, JSObject* obj);
+JSBool js_cocos2dx_CCLiquid_initWithDuration(JSContext *cx, uint32_t argc, jsval *vp);
+JSBool js_cocos2dx_CCLiquid_update(JSContext *cx, uint32_t argc, jsval *vp);
+JSBool js_cocos2dx_CCLiquid_getAmplitudeRate(JSContext *cx, uint32_t argc, jsval *vp);
+JSBool js_cocos2dx_CCLiquid_setAmplitude(JSContext *cx, uint32_t argc, jsval *vp);
+JSBool js_cocos2dx_CCLiquid_getAmplitude(JSContext *cx, uint32_t argc, jsval *vp);
+JSBool js_cocos2dx_CCLiquid_setAmplitudeRate(JSContext *cx, uint32_t argc, jsval *vp);
+JSBool js_cocos2dx_CCLiquid_create(JSContext *cx, uint32_t argc, jsval *vp);
+
+extern JSClass  *js_cocos2dx_CCWaves_class;
+extern JSObject *js_cocos2dx_CCWaves_prototype;
+
+JSBool js_cocos2dx_CCWaves_constructor(JSContext *cx, uint32_t argc, jsval *vp);
+void js_cocos2dx_CCWaves_finalize(JSContext *cx, JSObject *obj);
+void js_register_cocos2dx_CCWaves(JSContext *cx, JSObject *global);
+void register_all_cocos2dx(JSContext* cx, JSObject* obj);
+JSBool js_cocos2dx_CCWaves_initWithDuration(JSContext *cx, uint32_t argc, jsval *vp);
+JSBool js_cocos2dx_CCWaves_update(JSContext *cx, uint32_t argc, jsval *vp);
+JSBool js_cocos2dx_CCWaves_getAmplitudeRate(JSContext *cx, uint32_t argc, jsval *vp);
+JSBool js_cocos2dx_CCWaves_setAmplitude(JSContext *cx, uint32_t argc, jsval *vp);
+JSBool js_cocos2dx_CCWaves_getAmplitude(JSContext *cx, uint32_t argc, jsval *vp);
+JSBool js_cocos2dx_CCWaves_setAmplitudeRate(JSContext *cx, uint32_t argc, jsval *vp);
+JSBool js_cocos2dx_CCWaves_create(JSContext *cx, uint32_t argc, jsval *vp);
+
+extern JSClass  *js_cocos2dx_CCTwirl_class;
+extern JSObject *js_cocos2dx_CCTwirl_prototype;
+
+JSBool js_cocos2dx_CCTwirl_constructor(JSContext *cx, uint32_t argc, jsval *vp);
+void js_cocos2dx_CCTwirl_finalize(JSContext *cx, JSObject *obj);
+void js_register_cocos2dx_CCTwirl(JSContext *cx, JSObject *global);
+void register_all_cocos2dx(JSContext* cx, JSObject* obj);
+JSBool js_cocos2dx_CCTwirl_setAmplitudeRate(JSContext *cx, uint32_t argc, jsval *vp);
+JSBool js_cocos2dx_CCTwirl_initWithDuration(JSContext *cx, uint32_t argc, jsval *vp);
+JSBool js_cocos2dx_CCTwirl_update(JSContext *cx, uint32_t argc, jsval *vp);
+JSBool js_cocos2dx_CCTwirl_getAmplitudeRate(JSContext *cx, uint32_t argc, jsval *vp);
+JSBool js_cocos2dx_CCTwirl_setAmplitude(JSContext *cx, uint32_t argc, jsval *vp);
+JSBool js_cocos2dx_CCTwirl_getAmplitude(JSContext *cx, uint32_t argc, jsval *vp);
+JSBool js_cocos2dx_CCTwirl_setPosition(JSContext *cx, uint32_t argc, jsval *vp);
+JSBool js_cocos2dx_CCTwirl_getPosition(JSContext *cx, uint32_t argc, jsval *vp);
+JSBool js_cocos2dx_CCTwirl_create(JSContext *cx, uint32_t argc, jsval *vp);
+
+extern JSClass  *js_cocos2dx_CCPageTurn3D_class;
+extern JSObject *js_cocos2dx_CCPageTurn3D_prototype;
+
+JSBool js_cocos2dx_CCPageTurn3D_constructor(JSContext *cx, uint32_t argc, jsval *vp);
+void js_cocos2dx_CCPageTurn3D_finalize(JSContext *cx, JSObject *obj);
+void js_register_cocos2dx_CCPageTurn3D(JSContext *cx, JSObject *global);
+void register_all_cocos2dx(JSContext* cx, JSObject* obj);
+JSBool js_cocos2dx_CCPageTurn3D_update(JSContext *cx, uint32_t argc, jsval *vp);
+JSBool js_cocos2dx_CCPageTurn3D_create(JSContext *cx, uint32_t argc, jsval *vp);
 
 extern JSClass  *js_cocos2dx_CCProgressTo_class;
 extern JSObject *js_cocos2dx_CCProgressTo_prototype;
@@ -1148,6 +1237,43 @@ JSBool js_cocos2dx_CCProgressFromTo_update(JSContext *cx, uint32_t argc, jsval *
 JSBool js_cocos2dx_CCProgressFromTo_initWithDuration(JSContext *cx, uint32_t argc, jsval *vp);
 JSBool js_cocos2dx_CCProgressFromTo_reverse(JSContext *cx, uint32_t argc, jsval *vp);
 JSBool js_cocos2dx_CCProgressFromTo_create(JSContext *cx, uint32_t argc, jsval *vp);
+
+extern JSClass  *js_cocos2dx_CCShakyTiles3D_class;
+extern JSObject *js_cocos2dx_CCShakyTiles3D_prototype;
+
+JSBool js_cocos2dx_CCShakyTiles3D_constructor(JSContext *cx, uint32_t argc, jsval *vp);
+void js_cocos2dx_CCShakyTiles3D_finalize(JSContext *cx, JSObject *obj);
+void js_register_cocos2dx_CCShakyTiles3D(JSContext *cx, JSObject *global);
+void register_all_cocos2dx(JSContext* cx, JSObject* obj);
+JSBool js_cocos2dx_CCShakyTiles3D_initWithDuration(JSContext *cx, uint32_t argc, jsval *vp);
+JSBool js_cocos2dx_CCShakyTiles3D_update(JSContext *cx, uint32_t argc, jsval *vp);
+JSBool js_cocos2dx_CCShakyTiles3D_create(JSContext *cx, uint32_t argc, jsval *vp);
+
+extern JSClass  *js_cocos2dx_CCShatteredTiles3D_class;
+extern JSObject *js_cocos2dx_CCShatteredTiles3D_prototype;
+
+JSBool js_cocos2dx_CCShatteredTiles3D_constructor(JSContext *cx, uint32_t argc, jsval *vp);
+void js_cocos2dx_CCShatteredTiles3D_finalize(JSContext *cx, JSObject *obj);
+void js_register_cocos2dx_CCShatteredTiles3D(JSContext *cx, JSObject *global);
+void register_all_cocos2dx(JSContext* cx, JSObject* obj);
+JSBool js_cocos2dx_CCShatteredTiles3D_initWithDuration(JSContext *cx, uint32_t argc, jsval *vp);
+JSBool js_cocos2dx_CCShatteredTiles3D_update(JSContext *cx, uint32_t argc, jsval *vp);
+JSBool js_cocos2dx_CCShatteredTiles3D_create(JSContext *cx, uint32_t argc, jsval *vp);
+
+extern JSClass  *js_cocos2dx_CCShuffleTiles_class;
+extern JSObject *js_cocos2dx_CCShuffleTiles_prototype;
+
+JSBool js_cocos2dx_CCShuffleTiles_constructor(JSContext *cx, uint32_t argc, jsval *vp);
+void js_cocos2dx_CCShuffleTiles_finalize(JSContext *cx, JSObject *obj);
+void js_register_cocos2dx_CCShuffleTiles(JSContext *cx, JSObject *global);
+void register_all_cocos2dx(JSContext* cx, JSObject* obj);
+JSBool js_cocos2dx_CCShuffleTiles_startWithTarget(JSContext *cx, uint32_t argc, jsval *vp);
+JSBool js_cocos2dx_CCShuffleTiles_placeTile(JSContext *cx, uint32_t argc, jsval *vp);
+JSBool js_cocos2dx_CCShuffleTiles_initWithDuration(JSContext *cx, uint32_t argc, jsval *vp);
+JSBool js_cocos2dx_CCShuffleTiles_getDelta(JSContext *cx, uint32_t argc, jsval *vp);
+JSBool js_cocos2dx_CCShuffleTiles_update(JSContext *cx, uint32_t argc, jsval *vp);
+JSBool js_cocos2dx_CCShuffleTiles_shuffle(JSContext *cx, uint32_t argc, jsval *vp);
+JSBool js_cocos2dx_CCShuffleTiles_create(JSContext *cx, uint32_t argc, jsval *vp);
 
 extern JSClass  *js_cocos2dx_CCFadeOutTRTiles_class;
 extern JSObject *js_cocos2dx_CCFadeOutTRTiles_prototype;
@@ -1194,6 +1320,36 @@ void register_all_cocos2dx(JSContext* cx, JSObject* obj);
 JSBool js_cocos2dx_CCFadeOutDownTiles_testFunc(JSContext *cx, uint32_t argc, jsval *vp);
 JSBool js_cocos2dx_CCFadeOutDownTiles_create(JSContext *cx, uint32_t argc, jsval *vp);
 
+extern JSClass  *js_cocos2dx_CCTurnOffTiles_class;
+extern JSObject *js_cocos2dx_CCTurnOffTiles_prototype;
+
+JSBool js_cocos2dx_CCTurnOffTiles_constructor(JSContext *cx, uint32_t argc, jsval *vp);
+void js_cocos2dx_CCTurnOffTiles_finalize(JSContext *cx, JSObject *obj);
+void js_register_cocos2dx_CCTurnOffTiles(JSContext *cx, JSObject *global);
+void register_all_cocos2dx(JSContext* cx, JSObject* obj);
+JSBool js_cocos2dx_CCTurnOffTiles_turnOnTile(JSContext *cx, uint32_t argc, jsval *vp);
+JSBool js_cocos2dx_CCTurnOffTiles_startWithTarget(JSContext *cx, uint32_t argc, jsval *vp);
+JSBool js_cocos2dx_CCTurnOffTiles_turnOffTile(JSContext *cx, uint32_t argc, jsval *vp);
+JSBool js_cocos2dx_CCTurnOffTiles_shuffle(JSContext *cx, uint32_t argc, jsval *vp);
+JSBool js_cocos2dx_CCTurnOffTiles_initWithDuration(JSContext *cx, uint32_t argc, jsval *vp);
+JSBool js_cocos2dx_CCTurnOffTiles_update(JSContext *cx, uint32_t argc, jsval *vp);
+JSBool js_cocos2dx_CCTurnOffTiles_create(JSContext *cx, uint32_t argc, jsval *vp);
+
+extern JSClass  *js_cocos2dx_CCWavesTiles3D_class;
+extern JSObject *js_cocos2dx_CCWavesTiles3D_prototype;
+
+JSBool js_cocos2dx_CCWavesTiles3D_constructor(JSContext *cx, uint32_t argc, jsval *vp);
+void js_cocos2dx_CCWavesTiles3D_finalize(JSContext *cx, JSObject *obj);
+void js_register_cocos2dx_CCWavesTiles3D(JSContext *cx, JSObject *global);
+void register_all_cocos2dx(JSContext* cx, JSObject* obj);
+JSBool js_cocos2dx_CCWavesTiles3D_initWithDuration(JSContext *cx, uint32_t argc, jsval *vp);
+JSBool js_cocos2dx_CCWavesTiles3D_update(JSContext *cx, uint32_t argc, jsval *vp);
+JSBool js_cocos2dx_CCWavesTiles3D_getAmplitudeRate(JSContext *cx, uint32_t argc, jsval *vp);
+JSBool js_cocos2dx_CCWavesTiles3D_setAmplitude(JSContext *cx, uint32_t argc, jsval *vp);
+JSBool js_cocos2dx_CCWavesTiles3D_getAmplitude(JSContext *cx, uint32_t argc, jsval *vp);
+JSBool js_cocos2dx_CCWavesTiles3D_setAmplitudeRate(JSContext *cx, uint32_t argc, jsval *vp);
+JSBool js_cocos2dx_CCWavesTiles3D_create(JSContext *cx, uint32_t argc, jsval *vp);
+
 extern JSClass  *js_cocos2dx_CCJumpTiles3D_class;
 extern JSObject *js_cocos2dx_CCJumpTiles3D_prototype;
 
@@ -1201,13 +1357,37 @@ JSBool js_cocos2dx_CCJumpTiles3D_constructor(JSContext *cx, uint32_t argc, jsval
 void js_cocos2dx_CCJumpTiles3D_finalize(JSContext *cx, JSObject *obj);
 void js_register_cocos2dx_CCJumpTiles3D(JSContext *cx, JSObject *global);
 void register_all_cocos2dx(JSContext* cx, JSObject* obj);
-JSBool js_cocos2dx_CCJumpTiles3D_setAmplitudeRate(JSContext *cx, uint32_t argc, jsval *vp);
-JSBool js_cocos2dx_CCJumpTiles3D_initWithJumps(JSContext *cx, uint32_t argc, jsval *vp);
+JSBool js_cocos2dx_CCJumpTiles3D_initWithDuration(JSContext *cx, uint32_t argc, jsval *vp);
 JSBool js_cocos2dx_CCJumpTiles3D_update(JSContext *cx, uint32_t argc, jsval *vp);
 JSBool js_cocos2dx_CCJumpTiles3D_getAmplitudeRate(JSContext *cx, uint32_t argc, jsval *vp);
 JSBool js_cocos2dx_CCJumpTiles3D_setAmplitude(JSContext *cx, uint32_t argc, jsval *vp);
 JSBool js_cocos2dx_CCJumpTiles3D_getAmplitude(JSContext *cx, uint32_t argc, jsval *vp);
+JSBool js_cocos2dx_CCJumpTiles3D_setAmplitudeRate(JSContext *cx, uint32_t argc, jsval *vp);
 JSBool js_cocos2dx_CCJumpTiles3D_create(JSContext *cx, uint32_t argc, jsval *vp);
+
+extern JSClass  *js_cocos2dx_CCSplitRows_class;
+extern JSObject *js_cocos2dx_CCSplitRows_prototype;
+
+JSBool js_cocos2dx_CCSplitRows_constructor(JSContext *cx, uint32_t argc, jsval *vp);
+void js_cocos2dx_CCSplitRows_finalize(JSContext *cx, JSObject *obj);
+void js_register_cocos2dx_CCSplitRows(JSContext *cx, JSObject *global);
+void register_all_cocos2dx(JSContext* cx, JSObject* obj);
+JSBool js_cocos2dx_CCSplitRows_startWithTarget(JSContext *cx, uint32_t argc, jsval *vp);
+JSBool js_cocos2dx_CCSplitRows_initWithDuration(JSContext *cx, uint32_t argc, jsval *vp);
+JSBool js_cocos2dx_CCSplitRows_update(JSContext *cx, uint32_t argc, jsval *vp);
+JSBool js_cocos2dx_CCSplitRows_create(JSContext *cx, uint32_t argc, jsval *vp);
+
+extern JSClass  *js_cocos2dx_CCSplitCols_class;
+extern JSObject *js_cocos2dx_CCSplitCols_prototype;
+
+JSBool js_cocos2dx_CCSplitCols_constructor(JSContext *cx, uint32_t argc, jsval *vp);
+void js_cocos2dx_CCSplitCols_finalize(JSContext *cx, JSObject *obj);
+void js_register_cocos2dx_CCSplitCols(JSContext *cx, JSObject *global);
+void register_all_cocos2dx(JSContext* cx, JSObject* obj);
+JSBool js_cocos2dx_CCSplitCols_startWithTarget(JSContext *cx, uint32_t argc, jsval *vp);
+JSBool js_cocos2dx_CCSplitCols_initWithDuration(JSContext *cx, uint32_t argc, jsval *vp);
+JSBool js_cocos2dx_CCSplitCols_update(JSContext *cx, uint32_t argc, jsval *vp);
+JSBool js_cocos2dx_CCSplitCols_create(JSContext *cx, uint32_t argc, jsval *vp);
 
 extern JSClass  *js_cocos2dx_CCActionTween_class;
 extern JSObject *js_cocos2dx_CCActionTween_prototype;
@@ -1496,6 +1676,38 @@ JSBool js_cocos2dx_CCDirector_replaceScene(JSContext *cx, uint32_t argc, jsval *
 JSBool js_cocos2dx_CCDirector_setAnimationInterval(JSContext *cx, uint32_t argc, jsval *vp);
 JSBool js_cocos2dx_CCDirector_getActionManager(JSContext *cx, uint32_t argc, jsval *vp);
 JSBool js_cocos2dx_CCDirector_sharedDirector(JSContext *cx, uint32_t argc, jsval *vp);
+
+extern JSClass  *js_cocos2dx_CCGrid3D_class;
+extern JSObject *js_cocos2dx_CCGrid3D_prototype;
+
+JSBool js_cocos2dx_CCGrid3D_constructor(JSContext *cx, uint32_t argc, jsval *vp);
+void js_cocos2dx_CCGrid3D_finalize(JSContext *cx, JSObject *obj);
+void js_register_cocos2dx_CCGrid3D(JSContext *cx, JSObject *global);
+void register_all_cocos2dx(JSContext* cx, JSObject* obj);
+JSBool js_cocos2dx_CCGrid3D_calculateVertexPoints(JSContext *cx, uint32_t argc, jsval *vp);
+JSBool js_cocos2dx_CCGrid3D_setVertex(JSContext *cx, uint32_t argc, jsval *vp);
+JSBool js_cocos2dx_CCGrid3D_reuse(JSContext *cx, uint32_t argc, jsval *vp);
+JSBool js_cocos2dx_CCGrid3D_vertex(JSContext *cx, uint32_t argc, jsval *vp);
+JSBool js_cocos2dx_CCGrid3D_blit(JSContext *cx, uint32_t argc, jsval *vp);
+JSBool js_cocos2dx_CCGrid3D_originalVertex(JSContext *cx, uint32_t argc, jsval *vp);
+JSBool js_cocos2dx_CCGrid3D_create(JSContext *cx, uint32_t argc, jsval *vp);
+JSBool js_cocos2dx_CCGrid3D_CCGrid3D(JSContext *cx, uint32_t argc, jsval *vp);
+
+extern JSClass  *js_cocos2dx_CCTiledGrid3D_class;
+extern JSObject *js_cocos2dx_CCTiledGrid3D_prototype;
+
+JSBool js_cocos2dx_CCTiledGrid3D_constructor(JSContext *cx, uint32_t argc, jsval *vp);
+void js_cocos2dx_CCTiledGrid3D_finalize(JSContext *cx, JSObject *obj);
+void js_register_cocos2dx_CCTiledGrid3D(JSContext *cx, JSObject *global);
+void register_all_cocos2dx(JSContext* cx, JSObject* obj);
+JSBool js_cocos2dx_CCTiledGrid3D_calculateVertexPoints(JSContext *cx, uint32_t argc, jsval *vp);
+JSBool js_cocos2dx_CCTiledGrid3D_reuse(JSContext *cx, uint32_t argc, jsval *vp);
+JSBool js_cocos2dx_CCTiledGrid3D_originalTile(JSContext *cx, uint32_t argc, jsval *vp);
+JSBool js_cocos2dx_CCTiledGrid3D_tile(JSContext *cx, uint32_t argc, jsval *vp);
+JSBool js_cocos2dx_CCTiledGrid3D_setTile(JSContext *cx, uint32_t argc, jsval *vp);
+JSBool js_cocos2dx_CCTiledGrid3D_blit(JSContext *cx, uint32_t argc, jsval *vp);
+JSBool js_cocos2dx_CCTiledGrid3D_create(JSContext *cx, uint32_t argc, jsval *vp);
+JSBool js_cocos2dx_CCTiledGrid3D_CCTiledGrid3D(JSContext *cx, uint32_t argc, jsval *vp);
 
 extern JSClass  *js_cocos2dx_CCLabelAtlas_class;
 extern JSObject *js_cocos2dx_CCLabelAtlas_prototype;
