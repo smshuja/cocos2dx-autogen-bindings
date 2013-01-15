@@ -4539,95 +4539,6 @@ create : function () {},
 };
 
 /**
- * @class CCPointArray
- */
-cc.CCPointArray = {
-
-/**
- * @method count
- * @return A value converted from C/C++ "unsigned int"
- */
-count : function () {},
-
-/**
- * @method insertControlPoint
- * @param {cocos2d::CCPoint}
- * @param {unsigned int}
- */
-insertControlPoint : function () {},
-
-/**
- * @method reverse
- * @return A value converted from C/C++ "cocos2d::CCPointArray*"
- */
-reverse : function () {},
-
-/**
- * @method initWithCapacity
- * @return A value converted from C/C++ "bool"
- * @param {unsigned int}
- */
-initWithCapacity : function () {},
-
-/**
- * @method removeControlPointAtIndex
- * @param {unsigned int}
- */
-removeControlPointAtIndex : function () {},
-
-/**
- * @method setControlPoints
- * @param {cocos2d::CCArray*}
- */
-setControlPoints : function () {},
-
-/**
- * @method replaceControlPoint
- * @param {cocos2d::CCPoint}
- * @param {unsigned int}
- */
-replaceControlPoint : function () {},
-
-/**
- * @method addControlPoint
- * @param {cocos2d::CCPoint}
- */
-addControlPoint : function () {},
-
-/**
- * @method getControlPointAtIndex
- * @return A value converted from C/C++ "cocos2d::CCPoint"
- * @param {unsigned int}
- */
-getControlPointAtIndex : function () {},
-
-/**
- * @method reverseInline
- */
-reverseInline : function () {},
-
-/**
- * @method getControlPoints
- * @return A value converted from C/C++ "cocos2d::CCArray*"
- */
-getControlPoints : function () {},
-
-/**
- * @method create
- * @return A value converted from C/C++ "cocos2d::CCPointArray*"
- * @param {unsigned int}
- */
-create : function () {},
-
-/**
- * @method CCPointArray
- * @constructor
- */
-CCPointArray : function () {},
-
-};
-
-/**
  * @class CCCardinalSplineTo
  */
 cc.CCCardinalSplineTo = {
@@ -4809,7 +4720,7 @@ initWithTileFile : function () {},
 
 /**
  * @method getColor
- * @return A value converted from C/C++ "ccColor3B"
+ * @return A value converted from C/C++ "cocos2d::ccColor3B"
  */
 getColor : function () {},
 
@@ -4995,10 +4906,9 @@ CCCamera : function () {},
 cc.CCSprite = {
 
 /**
- * @method setDirtyRecursively
- * @param {bool}
+ * @method draw
  */
-setDirtyRecursively : function () {},
+draw : function () {},
 
 /**
  * @method setTexture
@@ -5007,22 +4917,22 @@ setDirtyRecursively : function () {},
 setTexture : function () {},
 
 /**
- * @method setAnchorPoint
- * @param {cocos2d::CCPoint}
+ * @method isFlipX
+ * @return A value converted from C/C++ "bool"
  */
-setAnchorPoint : function () {},
+isFlipX : function () {},
 
 /**
- * @method setScaleX
- * @param {float}
+ * @method getTexture
+ * @return A value converted from C/C++ "cocos2d::CCTexture2D*"
  */
-setScaleX : function () {},
+getTexture : function () {},
 
 /**
- * @method setRotationX
+ * @method setScaleY
  * @param {float}
  */
-setRotationX : function () {},
+setScaleY : function () {},
 
 /**
  * @method setScale
@@ -5044,28 +4954,22 @@ setDisplayFrameWithAnimationName : function () {},
 setRotationY : function () {},
 
 /**
+ * @method setAnchorPoint
+ * @param {cocos2d::CCPoint}
+ */
+setAnchorPoint : function () {},
+
+/**
  * @method getBatchNode
  * @return A value converted from C/C++ "cocos2d::CCSpriteBatchNode*"
  */
 getBatchNode : function () {},
 
 /**
- * @method getOffsetPosition
- * @return A value converted from C/C++ "cocos2d::CCPoint"
+ * @method isTextureRectRotated
+ * @return A value converted from C/C++ "bool"
  */
-getOffsetPosition : function () {},
-
-/**
- * @method setScaleY
- * @param {float}
- */
-setScaleY : function () {},
-
-/**
- * @method getTexture
- * @return A value converted from C/C++ "cocos2d::CCTexture2D*"
- */
-getTexture : function () {},
+isTextureRectRotated : function () {},
 
 /**
  * @method setOpacity
@@ -5080,17 +4984,17 @@ setOpacity : function () {},
 setVertexZ : function () {},
 
 /**
- * @method reorderChild
- * @param {cocos2d::CCNode*}
- * @param {int}
+ * @method getTextureRect
+ * @return A value converted from C/C++ "cocos2d::CCRect"
  */
-reorderChild : function () {},
+getTextureRect : function () {},
 
 /**
- * @method init
+ * @method initWithSpriteFrameName
  * @return A value converted from C/C++ "bool"
+ * @param {const char*}
  */
-init : function () {},
+initWithSpriteFrameName : function () {},
 
 /**
  * @method isFrameDisplayed
@@ -5124,26 +5028,32 @@ getOpacity : function () {},
 setDisplayFrame : function () {},
 
 /**
+ * @method getOffsetPosition
+ * @return A value converted from C/C++ "cocos2d::CCPoint"
+ */
+getOffsetPosition : function () {},
+
+/**
  * @method setBatchNode
  * @param {cocos2d::CCSpriteBatchNode*}
  */
 setBatchNode : function () {},
 
 /**
- * @method initWithSpriteFrameName
- * @return A value converted from C/C++ "bool"
- * @param {const char*}
+ * @method setRotationX
+ * @param {float}
  */
-initWithSpriteFrameName : function () {},
+setRotationX : function () {},
 
 /**
- * @method draw
+ * @method setScaleX
+ * @param {float}
  */
-draw : function () {},
+setScaleX : function () {},
 
 /**
  * @method getColor
- * @return A value converted from C/C++ "ccColor3B"
+ * @return A value converted from C/C++ "cocos2d::ccColor3B"
  */
 getColor : function () {},
 
@@ -5154,16 +5064,21 @@ getColor : function () {},
 setFlipY : function () {},
 
 /**
+ * @method setFlipX
+ * @param {bool}
+ */
+setFlipX : function () {},
+
+/**
  * @method removeAllChildrenWithCleanup
  * @param {bool}
  */
 removeAllChildrenWithCleanup : function () {},
 
 /**
- * @method isDirty
- * @return A value converted from C/C++ "bool"
+ * @method sortAllChildren
  */
-isDirty : function () {},
+sortAllChildren : function () {},
 
 /**
  * @method setAtlasIndex
@@ -5184,21 +5099,17 @@ setRotation : function () {},
 setDirty : function () {},
 
 /**
- * @method isTextureRectRotated
+ * @method isDirty
  * @return A value converted from C/C++ "bool"
  */
-isTextureRectRotated : function () {},
+isDirty : function () {},
 
 /**
- * @method sortAllChildren
+ * @method reorderChild
+ * @param {cocos2d::CCNode*}
+ * @param {int}
  */
-sortAllChildren : function () {},
-
-/**
- * @method getTextureRect
- * @return A value converted from C/C++ "cocos2d::CCRect"
- */
-getTextureRect : function () {},
+reorderChild : function () {},
 
 /**
  * @method ignoreAnchorPointForPosition
@@ -5207,26 +5118,16 @@ getTextureRect : function () {},
 ignoreAnchorPointForPosition : function () {},
 
 /**
+ * @method init
+ * @return A value converted from C/C++ "bool"
+ */
+init : function () {},
+
+/**
  * @method setColor
  * @param {cocos2d::ccColor3B}
  */
 setColor : function () {},
-
-/**
- * @method updateTransform
- */
-updateTransform : function () {},
-
-/**
- * @method setFlipX
- * @param {bool}
- */
-setFlipX : function () {},
-
-/**
- * @method updateColor
- */
-updateColor : function () {},
 
 /**
  * @method getTextureAtlas
@@ -5249,10 +5150,9 @@ initWithSpriteFrame : function () {},
 removeChild : function () {},
 
 /**
- * @method isFlipX
- * @return A value converted from C/C++ "bool"
+ * @method updateTransform
  */
-isFlipX : function () {},
+updateTransform : function () {},
 
 /**
  * @method isFlipY
@@ -6102,7 +6002,7 @@ setScaleX : function () {},
 
 /**
  * @method getColor
- * @return A value converted from C/C++ "ccColor3B"
+ * @return A value converted from C/C++ "cocos2d::ccColor3B"
  */
 getColor : function () {},
 
@@ -6378,7 +6278,7 @@ setColor : function () {},
 
 /**
  * @method getColor
- * @return A value converted from C/C++ "ccColor3B"
+ * @return A value converted from C/C++ "cocos2d::ccColor3B"
  */
 getColor : function () {},
 
@@ -6440,7 +6340,7 @@ cc.CCLayerGradient = {
 
 /**
  * @method getStartColor
- * @return A value converted from C/C++ "ccColor3B"
+ * @return A value converted from C/C++ "cocos2d::ccColor3B"
  */
 getStartColor : function () {},
 
@@ -6494,7 +6394,7 @@ setEndColor : function () {},
 
 /**
  * @method getEndColor
- * @return A value converted from C/C++ "ccColor3B"
+ * @return A value converted from C/C++ "cocos2d::ccColor3B"
  */
 getEndColor : function () {},
 
@@ -7576,7 +7476,7 @@ setColor : function () {},
 
 /**
  * @method getDisabledColor
- * @return A value converted from C/C++ "ccColor3B"
+ * @return A value converted from C/C++ "cocos2d::ccColor3B"
  */
 getDisabledColor : function () {},
 
@@ -7617,7 +7517,7 @@ getOpacity : function () {},
 
 /**
  * @method getColor
- * @return A value converted from C/C++ "ccColor3B"
+ * @return A value converted from C/C++ "cocos2d::ccColor3B"
  */
 getColor : function () {},
 
@@ -7744,7 +7644,7 @@ setDisabledImage : function () {},
 
 /**
  * @method getColor
- * @return A value converted from C/C++ "ccColor3B"
+ * @return A value converted from C/C++ "cocos2d::ccColor3B"
  */
 getColor : function () {},
 
@@ -7894,7 +7794,7 @@ selected : function () {},
 
 /**
  * @method getColor
- * @return A value converted from C/C++ "ccColor3B"
+ * @return A value converted from C/C++ "cocos2d::ccColor3B"
  */
 getColor : function () {},
 
@@ -8010,7 +7910,7 @@ setEnabled : function () {},
 
 /**
  * @method getColor
- * @return A value converted from C/C++ "ccColor3B"
+ * @return A value converted from C/C++ "cocos2d::ccColor3B"
  */
 getColor : function () {},
 
@@ -8131,7 +8031,7 @@ draw : function () {},
 
 /**
  * @method getColor
- * @return A value converted from C/C++ "ccColor3B"
+ * @return A value converted from C/C++ "cocos2d::ccColor3B"
  */
 getColor : function () {},
 
@@ -8481,7 +8381,7 @@ getBatchNode : function () {},
 
 /**
  * @method getStartColor
- * @return A value converted from C/C++ "ccColor4F"
+ * @return A value converted from C/C++ "cocos2d::ccColor4F"
  */
 getStartColor : function () {},
 
@@ -8942,7 +8842,7 @@ setEmissionRate : function () {},
 
 /**
  * @method getEndColorVar
- * @return A value converted from C/C++ "ccColor4F"
+ * @return A value converted from C/C++ "cocos2d::ccColor4F"
  */
 getEndColorVar : function () {},
 
@@ -8960,7 +8860,7 @@ getEmissionRate : function () {},
 
 /**
  * @method getEndColor
- * @return A value converted from C/C++ "ccColor4F"
+ * @return A value converted from C/C++ "cocos2d::ccColor4F"
  */
 getEndColor : function () {},
 
@@ -9050,7 +8950,7 @@ getEndRadiusVar : function () {},
 
 /**
  * @method getStartColorVar
- * @return A value converted from C/C++ "ccColor4F"
+ * @return A value converted from C/C++ "cocos2d::ccColor4F"
  */
 getStartColorVar : function () {},
 
@@ -10925,7 +10825,7 @@ setSpriteFrame : function () {},
 
 /**
  * @method getColor
- * @return A value converted from C/C++ "ccColor3B"
+ * @return A value converted from C/C++ "cocos2d::ccColor3B"
  */
 getColor : function () {},
 
@@ -11177,7 +11077,7 @@ getOpacity : function () {},
 
 /**
  * @method getCurrentTitleColor
- * @return A value converted from C/C++ "ccColor3B"
+ * @return A value converted from C/C++ "cocos2d::ccColor3B"
  */
 getCurrentTitleColor : function () {},
 
