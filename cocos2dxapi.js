@@ -376,12 +376,6 @@ containsObject : function () {},
 cc.CCNode = {
 
 /**
- * @method setAnchorPoint
- * @param {cocos2d::CCPoint}
- */
-setAnchorPoint : function () {},
-
-/**
  * @method getScriptHandler
  * @return A value converted from C/C++ "int"
  */
@@ -480,12 +474,6 @@ getRotationX : function () {},
 getRotationY : function () {},
 
 /**
- * @method setUserObject
- * @param {cocos2d::CCObject*}
- */
-setUserObject : function () {},
-
-/**
  * @method unscheduleUpdate
  */
 unscheduleUpdate : function () {},
@@ -534,6 +522,18 @@ setPositionX : function () {},
 getAnchorPoint : function () {},
 
 /**
+ * @method isVisible
+ * @return A value converted from C/C++ "bool"
+ */
+isVisible : function () {},
+
+/**
+ * @method setAnchorPoint
+ * @param {cocos2d::CCPoint}
+ */
+setAnchorPoint : function () {},
+
+/**
  * @method convertToNodeSpaceAR
  * @return A value converted from C/C++ "cocos2d::CCPoint"
  * @param {cocos2d::CCPoint}
@@ -580,12 +580,6 @@ getZOrder : function () {},
  * @return A value converted from C/C++ "cocos2d::CCPoint"
  */
 getAnchorPointInPoints : function () {},
-
-/**
- * @method getPositionLua
- * @return A value converted from C/C++ "cocos2d::CCPoint"
- */
-getPositionLua : function () {},
 
 /**
  * @method runAction
@@ -789,6 +783,12 @@ draw : function () {},
 transformAncestors : function () {},
 
 /**
+ * @method setUserObject
+ * @param {cocos2d::CCObject*}
+ */
+setUserObject : function () {},
+
+/**
  * @method registerScriptHandler
  * @param {int}
  */
@@ -800,12 +800,6 @@ registerScriptHandler : function () {},
  * @param {cocos2d::CCTouch*}
  */
 convertTouchToNodeSpaceAR : function () {},
-
-/**
- * @method isVisible
- * @return A value converted from C/C++ "bool"
- */
-isVisible : function () {},
 
 /**
  * @method update
@@ -7933,6 +7927,13 @@ setColor : function () {},
  * @param {cocos2d::CCEvent*}
  */
 ccTouchCancelled : function () {},
+
+/**
+ * @method removeChild
+ * @param {cocos2d::CCNode*}
+ * @param {bool}
+ */
+removeChild : function () {},
 
 /**
  * @method alignItemsVerticallyWithPadding
