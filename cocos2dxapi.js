@@ -9446,6 +9446,141 @@ CCParticleRain : function () {},
 };
 
 /**
+ * @class CCFileUtils
+ */
+cc.CCFileUtils = {
+
+/**
+ * @method isPopupNotify
+ * @return A value converted from C/C++ "bool"
+ */
+isPopupNotify : function () {},
+
+/**
+ * @method setResourceDirectory
+ * @param {const char*}
+ */
+setResourceDirectory : function () {},
+
+/**
+ * @method getResourceDirectory
+ * @return A value converted from C/C++ "const char*"
+ */
+getResourceDirectory : function () {},
+
+/**
+ * @method purgeCachedEntries
+ */
+purgeCachedEntries : function () {},
+
+/**
+ * @method fullPathFromRelativeFile
+ * @return A value converted from C/C++ "const char*"
+ * @param {const char*}
+ * @param {const char*}
+ */
+fullPathFromRelativeFile : function () {},
+
+/**
+ * @method getFileData
+ * @return A value converted from C/C++ "unsigned char*"
+ * @param {const char*}
+ * @param {const char*}
+ * @param {unsigned long*}
+ */
+getFileData : function () {},
+
+/**
+ * @method setFilenameLookupDictionary
+ * @param {cocos2d::CCDictionary*}
+ */
+setFilenameLookupDictionary : function () {},
+
+/**
+ * @method setPopupNotify
+ * @param {bool}
+ */
+setPopupNotify : function () {},
+
+/**
+ * @method getFileDataFromZip
+ * @return A value converted from C/C++ "unsigned char*"
+ * @param {const char*}
+ * @param {const char*}
+ * @param {unsigned long*}
+ */
+getFileDataFromZip : function () {},
+
+/**
+ * @method getClassTypeInfo
+ * @return A value converted from C/C++ "long"
+ */
+getClassTypeInfo : function () {},
+
+/**
+ * @method setSearchResolutionsOrder
+ * @param {cocos2d::CCArray*}
+ */
+setSearchResolutionsOrder : function () {},
+
+/**
+ * @method fullPathForFilename
+ * @return A value converted from C/C++ "std::string"
+ * @param {const char*}
+ */
+fullPathForFilename : function () {},
+
+/**
+ * @method getWriteablePath
+ * @return A value converted from C/C++ "std::string"
+ */
+getWriteablePath : function () {},
+
+/**
+ * @method fullPathFromRelativePath
+ * @return A value converted from C/C++ "const char*"
+ * @param {const char*}
+ */
+fullPathFromRelativePath : function () {},
+
+/**
+ * @method setSearchPath
+ * @param {cocos2d::CCArray*}
+ */
+setSearchPath : function () {},
+
+/**
+ * @method getSearchPath
+ * @return A value converted from C/C++ "cocos2d::CCArray*"
+ */
+getSearchPath : function () {},
+
+/**
+ * @method getSearchResolutionsOrder
+ * @return A value converted from C/C++ "cocos2d::CCArray*"
+ */
+getSearchResolutionsOrder : function () {},
+
+/**
+ * @method loadFilenameLookupDictionaryFromFile
+ * @param {const char*}
+ */
+loadFilenameLookupDictionaryFromFile : function () {},
+
+/**
+ * @method purgeFileUtils
+ */
+purgeFileUtils : function () {},
+
+/**
+ * @method sharedFileUtils
+ * @return A value converted from C/C++ "cocos2d::CCFileUtils*"
+ */
+sharedFileUtils : function () {},
+
+};
+
+/**
  * @class CCAnimationCache
  */
 cc.CCAnimationCache = {

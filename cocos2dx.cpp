@@ -43988,6 +43988,468 @@ void js_register_cocos2dx_CCParticleRain(JSContext *cx, JSObject *global) {
 }
 
 
+JSClass  *js_cocos2dx_CCFileUtils_class;
+JSObject *js_cocos2dx_CCFileUtils_prototype;
+
+JSBool js_cocos2dx_CCFileUtils_isPopupNotify(JSContext *cx, uint32_t argc, jsval *vp)
+{
+	JSObject *obj = JS_THIS_OBJECT(cx, vp);
+	js_proxy_t *proxy; JS_GET_NATIVE_PROXY(proxy, obj);
+	cocos2d::CCFileUtils* cobj = (cocos2d::CCFileUtils *)(proxy ? proxy->ptr : NULL);
+	JSB_PRECONDITION2( cobj, cx, JS_FALSE, "Invalid Native Object");
+
+	if (argc == 0) {
+		bool ret = cobj->isPopupNotify();
+		jsval jsret;
+		jsret = BOOLEAN_TO_JSVAL(ret);
+		JS_SET_RVAL(cx, vp, jsret);
+		return JS_TRUE;
+	}
+	JS_ReportError(cx, "wrong number of arguments: %d, was expecting %d", argc, 0);
+	return JS_FALSE;
+}
+JSBool js_cocos2dx_CCFileUtils_setResourceDirectory(JSContext *cx, uint32_t argc, jsval *vp)
+{
+	jsval *argv = JS_ARGV(cx, vp);
+	JSBool ok = JS_TRUE;
+	JSObject *obj = JS_THIS_OBJECT(cx, vp);
+	js_proxy_t *proxy; JS_GET_NATIVE_PROXY(proxy, obj);
+	cocos2d::CCFileUtils* cobj = (cocos2d::CCFileUtils *)(proxy ? proxy->ptr : NULL);
+	JSB_PRECONDITION2( cobj, cx, JS_FALSE, "Invalid Native Object");
+
+	if (argc == 1) {
+		const char* arg0;
+		std::string arg0_tmp; ok &= jsval_to_std_string(cx, argv[0], &arg0_tmp); arg0 = arg0_tmp.c_str();
+		JSB_PRECONDITION2(ok, cx, JS_FALSE, "Error processing arguments");
+		cobj->setResourceDirectory(arg0);
+		JS_SET_RVAL(cx, vp, JSVAL_VOID);
+		return JS_TRUE;
+	}
+	JS_ReportError(cx, "wrong number of arguments: %d, was expecting %d", argc, 1);
+	return JS_FALSE;
+}
+JSBool js_cocos2dx_CCFileUtils_getResourceDirectory(JSContext *cx, uint32_t argc, jsval *vp)
+{
+	JSObject *obj = JS_THIS_OBJECT(cx, vp);
+	js_proxy_t *proxy; JS_GET_NATIVE_PROXY(proxy, obj);
+	cocos2d::CCFileUtils* cobj = (cocos2d::CCFileUtils *)(proxy ? proxy->ptr : NULL);
+	JSB_PRECONDITION2( cobj, cx, JS_FALSE, "Invalid Native Object");
+
+	if (argc == 0) {
+		const char* ret = cobj->getResourceDirectory();
+		jsval jsret;
+		jsret = c_string_to_jsval(cx, ret);
+		JS_SET_RVAL(cx, vp, jsret);
+		return JS_TRUE;
+	}
+	JS_ReportError(cx, "wrong number of arguments: %d, was expecting %d", argc, 0);
+	return JS_FALSE;
+}
+JSBool js_cocos2dx_CCFileUtils_purgeCachedEntries(JSContext *cx, uint32_t argc, jsval *vp)
+{
+	JSObject *obj = JS_THIS_OBJECT(cx, vp);
+	js_proxy_t *proxy; JS_GET_NATIVE_PROXY(proxy, obj);
+	cocos2d::CCFileUtils* cobj = (cocos2d::CCFileUtils *)(proxy ? proxy->ptr : NULL);
+	JSB_PRECONDITION2( cobj, cx, JS_FALSE, "Invalid Native Object");
+
+	if (argc == 0) {
+		cobj->purgeCachedEntries();
+		JS_SET_RVAL(cx, vp, JSVAL_VOID);
+		return JS_TRUE;
+	}
+	JS_ReportError(cx, "wrong number of arguments: %d, was expecting %d", argc, 0);
+	return JS_FALSE;
+}
+JSBool js_cocos2dx_CCFileUtils_fullPathFromRelativeFile(JSContext *cx, uint32_t argc, jsval *vp)
+{
+	jsval *argv = JS_ARGV(cx, vp);
+	JSBool ok = JS_TRUE;
+	JSObject *obj = JS_THIS_OBJECT(cx, vp);
+	js_proxy_t *proxy; JS_GET_NATIVE_PROXY(proxy, obj);
+	cocos2d::CCFileUtils* cobj = (cocos2d::CCFileUtils *)(proxy ? proxy->ptr : NULL);
+	JSB_PRECONDITION2( cobj, cx, JS_FALSE, "Invalid Native Object");
+
+	if (argc == 2) {
+		const char* arg0;
+		const char* arg1;
+		std::string arg0_tmp; ok &= jsval_to_std_string(cx, argv[0], &arg0_tmp); arg0 = arg0_tmp.c_str();
+		std::string arg1_tmp; ok &= jsval_to_std_string(cx, argv[1], &arg1_tmp); arg1 = arg1_tmp.c_str();
+		JSB_PRECONDITION2(ok, cx, JS_FALSE, "Error processing arguments");
+		const char* ret = cobj->fullPathFromRelativeFile(arg0, arg1);
+		jsval jsret;
+		jsret = c_string_to_jsval(cx, ret);
+		JS_SET_RVAL(cx, vp, jsret);
+		return JS_TRUE;
+	}
+	JS_ReportError(cx, "wrong number of arguments: %d, was expecting %d", argc, 2);
+	return JS_FALSE;
+}
+JSBool js_cocos2dx_CCFileUtils_getFileData(JSContext *cx, uint32_t argc, jsval *vp)
+{
+	jsval *argv = JS_ARGV(cx, vp);
+	JSBool ok = JS_TRUE;
+	JSObject *obj = JS_THIS_OBJECT(cx, vp);
+	js_proxy_t *proxy; JS_GET_NATIVE_PROXY(proxy, obj);
+	cocos2d::CCFileUtils* cobj = (cocos2d::CCFileUtils *)(proxy ? proxy->ptr : NULL);
+	JSB_PRECONDITION2( cobj, cx, JS_FALSE, "Invalid Native Object");
+
+	if (argc == 3) {
+		const char* arg0;
+		const char* arg1;
+		unsigned long* arg2;
+		std::string arg0_tmp; ok &= jsval_to_std_string(cx, argv[0], &arg0_tmp); arg0 = arg0_tmp.c_str();
+		std::string arg1_tmp; ok &= jsval_to_std_string(cx, argv[1], &arg1_tmp); arg1 = arg1_tmp.c_str();
+		#pragma warning NO CONVERSION TO NATIVE FOR unsigned long*;
+		JSB_PRECONDITION2(ok, cx, JS_FALSE, "Error processing arguments");
+		unsigned char* ret = cobj->getFileData(arg0, arg1, arg2);
+		jsval jsret;
+		#pragma warning NO CONVERSION FROM NATIVE FOR unsigned char*;
+		JS_SET_RVAL(cx, vp, jsret);
+		return JS_TRUE;
+	}
+	JS_ReportError(cx, "wrong number of arguments: %d, was expecting %d", argc, 3);
+	return JS_FALSE;
+}
+JSBool js_cocos2dx_CCFileUtils_setFilenameLookupDictionary(JSContext *cx, uint32_t argc, jsval *vp)
+{
+	jsval *argv = JS_ARGV(cx, vp);
+	JSBool ok = JS_TRUE;
+	JSObject *obj = JS_THIS_OBJECT(cx, vp);
+	js_proxy_t *proxy; JS_GET_NATIVE_PROXY(proxy, obj);
+	cocos2d::CCFileUtils* cobj = (cocos2d::CCFileUtils *)(proxy ? proxy->ptr : NULL);
+	JSB_PRECONDITION2( cobj, cx, JS_FALSE, "Invalid Native Object");
+
+	if (argc == 1) {
+		cocos2d::CCDictionary* arg0;
+		ok &= jsval_to_ccdictionary(cx, argv[0], &arg0);
+		JSB_PRECONDITION2(ok, cx, JS_FALSE, "Error processing arguments");
+		cobj->setFilenameLookupDictionary(arg0);
+		JS_SET_RVAL(cx, vp, JSVAL_VOID);
+		return JS_TRUE;
+	}
+	JS_ReportError(cx, "wrong number of arguments: %d, was expecting %d", argc, 1);
+	return JS_FALSE;
+}
+JSBool js_cocos2dx_CCFileUtils_setPopupNotify(JSContext *cx, uint32_t argc, jsval *vp)
+{
+	jsval *argv = JS_ARGV(cx, vp);
+	JSBool ok = JS_TRUE;
+	JSObject *obj = JS_THIS_OBJECT(cx, vp);
+	js_proxy_t *proxy; JS_GET_NATIVE_PROXY(proxy, obj);
+	cocos2d::CCFileUtils* cobj = (cocos2d::CCFileUtils *)(proxy ? proxy->ptr : NULL);
+	JSB_PRECONDITION2( cobj, cx, JS_FALSE, "Invalid Native Object");
+
+	if (argc == 1) {
+		JSBool arg0;
+		ok &= JS_ValueToBoolean(cx, argv[0], &arg0);
+		JSB_PRECONDITION2(ok, cx, JS_FALSE, "Error processing arguments");
+		cobj->setPopupNotify(arg0);
+		JS_SET_RVAL(cx, vp, JSVAL_VOID);
+		return JS_TRUE;
+	}
+	JS_ReportError(cx, "wrong number of arguments: %d, was expecting %d", argc, 1);
+	return JS_FALSE;
+}
+JSBool js_cocos2dx_CCFileUtils_getFileDataFromZip(JSContext *cx, uint32_t argc, jsval *vp)
+{
+	jsval *argv = JS_ARGV(cx, vp);
+	JSBool ok = JS_TRUE;
+	JSObject *obj = JS_THIS_OBJECT(cx, vp);
+	js_proxy_t *proxy; JS_GET_NATIVE_PROXY(proxy, obj);
+	cocos2d::CCFileUtils* cobj = (cocos2d::CCFileUtils *)(proxy ? proxy->ptr : NULL);
+	JSB_PRECONDITION2( cobj, cx, JS_FALSE, "Invalid Native Object");
+
+	if (argc == 3) {
+		const char* arg0;
+		const char* arg1;
+		unsigned long* arg2;
+		std::string arg0_tmp; ok &= jsval_to_std_string(cx, argv[0], &arg0_tmp); arg0 = arg0_tmp.c_str();
+		std::string arg1_tmp; ok &= jsval_to_std_string(cx, argv[1], &arg1_tmp); arg1 = arg1_tmp.c_str();
+		#pragma warning NO CONVERSION TO NATIVE FOR unsigned long*;
+		JSB_PRECONDITION2(ok, cx, JS_FALSE, "Error processing arguments");
+		unsigned char* ret = cobj->getFileDataFromZip(arg0, arg1, arg2);
+		jsval jsret;
+		#pragma warning NO CONVERSION FROM NATIVE FOR unsigned char*;
+		JS_SET_RVAL(cx, vp, jsret);
+		return JS_TRUE;
+	}
+	JS_ReportError(cx, "wrong number of arguments: %d, was expecting %d", argc, 3);
+	return JS_FALSE;
+}
+JSBool js_cocos2dx_CCFileUtils_getClassTypeInfo(JSContext *cx, uint32_t argc, jsval *vp)
+{
+	JSObject *obj = JS_THIS_OBJECT(cx, vp);
+	js_proxy_t *proxy; JS_GET_NATIVE_PROXY(proxy, obj);
+	cocos2d::CCFileUtils* cobj = (cocos2d::CCFileUtils *)(proxy ? proxy->ptr : NULL);
+	JSB_PRECONDITION2( cobj, cx, JS_FALSE, "Invalid Native Object");
+
+	if (argc == 0) {
+		long ret = cobj->getClassTypeInfo();
+		jsval jsret;
+		#pragma warning NO CONVERSION FROM NATIVE FOR long;
+		JS_SET_RVAL(cx, vp, jsret);
+		return JS_TRUE;
+	}
+	JS_ReportError(cx, "wrong number of arguments: %d, was expecting %d", argc, 0);
+	return JS_FALSE;
+}
+JSBool js_cocos2dx_CCFileUtils_setSearchResolutionsOrder(JSContext *cx, uint32_t argc, jsval *vp)
+{
+	jsval *argv = JS_ARGV(cx, vp);
+	JSBool ok = JS_TRUE;
+	JSObject *obj = JS_THIS_OBJECT(cx, vp);
+	js_proxy_t *proxy; JS_GET_NATIVE_PROXY(proxy, obj);
+	cocos2d::CCFileUtils* cobj = (cocos2d::CCFileUtils *)(proxy ? proxy->ptr : NULL);
+	JSB_PRECONDITION2( cobj, cx, JS_FALSE, "Invalid Native Object");
+
+	if (argc == 1) {
+		cocos2d::CCArray* arg0;
+		ok &= jsval_to_ccarray(cx, argv[0], &arg0);
+		JSB_PRECONDITION2(ok, cx, JS_FALSE, "Error processing arguments");
+		cobj->setSearchResolutionsOrder(arg0);
+		JS_SET_RVAL(cx, vp, JSVAL_VOID);
+		return JS_TRUE;
+	}
+	JS_ReportError(cx, "wrong number of arguments: %d, was expecting %d", argc, 1);
+	return JS_FALSE;
+}
+JSBool js_cocos2dx_CCFileUtils_fullPathForFilename(JSContext *cx, uint32_t argc, jsval *vp)
+{
+	jsval *argv = JS_ARGV(cx, vp);
+	JSBool ok = JS_TRUE;
+	JSObject *obj = JS_THIS_OBJECT(cx, vp);
+	js_proxy_t *proxy; JS_GET_NATIVE_PROXY(proxy, obj);
+	cocos2d::CCFileUtils* cobj = (cocos2d::CCFileUtils *)(proxy ? proxy->ptr : NULL);
+	JSB_PRECONDITION2( cobj, cx, JS_FALSE, "Invalid Native Object");
+
+	if (argc == 1) {
+		const char* arg0;
+		std::string arg0_tmp; ok &= jsval_to_std_string(cx, argv[0], &arg0_tmp); arg0 = arg0_tmp.c_str();
+		JSB_PRECONDITION2(ok, cx, JS_FALSE, "Error processing arguments");
+		std::string ret = cobj->fullPathForFilename(arg0);
+		jsval jsret;
+		jsret = std_string_to_jsval(cx, ret);
+		JS_SET_RVAL(cx, vp, jsret);
+		return JS_TRUE;
+	}
+	JS_ReportError(cx, "wrong number of arguments: %d, was expecting %d", argc, 1);
+	return JS_FALSE;
+}
+JSBool js_cocos2dx_CCFileUtils_getWriteablePath(JSContext *cx, uint32_t argc, jsval *vp)
+{
+	JSObject *obj = JS_THIS_OBJECT(cx, vp);
+	js_proxy_t *proxy; JS_GET_NATIVE_PROXY(proxy, obj);
+	cocos2d::CCFileUtils* cobj = (cocos2d::CCFileUtils *)(proxy ? proxy->ptr : NULL);
+	JSB_PRECONDITION2( cobj, cx, JS_FALSE, "Invalid Native Object");
+
+	if (argc == 0) {
+		std::string ret = cobj->getWriteablePath();
+		jsval jsret;
+		jsret = std_string_to_jsval(cx, ret);
+		JS_SET_RVAL(cx, vp, jsret);
+		return JS_TRUE;
+	}
+	JS_ReportError(cx, "wrong number of arguments: %d, was expecting %d", argc, 0);
+	return JS_FALSE;
+}
+JSBool js_cocos2dx_CCFileUtils_fullPathFromRelativePath(JSContext *cx, uint32_t argc, jsval *vp)
+{
+	jsval *argv = JS_ARGV(cx, vp);
+	JSBool ok = JS_TRUE;
+	JSObject *obj = JS_THIS_OBJECT(cx, vp);
+	js_proxy_t *proxy; JS_GET_NATIVE_PROXY(proxy, obj);
+	cocos2d::CCFileUtils* cobj = (cocos2d::CCFileUtils *)(proxy ? proxy->ptr : NULL);
+	JSB_PRECONDITION2( cobj, cx, JS_FALSE, "Invalid Native Object");
+
+	if (argc == 1) {
+		const char* arg0;
+		std::string arg0_tmp; ok &= jsval_to_std_string(cx, argv[0], &arg0_tmp); arg0 = arg0_tmp.c_str();
+		JSB_PRECONDITION2(ok, cx, JS_FALSE, "Error processing arguments");
+		const char* ret = cobj->fullPathFromRelativePath(arg0);
+		jsval jsret;
+		jsret = c_string_to_jsval(cx, ret);
+		JS_SET_RVAL(cx, vp, jsret);
+		return JS_TRUE;
+	}
+	JS_ReportError(cx, "wrong number of arguments: %d, was expecting %d", argc, 1);
+	return JS_FALSE;
+}
+JSBool js_cocos2dx_CCFileUtils_setSearchPath(JSContext *cx, uint32_t argc, jsval *vp)
+{
+	jsval *argv = JS_ARGV(cx, vp);
+	JSBool ok = JS_TRUE;
+	JSObject *obj = JS_THIS_OBJECT(cx, vp);
+	js_proxy_t *proxy; JS_GET_NATIVE_PROXY(proxy, obj);
+	cocos2d::CCFileUtils* cobj = (cocos2d::CCFileUtils *)(proxy ? proxy->ptr : NULL);
+	JSB_PRECONDITION2( cobj, cx, JS_FALSE, "Invalid Native Object");
+
+	if (argc == 1) {
+		cocos2d::CCArray* arg0;
+		ok &= jsval_to_ccarray(cx, argv[0], &arg0);
+		JSB_PRECONDITION2(ok, cx, JS_FALSE, "Error processing arguments");
+		cobj->setSearchPath(arg0);
+		JS_SET_RVAL(cx, vp, JSVAL_VOID);
+		return JS_TRUE;
+	}
+	JS_ReportError(cx, "wrong number of arguments: %d, was expecting %d", argc, 1);
+	return JS_FALSE;
+}
+JSBool js_cocos2dx_CCFileUtils_getSearchPath(JSContext *cx, uint32_t argc, jsval *vp)
+{
+	JSObject *obj = JS_THIS_OBJECT(cx, vp);
+	js_proxy_t *proxy; JS_GET_NATIVE_PROXY(proxy, obj);
+	cocos2d::CCFileUtils* cobj = (cocos2d::CCFileUtils *)(proxy ? proxy->ptr : NULL);
+	JSB_PRECONDITION2( cobj, cx, JS_FALSE, "Invalid Native Object");
+
+	if (argc == 0) {
+		cocos2d::CCArray* ret = cobj->getSearchPath();
+		jsval jsret;
+		jsret = ccarray_to_jsval(cx, ret);
+		JS_SET_RVAL(cx, vp, jsret);
+		return JS_TRUE;
+	}
+	JS_ReportError(cx, "wrong number of arguments: %d, was expecting %d", argc, 0);
+	return JS_FALSE;
+}
+JSBool js_cocos2dx_CCFileUtils_getSearchResolutionsOrder(JSContext *cx, uint32_t argc, jsval *vp)
+{
+	JSObject *obj = JS_THIS_OBJECT(cx, vp);
+	js_proxy_t *proxy; JS_GET_NATIVE_PROXY(proxy, obj);
+	cocos2d::CCFileUtils* cobj = (cocos2d::CCFileUtils *)(proxy ? proxy->ptr : NULL);
+	JSB_PRECONDITION2( cobj, cx, JS_FALSE, "Invalid Native Object");
+
+	if (argc == 0) {
+		cocos2d::CCArray* ret = cobj->getSearchResolutionsOrder();
+		jsval jsret;
+		jsret = ccarray_to_jsval(cx, ret);
+		JS_SET_RVAL(cx, vp, jsret);
+		return JS_TRUE;
+	}
+	JS_ReportError(cx, "wrong number of arguments: %d, was expecting %d", argc, 0);
+	return JS_FALSE;
+}
+JSBool js_cocos2dx_CCFileUtils_loadFilenameLookupDictionaryFromFile(JSContext *cx, uint32_t argc, jsval *vp)
+{
+	jsval *argv = JS_ARGV(cx, vp);
+	JSBool ok = JS_TRUE;
+	JSObject *obj = JS_THIS_OBJECT(cx, vp);
+	js_proxy_t *proxy; JS_GET_NATIVE_PROXY(proxy, obj);
+	cocos2d::CCFileUtils* cobj = (cocos2d::CCFileUtils *)(proxy ? proxy->ptr : NULL);
+	JSB_PRECONDITION2( cobj, cx, JS_FALSE, "Invalid Native Object");
+
+	if (argc == 1) {
+		const char* arg0;
+		std::string arg0_tmp; ok &= jsval_to_std_string(cx, argv[0], &arg0_tmp); arg0 = arg0_tmp.c_str();
+		JSB_PRECONDITION2(ok, cx, JS_FALSE, "Error processing arguments");
+		cobj->loadFilenameLookupDictionaryFromFile(arg0);
+		JS_SET_RVAL(cx, vp, JSVAL_VOID);
+		return JS_TRUE;
+	}
+	JS_ReportError(cx, "wrong number of arguments: %d, was expecting %d", argc, 1);
+	return JS_FALSE;
+}
+JSBool js_cocos2dx_CCFileUtils_purgeFileUtils(JSContext *cx, uint32_t argc, jsval *vp)
+{
+	cocos2d::CCFileUtils::purgeFileUtils();
+	JS_SET_RVAL(cx, vp, JSVAL_VOID);
+	return JS_TRUE;
+}
+
+JSBool js_cocos2dx_CCFileUtils_sharedFileUtils(JSContext *cx, uint32_t argc, jsval *vp)
+{
+	cocos2d::CCFileUtils* ret = cocos2d::CCFileUtils::sharedFileUtils();
+	jsval jsret;
+	do {
+		if (ret) {
+			js_proxy_t *proxy = js_get_or_create_proxy<cocos2d::CCFileUtils>(cx, ret);
+			jsret = OBJECT_TO_JSVAL(proxy->obj);
+		} else {
+			jsret = JSVAL_NULL;
+		}
+	} while (0);
+	JS_SET_RVAL(cx, vp, jsret);
+	return JS_TRUE;
+}
+
+
+
+void js_cocos2dx_CCFileUtils_finalize(JSFreeOp *fop, JSObject *obj) {
+}
+
+void js_register_cocos2dx_CCFileUtils(JSContext *cx, JSObject *global) {
+	js_cocos2dx_CCFileUtils_class = (JSClass *)calloc(1, sizeof(JSClass));
+	js_cocos2dx_CCFileUtils_class->name = "FileUtils";
+	js_cocos2dx_CCFileUtils_class->addProperty = JS_PropertyStub;
+	js_cocos2dx_CCFileUtils_class->delProperty = JS_PropertyStub;
+	js_cocos2dx_CCFileUtils_class->getProperty = JS_PropertyStub;
+	js_cocos2dx_CCFileUtils_class->setProperty = JS_StrictPropertyStub;
+	js_cocos2dx_CCFileUtils_class->enumerate = JS_EnumerateStub;
+	js_cocos2dx_CCFileUtils_class->resolve = JS_ResolveStub;
+	js_cocos2dx_CCFileUtils_class->convert = JS_ConvertStub;
+	js_cocos2dx_CCFileUtils_class->finalize = js_cocos2dx_CCFileUtils_finalize;
+	js_cocos2dx_CCFileUtils_class->flags = JSCLASS_HAS_RESERVED_SLOTS(2);
+
+	static JSPropertySpec properties[] = {
+		{0, 0, 0, 0, 0}
+	};
+
+	static JSFunctionSpec funcs[] = {
+		JS_FN("isPopupNotify", js_cocos2dx_CCFileUtils_isPopupNotify, 0, JSPROP_PERMANENT | JSPROP_SHARED),
+		JS_FN("setResourceDirectory", js_cocos2dx_CCFileUtils_setResourceDirectory, 1, JSPROP_PERMANENT | JSPROP_SHARED),
+		JS_FN("getResourceDirectory", js_cocos2dx_CCFileUtils_getResourceDirectory, 0, JSPROP_PERMANENT | JSPROP_SHARED),
+		JS_FN("purgeCachedEntries", js_cocos2dx_CCFileUtils_purgeCachedEntries, 0, JSPROP_PERMANENT | JSPROP_SHARED),
+		JS_FN("fullPathFromRelativeFile", js_cocos2dx_CCFileUtils_fullPathFromRelativeFile, 2, JSPROP_PERMANENT | JSPROP_SHARED),
+		JS_FN("getFileData", js_cocos2dx_CCFileUtils_getFileData, 3, JSPROP_PERMANENT | JSPROP_SHARED),
+		JS_FN("setFilenameLookupDictionary", js_cocos2dx_CCFileUtils_setFilenameLookupDictionary, 1, JSPROP_PERMANENT | JSPROP_SHARED),
+		JS_FN("setPopupNotify", js_cocos2dx_CCFileUtils_setPopupNotify, 1, JSPROP_PERMANENT | JSPROP_SHARED),
+		JS_FN("getFileDataFromZip", js_cocos2dx_CCFileUtils_getFileDataFromZip, 3, JSPROP_PERMANENT | JSPROP_SHARED),
+		JS_FN("getClassTypeInfo", js_cocos2dx_CCFileUtils_getClassTypeInfo, 0, JSPROP_PERMANENT | JSPROP_SHARED),
+		JS_FN("setSearchResolutionsOrder", js_cocos2dx_CCFileUtils_setSearchResolutionsOrder, 1, JSPROP_PERMANENT | JSPROP_SHARED),
+		JS_FN("fullPathForFilename", js_cocos2dx_CCFileUtils_fullPathForFilename, 1, JSPROP_PERMANENT | JSPROP_SHARED),
+		JS_FN("getWriteablePath", js_cocos2dx_CCFileUtils_getWriteablePath, 0, JSPROP_PERMANENT | JSPROP_SHARED),
+		JS_FN("fullPathFromRelativePath", js_cocos2dx_CCFileUtils_fullPathFromRelativePath, 1, JSPROP_PERMANENT | JSPROP_SHARED),
+		JS_FN("setSearchPath", js_cocos2dx_CCFileUtils_setSearchPath, 1, JSPROP_PERMANENT | JSPROP_SHARED),
+		JS_FN("getSearchPath", js_cocos2dx_CCFileUtils_getSearchPath, 0, JSPROP_PERMANENT | JSPROP_SHARED),
+		JS_FN("getSearchResolutionsOrder", js_cocos2dx_CCFileUtils_getSearchResolutionsOrder, 0, JSPROP_PERMANENT | JSPROP_SHARED),
+		JS_FN("loadFilenameLookup", js_cocos2dx_CCFileUtils_loadFilenameLookupDictionaryFromFile, 1, JSPROP_PERMANENT | JSPROP_SHARED),
+		JS_FS_END
+	};
+
+	static JSFunctionSpec st_funcs[] = {
+		JS_FN("purgeFileUtils", js_cocos2dx_CCFileUtils_purgeFileUtils, 0, JSPROP_PERMANENT | JSPROP_SHARED),
+		JS_FN("getInstance", js_cocos2dx_CCFileUtils_sharedFileUtils, 0, JSPROP_PERMANENT | JSPROP_SHARED),
+		JS_FS_END
+	};
+
+	js_cocos2dx_CCFileUtils_prototype = JS_InitClass(
+		cx, global,
+		NULL, // parent proto
+		js_cocos2dx_CCFileUtils_class,
+		empty_constructor, 0,
+		properties,
+		funcs,
+		NULL, // no static properties
+		st_funcs);
+	// make the class enumerable in the registered namespace
+	JSBool found;
+	JS_SetPropertyAttributes(cx, global, "FileUtils", JSPROP_ENUMERATE | JSPROP_READONLY, &found);
+
+	// add the proto and JSClass to the type->js info hash table
+	TypeTest<cocos2d::CCFileUtils> t;
+	js_type_class_t *p;
+	uint32_t typeId = t.s_id();
+	HASH_FIND_INT(_js_global_type_ht, &typeId, p);
+	if (!p) {
+		p = (js_type_class_t *)malloc(sizeof(js_type_class_t));
+		p->type = typeId;
+		p->jsclass = js_cocos2dx_CCFileUtils_class;
+		p->proto = js_cocos2dx_CCFileUtils_prototype;
+		p->parentProto = NULL;
+		HASH_ADD_INT(_js_global_type_ht, type, p);
+	}
+}
+
+
 JSClass  *js_cocos2dx_CCAnimationCache_class;
 JSObject *js_cocos2dx_CCAnimationCache_prototype;
 
@@ -52900,6 +53362,7 @@ void register_all_cocos2dx(JSContext* cx, JSObject* obj) {
 	js_register_cocos2dx_CCFadeIn(cx, obj);
 	js_register_cocos2dx_CCLayerMultiplex(cx, obj);
 	js_register_cocos2dx_CCTransitionProgressVertical(cx, obj);
+	js_register_cocos2dx_CCFileUtils(cx, obj);
 	js_register_cocos2dx_CCParticleSpiral(cx, obj);
 	js_register_cocos2dx_CCAtlasNode(cx, obj);
 	js_register_cocos2dx_CCTileMapAtlas(cx, obj);
