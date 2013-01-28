@@ -44193,26 +44193,6 @@ JSBool js_cocos2dx_CCFileUtils_getClassTypeInfo(JSContext *cx, uint32_t argc, js
 	JS_ReportError(cx, "wrong number of arguments: %d, was expecting %d", argc, 0);
 	return JS_FALSE;
 }
-JSBool js_cocos2dx_CCFileUtils_setSearchResolutionsOrder(JSContext *cx, uint32_t argc, jsval *vp)
-{
-	jsval *argv = JS_ARGV(cx, vp);
-	JSBool ok = JS_TRUE;
-	JSObject *obj = JS_THIS_OBJECT(cx, vp);
-	js_proxy_t *proxy; JS_GET_NATIVE_PROXY(proxy, obj);
-	cocos2d::CCFileUtils* cobj = (cocos2d::CCFileUtils *)(proxy ? proxy->ptr : NULL);
-	JSB_PRECONDITION2( cobj, cx, JS_FALSE, "Invalid Native Object");
-
-	if (argc == 1) {
-		cocos2d::CCArray* arg0;
-		ok &= jsval_to_ccarray(cx, argv[0], &arg0);
-		JSB_PRECONDITION2(ok, cx, JS_FALSE, "Error processing arguments");
-		cobj->setSearchResolutionsOrder(arg0);
-		JS_SET_RVAL(cx, vp, JSVAL_VOID);
-		return JS_TRUE;
-	}
-	JS_ReportError(cx, "wrong number of arguments: %d, was expecting %d", argc, 1);
-	return JS_FALSE;
-}
 JSBool js_cocos2dx_CCFileUtils_fullPathForFilename(JSContext *cx, uint32_t argc, jsval *vp)
 {
 	jsval *argv = JS_ARGV(cx, vp);
@@ -44272,60 +44252,6 @@ JSBool js_cocos2dx_CCFileUtils_fullPathFromRelativePath(JSContext *cx, uint32_t 
 		return JS_TRUE;
 	}
 	JS_ReportError(cx, "wrong number of arguments: %d, was expecting %d", argc, 1);
-	return JS_FALSE;
-}
-JSBool js_cocos2dx_CCFileUtils_setSearchPath(JSContext *cx, uint32_t argc, jsval *vp)
-{
-	jsval *argv = JS_ARGV(cx, vp);
-	JSBool ok = JS_TRUE;
-	JSObject *obj = JS_THIS_OBJECT(cx, vp);
-	js_proxy_t *proxy; JS_GET_NATIVE_PROXY(proxy, obj);
-	cocos2d::CCFileUtils* cobj = (cocos2d::CCFileUtils *)(proxy ? proxy->ptr : NULL);
-	JSB_PRECONDITION2( cobj, cx, JS_FALSE, "Invalid Native Object");
-
-	if (argc == 1) {
-		cocos2d::CCArray* arg0;
-		ok &= jsval_to_ccarray(cx, argv[0], &arg0);
-		JSB_PRECONDITION2(ok, cx, JS_FALSE, "Error processing arguments");
-		cobj->setSearchPath(arg0);
-		JS_SET_RVAL(cx, vp, JSVAL_VOID);
-		return JS_TRUE;
-	}
-	JS_ReportError(cx, "wrong number of arguments: %d, was expecting %d", argc, 1);
-	return JS_FALSE;
-}
-JSBool js_cocos2dx_CCFileUtils_getSearchPath(JSContext *cx, uint32_t argc, jsval *vp)
-{
-	JSObject *obj = JS_THIS_OBJECT(cx, vp);
-	js_proxy_t *proxy; JS_GET_NATIVE_PROXY(proxy, obj);
-	cocos2d::CCFileUtils* cobj = (cocos2d::CCFileUtils *)(proxy ? proxy->ptr : NULL);
-	JSB_PRECONDITION2( cobj, cx, JS_FALSE, "Invalid Native Object");
-
-	if (argc == 0) {
-		cocos2d::CCArray* ret = cobj->getSearchPath();
-		jsval jsret;
-		jsret = ccarray_to_jsval(cx, ret);
-		JS_SET_RVAL(cx, vp, jsret);
-		return JS_TRUE;
-	}
-	JS_ReportError(cx, "wrong number of arguments: %d, was expecting %d", argc, 0);
-	return JS_FALSE;
-}
-JSBool js_cocos2dx_CCFileUtils_getSearchResolutionsOrder(JSContext *cx, uint32_t argc, jsval *vp)
-{
-	JSObject *obj = JS_THIS_OBJECT(cx, vp);
-	js_proxy_t *proxy; JS_GET_NATIVE_PROXY(proxy, obj);
-	cocos2d::CCFileUtils* cobj = (cocos2d::CCFileUtils *)(proxy ? proxy->ptr : NULL);
-	JSB_PRECONDITION2( cobj, cx, JS_FALSE, "Invalid Native Object");
-
-	if (argc == 0) {
-		cocos2d::CCArray* ret = cobj->getSearchResolutionsOrder();
-		jsval jsret;
-		jsret = ccarray_to_jsval(cx, ret);
-		JS_SET_RVAL(cx, vp, jsret);
-		return JS_TRUE;
-	}
-	JS_ReportError(cx, "wrong number of arguments: %d, was expecting %d", argc, 0);
 	return JS_FALSE;
 }
 JSBool js_cocos2dx_CCFileUtils_loadFilenameLookupDictionaryFromFile(JSContext *cx, uint32_t argc, jsval *vp)
@@ -44404,13 +44330,9 @@ void js_register_cocos2dx_CCFileUtils(JSContext *cx, JSObject *global) {
 		JS_FN("setPopupNotify", js_cocos2dx_CCFileUtils_setPopupNotify, 1, JSPROP_PERMANENT | JSPROP_SHARED),
 		JS_FN("getFileDataFromZip", js_cocos2dx_CCFileUtils_getFileDataFromZip, 3, JSPROP_PERMANENT | JSPROP_SHARED),
 		JS_FN("getClassTypeInfo", js_cocos2dx_CCFileUtils_getClassTypeInfo, 0, JSPROP_PERMANENT | JSPROP_SHARED),
-		JS_FN("setSearchResolutionsOrder", js_cocos2dx_CCFileUtils_setSearchResolutionsOrder, 1, JSPROP_PERMANENT | JSPROP_SHARED),
 		JS_FN("fullPathForFilename", js_cocos2dx_CCFileUtils_fullPathForFilename, 1, JSPROP_PERMANENT | JSPROP_SHARED),
 		JS_FN("getWriteablePath", js_cocos2dx_CCFileUtils_getWriteablePath, 0, JSPROP_PERMANENT | JSPROP_SHARED),
 		JS_FN("fullPathFromRelativePath", js_cocos2dx_CCFileUtils_fullPathFromRelativePath, 1, JSPROP_PERMANENT | JSPROP_SHARED),
-		JS_FN("setSearchPath", js_cocos2dx_CCFileUtils_setSearchPath, 1, JSPROP_PERMANENT | JSPROP_SHARED),
-		JS_FN("getSearchPath", js_cocos2dx_CCFileUtils_getSearchPath, 0, JSPROP_PERMANENT | JSPROP_SHARED),
-		JS_FN("getSearchResolutionsOrder", js_cocos2dx_CCFileUtils_getSearchResolutionsOrder, 0, JSPROP_PERMANENT | JSPROP_SHARED),
 		JS_FN("loadFilenameLookup", js_cocos2dx_CCFileUtils_loadFilenameLookupDictionaryFromFile, 1, JSPROP_PERMANENT | JSPROP_SHARED),
 		JS_FS_END
 	};

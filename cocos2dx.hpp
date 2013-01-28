@@ -2806,13 +2806,9 @@ JSBool js_cocos2dx_CCFileUtils_setFilenameLookupDictionary(JSContext *cx, uint32
 JSBool js_cocos2dx_CCFileUtils_setPopupNotify(JSContext *cx, uint32_t argc, jsval *vp);
 JSBool js_cocos2dx_CCFileUtils_getFileDataFromZip(JSContext *cx, uint32_t argc, jsval *vp);
 JSBool js_cocos2dx_CCFileUtils_getClassTypeInfo(JSContext *cx, uint32_t argc, jsval *vp);
-JSBool js_cocos2dx_CCFileUtils_setSearchResolutionsOrder(JSContext *cx, uint32_t argc, jsval *vp);
 JSBool js_cocos2dx_CCFileUtils_fullPathForFilename(JSContext *cx, uint32_t argc, jsval *vp);
 JSBool js_cocos2dx_CCFileUtils_getWriteablePath(JSContext *cx, uint32_t argc, jsval *vp);
 JSBool js_cocos2dx_CCFileUtils_fullPathFromRelativePath(JSContext *cx, uint32_t argc, jsval *vp);
-JSBool js_cocos2dx_CCFileUtils_setSearchPath(JSContext *cx, uint32_t argc, jsval *vp);
-JSBool js_cocos2dx_CCFileUtils_getSearchPath(JSContext *cx, uint32_t argc, jsval *vp);
-JSBool js_cocos2dx_CCFileUtils_getSearchResolutionsOrder(JSContext *cx, uint32_t argc, jsval *vp);
 JSBool js_cocos2dx_CCFileUtils_loadFilenameLookupDictionaryFromFile(JSContext *cx, uint32_t argc, jsval *vp);
 JSBool js_cocos2dx_CCFileUtils_purgeFileUtils(JSContext *cx, uint32_t argc, jsval *vp);
 JSBool js_cocos2dx_CCFileUtils_sharedFileUtils(JSContext *cx, uint32_t argc, jsval *vp);

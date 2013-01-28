@@ -9518,12 +9518,6 @@ getFileDataFromZip : function () {},
 getClassTypeInfo : function () {},
 
 /**
- * @method setSearchResolutionsOrder
- * @param {cocos2d::CCArray*}
- */
-setSearchResolutionsOrder : function () {},
-
-/**
  * @method fullPathForFilename
  * @return A value converted from C/C++ "std::string"
  * @param {const char*}
@@ -9542,24 +9536,6 @@ getWriteablePath : function () {},
  * @param {const char*}
  */
 fullPathFromRelativePath : function () {},
-
-/**
- * @method setSearchPath
- * @param {cocos2d::CCArray*}
- */
-setSearchPath : function () {},
-
-/**
- * @method getSearchPath
- * @return A value converted from C/C++ "cocos2d::CCArray*"
- */
-getSearchPath : function () {},
-
-/**
- * @method getSearchResolutionsOrder
- * @return A value converted from C/C++ "cocos2d::CCArray*"
- */
-getSearchResolutionsOrder : function () {},
 
 /**
  * @method loadFilenameLookupDictionaryFromFile
