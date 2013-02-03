@@ -9451,22 +9451,17 @@ CCParticleRain : function () {},
 cc.CCFileUtils = {
 
 /**
- * @method isPopupNotify
+ * @method isFileExist
  * @return A value converted from C/C++ "bool"
+ * @param {std::string}
  */
-isPopupNotify : function () {},
+isFileExist : function () {},
 
 /**
- * @method setResourceDirectory
- * @param {const char*}
+ * @method getWriteablePath
+ * @return A value converted from C/C++ "std::string"
  */
-setResourceDirectory : function () {},
-
-/**
- * @method getResourceDirectory
- * @return A value converted from C/C++ "const char*"
- */
-getResourceDirectory : function () {},
+getWriteablePath : function () {},
 
 /**
  * @method purgeCachedEntries
@@ -9489,6 +9484,12 @@ fullPathFromRelativeFile : function () {},
  * @param {unsigned long*}
  */
 getFileData : function () {},
+
+/**
+ * @method isPopupNotify
+ * @return A value converted from C/C++ "bool"
+ */
+isPopupNotify : function () {},
 
 /**
  * @method setFilenameLookupDictionary
@@ -9525,17 +9526,11 @@ getClassTypeInfo : function () {},
 fullPathForFilename : function () {},
 
 /**
- * @method getWriteablePath
- * @return A value converted from C/C++ "std::string"
+ * @method isAbsolutePath
+ * @return A value converted from C/C++ "bool"
+ * @param {std::string}
  */
-getWriteablePath : function () {},
-
-/**
- * @method fullPathFromRelativePath
- * @return A value converted from C/C++ "const char*"
- * @param {const char*}
- */
-fullPathFromRelativePath : function () {},
+isAbsolutePath : function () {},
 
 /**
  * @method loadFilenameLookupDictionaryFromFile
