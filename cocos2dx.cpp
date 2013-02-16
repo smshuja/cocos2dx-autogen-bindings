@@ -44013,7 +44013,7 @@ JSBool js_cocos2dx_CCFileUtils_isFileExist(JSContext *cx, uint32_t argc, jsval *
 	JS_ReportError(cx, "wrong number of arguments: %d, was expecting %d", argc, 1);
 	return JS_FALSE;
 }
-JSBool js_cocos2dx_CCFileUtils_getWriteablePath(JSContext *cx, uint32_t argc, jsval *vp)
+JSBool js_cocos2dx_CCFileUtils_isPopupNotify(JSContext *cx, uint32_t argc, jsval *vp)
 {
 	JSObject *obj = JS_THIS_OBJECT(cx, vp);
 	js_proxy_t *proxy; JS_GET_NATIVE_PROXY(proxy, obj);
@@ -44021,9 +44021,9 @@ JSBool js_cocos2dx_CCFileUtils_getWriteablePath(JSContext *cx, uint32_t argc, js
 	JSB_PRECONDITION2( cobj, cx, JS_FALSE, "Invalid Native Object");
 
 	if (argc == 0) {
-		std::string ret = cobj->getWriteablePath();
+		bool ret = cobj->isPopupNotify();
 		jsval jsret;
-		jsret = std_string_to_jsval(cx, ret);
+		jsret = BOOLEAN_TO_JSVAL(ret);
 		JS_SET_RVAL(cx, vp, jsret);
 		return JS_TRUE;
 	}
@@ -44095,23 +44095,6 @@ JSBool js_cocos2dx_CCFileUtils_getFileData(JSContext *cx, uint32_t argc, jsval *
 	JS_ReportError(cx, "wrong number of arguments: %d, was expecting %d", argc, 3);
 	return JS_FALSE;
 }
-JSBool js_cocos2dx_CCFileUtils_isPopupNotify(JSContext *cx, uint32_t argc, jsval *vp)
-{
-	JSObject *obj = JS_THIS_OBJECT(cx, vp);
-	js_proxy_t *proxy; JS_GET_NATIVE_PROXY(proxy, obj);
-	cocos2d::CCFileUtils* cobj = (cocos2d::CCFileUtils *)(proxy ? proxy->ptr : NULL);
-	JSB_PRECONDITION2( cobj, cx, JS_FALSE, "Invalid Native Object");
-
-	if (argc == 0) {
-		bool ret = cobj->isPopupNotify();
-		jsval jsret;
-		jsret = BOOLEAN_TO_JSVAL(ret);
-		JS_SET_RVAL(cx, vp, jsret);
-		return JS_TRUE;
-	}
-	JS_ReportError(cx, "wrong number of arguments: %d, was expecting %d", argc, 0);
-	return JS_FALSE;
-}
 JSBool js_cocos2dx_CCFileUtils_setFilenameLookupDictionary(JSContext *cx, uint32_t argc, jsval *vp)
 {
 	jsval *argv = JS_ARGV(cx, vp);
@@ -44132,7 +44115,7 @@ JSBool js_cocos2dx_CCFileUtils_setFilenameLookupDictionary(JSContext *cx, uint32
 	JS_ReportError(cx, "wrong number of arguments: %d, was expecting %d", argc, 1);
 	return JS_FALSE;
 }
-JSBool js_cocos2dx_CCFileUtils_setPopupNotify(JSContext *cx, uint32_t argc, jsval *vp)
+JSBool js_cocos2dx_CCFileUtils_addSearchResolutionsOrder(JSContext *cx, uint32_t argc, jsval *vp)
 {
 	jsval *argv = JS_ARGV(cx, vp);
 	JSBool ok = JS_TRUE;
@@ -44142,10 +44125,10 @@ JSBool js_cocos2dx_CCFileUtils_setPopupNotify(JSContext *cx, uint32_t argc, jsva
 	JSB_PRECONDITION2( cobj, cx, JS_FALSE, "Invalid Native Object");
 
 	if (argc == 1) {
-		JSBool arg0;
-		ok &= JS_ValueToBoolean(cx, argv[0], &arg0);
+		const char* arg0;
+		std::string arg0_tmp; ok &= jsval_to_std_string(cx, argv[0], &arg0_tmp); arg0 = arg0_tmp.c_str();
 		JSB_PRECONDITION2(ok, cx, JS_FALSE, "Error processing arguments");
-		cobj->setPopupNotify(arg0);
+		cobj->addSearchResolutionsOrder(arg0);
 		JS_SET_RVAL(cx, vp, JSVAL_VOID);
 		return JS_TRUE;
 	}
@@ -44239,6 +44222,63 @@ JSBool js_cocos2dx_CCFileUtils_isAbsolutePath(JSContext *cx, uint32_t argc, jsva
 	JS_ReportError(cx, "wrong number of arguments: %d, was expecting %d", argc, 1);
 	return JS_FALSE;
 }
+JSBool js_cocos2dx_CCFileUtils_getWritablePath(JSContext *cx, uint32_t argc, jsval *vp)
+{
+	JSObject *obj = JS_THIS_OBJECT(cx, vp);
+	js_proxy_t *proxy; JS_GET_NATIVE_PROXY(proxy, obj);
+	cocos2d::CCFileUtils* cobj = (cocos2d::CCFileUtils *)(proxy ? proxy->ptr : NULL);
+	JSB_PRECONDITION2( cobj, cx, JS_FALSE, "Invalid Native Object");
+
+	if (argc == 0) {
+		std::string ret = cobj->getWritablePath();
+		jsval jsret;
+		jsret = std_string_to_jsval(cx, ret);
+		JS_SET_RVAL(cx, vp, jsret);
+		return JS_TRUE;
+	}
+	JS_ReportError(cx, "wrong number of arguments: %d, was expecting %d", argc, 0);
+	return JS_FALSE;
+}
+JSBool js_cocos2dx_CCFileUtils_addSearchPath(JSContext *cx, uint32_t argc, jsval *vp)
+{
+	jsval *argv = JS_ARGV(cx, vp);
+	JSBool ok = JS_TRUE;
+	JSObject *obj = JS_THIS_OBJECT(cx, vp);
+	js_proxy_t *proxy; JS_GET_NATIVE_PROXY(proxy, obj);
+	cocos2d::CCFileUtils* cobj = (cocos2d::CCFileUtils *)(proxy ? proxy->ptr : NULL);
+	JSB_PRECONDITION2( cobj, cx, JS_FALSE, "Invalid Native Object");
+
+	if (argc == 1) {
+		const char* arg0;
+		std::string arg0_tmp; ok &= jsval_to_std_string(cx, argv[0], &arg0_tmp); arg0 = arg0_tmp.c_str();
+		JSB_PRECONDITION2(ok, cx, JS_FALSE, "Error processing arguments");
+		cobj->addSearchPath(arg0);
+		JS_SET_RVAL(cx, vp, JSVAL_VOID);
+		return JS_TRUE;
+	}
+	JS_ReportError(cx, "wrong number of arguments: %d, was expecting %d", argc, 1);
+	return JS_FALSE;
+}
+JSBool js_cocos2dx_CCFileUtils_setPopupNotify(JSContext *cx, uint32_t argc, jsval *vp)
+{
+	jsval *argv = JS_ARGV(cx, vp);
+	JSBool ok = JS_TRUE;
+	JSObject *obj = JS_THIS_OBJECT(cx, vp);
+	js_proxy_t *proxy; JS_GET_NATIVE_PROXY(proxy, obj);
+	cocos2d::CCFileUtils* cobj = (cocos2d::CCFileUtils *)(proxy ? proxy->ptr : NULL);
+	JSB_PRECONDITION2( cobj, cx, JS_FALSE, "Invalid Native Object");
+
+	if (argc == 1) {
+		JSBool arg0;
+		ok &= JS_ValueToBoolean(cx, argv[0], &arg0);
+		JSB_PRECONDITION2(ok, cx, JS_FALSE, "Error processing arguments");
+		cobj->setPopupNotify(arg0);
+		JS_SET_RVAL(cx, vp, JSVAL_VOID);
+		return JS_TRUE;
+	}
+	JS_ReportError(cx, "wrong number of arguments: %d, was expecting %d", argc, 1);
+	return JS_FALSE;
+}
 JSBool js_cocos2dx_CCFileUtils_loadFilenameLookupDictionaryFromFile(JSContext *cx, uint32_t argc, jsval *vp)
 {
 	jsval *argv = JS_ARGV(cx, vp);
@@ -44306,17 +44346,19 @@ void js_register_cocos2dx_CCFileUtils(JSContext *cx, JSObject *global) {
 
 	static JSFunctionSpec funcs[] = {
 		JS_FN("isFileExist", js_cocos2dx_CCFileUtils_isFileExist, 1, JSPROP_PERMANENT | JSPROP_SHARED),
-		JS_FN("getWriteablePath", js_cocos2dx_CCFileUtils_getWriteablePath, 0, JSPROP_PERMANENT | JSPROP_SHARED),
+		JS_FN("isPopupNotify", js_cocos2dx_CCFileUtils_isPopupNotify, 0, JSPROP_PERMANENT | JSPROP_SHARED),
 		JS_FN("purgeCachedEntries", js_cocos2dx_CCFileUtils_purgeCachedEntries, 0, JSPROP_PERMANENT | JSPROP_SHARED),
 		JS_FN("fullPathFromRelativeFile", js_cocos2dx_CCFileUtils_fullPathFromRelativeFile, 2, JSPROP_PERMANENT | JSPROP_SHARED),
 		JS_FN("getFileData", js_cocos2dx_CCFileUtils_getFileData, 3, JSPROP_PERMANENT | JSPROP_SHARED),
-		JS_FN("isPopupNotify", js_cocos2dx_CCFileUtils_isPopupNotify, 0, JSPROP_PERMANENT | JSPROP_SHARED),
 		JS_FN("setFilenameLookupDictionary", js_cocos2dx_CCFileUtils_setFilenameLookupDictionary, 1, JSPROP_PERMANENT | JSPROP_SHARED),
-		JS_FN("setPopupNotify", js_cocos2dx_CCFileUtils_setPopupNotify, 1, JSPROP_PERMANENT | JSPROP_SHARED),
+		JS_FN("addSearchResolutionsOrder", js_cocos2dx_CCFileUtils_addSearchResolutionsOrder, 1, JSPROP_PERMANENT | JSPROP_SHARED),
 		JS_FN("getFileDataFromZip", js_cocos2dx_CCFileUtils_getFileDataFromZip, 3, JSPROP_PERMANENT | JSPROP_SHARED),
 		JS_FN("getClassTypeInfo", js_cocos2dx_CCFileUtils_getClassTypeInfo, 0, JSPROP_PERMANENT | JSPROP_SHARED),
 		JS_FN("fullPathForFilename", js_cocos2dx_CCFileUtils_fullPathForFilename, 1, JSPROP_PERMANENT | JSPROP_SHARED),
 		JS_FN("isAbsolutePath", js_cocos2dx_CCFileUtils_isAbsolutePath, 1, JSPROP_PERMANENT | JSPROP_SHARED),
+		JS_FN("getWritablePath", js_cocos2dx_CCFileUtils_getWritablePath, 0, JSPROP_PERMANENT | JSPROP_SHARED),
+		JS_FN("addSearchPath", js_cocos2dx_CCFileUtils_addSearchPath, 1, JSPROP_PERMANENT | JSPROP_SHARED),
+		JS_FN("setPopupNotify", js_cocos2dx_CCFileUtils_setPopupNotify, 1, JSPROP_PERMANENT | JSPROP_SHARED),
 		JS_FN("loadFilenameLookup", js_cocos2dx_CCFileUtils_loadFilenameLookupDictionaryFromFile, 1, JSPROP_PERMANENT | JSPROP_SHARED),
 		JS_FS_END
 	};

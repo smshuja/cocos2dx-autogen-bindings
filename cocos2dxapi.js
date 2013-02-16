@@ -9458,10 +9458,10 @@ cc.CCFileUtils = {
 isFileExist : function () {},
 
 /**
- * @method getWriteablePath
- * @return A value converted from C/C++ "std::string"
+ * @method isPopupNotify
+ * @return A value converted from C/C++ "bool"
  */
-getWriteablePath : function () {},
+isPopupNotify : function () {},
 
 /**
  * @method purgeCachedEntries
@@ -9486,22 +9486,16 @@ fullPathFromRelativeFile : function () {},
 getFileData : function () {},
 
 /**
- * @method isPopupNotify
- * @return A value converted from C/C++ "bool"
- */
-isPopupNotify : function () {},
-
-/**
  * @method setFilenameLookupDictionary
  * @param {cocos2d::CCDictionary*}
  */
 setFilenameLookupDictionary : function () {},
 
 /**
- * @method setPopupNotify
- * @param {bool}
+ * @method addSearchResolutionsOrder
+ * @param {const char*}
  */
-setPopupNotify : function () {},
+addSearchResolutionsOrder : function () {},
 
 /**
  * @method getFileDataFromZip
@@ -9531,6 +9525,24 @@ fullPathForFilename : function () {},
  * @param {std::string}
  */
 isAbsolutePath : function () {},
+
+/**
+ * @method getWritablePath
+ * @return A value converted from C/C++ "std::string"
+ */
+getWritablePath : function () {},
+
+/**
+ * @method addSearchPath
+ * @param {const char*}
+ */
+addSearchPath : function () {},
+
+/**
+ * @method setPopupNotify
+ * @param {bool}
+ */
+setPopupNotify : function () {},
 
 /**
  * @method loadFilenameLookupDictionaryFromFile
