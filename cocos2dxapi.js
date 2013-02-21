@@ -11399,6 +11399,231 @@ CCControlButton : function () {},
 };
 
 /**
+ * @class CCScrollView
+ */
+cc.CCScrollView = {
+
+/**
+ * @method isClippingToBounds
+ * @return A value converted from C/C++ "bool"
+ */
+isClippingToBounds : function () {},
+
+/**
+ * @method setContainer
+ * @param {cocos2d::CCNode*}
+ */
+setContainer : function () {},
+
+/**
+ * @method setContentOffsetInDuration
+ * @param {cocos2d::CCPoint}
+ * @param {float}
+ */
+setContentOffsetInDuration : function () {},
+
+/**
+ * @method setZoomScaleInDuration
+ * @param {float}
+ * @param {float}
+ */
+setZoomScaleInDuration : function () {},
+
+/**
+ * @method ccTouchBegan
+ * @return A value converted from C/C++ "bool"
+ * @param {cocos2d::CCTouch*}
+ * @param {cocos2d::CCEvent*}
+ */
+ccTouchBegan : function () {},
+
+/**
+ * @method getContainer
+ * @return A value converted from C/C++ "cocos2d::CCNode*"
+ */
+getContainer : function () {},
+
+/**
+ * @method ccTouchEnded
+ * @param {cocos2d::CCTouch*}
+ * @param {cocos2d::CCEvent*}
+ */
+ccTouchEnded : function () {},
+
+/**
+ * @method getDirection
+ * @return A value converted from C/C++ "cocos2d::extension::CCScrollViewDirection"
+ */
+getDirection : function () {},
+
+/**
+ * @method getZoomScale
+ * @return A value converted from C/C++ "float"
+ */
+getZoomScale : function () {},
+
+/**
+ * @method updateInset
+ */
+updateInset : function () {},
+
+/**
+ * @method initWithViewSize
+ * @return A value converted from C/C++ "bool"
+ * @param {cocos2d::CCSize}
+ * @param {cocos2d::CCNode*}
+ */
+initWithViewSize : function () {},
+
+/**
+ * @method pause
+ * @param {cocos2d::CCObject*}
+ */
+pause : function () {},
+
+/**
+ * @method setDirection
+ * @param {cocos2d::extension::CCScrollViewDirection}
+ */
+setDirection : function () {},
+
+/**
+ * @method visit
+ */
+visit : function () {},
+
+/**
+ * @method setBounceable
+ * @param {bool}
+ */
+setBounceable : function () {},
+
+/**
+ * @method setContentOffset
+ * @param {cocos2d::CCPoint}
+ * @param {bool}
+ */
+setContentOffset : function () {},
+
+/**
+ * @method isDragging
+ * @return A value converted from C/C++ "bool"
+ */
+isDragging : function () {},
+
+/**
+ * @method init
+ * @return A value converted from C/C++ "bool"
+ */
+init : function () {},
+
+/**
+ * @method isBounceable
+ * @return A value converted from C/C++ "bool"
+ */
+isBounceable : function () {},
+
+/**
+ * @method getContentSize
+ * @return A value converted from C/C++ "cocos2d::CCSize"
+ */
+getContentSize : function () {},
+
+/**
+ * @method ccTouchMoved
+ * @param {cocos2d::CCTouch*}
+ * @param {cocos2d::CCEvent*}
+ */
+ccTouchMoved : function () {},
+
+/**
+ * @method setTouchEnabled
+ * @param {bool}
+ */
+setTouchEnabled : function () {},
+
+/**
+ * @method getContentOffset
+ * @return A value converted from C/C++ "cocos2d::CCPoint"
+ */
+getContentOffset : function () {},
+
+/**
+ * @method resume
+ * @param {cocos2d::CCObject*}
+ */
+resume : function () {},
+
+/**
+ * @method setClippingToBounds
+ * @param {bool}
+ */
+setClippingToBounds : function () {},
+
+/**
+ * @method setViewSize
+ * @param {cocos2d::CCSize}
+ */
+setViewSize : function () {},
+
+/**
+ * @method getViewSize
+ * @return A value converted from C/C++ "cocos2d::CCSize"
+ */
+getViewSize : function () {},
+
+/**
+ * @method maxContainerOffset
+ * @return A value converted from C/C++ "cocos2d::CCPoint"
+ */
+maxContainerOffset : function () {},
+
+/**
+ * @method setContentSize
+ * @param {cocos2d::CCSize}
+ */
+setContentSize : function () {},
+
+/**
+ * @method isTouchMoved
+ * @return A value converted from C/C++ "bool"
+ */
+isTouchMoved : function () {},
+
+/**
+ * @method isNodeVisible
+ * @return A value converted from C/C++ "bool"
+ * @param {cocos2d::CCNode*}
+ */
+isNodeVisible : function () {},
+
+/**
+ * @method ccTouchCancelled
+ * @param {cocos2d::CCTouch*}
+ * @param {cocos2d::CCEvent*}
+ */
+ccTouchCancelled : function () {},
+
+/**
+ * @method minContainerOffset
+ * @return A value converted from C/C++ "cocos2d::CCPoint"
+ */
+minContainerOffset : function () {},
+
+/**
+ * @method registerWithTouchDispatcher
+ */
+registerWithTouchDispatcher : function () {},
+
+/**
+ * @method CCScrollView
+ * @constructor
+ */
+CCScrollView : function () {},
+
+};
+
+/**
  * @class CCBAnimationManager
  */
 cc.CCBAnimationManager = {
@@ -11600,5 +11825,162 @@ getDocumentControllerName : function () {},
  * @constructor
  */
 CCBAnimationManager : function () {},
+
+};
+
+/**
+ * @class CCTableViewCell
+ */
+cc.CCTableViewCell = {
+
+/**
+ * @method reset
+ */
+reset : function () {},
+
+/**
+ * @method setIdx
+ * @param {unsigned int}
+ */
+setIdx : function () {},
+
+/**
+ * @method setObjectID
+ * @param {unsigned int}
+ */
+setObjectID : function () {},
+
+/**
+ * @method getObjectID
+ * @return A value converted from C/C++ "unsigned int"
+ */
+getObjectID : function () {},
+
+/**
+ * @method getIdx
+ * @return A value converted from C/C++ "unsigned int"
+ */
+getIdx : function () {},
+
+/**
+ * @method CCTableViewCell
+ * @constructor
+ */
+CCTableViewCell : function () {},
+
+};
+
+/**
+ * @class CCTableView
+ */
+cc.CCTableView = {
+
+/**
+ * @method updateCellAtIndex
+ * @param {unsigned int}
+ */
+updateCellAtIndex : function () {},
+
+/**
+ * @method setVerticalFillOrder
+ * @param {cocos2d::extension::CCTableViewVerticalFillOrder}
+ */
+setVerticalFillOrder : function () {},
+
+/**
+ * @method scrollViewDidZoom
+ * @param {cocos2d::extension::CCScrollView*}
+ */
+scrollViewDidZoom : function () {},
+
+/**
+ * @method ccTouchBegan
+ * @return A value converted from C/C++ "bool"
+ * @param {cocos2d::CCTouch*}
+ * @param {cocos2d::CCEvent*}
+ */
+ccTouchBegan : function () {},
+
+/**
+ * @method getVerticalFillOrder
+ * @return A value converted from C/C++ "cocos2d::extension::CCTableViewVerticalFillOrder"
+ */
+getVerticalFillOrder : function () {},
+
+/**
+ * @method removeCellAtIndex
+ * @param {unsigned int}
+ */
+removeCellAtIndex : function () {},
+
+/**
+ * @method initWithViewSize
+ * @return A value converted from C/C++ "bool"
+ * @param {cocos2d::CCSize}
+ * @param {cocos2d::CCNode*}
+ */
+initWithViewSize : function () {},
+
+/**
+ * @method scrollViewDidScroll
+ * @param {cocos2d::extension::CCScrollView*}
+ */
+scrollViewDidScroll : function () {},
+
+/**
+ * @method reloadData
+ */
+reloadData : function () {},
+
+/**
+ * @method ccTouchCancelled
+ * @param {cocos2d::CCTouch*}
+ * @param {cocos2d::CCEvent*}
+ */
+ccTouchCancelled : function () {},
+
+/**
+ * @method ccTouchEnded
+ * @param {cocos2d::CCTouch*}
+ * @param {cocos2d::CCEvent*}
+ */
+ccTouchEnded : function () {},
+
+/**
+ * @method ccTouchMoved
+ * @param {cocos2d::CCTouch*}
+ * @param {cocos2d::CCEvent*}
+ */
+ccTouchMoved : function () {},
+
+/**
+ * @method _updateContentSize
+ */
+_updateContentSize : function () {},
+
+/**
+ * @method insertCellAtIndex
+ * @param {unsigned int}
+ */
+insertCellAtIndex : function () {},
+
+/**
+ * @method cellAtIndex
+ * @return A value converted from C/C++ "cocos2d::extension::CCTableViewCell*"
+ * @param {unsigned int}
+ */
+cellAtIndex : function () {},
+
+/**
+ * @method dequeueCell
+ * @return A value converted from C/C++ "cocos2d::extension::CCTableViewCell*"
+ */
+dequeueCell : function () {},
+
+/**
+ * @method CCTableView
+ * @constructor
+ */
+CCTableView : function () {},
 
 };

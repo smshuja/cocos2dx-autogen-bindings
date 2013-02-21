@@ -3240,6 +3240,52 @@ JSBool js_cocos2dx_CCControlButton_getTitleForState(JSContext *cx, uint32_t argc
 JSBool js_cocos2dx_CCControlButton_create(JSContext *cx, uint32_t argc, jsval *vp);
 JSBool js_cocos2dx_CCControlButton_CCControlButton(JSContext *cx, uint32_t argc, jsval *vp);
 
+extern JSClass  *js_cocos2dx_CCScrollView_class;
+extern JSObject *js_cocos2dx_CCScrollView_prototype;
+
+JSBool js_cocos2dx_CCScrollView_constructor(JSContext *cx, uint32_t argc, jsval *vp);
+void js_cocos2dx_CCScrollView_finalize(JSContext *cx, JSObject *obj);
+void js_register_cocos2dx_CCScrollView(JSContext *cx, JSObject *global);
+void register_all_cocos2dx(JSContext* cx, JSObject* obj);
+JSBool js_cocos2dx_CCScrollView_isClippingToBounds(JSContext *cx, uint32_t argc, jsval *vp);
+JSBool js_cocos2dx_CCScrollView_setContainer(JSContext *cx, uint32_t argc, jsval *vp);
+JSBool js_cocos2dx_CCScrollView_setContentOffsetInDuration(JSContext *cx, uint32_t argc, jsval *vp);
+JSBool js_cocos2dx_CCScrollView_setZoomScaleInDuration(JSContext *cx, uint32_t argc, jsval *vp);
+JSBool js_cocos2dx_CCScrollView_addChild(JSContext *cx, uint32_t argc, jsval *vp);
+JSBool js_cocos2dx_CCScrollView_ccTouchBegan(JSContext *cx, uint32_t argc, jsval *vp);
+JSBool js_cocos2dx_CCScrollView_getContainer(JSContext *cx, uint32_t argc, jsval *vp);
+JSBool js_cocos2dx_CCScrollView_ccTouchEnded(JSContext *cx, uint32_t argc, jsval *vp);
+JSBool js_cocos2dx_CCScrollView_getDirection(JSContext *cx, uint32_t argc, jsval *vp);
+JSBool js_cocos2dx_CCScrollView_getZoomScale(JSContext *cx, uint32_t argc, jsval *vp);
+JSBool js_cocos2dx_CCScrollView_updateInset(JSContext *cx, uint32_t argc, jsval *vp);
+JSBool js_cocos2dx_CCScrollView_initWithViewSize(JSContext *cx, uint32_t argc, jsval *vp);
+JSBool js_cocos2dx_CCScrollView_pause(JSContext *cx, uint32_t argc, jsval *vp);
+JSBool js_cocos2dx_CCScrollView_setDirection(JSContext *cx, uint32_t argc, jsval *vp);
+JSBool js_cocos2dx_CCScrollView_visit(JSContext *cx, uint32_t argc, jsval *vp);
+JSBool js_cocos2dx_CCScrollView_setBounceable(JSContext *cx, uint32_t argc, jsval *vp);
+JSBool js_cocos2dx_CCScrollView_setContentOffset(JSContext *cx, uint32_t argc, jsval *vp);
+JSBool js_cocos2dx_CCScrollView_isDragging(JSContext *cx, uint32_t argc, jsval *vp);
+JSBool js_cocos2dx_CCScrollView_init(JSContext *cx, uint32_t argc, jsval *vp);
+JSBool js_cocos2dx_CCScrollView_isBounceable(JSContext *cx, uint32_t argc, jsval *vp);
+JSBool js_cocos2dx_CCScrollView_getContentSize(JSContext *cx, uint32_t argc, jsval *vp);
+JSBool js_cocos2dx_CCScrollView_ccTouchMoved(JSContext *cx, uint32_t argc, jsval *vp);
+JSBool js_cocos2dx_CCScrollView_setTouchEnabled(JSContext *cx, uint32_t argc, jsval *vp);
+JSBool js_cocos2dx_CCScrollView_getContentOffset(JSContext *cx, uint32_t argc, jsval *vp);
+JSBool js_cocos2dx_CCScrollView_resume(JSContext *cx, uint32_t argc, jsval *vp);
+JSBool js_cocos2dx_CCScrollView_setClippingToBounds(JSContext *cx, uint32_t argc, jsval *vp);
+JSBool js_cocos2dx_CCScrollView_setViewSize(JSContext *cx, uint32_t argc, jsval *vp);
+JSBool js_cocos2dx_CCScrollView_getViewSize(JSContext *cx, uint32_t argc, jsval *vp);
+JSBool js_cocos2dx_CCScrollView_maxContainerOffset(JSContext *cx, uint32_t argc, jsval *vp);
+JSBool js_cocos2dx_CCScrollView_setContentSize(JSContext *cx, uint32_t argc, jsval *vp);
+JSBool js_cocos2dx_CCScrollView_isTouchMoved(JSContext *cx, uint32_t argc, jsval *vp);
+JSBool js_cocos2dx_CCScrollView_isNodeVisible(JSContext *cx, uint32_t argc, jsval *vp);
+JSBool js_cocos2dx_CCScrollView_ccTouchCancelled(JSContext *cx, uint32_t argc, jsval *vp);
+JSBool js_cocos2dx_CCScrollView_minContainerOffset(JSContext *cx, uint32_t argc, jsval *vp);
+JSBool js_cocos2dx_CCScrollView_registerWithTouchDispatcher(JSContext *cx, uint32_t argc, jsval *vp);
+JSBool js_cocos2dx_CCScrollView_setZoomScale(JSContext *cx, uint32_t argc, jsval *vp);
+JSBool js_cocos2dx_CCScrollView_create(JSContext *cx, uint32_t argc, jsval *vp);
+JSBool js_cocos2dx_CCScrollView_CCScrollView(JSContext *cx, uint32_t argc, jsval *vp);
+
 extern JSClass  *js_cocos2dx_CCBAnimationManager_class;
 extern JSObject *js_cocos2dx_CCBAnimationManager_prototype;
 
@@ -3280,5 +3326,44 @@ JSBool js_cocos2dx_CCBAnimationManager_setSequences(JSContext *cx, uint32_t argc
 JSBool js_cocos2dx_CCBAnimationManager_debug(JSContext *cx, uint32_t argc, jsval *vp);
 JSBool js_cocos2dx_CCBAnimationManager_getDocumentControllerName(JSContext *cx, uint32_t argc, jsval *vp);
 JSBool js_cocos2dx_CCBAnimationManager_CCBAnimationManager(JSContext *cx, uint32_t argc, jsval *vp);
+
+extern JSClass  *js_cocos2dx_CCTableViewCell_class;
+extern JSObject *js_cocos2dx_CCTableViewCell_prototype;
+
+JSBool js_cocos2dx_CCTableViewCell_constructor(JSContext *cx, uint32_t argc, jsval *vp);
+void js_cocos2dx_CCTableViewCell_finalize(JSContext *cx, JSObject *obj);
+void js_register_cocos2dx_CCTableViewCell(JSContext *cx, JSObject *global);
+void register_all_cocos2dx(JSContext* cx, JSObject* obj);
+JSBool js_cocos2dx_CCTableViewCell_reset(JSContext *cx, uint32_t argc, jsval *vp);
+JSBool js_cocos2dx_CCTableViewCell_setIdx(JSContext *cx, uint32_t argc, jsval *vp);
+JSBool js_cocos2dx_CCTableViewCell_setObjectID(JSContext *cx, uint32_t argc, jsval *vp);
+JSBool js_cocos2dx_CCTableViewCell_getObjectID(JSContext *cx, uint32_t argc, jsval *vp);
+JSBool js_cocos2dx_CCTableViewCell_getIdx(JSContext *cx, uint32_t argc, jsval *vp);
+JSBool js_cocos2dx_CCTableViewCell_CCTableViewCell(JSContext *cx, uint32_t argc, jsval *vp);
+
+extern JSClass  *js_cocos2dx_CCTableView_class;
+extern JSObject *js_cocos2dx_CCTableView_prototype;
+
+JSBool js_cocos2dx_CCTableView_constructor(JSContext *cx, uint32_t argc, jsval *vp);
+void js_cocos2dx_CCTableView_finalize(JSContext *cx, JSObject *obj);
+void js_register_cocos2dx_CCTableView(JSContext *cx, JSObject *global);
+void register_all_cocos2dx(JSContext* cx, JSObject* obj);
+JSBool js_cocos2dx_CCTableView_updateCellAtIndex(JSContext *cx, uint32_t argc, jsval *vp);
+JSBool js_cocos2dx_CCTableView_setVerticalFillOrder(JSContext *cx, uint32_t argc, jsval *vp);
+JSBool js_cocos2dx_CCTableView_scrollViewDidZoom(JSContext *cx, uint32_t argc, jsval *vp);
+JSBool js_cocos2dx_CCTableView_ccTouchBegan(JSContext *cx, uint32_t argc, jsval *vp);
+JSBool js_cocos2dx_CCTableView_getVerticalFillOrder(JSContext *cx, uint32_t argc, jsval *vp);
+JSBool js_cocos2dx_CCTableView_removeCellAtIndex(JSContext *cx, uint32_t argc, jsval *vp);
+JSBool js_cocos2dx_CCTableView_initWithViewSize(JSContext *cx, uint32_t argc, jsval *vp);
+JSBool js_cocos2dx_CCTableView_scrollViewDidScroll(JSContext *cx, uint32_t argc, jsval *vp);
+JSBool js_cocos2dx_CCTableView_reloadData(JSContext *cx, uint32_t argc, jsval *vp);
+JSBool js_cocos2dx_CCTableView_ccTouchCancelled(JSContext *cx, uint32_t argc, jsval *vp);
+JSBool js_cocos2dx_CCTableView_ccTouchEnded(JSContext *cx, uint32_t argc, jsval *vp);
+JSBool js_cocos2dx_CCTableView_ccTouchMoved(JSContext *cx, uint32_t argc, jsval *vp);
+JSBool js_cocos2dx_CCTableView__updateContentSize(JSContext *cx, uint32_t argc, jsval *vp);
+JSBool js_cocos2dx_CCTableView_insertCellAtIndex(JSContext *cx, uint32_t argc, jsval *vp);
+JSBool js_cocos2dx_CCTableView_cellAtIndex(JSContext *cx, uint32_t argc, jsval *vp);
+JSBool js_cocos2dx_CCTableView_dequeueCell(JSContext *cx, uint32_t argc, jsval *vp);
+JSBool js_cocos2dx_CCTableView_CCTableView(JSContext *cx, uint32_t argc, jsval *vp);
 #endif
 
