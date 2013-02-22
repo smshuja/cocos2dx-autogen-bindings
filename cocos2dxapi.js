@@ -3563,6 +3563,12 @@ create : function () {},
 cc.CCLens3D = {
 
 /**
+ * @method setConcave
+ * @param {bool}
+ */
+setConcave : function () {},
+
+/**
  * @method initWithDuration
  * @return A value converted from C/C++ "bool"
  * @param {float}

@@ -16964,6 +16964,26 @@ void js_register_cocos2dx_CCFlipY3D(JSContext *cx, JSObject *global) {
 JSClass  *js_cocos2dx_CCLens3D_class;
 JSObject *js_cocos2dx_CCLens3D_prototype;
 
+JSBool js_cocos2dx_CCLens3D_setConcave(JSContext *cx, uint32_t argc, jsval *vp)
+{
+	jsval *argv = JS_ARGV(cx, vp);
+	JSBool ok = JS_TRUE;
+	JSObject *obj = JS_THIS_OBJECT(cx, vp);
+	js_proxy_t *proxy; JS_GET_NATIVE_PROXY(proxy, obj);
+	cocos2d::CCLens3D* cobj = (cocos2d::CCLens3D *)(proxy ? proxy->ptr : NULL);
+	JSB_PRECONDITION2( cobj, cx, JS_FALSE, "Invalid Native Object");
+
+	if (argc == 1) {
+		JSBool arg0;
+		ok &= JS_ValueToBoolean(cx, argv[0], &arg0);
+		JSB_PRECONDITION2(ok, cx, JS_FALSE, "Error processing arguments");
+		cobj->setConcave(arg0);
+		JS_SET_RVAL(cx, vp, JSVAL_VOID);
+		return JS_TRUE;
+	}
+	JS_ReportError(cx, "wrong number of arguments: %d, was expecting %d", argc, 1);
+	return JS_FALSE;
+}
 JSBool js_cocos2dx_CCLens3D_initWithDuration(JSContext *cx, uint32_t argc, jsval *vp)
 {
 	jsval *argv = JS_ARGV(cx, vp);
@@ -17139,6 +17159,7 @@ void js_register_cocos2dx_CCLens3D(JSContext *cx, JSObject *global) {
 	};
 
 	static JSFunctionSpec funcs[] = {
+		JS_FN("setConcave", js_cocos2dx_CCLens3D_setConcave, 1, JSPROP_PERMANENT | JSPROP_SHARED),
 		JS_FN("initWithDuration", js_cocos2dx_CCLens3D_initWithDuration, 4, JSPROP_PERMANENT | JSPROP_SHARED),
 		JS_FN("setLensEffect", js_cocos2dx_CCLens3D_setLensEffect, 1, JSPROP_PERMANENT | JSPROP_SHARED),
 		JS_FN("update", js_cocos2dx_CCLens3D_update, 1, JSPROP_PERMANENT | JSPROP_SHARED),
