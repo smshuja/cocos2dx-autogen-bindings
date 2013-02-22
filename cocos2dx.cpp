@@ -40933,6 +40933,26 @@ JSBool js_cocos2dx_CCParticleSystem_setAngleVar(JSContext *cx, uint32_t argc, js
 	JS_ReportError(cx, "wrong number of arguments: %d, was expecting %d", argc, 1);
 	return JS_FALSE;
 }
+JSBool js_cocos2dx_CCParticleSystem_setRotationIsDir(JSContext *cx, uint32_t argc, jsval *vp)
+{
+	jsval *argv = JS_ARGV(cx, vp);
+	JSBool ok = JS_TRUE;
+	JSObject *obj = JS_THIS_OBJECT(cx, vp);
+	js_proxy_t *proxy; JS_GET_NATIVE_PROXY(proxy, obj);
+	cocos2d::CCParticleSystem* cobj = (cocos2d::CCParticleSystem *)(proxy ? proxy->ptr : NULL);
+	JSB_PRECONDITION2( cobj, cx, JS_FALSE, "Invalid Native Object");
+
+	if (argc == 1) {
+		JSBool arg0;
+		ok &= JS_ValueToBoolean(cx, argv[0], &arg0);
+		JSB_PRECONDITION2(ok, cx, JS_FALSE, "Error processing arguments");
+		cobj->setRotationIsDir(arg0);
+		JS_SET_RVAL(cx, vp, JSVAL_VOID);
+		return JS_TRUE;
+	}
+	JS_ReportError(cx, "wrong number of arguments: %d, was expecting %d", argc, 1);
+	return JS_FALSE;
+}
 JSBool js_cocos2dx_CCParticleSystem_setEndSizeVar(JSContext *cx, uint32_t argc, jsval *vp)
 {
 	jsval *argv = JS_ARGV(cx, vp);
@@ -41269,6 +41289,23 @@ JSBool js_cocos2dx_CCParticleSystem_getEndColorVar(JSContext *cx, uint32_t argc,
 		cocos2d::ccColor4F ret = cobj->getEndColorVar();
 		jsval jsret;
 		jsret = cccolor4f_to_jsval(cx, ret);
+		JS_SET_RVAL(cx, vp, jsret);
+		return JS_TRUE;
+	}
+	JS_ReportError(cx, "wrong number of arguments: %d, was expecting %d", argc, 0);
+	return JS_FALSE;
+}
+JSBool js_cocos2dx_CCParticleSystem_getRotationIsDir(JSContext *cx, uint32_t argc, jsval *vp)
+{
+	JSObject *obj = JS_THIS_OBJECT(cx, vp);
+	js_proxy_t *proxy; JS_GET_NATIVE_PROXY(proxy, obj);
+	cocos2d::CCParticleSystem* cobj = (cocos2d::CCParticleSystem *)(proxy ? proxy->ptr : NULL);
+	JSB_PRECONDITION2( cobj, cx, JS_FALSE, "Invalid Native Object");
+
+	if (argc == 0) {
+		bool ret = cobj->getRotationIsDir();
+		jsval jsret;
+		jsret = BOOLEAN_TO_JSVAL(ret);
 		JS_SET_RVAL(cx, vp, jsret);
 		return JS_TRUE;
 	}
@@ -41802,6 +41839,7 @@ void js_register_cocos2dx_CCParticleSystem(JSContext *cx, JSObject *global) {
 		JS_FN("setBlendAdditive", js_cocos2dx_CCParticleSystem_setBlendAdditive, 1, JSPROP_PERMANENT | JSPROP_SHARED),
 		JS_FN("setLife", js_cocos2dx_CCParticleSystem_setLife, 1, JSPROP_PERMANENT | JSPROP_SHARED),
 		JS_FN("setAngleVar", js_cocos2dx_CCParticleSystem_setAngleVar, 1, JSPROP_PERMANENT | JSPROP_SHARED),
+		JS_FN("setRotationIsDir", js_cocos2dx_CCParticleSystem_setRotationIsDir, 1, JSPROP_PERMANENT | JSPROP_SHARED),
 		JS_FN("setEndSizeVar", js_cocos2dx_CCParticleSystem_setEndSizeVar, 1, JSPROP_PERMANENT | JSPROP_SHARED),
 		JS_FN("setAngle", js_cocos2dx_CCParticleSystem_setAngle, 1, JSPROP_PERMANENT | JSPROP_SHARED),
 		JS_FN("setBatchNode", js_cocos2dx_CCParticleSystem_setBatchNode, 1, JSPROP_PERMANENT | JSPROP_SHARED),
@@ -41820,6 +41858,7 @@ void js_register_cocos2dx_CCParticleSystem(JSContext *cx, JSObject *global) {
 		JS_FN("postStep", js_cocos2dx_CCParticleSystem_postStep, 0, JSPROP_PERMANENT | JSPROP_SHARED),
 		JS_FN("setEmissionRate", js_cocos2dx_CCParticleSystem_setEmissionRate, 1, JSPROP_PERMANENT | JSPROP_SHARED),
 		JS_FN("getEndColorVar", js_cocos2dx_CCParticleSystem_getEndColorVar, 0, JSPROP_PERMANENT | JSPROP_SHARED),
+		JS_FN("getRotationIsDir", js_cocos2dx_CCParticleSystem_getRotationIsDir, 0, JSPROP_PERMANENT | JSPROP_SHARED),
 		JS_FN("setScale", js_cocos2dx_CCParticleSystem_setScale, 1, JSPROP_PERMANENT | JSPROP_SHARED),
 		JS_FN("getEmissionRate", js_cocos2dx_CCParticleSystem_getEmissionRate, 0, JSPROP_PERMANENT | JSPROP_SHARED),
 		JS_FN("getEndColor", js_cocos2dx_CCParticleSystem_getEndColor, 0, JSPROP_PERMANENT | JSPROP_SHARED),

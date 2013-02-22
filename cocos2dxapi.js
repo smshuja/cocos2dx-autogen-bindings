@@ -8746,6 +8746,12 @@ setLife : function () {},
 setAngleVar : function () {},
 
 /**
+ * @method setRotationIsDir
+ * @param {bool}
+ */
+setRotationIsDir : function () {},
+
+/**
  * @method setEndSizeVar
  * @param {float}
  */
@@ -8852,6 +8858,12 @@ setEmissionRate : function () {},
  * @return A value converted from C/C++ "cocos2d::ccColor4F"
  */
 getEndColorVar : function () {},
+
+/**
+ * @method getRotationIsDir
+ * @return A value converted from C/C++ "bool"
+ */
+getRotationIsDir : function () {},
 
 /**
  * @method setScale

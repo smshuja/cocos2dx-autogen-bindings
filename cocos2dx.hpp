@@ -2592,6 +2592,7 @@ JSBool js_cocos2dx_CCParticleSystem_getRadialAccelVar(JSContext *cx, uint32_t ar
 JSBool js_cocos2dx_CCParticleSystem_setBlendAdditive(JSContext *cx, uint32_t argc, jsval *vp);
 JSBool js_cocos2dx_CCParticleSystem_setLife(JSContext *cx, uint32_t argc, jsval *vp);
 JSBool js_cocos2dx_CCParticleSystem_setAngleVar(JSContext *cx, uint32_t argc, jsval *vp);
+JSBool js_cocos2dx_CCParticleSystem_setRotationIsDir(JSContext *cx, uint32_t argc, jsval *vp);
 JSBool js_cocos2dx_CCParticleSystem_setEndSizeVar(JSContext *cx, uint32_t argc, jsval *vp);
 JSBool js_cocos2dx_CCParticleSystem_setAngle(JSContext *cx, uint32_t argc, jsval *vp);
 JSBool js_cocos2dx_CCParticleSystem_setBatchNode(JSContext *cx, uint32_t argc, jsval *vp);
@@ -2610,6 +2611,7 @@ JSBool js_cocos2dx_CCParticleSystem_setGravity(JSContext *cx, uint32_t argc, jsv
 JSBool js_cocos2dx_CCParticleSystem_postStep(JSContext *cx, uint32_t argc, jsval *vp);
 JSBool js_cocos2dx_CCParticleSystem_setEmissionRate(JSContext *cx, uint32_t argc, jsval *vp);
 JSBool js_cocos2dx_CCParticleSystem_getEndColorVar(JSContext *cx, uint32_t argc, jsval *vp);
+JSBool js_cocos2dx_CCParticleSystem_getRotationIsDir(JSContext *cx, uint32_t argc, jsval *vp);
 JSBool js_cocos2dx_CCParticleSystem_setScale(JSContext *cx, uint32_t argc, jsval *vp);
 JSBool js_cocos2dx_CCParticleSystem_getEmissionRate(JSContext *cx, uint32_t argc, jsval *vp);
 JSBool js_cocos2dx_CCParticleSystem_getEndColor(JSContext *cx, uint32_t argc, jsval *vp);
