@@ -341,22 +341,22 @@ void js_register_cocos2dx_CCAction(JSContext *cx, JSObject *global) {
 	};
 
 	static JSFunctionSpec funcs[] = {
-		JS_FN("startWithTarget", js_cocos2dx_CCAction_startWithTarget, 1, JSPROP_PERMANENT | JSPROP_SHARED),
-		JS_FN("setOriginalTarget", js_cocos2dx_CCAction_setOriginalTarget, 1, JSPROP_PERMANENT | JSPROP_SHARED),
-		JS_FN("setTarget", js_cocos2dx_CCAction_setTarget, 1, JSPROP_PERMANENT | JSPROP_SHARED),
-		JS_FN("getOriginalTarget", js_cocos2dx_CCAction_getOriginalTarget, 0, JSPROP_PERMANENT | JSPROP_SHARED),
-		JS_FN("stop", js_cocos2dx_CCAction_stop, 0, JSPROP_PERMANENT | JSPROP_SHARED),
-		JS_FN("update", js_cocos2dx_CCAction_update, 1, JSPROP_PERMANENT | JSPROP_SHARED),
-		JS_FN("getTarget", js_cocos2dx_CCAction_getTarget, 0, JSPROP_PERMANENT | JSPROP_SHARED),
-		JS_FN("step", js_cocos2dx_CCAction_step, 1, JSPROP_PERMANENT | JSPROP_SHARED),
-		JS_FN("setTag", js_cocos2dx_CCAction_setTag, 1, JSPROP_PERMANENT | JSPROP_SHARED),
-		JS_FN("getTag", js_cocos2dx_CCAction_getTag, 0, JSPROP_PERMANENT | JSPROP_SHARED),
-		JS_FN("isDone", js_cocos2dx_CCAction_isDone, 0, JSPROP_PERMANENT | JSPROP_SHARED),
+		JS_FN("startWithTarget", js_cocos2dx_CCAction_startWithTarget, 1, JSPROP_PERMANENT | JSPROP_ENUMERATE),
+		JS_FN("setOriginalTarget", js_cocos2dx_CCAction_setOriginalTarget, 1, JSPROP_PERMANENT | JSPROP_ENUMERATE),
+		JS_FN("setTarget", js_cocos2dx_CCAction_setTarget, 1, JSPROP_PERMANENT | JSPROP_ENUMERATE),
+		JS_FN("getOriginalTarget", js_cocos2dx_CCAction_getOriginalTarget, 0, JSPROP_PERMANENT | JSPROP_ENUMERATE),
+		JS_FN("stop", js_cocos2dx_CCAction_stop, 0, JSPROP_PERMANENT | JSPROP_ENUMERATE),
+		JS_FN("update", js_cocos2dx_CCAction_update, 1, JSPROP_PERMANENT | JSPROP_ENUMERATE),
+		JS_FN("getTarget", js_cocos2dx_CCAction_getTarget, 0, JSPROP_PERMANENT | JSPROP_ENUMERATE),
+		JS_FN("step", js_cocos2dx_CCAction_step, 1, JSPROP_PERMANENT | JSPROP_ENUMERATE),
+		JS_FN("setTag", js_cocos2dx_CCAction_setTag, 1, JSPROP_PERMANENT | JSPROP_ENUMERATE),
+		JS_FN("getTag", js_cocos2dx_CCAction_getTag, 0, JSPROP_PERMANENT | JSPROP_ENUMERATE),
+		JS_FN("isDone", js_cocos2dx_CCAction_isDone, 0, JSPROP_PERMANENT | JSPROP_ENUMERATE),
 		JS_FS_END
 	};
 
 	static JSFunctionSpec st_funcs[] = {
-		JS_FN("create", js_cocos2dx_CCAction_create, 0, JSPROP_PERMANENT | JSPROP_SHARED),
+		JS_FN("create", js_cocos2dx_CCAction_create, 0, JSPROP_PERMANENT | JSPROP_ENUMERATE),
 		JS_FS_END
 	};
 
@@ -506,9 +506,9 @@ void js_register_cocos2dx_CCFiniteTimeAction(JSContext *cx, JSObject *global) {
 	};
 
 	static JSFunctionSpec funcs[] = {
-		JS_FN("setDuration", js_cocos2dx_CCFiniteTimeAction_setDuration, 1, JSPROP_PERMANENT | JSPROP_SHARED),
-		JS_FN("getDuration", js_cocos2dx_CCFiniteTimeAction_getDuration, 0, JSPROP_PERMANENT | JSPROP_SHARED),
-		JS_FN("reverse", js_cocos2dx_CCFiniteTimeAction_reverse, 0, JSPROP_PERMANENT | JSPROP_SHARED),
+		JS_FN("setDuration", js_cocos2dx_CCFiniteTimeAction_setDuration, 1, JSPROP_PERMANENT | JSPROP_ENUMERATE),
+		JS_FN("getDuration", js_cocos2dx_CCFiniteTimeAction_getDuration, 0, JSPROP_PERMANENT | JSPROP_ENUMERATE),
+		JS_FN("reverse", js_cocos2dx_CCFiniteTimeAction_reverse, 0, JSPROP_PERMANENT | JSPROP_ENUMERATE),
 		JS_FS_END
 	};
 
@@ -850,21 +850,21 @@ void js_register_cocos2dx_CCSpeed(JSContext *cx, JSObject *global) {
 	};
 
 	static JSFunctionSpec funcs[] = {
-		JS_FN("startWithTarget", js_cocos2dx_CCSpeed_startWithTarget, 1, JSPROP_PERMANENT | JSPROP_SHARED),
-		JS_FN("setInnerAction", js_cocos2dx_CCSpeed_setInnerAction, 1, JSPROP_PERMANENT | JSPROP_SHARED),
-		JS_FN("reverse", js_cocos2dx_CCSpeed_reverse, 0, JSPROP_PERMANENT | JSPROP_SHARED),
-		JS_FN("stop", js_cocos2dx_CCSpeed_stop, 0, JSPROP_PERMANENT | JSPROP_SHARED),
-		JS_FN("step", js_cocos2dx_CCSpeed_step, 1, JSPROP_PERMANENT | JSPROP_SHARED),
-		JS_FN("setSpeed", js_cocos2dx_CCSpeed_setSpeed, 1, JSPROP_PERMANENT | JSPROP_SHARED),
-		JS_FN("initWithAction", js_cocos2dx_CCSpeed_initWithAction, 2, JSPROP_PERMANENT | JSPROP_SHARED),
-		JS_FN("getInnerAction", js_cocos2dx_CCSpeed_getInnerAction, 0, JSPROP_PERMANENT | JSPROP_SHARED),
-		JS_FN("isDone", js_cocos2dx_CCSpeed_isDone, 0, JSPROP_PERMANENT | JSPROP_SHARED),
-		JS_FN("getSpeed", js_cocos2dx_CCSpeed_getSpeed, 0, JSPROP_PERMANENT | JSPROP_SHARED),
+		JS_FN("startWithTarget", js_cocos2dx_CCSpeed_startWithTarget, 1, JSPROP_PERMANENT | JSPROP_ENUMERATE),
+		JS_FN("setInnerAction", js_cocos2dx_CCSpeed_setInnerAction, 1, JSPROP_PERMANENT | JSPROP_ENUMERATE),
+		JS_FN("reverse", js_cocos2dx_CCSpeed_reverse, 0, JSPROP_PERMANENT | JSPROP_ENUMERATE),
+		JS_FN("stop", js_cocos2dx_CCSpeed_stop, 0, JSPROP_PERMANENT | JSPROP_ENUMERATE),
+		JS_FN("step", js_cocos2dx_CCSpeed_step, 1, JSPROP_PERMANENT | JSPROP_ENUMERATE),
+		JS_FN("setSpeed", js_cocos2dx_CCSpeed_setSpeed, 1, JSPROP_PERMANENT | JSPROP_ENUMERATE),
+		JS_FN("initWithAction", js_cocos2dx_CCSpeed_initWithAction, 2, JSPROP_PERMANENT | JSPROP_ENUMERATE),
+		JS_FN("getInnerAction", js_cocos2dx_CCSpeed_getInnerAction, 0, JSPROP_PERMANENT | JSPROP_ENUMERATE),
+		JS_FN("isDone", js_cocos2dx_CCSpeed_isDone, 0, JSPROP_PERMANENT | JSPROP_ENUMERATE),
+		JS_FN("getSpeed", js_cocos2dx_CCSpeed_getSpeed, 0, JSPROP_PERMANENT | JSPROP_ENUMERATE),
 		JS_FS_END
 	};
 
 	static JSFunctionSpec st_funcs[] = {
-		JS_FN("create", js_cocos2dx_CCSpeed_create, 2, JSPROP_PERMANENT | JSPROP_SHARED),
+		JS_FN("create", js_cocos2dx_CCSpeed_create, 2, JSPROP_PERMANENT | JSPROP_ENUMERATE),
 		JS_FS_END
 	};
 
@@ -1104,17 +1104,17 @@ void js_register_cocos2dx_CCFollow(JSContext *cx, JSObject *global) {
 	};
 
 	static JSFunctionSpec funcs[] = {
-		JS_FN("initWithTarget", js_cocos2dx_CCFollow_initWithTarget, 2, JSPROP_PERMANENT | JSPROP_SHARED),
-		JS_FN("stop", js_cocos2dx_CCFollow_stop, 0, JSPROP_PERMANENT | JSPROP_SHARED),
-		JS_FN("setBoudarySet", js_cocos2dx_CCFollow_setBoudarySet, 1, JSPROP_PERMANENT | JSPROP_SHARED),
-		JS_FN("step", js_cocos2dx_CCFollow_step, 1, JSPROP_PERMANENT | JSPROP_SHARED),
-		JS_FN("isDone", js_cocos2dx_CCFollow_isDone, 0, JSPROP_PERMANENT | JSPROP_SHARED),
-		JS_FN("isBoundarySet", js_cocos2dx_CCFollow_isBoundarySet, 0, JSPROP_PERMANENT | JSPROP_SHARED),
+		JS_FN("initWithTarget", js_cocos2dx_CCFollow_initWithTarget, 2, JSPROP_PERMANENT | JSPROP_ENUMERATE),
+		JS_FN("stop", js_cocos2dx_CCFollow_stop, 0, JSPROP_PERMANENT | JSPROP_ENUMERATE),
+		JS_FN("setBoudarySet", js_cocos2dx_CCFollow_setBoudarySet, 1, JSPROP_PERMANENT | JSPROP_ENUMERATE),
+		JS_FN("step", js_cocos2dx_CCFollow_step, 1, JSPROP_PERMANENT | JSPROP_ENUMERATE),
+		JS_FN("isDone", js_cocos2dx_CCFollow_isDone, 0, JSPROP_PERMANENT | JSPROP_ENUMERATE),
+		JS_FN("isBoundarySet", js_cocos2dx_CCFollow_isBoundarySet, 0, JSPROP_PERMANENT | JSPROP_ENUMERATE),
 		JS_FS_END
 	};
 
 	static JSFunctionSpec st_funcs[] = {
-		JS_FN("create", js_cocos2dx_CCFollow_create, 2, JSPROP_PERMANENT | JSPROP_SHARED),
+		JS_FN("create", js_cocos2dx_CCFollow_create, 2, JSPROP_PERMANENT | JSPROP_ENUMERATE),
 		JS_FS_END
 	};
 
@@ -1329,13 +1329,13 @@ void js_register_cocos2dx_CCTouch(JSContext *cx, JSObject *global) {
 	};
 
 	static JSFunctionSpec funcs[] = {
-		JS_FN("getPreviousLocationInView", js_cocos2dx_CCTouch_getPreviousLocationInView, 0, JSPROP_PERMANENT | JSPROP_SHARED),
-		JS_FN("getLocation", js_cocos2dx_CCTouch_getLocation, 0, JSPROP_PERMANENT | JSPROP_SHARED),
-		JS_FN("getDelta", js_cocos2dx_CCTouch_getDelta, 0, JSPROP_PERMANENT | JSPROP_SHARED),
-		JS_FN("setTouchInfo", js_cocos2dx_CCTouch_setTouchInfo, 3, JSPROP_PERMANENT | JSPROP_SHARED),
-		JS_FN("getId", js_cocos2dx_CCTouch_getID, 0, JSPROP_PERMANENT | JSPROP_SHARED),
-		JS_FN("getLocationInView", js_cocos2dx_CCTouch_getLocationInView, 0, JSPROP_PERMANENT | JSPROP_SHARED),
-		JS_FN("getPreviousLocation", js_cocos2dx_CCTouch_getPreviousLocation, 0, JSPROP_PERMANENT | JSPROP_SHARED),
+		JS_FN("getPreviousLocationInView", js_cocos2dx_CCTouch_getPreviousLocationInView, 0, JSPROP_PERMANENT | JSPROP_ENUMERATE),
+		JS_FN("getLocation", js_cocos2dx_CCTouch_getLocation, 0, JSPROP_PERMANENT | JSPROP_ENUMERATE),
+		JS_FN("getDelta", js_cocos2dx_CCTouch_getDelta, 0, JSPROP_PERMANENT | JSPROP_ENUMERATE),
+		JS_FN("setTouchInfo", js_cocos2dx_CCTouch_setTouchInfo, 3, JSPROP_PERMANENT | JSPROP_ENUMERATE),
+		JS_FN("getId", js_cocos2dx_CCTouch_getID, 0, JSPROP_PERMANENT | JSPROP_ENUMERATE),
+		JS_FN("getLocationInView", js_cocos2dx_CCTouch_getLocationInView, 0, JSPROP_PERMANENT | JSPROP_ENUMERATE),
+		JS_FN("getPreviousLocation", js_cocos2dx_CCTouch_getPreviousLocation, 0, JSPROP_PERMANENT | JSPROP_ENUMERATE),
 		JS_FS_END
 	};
 
@@ -1580,14 +1580,14 @@ void js_register_cocos2dx_CCSet(JSContext *cx, JSObject *global) {
 	};
 
 	static JSFunctionSpec funcs[] = {
-		JS_FN("count", js_cocos2dx_CCSet_count, 0, JSPROP_PERMANENT | JSPROP_SHARED),
-		JS_FN("addObject", js_cocos2dx_CCSet_addObject, 1, JSPROP_PERMANENT | JSPROP_SHARED),
-		JS_FN("mutableCopy", js_cocos2dx_CCSet_mutableCopy, 0, JSPROP_PERMANENT | JSPROP_SHARED),
-		JS_FN("anyObject", js_cocos2dx_CCSet_anyObject, 0, JSPROP_PERMANENT | JSPROP_SHARED),
-		JS_FN("removeAllObjects", js_cocos2dx_CCSet_removeAllObjects, 0, JSPROP_PERMANENT | JSPROP_SHARED),
-		JS_FN("removeObject", js_cocos2dx_CCSet_removeObject, 1, JSPROP_PERMANENT | JSPROP_SHARED),
-		JS_FN("copy", js_cocos2dx_CCSet_copy, 0, JSPROP_PERMANENT | JSPROP_SHARED),
-		JS_FN("containsObject", js_cocos2dx_CCSet_containsObject, 1, JSPROP_PERMANENT | JSPROP_SHARED),
+		JS_FN("count", js_cocos2dx_CCSet_count, 0, JSPROP_PERMANENT | JSPROP_ENUMERATE),
+		JS_FN("addObject", js_cocos2dx_CCSet_addObject, 1, JSPROP_PERMANENT | JSPROP_ENUMERATE),
+		JS_FN("mutableCopy", js_cocos2dx_CCSet_mutableCopy, 0, JSPROP_PERMANENT | JSPROP_ENUMERATE),
+		JS_FN("anyObject", js_cocos2dx_CCSet_anyObject, 0, JSPROP_PERMANENT | JSPROP_ENUMERATE),
+		JS_FN("removeAllObjects", js_cocos2dx_CCSet_removeAllObjects, 0, JSPROP_PERMANENT | JSPROP_ENUMERATE),
+		JS_FN("removeObject", js_cocos2dx_CCSet_removeObject, 1, JSPROP_PERMANENT | JSPROP_ENUMERATE),
+		JS_FN("copy", js_cocos2dx_CCSet_copy, 0, JSPROP_PERMANENT | JSPROP_ENUMERATE),
+		JS_FN("containsObject", js_cocos2dx_CCSet_containsObject, 1, JSPROP_PERMANENT | JSPROP_ENUMERATE),
 		JS_FS_END
 	};
 
@@ -3521,97 +3521,97 @@ void js_register_cocos2dx_CCNode(JSContext *cx, JSObject *global) {
 	};
 
 	static JSFunctionSpec funcs[] = {
-		JS_FN("addChild", js_cocos2dx_CCNode_addChild, 1, JSPROP_PERMANENT | JSPROP_SHARED),
-		JS_FN("getScriptHandler", js_cocos2dx_CCNode_getScriptHandler, 0, JSPROP_PERMANENT | JSPROP_SHARED),
-		JS_FN("convertToWorldSpaceAR", js_cocos2dx_CCNode_convertToWorldSpaceAR, 1, JSPROP_PERMANENT | JSPROP_SHARED),
-		JS_FN("isIgnoreAnchorPointForPosition", js_cocos2dx_CCNode_isIgnoreAnchorPointForPosition, 0, JSPROP_PERMANENT | JSPROP_SHARED),
-		JS_FN("setRotation", js_cocos2dx_CCNode_setRotation, 1, JSPROP_PERMANENT | JSPROP_SHARED),
-		JS_FN("setZOrder", js_cocos2dx_CCNode_setZOrder, 1, JSPROP_PERMANENT | JSPROP_SHARED),
-		JS_FN("setScaleY", js_cocos2dx_CCNode_setScaleY, 1, JSPROP_PERMANENT | JSPROP_SHARED),
-		JS_FN("setScaleX", js_cocos2dx_CCNode_setScaleX, 1, JSPROP_PERMANENT | JSPROP_SHARED),
-		JS_FN("scheduleUpdateWithPriority", js_cocos2dx_CCNode_scheduleUpdateWithPriority, 1, JSPROP_PERMANENT | JSPROP_SHARED),
-		JS_FN("unregisterScriptHandler", js_cocos2dx_CCNode_unregisterScriptHandler, 0, JSPROP_PERMANENT | JSPROP_SHARED),
-		JS_FN("getTag", js_cocos2dx_CCNode_getTag, 0, JSPROP_PERMANENT | JSPROP_SHARED),
-		JS_FN("removeChild", js_cocos2dx_CCNode_removeChild, 1, JSPROP_PERMANENT | JSPROP_SHARED),
-		JS_FN("convertToWorldSpace", js_cocos2dx_CCNode_convertToWorldSpace, 1, JSPROP_PERMANENT | JSPROP_SHARED),
-		JS_FN("setSkewX", js_cocos2dx_CCNode_setSkewX, 1, JSPROP_PERMANENT | JSPROP_SHARED),
-		JS_FN("setSkewY", js_cocos2dx_CCNode_setSkewY, 1, JSPROP_PERMANENT | JSPROP_SHARED),
-		JS_FN("convertTouchToNodeSpace", js_cocos2dx_CCNode_convertTouchToNodeSpace, 1, JSPROP_PERMANENT | JSPROP_SHARED),
-		JS_FN("removeAllChildren", js_cocos2dx_CCNode_removeAllChildrenWithCleanup, 0, JSPROP_PERMANENT | JSPROP_SHARED),
-		JS_FN("getRotationX", js_cocos2dx_CCNode_getRotationX, 0, JSPROP_PERMANENT | JSPROP_SHARED),
-		JS_FN("getRotationY", js_cocos2dx_CCNode_getRotationY, 0, JSPROP_PERMANENT | JSPROP_SHARED),
-		JS_FN("unscheduleUpdate", js_cocos2dx_CCNode_unscheduleUpdate, 0, JSPROP_PERMANENT | JSPROP_SHARED),
-		JS_FN("setParent", js_cocos2dx_CCNode_setParent, 1, JSPROP_PERMANENT | JSPROP_SHARED),
-		JS_FN("numberOfRunningActions", js_cocos2dx_CCNode_numberOfRunningActions, 0, JSPROP_PERMANENT | JSPROP_SHARED),
-		JS_FN("stopActionByTag", js_cocos2dx_CCNode_stopActionByTag, 1, JSPROP_PERMANENT | JSPROP_SHARED),
-		JS_FN("reorderChild", js_cocos2dx_CCNode_reorderChild, 2, JSPROP_PERMANENT | JSPROP_SHARED),
-		JS_FN("setPositionY", js_cocos2dx_CCNode_setPositionY, 1, JSPROP_PERMANENT | JSPROP_SHARED),
-		JS_FN("setPositionX", js_cocos2dx_CCNode_setPositionX, 1, JSPROP_PERMANENT | JSPROP_SHARED),
-		JS_FN("getAnchorPoint", js_cocos2dx_CCNode_getAnchorPoint, 0, JSPROP_PERMANENT | JSPROP_SHARED),
-		JS_FN("isVisible", js_cocos2dx_CCNode_isVisible, 0, JSPROP_PERMANENT | JSPROP_SHARED),
-		JS_FN("setAnchorPoint", js_cocos2dx_CCNode_setAnchorPoint, 1, JSPROP_PERMANENT | JSPROP_SHARED),
-		JS_FN("convertToNodeSpaceAR", js_cocos2dx_CCNode_convertToNodeSpaceAR, 1, JSPROP_PERMANENT | JSPROP_SHARED),
-		JS_FN("visit", js_cocos2dx_CCNode_visit, 0, JSPROP_PERMANENT | JSPROP_SHARED),
-		JS_FN("setShaderProgram", js_cocos2dx_CCNode_setShaderProgram, 1, JSPROP_PERMANENT | JSPROP_SHARED),
-		JS_FN("scheduleUpdateWithPriorityLua", js_cocos2dx_CCNode_scheduleUpdateWithPriorityLua, 2, JSPROP_PERMANENT | JSPROP_SHARED),
-		JS_FN("getRotation", js_cocos2dx_CCNode_getRotation, 0, JSPROP_PERMANENT | JSPROP_SHARED),
-		JS_FN("resumeSchedulerAndActions", js_cocos2dx_CCNode_resumeSchedulerAndActions, 0, JSPROP_PERMANENT | JSPROP_SHARED),
-		JS_FN("getZOrder", js_cocos2dx_CCNode_getZOrder, 0, JSPROP_PERMANENT | JSPROP_SHARED),
-		JS_FN("getAnchorPointInPoints", js_cocos2dx_CCNode_getAnchorPointInPoints, 0, JSPROP_PERMANENT | JSPROP_SHARED),
-		JS_FN("runAction", js_cocos2dx_CCNode_runAction, 1, JSPROP_PERMANENT | JSPROP_SHARED),
-		JS_FN("transform", js_cocos2dx_CCNode_transform, 0, JSPROP_PERMANENT | JSPROP_SHARED),
-		JS_FN("setVertexZ", js_cocos2dx_CCNode_setVertexZ, 1, JSPROP_PERMANENT | JSPROP_SHARED),
-		JS_FN("setScheduler", js_cocos2dx_CCNode_setScheduler, 1, JSPROP_PERMANENT | JSPROP_SHARED),
-		JS_FN("stopAllActions", js_cocos2dx_CCNode_stopAllActions, 0, JSPROP_PERMANENT | JSPROP_SHARED),
-		JS_FN("getSkewX", js_cocos2dx_CCNode_getSkewX, 0, JSPROP_PERMANENT | JSPROP_SHARED),
-		JS_FN("getSkewY", js_cocos2dx_CCNode_getSkewY, 0, JSPROP_PERMANENT | JSPROP_SHARED),
-		JS_FN("ignoreAnchorPointForPosition", js_cocos2dx_CCNode_ignoreAnchorPointForPosition, 1, JSPROP_PERMANENT | JSPROP_SHARED),
-		JS_FN("getActionByTag", js_cocos2dx_CCNode_getActionByTag, 1, JSPROP_PERMANENT | JSPROP_SHARED),
-		JS_FN("setRotationX", js_cocos2dx_CCNode_setRotationX, 1, JSPROP_PERMANENT | JSPROP_SHARED),
-		JS_FN("setRotationY", js_cocos2dx_CCNode_setRotationY, 1, JSPROP_PERMANENT | JSPROP_SHARED),
-		JS_FN("getScheduler", js_cocos2dx_CCNode_getScheduler, 0, JSPROP_PERMANENT | JSPROP_SHARED),
-		JS_FN("getOrderOfArrival", js_cocos2dx_CCNode_getOrderOfArrival, 0, JSPROP_PERMANENT | JSPROP_SHARED),
-		JS_FN("setContentSize", js_cocos2dx_CCNode_setContentSize, 1, JSPROP_PERMANENT | JSPROP_SHARED),
-		JS_FN("setActionManager", js_cocos2dx_CCNode_setActionManager, 1, JSPROP_PERMANENT | JSPROP_SHARED),
-		JS_FN("getPosition", js_cocos2dx_CCNode_getPosition, 0, JSPROP_PERMANENT | JSPROP_SHARED),
-		JS_FN("isRunning", js_cocos2dx_CCNode_isRunning, 0, JSPROP_PERMANENT | JSPROP_SHARED),
-		JS_FN("getParent", js_cocos2dx_CCNode_getParent, 0, JSPROP_PERMANENT | JSPROP_SHARED),
-		JS_FN("getPositionY", js_cocos2dx_CCNode_getPositionY, 0, JSPROP_PERMANENT | JSPROP_SHARED),
-		JS_FN("getPositionX", js_cocos2dx_CCNode_getPositionX, 0, JSPROP_PERMANENT | JSPROP_SHARED),
-		JS_FN("removeChildByTag", js_cocos2dx_CCNode_removeChildByTag, 1, JSPROP_PERMANENT | JSPROP_SHARED),
-		JS_FN("setVisible", js_cocos2dx_CCNode_setVisible, 1, JSPROP_PERMANENT | JSPROP_SHARED),
-		JS_FN("pauseSchedulerAndActions", js_cocos2dx_CCNode_pauseSchedulerAndActions, 0, JSPROP_PERMANENT | JSPROP_SHARED),
-		JS_FN("getVertexZ", js_cocos2dx_CCNode_getVertexZ, 0, JSPROP_PERMANENT | JSPROP_SHARED),
-		JS_FN("_setZOrder", js_cocos2dx_CCNode__setZOrder, 1, JSPROP_PERMANENT | JSPROP_SHARED),
-		JS_FN("setScale", js_cocos2dx_CCNode_setScale, 1, JSPROP_PERMANENT | JSPROP_SHARED),
-		JS_FN("getChildByTag", js_cocos2dx_CCNode_getChildByTag, 1, JSPROP_PERMANENT | JSPROP_SHARED),
-		JS_FN("setOrderOfArrival", js_cocos2dx_CCNode_setOrderOfArrival, 1, JSPROP_PERMANENT | JSPROP_SHARED),
-		JS_FN("getScaleY", js_cocos2dx_CCNode_getScaleY, 0, JSPROP_PERMANENT | JSPROP_SHARED),
-		JS_FN("getScaleX", js_cocos2dx_CCNode_getScaleX, 0, JSPROP_PERMANENT | JSPROP_SHARED),
-		JS_FN("cleanup", js_cocos2dx_CCNode_cleanup, 0, JSPROP_PERMANENT | JSPROP_SHARED),
-		JS_FN("getContentSize", js_cocos2dx_CCNode_getContentSize, 0, JSPROP_PERMANENT | JSPROP_SHARED),
-		JS_FN("setGrid", js_cocos2dx_CCNode_setGrid, 1, JSPROP_PERMANENT | JSPROP_SHARED),
-		JS_FN("getBoundingBox", js_cocos2dx_CCNode_boundingBox, 0, JSPROP_PERMANENT | JSPROP_SHARED),
-		JS_FN("draw", js_cocos2dx_CCNode_draw, 0, JSPROP_PERMANENT | JSPROP_SHARED),
-		JS_FN("transformAncestors", js_cocos2dx_CCNode_transformAncestors, 0, JSPROP_PERMANENT | JSPROP_SHARED),
-		JS_FN("setUserObject", js_cocos2dx_CCNode_setUserObject, 1, JSPROP_PERMANENT | JSPROP_SHARED),
-		JS_FN("registerScriptHandler", js_cocos2dx_CCNode_registerScriptHandler, 1, JSPROP_PERMANENT | JSPROP_SHARED),
-		JS_FN("removeFromParent", js_cocos2dx_CCNode_removeFromParentAndCleanup, 0, JSPROP_PERMANENT | JSPROP_SHARED),
-		JS_FN("convertTouchToNodeSpaceAR", js_cocos2dx_CCNode_convertTouchToNodeSpaceAR, 1, JSPROP_PERMANENT | JSPROP_SHARED),
-		JS_FN("update", js_cocos2dx_CCNode_update, 1, JSPROP_PERMANENT | JSPROP_SHARED),
-		JS_FN("sortAllChildren", js_cocos2dx_CCNode_sortAllChildren, 0, JSPROP_PERMANENT | JSPROP_SHARED),
-		JS_FN("convertToNodeSpace", js_cocos2dx_CCNode_convertToNodeSpace, 1, JSPROP_PERMANENT | JSPROP_SHARED),
-		JS_FN("getScale", js_cocos2dx_CCNode_getScale, 0, JSPROP_PERMANENT | JSPROP_SHARED),
-		JS_FN("getCamera", js_cocos2dx_CCNode_getCamera, 0, JSPROP_PERMANENT | JSPROP_SHARED),
-		JS_FN("setTag", js_cocos2dx_CCNode_setTag, 1, JSPROP_PERMANENT | JSPROP_SHARED),
-		JS_FN("scheduleUpdate", js_cocos2dx_CCNode_scheduleUpdate, 0, JSPROP_PERMANENT | JSPROP_SHARED),
-		JS_FN("stopAction", js_cocos2dx_CCNode_stopAction, 1, JSPROP_PERMANENT | JSPROP_SHARED),
-		JS_FN("getActionManager", js_cocos2dx_CCNode_getActionManager, 0, JSPROP_PERMANENT | JSPROP_SHARED),
+		JS_FN("addChild", js_cocos2dx_CCNode_addChild, 1, JSPROP_PERMANENT | JSPROP_ENUMERATE),
+		JS_FN("getScriptHandler", js_cocos2dx_CCNode_getScriptHandler, 0, JSPROP_PERMANENT | JSPROP_ENUMERATE),
+		JS_FN("convertToWorldSpaceAR", js_cocos2dx_CCNode_convertToWorldSpaceAR, 1, JSPROP_PERMANENT | JSPROP_ENUMERATE),
+		JS_FN("isIgnoreAnchorPointForPosition", js_cocos2dx_CCNode_isIgnoreAnchorPointForPosition, 0, JSPROP_PERMANENT | JSPROP_ENUMERATE),
+		JS_FN("setRotation", js_cocos2dx_CCNode_setRotation, 1, JSPROP_PERMANENT | JSPROP_ENUMERATE),
+		JS_FN("setZOrder", js_cocos2dx_CCNode_setZOrder, 1, JSPROP_PERMANENT | JSPROP_ENUMERATE),
+		JS_FN("setScaleY", js_cocos2dx_CCNode_setScaleY, 1, JSPROP_PERMANENT | JSPROP_ENUMERATE),
+		JS_FN("setScaleX", js_cocos2dx_CCNode_setScaleX, 1, JSPROP_PERMANENT | JSPROP_ENUMERATE),
+		JS_FN("scheduleUpdateWithPriority", js_cocos2dx_CCNode_scheduleUpdateWithPriority, 1, JSPROP_PERMANENT | JSPROP_ENUMERATE),
+		JS_FN("unregisterScriptHandler", js_cocos2dx_CCNode_unregisterScriptHandler, 0, JSPROP_PERMANENT | JSPROP_ENUMERATE),
+		JS_FN("getTag", js_cocos2dx_CCNode_getTag, 0, JSPROP_PERMANENT | JSPROP_ENUMERATE),
+		JS_FN("removeChild", js_cocos2dx_CCNode_removeChild, 1, JSPROP_PERMANENT | JSPROP_ENUMERATE),
+		JS_FN("convertToWorldSpace", js_cocos2dx_CCNode_convertToWorldSpace, 1, JSPROP_PERMANENT | JSPROP_ENUMERATE),
+		JS_FN("setSkewX", js_cocos2dx_CCNode_setSkewX, 1, JSPROP_PERMANENT | JSPROP_ENUMERATE),
+		JS_FN("setSkewY", js_cocos2dx_CCNode_setSkewY, 1, JSPROP_PERMANENT | JSPROP_ENUMERATE),
+		JS_FN("convertTouchToNodeSpace", js_cocos2dx_CCNode_convertTouchToNodeSpace, 1, JSPROP_PERMANENT | JSPROP_ENUMERATE),
+		JS_FN("removeAllChildren", js_cocos2dx_CCNode_removeAllChildrenWithCleanup, 0, JSPROP_PERMANENT | JSPROP_ENUMERATE),
+		JS_FN("getRotationX", js_cocos2dx_CCNode_getRotationX, 0, JSPROP_PERMANENT | JSPROP_ENUMERATE),
+		JS_FN("getRotationY", js_cocos2dx_CCNode_getRotationY, 0, JSPROP_PERMANENT | JSPROP_ENUMERATE),
+		JS_FN("unscheduleUpdate", js_cocos2dx_CCNode_unscheduleUpdate, 0, JSPROP_PERMANENT | JSPROP_ENUMERATE),
+		JS_FN("setParent", js_cocos2dx_CCNode_setParent, 1, JSPROP_PERMANENT | JSPROP_ENUMERATE),
+		JS_FN("numberOfRunningActions", js_cocos2dx_CCNode_numberOfRunningActions, 0, JSPROP_PERMANENT | JSPROP_ENUMERATE),
+		JS_FN("stopActionByTag", js_cocos2dx_CCNode_stopActionByTag, 1, JSPROP_PERMANENT | JSPROP_ENUMERATE),
+		JS_FN("reorderChild", js_cocos2dx_CCNode_reorderChild, 2, JSPROP_PERMANENT | JSPROP_ENUMERATE),
+		JS_FN("setPositionY", js_cocos2dx_CCNode_setPositionY, 1, JSPROP_PERMANENT | JSPROP_ENUMERATE),
+		JS_FN("setPositionX", js_cocos2dx_CCNode_setPositionX, 1, JSPROP_PERMANENT | JSPROP_ENUMERATE),
+		JS_FN("getAnchorPoint", js_cocos2dx_CCNode_getAnchorPoint, 0, JSPROP_PERMANENT | JSPROP_ENUMERATE),
+		JS_FN("isVisible", js_cocos2dx_CCNode_isVisible, 0, JSPROP_PERMANENT | JSPROP_ENUMERATE),
+		JS_FN("setAnchorPoint", js_cocos2dx_CCNode_setAnchorPoint, 1, JSPROP_PERMANENT | JSPROP_ENUMERATE),
+		JS_FN("convertToNodeSpaceAR", js_cocos2dx_CCNode_convertToNodeSpaceAR, 1, JSPROP_PERMANENT | JSPROP_ENUMERATE),
+		JS_FN("visit", js_cocos2dx_CCNode_visit, 0, JSPROP_PERMANENT | JSPROP_ENUMERATE),
+		JS_FN("setShaderProgram", js_cocos2dx_CCNode_setShaderProgram, 1, JSPROP_PERMANENT | JSPROP_ENUMERATE),
+		JS_FN("scheduleUpdateWithPriorityLua", js_cocos2dx_CCNode_scheduleUpdateWithPriorityLua, 2, JSPROP_PERMANENT | JSPROP_ENUMERATE),
+		JS_FN("getRotation", js_cocos2dx_CCNode_getRotation, 0, JSPROP_PERMANENT | JSPROP_ENUMERATE),
+		JS_FN("resumeSchedulerAndActions", js_cocos2dx_CCNode_resumeSchedulerAndActions, 0, JSPROP_PERMANENT | JSPROP_ENUMERATE),
+		JS_FN("getZOrder", js_cocos2dx_CCNode_getZOrder, 0, JSPROP_PERMANENT | JSPROP_ENUMERATE),
+		JS_FN("getAnchorPointInPoints", js_cocos2dx_CCNode_getAnchorPointInPoints, 0, JSPROP_PERMANENT | JSPROP_ENUMERATE),
+		JS_FN("runAction", js_cocos2dx_CCNode_runAction, 1, JSPROP_PERMANENT | JSPROP_ENUMERATE),
+		JS_FN("transform", js_cocos2dx_CCNode_transform, 0, JSPROP_PERMANENT | JSPROP_ENUMERATE),
+		JS_FN("setVertexZ", js_cocos2dx_CCNode_setVertexZ, 1, JSPROP_PERMANENT | JSPROP_ENUMERATE),
+		JS_FN("setScheduler", js_cocos2dx_CCNode_setScheduler, 1, JSPROP_PERMANENT | JSPROP_ENUMERATE),
+		JS_FN("stopAllActions", js_cocos2dx_CCNode_stopAllActions, 0, JSPROP_PERMANENT | JSPROP_ENUMERATE),
+		JS_FN("getSkewX", js_cocos2dx_CCNode_getSkewX, 0, JSPROP_PERMANENT | JSPROP_ENUMERATE),
+		JS_FN("getSkewY", js_cocos2dx_CCNode_getSkewY, 0, JSPROP_PERMANENT | JSPROP_ENUMERATE),
+		JS_FN("ignoreAnchorPointForPosition", js_cocos2dx_CCNode_ignoreAnchorPointForPosition, 1, JSPROP_PERMANENT | JSPROP_ENUMERATE),
+		JS_FN("getActionByTag", js_cocos2dx_CCNode_getActionByTag, 1, JSPROP_PERMANENT | JSPROP_ENUMERATE),
+		JS_FN("setRotationX", js_cocos2dx_CCNode_setRotationX, 1, JSPROP_PERMANENT | JSPROP_ENUMERATE),
+		JS_FN("setRotationY", js_cocos2dx_CCNode_setRotationY, 1, JSPROP_PERMANENT | JSPROP_ENUMERATE),
+		JS_FN("getScheduler", js_cocos2dx_CCNode_getScheduler, 0, JSPROP_PERMANENT | JSPROP_ENUMERATE),
+		JS_FN("getOrderOfArrival", js_cocos2dx_CCNode_getOrderOfArrival, 0, JSPROP_PERMANENT | JSPROP_ENUMERATE),
+		JS_FN("setContentSize", js_cocos2dx_CCNode_setContentSize, 1, JSPROP_PERMANENT | JSPROP_ENUMERATE),
+		JS_FN("setActionManager", js_cocos2dx_CCNode_setActionManager, 1, JSPROP_PERMANENT | JSPROP_ENUMERATE),
+		JS_FN("getPosition", js_cocos2dx_CCNode_getPosition, 0, JSPROP_PERMANENT | JSPROP_ENUMERATE),
+		JS_FN("isRunning", js_cocos2dx_CCNode_isRunning, 0, JSPROP_PERMANENT | JSPROP_ENUMERATE),
+		JS_FN("getParent", js_cocos2dx_CCNode_getParent, 0, JSPROP_PERMANENT | JSPROP_ENUMERATE),
+		JS_FN("getPositionY", js_cocos2dx_CCNode_getPositionY, 0, JSPROP_PERMANENT | JSPROP_ENUMERATE),
+		JS_FN("getPositionX", js_cocos2dx_CCNode_getPositionX, 0, JSPROP_PERMANENT | JSPROP_ENUMERATE),
+		JS_FN("removeChildByTag", js_cocos2dx_CCNode_removeChildByTag, 1, JSPROP_PERMANENT | JSPROP_ENUMERATE),
+		JS_FN("setVisible", js_cocos2dx_CCNode_setVisible, 1, JSPROP_PERMANENT | JSPROP_ENUMERATE),
+		JS_FN("pauseSchedulerAndActions", js_cocos2dx_CCNode_pauseSchedulerAndActions, 0, JSPROP_PERMANENT | JSPROP_ENUMERATE),
+		JS_FN("getVertexZ", js_cocos2dx_CCNode_getVertexZ, 0, JSPROP_PERMANENT | JSPROP_ENUMERATE),
+		JS_FN("_setZOrder", js_cocos2dx_CCNode__setZOrder, 1, JSPROP_PERMANENT | JSPROP_ENUMERATE),
+		JS_FN("setScale", js_cocos2dx_CCNode_setScale, 1, JSPROP_PERMANENT | JSPROP_ENUMERATE),
+		JS_FN("getChildByTag", js_cocos2dx_CCNode_getChildByTag, 1, JSPROP_PERMANENT | JSPROP_ENUMERATE),
+		JS_FN("setOrderOfArrival", js_cocos2dx_CCNode_setOrderOfArrival, 1, JSPROP_PERMANENT | JSPROP_ENUMERATE),
+		JS_FN("getScaleY", js_cocos2dx_CCNode_getScaleY, 0, JSPROP_PERMANENT | JSPROP_ENUMERATE),
+		JS_FN("getScaleX", js_cocos2dx_CCNode_getScaleX, 0, JSPROP_PERMANENT | JSPROP_ENUMERATE),
+		JS_FN("cleanup", js_cocos2dx_CCNode_cleanup, 0, JSPROP_PERMANENT | JSPROP_ENUMERATE),
+		JS_FN("getContentSize", js_cocos2dx_CCNode_getContentSize, 0, JSPROP_PERMANENT | JSPROP_ENUMERATE),
+		JS_FN("setGrid", js_cocos2dx_CCNode_setGrid, 1, JSPROP_PERMANENT | JSPROP_ENUMERATE),
+		JS_FN("getBoundingBox", js_cocos2dx_CCNode_boundingBox, 0, JSPROP_PERMANENT | JSPROP_ENUMERATE),
+		JS_FN("draw", js_cocos2dx_CCNode_draw, 0, JSPROP_PERMANENT | JSPROP_ENUMERATE),
+		JS_FN("transformAncestors", js_cocos2dx_CCNode_transformAncestors, 0, JSPROP_PERMANENT | JSPROP_ENUMERATE),
+		JS_FN("setUserObject", js_cocos2dx_CCNode_setUserObject, 1, JSPROP_PERMANENT | JSPROP_ENUMERATE),
+		JS_FN("registerScriptHandler", js_cocos2dx_CCNode_registerScriptHandler, 1, JSPROP_PERMANENT | JSPROP_ENUMERATE),
+		JS_FN("removeFromParent", js_cocos2dx_CCNode_removeFromParentAndCleanup, 0, JSPROP_PERMANENT | JSPROP_ENUMERATE),
+		JS_FN("convertTouchToNodeSpaceAR", js_cocos2dx_CCNode_convertTouchToNodeSpaceAR, 1, JSPROP_PERMANENT | JSPROP_ENUMERATE),
+		JS_FN("update", js_cocos2dx_CCNode_update, 1, JSPROP_PERMANENT | JSPROP_ENUMERATE),
+		JS_FN("sortAllChildren", js_cocos2dx_CCNode_sortAllChildren, 0, JSPROP_PERMANENT | JSPROP_ENUMERATE),
+		JS_FN("convertToNodeSpace", js_cocos2dx_CCNode_convertToNodeSpace, 1, JSPROP_PERMANENT | JSPROP_ENUMERATE),
+		JS_FN("getScale", js_cocos2dx_CCNode_getScale, 0, JSPROP_PERMANENT | JSPROP_ENUMERATE),
+		JS_FN("getCamera", js_cocos2dx_CCNode_getCamera, 0, JSPROP_PERMANENT | JSPROP_ENUMERATE),
+		JS_FN("setTag", js_cocos2dx_CCNode_setTag, 1, JSPROP_PERMANENT | JSPROP_ENUMERATE),
+		JS_FN("scheduleUpdate", js_cocos2dx_CCNode_scheduleUpdate, 0, JSPROP_PERMANENT | JSPROP_ENUMERATE),
+		JS_FN("stopAction", js_cocos2dx_CCNode_stopAction, 1, JSPROP_PERMANENT | JSPROP_ENUMERATE),
+		JS_FN("getActionManager", js_cocos2dx_CCNode_getActionManager, 0, JSPROP_PERMANENT | JSPROP_ENUMERATE),
 		JS_FS_END
 	};
 
 	static JSFunctionSpec st_funcs[] = {
-		JS_FN("create", js_cocos2dx_CCNode_create, 0, JSPROP_PERMANENT | JSPROP_SHARED),
+		JS_FN("create", js_cocos2dx_CCNode_create, 0, JSPROP_PERMANENT | JSPROP_ENUMERATE),
 		JS_FS_END
 	};
 
@@ -4229,37 +4229,37 @@ void js_register_cocos2dx_CCTexture2D(JSContext *cx, JSObject *global) {
 	};
 
 	static JSFunctionSpec funcs[] = {
-		JS_FN("getShaderProgram", js_cocos2dx_CCTexture2D_getShaderProgram, 0, JSPROP_PERMANENT | JSPROP_SHARED),
-		JS_FN("getMaxT", js_cocos2dx_CCTexture2D_getMaxT, 0, JSPROP_PERMANENT | JSPROP_SHARED),
-		JS_FN("stringForFormat", js_cocos2dx_CCTexture2D_stringForFormat, 0, JSPROP_PERMANENT | JSPROP_SHARED),
-		JS_FN("initWithImage", js_cocos2dx_CCTexture2D_initWithImage, 1, JSPROP_PERMANENT | JSPROP_SHARED),
-		JS_FN("setShaderProgram", js_cocos2dx_CCTexture2D_setShaderProgram, 1, JSPROP_PERMANENT | JSPROP_SHARED),
-		JS_FN("getMaxS", js_cocos2dx_CCTexture2D_getMaxS, 0, JSPROP_PERMANENT | JSPROP_SHARED),
-		JS_FN("hasPremultipliedAlpha", js_cocos2dx_CCTexture2D_hasPremultipliedAlpha, 0, JSPROP_PERMANENT | JSPROP_SHARED),
-		JS_FN("getPixelsHigh", js_cocos2dx_CCTexture2D_getPixelsHigh, 0, JSPROP_PERMANENT | JSPROP_SHARED),
-		JS_FN("bitsPerPixelForFormat", js_cocos2dx_CCTexture2D_bitsPerPixelForFormat, 0, JSPROP_PERMANENT | JSPROP_SHARED),
-		JS_FN("getName", js_cocos2dx_CCTexture2D_getName, 0, JSPROP_PERMANENT | JSPROP_SHARED),
-		JS_FN("initWithString", js_cocos2dx_CCTexture2D_initWithString, 3, JSPROP_PERMANENT | JSPROP_SHARED),
-		JS_FN("setMaxT", js_cocos2dx_CCTexture2D_setMaxT, 1, JSPROP_PERMANENT | JSPROP_SHARED),
-		JS_FN("drawInRect", js_cocos2dx_CCTexture2D_drawInRect, 1, JSPROP_PERMANENT | JSPROP_SHARED),
-		JS_FN("getContentSize", js_cocos2dx_CCTexture2D_getContentSize, 0, JSPROP_PERMANENT | JSPROP_SHARED),
-		JS_FN("setAliasTexParameters", js_cocos2dx_CCTexture2D_setAliasTexParameters, 0, JSPROP_PERMANENT | JSPROP_SHARED),
-		JS_FN("setAntiAliasTexParameters", js_cocos2dx_CCTexture2D_setAntiAliasTexParameters, 0, JSPROP_PERMANENT | JSPROP_SHARED),
-		JS_FN("generateMipmap", js_cocos2dx_CCTexture2D_generateMipmap, 0, JSPROP_PERMANENT | JSPROP_SHARED),
-		JS_FN("getPixelFormat", js_cocos2dx_CCTexture2D_getPixelFormat, 0, JSPROP_PERMANENT | JSPROP_SHARED),
-		JS_FN("getContentSizeInPixels", js_cocos2dx_CCTexture2D_getContentSizeInPixels, 0, JSPROP_PERMANENT | JSPROP_SHARED),
-		JS_FN("getPixelsWide", js_cocos2dx_CCTexture2D_getPixelsWide, 0, JSPROP_PERMANENT | JSPROP_SHARED),
-		JS_FN("drawAtPoint", js_cocos2dx_CCTexture2D_drawAtPoint, 1, JSPROP_PERMANENT | JSPROP_SHARED),
-		JS_FN("hasMipmaps", js_cocos2dx_CCTexture2D_hasMipmaps, 0, JSPROP_PERMANENT | JSPROP_SHARED),
-		JS_FN("initWithPVRFile", js_cocos2dx_CCTexture2D_initWithPVRFile, 1, JSPROP_PERMANENT | JSPROP_SHARED),
-		JS_FN("setMaxS", js_cocos2dx_CCTexture2D_setMaxS, 1, JSPROP_PERMANENT | JSPROP_SHARED),
+		JS_FN("getShaderProgram", js_cocos2dx_CCTexture2D_getShaderProgram, 0, JSPROP_PERMANENT | JSPROP_ENUMERATE),
+		JS_FN("getMaxT", js_cocos2dx_CCTexture2D_getMaxT, 0, JSPROP_PERMANENT | JSPROP_ENUMERATE),
+		JS_FN("stringForFormat", js_cocos2dx_CCTexture2D_stringForFormat, 0, JSPROP_PERMANENT | JSPROP_ENUMERATE),
+		JS_FN("initWithImage", js_cocos2dx_CCTexture2D_initWithImage, 1, JSPROP_PERMANENT | JSPROP_ENUMERATE),
+		JS_FN("setShaderProgram", js_cocos2dx_CCTexture2D_setShaderProgram, 1, JSPROP_PERMANENT | JSPROP_ENUMERATE),
+		JS_FN("getMaxS", js_cocos2dx_CCTexture2D_getMaxS, 0, JSPROP_PERMANENT | JSPROP_ENUMERATE),
+		JS_FN("hasPremultipliedAlpha", js_cocos2dx_CCTexture2D_hasPremultipliedAlpha, 0, JSPROP_PERMANENT | JSPROP_ENUMERATE),
+		JS_FN("getPixelsHigh", js_cocos2dx_CCTexture2D_getPixelsHigh, 0, JSPROP_PERMANENT | JSPROP_ENUMERATE),
+		JS_FN("bitsPerPixelForFormat", js_cocos2dx_CCTexture2D_bitsPerPixelForFormat, 0, JSPROP_PERMANENT | JSPROP_ENUMERATE),
+		JS_FN("getName", js_cocos2dx_CCTexture2D_getName, 0, JSPROP_PERMANENT | JSPROP_ENUMERATE),
+		JS_FN("initWithString", js_cocos2dx_CCTexture2D_initWithString, 3, JSPROP_PERMANENT | JSPROP_ENUMERATE),
+		JS_FN("setMaxT", js_cocos2dx_CCTexture2D_setMaxT, 1, JSPROP_PERMANENT | JSPROP_ENUMERATE),
+		JS_FN("drawInRect", js_cocos2dx_CCTexture2D_drawInRect, 1, JSPROP_PERMANENT | JSPROP_ENUMERATE),
+		JS_FN("getContentSize", js_cocos2dx_CCTexture2D_getContentSize, 0, JSPROP_PERMANENT | JSPROP_ENUMERATE),
+		JS_FN("setAliasTexParameters", js_cocos2dx_CCTexture2D_setAliasTexParameters, 0, JSPROP_PERMANENT | JSPROP_ENUMERATE),
+		JS_FN("setAntiAliasTexParameters", js_cocos2dx_CCTexture2D_setAntiAliasTexParameters, 0, JSPROP_PERMANENT | JSPROP_ENUMERATE),
+		JS_FN("generateMipmap", js_cocos2dx_CCTexture2D_generateMipmap, 0, JSPROP_PERMANENT | JSPROP_ENUMERATE),
+		JS_FN("getPixelFormat", js_cocos2dx_CCTexture2D_getPixelFormat, 0, JSPROP_PERMANENT | JSPROP_ENUMERATE),
+		JS_FN("getContentSizeInPixels", js_cocos2dx_CCTexture2D_getContentSizeInPixels, 0, JSPROP_PERMANENT | JSPROP_ENUMERATE),
+		JS_FN("getPixelsWide", js_cocos2dx_CCTexture2D_getPixelsWide, 0, JSPROP_PERMANENT | JSPROP_ENUMERATE),
+		JS_FN("drawAtPoint", js_cocos2dx_CCTexture2D_drawAtPoint, 1, JSPROP_PERMANENT | JSPROP_ENUMERATE),
+		JS_FN("hasMipmaps", js_cocos2dx_CCTexture2D_hasMipmaps, 0, JSPROP_PERMANENT | JSPROP_ENUMERATE),
+		JS_FN("initWithPVRFile", js_cocos2dx_CCTexture2D_initWithPVRFile, 1, JSPROP_PERMANENT | JSPROP_ENUMERATE),
+		JS_FN("setMaxS", js_cocos2dx_CCTexture2D_setMaxS, 1, JSPROP_PERMANENT | JSPROP_ENUMERATE),
 		JS_FS_END
 	};
 
 	static JSFunctionSpec st_funcs[] = {
-		JS_FN("setDefaultAlphaPixelFormat", js_cocos2dx_CCTexture2D_setDefaultAlphaPixelFormat, 1, JSPROP_PERMANENT | JSPROP_SHARED),
-		JS_FN("getDefaultAlphaPixelFormat", js_cocos2dx_CCTexture2D_defaultAlphaPixelFormat, 0, JSPROP_PERMANENT | JSPROP_SHARED),
-		JS_FN("PVRImagesHavePremultipliedAlpha", js_cocos2dx_CCTexture2D_PVRImagesHavePremultipliedAlpha, 1, JSPROP_PERMANENT | JSPROP_SHARED),
+		JS_FN("setDefaultAlphaPixelFormat", js_cocos2dx_CCTexture2D_setDefaultAlphaPixelFormat, 1, JSPROP_PERMANENT | JSPROP_ENUMERATE),
+		JS_FN("getDefaultAlphaPixelFormat", js_cocos2dx_CCTexture2D_defaultAlphaPixelFormat, 0, JSPROP_PERMANENT | JSPROP_ENUMERATE),
+		JS_FN("PVRImagesHavePremultipliedAlpha", js_cocos2dx_CCTexture2D_PVRImagesHavePremultipliedAlpha, 1, JSPROP_PERMANENT | JSPROP_ENUMERATE),
 		JS_FS_END
 	};
 
@@ -4839,30 +4839,30 @@ void js_register_cocos2dx_CCSpriteFrame(JSContext *cx, JSObject *global) {
 	};
 
 	static JSFunctionSpec funcs[] = {
-		JS_FN("setRotated", js_cocos2dx_CCSpriteFrame_setRotated, 1, JSPROP_PERMANENT | JSPROP_SHARED),
-		JS_FN("setTexture", js_cocos2dx_CCSpriteFrame_setTexture, 1, JSPROP_PERMANENT | JSPROP_SHARED),
-		JS_FN("getOffset", js_cocos2dx_CCSpriteFrame_getOffset, 0, JSPROP_PERMANENT | JSPROP_SHARED),
-		JS_FN("setRectInPixels", js_cocos2dx_CCSpriteFrame_setRectInPixels, 1, JSPROP_PERMANENT | JSPROP_SHARED),
-		JS_FN("getTexture", js_cocos2dx_CCSpriteFrame_getTexture, 0, JSPROP_PERMANENT | JSPROP_SHARED),
-		JS_FN("getRect", js_cocos2dx_CCSpriteFrame_getRect, 0, JSPROP_PERMANENT | JSPROP_SHARED),
-		JS_FN("setOffsetInPixels", js_cocos2dx_CCSpriteFrame_setOffsetInPixels, 1, JSPROP_PERMANENT | JSPROP_SHARED),
-		JS_FN("getRectInPixels", js_cocos2dx_CCSpriteFrame_getRectInPixels, 0, JSPROP_PERMANENT | JSPROP_SHARED),
-		JS_FN("setOriginalSize", js_cocos2dx_CCSpriteFrame_setOriginalSize, 1, JSPROP_PERMANENT | JSPROP_SHARED),
-		JS_FN("getOriginalSizeInPixels", js_cocos2dx_CCSpriteFrame_getOriginalSizeInPixels, 0, JSPROP_PERMANENT | JSPROP_SHARED),
-		JS_FN("setOriginalSizeInPixels", js_cocos2dx_CCSpriteFrame_setOriginalSizeInPixels, 1, JSPROP_PERMANENT | JSPROP_SHARED),
-		JS_FN("setOffset", js_cocos2dx_CCSpriteFrame_setOffset, 1, JSPROP_PERMANENT | JSPROP_SHARED),
-		JS_FN("initWithTexture", js_cocos2dx_CCSpriteFrame_initWithTexture, 2, JSPROP_PERMANENT | JSPROP_SHARED),
-		JS_FN("isRotated", js_cocos2dx_CCSpriteFrame_isRotated, 0, JSPROP_PERMANENT | JSPROP_SHARED),
-		JS_FN("initWithTextureFilename", js_cocos2dx_CCSpriteFrame_initWithTextureFilename, 2, JSPROP_PERMANENT | JSPROP_SHARED),
-		JS_FN("setRect", js_cocos2dx_CCSpriteFrame_setRect, 1, JSPROP_PERMANENT | JSPROP_SHARED),
-		JS_FN("getOffsetInPixels", js_cocos2dx_CCSpriteFrame_getOffsetInPixels, 0, JSPROP_PERMANENT | JSPROP_SHARED),
-		JS_FN("getOriginalSize", js_cocos2dx_CCSpriteFrame_getOriginalSize, 0, JSPROP_PERMANENT | JSPROP_SHARED),
+		JS_FN("setRotated", js_cocos2dx_CCSpriteFrame_setRotated, 1, JSPROP_PERMANENT | JSPROP_ENUMERATE),
+		JS_FN("setTexture", js_cocos2dx_CCSpriteFrame_setTexture, 1, JSPROP_PERMANENT | JSPROP_ENUMERATE),
+		JS_FN("getOffset", js_cocos2dx_CCSpriteFrame_getOffset, 0, JSPROP_PERMANENT | JSPROP_ENUMERATE),
+		JS_FN("setRectInPixels", js_cocos2dx_CCSpriteFrame_setRectInPixels, 1, JSPROP_PERMANENT | JSPROP_ENUMERATE),
+		JS_FN("getTexture", js_cocos2dx_CCSpriteFrame_getTexture, 0, JSPROP_PERMANENT | JSPROP_ENUMERATE),
+		JS_FN("getRect", js_cocos2dx_CCSpriteFrame_getRect, 0, JSPROP_PERMANENT | JSPROP_ENUMERATE),
+		JS_FN("setOffsetInPixels", js_cocos2dx_CCSpriteFrame_setOffsetInPixels, 1, JSPROP_PERMANENT | JSPROP_ENUMERATE),
+		JS_FN("getRectInPixels", js_cocos2dx_CCSpriteFrame_getRectInPixels, 0, JSPROP_PERMANENT | JSPROP_ENUMERATE),
+		JS_FN("setOriginalSize", js_cocos2dx_CCSpriteFrame_setOriginalSize, 1, JSPROP_PERMANENT | JSPROP_ENUMERATE),
+		JS_FN("getOriginalSizeInPixels", js_cocos2dx_CCSpriteFrame_getOriginalSizeInPixels, 0, JSPROP_PERMANENT | JSPROP_ENUMERATE),
+		JS_FN("setOriginalSizeInPixels", js_cocos2dx_CCSpriteFrame_setOriginalSizeInPixels, 1, JSPROP_PERMANENT | JSPROP_ENUMERATE),
+		JS_FN("setOffset", js_cocos2dx_CCSpriteFrame_setOffset, 1, JSPROP_PERMANENT | JSPROP_ENUMERATE),
+		JS_FN("initWithTexture", js_cocos2dx_CCSpriteFrame_initWithTexture, 2, JSPROP_PERMANENT | JSPROP_ENUMERATE),
+		JS_FN("isRotated", js_cocos2dx_CCSpriteFrame_isRotated, 0, JSPROP_PERMANENT | JSPROP_ENUMERATE),
+		JS_FN("initWithTextureFilename", js_cocos2dx_CCSpriteFrame_initWithTextureFilename, 2, JSPROP_PERMANENT | JSPROP_ENUMERATE),
+		JS_FN("setRect", js_cocos2dx_CCSpriteFrame_setRect, 1, JSPROP_PERMANENT | JSPROP_ENUMERATE),
+		JS_FN("getOffsetInPixels", js_cocos2dx_CCSpriteFrame_getOffsetInPixels, 0, JSPROP_PERMANENT | JSPROP_ENUMERATE),
+		JS_FN("getOriginalSize", js_cocos2dx_CCSpriteFrame_getOriginalSize, 0, JSPROP_PERMANENT | JSPROP_ENUMERATE),
 		JS_FS_END
 	};
 
 	static JSFunctionSpec st_funcs[] = {
-		JS_FN("create", js_cocos2dx_CCSpriteFrame_create, 2, JSPROP_PERMANENT | JSPROP_SHARED),
-		JS_FN("createWithTexture", js_cocos2dx_CCSpriteFrame_createWithTexture, 2, JSPROP_PERMANENT | JSPROP_SHARED),
+		JS_FN("create", js_cocos2dx_CCSpriteFrame_create, 2, JSPROP_PERMANENT | JSPROP_ENUMERATE),
+		JS_FN("createWithTexture", js_cocos2dx_CCSpriteFrame_createWithTexture, 2, JSPROP_PERMANENT | JSPROP_ENUMERATE),
 		JS_FS_END
 	};
 
@@ -5107,13 +5107,13 @@ void js_register_cocos2dx_CCAnimationFrame(JSContext *cx, JSObject *global) {
 	};
 
 	static JSFunctionSpec funcs[] = {
-		JS_FN("setSpriteFrame", js_cocos2dx_CCAnimationFrame_setSpriteFrame, 1, JSPROP_PERMANENT | JSPROP_SHARED),
-		JS_FN("getUserInfo", js_cocos2dx_CCAnimationFrame_getUserInfo, 0, JSPROP_PERMANENT | JSPROP_SHARED),
-		JS_FN("setDelayUnits", js_cocos2dx_CCAnimationFrame_setDelayUnits, 1, JSPROP_PERMANENT | JSPROP_SHARED),
-		JS_FN("getSpriteFrame", js_cocos2dx_CCAnimationFrame_getSpriteFrame, 0, JSPROP_PERMANENT | JSPROP_SHARED),
-		JS_FN("getDelayUnits", js_cocos2dx_CCAnimationFrame_getDelayUnits, 0, JSPROP_PERMANENT | JSPROP_SHARED),
-		JS_FN("setUserInfo", js_cocos2dx_CCAnimationFrame_setUserInfo, 1, JSPROP_PERMANENT | JSPROP_SHARED),
-		JS_FN("initWithSpriteFrame", js_cocos2dx_CCAnimationFrame_initWithSpriteFrame, 3, JSPROP_PERMANENT | JSPROP_SHARED),
+		JS_FN("setSpriteFrame", js_cocos2dx_CCAnimationFrame_setSpriteFrame, 1, JSPROP_PERMANENT | JSPROP_ENUMERATE),
+		JS_FN("getUserInfo", js_cocos2dx_CCAnimationFrame_getUserInfo, 0, JSPROP_PERMANENT | JSPROP_ENUMERATE),
+		JS_FN("setDelayUnits", js_cocos2dx_CCAnimationFrame_setDelayUnits, 1, JSPROP_PERMANENT | JSPROP_ENUMERATE),
+		JS_FN("getSpriteFrame", js_cocos2dx_CCAnimationFrame_getSpriteFrame, 0, JSPROP_PERMANENT | JSPROP_ENUMERATE),
+		JS_FN("getDelayUnits", js_cocos2dx_CCAnimationFrame_getDelayUnits, 0, JSPROP_PERMANENT | JSPROP_ENUMERATE),
+		JS_FN("setUserInfo", js_cocos2dx_CCAnimationFrame_setUserInfo, 1, JSPROP_PERMANENT | JSPROP_ENUMERATE),
+		JS_FN("initWithSpriteFrame", js_cocos2dx_CCAnimationFrame_initWithSpriteFrame, 3, JSPROP_PERMANENT | JSPROP_ENUMERATE),
 		JS_FS_END
 	};
 
@@ -5527,22 +5527,22 @@ void js_register_cocos2dx_CCAnimation(JSContext *cx, JSObject *global) {
 	};
 
 	static JSFunctionSpec funcs[] = {
-		JS_FN("getLoops", js_cocos2dx_CCAnimation_getLoops, 0, JSPROP_PERMANENT | JSPROP_SHARED),
-		JS_FN("setFrames", js_cocos2dx_CCAnimation_setFrames, 1, JSPROP_PERMANENT | JSPROP_SHARED),
-		JS_FN("getFrames", js_cocos2dx_CCAnimation_getFrames, 0, JSPROP_PERMANENT | JSPROP_SHARED),
-		JS_FN("addSpriteFrame", js_cocos2dx_CCAnimation_addSpriteFrame, 1, JSPROP_PERMANENT | JSPROP_SHARED),
-		JS_FN("setRestoreOriginalFrame", js_cocos2dx_CCAnimation_setRestoreOriginalFrame, 1, JSPROP_PERMANENT | JSPROP_SHARED),
-		JS_FN("setDelayPerUnit", js_cocos2dx_CCAnimation_setDelayPerUnit, 1, JSPROP_PERMANENT | JSPROP_SHARED),
-		JS_FN("initWithAnimationFrames", js_cocos2dx_CCAnimation_initWithAnimationFrames, 3, JSPROP_PERMANENT | JSPROP_SHARED),
-		JS_FN("init", js_cocos2dx_CCAnimation_init, 0, JSPROP_PERMANENT | JSPROP_SHARED),
-		JS_FN("initWithSpriteFrames", js_cocos2dx_CCAnimation_initWithSpriteFrames, 2, JSPROP_PERMANENT | JSPROP_SHARED),
-		JS_FN("setLoops", js_cocos2dx_CCAnimation_setLoops, 1, JSPROP_PERMANENT | JSPROP_SHARED),
-		JS_FN("addSpriteFrameWithFile", js_cocos2dx_CCAnimation_addSpriteFrameWithFileName, 1, JSPROP_PERMANENT | JSPROP_SHARED),
-		JS_FN("getTotalDelayUnits", js_cocos2dx_CCAnimation_getTotalDelayUnits, 0, JSPROP_PERMANENT | JSPROP_SHARED),
-		JS_FN("getDelayPerUnit", js_cocos2dx_CCAnimation_getDelayPerUnit, 0, JSPROP_PERMANENT | JSPROP_SHARED),
-		JS_FN("getRestoreOriginalFrame", js_cocos2dx_CCAnimation_getRestoreOriginalFrame, 0, JSPROP_PERMANENT | JSPROP_SHARED),
-		JS_FN("getDuration", js_cocos2dx_CCAnimation_getDuration, 0, JSPROP_PERMANENT | JSPROP_SHARED),
-		JS_FN("addSpriteFrameWithTexture", js_cocos2dx_CCAnimation_addSpriteFrameWithTexture, 2, JSPROP_PERMANENT | JSPROP_SHARED),
+		JS_FN("getLoops", js_cocos2dx_CCAnimation_getLoops, 0, JSPROP_PERMANENT | JSPROP_ENUMERATE),
+		JS_FN("setFrames", js_cocos2dx_CCAnimation_setFrames, 1, JSPROP_PERMANENT | JSPROP_ENUMERATE),
+		JS_FN("getFrames", js_cocos2dx_CCAnimation_getFrames, 0, JSPROP_PERMANENT | JSPROP_ENUMERATE),
+		JS_FN("addSpriteFrame", js_cocos2dx_CCAnimation_addSpriteFrame, 1, JSPROP_PERMANENT | JSPROP_ENUMERATE),
+		JS_FN("setRestoreOriginalFrame", js_cocos2dx_CCAnimation_setRestoreOriginalFrame, 1, JSPROP_PERMANENT | JSPROP_ENUMERATE),
+		JS_FN("setDelayPerUnit", js_cocos2dx_CCAnimation_setDelayPerUnit, 1, JSPROP_PERMANENT | JSPROP_ENUMERATE),
+		JS_FN("initWithAnimationFrames", js_cocos2dx_CCAnimation_initWithAnimationFrames, 3, JSPROP_PERMANENT | JSPROP_ENUMERATE),
+		JS_FN("init", js_cocos2dx_CCAnimation_init, 0, JSPROP_PERMANENT | JSPROP_ENUMERATE),
+		JS_FN("initWithSpriteFrames", js_cocos2dx_CCAnimation_initWithSpriteFrames, 2, JSPROP_PERMANENT | JSPROP_ENUMERATE),
+		JS_FN("setLoops", js_cocos2dx_CCAnimation_setLoops, 1, JSPROP_PERMANENT | JSPROP_ENUMERATE),
+		JS_FN("addSpriteFrameWithFile", js_cocos2dx_CCAnimation_addSpriteFrameWithFileName, 1, JSPROP_PERMANENT | JSPROP_ENUMERATE),
+		JS_FN("getTotalDelayUnits", js_cocos2dx_CCAnimation_getTotalDelayUnits, 0, JSPROP_PERMANENT | JSPROP_ENUMERATE),
+		JS_FN("getDelayPerUnit", js_cocos2dx_CCAnimation_getDelayPerUnit, 0, JSPROP_PERMANENT | JSPROP_ENUMERATE),
+		JS_FN("getRestoreOriginalFrame", js_cocos2dx_CCAnimation_getRestoreOriginalFrame, 0, JSPROP_PERMANENT | JSPROP_ENUMERATE),
+		JS_FN("getDuration", js_cocos2dx_CCAnimation_getDuration, 0, JSPROP_PERMANENT | JSPROP_ENUMERATE),
+		JS_FN("addSpriteFrameWithTexture", js_cocos2dx_CCAnimation_addSpriteFrameWithTexture, 2, JSPROP_PERMANENT | JSPROP_ENUMERATE),
 		JS_FS_END
 	};
 
@@ -5790,19 +5790,19 @@ void js_register_cocos2dx_CCActionInterval(JSContext *cx, JSObject *global) {
 	};
 
 	static JSFunctionSpec funcs[] = {
-		JS_FN("startWithTarget", js_cocos2dx_CCActionInterval_startWithTarget, 1, JSPROP_PERMANENT | JSPROP_SHARED),
-		JS_FN("initWithDuration", js_cocos2dx_CCActionInterval_initWithDuration, 1, JSPROP_PERMANENT | JSPROP_SHARED),
-		JS_FN("setAmplitudeRate", js_cocos2dx_CCActionInterval_setAmplitudeRate, 1, JSPROP_PERMANENT | JSPROP_SHARED),
-		JS_FN("getAmplitudeRate", js_cocos2dx_CCActionInterval_getAmplitudeRate, 0, JSPROP_PERMANENT | JSPROP_SHARED),
-		JS_FN("step", js_cocos2dx_CCActionInterval_step, 1, JSPROP_PERMANENT | JSPROP_SHARED),
-		JS_FN("getElapsed", js_cocos2dx_CCActionInterval_getElapsed, 0, JSPROP_PERMANENT | JSPROP_SHARED),
-		JS_FN("isDone", js_cocos2dx_CCActionInterval_isDone, 0, JSPROP_PERMANENT | JSPROP_SHARED),
-		JS_FN("reverse", js_cocos2dx_CCActionInterval_reverse, 0, JSPROP_PERMANENT | JSPROP_SHARED),
+		JS_FN("startWithTarget", js_cocos2dx_CCActionInterval_startWithTarget, 1, JSPROP_PERMANENT | JSPROP_ENUMERATE),
+		JS_FN("initWithDuration", js_cocos2dx_CCActionInterval_initWithDuration, 1, JSPROP_PERMANENT | JSPROP_ENUMERATE),
+		JS_FN("setAmplitudeRate", js_cocos2dx_CCActionInterval_setAmplitudeRate, 1, JSPROP_PERMANENT | JSPROP_ENUMERATE),
+		JS_FN("getAmplitudeRate", js_cocos2dx_CCActionInterval_getAmplitudeRate, 0, JSPROP_PERMANENT | JSPROP_ENUMERATE),
+		JS_FN("step", js_cocos2dx_CCActionInterval_step, 1, JSPROP_PERMANENT | JSPROP_ENUMERATE),
+		JS_FN("getElapsed", js_cocos2dx_CCActionInterval_getElapsed, 0, JSPROP_PERMANENT | JSPROP_ENUMERATE),
+		JS_FN("isDone", js_cocos2dx_CCActionInterval_isDone, 0, JSPROP_PERMANENT | JSPROP_ENUMERATE),
+		JS_FN("reverse", js_cocos2dx_CCActionInterval_reverse, 0, JSPROP_PERMANENT | JSPROP_ENUMERATE),
 		JS_FS_END
 	};
 
 	static JSFunctionSpec st_funcs[] = {
-		JS_FN("create", js_cocos2dx_CCActionInterval_create, 1, JSPROP_PERMANENT | JSPROP_SHARED),
+		JS_FN("create", js_cocos2dx_CCActionInterval_create, 1, JSPROP_PERMANENT | JSPROP_ENUMERATE),
 		JS_FS_END
 	};
 
@@ -5982,11 +5982,11 @@ void js_register_cocos2dx_CCSequence(JSContext *cx, JSObject *global) {
 	};
 
 	static JSFunctionSpec funcs[] = {
-		JS_FN("startWithTarget", js_cocos2dx_CCSequence_startWithTarget, 1, JSPROP_PERMANENT | JSPROP_SHARED),
-		JS_FN("reverse", js_cocos2dx_CCSequence_reverse, 0, JSPROP_PERMANENT | JSPROP_SHARED),
-		JS_FN("stop", js_cocos2dx_CCSequence_stop, 0, JSPROP_PERMANENT | JSPROP_SHARED),
-		JS_FN("update", js_cocos2dx_CCSequence_update, 1, JSPROP_PERMANENT | JSPROP_SHARED),
-		JS_FN("initWithTwoActions", js_cocos2dx_CCSequence_initWithTwoActions, 2, JSPROP_PERMANENT | JSPROP_SHARED),
+		JS_FN("startWithTarget", js_cocos2dx_CCSequence_startWithTarget, 1, JSPROP_PERMANENT | JSPROP_ENUMERATE),
+		JS_FN("reverse", js_cocos2dx_CCSequence_reverse, 0, JSPROP_PERMANENT | JSPROP_ENUMERATE),
+		JS_FN("stop", js_cocos2dx_CCSequence_stop, 0, JSPROP_PERMANENT | JSPROP_ENUMERATE),
+		JS_FN("update", js_cocos2dx_CCSequence_update, 1, JSPROP_PERMANENT | JSPROP_ENUMERATE),
+		JS_FN("initWithTwoActions", js_cocos2dx_CCSequence_initWithTwoActions, 2, JSPROP_PERMANENT | JSPROP_ENUMERATE),
 		JS_FS_END
 	};
 
@@ -6261,19 +6261,19 @@ void js_register_cocos2dx_CCRepeat(JSContext *cx, JSObject *global) {
 	};
 
 	static JSFunctionSpec funcs[] = {
-		JS_FN("startWithTarget", js_cocos2dx_CCRepeat_startWithTarget, 1, JSPROP_PERMANENT | JSPROP_SHARED),
-		JS_FN("setInnerAction", js_cocos2dx_CCRepeat_setInnerAction, 1, JSPROP_PERMANENT | JSPROP_SHARED),
-		JS_FN("stop", js_cocos2dx_CCRepeat_stop, 0, JSPROP_PERMANENT | JSPROP_SHARED),
-		JS_FN("update", js_cocos2dx_CCRepeat_update, 1, JSPROP_PERMANENT | JSPROP_SHARED),
-		JS_FN("initWithAction", js_cocos2dx_CCRepeat_initWithAction, 2, JSPROP_PERMANENT | JSPROP_SHARED),
-		JS_FN("getInnerAction", js_cocos2dx_CCRepeat_getInnerAction, 0, JSPROP_PERMANENT | JSPROP_SHARED),
-		JS_FN("isDone", js_cocos2dx_CCRepeat_isDone, 0, JSPROP_PERMANENT | JSPROP_SHARED),
-		JS_FN("reverse", js_cocos2dx_CCRepeat_reverse, 0, JSPROP_PERMANENT | JSPROP_SHARED),
+		JS_FN("startWithTarget", js_cocos2dx_CCRepeat_startWithTarget, 1, JSPROP_PERMANENT | JSPROP_ENUMERATE),
+		JS_FN("setInnerAction", js_cocos2dx_CCRepeat_setInnerAction, 1, JSPROP_PERMANENT | JSPROP_ENUMERATE),
+		JS_FN("stop", js_cocos2dx_CCRepeat_stop, 0, JSPROP_PERMANENT | JSPROP_ENUMERATE),
+		JS_FN("update", js_cocos2dx_CCRepeat_update, 1, JSPROP_PERMANENT | JSPROP_ENUMERATE),
+		JS_FN("initWithAction", js_cocos2dx_CCRepeat_initWithAction, 2, JSPROP_PERMANENT | JSPROP_ENUMERATE),
+		JS_FN("getInnerAction", js_cocos2dx_CCRepeat_getInnerAction, 0, JSPROP_PERMANENT | JSPROP_ENUMERATE),
+		JS_FN("isDone", js_cocos2dx_CCRepeat_isDone, 0, JSPROP_PERMANENT | JSPROP_ENUMERATE),
+		JS_FN("reverse", js_cocos2dx_CCRepeat_reverse, 0, JSPROP_PERMANENT | JSPROP_ENUMERATE),
 		JS_FS_END
 	};
 
 	static JSFunctionSpec st_funcs[] = {
-		JS_FN("create", js_cocos2dx_CCRepeat_create, 2, JSPROP_PERMANENT | JSPROP_SHARED),
+		JS_FN("create", js_cocos2dx_CCRepeat_create, 2, JSPROP_PERMANENT | JSPROP_ENUMERATE),
 		JS_FS_END
 	};
 
@@ -6557,18 +6557,18 @@ void js_register_cocos2dx_CCRepeatForever(JSContext *cx, JSObject *global) {
 	};
 
 	static JSFunctionSpec funcs[] = {
-		JS_FN("startWithTarget", js_cocos2dx_CCRepeatForever_startWithTarget, 1, JSPROP_PERMANENT | JSPROP_SHARED),
-		JS_FN("setInnerAction", js_cocos2dx_CCRepeatForever_setInnerAction, 1, JSPROP_PERMANENT | JSPROP_SHARED),
-		JS_FN("step", js_cocos2dx_CCRepeatForever_step, 1, JSPROP_PERMANENT | JSPROP_SHARED),
-		JS_FN("initWithAction", js_cocos2dx_CCRepeatForever_initWithAction, 1, JSPROP_PERMANENT | JSPROP_SHARED),
-		JS_FN("getInnerAction", js_cocos2dx_CCRepeatForever_getInnerAction, 0, JSPROP_PERMANENT | JSPROP_SHARED),
-		JS_FN("isDone", js_cocos2dx_CCRepeatForever_isDone, 0, JSPROP_PERMANENT | JSPROP_SHARED),
-		JS_FN("reverse", js_cocos2dx_CCRepeatForever_reverse, 0, JSPROP_PERMANENT | JSPROP_SHARED),
+		JS_FN("startWithTarget", js_cocos2dx_CCRepeatForever_startWithTarget, 1, JSPROP_PERMANENT | JSPROP_ENUMERATE),
+		JS_FN("setInnerAction", js_cocos2dx_CCRepeatForever_setInnerAction, 1, JSPROP_PERMANENT | JSPROP_ENUMERATE),
+		JS_FN("step", js_cocos2dx_CCRepeatForever_step, 1, JSPROP_PERMANENT | JSPROP_ENUMERATE),
+		JS_FN("initWithAction", js_cocos2dx_CCRepeatForever_initWithAction, 1, JSPROP_PERMANENT | JSPROP_ENUMERATE),
+		JS_FN("getInnerAction", js_cocos2dx_CCRepeatForever_getInnerAction, 0, JSPROP_PERMANENT | JSPROP_ENUMERATE),
+		JS_FN("isDone", js_cocos2dx_CCRepeatForever_isDone, 0, JSPROP_PERMANENT | JSPROP_ENUMERATE),
+		JS_FN("reverse", js_cocos2dx_CCRepeatForever_reverse, 0, JSPROP_PERMANENT | JSPROP_ENUMERATE),
 		JS_FS_END
 	};
 
 	static JSFunctionSpec st_funcs[] = {
-		JS_FN("create", js_cocos2dx_CCRepeatForever_create, 1, JSPROP_PERMANENT | JSPROP_SHARED),
+		JS_FN("create", js_cocos2dx_CCRepeatForever_create, 1, JSPROP_PERMANENT | JSPROP_ENUMERATE),
 		JS_FS_END
 	};
 
@@ -6748,11 +6748,11 @@ void js_register_cocos2dx_CCSpawn(JSContext *cx, JSObject *global) {
 	};
 
 	static JSFunctionSpec funcs[] = {
-		JS_FN("startWithTarget", js_cocos2dx_CCSpawn_startWithTarget, 1, JSPROP_PERMANENT | JSPROP_SHARED),
-		JS_FN("reverse", js_cocos2dx_CCSpawn_reverse, 0, JSPROP_PERMANENT | JSPROP_SHARED),
-		JS_FN("stop", js_cocos2dx_CCSpawn_stop, 0, JSPROP_PERMANENT | JSPROP_SHARED),
-		JS_FN("update", js_cocos2dx_CCSpawn_update, 1, JSPROP_PERMANENT | JSPROP_SHARED),
-		JS_FN("initWithTwoActions", js_cocos2dx_CCSpawn_initWithTwoActions, 2, JSPROP_PERMANENT | JSPROP_SHARED),
+		JS_FN("startWithTarget", js_cocos2dx_CCSpawn_startWithTarget, 1, JSPROP_PERMANENT | JSPROP_ENUMERATE),
+		JS_FN("reverse", js_cocos2dx_CCSpawn_reverse, 0, JSPROP_PERMANENT | JSPROP_ENUMERATE),
+		JS_FN("stop", js_cocos2dx_CCSpawn_stop, 0, JSPROP_PERMANENT | JSPROP_ENUMERATE),
+		JS_FN("update", js_cocos2dx_CCSpawn_update, 1, JSPROP_PERMANENT | JSPROP_ENUMERATE),
+		JS_FN("initWithTwoActions", js_cocos2dx_CCSpawn_initWithTwoActions, 2, JSPROP_PERMANENT | JSPROP_ENUMERATE),
 		JS_FS_END
 	};
 
@@ -6945,14 +6945,14 @@ void js_register_cocos2dx_CCRotateTo(JSContext *cx, JSObject *global) {
 	};
 
 	static JSFunctionSpec funcs[] = {
-		JS_FN("startWithTarget", js_cocos2dx_CCRotateTo_startWithTarget, 1, JSPROP_PERMANENT | JSPROP_SHARED),
-		JS_FN("initWithDuration", js_cocos2dx_CCRotateTo_initWithDuration, 2, JSPROP_PERMANENT | JSPROP_SHARED),
-		JS_FN("update", js_cocos2dx_CCRotateTo_update, 1, JSPROP_PERMANENT | JSPROP_SHARED),
+		JS_FN("startWithTarget", js_cocos2dx_CCRotateTo_startWithTarget, 1, JSPROP_PERMANENT | JSPROP_ENUMERATE),
+		JS_FN("initWithDuration", js_cocos2dx_CCRotateTo_initWithDuration, 2, JSPROP_PERMANENT | JSPROP_ENUMERATE),
+		JS_FN("update", js_cocos2dx_CCRotateTo_update, 1, JSPROP_PERMANENT | JSPROP_ENUMERATE),
 		JS_FS_END
 	};
 
 	static JSFunctionSpec st_funcs[] = {
-		JS_FN("create", js_cocos2dx_CCRotateTo_create, 2, JSPROP_PERMANENT | JSPROP_SHARED),
+		JS_FN("create", js_cocos2dx_CCRotateTo_create, 2, JSPROP_PERMANENT | JSPROP_ENUMERATE),
 		JS_FS_END
 	};
 
@@ -7167,15 +7167,15 @@ void js_register_cocos2dx_CCRotateBy(JSContext *cx, JSObject *global) {
 	};
 
 	static JSFunctionSpec funcs[] = {
-		JS_FN("startWithTarget", js_cocos2dx_CCRotateBy_startWithTarget, 1, JSPROP_PERMANENT | JSPROP_SHARED),
-		JS_FN("reverse", js_cocos2dx_CCRotateBy_reverse, 0, JSPROP_PERMANENT | JSPROP_SHARED),
-		JS_FN("initWithDuration", js_cocos2dx_CCRotateBy_initWithDuration, 2, JSPROP_PERMANENT | JSPROP_SHARED),
-		JS_FN("update", js_cocos2dx_CCRotateBy_update, 1, JSPROP_PERMANENT | JSPROP_SHARED),
+		JS_FN("startWithTarget", js_cocos2dx_CCRotateBy_startWithTarget, 1, JSPROP_PERMANENT | JSPROP_ENUMERATE),
+		JS_FN("reverse", js_cocos2dx_CCRotateBy_reverse, 0, JSPROP_PERMANENT | JSPROP_ENUMERATE),
+		JS_FN("initWithDuration", js_cocos2dx_CCRotateBy_initWithDuration, 2, JSPROP_PERMANENT | JSPROP_ENUMERATE),
+		JS_FN("update", js_cocos2dx_CCRotateBy_update, 1, JSPROP_PERMANENT | JSPROP_ENUMERATE),
 		JS_FS_END
 	};
 
 	static JSFunctionSpec st_funcs[] = {
-		JS_FN("create", js_cocos2dx_CCRotateBy_create, 2, JSPROP_PERMANENT | JSPROP_SHARED),
+		JS_FN("create", js_cocos2dx_CCRotateBy_create, 2, JSPROP_PERMANENT | JSPROP_ENUMERATE),
 		JS_FS_END
 	};
 
@@ -7354,15 +7354,15 @@ void js_register_cocos2dx_CCMoveBy(JSContext *cx, JSObject *global) {
 	};
 
 	static JSFunctionSpec funcs[] = {
-		JS_FN("startWithTarget", js_cocos2dx_CCMoveBy_startWithTarget, 1, JSPROP_PERMANENT | JSPROP_SHARED),
-		JS_FN("update", js_cocos2dx_CCMoveBy_update, 1, JSPROP_PERMANENT | JSPROP_SHARED),
-		JS_FN("initWithDuration", js_cocos2dx_CCMoveBy_initWithDuration, 2, JSPROP_PERMANENT | JSPROP_SHARED),
-		JS_FN("reverse", js_cocos2dx_CCMoveBy_reverse, 0, JSPROP_PERMANENT | JSPROP_SHARED),
+		JS_FN("startWithTarget", js_cocos2dx_CCMoveBy_startWithTarget, 1, JSPROP_PERMANENT | JSPROP_ENUMERATE),
+		JS_FN("update", js_cocos2dx_CCMoveBy_update, 1, JSPROP_PERMANENT | JSPROP_ENUMERATE),
+		JS_FN("initWithDuration", js_cocos2dx_CCMoveBy_initWithDuration, 2, JSPROP_PERMANENT | JSPROP_ENUMERATE),
+		JS_FN("reverse", js_cocos2dx_CCMoveBy_reverse, 0, JSPROP_PERMANENT | JSPROP_ENUMERATE),
 		JS_FS_END
 	};
 
 	static JSFunctionSpec st_funcs[] = {
-		JS_FN("create", js_cocos2dx_CCMoveBy_create, 2, JSPROP_PERMANENT | JSPROP_SHARED),
+		JS_FN("create", js_cocos2dx_CCMoveBy_create, 2, JSPROP_PERMANENT | JSPROP_ENUMERATE),
 		JS_FS_END
 	};
 
@@ -7497,13 +7497,13 @@ void js_register_cocos2dx_CCMoveTo(JSContext *cx, JSObject *global) {
 	};
 
 	static JSFunctionSpec funcs[] = {
-		JS_FN("startWithTarget", js_cocos2dx_CCMoveTo_startWithTarget, 1, JSPROP_PERMANENT | JSPROP_SHARED),
-		JS_FN("initWithDuration", js_cocos2dx_CCMoveTo_initWithDuration, 2, JSPROP_PERMANENT | JSPROP_SHARED),
+		JS_FN("startWithTarget", js_cocos2dx_CCMoveTo_startWithTarget, 1, JSPROP_PERMANENT | JSPROP_ENUMERATE),
+		JS_FN("initWithDuration", js_cocos2dx_CCMoveTo_initWithDuration, 2, JSPROP_PERMANENT | JSPROP_ENUMERATE),
 		JS_FS_END
 	};
 
 	static JSFunctionSpec st_funcs[] = {
-		JS_FN("create", js_cocos2dx_CCMoveTo_create, 2, JSPROP_PERMANENT | JSPROP_SHARED),
+		JS_FN("create", js_cocos2dx_CCMoveTo_create, 2, JSPROP_PERMANENT | JSPROP_ENUMERATE),
 		JS_FS_END
 	};
 
@@ -7692,14 +7692,14 @@ void js_register_cocos2dx_CCSkewTo(JSContext *cx, JSObject *global) {
 	};
 
 	static JSFunctionSpec funcs[] = {
-		JS_FN("startWithTarget", js_cocos2dx_CCSkewTo_startWithTarget, 1, JSPROP_PERMANENT | JSPROP_SHARED),
-		JS_FN("update", js_cocos2dx_CCSkewTo_update, 1, JSPROP_PERMANENT | JSPROP_SHARED),
-		JS_FN("initWithDuration", js_cocos2dx_CCSkewTo_initWithDuration, 3, JSPROP_PERMANENT | JSPROP_SHARED),
+		JS_FN("startWithTarget", js_cocos2dx_CCSkewTo_startWithTarget, 1, JSPROP_PERMANENT | JSPROP_ENUMERATE),
+		JS_FN("update", js_cocos2dx_CCSkewTo_update, 1, JSPROP_PERMANENT | JSPROP_ENUMERATE),
+		JS_FN("initWithDuration", js_cocos2dx_CCSkewTo_initWithDuration, 3, JSPROP_PERMANENT | JSPROP_ENUMERATE),
 		JS_FS_END
 	};
 
 	static JSFunctionSpec st_funcs[] = {
-		JS_FN("create", js_cocos2dx_CCSkewTo_create, 3, JSPROP_PERMANENT | JSPROP_SHARED),
+		JS_FN("create", js_cocos2dx_CCSkewTo_create, 3, JSPROP_PERMANENT | JSPROP_ENUMERATE),
 		JS_FS_END
 	};
 
@@ -7860,14 +7860,14 @@ void js_register_cocos2dx_CCSkewBy(JSContext *cx, JSObject *global) {
 	JSPropertySpec *properties = NULL;
 
 	static JSFunctionSpec funcs[] = {
-		JS_FN("startWithTarget", js_cocos2dx_CCSkewBy_startWithTarget, 1, JSPROP_PERMANENT | JSPROP_SHARED),
-		JS_FN("reverse", js_cocos2dx_CCSkewBy_reverse, 0, JSPROP_PERMANENT | JSPROP_SHARED),
-		JS_FN("initWithDuration", js_cocos2dx_CCSkewBy_initWithDuration, 3, JSPROP_PERMANENT | JSPROP_SHARED),
+		JS_FN("startWithTarget", js_cocos2dx_CCSkewBy_startWithTarget, 1, JSPROP_PERMANENT | JSPROP_ENUMERATE),
+		JS_FN("reverse", js_cocos2dx_CCSkewBy_reverse, 0, JSPROP_PERMANENT | JSPROP_ENUMERATE),
+		JS_FN("initWithDuration", js_cocos2dx_CCSkewBy_initWithDuration, 3, JSPROP_PERMANENT | JSPROP_ENUMERATE),
 		JS_FS_END
 	};
 
 	static JSFunctionSpec st_funcs[] = {
-		JS_FN("create", js_cocos2dx_CCSkewBy_create, 3, JSPROP_PERMANENT | JSPROP_SHARED),
+		JS_FN("create", js_cocos2dx_CCSkewBy_create, 3, JSPROP_PERMANENT | JSPROP_ENUMERATE),
 		JS_FS_END
 	};
 
@@ -8054,15 +8054,15 @@ void js_register_cocos2dx_CCJumpBy(JSContext *cx, JSObject *global) {
 	};
 
 	static JSFunctionSpec funcs[] = {
-		JS_FN("startWithTarget", js_cocos2dx_CCJumpBy_startWithTarget, 1, JSPROP_PERMANENT | JSPROP_SHARED),
-		JS_FN("reverse", js_cocos2dx_CCJumpBy_reverse, 0, JSPROP_PERMANENT | JSPROP_SHARED),
-		JS_FN("initWithDuration", js_cocos2dx_CCJumpBy_initWithDuration, 4, JSPROP_PERMANENT | JSPROP_SHARED),
-		JS_FN("update", js_cocos2dx_CCJumpBy_update, 1, JSPROP_PERMANENT | JSPROP_SHARED),
+		JS_FN("startWithTarget", js_cocos2dx_CCJumpBy_startWithTarget, 1, JSPROP_PERMANENT | JSPROP_ENUMERATE),
+		JS_FN("reverse", js_cocos2dx_CCJumpBy_reverse, 0, JSPROP_PERMANENT | JSPROP_ENUMERATE),
+		JS_FN("initWithDuration", js_cocos2dx_CCJumpBy_initWithDuration, 4, JSPROP_PERMANENT | JSPROP_ENUMERATE),
+		JS_FN("update", js_cocos2dx_CCJumpBy_update, 1, JSPROP_PERMANENT | JSPROP_ENUMERATE),
 		JS_FS_END
 	};
 
 	static JSFunctionSpec st_funcs[] = {
-		JS_FN("create", js_cocos2dx_CCJumpBy_create, 4, JSPROP_PERMANENT | JSPROP_SHARED),
+		JS_FN("create", js_cocos2dx_CCJumpBy_create, 4, JSPROP_PERMANENT | JSPROP_ENUMERATE),
 		JS_FS_END
 	};
 
@@ -8175,12 +8175,12 @@ void js_register_cocos2dx_CCJumpTo(JSContext *cx, JSObject *global) {
 	JSPropertySpec *properties = NULL;
 
 	static JSFunctionSpec funcs[] = {
-		JS_FN("startWithTarget", js_cocos2dx_CCJumpTo_startWithTarget, 1, JSPROP_PERMANENT | JSPROP_SHARED),
+		JS_FN("startWithTarget", js_cocos2dx_CCJumpTo_startWithTarget, 1, JSPROP_PERMANENT | JSPROP_ENUMERATE),
 		JS_FS_END
 	};
 
 	static JSFunctionSpec st_funcs[] = {
-		JS_FN("create", js_cocos2dx_CCJumpTo_create, 4, JSPROP_PERMANENT | JSPROP_SHARED),
+		JS_FN("create", js_cocos2dx_CCJumpTo_create, 4, JSPROP_PERMANENT | JSPROP_ENUMERATE),
 		JS_FS_END
 	};
 
@@ -8333,10 +8333,10 @@ void js_register_cocos2dx_CCBezierBy(JSContext *cx, JSObject *global) {
 	};
 
 	static JSFunctionSpec funcs[] = {
-		JS_FN("startWithTarget", js_cocos2dx_CCBezierBy_startWithTarget, 1, JSPROP_PERMANENT | JSPROP_SHARED),
-		JS_FN("reverse", js_cocos2dx_CCBezierBy_reverse, 0, JSPROP_PERMANENT | JSPROP_SHARED),
-		JS_FN("initWithDuration", js_cocos2dx_CCBezierBy_initWithDuration, 2, JSPROP_PERMANENT | JSPROP_SHARED),
-		JS_FN("update", js_cocos2dx_CCBezierBy_update, 1, JSPROP_PERMANENT | JSPROP_SHARED),
+		JS_FN("startWithTarget", js_cocos2dx_CCBezierBy_startWithTarget, 1, JSPROP_PERMANENT | JSPROP_ENUMERATE),
+		JS_FN("reverse", js_cocos2dx_CCBezierBy_reverse, 0, JSPROP_PERMANENT | JSPROP_ENUMERATE),
+		JS_FN("initWithDuration", js_cocos2dx_CCBezierBy_initWithDuration, 2, JSPROP_PERMANENT | JSPROP_ENUMERATE),
+		JS_FN("update", js_cocos2dx_CCBezierBy_update, 1, JSPROP_PERMANENT | JSPROP_ENUMERATE),
 		JS_FS_END
 	};
 
@@ -8447,8 +8447,8 @@ void js_register_cocos2dx_CCBezierTo(JSContext *cx, JSObject *global) {
 	};
 
 	static JSFunctionSpec funcs[] = {
-		JS_FN("startWithTarget", js_cocos2dx_CCBezierTo_startWithTarget, 1, JSPROP_PERMANENT | JSPROP_SHARED),
-		JS_FN("initWithDuration", js_cocos2dx_CCBezierTo_initWithDuration, 2, JSPROP_PERMANENT | JSPROP_SHARED),
+		JS_FN("startWithTarget", js_cocos2dx_CCBezierTo_startWithTarget, 1, JSPROP_PERMANENT | JSPROP_ENUMERATE),
+		JS_FN("initWithDuration", js_cocos2dx_CCBezierTo_initWithDuration, 2, JSPROP_PERMANENT | JSPROP_ENUMERATE),
 		JS_FS_END
 	};
 
@@ -8641,14 +8641,14 @@ void js_register_cocos2dx_CCScaleTo(JSContext *cx, JSObject *global) {
 	};
 
 	static JSFunctionSpec funcs[] = {
-		JS_FN("startWithTarget", js_cocos2dx_CCScaleTo_startWithTarget, 1, JSPROP_PERMANENT | JSPROP_SHARED),
-		JS_FN("initWithDuration", js_cocos2dx_CCScaleTo_initWithDuration, 2, JSPROP_PERMANENT | JSPROP_SHARED),
-		JS_FN("update", js_cocos2dx_CCScaleTo_update, 1, JSPROP_PERMANENT | JSPROP_SHARED),
+		JS_FN("startWithTarget", js_cocos2dx_CCScaleTo_startWithTarget, 1, JSPROP_PERMANENT | JSPROP_ENUMERATE),
+		JS_FN("initWithDuration", js_cocos2dx_CCScaleTo_initWithDuration, 2, JSPROP_PERMANENT | JSPROP_ENUMERATE),
+		JS_FN("update", js_cocos2dx_CCScaleTo_update, 1, JSPROP_PERMANENT | JSPROP_ENUMERATE),
 		JS_FS_END
 	};
 
 	static JSFunctionSpec st_funcs[] = {
-		JS_FN("create", js_cocos2dx_CCScaleTo_create, 2, JSPROP_PERMANENT | JSPROP_SHARED),
+		JS_FN("create", js_cocos2dx_CCScaleTo_create, 2, JSPROP_PERMANENT | JSPROP_ENUMERATE),
 		JS_FS_END
 	};
 
@@ -8802,13 +8802,13 @@ void js_register_cocos2dx_CCScaleBy(JSContext *cx, JSObject *global) {
 	JSPropertySpec *properties = NULL;
 
 	static JSFunctionSpec funcs[] = {
-		JS_FN("startWithTarget", js_cocos2dx_CCScaleBy_startWithTarget, 1, JSPROP_PERMANENT | JSPROP_SHARED),
-		JS_FN("reverse", js_cocos2dx_CCScaleBy_reverse, 0, JSPROP_PERMANENT | JSPROP_SHARED),
+		JS_FN("startWithTarget", js_cocos2dx_CCScaleBy_startWithTarget, 1, JSPROP_PERMANENT | JSPROP_ENUMERATE),
+		JS_FN("reverse", js_cocos2dx_CCScaleBy_reverse, 0, JSPROP_PERMANENT | JSPROP_ENUMERATE),
 		JS_FS_END
 	};
 
 	static JSFunctionSpec st_funcs[] = {
-		JS_FN("create", js_cocos2dx_CCScaleBy_create, 2, JSPROP_PERMANENT | JSPROP_SHARED),
+		JS_FN("create", js_cocos2dx_CCScaleBy_create, 2, JSPROP_PERMANENT | JSPROP_ENUMERATE),
 		JS_FS_END
 	};
 
@@ -9002,16 +9002,16 @@ void js_register_cocos2dx_CCBlink(JSContext *cx, JSObject *global) {
 	};
 
 	static JSFunctionSpec funcs[] = {
-		JS_FN("startWithTarget", js_cocos2dx_CCBlink_startWithTarget, 1, JSPROP_PERMANENT | JSPROP_SHARED),
-		JS_FN("reverse", js_cocos2dx_CCBlink_reverse, 0, JSPROP_PERMANENT | JSPROP_SHARED),
-		JS_FN("initWithDuration", js_cocos2dx_CCBlink_initWithDuration, 2, JSPROP_PERMANENT | JSPROP_SHARED),
-		JS_FN("stop", js_cocos2dx_CCBlink_stop, 0, JSPROP_PERMANENT | JSPROP_SHARED),
-		JS_FN("update", js_cocos2dx_CCBlink_update, 1, JSPROP_PERMANENT | JSPROP_SHARED),
+		JS_FN("startWithTarget", js_cocos2dx_CCBlink_startWithTarget, 1, JSPROP_PERMANENT | JSPROP_ENUMERATE),
+		JS_FN("reverse", js_cocos2dx_CCBlink_reverse, 0, JSPROP_PERMANENT | JSPROP_ENUMERATE),
+		JS_FN("initWithDuration", js_cocos2dx_CCBlink_initWithDuration, 2, JSPROP_PERMANENT | JSPROP_ENUMERATE),
+		JS_FN("stop", js_cocos2dx_CCBlink_stop, 0, JSPROP_PERMANENT | JSPROP_ENUMERATE),
+		JS_FN("update", js_cocos2dx_CCBlink_update, 1, JSPROP_PERMANENT | JSPROP_ENUMERATE),
 		JS_FS_END
 	};
 
 	static JSFunctionSpec st_funcs[] = {
-		JS_FN("create", js_cocos2dx_CCBlink_create, 2, JSPROP_PERMANENT | JSPROP_SHARED),
+		JS_FN("create", js_cocos2dx_CCBlink_create, 2, JSPROP_PERMANENT | JSPROP_ENUMERATE),
 		JS_FS_END
 	};
 
@@ -9136,13 +9136,13 @@ void js_register_cocos2dx_CCFadeIn(JSContext *cx, JSObject *global) {
 	JSPropertySpec *properties = NULL;
 
 	static JSFunctionSpec funcs[] = {
-		JS_FN("update", js_cocos2dx_CCFadeIn_update, 1, JSPROP_PERMANENT | JSPROP_SHARED),
-		JS_FN("reverse", js_cocos2dx_CCFadeIn_reverse, 0, JSPROP_PERMANENT | JSPROP_SHARED),
+		JS_FN("update", js_cocos2dx_CCFadeIn_update, 1, JSPROP_PERMANENT | JSPROP_ENUMERATE),
+		JS_FN("reverse", js_cocos2dx_CCFadeIn_reverse, 0, JSPROP_PERMANENT | JSPROP_ENUMERATE),
 		JS_FS_END
 	};
 
 	static JSFunctionSpec st_funcs[] = {
-		JS_FN("create", js_cocos2dx_CCFadeIn_create, 1, JSPROP_PERMANENT | JSPROP_SHARED),
+		JS_FN("create", js_cocos2dx_CCFadeIn_create, 1, JSPROP_PERMANENT | JSPROP_ENUMERATE),
 		JS_FS_END
 	};
 
@@ -9267,13 +9267,13 @@ void js_register_cocos2dx_CCFadeOut(JSContext *cx, JSObject *global) {
 	JSPropertySpec *properties = NULL;
 
 	static JSFunctionSpec funcs[] = {
-		JS_FN("update", js_cocos2dx_CCFadeOut_update, 1, JSPROP_PERMANENT | JSPROP_SHARED),
-		JS_FN("reverse", js_cocos2dx_CCFadeOut_reverse, 0, JSPROP_PERMANENT | JSPROP_SHARED),
+		JS_FN("update", js_cocos2dx_CCFadeOut_update, 1, JSPROP_PERMANENT | JSPROP_ENUMERATE),
+		JS_FN("reverse", js_cocos2dx_CCFadeOut_reverse, 0, JSPROP_PERMANENT | JSPROP_ENUMERATE),
 		JS_FS_END
 	};
 
 	static JSFunctionSpec st_funcs[] = {
-		JS_FN("create", js_cocos2dx_CCFadeOut_create, 1, JSPROP_PERMANENT | JSPROP_SHARED),
+		JS_FN("create", js_cocos2dx_CCFadeOut_create, 1, JSPROP_PERMANENT | JSPROP_ENUMERATE),
 		JS_FS_END
 	};
 
@@ -9428,14 +9428,14 @@ void js_register_cocos2dx_CCFadeTo(JSContext *cx, JSObject *global) {
 	};
 
 	static JSFunctionSpec funcs[] = {
-		JS_FN("startWithTarget", js_cocos2dx_CCFadeTo_startWithTarget, 1, JSPROP_PERMANENT | JSPROP_SHARED),
-		JS_FN("initWithDuration", js_cocos2dx_CCFadeTo_initWithDuration, 2, JSPROP_PERMANENT | JSPROP_SHARED),
-		JS_FN("update", js_cocos2dx_CCFadeTo_update, 1, JSPROP_PERMANENT | JSPROP_SHARED),
+		JS_FN("startWithTarget", js_cocos2dx_CCFadeTo_startWithTarget, 1, JSPROP_PERMANENT | JSPROP_ENUMERATE),
+		JS_FN("initWithDuration", js_cocos2dx_CCFadeTo_initWithDuration, 2, JSPROP_PERMANENT | JSPROP_ENUMERATE),
+		JS_FN("update", js_cocos2dx_CCFadeTo_update, 1, JSPROP_PERMANENT | JSPROP_ENUMERATE),
 		JS_FS_END
 	};
 
 	static JSFunctionSpec st_funcs[] = {
-		JS_FN("create", js_cocos2dx_CCFadeTo_create, 2, JSPROP_PERMANENT | JSPROP_SHARED),
+		JS_FN("create", js_cocos2dx_CCFadeTo_create, 2, JSPROP_PERMANENT | JSPROP_ENUMERATE),
 		JS_FS_END
 	};
 
@@ -9598,14 +9598,14 @@ void js_register_cocos2dx_CCTintTo(JSContext *cx, JSObject *global) {
 	};
 
 	static JSFunctionSpec funcs[] = {
-		JS_FN("startWithTarget", js_cocos2dx_CCTintTo_startWithTarget, 1, JSPROP_PERMANENT | JSPROP_SHARED),
-		JS_FN("initWithDuration", js_cocos2dx_CCTintTo_initWithDuration, 4, JSPROP_PERMANENT | JSPROP_SHARED),
-		JS_FN("update", js_cocos2dx_CCTintTo_update, 1, JSPROP_PERMANENT | JSPROP_SHARED),
+		JS_FN("startWithTarget", js_cocos2dx_CCTintTo_startWithTarget, 1, JSPROP_PERMANENT | JSPROP_ENUMERATE),
+		JS_FN("initWithDuration", js_cocos2dx_CCTintTo_initWithDuration, 4, JSPROP_PERMANENT | JSPROP_ENUMERATE),
+		JS_FN("update", js_cocos2dx_CCTintTo_update, 1, JSPROP_PERMANENT | JSPROP_ENUMERATE),
 		JS_FS_END
 	};
 
 	static JSFunctionSpec st_funcs[] = {
-		JS_FN("create", js_cocos2dx_CCTintTo_create, 4, JSPROP_PERMANENT | JSPROP_SHARED),
+		JS_FN("create", js_cocos2dx_CCTintTo_create, 4, JSPROP_PERMANENT | JSPROP_ENUMERATE),
 		JS_FS_END
 	};
 
@@ -9792,15 +9792,15 @@ void js_register_cocos2dx_CCTintBy(JSContext *cx, JSObject *global) {
 	};
 
 	static JSFunctionSpec funcs[] = {
-		JS_FN("startWithTarget", js_cocos2dx_CCTintBy_startWithTarget, 1, JSPROP_PERMANENT | JSPROP_SHARED),
-		JS_FN("reverse", js_cocos2dx_CCTintBy_reverse, 0, JSPROP_PERMANENT | JSPROP_SHARED),
-		JS_FN("initWithDuration", js_cocos2dx_CCTintBy_initWithDuration, 4, JSPROP_PERMANENT | JSPROP_SHARED),
-		JS_FN("update", js_cocos2dx_CCTintBy_update, 1, JSPROP_PERMANENT | JSPROP_SHARED),
+		JS_FN("startWithTarget", js_cocos2dx_CCTintBy_startWithTarget, 1, JSPROP_PERMANENT | JSPROP_ENUMERATE),
+		JS_FN("reverse", js_cocos2dx_CCTintBy_reverse, 0, JSPROP_PERMANENT | JSPROP_ENUMERATE),
+		JS_FN("initWithDuration", js_cocos2dx_CCTintBy_initWithDuration, 4, JSPROP_PERMANENT | JSPROP_ENUMERATE),
+		JS_FN("update", js_cocos2dx_CCTintBy_update, 1, JSPROP_PERMANENT | JSPROP_ENUMERATE),
 		JS_FS_END
 	};
 
 	static JSFunctionSpec st_funcs[] = {
-		JS_FN("create", js_cocos2dx_CCTintBy_create, 4, JSPROP_PERMANENT | JSPROP_SHARED),
+		JS_FN("create", js_cocos2dx_CCTintBy_create, 4, JSPROP_PERMANENT | JSPROP_ENUMERATE),
 		JS_FS_END
 	};
 
@@ -9925,13 +9925,13 @@ void js_register_cocos2dx_CCDelayTime(JSContext *cx, JSObject *global) {
 	JSPropertySpec *properties = NULL;
 
 	static JSFunctionSpec funcs[] = {
-		JS_FN("update", js_cocos2dx_CCDelayTime_update, 1, JSPROP_PERMANENT | JSPROP_SHARED),
-		JS_FN("reverse", js_cocos2dx_CCDelayTime_reverse, 0, JSPROP_PERMANENT | JSPROP_SHARED),
+		JS_FN("update", js_cocos2dx_CCDelayTime_update, 1, JSPROP_PERMANENT | JSPROP_ENUMERATE),
+		JS_FN("reverse", js_cocos2dx_CCDelayTime_reverse, 0, JSPROP_PERMANENT | JSPROP_ENUMERATE),
 		JS_FS_END
 	};
 
 	static JSFunctionSpec st_funcs[] = {
-		JS_FN("create", js_cocos2dx_CCDelayTime_create, 1, JSPROP_PERMANENT | JSPROP_SHARED),
+		JS_FN("create", js_cocos2dx_CCDelayTime_create, 1, JSPROP_PERMANENT | JSPROP_ENUMERATE),
 		JS_FS_END
 	};
 
@@ -10213,18 +10213,18 @@ void js_register_cocos2dx_CCAnimate(JSContext *cx, JSObject *global) {
 	};
 
 	static JSFunctionSpec funcs[] = {
-		JS_FN("startWithTarget", js_cocos2dx_CCAnimate_startWithTarget, 1, JSPROP_PERMANENT | JSPROP_SHARED),
-		JS_FN("getAnimation", js_cocos2dx_CCAnimate_getAnimation, 0, JSPROP_PERMANENT | JSPROP_SHARED),
-		JS_FN("stop", js_cocos2dx_CCAnimate_stop, 0, JSPROP_PERMANENT | JSPROP_SHARED),
-		JS_FN("update", js_cocos2dx_CCAnimate_update, 1, JSPROP_PERMANENT | JSPROP_SHARED),
-		JS_FN("initWithAnimation", js_cocos2dx_CCAnimate_initWithAnimation, 1, JSPROP_PERMANENT | JSPROP_SHARED),
-		JS_FN("setAnimation", js_cocos2dx_CCAnimate_setAnimation, 1, JSPROP_PERMANENT | JSPROP_SHARED),
-		JS_FN("reverse", js_cocos2dx_CCAnimate_reverse, 0, JSPROP_PERMANENT | JSPROP_SHARED),
+		JS_FN("startWithTarget", js_cocos2dx_CCAnimate_startWithTarget, 1, JSPROP_PERMANENT | JSPROP_ENUMERATE),
+		JS_FN("getAnimation", js_cocos2dx_CCAnimate_getAnimation, 0, JSPROP_PERMANENT | JSPROP_ENUMERATE),
+		JS_FN("stop", js_cocos2dx_CCAnimate_stop, 0, JSPROP_PERMANENT | JSPROP_ENUMERATE),
+		JS_FN("update", js_cocos2dx_CCAnimate_update, 1, JSPROP_PERMANENT | JSPROP_ENUMERATE),
+		JS_FN("initWithAnimation", js_cocos2dx_CCAnimate_initWithAnimation, 1, JSPROP_PERMANENT | JSPROP_ENUMERATE),
+		JS_FN("setAnimation", js_cocos2dx_CCAnimate_setAnimation, 1, JSPROP_PERMANENT | JSPROP_ENUMERATE),
+		JS_FN("reverse", js_cocos2dx_CCAnimate_reverse, 0, JSPROP_PERMANENT | JSPROP_ENUMERATE),
 		JS_FS_END
 	};
 
 	static JSFunctionSpec st_funcs[] = {
-		JS_FN("create", js_cocos2dx_CCAnimate_create, 1, JSPROP_PERMANENT | JSPROP_SHARED),
+		JS_FN("create", js_cocos2dx_CCAnimate_create, 1, JSPROP_PERMANENT | JSPROP_ENUMERATE),
 		JS_FS_END
 	};
 
@@ -10498,17 +10498,17 @@ void js_register_cocos2dx_CCTargetedAction(JSContext *cx, JSObject *global) {
 	};
 
 	static JSFunctionSpec funcs[] = {
-		JS_FN("startWithTarget", js_cocos2dx_CCTargetedAction_startWithTarget, 1, JSPROP_PERMANENT | JSPROP_SHARED),
-		JS_FN("setForcedTarget", js_cocos2dx_CCTargetedAction_setForcedTarget, 1, JSPROP_PERMANENT | JSPROP_SHARED),
-		JS_FN("initWithTarget", js_cocos2dx_CCTargetedAction_initWithTarget, 2, JSPROP_PERMANENT | JSPROP_SHARED),
-		JS_FN("stop", js_cocos2dx_CCTargetedAction_stop, 0, JSPROP_PERMANENT | JSPROP_SHARED),
-		JS_FN("update", js_cocos2dx_CCTargetedAction_update, 1, JSPROP_PERMANENT | JSPROP_SHARED),
-		JS_FN("getForcedTarget", js_cocos2dx_CCTargetedAction_getForcedTarget, 0, JSPROP_PERMANENT | JSPROP_SHARED),
+		JS_FN("startWithTarget", js_cocos2dx_CCTargetedAction_startWithTarget, 1, JSPROP_PERMANENT | JSPROP_ENUMERATE),
+		JS_FN("setForcedTarget", js_cocos2dx_CCTargetedAction_setForcedTarget, 1, JSPROP_PERMANENT | JSPROP_ENUMERATE),
+		JS_FN("initWithTarget", js_cocos2dx_CCTargetedAction_initWithTarget, 2, JSPROP_PERMANENT | JSPROP_ENUMERATE),
+		JS_FN("stop", js_cocos2dx_CCTargetedAction_stop, 0, JSPROP_PERMANENT | JSPROP_ENUMERATE),
+		JS_FN("update", js_cocos2dx_CCTargetedAction_update, 1, JSPROP_PERMANENT | JSPROP_ENUMERATE),
+		JS_FN("getForcedTarget", js_cocos2dx_CCTargetedAction_getForcedTarget, 0, JSPROP_PERMANENT | JSPROP_ENUMERATE),
 		JS_FS_END
 	};
 
 	static JSFunctionSpec st_funcs[] = {
-		JS_FN("create", js_cocos2dx_CCTargetedAction_create, 2, JSPROP_PERMANENT | JSPROP_SHARED),
+		JS_FN("create", js_cocos2dx_CCTargetedAction_create, 2, JSPROP_PERMANENT | JSPROP_ENUMERATE),
 		JS_FS_END
 	};
 
@@ -10647,8 +10647,8 @@ void js_register_cocos2dx_CCActionCamera(JSContext *cx, JSObject *global) {
 	};
 
 	static JSFunctionSpec funcs[] = {
-		JS_FN("startWithTarget", js_cocos2dx_CCActionCamera_startWithTarget, 1, JSPROP_PERMANENT | JSPROP_SHARED),
-		JS_FN("reverse", js_cocos2dx_CCActionCamera_reverse, 0, JSPROP_PERMANENT | JSPROP_SHARED),
+		JS_FN("startWithTarget", js_cocos2dx_CCActionCamera_startWithTarget, 1, JSPROP_PERMANENT | JSPROP_ENUMERATE),
+		JS_FN("reverse", js_cocos2dx_CCActionCamera_reverse, 0, JSPROP_PERMANENT | JSPROP_ENUMERATE),
 		JS_FS_END
 	};
 
@@ -10879,15 +10879,15 @@ void js_register_cocos2dx_CCOrbitCamera(JSContext *cx, JSObject *global) {
 	};
 
 	static JSFunctionSpec funcs[] = {
-		JS_FN("startWithTarget", js_cocos2dx_CCOrbitCamera_startWithTarget, 1, JSPROP_PERMANENT | JSPROP_SHARED),
-		JS_FN("initWithDuration", js_cocos2dx_CCOrbitCamera_initWithDuration, 7, JSPROP_PERMANENT | JSPROP_SHARED),
-		JS_FN("sphericalRadius", js_cocos2dx_CCOrbitCamera_sphericalRadius, 3, JSPROP_PERMANENT | JSPROP_SHARED),
-		JS_FN("update", js_cocos2dx_CCOrbitCamera_update, 1, JSPROP_PERMANENT | JSPROP_SHARED),
+		JS_FN("startWithTarget", js_cocos2dx_CCOrbitCamera_startWithTarget, 1, JSPROP_PERMANENT | JSPROP_ENUMERATE),
+		JS_FN("initWithDuration", js_cocos2dx_CCOrbitCamera_initWithDuration, 7, JSPROP_PERMANENT | JSPROP_ENUMERATE),
+		JS_FN("sphericalRadius", js_cocos2dx_CCOrbitCamera_sphericalRadius, 3, JSPROP_PERMANENT | JSPROP_ENUMERATE),
+		JS_FN("update", js_cocos2dx_CCOrbitCamera_update, 1, JSPROP_PERMANENT | JSPROP_ENUMERATE),
 		JS_FS_END
 	};
 
 	static JSFunctionSpec st_funcs[] = {
-		JS_FN("create", js_cocos2dx_CCOrbitCamera_create, 7, JSPROP_PERMANENT | JSPROP_SHARED),
+		JS_FN("create", js_cocos2dx_CCOrbitCamera_create, 7, JSPROP_PERMANENT | JSPROP_ENUMERATE),
 		JS_FS_END
 	};
 
@@ -11274,17 +11274,17 @@ void js_register_cocos2dx_CCActionManager(JSContext *cx, JSObject *global) {
 	};
 
 	static JSFunctionSpec funcs[] = {
-		JS_FN("getActionByTag", js_cocos2dx_CCActionManager_getActionByTag, 2, JSPROP_PERMANENT | JSPROP_SHARED),
-		JS_FN("removeActionByTag", js_cocos2dx_CCActionManager_removeActionByTag, 2, JSPROP_PERMANENT | JSPROP_SHARED),
-		JS_FN("removeAllActions", js_cocos2dx_CCActionManager_removeAllActions, 0, JSPROP_PERMANENT | JSPROP_SHARED),
-		JS_FN("addAction", js_cocos2dx_CCActionManager_addAction, 3, JSPROP_PERMANENT | JSPROP_SHARED),
-		JS_FN("resumeTarget", js_cocos2dx_CCActionManager_resumeTarget, 1, JSPROP_PERMANENT | JSPROP_SHARED),
-		JS_FN("pauseTarget", js_cocos2dx_CCActionManager_pauseTarget, 1, JSPROP_PERMANENT | JSPROP_SHARED),
-		JS_FN("removeAllActionsFromTarget", js_cocos2dx_CCActionManager_removeAllActionsFromTarget, 1, JSPROP_PERMANENT | JSPROP_SHARED),
-		JS_FN("resumeTargets", js_cocos2dx_CCActionManager_resumeTargets, 1, JSPROP_PERMANENT | JSPROP_SHARED),
-		JS_FN("removeAction", js_cocos2dx_CCActionManager_removeAction, 1, JSPROP_PERMANENT | JSPROP_SHARED),
-		JS_FN("numberOfRunningActionsInTarget", js_cocos2dx_CCActionManager_numberOfRunningActionsInTarget, 1, JSPROP_PERMANENT | JSPROP_SHARED),
-		JS_FN("pauseAllRunningActions", js_cocos2dx_CCActionManager_pauseAllRunningActions, 0, JSPROP_PERMANENT | JSPROP_SHARED),
+		JS_FN("getActionByTag", js_cocos2dx_CCActionManager_getActionByTag, 2, JSPROP_PERMANENT | JSPROP_ENUMERATE),
+		JS_FN("removeActionByTag", js_cocos2dx_CCActionManager_removeActionByTag, 2, JSPROP_PERMANENT | JSPROP_ENUMERATE),
+		JS_FN("removeAllActions", js_cocos2dx_CCActionManager_removeAllActions, 0, JSPROP_PERMANENT | JSPROP_ENUMERATE),
+		JS_FN("addAction", js_cocos2dx_CCActionManager_addAction, 3, JSPROP_PERMANENT | JSPROP_ENUMERATE),
+		JS_FN("resumeTarget", js_cocos2dx_CCActionManager_resumeTarget, 1, JSPROP_PERMANENT | JSPROP_ENUMERATE),
+		JS_FN("pauseTarget", js_cocos2dx_CCActionManager_pauseTarget, 1, JSPROP_PERMANENT | JSPROP_ENUMERATE),
+		JS_FN("removeAllActionsFromTarget", js_cocos2dx_CCActionManager_removeAllActionsFromTarget, 1, JSPROP_PERMANENT | JSPROP_ENUMERATE),
+		JS_FN("resumeTargets", js_cocos2dx_CCActionManager_resumeTargets, 1, JSPROP_PERMANENT | JSPROP_ENUMERATE),
+		JS_FN("removeAction", js_cocos2dx_CCActionManager_removeAction, 1, JSPROP_PERMANENT | JSPROP_ENUMERATE),
+		JS_FN("numberOfRunningActionsInTarget", js_cocos2dx_CCActionManager_numberOfRunningActionsInTarget, 1, JSPROP_PERMANENT | JSPROP_ENUMERATE),
+		JS_FN("pauseAllRunningActions", js_cocos2dx_CCActionManager_pauseAllRunningActions, 0, JSPROP_PERMANENT | JSPROP_ENUMERATE),
 		JS_FS_END
 	};
 
@@ -11488,16 +11488,16 @@ void js_register_cocos2dx_CCActionEase(JSContext *cx, JSObject *global) {
 	};
 
 	static JSFunctionSpec funcs[] = {
-		JS_FN("startWithTarget", js_cocos2dx_CCActionEase_startWithTarget, 1, JSPROP_PERMANENT | JSPROP_SHARED),
-		JS_FN("reverse", js_cocos2dx_CCActionEase_reverse, 0, JSPROP_PERMANENT | JSPROP_SHARED),
-		JS_FN("stop", js_cocos2dx_CCActionEase_stop, 0, JSPROP_PERMANENT | JSPROP_SHARED),
-		JS_FN("update", js_cocos2dx_CCActionEase_update, 1, JSPROP_PERMANENT | JSPROP_SHARED),
-		JS_FN("initWithAction", js_cocos2dx_CCActionEase_initWithAction, 1, JSPROP_PERMANENT | JSPROP_SHARED),
+		JS_FN("startWithTarget", js_cocos2dx_CCActionEase_startWithTarget, 1, JSPROP_PERMANENT | JSPROP_ENUMERATE),
+		JS_FN("reverse", js_cocos2dx_CCActionEase_reverse, 0, JSPROP_PERMANENT | JSPROP_ENUMERATE),
+		JS_FN("stop", js_cocos2dx_CCActionEase_stop, 0, JSPROP_PERMANENT | JSPROP_ENUMERATE),
+		JS_FN("update", js_cocos2dx_CCActionEase_update, 1, JSPROP_PERMANENT | JSPROP_ENUMERATE),
+		JS_FN("initWithAction", js_cocos2dx_CCActionEase_initWithAction, 1, JSPROP_PERMANENT | JSPROP_ENUMERATE),
 		JS_FS_END
 	};
 
 	static JSFunctionSpec st_funcs[] = {
-		JS_FN("create", js_cocos2dx_CCActionEase_create, 1, JSPROP_PERMANENT | JSPROP_SHARED),
+		JS_FN("create", js_cocos2dx_CCActionEase_create, 1, JSPROP_PERMANENT | JSPROP_ENUMERATE),
 		JS_FS_END
 	};
 
@@ -11679,15 +11679,15 @@ void js_register_cocos2dx_CCEaseRateAction(JSContext *cx, JSObject *global) {
 	};
 
 	static JSFunctionSpec funcs[] = {
-		JS_FN("setRate", js_cocos2dx_CCEaseRateAction_setRate, 1, JSPROP_PERMANENT | JSPROP_SHARED),
-		JS_FN("initWithAction", js_cocos2dx_CCEaseRateAction_initWithAction, 2, JSPROP_PERMANENT | JSPROP_SHARED),
-		JS_FN("reverse", js_cocos2dx_CCEaseRateAction_reverse, 0, JSPROP_PERMANENT | JSPROP_SHARED),
-		JS_FN("getRate", js_cocos2dx_CCEaseRateAction_getRate, 0, JSPROP_PERMANENT | JSPROP_SHARED),
+		JS_FN("setRate", js_cocos2dx_CCEaseRateAction_setRate, 1, JSPROP_PERMANENT | JSPROP_ENUMERATE),
+		JS_FN("initWithAction", js_cocos2dx_CCEaseRateAction_initWithAction, 2, JSPROP_PERMANENT | JSPROP_ENUMERATE),
+		JS_FN("reverse", js_cocos2dx_CCEaseRateAction_reverse, 0, JSPROP_PERMANENT | JSPROP_ENUMERATE),
+		JS_FN("getRate", js_cocos2dx_CCEaseRateAction_getRate, 0, JSPROP_PERMANENT | JSPROP_ENUMERATE),
 		JS_FS_END
 	};
 
 	static JSFunctionSpec st_funcs[] = {
-		JS_FN("create", js_cocos2dx_CCEaseRateAction_create, 2, JSPROP_PERMANENT | JSPROP_SHARED),
+		JS_FN("create", js_cocos2dx_CCEaseRateAction_create, 2, JSPROP_PERMANENT | JSPROP_ENUMERATE),
 		JS_FS_END
 	};
 
@@ -11820,13 +11820,13 @@ void js_register_cocos2dx_CCEaseIn(JSContext *cx, JSObject *global) {
 	JSPropertySpec *properties = NULL;
 
 	static JSFunctionSpec funcs[] = {
-		JS_FN("update", js_cocos2dx_CCEaseIn_update, 1, JSPROP_PERMANENT | JSPROP_SHARED),
-		JS_FN("reverse", js_cocos2dx_CCEaseIn_reverse, 0, JSPROP_PERMANENT | JSPROP_SHARED),
+		JS_FN("update", js_cocos2dx_CCEaseIn_update, 1, JSPROP_PERMANENT | JSPROP_ENUMERATE),
+		JS_FN("reverse", js_cocos2dx_CCEaseIn_reverse, 0, JSPROP_PERMANENT | JSPROP_ENUMERATE),
 		JS_FS_END
 	};
 
 	static JSFunctionSpec st_funcs[] = {
-		JS_FN("create", js_cocos2dx_CCEaseIn_create, 2, JSPROP_PERMANENT | JSPROP_SHARED),
+		JS_FN("create", js_cocos2dx_CCEaseIn_create, 2, JSPROP_PERMANENT | JSPROP_ENUMERATE),
 		JS_FS_END
 	};
 
@@ -11959,13 +11959,13 @@ void js_register_cocos2dx_CCEaseOut(JSContext *cx, JSObject *global) {
 	JSPropertySpec *properties = NULL;
 
 	static JSFunctionSpec funcs[] = {
-		JS_FN("update", js_cocos2dx_CCEaseOut_update, 1, JSPROP_PERMANENT | JSPROP_SHARED),
-		JS_FN("reverse", js_cocos2dx_CCEaseOut_reverse, 0, JSPROP_PERMANENT | JSPROP_SHARED),
+		JS_FN("update", js_cocos2dx_CCEaseOut_update, 1, JSPROP_PERMANENT | JSPROP_ENUMERATE),
+		JS_FN("reverse", js_cocos2dx_CCEaseOut_reverse, 0, JSPROP_PERMANENT | JSPROP_ENUMERATE),
 		JS_FS_END
 	};
 
 	static JSFunctionSpec st_funcs[] = {
-		JS_FN("create", js_cocos2dx_CCEaseOut_create, 2, JSPROP_PERMANENT | JSPROP_SHARED),
+		JS_FN("create", js_cocos2dx_CCEaseOut_create, 2, JSPROP_PERMANENT | JSPROP_ENUMERATE),
 		JS_FS_END
 	};
 
@@ -12098,13 +12098,13 @@ void js_register_cocos2dx_CCEaseInOut(JSContext *cx, JSObject *global) {
 	JSPropertySpec *properties = NULL;
 
 	static JSFunctionSpec funcs[] = {
-		JS_FN("reverse", js_cocos2dx_CCEaseInOut_reverse, 0, JSPROP_PERMANENT | JSPROP_SHARED),
-		JS_FN("update", js_cocos2dx_CCEaseInOut_update, 1, JSPROP_PERMANENT | JSPROP_SHARED),
+		JS_FN("reverse", js_cocos2dx_CCEaseInOut_reverse, 0, JSPROP_PERMANENT | JSPROP_ENUMERATE),
+		JS_FN("update", js_cocos2dx_CCEaseInOut_update, 1, JSPROP_PERMANENT | JSPROP_ENUMERATE),
 		JS_FS_END
 	};
 
 	static JSFunctionSpec st_funcs[] = {
-		JS_FN("create", js_cocos2dx_CCEaseInOut_create, 2, JSPROP_PERMANENT | JSPROP_SHARED),
+		JS_FN("create", js_cocos2dx_CCEaseInOut_create, 2, JSPROP_PERMANENT | JSPROP_ENUMERATE),
 		JS_FS_END
 	};
 
@@ -12235,13 +12235,13 @@ void js_register_cocos2dx_CCEaseExponentialIn(JSContext *cx, JSObject *global) {
 	JSPropertySpec *properties = NULL;
 
 	static JSFunctionSpec funcs[] = {
-		JS_FN("update", js_cocos2dx_CCEaseExponentialIn_update, 1, JSPROP_PERMANENT | JSPROP_SHARED),
-		JS_FN("reverse", js_cocos2dx_CCEaseExponentialIn_reverse, 0, JSPROP_PERMANENT | JSPROP_SHARED),
+		JS_FN("update", js_cocos2dx_CCEaseExponentialIn_update, 1, JSPROP_PERMANENT | JSPROP_ENUMERATE),
+		JS_FN("reverse", js_cocos2dx_CCEaseExponentialIn_reverse, 0, JSPROP_PERMANENT | JSPROP_ENUMERATE),
 		JS_FS_END
 	};
 
 	static JSFunctionSpec st_funcs[] = {
-		JS_FN("create", js_cocos2dx_CCEaseExponentialIn_create, 1, JSPROP_PERMANENT | JSPROP_SHARED),
+		JS_FN("create", js_cocos2dx_CCEaseExponentialIn_create, 1, JSPROP_PERMANENT | JSPROP_ENUMERATE),
 		JS_FS_END
 	};
 
@@ -12372,13 +12372,13 @@ void js_register_cocos2dx_CCEaseExponentialOut(JSContext *cx, JSObject *global) 
 	JSPropertySpec *properties = NULL;
 
 	static JSFunctionSpec funcs[] = {
-		JS_FN("update", js_cocos2dx_CCEaseExponentialOut_update, 1, JSPROP_PERMANENT | JSPROP_SHARED),
-		JS_FN("reverse", js_cocos2dx_CCEaseExponentialOut_reverse, 0, JSPROP_PERMANENT | JSPROP_SHARED),
+		JS_FN("update", js_cocos2dx_CCEaseExponentialOut_update, 1, JSPROP_PERMANENT | JSPROP_ENUMERATE),
+		JS_FN("reverse", js_cocos2dx_CCEaseExponentialOut_reverse, 0, JSPROP_PERMANENT | JSPROP_ENUMERATE),
 		JS_FS_END
 	};
 
 	static JSFunctionSpec st_funcs[] = {
-		JS_FN("create", js_cocos2dx_CCEaseExponentialOut_create, 1, JSPROP_PERMANENT | JSPROP_SHARED),
+		JS_FN("create", js_cocos2dx_CCEaseExponentialOut_create, 1, JSPROP_PERMANENT | JSPROP_ENUMERATE),
 		JS_FS_END
 	};
 
@@ -12509,13 +12509,13 @@ void js_register_cocos2dx_CCEaseExponentialInOut(JSContext *cx, JSObject *global
 	JSPropertySpec *properties = NULL;
 
 	static JSFunctionSpec funcs[] = {
-		JS_FN("reverse", js_cocos2dx_CCEaseExponentialInOut_reverse, 0, JSPROP_PERMANENT | JSPROP_SHARED),
-		JS_FN("update", js_cocos2dx_CCEaseExponentialInOut_update, 1, JSPROP_PERMANENT | JSPROP_SHARED),
+		JS_FN("reverse", js_cocos2dx_CCEaseExponentialInOut_reverse, 0, JSPROP_PERMANENT | JSPROP_ENUMERATE),
+		JS_FN("update", js_cocos2dx_CCEaseExponentialInOut_update, 1, JSPROP_PERMANENT | JSPROP_ENUMERATE),
 		JS_FS_END
 	};
 
 	static JSFunctionSpec st_funcs[] = {
-		JS_FN("create", js_cocos2dx_CCEaseExponentialInOut_create, 1, JSPROP_PERMANENT | JSPROP_SHARED),
+		JS_FN("create", js_cocos2dx_CCEaseExponentialInOut_create, 1, JSPROP_PERMANENT | JSPROP_ENUMERATE),
 		JS_FS_END
 	};
 
@@ -12646,13 +12646,13 @@ void js_register_cocos2dx_CCEaseSineIn(JSContext *cx, JSObject *global) {
 	JSPropertySpec *properties = NULL;
 
 	static JSFunctionSpec funcs[] = {
-		JS_FN("update", js_cocos2dx_CCEaseSineIn_update, 1, JSPROP_PERMANENT | JSPROP_SHARED),
-		JS_FN("reverse", js_cocos2dx_CCEaseSineIn_reverse, 0, JSPROP_PERMANENT | JSPROP_SHARED),
+		JS_FN("update", js_cocos2dx_CCEaseSineIn_update, 1, JSPROP_PERMANENT | JSPROP_ENUMERATE),
+		JS_FN("reverse", js_cocos2dx_CCEaseSineIn_reverse, 0, JSPROP_PERMANENT | JSPROP_ENUMERATE),
 		JS_FS_END
 	};
 
 	static JSFunctionSpec st_funcs[] = {
-		JS_FN("create", js_cocos2dx_CCEaseSineIn_create, 1, JSPROP_PERMANENT | JSPROP_SHARED),
+		JS_FN("create", js_cocos2dx_CCEaseSineIn_create, 1, JSPROP_PERMANENT | JSPROP_ENUMERATE),
 		JS_FS_END
 	};
 
@@ -12783,13 +12783,13 @@ void js_register_cocos2dx_CCEaseSineOut(JSContext *cx, JSObject *global) {
 	JSPropertySpec *properties = NULL;
 
 	static JSFunctionSpec funcs[] = {
-		JS_FN("update", js_cocos2dx_CCEaseSineOut_update, 1, JSPROP_PERMANENT | JSPROP_SHARED),
-		JS_FN("reverse", js_cocos2dx_CCEaseSineOut_reverse, 0, JSPROP_PERMANENT | JSPROP_SHARED),
+		JS_FN("update", js_cocos2dx_CCEaseSineOut_update, 1, JSPROP_PERMANENT | JSPROP_ENUMERATE),
+		JS_FN("reverse", js_cocos2dx_CCEaseSineOut_reverse, 0, JSPROP_PERMANENT | JSPROP_ENUMERATE),
 		JS_FS_END
 	};
 
 	static JSFunctionSpec st_funcs[] = {
-		JS_FN("create", js_cocos2dx_CCEaseSineOut_create, 1, JSPROP_PERMANENT | JSPROP_SHARED),
+		JS_FN("create", js_cocos2dx_CCEaseSineOut_create, 1, JSPROP_PERMANENT | JSPROP_ENUMERATE),
 		JS_FS_END
 	};
 
@@ -12920,13 +12920,13 @@ void js_register_cocos2dx_CCEaseSineInOut(JSContext *cx, JSObject *global) {
 	JSPropertySpec *properties = NULL;
 
 	static JSFunctionSpec funcs[] = {
-		JS_FN("reverse", js_cocos2dx_CCEaseSineInOut_reverse, 0, JSPROP_PERMANENT | JSPROP_SHARED),
-		JS_FN("update", js_cocos2dx_CCEaseSineInOut_update, 1, JSPROP_PERMANENT | JSPROP_SHARED),
+		JS_FN("reverse", js_cocos2dx_CCEaseSineInOut_reverse, 0, JSPROP_PERMANENT | JSPROP_ENUMERATE),
+		JS_FN("update", js_cocos2dx_CCEaseSineInOut_update, 1, JSPROP_PERMANENT | JSPROP_ENUMERATE),
 		JS_FS_END
 	};
 
 	static JSFunctionSpec st_funcs[] = {
-		JS_FN("create", js_cocos2dx_CCEaseSineInOut_create, 1, JSPROP_PERMANENT | JSPROP_SHARED),
+		JS_FN("create", js_cocos2dx_CCEaseSineInOut_create, 1, JSPROP_PERMANENT | JSPROP_ENUMERATE),
 		JS_FS_END
 	};
 
@@ -13131,15 +13131,15 @@ void js_register_cocos2dx_CCEaseElastic(JSContext *cx, JSObject *global) {
 	};
 
 	static JSFunctionSpec funcs[] = {
-		JS_FN("setPeriod", js_cocos2dx_CCEaseElastic_setPeriod, 1, JSPROP_PERMANENT | JSPROP_SHARED),
-		JS_FN("initWithAction", js_cocos2dx_CCEaseElastic_initWithAction, 2, JSPROP_PERMANENT | JSPROP_SHARED),
-		JS_FN("getPeriod", js_cocos2dx_CCEaseElastic_getPeriod, 0, JSPROP_PERMANENT | JSPROP_SHARED),
-		JS_FN("reverse", js_cocos2dx_CCEaseElastic_reverse, 0, JSPROP_PERMANENT | JSPROP_SHARED),
+		JS_FN("setPeriod", js_cocos2dx_CCEaseElastic_setPeriod, 1, JSPROP_PERMANENT | JSPROP_ENUMERATE),
+		JS_FN("initWithAction", js_cocos2dx_CCEaseElastic_initWithAction, 2, JSPROP_PERMANENT | JSPROP_ENUMERATE),
+		JS_FN("getPeriod", js_cocos2dx_CCEaseElastic_getPeriod, 0, JSPROP_PERMANENT | JSPROP_ENUMERATE),
+		JS_FN("reverse", js_cocos2dx_CCEaseElastic_reverse, 0, JSPROP_PERMANENT | JSPROP_ENUMERATE),
 		JS_FS_END
 	};
 
 	static JSFunctionSpec st_funcs[] = {
-		JS_FN("create", js_cocos2dx_CCEaseElastic_create, 1, JSPROP_PERMANENT | JSPROP_SHARED),
+		JS_FN("create", js_cocos2dx_CCEaseElastic_create, 1, JSPROP_PERMANENT | JSPROP_ENUMERATE),
 		JS_FS_END
 	};
 
@@ -13295,13 +13295,13 @@ void js_register_cocos2dx_CCEaseElasticIn(JSContext *cx, JSObject *global) {
 	JSPropertySpec *properties = NULL;
 
 	static JSFunctionSpec funcs[] = {
-		JS_FN("update", js_cocos2dx_CCEaseElasticIn_update, 1, JSPROP_PERMANENT | JSPROP_SHARED),
-		JS_FN("reverse", js_cocos2dx_CCEaseElasticIn_reverse, 0, JSPROP_PERMANENT | JSPROP_SHARED),
+		JS_FN("update", js_cocos2dx_CCEaseElasticIn_update, 1, JSPROP_PERMANENT | JSPROP_ENUMERATE),
+		JS_FN("reverse", js_cocos2dx_CCEaseElasticIn_reverse, 0, JSPROP_PERMANENT | JSPROP_ENUMERATE),
 		JS_FS_END
 	};
 
 	static JSFunctionSpec st_funcs[] = {
-		JS_FN("create", js_cocos2dx_CCEaseElasticIn_create, 1, JSPROP_PERMANENT | JSPROP_SHARED),
+		JS_FN("create", js_cocos2dx_CCEaseElasticIn_create, 1, JSPROP_PERMANENT | JSPROP_ENUMERATE),
 		JS_FS_END
 	};
 
@@ -13457,13 +13457,13 @@ void js_register_cocos2dx_CCEaseElasticOut(JSContext *cx, JSObject *global) {
 	JSPropertySpec *properties = NULL;
 
 	static JSFunctionSpec funcs[] = {
-		JS_FN("update", js_cocos2dx_CCEaseElasticOut_update, 1, JSPROP_PERMANENT | JSPROP_SHARED),
-		JS_FN("reverse", js_cocos2dx_CCEaseElasticOut_reverse, 0, JSPROP_PERMANENT | JSPROP_SHARED),
+		JS_FN("update", js_cocos2dx_CCEaseElasticOut_update, 1, JSPROP_PERMANENT | JSPROP_ENUMERATE),
+		JS_FN("reverse", js_cocos2dx_CCEaseElasticOut_reverse, 0, JSPROP_PERMANENT | JSPROP_ENUMERATE),
 		JS_FS_END
 	};
 
 	static JSFunctionSpec st_funcs[] = {
-		JS_FN("create", js_cocos2dx_CCEaseElasticOut_create, 1, JSPROP_PERMANENT | JSPROP_SHARED),
+		JS_FN("create", js_cocos2dx_CCEaseElasticOut_create, 1, JSPROP_PERMANENT | JSPROP_ENUMERATE),
 		JS_FS_END
 	};
 
@@ -13619,13 +13619,13 @@ void js_register_cocos2dx_CCEaseElasticInOut(JSContext *cx, JSObject *global) {
 	JSPropertySpec *properties = NULL;
 
 	static JSFunctionSpec funcs[] = {
-		JS_FN("update", js_cocos2dx_CCEaseElasticInOut_update, 1, JSPROP_PERMANENT | JSPROP_SHARED),
-		JS_FN("reverse", js_cocos2dx_CCEaseElasticInOut_reverse, 0, JSPROP_PERMANENT | JSPROP_SHARED),
+		JS_FN("update", js_cocos2dx_CCEaseElasticInOut_update, 1, JSPROP_PERMANENT | JSPROP_ENUMERATE),
+		JS_FN("reverse", js_cocos2dx_CCEaseElasticInOut_reverse, 0, JSPROP_PERMANENT | JSPROP_ENUMERATE),
 		JS_FS_END
 	};
 
 	static JSFunctionSpec st_funcs[] = {
-		JS_FN("create", js_cocos2dx_CCEaseElasticInOut_create, 1, JSPROP_PERMANENT | JSPROP_SHARED),
+		JS_FN("create", js_cocos2dx_CCEaseElasticInOut_create, 1, JSPROP_PERMANENT | JSPROP_ENUMERATE),
 		JS_FS_END
 	};
 
@@ -13758,13 +13758,13 @@ void js_register_cocos2dx_CCEaseBounce(JSContext *cx, JSObject *global) {
 	JSPropertySpec *properties = NULL;
 
 	static JSFunctionSpec funcs[] = {
-		JS_FN("bounceTime", js_cocos2dx_CCEaseBounce_bounceTime, 1, JSPROP_PERMANENT | JSPROP_SHARED),
-		JS_FN("reverse", js_cocos2dx_CCEaseBounce_reverse, 0, JSPROP_PERMANENT | JSPROP_SHARED),
+		JS_FN("bounceTime", js_cocos2dx_CCEaseBounce_bounceTime, 1, JSPROP_PERMANENT | JSPROP_ENUMERATE),
+		JS_FN("reverse", js_cocos2dx_CCEaseBounce_reverse, 0, JSPROP_PERMANENT | JSPROP_ENUMERATE),
 		JS_FS_END
 	};
 
 	static JSFunctionSpec st_funcs[] = {
-		JS_FN("create", js_cocos2dx_CCEaseBounce_create, 1, JSPROP_PERMANENT | JSPROP_SHARED),
+		JS_FN("create", js_cocos2dx_CCEaseBounce_create, 1, JSPROP_PERMANENT | JSPROP_ENUMERATE),
 		JS_FS_END
 	};
 
@@ -13895,13 +13895,13 @@ void js_register_cocos2dx_CCEaseBounceIn(JSContext *cx, JSObject *global) {
 	JSPropertySpec *properties = NULL;
 
 	static JSFunctionSpec funcs[] = {
-		JS_FN("update", js_cocos2dx_CCEaseBounceIn_update, 1, JSPROP_PERMANENT | JSPROP_SHARED),
-		JS_FN("reverse", js_cocos2dx_CCEaseBounceIn_reverse, 0, JSPROP_PERMANENT | JSPROP_SHARED),
+		JS_FN("update", js_cocos2dx_CCEaseBounceIn_update, 1, JSPROP_PERMANENT | JSPROP_ENUMERATE),
+		JS_FN("reverse", js_cocos2dx_CCEaseBounceIn_reverse, 0, JSPROP_PERMANENT | JSPROP_ENUMERATE),
 		JS_FS_END
 	};
 
 	static JSFunctionSpec st_funcs[] = {
-		JS_FN("create", js_cocos2dx_CCEaseBounceIn_create, 1, JSPROP_PERMANENT | JSPROP_SHARED),
+		JS_FN("create", js_cocos2dx_CCEaseBounceIn_create, 1, JSPROP_PERMANENT | JSPROP_ENUMERATE),
 		JS_FS_END
 	};
 
@@ -14032,13 +14032,13 @@ void js_register_cocos2dx_CCEaseBounceOut(JSContext *cx, JSObject *global) {
 	JSPropertySpec *properties = NULL;
 
 	static JSFunctionSpec funcs[] = {
-		JS_FN("update", js_cocos2dx_CCEaseBounceOut_update, 1, JSPROP_PERMANENT | JSPROP_SHARED),
-		JS_FN("reverse", js_cocos2dx_CCEaseBounceOut_reverse, 0, JSPROP_PERMANENT | JSPROP_SHARED),
+		JS_FN("update", js_cocos2dx_CCEaseBounceOut_update, 1, JSPROP_PERMANENT | JSPROP_ENUMERATE),
+		JS_FN("reverse", js_cocos2dx_CCEaseBounceOut_reverse, 0, JSPROP_PERMANENT | JSPROP_ENUMERATE),
 		JS_FS_END
 	};
 
 	static JSFunctionSpec st_funcs[] = {
-		JS_FN("create", js_cocos2dx_CCEaseBounceOut_create, 1, JSPROP_PERMANENT | JSPROP_SHARED),
+		JS_FN("create", js_cocos2dx_CCEaseBounceOut_create, 1, JSPROP_PERMANENT | JSPROP_ENUMERATE),
 		JS_FS_END
 	};
 
@@ -14169,13 +14169,13 @@ void js_register_cocos2dx_CCEaseBounceInOut(JSContext *cx, JSObject *global) {
 	JSPropertySpec *properties = NULL;
 
 	static JSFunctionSpec funcs[] = {
-		JS_FN("reverse", js_cocos2dx_CCEaseBounceInOut_reverse, 0, JSPROP_PERMANENT | JSPROP_SHARED),
-		JS_FN("update", js_cocos2dx_CCEaseBounceInOut_update, 1, JSPROP_PERMANENT | JSPROP_SHARED),
+		JS_FN("reverse", js_cocos2dx_CCEaseBounceInOut_reverse, 0, JSPROP_PERMANENT | JSPROP_ENUMERATE),
+		JS_FN("update", js_cocos2dx_CCEaseBounceInOut_update, 1, JSPROP_PERMANENT | JSPROP_ENUMERATE),
 		JS_FS_END
 	};
 
 	static JSFunctionSpec st_funcs[] = {
-		JS_FN("create", js_cocos2dx_CCEaseBounceInOut_create, 1, JSPROP_PERMANENT | JSPROP_SHARED),
+		JS_FN("create", js_cocos2dx_CCEaseBounceInOut_create, 1, JSPROP_PERMANENT | JSPROP_ENUMERATE),
 		JS_FS_END
 	};
 
@@ -14306,13 +14306,13 @@ void js_register_cocos2dx_CCEaseBackIn(JSContext *cx, JSObject *global) {
 	JSPropertySpec *properties = NULL;
 
 	static JSFunctionSpec funcs[] = {
-		JS_FN("update", js_cocos2dx_CCEaseBackIn_update, 1, JSPROP_PERMANENT | JSPROP_SHARED),
-		JS_FN("reverse", js_cocos2dx_CCEaseBackIn_reverse, 0, JSPROP_PERMANENT | JSPROP_SHARED),
+		JS_FN("update", js_cocos2dx_CCEaseBackIn_update, 1, JSPROP_PERMANENT | JSPROP_ENUMERATE),
+		JS_FN("reverse", js_cocos2dx_CCEaseBackIn_reverse, 0, JSPROP_PERMANENT | JSPROP_ENUMERATE),
 		JS_FS_END
 	};
 
 	static JSFunctionSpec st_funcs[] = {
-		JS_FN("create", js_cocos2dx_CCEaseBackIn_create, 1, JSPROP_PERMANENT | JSPROP_SHARED),
+		JS_FN("create", js_cocos2dx_CCEaseBackIn_create, 1, JSPROP_PERMANENT | JSPROP_ENUMERATE),
 		JS_FS_END
 	};
 
@@ -14443,13 +14443,13 @@ void js_register_cocos2dx_CCEaseBackOut(JSContext *cx, JSObject *global) {
 	JSPropertySpec *properties = NULL;
 
 	static JSFunctionSpec funcs[] = {
-		JS_FN("update", js_cocos2dx_CCEaseBackOut_update, 1, JSPROP_PERMANENT | JSPROP_SHARED),
-		JS_FN("reverse", js_cocos2dx_CCEaseBackOut_reverse, 0, JSPROP_PERMANENT | JSPROP_SHARED),
+		JS_FN("update", js_cocos2dx_CCEaseBackOut_update, 1, JSPROP_PERMANENT | JSPROP_ENUMERATE),
+		JS_FN("reverse", js_cocos2dx_CCEaseBackOut_reverse, 0, JSPROP_PERMANENT | JSPROP_ENUMERATE),
 		JS_FS_END
 	};
 
 	static JSFunctionSpec st_funcs[] = {
-		JS_FN("create", js_cocos2dx_CCEaseBackOut_create, 1, JSPROP_PERMANENT | JSPROP_SHARED),
+		JS_FN("create", js_cocos2dx_CCEaseBackOut_create, 1, JSPROP_PERMANENT | JSPROP_ENUMERATE),
 		JS_FS_END
 	};
 
@@ -14580,13 +14580,13 @@ void js_register_cocos2dx_CCEaseBackInOut(JSContext *cx, JSObject *global) {
 	JSPropertySpec *properties = NULL;
 
 	static JSFunctionSpec funcs[] = {
-		JS_FN("reverse", js_cocos2dx_CCEaseBackInOut_reverse, 0, JSPROP_PERMANENT | JSPROP_SHARED),
-		JS_FN("update", js_cocos2dx_CCEaseBackInOut_update, 1, JSPROP_PERMANENT | JSPROP_SHARED),
+		JS_FN("reverse", js_cocos2dx_CCEaseBackInOut_reverse, 0, JSPROP_PERMANENT | JSPROP_ENUMERATE),
+		JS_FN("update", js_cocos2dx_CCEaseBackInOut_update, 1, JSPROP_PERMANENT | JSPROP_ENUMERATE),
 		JS_FS_END
 	};
 
 	static JSFunctionSpec st_funcs[] = {
-		JS_FN("create", js_cocos2dx_CCEaseBackInOut_create, 1, JSPROP_PERMANENT | JSPROP_SHARED),
+		JS_FN("create", js_cocos2dx_CCEaseBackInOut_create, 1, JSPROP_PERMANENT | JSPROP_ENUMERATE),
 		JS_FS_END
 	};
 
@@ -14754,10 +14754,10 @@ void js_register_cocos2dx_CCActionInstant(JSContext *cx, JSObject *global) {
 	JSPropertySpec *properties = NULL;
 
 	static JSFunctionSpec funcs[] = {
-		JS_FN("reverse", js_cocos2dx_CCActionInstant_reverse, 0, JSPROP_PERMANENT | JSPROP_SHARED),
-		JS_FN("update", js_cocos2dx_CCActionInstant_update, 1, JSPROP_PERMANENT | JSPROP_SHARED),
-		JS_FN("step", js_cocos2dx_CCActionInstant_step, 1, JSPROP_PERMANENT | JSPROP_SHARED),
-		JS_FN("isDone", js_cocos2dx_CCActionInstant_isDone, 0, JSPROP_PERMANENT | JSPROP_SHARED),
+		JS_FN("reverse", js_cocos2dx_CCActionInstant_reverse, 0, JSPROP_PERMANENT | JSPROP_ENUMERATE),
+		JS_FN("update", js_cocos2dx_CCActionInstant_update, 1, JSPROP_PERMANENT | JSPROP_ENUMERATE),
+		JS_FN("step", js_cocos2dx_CCActionInstant_step, 1, JSPROP_PERMANENT | JSPROP_ENUMERATE),
+		JS_FN("isDone", js_cocos2dx_CCActionInstant_isDone, 0, JSPROP_PERMANENT | JSPROP_ENUMERATE),
 		JS_FS_END
 	};
 
@@ -14906,13 +14906,13 @@ void js_register_cocos2dx_CCShow(JSContext *cx, JSObject *global) {
 	JSPropertySpec *properties = NULL;
 
 	static JSFunctionSpec funcs[] = {
-		JS_FN("reverse", js_cocos2dx_CCShow_reverse, 0, JSPROP_PERMANENT | JSPROP_SHARED),
-		JS_FN("update", js_cocos2dx_CCShow_update, 1, JSPROP_PERMANENT | JSPROP_SHARED),
+		JS_FN("reverse", js_cocos2dx_CCShow_reverse, 0, JSPROP_PERMANENT | JSPROP_ENUMERATE),
+		JS_FN("update", js_cocos2dx_CCShow_update, 1, JSPROP_PERMANENT | JSPROP_ENUMERATE),
 		JS_FS_END
 	};
 
 	static JSFunctionSpec st_funcs[] = {
-		JS_FN("create", js_cocos2dx_CCShow_create, 0, JSPROP_PERMANENT | JSPROP_SHARED),
+		JS_FN("create", js_cocos2dx_CCShow_create, 0, JSPROP_PERMANENT | JSPROP_ENUMERATE),
 		JS_FS_END
 	};
 
@@ -15059,13 +15059,13 @@ void js_register_cocos2dx_CCHide(JSContext *cx, JSObject *global) {
 	JSPropertySpec *properties = NULL;
 
 	static JSFunctionSpec funcs[] = {
-		JS_FN("reverse", js_cocos2dx_CCHide_reverse, 0, JSPROP_PERMANENT | JSPROP_SHARED),
-		JS_FN("update", js_cocos2dx_CCHide_update, 1, JSPROP_PERMANENT | JSPROP_SHARED),
+		JS_FN("reverse", js_cocos2dx_CCHide_reverse, 0, JSPROP_PERMANENT | JSPROP_ENUMERATE),
+		JS_FN("update", js_cocos2dx_CCHide_update, 1, JSPROP_PERMANENT | JSPROP_ENUMERATE),
 		JS_FS_END
 	};
 
 	static JSFunctionSpec st_funcs[] = {
-		JS_FN("create", js_cocos2dx_CCHide_create, 0, JSPROP_PERMANENT | JSPROP_SHARED),
+		JS_FN("create", js_cocos2dx_CCHide_create, 0, JSPROP_PERMANENT | JSPROP_ENUMERATE),
 		JS_FS_END
 	};
 
@@ -15188,12 +15188,12 @@ void js_register_cocos2dx_CCToggleVisibility(JSContext *cx, JSObject *global) {
 	JSPropertySpec *properties = NULL;
 
 	static JSFunctionSpec funcs[] = {
-		JS_FN("update", js_cocos2dx_CCToggleVisibility_update, 1, JSPROP_PERMANENT | JSPROP_SHARED),
+		JS_FN("update", js_cocos2dx_CCToggleVisibility_update, 1, JSPROP_PERMANENT | JSPROP_ENUMERATE),
 		JS_FS_END
 	};
 
 	static JSFunctionSpec st_funcs[] = {
-		JS_FN("create", js_cocos2dx_CCToggleVisibility_create, 0, JSPROP_PERMANENT | JSPROP_SHARED),
+		JS_FN("create", js_cocos2dx_CCToggleVisibility_create, 0, JSPROP_PERMANENT | JSPROP_ENUMERATE),
 		JS_FS_END
 	};
 
@@ -15372,14 +15372,14 @@ void js_register_cocos2dx_CCFlipX(JSContext *cx, JSObject *global) {
 	};
 
 	static JSFunctionSpec funcs[] = {
-		JS_FN("initWithFlipX", js_cocos2dx_CCFlipX_initWithFlipX, 1, JSPROP_PERMANENT | JSPROP_SHARED),
-		JS_FN("reverse", js_cocos2dx_CCFlipX_reverse, 0, JSPROP_PERMANENT | JSPROP_SHARED),
-		JS_FN("update", js_cocos2dx_CCFlipX_update, 1, JSPROP_PERMANENT | JSPROP_SHARED),
+		JS_FN("initWithFlipX", js_cocos2dx_CCFlipX_initWithFlipX, 1, JSPROP_PERMANENT | JSPROP_ENUMERATE),
+		JS_FN("reverse", js_cocos2dx_CCFlipX_reverse, 0, JSPROP_PERMANENT | JSPROP_ENUMERATE),
+		JS_FN("update", js_cocos2dx_CCFlipX_update, 1, JSPROP_PERMANENT | JSPROP_ENUMERATE),
 		JS_FS_END
 	};
 
 	static JSFunctionSpec st_funcs[] = {
-		JS_FN("create", js_cocos2dx_CCFlipX_create, 1, JSPROP_PERMANENT | JSPROP_SHARED),
+		JS_FN("create", js_cocos2dx_CCFlipX_create, 1, JSPROP_PERMANENT | JSPROP_ENUMERATE),
 		JS_FS_END
 	};
 
@@ -15558,14 +15558,14 @@ void js_register_cocos2dx_CCFlipY(JSContext *cx, JSObject *global) {
 	};
 
 	static JSFunctionSpec funcs[] = {
-		JS_FN("initWithFlipY", js_cocos2dx_CCFlipY_initWithFlipY, 1, JSPROP_PERMANENT | JSPROP_SHARED),
-		JS_FN("reverse", js_cocos2dx_CCFlipY_reverse, 0, JSPROP_PERMANENT | JSPROP_SHARED),
-		JS_FN("update", js_cocos2dx_CCFlipY_update, 1, JSPROP_PERMANENT | JSPROP_SHARED),
+		JS_FN("initWithFlipY", js_cocos2dx_CCFlipY_initWithFlipY, 1, JSPROP_PERMANENT | JSPROP_ENUMERATE),
+		JS_FN("reverse", js_cocos2dx_CCFlipY_reverse, 0, JSPROP_PERMANENT | JSPROP_ENUMERATE),
+		JS_FN("update", js_cocos2dx_CCFlipY_update, 1, JSPROP_PERMANENT | JSPROP_ENUMERATE),
 		JS_FS_END
 	};
 
 	static JSFunctionSpec st_funcs[] = {
-		JS_FN("create", js_cocos2dx_CCFlipY_create, 1, JSPROP_PERMANENT | JSPROP_SHARED),
+		JS_FN("create", js_cocos2dx_CCFlipY_create, 1, JSPROP_PERMANENT | JSPROP_ENUMERATE),
 		JS_FS_END
 	};
 
@@ -15720,13 +15720,13 @@ void js_register_cocos2dx_CCPlace(JSContext *cx, JSObject *global) {
 	};
 
 	static JSFunctionSpec funcs[] = {
-		JS_FN("initWithPosition", js_cocos2dx_CCPlace_initWithPosition, 1, JSPROP_PERMANENT | JSPROP_SHARED),
-		JS_FN("update", js_cocos2dx_CCPlace_update, 1, JSPROP_PERMANENT | JSPROP_SHARED),
+		JS_FN("initWithPosition", js_cocos2dx_CCPlace_initWithPosition, 1, JSPROP_PERMANENT | JSPROP_ENUMERATE),
+		JS_FN("update", js_cocos2dx_CCPlace_update, 1, JSPROP_PERMANENT | JSPROP_ENUMERATE),
 		JS_FS_END
 	};
 
 	static JSFunctionSpec st_funcs[] = {
-		JS_FN("create", js_cocos2dx_CCPlace_create, 1, JSPROP_PERMANENT | JSPROP_SHARED),
+		JS_FN("create", js_cocos2dx_CCPlace_create, 1, JSPROP_PERMANENT | JSPROP_ENUMERATE),
 		JS_FS_END
 	};
 
@@ -15945,12 +15945,12 @@ void js_register_cocos2dx_CCCallFunc(JSContext *cx, JSObject *global) {
 	};
 
 	static JSFunctionSpec funcs[] = {
-		JS_FN("execute", js_cocos2dx_CCCallFunc_execute, 0, JSPROP_PERMANENT | JSPROP_SHARED),
-		JS_FN("initWithTarget", js_cocos2dx_CCCallFunc_initWithTarget, 1, JSPROP_PERMANENT | JSPROP_SHARED),
-		JS_FN("update", js_cocos2dx_CCCallFunc_update, 1, JSPROP_PERMANENT | JSPROP_SHARED),
-		JS_FN("getTargetCallback", js_cocos2dx_CCCallFunc_getTargetCallback, 0, JSPROP_PERMANENT | JSPROP_SHARED),
-		JS_FN("getScriptHandler", js_cocos2dx_CCCallFunc_getScriptHandler, 0, JSPROP_PERMANENT | JSPROP_SHARED),
-		JS_FN("setTargetCallback", js_cocos2dx_CCCallFunc_setTargetCallback, 1, JSPROP_PERMANENT | JSPROP_SHARED),
+		JS_FN("execute", js_cocos2dx_CCCallFunc_execute, 0, JSPROP_PERMANENT | JSPROP_ENUMERATE),
+		JS_FN("initWithTarget", js_cocos2dx_CCCallFunc_initWithTarget, 1, JSPROP_PERMANENT | JSPROP_ENUMERATE),
+		JS_FN("update", js_cocos2dx_CCCallFunc_update, 1, JSPROP_PERMANENT | JSPROP_ENUMERATE),
+		JS_FN("getTargetCallback", js_cocos2dx_CCCallFunc_getTargetCallback, 0, JSPROP_PERMANENT | JSPROP_ENUMERATE),
+		JS_FN("getScriptHandler", js_cocos2dx_CCCallFunc_getScriptHandler, 0, JSPROP_PERMANENT | JSPROP_ENUMERATE),
+		JS_FN("setTargetCallback", js_cocos2dx_CCCallFunc_setTargetCallback, 1, JSPROP_PERMANENT | JSPROP_ENUMERATE),
 		JS_FS_END
 	};
 
@@ -16135,15 +16135,15 @@ void js_register_cocos2dx_CCGridAction(JSContext *cx, JSObject *global) {
 	};
 
 	static JSFunctionSpec funcs[] = {
-		JS_FN("startWithTarget", js_cocos2dx_CCGridAction_startWithTarget, 1, JSPROP_PERMANENT | JSPROP_SHARED),
-		JS_FN("getGrid", js_cocos2dx_CCGridAction_getGrid, 0, JSPROP_PERMANENT | JSPROP_SHARED),
-		JS_FN("initWithDuration", js_cocos2dx_CCGridAction_initWithDuration, 2, JSPROP_PERMANENT | JSPROP_SHARED),
-		JS_FN("reverse", js_cocos2dx_CCGridAction_reverse, 0, JSPROP_PERMANENT | JSPROP_SHARED),
+		JS_FN("startWithTarget", js_cocos2dx_CCGridAction_startWithTarget, 1, JSPROP_PERMANENT | JSPROP_ENUMERATE),
+		JS_FN("getGrid", js_cocos2dx_CCGridAction_getGrid, 0, JSPROP_PERMANENT | JSPROP_ENUMERATE),
+		JS_FN("initWithDuration", js_cocos2dx_CCGridAction_initWithDuration, 2, JSPROP_PERMANENT | JSPROP_ENUMERATE),
+		JS_FN("reverse", js_cocos2dx_CCGridAction_reverse, 0, JSPROP_PERMANENT | JSPROP_ENUMERATE),
 		JS_FS_END
 	};
 
 	static JSFunctionSpec st_funcs[] = {
-		JS_FN("create", js_cocos2dx_CCGridAction_create, 2, JSPROP_PERMANENT | JSPROP_SHARED),
+		JS_FN("create", js_cocos2dx_CCGridAction_create, 2, JSPROP_PERMANENT | JSPROP_ENUMERATE),
 		JS_FS_END
 	};
 
@@ -16290,10 +16290,10 @@ void js_register_cocos2dx_CCGrid3DAction(JSContext *cx, JSObject *global) {
 	JSPropertySpec *properties = NULL;
 
 	static JSFunctionSpec funcs[] = {
-		JS_FN("setVertex", js_cocos2dx_CCGrid3DAction_setVertex, 2, JSPROP_PERMANENT | JSPROP_SHARED),
-		JS_FN("getGrid", js_cocos2dx_CCGrid3DAction_getGrid, 0, JSPROP_PERMANENT | JSPROP_SHARED),
-		JS_FN("vertex", js_cocos2dx_CCGrid3DAction_vertex, 1, JSPROP_PERMANENT | JSPROP_SHARED),
-		JS_FN("originalVertex", js_cocos2dx_CCGrid3DAction_originalVertex, 1, JSPROP_PERMANENT | JSPROP_SHARED),
+		JS_FN("setVertex", js_cocos2dx_CCGrid3DAction_setVertex, 2, JSPROP_PERMANENT | JSPROP_ENUMERATE),
+		JS_FN("getGrid", js_cocos2dx_CCGrid3DAction_getGrid, 0, JSPROP_PERMANENT | JSPROP_ENUMERATE),
+		JS_FN("vertex", js_cocos2dx_CCGrid3DAction_vertex, 1, JSPROP_PERMANENT | JSPROP_ENUMERATE),
+		JS_FN("originalVertex", js_cocos2dx_CCGrid3DAction_originalVertex, 1, JSPROP_PERMANENT | JSPROP_ENUMERATE),
 		JS_FS_END
 	};
 
@@ -16442,10 +16442,10 @@ void js_register_cocos2dx_CCTiledGrid3DAction(JSContext *cx, JSObject *global) {
 	JSPropertySpec *properties = NULL;
 
 	static JSFunctionSpec funcs[] = {
-		JS_FN("tile", js_cocos2dx_CCTiledGrid3DAction_tile, 1, JSPROP_PERMANENT | JSPROP_SHARED),
-		JS_FN("setTile", js_cocos2dx_CCTiledGrid3DAction_setTile, 2, JSPROP_PERMANENT | JSPROP_SHARED),
-		JS_FN("originalTile", js_cocos2dx_CCTiledGrid3DAction_originalTile, 1, JSPROP_PERMANENT | JSPROP_SHARED),
-		JS_FN("getGrid", js_cocos2dx_CCTiledGrid3DAction_getGrid, 0, JSPROP_PERMANENT | JSPROP_SHARED),
+		JS_FN("tile", js_cocos2dx_CCTiledGrid3DAction_tile, 1, JSPROP_PERMANENT | JSPROP_ENUMERATE),
+		JS_FN("setTile", js_cocos2dx_CCTiledGrid3DAction_setTile, 2, JSPROP_PERMANENT | JSPROP_ENUMERATE),
+		JS_FN("originalTile", js_cocos2dx_CCTiledGrid3DAction_originalTile, 1, JSPROP_PERMANENT | JSPROP_ENUMERATE),
+		JS_FN("getGrid", js_cocos2dx_CCTiledGrid3DAction_getGrid, 0, JSPROP_PERMANENT | JSPROP_ENUMERATE),
 		JS_FS_END
 	};
 
@@ -16658,17 +16658,17 @@ void js_register_cocos2dx_CCWaves3D(JSContext *cx, JSObject *global) {
 	};
 
 	static JSFunctionSpec funcs[] = {
-		JS_FN("initWithDuration", js_cocos2dx_CCWaves3D_initWithDuration, 4, JSPROP_PERMANENT | JSPROP_SHARED),
-		JS_FN("update", js_cocos2dx_CCWaves3D_update, 1, JSPROP_PERMANENT | JSPROP_SHARED),
-		JS_FN("getAmplitudeRate", js_cocos2dx_CCWaves3D_getAmplitudeRate, 0, JSPROP_PERMANENT | JSPROP_SHARED),
-		JS_FN("setAmplitude", js_cocos2dx_CCWaves3D_setAmplitude, 1, JSPROP_PERMANENT | JSPROP_SHARED),
-		JS_FN("getAmplitude", js_cocos2dx_CCWaves3D_getAmplitude, 0, JSPROP_PERMANENT | JSPROP_SHARED),
-		JS_FN("setAmplitudeRate", js_cocos2dx_CCWaves3D_setAmplitudeRate, 1, JSPROP_PERMANENT | JSPROP_SHARED),
+		JS_FN("initWithDuration", js_cocos2dx_CCWaves3D_initWithDuration, 4, JSPROP_PERMANENT | JSPROP_ENUMERATE),
+		JS_FN("update", js_cocos2dx_CCWaves3D_update, 1, JSPROP_PERMANENT | JSPROP_ENUMERATE),
+		JS_FN("getAmplitudeRate", js_cocos2dx_CCWaves3D_getAmplitudeRate, 0, JSPROP_PERMANENT | JSPROP_ENUMERATE),
+		JS_FN("setAmplitude", js_cocos2dx_CCWaves3D_setAmplitude, 1, JSPROP_PERMANENT | JSPROP_ENUMERATE),
+		JS_FN("getAmplitude", js_cocos2dx_CCWaves3D_getAmplitude, 0, JSPROP_PERMANENT | JSPROP_ENUMERATE),
+		JS_FN("setAmplitudeRate", js_cocos2dx_CCWaves3D_setAmplitudeRate, 1, JSPROP_PERMANENT | JSPROP_ENUMERATE),
 		JS_FS_END
 	};
 
 	static JSFunctionSpec st_funcs[] = {
-		JS_FN("create", js_cocos2dx_CCWaves3D_create, 4, JSPROP_PERMANENT | JSPROP_SHARED),
+		JS_FN("create", js_cocos2dx_CCWaves3D_create, 4, JSPROP_PERMANENT | JSPROP_ENUMERATE),
 		JS_FS_END
 	};
 
@@ -16815,14 +16815,14 @@ void js_register_cocos2dx_CCFlipX3D(JSContext *cx, JSObject *global) {
 	JSPropertySpec *properties = NULL;
 
 	static JSFunctionSpec funcs[] = {
-		JS_FN("initWithSize", js_cocos2dx_CCFlipX3D_initWithSize, 2, JSPROP_PERMANENT | JSPROP_SHARED),
-		JS_FN("initWithDuration", js_cocos2dx_CCFlipX3D_initWithDuration, 1, JSPROP_PERMANENT | JSPROP_SHARED),
-		JS_FN("update", js_cocos2dx_CCFlipX3D_update, 1, JSPROP_PERMANENT | JSPROP_SHARED),
+		JS_FN("initWithSize", js_cocos2dx_CCFlipX3D_initWithSize, 2, JSPROP_PERMANENT | JSPROP_ENUMERATE),
+		JS_FN("initWithDuration", js_cocos2dx_CCFlipX3D_initWithDuration, 1, JSPROP_PERMANENT | JSPROP_ENUMERATE),
+		JS_FN("update", js_cocos2dx_CCFlipX3D_update, 1, JSPROP_PERMANENT | JSPROP_ENUMERATE),
 		JS_FS_END
 	};
 
 	static JSFunctionSpec st_funcs[] = {
-		JS_FN("create", js_cocos2dx_CCFlipX3D_create, 1, JSPROP_PERMANENT | JSPROP_SHARED),
+		JS_FN("create", js_cocos2dx_CCFlipX3D_create, 1, JSPROP_PERMANENT | JSPROP_ENUMERATE),
 		JS_FS_END
 	};
 
@@ -16923,12 +16923,12 @@ void js_register_cocos2dx_CCFlipY3D(JSContext *cx, JSObject *global) {
 	JSPropertySpec *properties = NULL;
 
 	static JSFunctionSpec funcs[] = {
-		JS_FN("update", js_cocos2dx_CCFlipY3D_update, 1, JSPROP_PERMANENT | JSPROP_SHARED),
+		JS_FN("update", js_cocos2dx_CCFlipY3D_update, 1, JSPROP_PERMANENT | JSPROP_ENUMERATE),
 		JS_FS_END
 	};
 
 	static JSFunctionSpec st_funcs[] = {
-		JS_FN("create", js_cocos2dx_CCFlipY3D_create, 1, JSPROP_PERMANENT | JSPROP_SHARED),
+		JS_FN("create", js_cocos2dx_CCFlipY3D_create, 1, JSPROP_PERMANENT | JSPROP_ENUMERATE),
 		JS_FS_END
 	};
 
@@ -17159,18 +17159,18 @@ void js_register_cocos2dx_CCLens3D(JSContext *cx, JSObject *global) {
 	};
 
 	static JSFunctionSpec funcs[] = {
-		JS_FN("setConcave", js_cocos2dx_CCLens3D_setConcave, 1, JSPROP_PERMANENT | JSPROP_SHARED),
-		JS_FN("initWithDuration", js_cocos2dx_CCLens3D_initWithDuration, 4, JSPROP_PERMANENT | JSPROP_SHARED),
-		JS_FN("setLensEffect", js_cocos2dx_CCLens3D_setLensEffect, 1, JSPROP_PERMANENT | JSPROP_SHARED),
-		JS_FN("update", js_cocos2dx_CCLens3D_update, 1, JSPROP_PERMANENT | JSPROP_SHARED),
-		JS_FN("getLensEffect", js_cocos2dx_CCLens3D_getLensEffect, 0, JSPROP_PERMANENT | JSPROP_SHARED),
-		JS_FN("setPosition", js_cocos2dx_CCLens3D_setPosition, 1, JSPROP_PERMANENT | JSPROP_SHARED),
-		JS_FN("getPosition", js_cocos2dx_CCLens3D_getPosition, 0, JSPROP_PERMANENT | JSPROP_SHARED),
+		JS_FN("setConcave", js_cocos2dx_CCLens3D_setConcave, 1, JSPROP_PERMANENT | JSPROP_ENUMERATE),
+		JS_FN("initWithDuration", js_cocos2dx_CCLens3D_initWithDuration, 4, JSPROP_PERMANENT | JSPROP_ENUMERATE),
+		JS_FN("setLensEffect", js_cocos2dx_CCLens3D_setLensEffect, 1, JSPROP_PERMANENT | JSPROP_ENUMERATE),
+		JS_FN("update", js_cocos2dx_CCLens3D_update, 1, JSPROP_PERMANENT | JSPROP_ENUMERATE),
+		JS_FN("getLensEffect", js_cocos2dx_CCLens3D_getLensEffect, 0, JSPROP_PERMANENT | JSPROP_ENUMERATE),
+		JS_FN("setPosition", js_cocos2dx_CCLens3D_setPosition, 1, JSPROP_PERMANENT | JSPROP_ENUMERATE),
+		JS_FN("getPosition", js_cocos2dx_CCLens3D_getPosition, 0, JSPROP_PERMANENT | JSPROP_ENUMERATE),
 		JS_FS_END
 	};
 
 	static JSFunctionSpec st_funcs[] = {
-		JS_FN("create", js_cocos2dx_CCLens3D_create, 4, JSPROP_PERMANENT | JSPROP_SHARED),
+		JS_FN("create", js_cocos2dx_CCLens3D_create, 4, JSPROP_PERMANENT | JSPROP_ENUMERATE),
 		JS_FS_END
 	};
 
@@ -17426,19 +17426,19 @@ void js_register_cocos2dx_CCRipple3D(JSContext *cx, JSObject *global) {
 	};
 
 	static JSFunctionSpec funcs[] = {
-		JS_FN("setAmplitudeRate", js_cocos2dx_CCRipple3D_setAmplitudeRate, 1, JSPROP_PERMANENT | JSPROP_SHARED),
-		JS_FN("initWithDuration", js_cocos2dx_CCRipple3D_initWithDuration, 6, JSPROP_PERMANENT | JSPROP_SHARED),
-		JS_FN("update", js_cocos2dx_CCRipple3D_update, 1, JSPROP_PERMANENT | JSPROP_SHARED),
-		JS_FN("getAmplitudeRate", js_cocos2dx_CCRipple3D_getAmplitudeRate, 0, JSPROP_PERMANENT | JSPROP_SHARED),
-		JS_FN("setAmplitude", js_cocos2dx_CCRipple3D_setAmplitude, 1, JSPROP_PERMANENT | JSPROP_SHARED),
-		JS_FN("getAmplitude", js_cocos2dx_CCRipple3D_getAmplitude, 0, JSPROP_PERMANENT | JSPROP_SHARED),
-		JS_FN("setPosition", js_cocos2dx_CCRipple3D_setPosition, 1, JSPROP_PERMANENT | JSPROP_SHARED),
-		JS_FN("getPosition", js_cocos2dx_CCRipple3D_getPosition, 0, JSPROP_PERMANENT | JSPROP_SHARED),
+		JS_FN("setAmplitudeRate", js_cocos2dx_CCRipple3D_setAmplitudeRate, 1, JSPROP_PERMANENT | JSPROP_ENUMERATE),
+		JS_FN("initWithDuration", js_cocos2dx_CCRipple3D_initWithDuration, 6, JSPROP_PERMANENT | JSPROP_ENUMERATE),
+		JS_FN("update", js_cocos2dx_CCRipple3D_update, 1, JSPROP_PERMANENT | JSPROP_ENUMERATE),
+		JS_FN("getAmplitudeRate", js_cocos2dx_CCRipple3D_getAmplitudeRate, 0, JSPROP_PERMANENT | JSPROP_ENUMERATE),
+		JS_FN("setAmplitude", js_cocos2dx_CCRipple3D_setAmplitude, 1, JSPROP_PERMANENT | JSPROP_ENUMERATE),
+		JS_FN("getAmplitude", js_cocos2dx_CCRipple3D_getAmplitude, 0, JSPROP_PERMANENT | JSPROP_ENUMERATE),
+		JS_FN("setPosition", js_cocos2dx_CCRipple3D_setPosition, 1, JSPROP_PERMANENT | JSPROP_ENUMERATE),
+		JS_FN("getPosition", js_cocos2dx_CCRipple3D_getPosition, 0, JSPROP_PERMANENT | JSPROP_ENUMERATE),
 		JS_FS_END
 	};
 
 	static JSFunctionSpec st_funcs[] = {
-		JS_FN("create", js_cocos2dx_CCRipple3D_create, 6, JSPROP_PERMANENT | JSPROP_SHARED),
+		JS_FN("create", js_cocos2dx_CCRipple3D_create, 6, JSPROP_PERMANENT | JSPROP_ENUMERATE),
 		JS_FS_END
 	};
 
@@ -17575,13 +17575,13 @@ void js_register_cocos2dx_CCShaky3D(JSContext *cx, JSObject *global) {
 	};
 
 	static JSFunctionSpec funcs[] = {
-		JS_FN("initWithDuration", js_cocos2dx_CCShaky3D_initWithDuration, 4, JSPROP_PERMANENT | JSPROP_SHARED),
-		JS_FN("update", js_cocos2dx_CCShaky3D_update, 1, JSPROP_PERMANENT | JSPROP_SHARED),
+		JS_FN("initWithDuration", js_cocos2dx_CCShaky3D_initWithDuration, 4, JSPROP_PERMANENT | JSPROP_ENUMERATE),
+		JS_FN("update", js_cocos2dx_CCShaky3D_update, 1, JSPROP_PERMANENT | JSPROP_ENUMERATE),
 		JS_FS_END
 	};
 
 	static JSFunctionSpec st_funcs[] = {
-		JS_FN("create", js_cocos2dx_CCShaky3D_create, 4, JSPROP_PERMANENT | JSPROP_SHARED),
+		JS_FN("create", js_cocos2dx_CCShaky3D_create, 4, JSPROP_PERMANENT | JSPROP_ENUMERATE),
 		JS_FS_END
 	};
 
@@ -17792,17 +17792,17 @@ void js_register_cocos2dx_CCLiquid(JSContext *cx, JSObject *global) {
 	};
 
 	static JSFunctionSpec funcs[] = {
-		JS_FN("initWithDuration", js_cocos2dx_CCLiquid_initWithDuration, 4, JSPROP_PERMANENT | JSPROP_SHARED),
-		JS_FN("update", js_cocos2dx_CCLiquid_update, 1, JSPROP_PERMANENT | JSPROP_SHARED),
-		JS_FN("getAmplitudeRate", js_cocos2dx_CCLiquid_getAmplitudeRate, 0, JSPROP_PERMANENT | JSPROP_SHARED),
-		JS_FN("setAmplitude", js_cocos2dx_CCLiquid_setAmplitude, 1, JSPROP_PERMANENT | JSPROP_SHARED),
-		JS_FN("getAmplitude", js_cocos2dx_CCLiquid_getAmplitude, 0, JSPROP_PERMANENT | JSPROP_SHARED),
-		JS_FN("setAmplitudeRate", js_cocos2dx_CCLiquid_setAmplitudeRate, 1, JSPROP_PERMANENT | JSPROP_SHARED),
+		JS_FN("initWithDuration", js_cocos2dx_CCLiquid_initWithDuration, 4, JSPROP_PERMANENT | JSPROP_ENUMERATE),
+		JS_FN("update", js_cocos2dx_CCLiquid_update, 1, JSPROP_PERMANENT | JSPROP_ENUMERATE),
+		JS_FN("getAmplitudeRate", js_cocos2dx_CCLiquid_getAmplitudeRate, 0, JSPROP_PERMANENT | JSPROP_ENUMERATE),
+		JS_FN("setAmplitude", js_cocos2dx_CCLiquid_setAmplitude, 1, JSPROP_PERMANENT | JSPROP_ENUMERATE),
+		JS_FN("getAmplitude", js_cocos2dx_CCLiquid_getAmplitude, 0, JSPROP_PERMANENT | JSPROP_ENUMERATE),
+		JS_FN("setAmplitudeRate", js_cocos2dx_CCLiquid_setAmplitudeRate, 1, JSPROP_PERMANENT | JSPROP_ENUMERATE),
 		JS_FS_END
 	};
 
 	static JSFunctionSpec st_funcs[] = {
-		JS_FN("create", js_cocos2dx_CCLiquid_create, 4, JSPROP_PERMANENT | JSPROP_SHARED),
+		JS_FN("create", js_cocos2dx_CCLiquid_create, 4, JSPROP_PERMANENT | JSPROP_ENUMERATE),
 		JS_FS_END
 	};
 
@@ -18021,17 +18021,17 @@ void js_register_cocos2dx_CCWaves(JSContext *cx, JSObject *global) {
 	};
 
 	static JSFunctionSpec funcs[] = {
-		JS_FN("initWithDuration", js_cocos2dx_CCWaves_initWithDuration, 6, JSPROP_PERMANENT | JSPROP_SHARED),
-		JS_FN("update", js_cocos2dx_CCWaves_update, 1, JSPROP_PERMANENT | JSPROP_SHARED),
-		JS_FN("getAmplitudeRate", js_cocos2dx_CCWaves_getAmplitudeRate, 0, JSPROP_PERMANENT | JSPROP_SHARED),
-		JS_FN("setAmplitude", js_cocos2dx_CCWaves_setAmplitude, 1, JSPROP_PERMANENT | JSPROP_SHARED),
-		JS_FN("getAmplitude", js_cocos2dx_CCWaves_getAmplitude, 0, JSPROP_PERMANENT | JSPROP_SHARED),
-		JS_FN("setAmplitudeRate", js_cocos2dx_CCWaves_setAmplitudeRate, 1, JSPROP_PERMANENT | JSPROP_SHARED),
+		JS_FN("initWithDuration", js_cocos2dx_CCWaves_initWithDuration, 6, JSPROP_PERMANENT | JSPROP_ENUMERATE),
+		JS_FN("update", js_cocos2dx_CCWaves_update, 1, JSPROP_PERMANENT | JSPROP_ENUMERATE),
+		JS_FN("getAmplitudeRate", js_cocos2dx_CCWaves_getAmplitudeRate, 0, JSPROP_PERMANENT | JSPROP_ENUMERATE),
+		JS_FN("setAmplitude", js_cocos2dx_CCWaves_setAmplitude, 1, JSPROP_PERMANENT | JSPROP_ENUMERATE),
+		JS_FN("getAmplitude", js_cocos2dx_CCWaves_getAmplitude, 0, JSPROP_PERMANENT | JSPROP_ENUMERATE),
+		JS_FN("setAmplitudeRate", js_cocos2dx_CCWaves_setAmplitudeRate, 1, JSPROP_PERMANENT | JSPROP_ENUMERATE),
 		JS_FS_END
 	};
 
 	static JSFunctionSpec st_funcs[] = {
-		JS_FN("create", js_cocos2dx_CCWaves_create, 6, JSPROP_PERMANENT | JSPROP_SHARED),
+		JS_FN("create", js_cocos2dx_CCWaves_create, 6, JSPROP_PERMANENT | JSPROP_ENUMERATE),
 		JS_FS_END
 	};
 
@@ -18283,19 +18283,19 @@ void js_register_cocos2dx_CCTwirl(JSContext *cx, JSObject *global) {
 	};
 
 	static JSFunctionSpec funcs[] = {
-		JS_FN("setAmplitudeRate", js_cocos2dx_CCTwirl_setAmplitudeRate, 1, JSPROP_PERMANENT | JSPROP_SHARED),
-		JS_FN("initWithDuration", js_cocos2dx_CCTwirl_initWithDuration, 5, JSPROP_PERMANENT | JSPROP_SHARED),
-		JS_FN("update", js_cocos2dx_CCTwirl_update, 1, JSPROP_PERMANENT | JSPROP_SHARED),
-		JS_FN("getAmplitudeRate", js_cocos2dx_CCTwirl_getAmplitudeRate, 0, JSPROP_PERMANENT | JSPROP_SHARED),
-		JS_FN("setAmplitude", js_cocos2dx_CCTwirl_setAmplitude, 1, JSPROP_PERMANENT | JSPROP_SHARED),
-		JS_FN("getAmplitude", js_cocos2dx_CCTwirl_getAmplitude, 0, JSPROP_PERMANENT | JSPROP_SHARED),
-		JS_FN("setPosition", js_cocos2dx_CCTwirl_setPosition, 1, JSPROP_PERMANENT | JSPROP_SHARED),
-		JS_FN("getPosition", js_cocos2dx_CCTwirl_getPosition, 0, JSPROP_PERMANENT | JSPROP_SHARED),
+		JS_FN("setAmplitudeRate", js_cocos2dx_CCTwirl_setAmplitudeRate, 1, JSPROP_PERMANENT | JSPROP_ENUMERATE),
+		JS_FN("initWithDuration", js_cocos2dx_CCTwirl_initWithDuration, 5, JSPROP_PERMANENT | JSPROP_ENUMERATE),
+		JS_FN("update", js_cocos2dx_CCTwirl_update, 1, JSPROP_PERMANENT | JSPROP_ENUMERATE),
+		JS_FN("getAmplitudeRate", js_cocos2dx_CCTwirl_getAmplitudeRate, 0, JSPROP_PERMANENT | JSPROP_ENUMERATE),
+		JS_FN("setAmplitude", js_cocos2dx_CCTwirl_setAmplitude, 1, JSPROP_PERMANENT | JSPROP_ENUMERATE),
+		JS_FN("getAmplitude", js_cocos2dx_CCTwirl_getAmplitude, 0, JSPROP_PERMANENT | JSPROP_ENUMERATE),
+		JS_FN("setPosition", js_cocos2dx_CCTwirl_setPosition, 1, JSPROP_PERMANENT | JSPROP_ENUMERATE),
+		JS_FN("getPosition", js_cocos2dx_CCTwirl_getPosition, 0, JSPROP_PERMANENT | JSPROP_ENUMERATE),
 		JS_FS_END
 	};
 
 	static JSFunctionSpec st_funcs[] = {
-		JS_FN("create", js_cocos2dx_CCTwirl_create, 5, JSPROP_PERMANENT | JSPROP_SHARED),
+		JS_FN("create", js_cocos2dx_CCTwirl_create, 5, JSPROP_PERMANENT | JSPROP_ENUMERATE),
 		JS_FS_END
 	};
 
@@ -18398,12 +18398,12 @@ void js_register_cocos2dx_CCPageTurn3D(JSContext *cx, JSObject *global) {
 	JSPropertySpec *properties = NULL;
 
 	static JSFunctionSpec funcs[] = {
-		JS_FN("update", js_cocos2dx_CCPageTurn3D_update, 1, JSPROP_PERMANENT | JSPROP_SHARED),
+		JS_FN("update", js_cocos2dx_CCPageTurn3D_update, 1, JSPROP_PERMANENT | JSPROP_ENUMERATE),
 		JS_FS_END
 	};
 
 	static JSFunctionSpec st_funcs[] = {
-		JS_FN("create", js_cocos2dx_CCPageTurn3D_create, 2, JSPROP_PERMANENT | JSPROP_SHARED),
+		JS_FN("create", js_cocos2dx_CCPageTurn3D_create, 2, JSPROP_PERMANENT | JSPROP_ENUMERATE),
 		JS_FS_END
 	};
 
@@ -18558,14 +18558,14 @@ void js_register_cocos2dx_CCProgressTo(JSContext *cx, JSObject *global) {
 	};
 
 	static JSFunctionSpec funcs[] = {
-		JS_FN("startWithTarget", js_cocos2dx_CCProgressTo_startWithTarget, 1, JSPROP_PERMANENT | JSPROP_SHARED),
-		JS_FN("initWithDuration", js_cocos2dx_CCProgressTo_initWithDuration, 2, JSPROP_PERMANENT | JSPROP_SHARED),
-		JS_FN("update", js_cocos2dx_CCProgressTo_update, 1, JSPROP_PERMANENT | JSPROP_SHARED),
+		JS_FN("startWithTarget", js_cocos2dx_CCProgressTo_startWithTarget, 1, JSPROP_PERMANENT | JSPROP_ENUMERATE),
+		JS_FN("initWithDuration", js_cocos2dx_CCProgressTo_initWithDuration, 2, JSPROP_PERMANENT | JSPROP_ENUMERATE),
+		JS_FN("update", js_cocos2dx_CCProgressTo_update, 1, JSPROP_PERMANENT | JSPROP_ENUMERATE),
 		JS_FS_END
 	};
 
 	static JSFunctionSpec st_funcs[] = {
-		JS_FN("create", js_cocos2dx_CCProgressTo_create, 2, JSPROP_PERMANENT | JSPROP_SHARED),
+		JS_FN("create", js_cocos2dx_CCProgressTo_create, 2, JSPROP_PERMANENT | JSPROP_ENUMERATE),
 		JS_FS_END
 	};
 
@@ -18748,15 +18748,15 @@ void js_register_cocos2dx_CCProgressFromTo(JSContext *cx, JSObject *global) {
 	};
 
 	static JSFunctionSpec funcs[] = {
-		JS_FN("startWithTarget", js_cocos2dx_CCProgressFromTo_startWithTarget, 1, JSPROP_PERMANENT | JSPROP_SHARED),
-		JS_FN("update", js_cocos2dx_CCProgressFromTo_update, 1, JSPROP_PERMANENT | JSPROP_SHARED),
-		JS_FN("initWithDuration", js_cocos2dx_CCProgressFromTo_initWithDuration, 3, JSPROP_PERMANENT | JSPROP_SHARED),
-		JS_FN("reverse", js_cocos2dx_CCProgressFromTo_reverse, 0, JSPROP_PERMANENT | JSPROP_SHARED),
+		JS_FN("startWithTarget", js_cocos2dx_CCProgressFromTo_startWithTarget, 1, JSPROP_PERMANENT | JSPROP_ENUMERATE),
+		JS_FN("update", js_cocos2dx_CCProgressFromTo_update, 1, JSPROP_PERMANENT | JSPROP_ENUMERATE),
+		JS_FN("initWithDuration", js_cocos2dx_CCProgressFromTo_initWithDuration, 3, JSPROP_PERMANENT | JSPROP_ENUMERATE),
+		JS_FN("reverse", js_cocos2dx_CCProgressFromTo_reverse, 0, JSPROP_PERMANENT | JSPROP_ENUMERATE),
 		JS_FS_END
 	};
 
 	static JSFunctionSpec st_funcs[] = {
-		JS_FN("create", js_cocos2dx_CCProgressFromTo_create, 3, JSPROP_PERMANENT | JSPROP_SHARED),
+		JS_FN("create", js_cocos2dx_CCProgressFromTo_create, 3, JSPROP_PERMANENT | JSPROP_ENUMERATE),
 		JS_FS_END
 	};
 
@@ -18893,13 +18893,13 @@ void js_register_cocos2dx_CCShakyTiles3D(JSContext *cx, JSObject *global) {
 	};
 
 	static JSFunctionSpec funcs[] = {
-		JS_FN("initWithDuration", js_cocos2dx_CCShakyTiles3D_initWithDuration, 4, JSPROP_PERMANENT | JSPROP_SHARED),
-		JS_FN("update", js_cocos2dx_CCShakyTiles3D_update, 1, JSPROP_PERMANENT | JSPROP_SHARED),
+		JS_FN("initWithDuration", js_cocos2dx_CCShakyTiles3D_initWithDuration, 4, JSPROP_PERMANENT | JSPROP_ENUMERATE),
+		JS_FN("update", js_cocos2dx_CCShakyTiles3D_update, 1, JSPROP_PERMANENT | JSPROP_ENUMERATE),
 		JS_FS_END
 	};
 
 	static JSFunctionSpec st_funcs[] = {
-		JS_FN("create", js_cocos2dx_CCShakyTiles3D_create, 4, JSPROP_PERMANENT | JSPROP_SHARED),
+		JS_FN("create", js_cocos2dx_CCShakyTiles3D_create, 4, JSPROP_PERMANENT | JSPROP_ENUMERATE),
 		JS_FS_END
 	};
 
@@ -19036,13 +19036,13 @@ void js_register_cocos2dx_CCShatteredTiles3D(JSContext *cx, JSObject *global) {
 	};
 
 	static JSFunctionSpec funcs[] = {
-		JS_FN("initWithDuration", js_cocos2dx_CCShatteredTiles3D_initWithDuration, 4, JSPROP_PERMANENT | JSPROP_SHARED),
-		JS_FN("update", js_cocos2dx_CCShatteredTiles3D_update, 1, JSPROP_PERMANENT | JSPROP_SHARED),
+		JS_FN("initWithDuration", js_cocos2dx_CCShatteredTiles3D_initWithDuration, 4, JSPROP_PERMANENT | JSPROP_ENUMERATE),
+		JS_FN("update", js_cocos2dx_CCShatteredTiles3D_update, 1, JSPROP_PERMANENT | JSPROP_ENUMERATE),
 		JS_FS_END
 	};
 
 	static JSFunctionSpec st_funcs[] = {
-		JS_FN("create", js_cocos2dx_CCShatteredTiles3D_create, 4, JSPROP_PERMANENT | JSPROP_SHARED),
+		JS_FN("create", js_cocos2dx_CCShatteredTiles3D_create, 4, JSPROP_PERMANENT | JSPROP_ENUMERATE),
 		JS_FS_END
 	};
 
@@ -19273,17 +19273,17 @@ void js_register_cocos2dx_CCShuffleTiles(JSContext *cx, JSObject *global) {
 	};
 
 	static JSFunctionSpec funcs[] = {
-		JS_FN("startWithTarget", js_cocos2dx_CCShuffleTiles_startWithTarget, 1, JSPROP_PERMANENT | JSPROP_SHARED),
-		JS_FN("placeTile", js_cocos2dx_CCShuffleTiles_placeTile, 2, JSPROP_PERMANENT | JSPROP_SHARED),
-		JS_FN("initWithDuration", js_cocos2dx_CCShuffleTiles_initWithDuration, 3, JSPROP_PERMANENT | JSPROP_SHARED),
-		JS_FN("getDelta", js_cocos2dx_CCShuffleTiles_getDelta, 1, JSPROP_PERMANENT | JSPROP_SHARED),
-		JS_FN("update", js_cocos2dx_CCShuffleTiles_update, 1, JSPROP_PERMANENT | JSPROP_SHARED),
-		JS_FN("shuffle", js_cocos2dx_CCShuffleTiles_shuffle, 2, JSPROP_PERMANENT | JSPROP_SHARED),
+		JS_FN("startWithTarget", js_cocos2dx_CCShuffleTiles_startWithTarget, 1, JSPROP_PERMANENT | JSPROP_ENUMERATE),
+		JS_FN("placeTile", js_cocos2dx_CCShuffleTiles_placeTile, 2, JSPROP_PERMANENT | JSPROP_ENUMERATE),
+		JS_FN("initWithDuration", js_cocos2dx_CCShuffleTiles_initWithDuration, 3, JSPROP_PERMANENT | JSPROP_ENUMERATE),
+		JS_FN("getDelta", js_cocos2dx_CCShuffleTiles_getDelta, 1, JSPROP_PERMANENT | JSPROP_ENUMERATE),
+		JS_FN("update", js_cocos2dx_CCShuffleTiles_update, 1, JSPROP_PERMANENT | JSPROP_ENUMERATE),
+		JS_FN("shuffle", js_cocos2dx_CCShuffleTiles_shuffle, 2, JSPROP_PERMANENT | JSPROP_ENUMERATE),
 		JS_FS_END
 	};
 
 	static JSFunctionSpec st_funcs[] = {
-		JS_FN("create", js_cocos2dx_CCShuffleTiles_create, 3, JSPROP_PERMANENT | JSPROP_SHARED),
+		JS_FN("create", js_cocos2dx_CCShuffleTiles_create, 3, JSPROP_PERMANENT | JSPROP_ENUMERATE),
 		JS_FS_END
 	};
 
@@ -19472,16 +19472,16 @@ void js_register_cocos2dx_CCFadeOutTRTiles(JSContext *cx, JSObject *global) {
 	JSPropertySpec *properties = NULL;
 
 	static JSFunctionSpec funcs[] = {
-		JS_FN("turnOnTile", js_cocos2dx_CCFadeOutTRTiles_turnOnTile, 1, JSPROP_PERMANENT | JSPROP_SHARED),
-		JS_FN("turnOffTile", js_cocos2dx_CCFadeOutTRTiles_turnOffTile, 1, JSPROP_PERMANENT | JSPROP_SHARED),
-		JS_FN("transformTile", js_cocos2dx_CCFadeOutTRTiles_transformTile, 2, JSPROP_PERMANENT | JSPROP_SHARED),
-		JS_FN("testFunc", js_cocos2dx_CCFadeOutTRTiles_testFunc, 2, JSPROP_PERMANENT | JSPROP_SHARED),
-		JS_FN("update", js_cocos2dx_CCFadeOutTRTiles_update, 1, JSPROP_PERMANENT | JSPROP_SHARED),
+		JS_FN("turnOnTile", js_cocos2dx_CCFadeOutTRTiles_turnOnTile, 1, JSPROP_PERMANENT | JSPROP_ENUMERATE),
+		JS_FN("turnOffTile", js_cocos2dx_CCFadeOutTRTiles_turnOffTile, 1, JSPROP_PERMANENT | JSPROP_ENUMERATE),
+		JS_FN("transformTile", js_cocos2dx_CCFadeOutTRTiles_transformTile, 2, JSPROP_PERMANENT | JSPROP_ENUMERATE),
+		JS_FN("testFunc", js_cocos2dx_CCFadeOutTRTiles_testFunc, 2, JSPROP_PERMANENT | JSPROP_ENUMERATE),
+		JS_FN("update", js_cocos2dx_CCFadeOutTRTiles_update, 1, JSPROP_PERMANENT | JSPROP_ENUMERATE),
 		JS_FS_END
 	};
 
 	static JSFunctionSpec st_funcs[] = {
-		JS_FN("create", js_cocos2dx_CCFadeOutTRTiles_create, 2, JSPROP_PERMANENT | JSPROP_SHARED),
+		JS_FN("create", js_cocos2dx_CCFadeOutTRTiles_create, 2, JSPROP_PERMANENT | JSPROP_ENUMERATE),
 		JS_FS_END
 	};
 
@@ -19588,12 +19588,12 @@ void js_register_cocos2dx_CCFadeOutBLTiles(JSContext *cx, JSObject *global) {
 	JSPropertySpec *properties = NULL;
 
 	static JSFunctionSpec funcs[] = {
-		JS_FN("testFunc", js_cocos2dx_CCFadeOutBLTiles_testFunc, 2, JSPROP_PERMANENT | JSPROP_SHARED),
+		JS_FN("testFunc", js_cocos2dx_CCFadeOutBLTiles_testFunc, 2, JSPROP_PERMANENT | JSPROP_ENUMERATE),
 		JS_FS_END
 	};
 
 	static JSFunctionSpec st_funcs[] = {
-		JS_FN("create", js_cocos2dx_CCFadeOutBLTiles_create, 2, JSPROP_PERMANENT | JSPROP_SHARED),
+		JS_FN("create", js_cocos2dx_CCFadeOutBLTiles_create, 2, JSPROP_PERMANENT | JSPROP_ENUMERATE),
 		JS_FS_END
 	};
 
@@ -19722,13 +19722,13 @@ void js_register_cocos2dx_CCFadeOutUpTiles(JSContext *cx, JSObject *global) {
 	JSPropertySpec *properties = NULL;
 
 	static JSFunctionSpec funcs[] = {
-		JS_FN("transformTile", js_cocos2dx_CCFadeOutUpTiles_transformTile, 2, JSPROP_PERMANENT | JSPROP_SHARED),
-		JS_FN("testFunc", js_cocos2dx_CCFadeOutUpTiles_testFunc, 2, JSPROP_PERMANENT | JSPROP_SHARED),
+		JS_FN("transformTile", js_cocos2dx_CCFadeOutUpTiles_transformTile, 2, JSPROP_PERMANENT | JSPROP_ENUMERATE),
+		JS_FN("testFunc", js_cocos2dx_CCFadeOutUpTiles_testFunc, 2, JSPROP_PERMANENT | JSPROP_ENUMERATE),
 		JS_FS_END
 	};
 
 	static JSFunctionSpec st_funcs[] = {
-		JS_FN("create", js_cocos2dx_CCFadeOutUpTiles_create, 2, JSPROP_PERMANENT | JSPROP_SHARED),
+		JS_FN("create", js_cocos2dx_CCFadeOutUpTiles_create, 2, JSPROP_PERMANENT | JSPROP_ENUMERATE),
 		JS_FS_END
 	};
 
@@ -19835,12 +19835,12 @@ void js_register_cocos2dx_CCFadeOutDownTiles(JSContext *cx, JSObject *global) {
 	JSPropertySpec *properties = NULL;
 
 	static JSFunctionSpec funcs[] = {
-		JS_FN("testFunc", js_cocos2dx_CCFadeOutDownTiles_testFunc, 2, JSPROP_PERMANENT | JSPROP_SHARED),
+		JS_FN("testFunc", js_cocos2dx_CCFadeOutDownTiles_testFunc, 2, JSPROP_PERMANENT | JSPROP_ENUMERATE),
 		JS_FS_END
 	};
 
 	static JSFunctionSpec st_funcs[] = {
-		JS_FN("create", js_cocos2dx_CCFadeOutDownTiles_create, 2, JSPROP_PERMANENT | JSPROP_SHARED),
+		JS_FN("create", js_cocos2dx_CCFadeOutDownTiles_create, 2, JSPROP_PERMANENT | JSPROP_ENUMERATE),
 		JS_FS_END
 	};
 
@@ -20080,17 +20080,17 @@ void js_register_cocos2dx_CCTurnOffTiles(JSContext *cx, JSObject *global) {
 	};
 
 	static JSFunctionSpec funcs[] = {
-		JS_FN("turnOnTile", js_cocos2dx_CCTurnOffTiles_turnOnTile, 1, JSPROP_PERMANENT | JSPROP_SHARED),
-		JS_FN("startWithTarget", js_cocos2dx_CCTurnOffTiles_startWithTarget, 1, JSPROP_PERMANENT | JSPROP_SHARED),
-		JS_FN("turnOffTile", js_cocos2dx_CCTurnOffTiles_turnOffTile, 1, JSPROP_PERMANENT | JSPROP_SHARED),
-		JS_FN("shuffle", js_cocos2dx_CCTurnOffTiles_shuffle, 2, JSPROP_PERMANENT | JSPROP_SHARED),
-		JS_FN("initWithDuration", js_cocos2dx_CCTurnOffTiles_initWithDuration, 3, JSPROP_PERMANENT | JSPROP_SHARED),
-		JS_FN("update", js_cocos2dx_CCTurnOffTiles_update, 1, JSPROP_PERMANENT | JSPROP_SHARED),
+		JS_FN("turnOnTile", js_cocos2dx_CCTurnOffTiles_turnOnTile, 1, JSPROP_PERMANENT | JSPROP_ENUMERATE),
+		JS_FN("startWithTarget", js_cocos2dx_CCTurnOffTiles_startWithTarget, 1, JSPROP_PERMANENT | JSPROP_ENUMERATE),
+		JS_FN("turnOffTile", js_cocos2dx_CCTurnOffTiles_turnOffTile, 1, JSPROP_PERMANENT | JSPROP_ENUMERATE),
+		JS_FN("shuffle", js_cocos2dx_CCTurnOffTiles_shuffle, 2, JSPROP_PERMANENT | JSPROP_ENUMERATE),
+		JS_FN("initWithDuration", js_cocos2dx_CCTurnOffTiles_initWithDuration, 3, JSPROP_PERMANENT | JSPROP_ENUMERATE),
+		JS_FN("update", js_cocos2dx_CCTurnOffTiles_update, 1, JSPROP_PERMANENT | JSPROP_ENUMERATE),
 		JS_FS_END
 	};
 
 	static JSFunctionSpec st_funcs[] = {
-		JS_FN("create", js_cocos2dx_CCTurnOffTiles_create, 2, JSPROP_PERMANENT | JSPROP_SHARED),
+		JS_FN("create", js_cocos2dx_CCTurnOffTiles_create, 2, JSPROP_PERMANENT | JSPROP_ENUMERATE),
 		JS_FS_END
 	};
 
@@ -20301,17 +20301,17 @@ void js_register_cocos2dx_CCWavesTiles3D(JSContext *cx, JSObject *global) {
 	};
 
 	static JSFunctionSpec funcs[] = {
-		JS_FN("initWithDuration", js_cocos2dx_CCWavesTiles3D_initWithDuration, 4, JSPROP_PERMANENT | JSPROP_SHARED),
-		JS_FN("update", js_cocos2dx_CCWavesTiles3D_update, 1, JSPROP_PERMANENT | JSPROP_SHARED),
-		JS_FN("getAmplitudeRate", js_cocos2dx_CCWavesTiles3D_getAmplitudeRate, 0, JSPROP_PERMANENT | JSPROP_SHARED),
-		JS_FN("setAmplitude", js_cocos2dx_CCWavesTiles3D_setAmplitude, 1, JSPROP_PERMANENT | JSPROP_SHARED),
-		JS_FN("getAmplitude", js_cocos2dx_CCWavesTiles3D_getAmplitude, 0, JSPROP_PERMANENT | JSPROP_SHARED),
-		JS_FN("setAmplitudeRate", js_cocos2dx_CCWavesTiles3D_setAmplitudeRate, 1, JSPROP_PERMANENT | JSPROP_SHARED),
+		JS_FN("initWithDuration", js_cocos2dx_CCWavesTiles3D_initWithDuration, 4, JSPROP_PERMANENT | JSPROP_ENUMERATE),
+		JS_FN("update", js_cocos2dx_CCWavesTiles3D_update, 1, JSPROP_PERMANENT | JSPROP_ENUMERATE),
+		JS_FN("getAmplitudeRate", js_cocos2dx_CCWavesTiles3D_getAmplitudeRate, 0, JSPROP_PERMANENT | JSPROP_ENUMERATE),
+		JS_FN("setAmplitude", js_cocos2dx_CCWavesTiles3D_setAmplitude, 1, JSPROP_PERMANENT | JSPROP_ENUMERATE),
+		JS_FN("getAmplitude", js_cocos2dx_CCWavesTiles3D_getAmplitude, 0, JSPROP_PERMANENT | JSPROP_ENUMERATE),
+		JS_FN("setAmplitudeRate", js_cocos2dx_CCWavesTiles3D_setAmplitudeRate, 1, JSPROP_PERMANENT | JSPROP_ENUMERATE),
 		JS_FS_END
 	};
 
 	static JSFunctionSpec st_funcs[] = {
-		JS_FN("create", js_cocos2dx_CCWavesTiles3D_create, 4, JSPROP_PERMANENT | JSPROP_SHARED),
+		JS_FN("create", js_cocos2dx_CCWavesTiles3D_create, 4, JSPROP_PERMANENT | JSPROP_ENUMERATE),
 		JS_FS_END
 	};
 
@@ -20522,17 +20522,17 @@ void js_register_cocos2dx_CCJumpTiles3D(JSContext *cx, JSObject *global) {
 	};
 
 	static JSFunctionSpec funcs[] = {
-		JS_FN("initWithDuration", js_cocos2dx_CCJumpTiles3D_initWithDuration, 4, JSPROP_PERMANENT | JSPROP_SHARED),
-		JS_FN("update", js_cocos2dx_CCJumpTiles3D_update, 1, JSPROP_PERMANENT | JSPROP_SHARED),
-		JS_FN("getAmplitudeRate", js_cocos2dx_CCJumpTiles3D_getAmplitudeRate, 0, JSPROP_PERMANENT | JSPROP_SHARED),
-		JS_FN("setAmplitude", js_cocos2dx_CCJumpTiles3D_setAmplitude, 1, JSPROP_PERMANENT | JSPROP_SHARED),
-		JS_FN("getAmplitude", js_cocos2dx_CCJumpTiles3D_getAmplitude, 0, JSPROP_PERMANENT | JSPROP_SHARED),
-		JS_FN("setAmplitudeRate", js_cocos2dx_CCJumpTiles3D_setAmplitudeRate, 1, JSPROP_PERMANENT | JSPROP_SHARED),
+		JS_FN("initWithDuration", js_cocos2dx_CCJumpTiles3D_initWithDuration, 4, JSPROP_PERMANENT | JSPROP_ENUMERATE),
+		JS_FN("update", js_cocos2dx_CCJumpTiles3D_update, 1, JSPROP_PERMANENT | JSPROP_ENUMERATE),
+		JS_FN("getAmplitudeRate", js_cocos2dx_CCJumpTiles3D_getAmplitudeRate, 0, JSPROP_PERMANENT | JSPROP_ENUMERATE),
+		JS_FN("setAmplitude", js_cocos2dx_CCJumpTiles3D_setAmplitude, 1, JSPROP_PERMANENT | JSPROP_ENUMERATE),
+		JS_FN("getAmplitude", js_cocos2dx_CCJumpTiles3D_getAmplitude, 0, JSPROP_PERMANENT | JSPROP_ENUMERATE),
+		JS_FN("setAmplitudeRate", js_cocos2dx_CCJumpTiles3D_setAmplitudeRate, 1, JSPROP_PERMANENT | JSPROP_ENUMERATE),
 		JS_FS_END
 	};
 
 	static JSFunctionSpec st_funcs[] = {
-		JS_FN("create", js_cocos2dx_CCJumpTiles3D_create, 4, JSPROP_PERMANENT | JSPROP_SHARED),
+		JS_FN("create", js_cocos2dx_CCJumpTiles3D_create, 4, JSPROP_PERMANENT | JSPROP_ENUMERATE),
 		JS_FS_END
 	};
 
@@ -20687,14 +20687,14 @@ void js_register_cocos2dx_CCSplitRows(JSContext *cx, JSObject *global) {
 	};
 
 	static JSFunctionSpec funcs[] = {
-		JS_FN("startWithTarget", js_cocos2dx_CCSplitRows_startWithTarget, 1, JSPROP_PERMANENT | JSPROP_SHARED),
-		JS_FN("initWithDuration", js_cocos2dx_CCSplitRows_initWithDuration, 2, JSPROP_PERMANENT | JSPROP_SHARED),
-		JS_FN("update", js_cocos2dx_CCSplitRows_update, 1, JSPROP_PERMANENT | JSPROP_SHARED),
+		JS_FN("startWithTarget", js_cocos2dx_CCSplitRows_startWithTarget, 1, JSPROP_PERMANENT | JSPROP_ENUMERATE),
+		JS_FN("initWithDuration", js_cocos2dx_CCSplitRows_initWithDuration, 2, JSPROP_PERMANENT | JSPROP_ENUMERATE),
+		JS_FN("update", js_cocos2dx_CCSplitRows_update, 1, JSPROP_PERMANENT | JSPROP_ENUMERATE),
 		JS_FS_END
 	};
 
 	static JSFunctionSpec st_funcs[] = {
-		JS_FN("create", js_cocos2dx_CCSplitRows_create, 2, JSPROP_PERMANENT | JSPROP_SHARED),
+		JS_FN("create", js_cocos2dx_CCSplitRows_create, 2, JSPROP_PERMANENT | JSPROP_ENUMERATE),
 		JS_FS_END
 	};
 
@@ -20849,14 +20849,14 @@ void js_register_cocos2dx_CCSplitCols(JSContext *cx, JSObject *global) {
 	};
 
 	static JSFunctionSpec funcs[] = {
-		JS_FN("startWithTarget", js_cocos2dx_CCSplitCols_startWithTarget, 1, JSPROP_PERMANENT | JSPROP_SHARED),
-		JS_FN("initWithDuration", js_cocos2dx_CCSplitCols_initWithDuration, 2, JSPROP_PERMANENT | JSPROP_SHARED),
-		JS_FN("update", js_cocos2dx_CCSplitCols_update, 1, JSPROP_PERMANENT | JSPROP_SHARED),
+		JS_FN("startWithTarget", js_cocos2dx_CCSplitCols_startWithTarget, 1, JSPROP_PERMANENT | JSPROP_ENUMERATE),
+		JS_FN("initWithDuration", js_cocos2dx_CCSplitCols_initWithDuration, 2, JSPROP_PERMANENT | JSPROP_ENUMERATE),
+		JS_FN("update", js_cocos2dx_CCSplitCols_update, 1, JSPROP_PERMANENT | JSPROP_ENUMERATE),
 		JS_FS_END
 	};
 
 	static JSFunctionSpec st_funcs[] = {
-		JS_FN("create", js_cocos2dx_CCSplitCols_create, 2, JSPROP_PERMANENT | JSPROP_SHARED),
+		JS_FN("create", js_cocos2dx_CCSplitCols_create, 2, JSPROP_PERMANENT | JSPROP_ENUMERATE),
 		JS_FS_END
 	};
 
@@ -21043,15 +21043,15 @@ void js_register_cocos2dx_CCActionTween(JSContext *cx, JSObject *global) {
 	};
 
 	static JSFunctionSpec funcs[] = {
-		JS_FN("startWithTarget", js_cocos2dx_CCActionTween_startWithTarget, 1, JSPROP_PERMANENT | JSPROP_SHARED),
-		JS_FN("update", js_cocos2dx_CCActionTween_update, 1, JSPROP_PERMANENT | JSPROP_SHARED),
-		JS_FN("initWithDuration", js_cocos2dx_CCActionTween_initWithDuration, 4, JSPROP_PERMANENT | JSPROP_SHARED),
-		JS_FN("reverse", js_cocos2dx_CCActionTween_reverse, 0, JSPROP_PERMANENT | JSPROP_SHARED),
+		JS_FN("startWithTarget", js_cocos2dx_CCActionTween_startWithTarget, 1, JSPROP_PERMANENT | JSPROP_ENUMERATE),
+		JS_FN("update", js_cocos2dx_CCActionTween_update, 1, JSPROP_PERMANENT | JSPROP_ENUMERATE),
+		JS_FN("initWithDuration", js_cocos2dx_CCActionTween_initWithDuration, 4, JSPROP_PERMANENT | JSPROP_ENUMERATE),
+		JS_FN("reverse", js_cocos2dx_CCActionTween_reverse, 0, JSPROP_PERMANENT | JSPROP_ENUMERATE),
 		JS_FS_END
 	};
 
 	static JSFunctionSpec st_funcs[] = {
-		JS_FN("create", js_cocos2dx_CCActionTween_create, 4, JSPROP_PERMANENT | JSPROP_SHARED),
+		JS_FN("create", js_cocos2dx_CCActionTween_create, 4, JSPROP_PERMANENT | JSPROP_ENUMERATE),
 		JS_FS_END
 	};
 
@@ -21286,12 +21286,12 @@ void js_register_cocos2dx_CCCardinalSplineTo(JSContext *cx, JSObject *global) {
 	};
 
 	static JSFunctionSpec funcs[] = {
-		JS_FN("startWithTarget", js_cocos2dx_CCCardinalSplineTo_startWithTarget, 1, JSPROP_PERMANENT | JSPROP_SHARED),
-		JS_FN("reverse", js_cocos2dx_CCCardinalSplineTo_reverse, 0, JSPROP_PERMANENT | JSPROP_SHARED),
-		JS_FN("initWithDuration", js_cocos2dx_CCCardinalSplineTo_initWithDuration, 3, JSPROP_PERMANENT | JSPROP_SHARED),
-		JS_FN("getPoints", js_cocos2dx_CCCardinalSplineTo_getPoints, 0, JSPROP_PERMANENT | JSPROP_SHARED),
-		JS_FN("update", js_cocos2dx_CCCardinalSplineTo_update, 1, JSPROP_PERMANENT | JSPROP_SHARED),
-		JS_FN("updatePosition", js_cocos2dx_CCCardinalSplineTo_updatePosition, 1, JSPROP_PERMANENT | JSPROP_SHARED),
+		JS_FN("startWithTarget", js_cocos2dx_CCCardinalSplineTo_startWithTarget, 1, JSPROP_PERMANENT | JSPROP_ENUMERATE),
+		JS_FN("reverse", js_cocos2dx_CCCardinalSplineTo_reverse, 0, JSPROP_PERMANENT | JSPROP_ENUMERATE),
+		JS_FN("initWithDuration", js_cocos2dx_CCCardinalSplineTo_initWithDuration, 3, JSPROP_PERMANENT | JSPROP_ENUMERATE),
+		JS_FN("getPoints", js_cocos2dx_CCCardinalSplineTo_getPoints, 0, JSPROP_PERMANENT | JSPROP_ENUMERATE),
+		JS_FN("update", js_cocos2dx_CCCardinalSplineTo_update, 1, JSPROP_PERMANENT | JSPROP_ENUMERATE),
+		JS_FN("updatePosition", js_cocos2dx_CCCardinalSplineTo_updatePosition, 1, JSPROP_PERMANENT | JSPROP_ENUMERATE),
 		JS_FS_END
 	};
 
@@ -21452,9 +21452,9 @@ void js_register_cocos2dx_CCCardinalSplineBy(JSContext *cx, JSObject *global) {
 	};
 
 	static JSFunctionSpec funcs[] = {
-		JS_FN("startWithTarget", js_cocos2dx_CCCardinalSplineBy_startWithTarget, 1, JSPROP_PERMANENT | JSPROP_SHARED),
-		JS_FN("updatePosition", js_cocos2dx_CCCardinalSplineBy_updatePosition, 1, JSPROP_PERMANENT | JSPROP_SHARED),
-		JS_FN("reverse", js_cocos2dx_CCCardinalSplineBy_reverse, 0, JSPROP_PERMANENT | JSPROP_SHARED),
+		JS_FN("startWithTarget", js_cocos2dx_CCCardinalSplineBy_startWithTarget, 1, JSPROP_PERMANENT | JSPROP_ENUMERATE),
+		JS_FN("updatePosition", js_cocos2dx_CCCardinalSplineBy_updatePosition, 1, JSPROP_PERMANENT | JSPROP_ENUMERATE),
+		JS_FN("reverse", js_cocos2dx_CCCardinalSplineBy_reverse, 0, JSPROP_PERMANENT | JSPROP_ENUMERATE),
 		JS_FS_END
 	};
 
@@ -21543,7 +21543,7 @@ void js_register_cocos2dx_CCCatmullRomTo(JSContext *cx, JSObject *global) {
 	JSPropertySpec *properties = NULL;
 
 	static JSFunctionSpec funcs[] = {
-		JS_FN("initWithDuration", js_cocos2dx_CCCatmullRomTo_initWithDuration, 2, JSPROP_PERMANENT | JSPROP_SHARED),
+		JS_FN("initWithDuration", js_cocos2dx_CCCatmullRomTo_initWithDuration, 2, JSPROP_PERMANENT | JSPROP_ENUMERATE),
 		JS_FS_END
 	};
 
@@ -21632,7 +21632,7 @@ void js_register_cocos2dx_CCCatmullRomBy(JSContext *cx, JSObject *global) {
 	JSPropertySpec *properties = NULL;
 
 	static JSFunctionSpec funcs[] = {
-		JS_FN("initWithDuration", js_cocos2dx_CCCatmullRomBy_initWithDuration, 2, JSPROP_PERMANENT | JSPROP_SHARED),
+		JS_FN("initWithDuration", js_cocos2dx_CCCatmullRomBy_initWithDuration, 2, JSPROP_PERMANENT | JSPROP_ENUMERATE),
 		JS_FS_END
 	};
 
@@ -22022,24 +22022,24 @@ void js_register_cocos2dx_CCAtlasNode(JSContext *cx, JSObject *global) {
 	};
 
 	static JSFunctionSpec funcs[] = {
-		JS_FN("setTexture", js_cocos2dx_CCAtlasNode_setTexture, 1, JSPROP_PERMANENT | JSPROP_SHARED),
-		JS_FN("draw", js_cocos2dx_CCAtlasNode_draw, 0, JSPROP_PERMANENT | JSPROP_SHARED),
-		JS_FN("setColor", js_cocos2dx_CCAtlasNode_setColor, 1, JSPROP_PERMANENT | JSPROP_SHARED),
-		JS_FN("setOpacity", js_cocos2dx_CCAtlasNode_setOpacity, 1, JSPROP_PERMANENT | JSPROP_SHARED),
-		JS_FN("getTexture", js_cocos2dx_CCAtlasNode_getTexture, 0, JSPROP_PERMANENT | JSPROP_SHARED),
-		JS_FN("setTextureAtlas", js_cocos2dx_CCAtlasNode_setTextureAtlas, 1, JSPROP_PERMANENT | JSPROP_SHARED),
-		JS_FN("getTextureAtlas", js_cocos2dx_CCAtlasNode_getTextureAtlas, 0, JSPROP_PERMANENT | JSPROP_SHARED),
-		JS_FN("getQuadsToDraw", js_cocos2dx_CCAtlasNode_getQuadsToDraw, 0, JSPROP_PERMANENT | JSPROP_SHARED),
-		JS_FN("updateAtlasValues", js_cocos2dx_CCAtlasNode_updateAtlasValues, 0, JSPROP_PERMANENT | JSPROP_SHARED),
-		JS_FN("initWithTileFile", js_cocos2dx_CCAtlasNode_initWithTileFile, 4, JSPROP_PERMANENT | JSPROP_SHARED),
-		JS_FN("getColor", js_cocos2dx_CCAtlasNode_getColor, 0, JSPROP_PERMANENT | JSPROP_SHARED),
-		JS_FN("getOpacity", js_cocos2dx_CCAtlasNode_getOpacity, 0, JSPROP_PERMANENT | JSPROP_SHARED),
-		JS_FN("setQuadsToDraw", js_cocos2dx_CCAtlasNode_setQuadsToDraw, 1, JSPROP_PERMANENT | JSPROP_SHARED),
+		JS_FN("setTexture", js_cocos2dx_CCAtlasNode_setTexture, 1, JSPROP_PERMANENT | JSPROP_ENUMERATE),
+		JS_FN("draw", js_cocos2dx_CCAtlasNode_draw, 0, JSPROP_PERMANENT | JSPROP_ENUMERATE),
+		JS_FN("setColor", js_cocos2dx_CCAtlasNode_setColor, 1, JSPROP_PERMANENT | JSPROP_ENUMERATE),
+		JS_FN("setOpacity", js_cocos2dx_CCAtlasNode_setOpacity, 1, JSPROP_PERMANENT | JSPROP_ENUMERATE),
+		JS_FN("getTexture", js_cocos2dx_CCAtlasNode_getTexture, 0, JSPROP_PERMANENT | JSPROP_ENUMERATE),
+		JS_FN("setTextureAtlas", js_cocos2dx_CCAtlasNode_setTextureAtlas, 1, JSPROP_PERMANENT | JSPROP_ENUMERATE),
+		JS_FN("getTextureAtlas", js_cocos2dx_CCAtlasNode_getTextureAtlas, 0, JSPROP_PERMANENT | JSPROP_ENUMERATE),
+		JS_FN("getQuadsToDraw", js_cocos2dx_CCAtlasNode_getQuadsToDraw, 0, JSPROP_PERMANENT | JSPROP_ENUMERATE),
+		JS_FN("updateAtlasValues", js_cocos2dx_CCAtlasNode_updateAtlasValues, 0, JSPROP_PERMANENT | JSPROP_ENUMERATE),
+		JS_FN("initWithTileFile", js_cocos2dx_CCAtlasNode_initWithTileFile, 4, JSPROP_PERMANENT | JSPROP_ENUMERATE),
+		JS_FN("getColor", js_cocos2dx_CCAtlasNode_getColor, 0, JSPROP_PERMANENT | JSPROP_ENUMERATE),
+		JS_FN("getOpacity", js_cocos2dx_CCAtlasNode_getOpacity, 0, JSPROP_PERMANENT | JSPROP_ENUMERATE),
+		JS_FN("setQuadsToDraw", js_cocos2dx_CCAtlasNode_setQuadsToDraw, 1, JSPROP_PERMANENT | JSPROP_ENUMERATE),
 		JS_FS_END
 	};
 
 	static JSFunctionSpec st_funcs[] = {
-		JS_FN("create", js_cocos2dx_CCAtlasNode_create, 4, JSPROP_PERMANENT | JSPROP_SHARED),
+		JS_FN("create", js_cocos2dx_CCAtlasNode_create, 4, JSPROP_PERMANENT | JSPROP_ENUMERATE),
 		JS_FS_END
 	};
 
@@ -22241,16 +22241,16 @@ void js_register_cocos2dx_CCDrawNode(JSContext *cx, JSObject *global) {
 	};
 
 	static JSFunctionSpec funcs[] = {
-		JS_FN("draw", js_cocos2dx_CCDrawNode_draw, 0, JSPROP_PERMANENT | JSPROP_SHARED),
-		JS_FN("clear", js_cocos2dx_CCDrawNode_clear, 0, JSPROP_PERMANENT | JSPROP_SHARED),
-		JS_FN("init", js_cocos2dx_CCDrawNode_init, 0, JSPROP_PERMANENT | JSPROP_SHARED),
-		JS_FN("drawDot", js_cocos2dx_CCDrawNode_drawDot, 3, JSPROP_PERMANENT | JSPROP_SHARED),
-		JS_FN("drawSegment", js_cocos2dx_CCDrawNode_drawSegment, 4, JSPROP_PERMANENT | JSPROP_SHARED),
+		JS_FN("draw", js_cocos2dx_CCDrawNode_draw, 0, JSPROP_PERMANENT | JSPROP_ENUMERATE),
+		JS_FN("clear", js_cocos2dx_CCDrawNode_clear, 0, JSPROP_PERMANENT | JSPROP_ENUMERATE),
+		JS_FN("init", js_cocos2dx_CCDrawNode_init, 0, JSPROP_PERMANENT | JSPROP_ENUMERATE),
+		JS_FN("drawDot", js_cocos2dx_CCDrawNode_drawDot, 3, JSPROP_PERMANENT | JSPROP_ENUMERATE),
+		JS_FN("drawSegment", js_cocos2dx_CCDrawNode_drawSegment, 4, JSPROP_PERMANENT | JSPROP_ENUMERATE),
 		JS_FS_END
 	};
 
 	static JSFunctionSpec st_funcs[] = {
-		JS_FN("create", js_cocos2dx_CCDrawNode_create, 0, JSPROP_PERMANENT | JSPROP_SHARED),
+		JS_FN("create", js_cocos2dx_CCDrawNode_create, 0, JSPROP_PERMANENT | JSPROP_ENUMERATE),
 		JS_FS_END
 	};
 
@@ -22574,22 +22574,22 @@ void js_register_cocos2dx_CCCamera(JSContext *cx, JSObject *global) {
 	};
 
 	static JSFunctionSpec funcs[] = {
-		JS_FN("locate", js_cocos2dx_CCCamera_locate, 0, JSPROP_PERMANENT | JSPROP_SHARED),
-		JS_FN("restore", js_cocos2dx_CCCamera_restore, 0, JSPROP_PERMANENT | JSPROP_SHARED),
-		JS_FN("setUpXYZ", js_cocos2dx_CCCamera_setUpXYZ, 3, JSPROP_PERMANENT | JSPROP_SHARED),
-		JS_FN("setCenterXYZ", js_cocos2dx_CCCamera_setCenterXYZ, 3, JSPROP_PERMANENT | JSPROP_SHARED),
-		JS_FN("setEyeXYZ", js_cocos2dx_CCCamera_setEyeXYZ, 3, JSPROP_PERMANENT | JSPROP_SHARED),
-		JS_FN("getCenterXYZ", js_cocos2dx_CCCamera_getCenterXYZ, 3, JSPROP_PERMANENT | JSPROP_SHARED),
-		JS_FN("getEyeXYZ", js_cocos2dx_CCCamera_getEyeXYZ, 3, JSPROP_PERMANENT | JSPROP_SHARED),
-		JS_FN("isDirty", js_cocos2dx_CCCamera_isDirty, 0, JSPROP_PERMANENT | JSPROP_SHARED),
-		JS_FN("init", js_cocos2dx_CCCamera_init, 0, JSPROP_PERMANENT | JSPROP_SHARED),
-		JS_FN("getUpXYZ", js_cocos2dx_CCCamera_getUpXYZ, 3, JSPROP_PERMANENT | JSPROP_SHARED),
-		JS_FN("setDirty", js_cocos2dx_CCCamera_setDirty, 1, JSPROP_PERMANENT | JSPROP_SHARED),
+		JS_FN("locate", js_cocos2dx_CCCamera_locate, 0, JSPROP_PERMANENT | JSPROP_ENUMERATE),
+		JS_FN("restore", js_cocos2dx_CCCamera_restore, 0, JSPROP_PERMANENT | JSPROP_ENUMERATE),
+		JS_FN("setUpXYZ", js_cocos2dx_CCCamera_setUpXYZ, 3, JSPROP_PERMANENT | JSPROP_ENUMERATE),
+		JS_FN("setCenterXYZ", js_cocos2dx_CCCamera_setCenterXYZ, 3, JSPROP_PERMANENT | JSPROP_ENUMERATE),
+		JS_FN("setEyeXYZ", js_cocos2dx_CCCamera_setEyeXYZ, 3, JSPROP_PERMANENT | JSPROP_ENUMERATE),
+		JS_FN("getCenterXYZ", js_cocos2dx_CCCamera_getCenterXYZ, 3, JSPROP_PERMANENT | JSPROP_ENUMERATE),
+		JS_FN("getEyeXYZ", js_cocos2dx_CCCamera_getEyeXYZ, 3, JSPROP_PERMANENT | JSPROP_ENUMERATE),
+		JS_FN("isDirty", js_cocos2dx_CCCamera_isDirty, 0, JSPROP_PERMANENT | JSPROP_ENUMERATE),
+		JS_FN("init", js_cocos2dx_CCCamera_init, 0, JSPROP_PERMANENT | JSPROP_ENUMERATE),
+		JS_FN("getUpXYZ", js_cocos2dx_CCCamera_getUpXYZ, 3, JSPROP_PERMANENT | JSPROP_ENUMERATE),
+		JS_FN("setDirty", js_cocos2dx_CCCamera_setDirty, 1, JSPROP_PERMANENT | JSPROP_ENUMERATE),
 		JS_FS_END
 	};
 
 	static JSFunctionSpec st_funcs[] = {
-		JS_FN("getZEye", js_cocos2dx_CCCamera_getZEye, 0, JSPROP_PERMANENT | JSPROP_SHARED),
+		JS_FN("getZEye", js_cocos2dx_CCCamera_getZEye, 0, JSPROP_PERMANENT | JSPROP_ENUMERATE),
 		JS_FS_END
 	};
 
@@ -23991,64 +23991,64 @@ void js_register_cocos2dx_CCSprite(JSContext *cx, JSObject *global) {
 	};
 
 	static JSFunctionSpec funcs[] = {
-		JS_FN("draw", js_cocos2dx_CCSprite_draw, 0, JSPROP_PERMANENT | JSPROP_SHARED),
-		JS_FN("addChild", js_cocos2dx_CCSprite_addChild, 1, JSPROP_PERMANENT | JSPROP_SHARED),
-		JS_FN("setTexture", js_cocos2dx_CCSprite_setTexture, 1, JSPROP_PERMANENT | JSPROP_SHARED),
-		JS_FN("isFlippedX", js_cocos2dx_CCSprite_isFlipX, 0, JSPROP_PERMANENT | JSPROP_SHARED),
-		JS_FN("getTexture", js_cocos2dx_CCSprite_getTexture, 0, JSPROP_PERMANENT | JSPROP_SHARED),
-		JS_FN("setScaleY", js_cocos2dx_CCSprite_setScaleY, 1, JSPROP_PERMANENT | JSPROP_SHARED),
-		JS_FN("setScale", js_cocos2dx_CCSprite_setScale, 1, JSPROP_PERMANENT | JSPROP_SHARED),
-		JS_FN("setDisplayFrameWithAnimationName", js_cocos2dx_CCSprite_setDisplayFrameWithAnimationName, 2, JSPROP_PERMANENT | JSPROP_SHARED),
-		JS_FN("setRotationY", js_cocos2dx_CCSprite_setRotationY, 1, JSPROP_PERMANENT | JSPROP_SHARED),
-		JS_FN("setAnchorPoint", js_cocos2dx_CCSprite_setAnchorPoint, 1, JSPROP_PERMANENT | JSPROP_SHARED),
-		JS_FN("getBatchNode", js_cocos2dx_CCSprite_getBatchNode, 0, JSPROP_PERMANENT | JSPROP_SHARED),
-		JS_FN("isTextureRectRotated", js_cocos2dx_CCSprite_isTextureRectRotated, 0, JSPROP_PERMANENT | JSPROP_SHARED),
-		JS_FN("setOpacity", js_cocos2dx_CCSprite_setOpacity, 1, JSPROP_PERMANENT | JSPROP_SHARED),
-		JS_FN("setVertexZ", js_cocos2dx_CCSprite_setVertexZ, 1, JSPROP_PERMANENT | JSPROP_SHARED),
-		JS_FN("getTextureRect", js_cocos2dx_CCSprite_getTextureRect, 0, JSPROP_PERMANENT | JSPROP_SHARED),
-		JS_FN("setTextureRect", js_cocos2dx_CCSprite_setTextureRect, 1, JSPROP_PERMANENT | JSPROP_SHARED),
-		JS_FN("initWithSpriteFrameName", js_cocos2dx_CCSprite_initWithSpriteFrameName, 1, JSPROP_PERMANENT | JSPROP_SHARED),
-		JS_FN("isFrameDisplayed", js_cocos2dx_CCSprite_isFrameDisplayed, 1, JSPROP_PERMANENT | JSPROP_SHARED),
-		JS_FN("getAtlasIndex", js_cocos2dx_CCSprite_getAtlasIndex, 0, JSPROP_PERMANENT | JSPROP_SHARED),
-		JS_FN("setTextureAtlas", js_cocos2dx_CCSprite_setTextureAtlas, 1, JSPROP_PERMANENT | JSPROP_SHARED),
-		JS_FN("getOpacity", js_cocos2dx_CCSprite_getOpacity, 0, JSPROP_PERMANENT | JSPROP_SHARED),
-		JS_FN("setDisplayFrame", js_cocos2dx_CCSprite_setDisplayFrame, 1, JSPROP_PERMANENT | JSPROP_SHARED),
-		JS_FN("getOffsetPosition", js_cocos2dx_CCSprite_getOffsetPosition, 0, JSPROP_PERMANENT | JSPROP_SHARED),
-		JS_FN("setBatchNode", js_cocos2dx_CCSprite_setBatchNode, 1, JSPROP_PERMANENT | JSPROP_SHARED),
-		JS_FN("setRotationX", js_cocos2dx_CCSprite_setRotationX, 1, JSPROP_PERMANENT | JSPROP_SHARED),
-		JS_FN("setScaleX", js_cocos2dx_CCSprite_setScaleX, 1, JSPROP_PERMANENT | JSPROP_SHARED),
-		JS_FN("initWithTexture", js_cocos2dx_CCSprite_initWithTexture, 1, JSPROP_PERMANENT | JSPROP_SHARED),
-		JS_FN("getColor", js_cocos2dx_CCSprite_getColor, 0, JSPROP_PERMANENT | JSPROP_SHARED),
-		JS_FN("setFlipY", js_cocos2dx_CCSprite_setFlipY, 1, JSPROP_PERMANENT | JSPROP_SHARED),
-		JS_FN("setFlipX", js_cocos2dx_CCSprite_setFlipX, 1, JSPROP_PERMANENT | JSPROP_SHARED),
-		JS_FN("removeAllChildrenWithCleanup", js_cocos2dx_CCSprite_removeAllChildrenWithCleanup, 1, JSPROP_PERMANENT | JSPROP_SHARED),
-		JS_FN("sortAllChildren", js_cocos2dx_CCSprite_sortAllChildren, 0, JSPROP_PERMANENT | JSPROP_SHARED),
-		JS_FN("setAtlasIndex", js_cocos2dx_CCSprite_setAtlasIndex, 1, JSPROP_PERMANENT | JSPROP_SHARED),
-		JS_FN("setRotation", js_cocos2dx_CCSprite_setRotation, 1, JSPROP_PERMANENT | JSPROP_SHARED),
-		JS_FN("setDirty", js_cocos2dx_CCSprite_setDirty, 1, JSPROP_PERMANENT | JSPROP_SHARED),
-		JS_FN("isDirty", js_cocos2dx_CCSprite_isDirty, 0, JSPROP_PERMANENT | JSPROP_SHARED),
-		JS_FN("reorderChild", js_cocos2dx_CCSprite_reorderChild, 2, JSPROP_PERMANENT | JSPROP_SHARED),
-		JS_FN("ignoreAnchorPointForPosition", js_cocos2dx_CCSprite_ignoreAnchorPointForPosition, 1, JSPROP_PERMANENT | JSPROP_SHARED),
-		JS_FN("init", js_cocos2dx_CCSprite_init, 0, JSPROP_PERMANENT | JSPROP_SHARED),
-		JS_FN("initWithFile", js_cocos2dx_CCSprite_initWithFile, 1, JSPROP_PERMANENT | JSPROP_SHARED),
-		JS_FN("setColor", js_cocos2dx_CCSprite_setColor, 1, JSPROP_PERMANENT | JSPROP_SHARED),
-		JS_FN("getTextureAtlas", js_cocos2dx_CCSprite_getTextureAtlas, 0, JSPROP_PERMANENT | JSPROP_SHARED),
-		JS_FN("initWithSpriteFrame", js_cocos2dx_CCSprite_initWithSpriteFrame, 1, JSPROP_PERMANENT | JSPROP_SHARED),
-		JS_FN("removeChild", js_cocos2dx_CCSprite_removeChild, 2, JSPROP_PERMANENT | JSPROP_SHARED),
-		JS_FN("updateTransform", js_cocos2dx_CCSprite_updateTransform, 0, JSPROP_PERMANENT | JSPROP_SHARED),
-		JS_FN("isFlippedY", js_cocos2dx_CCSprite_isFlipY, 0, JSPROP_PERMANENT | JSPROP_SHARED),
-		JS_FN("setVertexRect", js_cocos2dx_CCSprite_setVertexRect, 1, JSPROP_PERMANENT | JSPROP_SHARED),
-		JS_FN("setSkewX", js_cocos2dx_CCSprite_setSkewX, 1, JSPROP_PERMANENT | JSPROP_SHARED),
-		JS_FN("setSkewY", js_cocos2dx_CCSprite_setSkewY, 1, JSPROP_PERMANENT | JSPROP_SHARED),
-		JS_FN("setVisible", js_cocos2dx_CCSprite_setVisible, 1, JSPROP_PERMANENT | JSPROP_SHARED),
+		JS_FN("draw", js_cocos2dx_CCSprite_draw, 0, JSPROP_PERMANENT | JSPROP_ENUMERATE),
+		JS_FN("addChild", js_cocos2dx_CCSprite_addChild, 1, JSPROP_PERMANENT | JSPROP_ENUMERATE),
+		JS_FN("setTexture", js_cocos2dx_CCSprite_setTexture, 1, JSPROP_PERMANENT | JSPROP_ENUMERATE),
+		JS_FN("isFlippedX", js_cocos2dx_CCSprite_isFlipX, 0, JSPROP_PERMANENT | JSPROP_ENUMERATE),
+		JS_FN("getTexture", js_cocos2dx_CCSprite_getTexture, 0, JSPROP_PERMANENT | JSPROP_ENUMERATE),
+		JS_FN("setScaleY", js_cocos2dx_CCSprite_setScaleY, 1, JSPROP_PERMANENT | JSPROP_ENUMERATE),
+		JS_FN("setScale", js_cocos2dx_CCSprite_setScale, 1, JSPROP_PERMANENT | JSPROP_ENUMERATE),
+		JS_FN("setDisplayFrameWithAnimationName", js_cocos2dx_CCSprite_setDisplayFrameWithAnimationName, 2, JSPROP_PERMANENT | JSPROP_ENUMERATE),
+		JS_FN("setRotationY", js_cocos2dx_CCSprite_setRotationY, 1, JSPROP_PERMANENT | JSPROP_ENUMERATE),
+		JS_FN("setAnchorPoint", js_cocos2dx_CCSprite_setAnchorPoint, 1, JSPROP_PERMANENT | JSPROP_ENUMERATE),
+		JS_FN("getBatchNode", js_cocos2dx_CCSprite_getBatchNode, 0, JSPROP_PERMANENT | JSPROP_ENUMERATE),
+		JS_FN("isTextureRectRotated", js_cocos2dx_CCSprite_isTextureRectRotated, 0, JSPROP_PERMANENT | JSPROP_ENUMERATE),
+		JS_FN("setOpacity", js_cocos2dx_CCSprite_setOpacity, 1, JSPROP_PERMANENT | JSPROP_ENUMERATE),
+		JS_FN("setVertexZ", js_cocos2dx_CCSprite_setVertexZ, 1, JSPROP_PERMANENT | JSPROP_ENUMERATE),
+		JS_FN("getTextureRect", js_cocos2dx_CCSprite_getTextureRect, 0, JSPROP_PERMANENT | JSPROP_ENUMERATE),
+		JS_FN("setTextureRect", js_cocos2dx_CCSprite_setTextureRect, 1, JSPROP_PERMANENT | JSPROP_ENUMERATE),
+		JS_FN("initWithSpriteFrameName", js_cocos2dx_CCSprite_initWithSpriteFrameName, 1, JSPROP_PERMANENT | JSPROP_ENUMERATE),
+		JS_FN("isFrameDisplayed", js_cocos2dx_CCSprite_isFrameDisplayed, 1, JSPROP_PERMANENT | JSPROP_ENUMERATE),
+		JS_FN("getAtlasIndex", js_cocos2dx_CCSprite_getAtlasIndex, 0, JSPROP_PERMANENT | JSPROP_ENUMERATE),
+		JS_FN("setTextureAtlas", js_cocos2dx_CCSprite_setTextureAtlas, 1, JSPROP_PERMANENT | JSPROP_ENUMERATE),
+		JS_FN("getOpacity", js_cocos2dx_CCSprite_getOpacity, 0, JSPROP_PERMANENT | JSPROP_ENUMERATE),
+		JS_FN("setDisplayFrame", js_cocos2dx_CCSprite_setDisplayFrame, 1, JSPROP_PERMANENT | JSPROP_ENUMERATE),
+		JS_FN("getOffsetPosition", js_cocos2dx_CCSprite_getOffsetPosition, 0, JSPROP_PERMANENT | JSPROP_ENUMERATE),
+		JS_FN("setBatchNode", js_cocos2dx_CCSprite_setBatchNode, 1, JSPROP_PERMANENT | JSPROP_ENUMERATE),
+		JS_FN("setRotationX", js_cocos2dx_CCSprite_setRotationX, 1, JSPROP_PERMANENT | JSPROP_ENUMERATE),
+		JS_FN("setScaleX", js_cocos2dx_CCSprite_setScaleX, 1, JSPROP_PERMANENT | JSPROP_ENUMERATE),
+		JS_FN("initWithTexture", js_cocos2dx_CCSprite_initWithTexture, 1, JSPROP_PERMANENT | JSPROP_ENUMERATE),
+		JS_FN("getColor", js_cocos2dx_CCSprite_getColor, 0, JSPROP_PERMANENT | JSPROP_ENUMERATE),
+		JS_FN("setFlipY", js_cocos2dx_CCSprite_setFlipY, 1, JSPROP_PERMANENT | JSPROP_ENUMERATE),
+		JS_FN("setFlipX", js_cocos2dx_CCSprite_setFlipX, 1, JSPROP_PERMANENT | JSPROP_ENUMERATE),
+		JS_FN("removeAllChildrenWithCleanup", js_cocos2dx_CCSprite_removeAllChildrenWithCleanup, 1, JSPROP_PERMANENT | JSPROP_ENUMERATE),
+		JS_FN("sortAllChildren", js_cocos2dx_CCSprite_sortAllChildren, 0, JSPROP_PERMANENT | JSPROP_ENUMERATE),
+		JS_FN("setAtlasIndex", js_cocos2dx_CCSprite_setAtlasIndex, 1, JSPROP_PERMANENT | JSPROP_ENUMERATE),
+		JS_FN("setRotation", js_cocos2dx_CCSprite_setRotation, 1, JSPROP_PERMANENT | JSPROP_ENUMERATE),
+		JS_FN("setDirty", js_cocos2dx_CCSprite_setDirty, 1, JSPROP_PERMANENT | JSPROP_ENUMERATE),
+		JS_FN("isDirty", js_cocos2dx_CCSprite_isDirty, 0, JSPROP_PERMANENT | JSPROP_ENUMERATE),
+		JS_FN("reorderChild", js_cocos2dx_CCSprite_reorderChild, 2, JSPROP_PERMANENT | JSPROP_ENUMERATE),
+		JS_FN("ignoreAnchorPointForPosition", js_cocos2dx_CCSprite_ignoreAnchorPointForPosition, 1, JSPROP_PERMANENT | JSPROP_ENUMERATE),
+		JS_FN("init", js_cocos2dx_CCSprite_init, 0, JSPROP_PERMANENT | JSPROP_ENUMERATE),
+		JS_FN("initWithFile", js_cocos2dx_CCSprite_initWithFile, 1, JSPROP_PERMANENT | JSPROP_ENUMERATE),
+		JS_FN("setColor", js_cocos2dx_CCSprite_setColor, 1, JSPROP_PERMANENT | JSPROP_ENUMERATE),
+		JS_FN("getTextureAtlas", js_cocos2dx_CCSprite_getTextureAtlas, 0, JSPROP_PERMANENT | JSPROP_ENUMERATE),
+		JS_FN("initWithSpriteFrame", js_cocos2dx_CCSprite_initWithSpriteFrame, 1, JSPROP_PERMANENT | JSPROP_ENUMERATE),
+		JS_FN("removeChild", js_cocos2dx_CCSprite_removeChild, 2, JSPROP_PERMANENT | JSPROP_ENUMERATE),
+		JS_FN("updateTransform", js_cocos2dx_CCSprite_updateTransform, 0, JSPROP_PERMANENT | JSPROP_ENUMERATE),
+		JS_FN("isFlippedY", js_cocos2dx_CCSprite_isFlipY, 0, JSPROP_PERMANENT | JSPROP_ENUMERATE),
+		JS_FN("setVertexRect", js_cocos2dx_CCSprite_setVertexRect, 1, JSPROP_PERMANENT | JSPROP_ENUMERATE),
+		JS_FN("setSkewX", js_cocos2dx_CCSprite_setSkewX, 1, JSPROP_PERMANENT | JSPROP_ENUMERATE),
+		JS_FN("setSkewY", js_cocos2dx_CCSprite_setSkewY, 1, JSPROP_PERMANENT | JSPROP_ENUMERATE),
+		JS_FN("setVisible", js_cocos2dx_CCSprite_setVisible, 1, JSPROP_PERMANENT | JSPROP_ENUMERATE),
 		JS_FS_END
 	};
 
 	static JSFunctionSpec st_funcs[] = {
-		JS_FN("create", js_cocos2dx_CCSprite_create, 0, JSPROP_PERMANENT | JSPROP_SHARED),
-		JS_FN("createWithTexture", js_cocos2dx_CCSprite_createWithTexture, 1, JSPROP_PERMANENT | JSPROP_SHARED),
-		JS_FN("createWithSpriteFrameName", js_cocos2dx_CCSprite_createWithSpriteFrameName, 1, JSPROP_PERMANENT | JSPROP_SHARED),
-		JS_FN("createWithSpriteFrame", js_cocos2dx_CCSprite_createWithSpriteFrame, 1, JSPROP_PERMANENT | JSPROP_SHARED),
+		JS_FN("create", js_cocos2dx_CCSprite_create, 0, JSPROP_PERMANENT | JSPROP_ENUMERATE),
+		JS_FN("createWithTexture", js_cocos2dx_CCSprite_createWithTexture, 1, JSPROP_PERMANENT | JSPROP_ENUMERATE),
+		JS_FN("createWithSpriteFrameName", js_cocos2dx_CCSprite_createWithSpriteFrameName, 1, JSPROP_PERMANENT | JSPROP_ENUMERATE),
+		JS_FN("createWithSpriteFrame", js_cocos2dx_CCSprite_createWithSpriteFrame, 1, JSPROP_PERMANENT | JSPROP_ENUMERATE),
 		JS_FS_END
 	};
 
@@ -24551,26 +24551,26 @@ void js_register_cocos2dx_CCLabelTTF(JSContext *cx, JSObject *global) {
 	};
 
 	static JSFunctionSpec funcs[] = {
-		JS_FN("setFontName", js_cocos2dx_CCLabelTTF_setFontName, 1, JSPROP_PERMANENT | JSPROP_SHARED),
-		JS_FN("setDimensions", js_cocos2dx_CCLabelTTF_setDimensions, 1, JSPROP_PERMANENT | JSPROP_SHARED),
-		JS_FN("getFontSize", js_cocos2dx_CCLabelTTF_getFontSize, 0, JSPROP_PERMANENT | JSPROP_SHARED),
-		JS_FN("getString", js_cocos2dx_CCLabelTTF_getString, 0, JSPROP_PERMANENT | JSPROP_SHARED),
-		JS_FN("setVerticalAlignment", js_cocos2dx_CCLabelTTF_setVerticalAlignment, 1, JSPROP_PERMANENT | JSPROP_SHARED),
-		JS_FN("getFontName", js_cocos2dx_CCLabelTTF_getFontName, 0, JSPROP_PERMANENT | JSPROP_SHARED),
-		JS_FN("setString", js_cocos2dx_CCLabelTTF_setString, 1, JSPROP_PERMANENT | JSPROP_SHARED),
-		JS_FN("initWithString", js_cocos2dx_CCLabelTTF_initWithString, 3, JSPROP_PERMANENT | JSPROP_SHARED),
-		JS_FN("getDimensions", js_cocos2dx_CCLabelTTF_getDimensions, 0, JSPROP_PERMANENT | JSPROP_SHARED),
-		JS_FN("setFontSize", js_cocos2dx_CCLabelTTF_setFontSize, 1, JSPROP_PERMANENT | JSPROP_SHARED),
-		JS_FN("setHorizontalAlignment", js_cocos2dx_CCLabelTTF_setHorizontalAlignment, 1, JSPROP_PERMANENT | JSPROP_SHARED),
-		JS_FN("init", js_cocos2dx_CCLabelTTF_init, 0, JSPROP_PERMANENT | JSPROP_SHARED),
-		JS_FN("getVerticalAlignment", js_cocos2dx_CCLabelTTF_getVerticalAlignment, 0, JSPROP_PERMANENT | JSPROP_SHARED),
-		JS_FN("getHorizontalAlignment", js_cocos2dx_CCLabelTTF_getHorizontalAlignment, 0, JSPROP_PERMANENT | JSPROP_SHARED),
+		JS_FN("setFontName", js_cocos2dx_CCLabelTTF_setFontName, 1, JSPROP_PERMANENT | JSPROP_ENUMERATE),
+		JS_FN("setDimensions", js_cocos2dx_CCLabelTTF_setDimensions, 1, JSPROP_PERMANENT | JSPROP_ENUMERATE),
+		JS_FN("getFontSize", js_cocos2dx_CCLabelTTF_getFontSize, 0, JSPROP_PERMANENT | JSPROP_ENUMERATE),
+		JS_FN("getString", js_cocos2dx_CCLabelTTF_getString, 0, JSPROP_PERMANENT | JSPROP_ENUMERATE),
+		JS_FN("setVerticalAlignment", js_cocos2dx_CCLabelTTF_setVerticalAlignment, 1, JSPROP_PERMANENT | JSPROP_ENUMERATE),
+		JS_FN("getFontName", js_cocos2dx_CCLabelTTF_getFontName, 0, JSPROP_PERMANENT | JSPROP_ENUMERATE),
+		JS_FN("setString", js_cocos2dx_CCLabelTTF_setString, 1, JSPROP_PERMANENT | JSPROP_ENUMERATE),
+		JS_FN("initWithString", js_cocos2dx_CCLabelTTF_initWithString, 3, JSPROP_PERMANENT | JSPROP_ENUMERATE),
+		JS_FN("getDimensions", js_cocos2dx_CCLabelTTF_getDimensions, 0, JSPROP_PERMANENT | JSPROP_ENUMERATE),
+		JS_FN("setFontSize", js_cocos2dx_CCLabelTTF_setFontSize, 1, JSPROP_PERMANENT | JSPROP_ENUMERATE),
+		JS_FN("setHorizontalAlignment", js_cocos2dx_CCLabelTTF_setHorizontalAlignment, 1, JSPROP_PERMANENT | JSPROP_ENUMERATE),
+		JS_FN("init", js_cocos2dx_CCLabelTTF_init, 0, JSPROP_PERMANENT | JSPROP_ENUMERATE),
+		JS_FN("getVerticalAlignment", js_cocos2dx_CCLabelTTF_getVerticalAlignment, 0, JSPROP_PERMANENT | JSPROP_ENUMERATE),
+		JS_FN("getHorizontalAlignment", js_cocos2dx_CCLabelTTF_getHorizontalAlignment, 0, JSPROP_PERMANENT | JSPROP_ENUMERATE),
 		JS_FS_END
 	};
 
 	static JSFunctionSpec st_funcs[] = {
-		JS_FN("node", js_cocos2dx_CCLabelTTF_node, 0, JSPROP_PERMANENT | JSPROP_SHARED),
-		JS_FN("create", js_cocos2dx_CCLabelTTF_create, 0, JSPROP_PERMANENT | JSPROP_SHARED),
+		JS_FN("node", js_cocos2dx_CCLabelTTF_node, 0, JSPROP_PERMANENT | JSPROP_ENUMERATE),
+		JS_FN("create", js_cocos2dx_CCLabelTTF_create, 0, JSPROP_PERMANENT | JSPROP_ENUMERATE),
 		JS_FS_END
 	};
 
@@ -25655,62 +25655,62 @@ void js_register_cocos2dx_CCDirector(JSContext *cx, JSObject *global) {
 	};
 
 	static JSFunctionSpec funcs[] = {
-		JS_FN("pause", js_cocos2dx_CCDirector_pause, 0, JSPROP_PERMANENT | JSPROP_SHARED),
-		JS_FN("setDelegate", js_cocos2dx_CCDirector_setDelegate, 1, JSPROP_PERMANENT | JSPROP_SHARED),
-		JS_FN("setContentScaleFactor", js_cocos2dx_CCDirector_setContentScaleFactor, 1, JSPROP_PERMANENT | JSPROP_SHARED),
-		JS_FN("getContentScaleFactor", js_cocos2dx_CCDirector_getContentScaleFactor, 0, JSPROP_PERMANENT | JSPROP_SHARED),
-		JS_FN("getWinSizeInPixels", js_cocos2dx_CCDirector_getWinSizeInPixels, 0, JSPROP_PERMANENT | JSPROP_SHARED),
-		JS_FN("setKeypadDispatcher", js_cocos2dx_CCDirector_setKeypadDispatcher, 1, JSPROP_PERMANENT | JSPROP_SHARED),
-		JS_FN("setActionManager", js_cocos2dx_CCDirector_setActionManager, 1, JSPROP_PERMANENT | JSPROP_SHARED),
-		JS_FN("setAlphaBlending", js_cocos2dx_CCDirector_setAlphaBlending, 1, JSPROP_PERMANENT | JSPROP_SHARED),
-		JS_FN("popToRootScene", js_cocos2dx_CCDirector_popToRootScene, 0, JSPROP_PERMANENT | JSPROP_SHARED),
-		JS_FN("getNotificationNode", js_cocos2dx_CCDirector_getNotificationNode, 0, JSPROP_PERMANENT | JSPROP_SHARED),
-		JS_FN("getWinSize", js_cocos2dx_CCDirector_getWinSize, 0, JSPROP_PERMANENT | JSPROP_SHARED),
-		JS_FN("end", js_cocos2dx_CCDirector_end, 0, JSPROP_PERMANENT | JSPROP_SHARED),
-		JS_FN("isSendCleanupToScene", js_cocos2dx_CCDirector_isSendCleanupToScene, 0, JSPROP_PERMANENT | JSPROP_SHARED),
-		JS_FN("getVisibleOrigin", js_cocos2dx_CCDirector_getVisibleOrigin, 0, JSPROP_PERMANENT | JSPROP_SHARED),
-		JS_FN("mainLoop", js_cocos2dx_CCDirector_mainLoop, 0, JSPROP_PERMANENT | JSPROP_SHARED),
-		JS_FN("setDepthTest", js_cocos2dx_CCDirector_setDepthTest, 1, JSPROP_PERMANENT | JSPROP_SHARED),
-		JS_FN("getSecondsPerFrame", js_cocos2dx_CCDirector_getSecondsPerFrame, 0, JSPROP_PERMANENT | JSPROP_SHARED),
-		JS_FN("convertToUI", js_cocos2dx_CCDirector_convertToUI, 1, JSPROP_PERMANENT | JSPROP_SHARED),
-		JS_FN("setAccelerometer", js_cocos2dx_CCDirector_setAccelerometer, 1, JSPROP_PERMANENT | JSPROP_SHARED),
-		JS_FN("init", js_cocos2dx_CCDirector_init, 0, JSPROP_PERMANENT | JSPROP_SHARED),
-		JS_FN("setScheduler", js_cocos2dx_CCDirector_setScheduler, 1, JSPROP_PERMANENT | JSPROP_SHARED),
-		JS_FN("startAnimation", js_cocos2dx_CCDirector_startAnimation, 0, JSPROP_PERMANENT | JSPROP_SHARED),
-		JS_FN("getRunningScene", js_cocos2dx_CCDirector_getRunningScene, 0, JSPROP_PERMANENT | JSPROP_SHARED),
-		JS_FN("stopAnimation", js_cocos2dx_CCDirector_stopAnimation, 0, JSPROP_PERMANENT | JSPROP_SHARED),
-		JS_FN("setGLDefaultValues", js_cocos2dx_CCDirector_setGLDefaultValues, 0, JSPROP_PERMANENT | JSPROP_SHARED),
-		JS_FN("resume", js_cocos2dx_CCDirector_resume, 0, JSPROP_PERMANENT | JSPROP_SHARED),
-		JS_FN("setTouchDispatcher", js_cocos2dx_CCDirector_setTouchDispatcher, 1, JSPROP_PERMANENT | JSPROP_SHARED),
-		JS_FN("isNextDeltaTimeZero", js_cocos2dx_CCDirector_isNextDeltaTimeZero, 0, JSPROP_PERMANENT | JSPROP_SHARED),
-		JS_FN("getDelegate", js_cocos2dx_CCDirector_getDelegate, 0, JSPROP_PERMANENT | JSPROP_SHARED),
-		JS_FN("setOpenGLView", js_cocos2dx_CCDirector_setOpenGLView, 1, JSPROP_PERMANENT | JSPROP_SHARED),
-		JS_FN("convertToGL", js_cocos2dx_CCDirector_convertToGL, 1, JSPROP_PERMANENT | JSPROP_SHARED),
-		JS_FN("purgeCachedData", js_cocos2dx_CCDirector_purgeCachedData, 0, JSPROP_PERMANENT | JSPROP_SHARED),
-		JS_FN("getTotalFrames", js_cocos2dx_CCDirector_getTotalFrames, 0, JSPROP_PERMANENT | JSPROP_SHARED),
-		JS_FN("runWithScene", js_cocos2dx_CCDirector_runWithScene, 1, JSPROP_PERMANENT | JSPROP_SHARED),
-		JS_FN("setNotificationNode", js_cocos2dx_CCDirector_setNotificationNode, 1, JSPROP_PERMANENT | JSPROP_SHARED),
-		JS_FN("drawScene", js_cocos2dx_CCDirector_drawScene, 0, JSPROP_PERMANENT | JSPROP_SHARED),
-		JS_FN("popScene", js_cocos2dx_CCDirector_popScene, 0, JSPROP_PERMANENT | JSPROP_SHARED),
-		JS_FN("isDisplayStats", js_cocos2dx_CCDirector_isDisplayStats, 0, JSPROP_PERMANENT | JSPROP_SHARED),
-		JS_FN("setProjection", js_cocos2dx_CCDirector_setProjection, 1, JSPROP_PERMANENT | JSPROP_SHARED),
-		JS_FN("getZEye", js_cocos2dx_CCDirector_getZEye, 0, JSPROP_PERMANENT | JSPROP_SHARED),
-		JS_FN("setNextDeltaTimeZero", js_cocos2dx_CCDirector_setNextDeltaTimeZero, 1, JSPROP_PERMANENT | JSPROP_SHARED),
-		JS_FN("getVisibleSize", js_cocos2dx_CCDirector_getVisibleSize, 0, JSPROP_PERMANENT | JSPROP_SHARED),
-		JS_FN("getScheduler", js_cocos2dx_CCDirector_getScheduler, 0, JSPROP_PERMANENT | JSPROP_SHARED),
-		JS_FN("pushScene", js_cocos2dx_CCDirector_pushScene, 1, JSPROP_PERMANENT | JSPROP_SHARED),
-		JS_FN("getClassTypeInfo", js_cocos2dx_CCDirector_getClassTypeInfo, 0, JSPROP_PERMANENT | JSPROP_SHARED),
-		JS_FN("getAnimationInterval", js_cocos2dx_CCDirector_getAnimationInterval, 0, JSPROP_PERMANENT | JSPROP_SHARED),
-		JS_FN("isPaused", js_cocos2dx_CCDirector_isPaused, 0, JSPROP_PERMANENT | JSPROP_SHARED),
-		JS_FN("setDisplayStats", js_cocos2dx_CCDirector_setDisplayStats, 1, JSPROP_PERMANENT | JSPROP_SHARED),
-		JS_FN("replaceScene", js_cocos2dx_CCDirector_replaceScene, 1, JSPROP_PERMANENT | JSPROP_SHARED),
-		JS_FN("setAnimationInterval", js_cocos2dx_CCDirector_setAnimationInterval, 1, JSPROP_PERMANENT | JSPROP_SHARED),
-		JS_FN("getActionManager", js_cocos2dx_CCDirector_getActionManager, 0, JSPROP_PERMANENT | JSPROP_SHARED),
+		JS_FN("pause", js_cocos2dx_CCDirector_pause, 0, JSPROP_PERMANENT | JSPROP_ENUMERATE),
+		JS_FN("setDelegate", js_cocos2dx_CCDirector_setDelegate, 1, JSPROP_PERMANENT | JSPROP_ENUMERATE),
+		JS_FN("setContentScaleFactor", js_cocos2dx_CCDirector_setContentScaleFactor, 1, JSPROP_PERMANENT | JSPROP_ENUMERATE),
+		JS_FN("getContentScaleFactor", js_cocos2dx_CCDirector_getContentScaleFactor, 0, JSPROP_PERMANENT | JSPROP_ENUMERATE),
+		JS_FN("getWinSizeInPixels", js_cocos2dx_CCDirector_getWinSizeInPixels, 0, JSPROP_PERMANENT | JSPROP_ENUMERATE),
+		JS_FN("setKeypadDispatcher", js_cocos2dx_CCDirector_setKeypadDispatcher, 1, JSPROP_PERMANENT | JSPROP_ENUMERATE),
+		JS_FN("setActionManager", js_cocos2dx_CCDirector_setActionManager, 1, JSPROP_PERMANENT | JSPROP_ENUMERATE),
+		JS_FN("setAlphaBlending", js_cocos2dx_CCDirector_setAlphaBlending, 1, JSPROP_PERMANENT | JSPROP_ENUMERATE),
+		JS_FN("popToRootScene", js_cocos2dx_CCDirector_popToRootScene, 0, JSPROP_PERMANENT | JSPROP_ENUMERATE),
+		JS_FN("getNotificationNode", js_cocos2dx_CCDirector_getNotificationNode, 0, JSPROP_PERMANENT | JSPROP_ENUMERATE),
+		JS_FN("getWinSize", js_cocos2dx_CCDirector_getWinSize, 0, JSPROP_PERMANENT | JSPROP_ENUMERATE),
+		JS_FN("end", js_cocos2dx_CCDirector_end, 0, JSPROP_PERMANENT | JSPROP_ENUMERATE),
+		JS_FN("isSendCleanupToScene", js_cocos2dx_CCDirector_isSendCleanupToScene, 0, JSPROP_PERMANENT | JSPROP_ENUMERATE),
+		JS_FN("getVisibleOrigin", js_cocos2dx_CCDirector_getVisibleOrigin, 0, JSPROP_PERMANENT | JSPROP_ENUMERATE),
+		JS_FN("mainLoop", js_cocos2dx_CCDirector_mainLoop, 0, JSPROP_PERMANENT | JSPROP_ENUMERATE),
+		JS_FN("setDepthTest", js_cocos2dx_CCDirector_setDepthTest, 1, JSPROP_PERMANENT | JSPROP_ENUMERATE),
+		JS_FN("getSecondsPerFrame", js_cocos2dx_CCDirector_getSecondsPerFrame, 0, JSPROP_PERMANENT | JSPROP_ENUMERATE),
+		JS_FN("convertToUI", js_cocos2dx_CCDirector_convertToUI, 1, JSPROP_PERMANENT | JSPROP_ENUMERATE),
+		JS_FN("setAccelerometer", js_cocos2dx_CCDirector_setAccelerometer, 1, JSPROP_PERMANENT | JSPROP_ENUMERATE),
+		JS_FN("init", js_cocos2dx_CCDirector_init, 0, JSPROP_PERMANENT | JSPROP_ENUMERATE),
+		JS_FN("setScheduler", js_cocos2dx_CCDirector_setScheduler, 1, JSPROP_PERMANENT | JSPROP_ENUMERATE),
+		JS_FN("startAnimation", js_cocos2dx_CCDirector_startAnimation, 0, JSPROP_PERMANENT | JSPROP_ENUMERATE),
+		JS_FN("getRunningScene", js_cocos2dx_CCDirector_getRunningScene, 0, JSPROP_PERMANENT | JSPROP_ENUMERATE),
+		JS_FN("stopAnimation", js_cocos2dx_CCDirector_stopAnimation, 0, JSPROP_PERMANENT | JSPROP_ENUMERATE),
+		JS_FN("setGLDefaultValues", js_cocos2dx_CCDirector_setGLDefaultValues, 0, JSPROP_PERMANENT | JSPROP_ENUMERATE),
+		JS_FN("resume", js_cocos2dx_CCDirector_resume, 0, JSPROP_PERMANENT | JSPROP_ENUMERATE),
+		JS_FN("setTouchDispatcher", js_cocos2dx_CCDirector_setTouchDispatcher, 1, JSPROP_PERMANENT | JSPROP_ENUMERATE),
+		JS_FN("isNextDeltaTimeZero", js_cocos2dx_CCDirector_isNextDeltaTimeZero, 0, JSPROP_PERMANENT | JSPROP_ENUMERATE),
+		JS_FN("getDelegate", js_cocos2dx_CCDirector_getDelegate, 0, JSPROP_PERMANENT | JSPROP_ENUMERATE),
+		JS_FN("setOpenGLView", js_cocos2dx_CCDirector_setOpenGLView, 1, JSPROP_PERMANENT | JSPROP_ENUMERATE),
+		JS_FN("convertToGL", js_cocos2dx_CCDirector_convertToGL, 1, JSPROP_PERMANENT | JSPROP_ENUMERATE),
+		JS_FN("purgeCachedData", js_cocos2dx_CCDirector_purgeCachedData, 0, JSPROP_PERMANENT | JSPROP_ENUMERATE),
+		JS_FN("getTotalFrames", js_cocos2dx_CCDirector_getTotalFrames, 0, JSPROP_PERMANENT | JSPROP_ENUMERATE),
+		JS_FN("runWithScene", js_cocos2dx_CCDirector_runWithScene, 1, JSPROP_PERMANENT | JSPROP_ENUMERATE),
+		JS_FN("setNotificationNode", js_cocos2dx_CCDirector_setNotificationNode, 1, JSPROP_PERMANENT | JSPROP_ENUMERATE),
+		JS_FN("drawScene", js_cocos2dx_CCDirector_drawScene, 0, JSPROP_PERMANENT | JSPROP_ENUMERATE),
+		JS_FN("popScene", js_cocos2dx_CCDirector_popScene, 0, JSPROP_PERMANENT | JSPROP_ENUMERATE),
+		JS_FN("isDisplayStats", js_cocos2dx_CCDirector_isDisplayStats, 0, JSPROP_PERMANENT | JSPROP_ENUMERATE),
+		JS_FN("setProjection", js_cocos2dx_CCDirector_setProjection, 1, JSPROP_PERMANENT | JSPROP_ENUMERATE),
+		JS_FN("getZEye", js_cocos2dx_CCDirector_getZEye, 0, JSPROP_PERMANENT | JSPROP_ENUMERATE),
+		JS_FN("setNextDeltaTimeZero", js_cocos2dx_CCDirector_setNextDeltaTimeZero, 1, JSPROP_PERMANENT | JSPROP_ENUMERATE),
+		JS_FN("getVisibleSize", js_cocos2dx_CCDirector_getVisibleSize, 0, JSPROP_PERMANENT | JSPROP_ENUMERATE),
+		JS_FN("getScheduler", js_cocos2dx_CCDirector_getScheduler, 0, JSPROP_PERMANENT | JSPROP_ENUMERATE),
+		JS_FN("pushScene", js_cocos2dx_CCDirector_pushScene, 1, JSPROP_PERMANENT | JSPROP_ENUMERATE),
+		JS_FN("getClassTypeInfo", js_cocos2dx_CCDirector_getClassTypeInfo, 0, JSPROP_PERMANENT | JSPROP_ENUMERATE),
+		JS_FN("getAnimationInterval", js_cocos2dx_CCDirector_getAnimationInterval, 0, JSPROP_PERMANENT | JSPROP_ENUMERATE),
+		JS_FN("isPaused", js_cocos2dx_CCDirector_isPaused, 0, JSPROP_PERMANENT | JSPROP_ENUMERATE),
+		JS_FN("setDisplayStats", js_cocos2dx_CCDirector_setDisplayStats, 1, JSPROP_PERMANENT | JSPROP_ENUMERATE),
+		JS_FN("replaceScene", js_cocos2dx_CCDirector_replaceScene, 1, JSPROP_PERMANENT | JSPROP_ENUMERATE),
+		JS_FN("setAnimationInterval", js_cocos2dx_CCDirector_setAnimationInterval, 1, JSPROP_PERMANENT | JSPROP_ENUMERATE),
+		JS_FN("getActionManager", js_cocos2dx_CCDirector_getActionManager, 0, JSPROP_PERMANENT | JSPROP_ENUMERATE),
 		JS_FS_END
 	};
 
 	static JSFunctionSpec st_funcs[] = {
-		JS_FN("getInstance", js_cocos2dx_CCDirector_sharedDirector, 0, JSPROP_PERMANENT | JSPROP_SHARED),
+		JS_FN("getInstance", js_cocos2dx_CCDirector_sharedDirector, 0, JSPROP_PERMANENT | JSPROP_ENUMERATE),
 		JS_FS_END
 	};
 
@@ -25961,17 +25961,17 @@ void js_register_cocos2dx_CCGrid3D(JSContext *cx, JSObject *global) {
 	};
 
 	static JSFunctionSpec funcs[] = {
-		JS_FN("calculateVertexPoints", js_cocos2dx_CCGrid3D_calculateVertexPoints, 0, JSPROP_PERMANENT | JSPROP_SHARED),
-		JS_FN("setVertex", js_cocos2dx_CCGrid3D_setVertex, 2, JSPROP_PERMANENT | JSPROP_SHARED),
-		JS_FN("reuse", js_cocos2dx_CCGrid3D_reuse, 0, JSPROP_PERMANENT | JSPROP_SHARED),
-		JS_FN("vertex", js_cocos2dx_CCGrid3D_vertex, 1, JSPROP_PERMANENT | JSPROP_SHARED),
-		JS_FN("blit", js_cocos2dx_CCGrid3D_blit, 0, JSPROP_PERMANENT | JSPROP_SHARED),
-		JS_FN("originalVertex", js_cocos2dx_CCGrid3D_originalVertex, 1, JSPROP_PERMANENT | JSPROP_SHARED),
+		JS_FN("calculateVertexPoints", js_cocos2dx_CCGrid3D_calculateVertexPoints, 0, JSPROP_PERMANENT | JSPROP_ENUMERATE),
+		JS_FN("setVertex", js_cocos2dx_CCGrid3D_setVertex, 2, JSPROP_PERMANENT | JSPROP_ENUMERATE),
+		JS_FN("reuse", js_cocos2dx_CCGrid3D_reuse, 0, JSPROP_PERMANENT | JSPROP_ENUMERATE),
+		JS_FN("vertex", js_cocos2dx_CCGrid3D_vertex, 1, JSPROP_PERMANENT | JSPROP_ENUMERATE),
+		JS_FN("blit", js_cocos2dx_CCGrid3D_blit, 0, JSPROP_PERMANENT | JSPROP_ENUMERATE),
+		JS_FN("originalVertex", js_cocos2dx_CCGrid3D_originalVertex, 1, JSPROP_PERMANENT | JSPROP_ENUMERATE),
 		JS_FS_END
 	};
 
 	static JSFunctionSpec st_funcs[] = {
-		JS_FN("create", js_cocos2dx_CCGrid3D_create, 1, JSPROP_PERMANENT | JSPROP_SHARED),
+		JS_FN("create", js_cocos2dx_CCGrid3D_create, 1, JSPROP_PERMANENT | JSPROP_ENUMERATE),
 		JS_FS_END
 	};
 
@@ -26222,17 +26222,17 @@ void js_register_cocos2dx_CCTiledGrid3D(JSContext *cx, JSObject *global) {
 	};
 
 	static JSFunctionSpec funcs[] = {
-		JS_FN("calculateVertexPoints", js_cocos2dx_CCTiledGrid3D_calculateVertexPoints, 0, JSPROP_PERMANENT | JSPROP_SHARED),
-		JS_FN("reuse", js_cocos2dx_CCTiledGrid3D_reuse, 0, JSPROP_PERMANENT | JSPROP_SHARED),
-		JS_FN("originalTile", js_cocos2dx_CCTiledGrid3D_originalTile, 1, JSPROP_PERMANENT | JSPROP_SHARED),
-		JS_FN("tile", js_cocos2dx_CCTiledGrid3D_tile, 1, JSPROP_PERMANENT | JSPROP_SHARED),
-		JS_FN("setTile", js_cocos2dx_CCTiledGrid3D_setTile, 2, JSPROP_PERMANENT | JSPROP_SHARED),
-		JS_FN("blit", js_cocos2dx_CCTiledGrid3D_blit, 0, JSPROP_PERMANENT | JSPROP_SHARED),
+		JS_FN("calculateVertexPoints", js_cocos2dx_CCTiledGrid3D_calculateVertexPoints, 0, JSPROP_PERMANENT | JSPROP_ENUMERATE),
+		JS_FN("reuse", js_cocos2dx_CCTiledGrid3D_reuse, 0, JSPROP_PERMANENT | JSPROP_ENUMERATE),
+		JS_FN("originalTile", js_cocos2dx_CCTiledGrid3D_originalTile, 1, JSPROP_PERMANENT | JSPROP_ENUMERATE),
+		JS_FN("tile", js_cocos2dx_CCTiledGrid3D_tile, 1, JSPROP_PERMANENT | JSPROP_ENUMERATE),
+		JS_FN("setTile", js_cocos2dx_CCTiledGrid3D_setTile, 2, JSPROP_PERMANENT | JSPROP_ENUMERATE),
+		JS_FN("blit", js_cocos2dx_CCTiledGrid3D_blit, 0, JSPROP_PERMANENT | JSPROP_ENUMERATE),
 		JS_FS_END
 	};
 
 	static JSFunctionSpec st_funcs[] = {
-		JS_FN("create", js_cocos2dx_CCTiledGrid3D_create, 1, JSPROP_PERMANENT | JSPROP_SHARED),
+		JS_FN("create", js_cocos2dx_CCTiledGrid3D_create, 1, JSPROP_PERMANENT | JSPROP_ENUMERATE),
 		JS_FS_END
 	};
 
@@ -26467,15 +26467,15 @@ void js_register_cocos2dx_CCLabelAtlas(JSContext *cx, JSObject *global) {
 	};
 
 	static JSFunctionSpec funcs[] = {
-		JS_FN("setString", js_cocos2dx_CCLabelAtlas_setString, 1, JSPROP_PERMANENT | JSPROP_SHARED),
-		JS_FN("initWithString", js_cocos2dx_CCLabelAtlas_initWithString, 2, JSPROP_PERMANENT | JSPROP_SHARED),
-		JS_FN("updateAtlasValues", js_cocos2dx_CCLabelAtlas_updateAtlasValues, 0, JSPROP_PERMANENT | JSPROP_SHARED),
-		JS_FN("getString", js_cocos2dx_CCLabelAtlas_getString, 0, JSPROP_PERMANENT | JSPROP_SHARED),
+		JS_FN("setString", js_cocos2dx_CCLabelAtlas_setString, 1, JSPROP_PERMANENT | JSPROP_ENUMERATE),
+		JS_FN("initWithString", js_cocos2dx_CCLabelAtlas_initWithString, 2, JSPROP_PERMANENT | JSPROP_ENUMERATE),
+		JS_FN("updateAtlasValues", js_cocos2dx_CCLabelAtlas_updateAtlasValues, 0, JSPROP_PERMANENT | JSPROP_ENUMERATE),
+		JS_FN("getString", js_cocos2dx_CCLabelAtlas_getString, 0, JSPROP_PERMANENT | JSPROP_ENUMERATE),
 		JS_FS_END
 	};
 
 	static JSFunctionSpec st_funcs[] = {
-		JS_FN("_create", js_cocos2dx_CCLabelAtlas_create, 2, JSPROP_PERMANENT | JSPROP_SHARED),
+		JS_FN("_create", js_cocos2dx_CCLabelAtlas_create, 2, JSPROP_PERMANENT | JSPROP_ENUMERATE),
 		JS_FS_END
 	};
 
@@ -27257,37 +27257,37 @@ void js_register_cocos2dx_CCSpriteBatchNode(JSContext *cx, JSObject *global) {
 	};
 
 	static JSFunctionSpec funcs[] = {
-		JS_FN("appendChild", js_cocos2dx_CCSpriteBatchNode_appendChild, 1, JSPROP_PERMANENT | JSPROP_SHARED),
-		JS_FN("reorderBatch", js_cocos2dx_CCSpriteBatchNode_reorderBatch, 1, JSPROP_PERMANENT | JSPROP_SHARED),
-		JS_FN("addChild", js_cocos2dx_CCSpriteBatchNode_addChild, 1, JSPROP_PERMANENT | JSPROP_SHARED),
-		JS_FN("visit", js_cocos2dx_CCSpriteBatchNode_visit, 0, JSPROP_PERMANENT | JSPROP_SHARED),
-		JS_FN("setTexture", js_cocos2dx_CCSpriteBatchNode_setTexture, 1, JSPROP_PERMANENT | JSPROP_SHARED),
-		JS_FN("removeChildAtIndex", js_cocos2dx_CCSpriteBatchNode_removeChildAtIndex, 2, JSPROP_PERMANENT | JSPROP_SHARED),
-		JS_FN("removeSpriteFromAtlas", js_cocos2dx_CCSpriteBatchNode_removeSpriteFromAtlas, 1, JSPROP_PERMANENT | JSPROP_SHARED),
-		JS_FN("atlasIndexForChild", js_cocos2dx_CCSpriteBatchNode_atlasIndexForChild, 2, JSPROP_PERMANENT | JSPROP_SHARED),
-		JS_FN("getTexture", js_cocos2dx_CCSpriteBatchNode_getTexture, 0, JSPROP_PERMANENT | JSPROP_SHARED),
-		JS_FN("increaseAtlasCapacity", js_cocos2dx_CCSpriteBatchNode_increaseAtlasCapacity, 0, JSPROP_PERMANENT | JSPROP_SHARED),
-		JS_FN("init", js_cocos2dx_CCSpriteBatchNode_init, 0, JSPROP_PERMANENT | JSPROP_SHARED),
-		JS_FN("insertChild", js_cocos2dx_CCSpriteBatchNode_insertChild, 2, JSPROP_PERMANENT | JSPROP_SHARED),
-		JS_FN("lowestAtlasIndexInChild", js_cocos2dx_CCSpriteBatchNode_lowestAtlasIndexInChild, 1, JSPROP_PERMANENT | JSPROP_SHARED),
-		JS_FN("draw", js_cocos2dx_CCSpriteBatchNode_draw, 0, JSPROP_PERMANENT | JSPROP_SHARED),
-		JS_FN("initWithTexture", js_cocos2dx_CCSpriteBatchNode_initWithTexture, 2, JSPROP_PERMANENT | JSPROP_SHARED),
-		JS_FN("setTextureAtlas", js_cocos2dx_CCSpriteBatchNode_setTextureAtlas, 1, JSPROP_PERMANENT | JSPROP_SHARED),
-		JS_FN("removeAllChildrenWithCleanup", js_cocos2dx_CCSpriteBatchNode_removeAllChildrenWithCleanup, 1, JSPROP_PERMANENT | JSPROP_SHARED),
-		JS_FN("sortAllChildren", js_cocos2dx_CCSpriteBatchNode_sortAllChildren, 0, JSPROP_PERMANENT | JSPROP_SHARED),
-		JS_FN("reorderChild", js_cocos2dx_CCSpriteBatchNode_reorderChild, 2, JSPROP_PERMANENT | JSPROP_SHARED),
-		JS_FN("initWithFile", js_cocos2dx_CCSpriteBatchNode_initWithFile, 2, JSPROP_PERMANENT | JSPROP_SHARED),
-		JS_FN("rebuildIndexInOrder", js_cocos2dx_CCSpriteBatchNode_rebuildIndexInOrder, 2, JSPROP_PERMANENT | JSPROP_SHARED),
-		JS_FN("getTextureAtlas", js_cocos2dx_CCSpriteBatchNode_getTextureAtlas, 0, JSPROP_PERMANENT | JSPROP_SHARED),
-		JS_FN("getDescendants", js_cocos2dx_CCSpriteBatchNode_getDescendants, 0, JSPROP_PERMANENT | JSPROP_SHARED),
-		JS_FN("removeChild", js_cocos2dx_CCSpriteBatchNode_removeChild, 2, JSPROP_PERMANENT | JSPROP_SHARED),
-		JS_FN("highestAtlasIndexInChild", js_cocos2dx_CCSpriteBatchNode_highestAtlasIndexInChild, 1, JSPROP_PERMANENT | JSPROP_SHARED),
+		JS_FN("appendChild", js_cocos2dx_CCSpriteBatchNode_appendChild, 1, JSPROP_PERMANENT | JSPROP_ENUMERATE),
+		JS_FN("reorderBatch", js_cocos2dx_CCSpriteBatchNode_reorderBatch, 1, JSPROP_PERMANENT | JSPROP_ENUMERATE),
+		JS_FN("addChild", js_cocos2dx_CCSpriteBatchNode_addChild, 1, JSPROP_PERMANENT | JSPROP_ENUMERATE),
+		JS_FN("visit", js_cocos2dx_CCSpriteBatchNode_visit, 0, JSPROP_PERMANENT | JSPROP_ENUMERATE),
+		JS_FN("setTexture", js_cocos2dx_CCSpriteBatchNode_setTexture, 1, JSPROP_PERMANENT | JSPROP_ENUMERATE),
+		JS_FN("removeChildAtIndex", js_cocos2dx_CCSpriteBatchNode_removeChildAtIndex, 2, JSPROP_PERMANENT | JSPROP_ENUMERATE),
+		JS_FN("removeSpriteFromAtlas", js_cocos2dx_CCSpriteBatchNode_removeSpriteFromAtlas, 1, JSPROP_PERMANENT | JSPROP_ENUMERATE),
+		JS_FN("atlasIndexForChild", js_cocos2dx_CCSpriteBatchNode_atlasIndexForChild, 2, JSPROP_PERMANENT | JSPROP_ENUMERATE),
+		JS_FN("getTexture", js_cocos2dx_CCSpriteBatchNode_getTexture, 0, JSPROP_PERMANENT | JSPROP_ENUMERATE),
+		JS_FN("increaseAtlasCapacity", js_cocos2dx_CCSpriteBatchNode_increaseAtlasCapacity, 0, JSPROP_PERMANENT | JSPROP_ENUMERATE),
+		JS_FN("init", js_cocos2dx_CCSpriteBatchNode_init, 0, JSPROP_PERMANENT | JSPROP_ENUMERATE),
+		JS_FN("insertChild", js_cocos2dx_CCSpriteBatchNode_insertChild, 2, JSPROP_PERMANENT | JSPROP_ENUMERATE),
+		JS_FN("lowestAtlasIndexInChild", js_cocos2dx_CCSpriteBatchNode_lowestAtlasIndexInChild, 1, JSPROP_PERMANENT | JSPROP_ENUMERATE),
+		JS_FN("draw", js_cocos2dx_CCSpriteBatchNode_draw, 0, JSPROP_PERMANENT | JSPROP_ENUMERATE),
+		JS_FN("initWithTexture", js_cocos2dx_CCSpriteBatchNode_initWithTexture, 2, JSPROP_PERMANENT | JSPROP_ENUMERATE),
+		JS_FN("setTextureAtlas", js_cocos2dx_CCSpriteBatchNode_setTextureAtlas, 1, JSPROP_PERMANENT | JSPROP_ENUMERATE),
+		JS_FN("removeAllChildrenWithCleanup", js_cocos2dx_CCSpriteBatchNode_removeAllChildrenWithCleanup, 1, JSPROP_PERMANENT | JSPROP_ENUMERATE),
+		JS_FN("sortAllChildren", js_cocos2dx_CCSpriteBatchNode_sortAllChildren, 0, JSPROP_PERMANENT | JSPROP_ENUMERATE),
+		JS_FN("reorderChild", js_cocos2dx_CCSpriteBatchNode_reorderChild, 2, JSPROP_PERMANENT | JSPROP_ENUMERATE),
+		JS_FN("initWithFile", js_cocos2dx_CCSpriteBatchNode_initWithFile, 2, JSPROP_PERMANENT | JSPROP_ENUMERATE),
+		JS_FN("rebuildIndexInOrder", js_cocos2dx_CCSpriteBatchNode_rebuildIndexInOrder, 2, JSPROP_PERMANENT | JSPROP_ENUMERATE),
+		JS_FN("getTextureAtlas", js_cocos2dx_CCSpriteBatchNode_getTextureAtlas, 0, JSPROP_PERMANENT | JSPROP_ENUMERATE),
+		JS_FN("getDescendants", js_cocos2dx_CCSpriteBatchNode_getDescendants, 0, JSPROP_PERMANENT | JSPROP_ENUMERATE),
+		JS_FN("removeChild", js_cocos2dx_CCSpriteBatchNode_removeChild, 2, JSPROP_PERMANENT | JSPROP_ENUMERATE),
+		JS_FN("highestAtlasIndexInChild", js_cocos2dx_CCSpriteBatchNode_highestAtlasIndexInChild, 1, JSPROP_PERMANENT | JSPROP_ENUMERATE),
 		JS_FS_END
 	};
 
 	static JSFunctionSpec st_funcs[] = {
-		JS_FN("create", js_cocos2dx_CCSpriteBatchNode_create, 1, JSPROP_PERMANENT | JSPROP_SHARED),
-		JS_FN("createWithTexture", js_cocos2dx_CCSpriteBatchNode_createWithTexture, 1, JSPROP_PERMANENT | JSPROP_SHARED),
+		JS_FN("create", js_cocos2dx_CCSpriteBatchNode_create, 1, JSPROP_PERMANENT | JSPROP_ENUMERATE),
+		JS_FN("createWithTexture", js_cocos2dx_CCSpriteBatchNode_createWithTexture, 1, JSPROP_PERMANENT | JSPROP_ENUMERATE),
 		JS_FS_END
 	};
 
@@ -27911,33 +27911,33 @@ void js_register_cocos2dx_CCLabelBMFont(JSContext *cx, JSObject *global) {
 	};
 
 	static JSFunctionSpec funcs[] = {
-		JS_FN("setAnchorPoint", js_cocos2dx_CCLabelBMFont_setAnchorPoint, 1, JSPROP_PERMANENT | JSPROP_SHARED),
-		JS_FN("createFontChars", js_cocos2dx_CCLabelBMFont_createFontChars, 0, JSPROP_PERMANENT | JSPROP_SHARED),
-		JS_FN("getString", js_cocos2dx_CCLabelBMFont_getString, 0, JSPROP_PERMANENT | JSPROP_SHARED),
-		JS_FN("setScale", js_cocos2dx_CCLabelBMFont_setScale, 1, JSPROP_PERMANENT | JSPROP_SHARED),
-		JS_FN("getFntFile", js_cocos2dx_CCLabelBMFont_getFntFile, 0, JSPROP_PERMANENT | JSPROP_SHARED),
-		JS_FN("updateLabel", js_cocos2dx_CCLabelBMFont_updateLabel, 0, JSPROP_PERMANENT | JSPROP_SHARED),
-		JS_FN("setWidth", js_cocos2dx_CCLabelBMFont_setWidth, 1, JSPROP_PERMANENT | JSPROP_SHARED),
-		JS_FN("setString", js_cocos2dx_CCLabelBMFont_setString, 1, JSPROP_PERMANENT | JSPROP_SHARED),
-		JS_FN("initWithString", js_cocos2dx_CCLabelBMFont_initWithString, 5, JSPROP_PERMANENT | JSPROP_SHARED),
-		JS_FN("setOpacity", js_cocos2dx_CCLabelBMFont_setOpacity, 1, JSPROP_PERMANENT | JSPROP_SHARED),
-		JS_FN("init", js_cocos2dx_CCLabelBMFont_init, 0, JSPROP_PERMANENT | JSPROP_SHARED),
-		JS_FN("setFntFile", js_cocos2dx_CCLabelBMFont_setFntFile, 1, JSPROP_PERMANENT | JSPROP_SHARED),
-		JS_FN("getOpacity", js_cocos2dx_CCLabelBMFont_getOpacity, 0, JSPROP_PERMANENT | JSPROP_SHARED),
-		JS_FN("setLineBreakWithoutSpace", js_cocos2dx_CCLabelBMFont_setLineBreakWithoutSpace, 1, JSPROP_PERMANENT | JSPROP_SHARED),
-		JS_FN("setScaleY", js_cocos2dx_CCLabelBMFont_setScaleY, 1, JSPROP_PERMANENT | JSPROP_SHARED),
-		JS_FN("setScaleX", js_cocos2dx_CCLabelBMFont_setScaleX, 1, JSPROP_PERMANENT | JSPROP_SHARED),
-		JS_FN("getColor", js_cocos2dx_CCLabelBMFont_getColor, 0, JSPROP_PERMANENT | JSPROP_SHARED),
-		JS_FN("updateString", js_cocos2dx_CCLabelBMFont_updateString, 1, JSPROP_PERMANENT | JSPROP_SHARED),
-		JS_FN("setColor", js_cocos2dx_CCLabelBMFont_setColor, 1, JSPROP_PERMANENT | JSPROP_SHARED),
-		JS_FN("setCString", js_cocos2dx_CCLabelBMFont_setCString, 1, JSPROP_PERMANENT | JSPROP_SHARED),
-		JS_FN("setAlignment", js_cocos2dx_CCLabelBMFont_setAlignment, 1, JSPROP_PERMANENT | JSPROP_SHARED),
+		JS_FN("setAnchorPoint", js_cocos2dx_CCLabelBMFont_setAnchorPoint, 1, JSPROP_PERMANENT | JSPROP_ENUMERATE),
+		JS_FN("createFontChars", js_cocos2dx_CCLabelBMFont_createFontChars, 0, JSPROP_PERMANENT | JSPROP_ENUMERATE),
+		JS_FN("getString", js_cocos2dx_CCLabelBMFont_getString, 0, JSPROP_PERMANENT | JSPROP_ENUMERATE),
+		JS_FN("setScale", js_cocos2dx_CCLabelBMFont_setScale, 1, JSPROP_PERMANENT | JSPROP_ENUMERATE),
+		JS_FN("getFntFile", js_cocos2dx_CCLabelBMFont_getFntFile, 0, JSPROP_PERMANENT | JSPROP_ENUMERATE),
+		JS_FN("updateLabel", js_cocos2dx_CCLabelBMFont_updateLabel, 0, JSPROP_PERMANENT | JSPROP_ENUMERATE),
+		JS_FN("setWidth", js_cocos2dx_CCLabelBMFont_setWidth, 1, JSPROP_PERMANENT | JSPROP_ENUMERATE),
+		JS_FN("setString", js_cocos2dx_CCLabelBMFont_setString, 1, JSPROP_PERMANENT | JSPROP_ENUMERATE),
+		JS_FN("initWithString", js_cocos2dx_CCLabelBMFont_initWithString, 5, JSPROP_PERMANENT | JSPROP_ENUMERATE),
+		JS_FN("setOpacity", js_cocos2dx_CCLabelBMFont_setOpacity, 1, JSPROP_PERMANENT | JSPROP_ENUMERATE),
+		JS_FN("init", js_cocos2dx_CCLabelBMFont_init, 0, JSPROP_PERMANENT | JSPROP_ENUMERATE),
+		JS_FN("setFntFile", js_cocos2dx_CCLabelBMFont_setFntFile, 1, JSPROP_PERMANENT | JSPROP_ENUMERATE),
+		JS_FN("getOpacity", js_cocos2dx_CCLabelBMFont_getOpacity, 0, JSPROP_PERMANENT | JSPROP_ENUMERATE),
+		JS_FN("setLineBreakWithoutSpace", js_cocos2dx_CCLabelBMFont_setLineBreakWithoutSpace, 1, JSPROP_PERMANENT | JSPROP_ENUMERATE),
+		JS_FN("setScaleY", js_cocos2dx_CCLabelBMFont_setScaleY, 1, JSPROP_PERMANENT | JSPROP_ENUMERATE),
+		JS_FN("setScaleX", js_cocos2dx_CCLabelBMFont_setScaleX, 1, JSPROP_PERMANENT | JSPROP_ENUMERATE),
+		JS_FN("getColor", js_cocos2dx_CCLabelBMFont_getColor, 0, JSPROP_PERMANENT | JSPROP_ENUMERATE),
+		JS_FN("updateString", js_cocos2dx_CCLabelBMFont_updateString, 1, JSPROP_PERMANENT | JSPROP_ENUMERATE),
+		JS_FN("setColor", js_cocos2dx_CCLabelBMFont_setColor, 1, JSPROP_PERMANENT | JSPROP_ENUMERATE),
+		JS_FN("setCString", js_cocos2dx_CCLabelBMFont_setCString, 1, JSPROP_PERMANENT | JSPROP_ENUMERATE),
+		JS_FN("setAlignment", js_cocos2dx_CCLabelBMFont_setAlignment, 1, JSPROP_PERMANENT | JSPROP_ENUMERATE),
 		JS_FS_END
 	};
 
 	static JSFunctionSpec st_funcs[] = {
-		JS_FN("purgeCachedData", js_cocos2dx_CCLabelBMFont_purgeCachedData, 0, JSPROP_PERMANENT | JSPROP_SHARED),
-		JS_FN("create", js_cocos2dx_CCLabelBMFont_create, 0, JSPROP_PERMANENT | JSPROP_SHARED),
+		JS_FN("purgeCachedData", js_cocos2dx_CCLabelBMFont_purgeCachedData, 0, JSPROP_PERMANENT | JSPROP_ENUMERATE),
+		JS_FN("create", js_cocos2dx_CCLabelBMFont_create, 0, JSPROP_PERMANENT | JSPROP_ENUMERATE),
 		JS_FS_END
 	};
 
@@ -28766,43 +28766,43 @@ void js_register_cocos2dx_CCLayer(JSContext *cx, JSObject *global) {
 	};
 
 	static JSFunctionSpec funcs[] = {
-		JS_FN("unregisterScriptTouchHandler", js_cocos2dx_CCLayer_unregisterScriptTouchHandler, 0, JSPROP_PERMANENT | JSPROP_SHARED),
-		JS_FN("keyBackClicked", js_cocos2dx_CCLayer_keyBackClicked, 0, JSPROP_PERMANENT | JSPROP_SHARED),
-		JS_FN("ccTouchBegan", js_cocos2dx_CCLayer_ccTouchBegan, 2, JSPROP_PERMANENT | JSPROP_SHARED),
-		JS_FN("setAccelerometerInterval", js_cocos2dx_CCLayer_setAccelerometerInterval, 1, JSPROP_PERMANENT | JSPROP_SHARED),
-		JS_FN("ccTouchesCancelled", js_cocos2dx_CCLayer_ccTouchesCancelled, 2, JSPROP_PERMANENT | JSPROP_SHARED),
-		JS_FN("unregisterScriptAccelerateHandler", js_cocos2dx_CCLayer_unregisterScriptAccelerateHandler, 0, JSPROP_PERMANENT | JSPROP_SHARED),
-		JS_FN("ccTouchesMoved", js_cocos2dx_CCLayer_ccTouchesMoved, 2, JSPROP_PERMANENT | JSPROP_SHARED),
-		JS_FN("registerScriptAccelerateHandler", js_cocos2dx_CCLayer_registerScriptAccelerateHandler, 1, JSPROP_PERMANENT | JSPROP_SHARED),
-		JS_FN("getTouchMode", js_cocos2dx_CCLayer_getTouchMode, 0, JSPROP_PERMANENT | JSPROP_SHARED),
-		JS_FN("setAccelerometerEnabled", js_cocos2dx_CCLayer_setAccelerometerEnabled, 1, JSPROP_PERMANENT | JSPROP_SHARED),
-		JS_FN("init", js_cocos2dx_CCLayer_init, 0, JSPROP_PERMANENT | JSPROP_SHARED),
-		JS_FN("isTouchEnabled", js_cocos2dx_CCLayer_isTouchEnabled, 0, JSPROP_PERMANENT | JSPROP_SHARED),
-		JS_FN("getScriptAccelerateHandlerEntry", js_cocos2dx_CCLayer_getScriptAccelerateHandlerEntry, 0, JSPROP_PERMANENT | JSPROP_SHARED),
-		JS_FN("getScriptKeypadHandlerEntry", js_cocos2dx_CCLayer_getScriptKeypadHandlerEntry, 0, JSPROP_PERMANENT | JSPROP_SHARED),
-		JS_FN("ccTouchMoved", js_cocos2dx_CCLayer_ccTouchMoved, 2, JSPROP_PERMANENT | JSPROP_SHARED),
-		JS_FN("setTouchEnabled", js_cocos2dx_CCLayer_setTouchEnabled, 1, JSPROP_PERMANENT | JSPROP_SHARED),
-		JS_FN("unregisterScriptKeypadHandler", js_cocos2dx_CCLayer_unregisterScriptKeypadHandler, 0, JSPROP_PERMANENT | JSPROP_SHARED),
-		JS_FN("isKeypadEnabled", js_cocos2dx_CCLayer_isKeypadEnabled, 0, JSPROP_PERMANENT | JSPROP_SHARED),
-		JS_FN("ccTouchesEnded", js_cocos2dx_CCLayer_ccTouchesEnded, 2, JSPROP_PERMANENT | JSPROP_SHARED),
-		JS_FN("setTouchMode", js_cocos2dx_CCLayer_setTouchMode, 1, JSPROP_PERMANENT | JSPROP_SHARED),
-		JS_FN("isAccelerometerEnabled", js_cocos2dx_CCLayer_isAccelerometerEnabled, 0, JSPROP_PERMANENT | JSPROP_SHARED),
-		JS_FN("ccTouchEnded", js_cocos2dx_CCLayer_ccTouchEnded, 2, JSPROP_PERMANENT | JSPROP_SHARED),
-		JS_FN("registerScriptTouchHandler", js_cocos2dx_CCLayer_registerScriptTouchHandler, 4, JSPROP_PERMANENT | JSPROP_SHARED),
-		JS_FN("ccTouchCancelled", js_cocos2dx_CCLayer_ccTouchCancelled, 2, JSPROP_PERMANENT | JSPROP_SHARED),
-		JS_FN("getScriptTouchHandlerEntry", js_cocos2dx_CCLayer_getScriptTouchHandlerEntry, 0, JSPROP_PERMANENT | JSPROP_SHARED),
-		JS_FN("ccTouchesBegan", js_cocos2dx_CCLayer_ccTouchesBegan, 2, JSPROP_PERMANENT | JSPROP_SHARED),
-		JS_FN("setTouchPriority", js_cocos2dx_CCLayer_setTouchPriority, 1, JSPROP_PERMANENT | JSPROP_SHARED),
-		JS_FN("getTouchPriority", js_cocos2dx_CCLayer_getTouchPriority, 0, JSPROP_PERMANENT | JSPROP_SHARED),
-		JS_FN("setKeypadEnabled", js_cocos2dx_CCLayer_setKeypadEnabled, 1, JSPROP_PERMANENT | JSPROP_SHARED),
-		JS_FN("registerWithTouchDispatcher", js_cocos2dx_CCLayer_registerWithTouchDispatcher, 0, JSPROP_PERMANENT | JSPROP_SHARED),
-		JS_FN("keyMenuClicked", js_cocos2dx_CCLayer_keyMenuClicked, 0, JSPROP_PERMANENT | JSPROP_SHARED),
-		JS_FN("registerScriptKeypadHandler", js_cocos2dx_CCLayer_registerScriptKeypadHandler, 1, JSPROP_PERMANENT | JSPROP_SHARED),
+		JS_FN("unregisterScriptTouchHandler", js_cocos2dx_CCLayer_unregisterScriptTouchHandler, 0, JSPROP_PERMANENT | JSPROP_ENUMERATE),
+		JS_FN("keyBackClicked", js_cocos2dx_CCLayer_keyBackClicked, 0, JSPROP_PERMANENT | JSPROP_ENUMERATE),
+		JS_FN("ccTouchBegan", js_cocos2dx_CCLayer_ccTouchBegan, 2, JSPROP_PERMANENT | JSPROP_ENUMERATE),
+		JS_FN("setAccelerometerInterval", js_cocos2dx_CCLayer_setAccelerometerInterval, 1, JSPROP_PERMANENT | JSPROP_ENUMERATE),
+		JS_FN("ccTouchesCancelled", js_cocos2dx_CCLayer_ccTouchesCancelled, 2, JSPROP_PERMANENT | JSPROP_ENUMERATE),
+		JS_FN("unregisterScriptAccelerateHandler", js_cocos2dx_CCLayer_unregisterScriptAccelerateHandler, 0, JSPROP_PERMANENT | JSPROP_ENUMERATE),
+		JS_FN("ccTouchesMoved", js_cocos2dx_CCLayer_ccTouchesMoved, 2, JSPROP_PERMANENT | JSPROP_ENUMERATE),
+		JS_FN("registerScriptAccelerateHandler", js_cocos2dx_CCLayer_registerScriptAccelerateHandler, 1, JSPROP_PERMANENT | JSPROP_ENUMERATE),
+		JS_FN("getTouchMode", js_cocos2dx_CCLayer_getTouchMode, 0, JSPROP_PERMANENT | JSPROP_ENUMERATE),
+		JS_FN("setAccelerometerEnabled", js_cocos2dx_CCLayer_setAccelerometerEnabled, 1, JSPROP_PERMANENT | JSPROP_ENUMERATE),
+		JS_FN("init", js_cocos2dx_CCLayer_init, 0, JSPROP_PERMANENT | JSPROP_ENUMERATE),
+		JS_FN("isTouchEnabled", js_cocos2dx_CCLayer_isTouchEnabled, 0, JSPROP_PERMANENT | JSPROP_ENUMERATE),
+		JS_FN("getScriptAccelerateHandlerEntry", js_cocos2dx_CCLayer_getScriptAccelerateHandlerEntry, 0, JSPROP_PERMANENT | JSPROP_ENUMERATE),
+		JS_FN("getScriptKeypadHandlerEntry", js_cocos2dx_CCLayer_getScriptKeypadHandlerEntry, 0, JSPROP_PERMANENT | JSPROP_ENUMERATE),
+		JS_FN("ccTouchMoved", js_cocos2dx_CCLayer_ccTouchMoved, 2, JSPROP_PERMANENT | JSPROP_ENUMERATE),
+		JS_FN("setTouchEnabled", js_cocos2dx_CCLayer_setTouchEnabled, 1, JSPROP_PERMANENT | JSPROP_ENUMERATE),
+		JS_FN("unregisterScriptKeypadHandler", js_cocos2dx_CCLayer_unregisterScriptKeypadHandler, 0, JSPROP_PERMANENT | JSPROP_ENUMERATE),
+		JS_FN("isKeypadEnabled", js_cocos2dx_CCLayer_isKeypadEnabled, 0, JSPROP_PERMANENT | JSPROP_ENUMERATE),
+		JS_FN("ccTouchesEnded", js_cocos2dx_CCLayer_ccTouchesEnded, 2, JSPROP_PERMANENT | JSPROP_ENUMERATE),
+		JS_FN("setTouchMode", js_cocos2dx_CCLayer_setTouchMode, 1, JSPROP_PERMANENT | JSPROP_ENUMERATE),
+		JS_FN("isAccelerometerEnabled", js_cocos2dx_CCLayer_isAccelerometerEnabled, 0, JSPROP_PERMANENT | JSPROP_ENUMERATE),
+		JS_FN("ccTouchEnded", js_cocos2dx_CCLayer_ccTouchEnded, 2, JSPROP_PERMANENT | JSPROP_ENUMERATE),
+		JS_FN("registerScriptTouchHandler", js_cocos2dx_CCLayer_registerScriptTouchHandler, 4, JSPROP_PERMANENT | JSPROP_ENUMERATE),
+		JS_FN("ccTouchCancelled", js_cocos2dx_CCLayer_ccTouchCancelled, 2, JSPROP_PERMANENT | JSPROP_ENUMERATE),
+		JS_FN("getScriptTouchHandlerEntry", js_cocos2dx_CCLayer_getScriptTouchHandlerEntry, 0, JSPROP_PERMANENT | JSPROP_ENUMERATE),
+		JS_FN("ccTouchesBegan", js_cocos2dx_CCLayer_ccTouchesBegan, 2, JSPROP_PERMANENT | JSPROP_ENUMERATE),
+		JS_FN("setTouchPriority", js_cocos2dx_CCLayer_setTouchPriority, 1, JSPROP_PERMANENT | JSPROP_ENUMERATE),
+		JS_FN("getTouchPriority", js_cocos2dx_CCLayer_getTouchPriority, 0, JSPROP_PERMANENT | JSPROP_ENUMERATE),
+		JS_FN("setKeypadEnabled", js_cocos2dx_CCLayer_setKeypadEnabled, 1, JSPROP_PERMANENT | JSPROP_ENUMERATE),
+		JS_FN("registerWithTouchDispatcher", js_cocos2dx_CCLayer_registerWithTouchDispatcher, 0, JSPROP_PERMANENT | JSPROP_ENUMERATE),
+		JS_FN("keyMenuClicked", js_cocos2dx_CCLayer_keyMenuClicked, 0, JSPROP_PERMANENT | JSPROP_ENUMERATE),
+		JS_FN("registerScriptKeypadHandler", js_cocos2dx_CCLayer_registerScriptKeypadHandler, 1, JSPROP_PERMANENT | JSPROP_ENUMERATE),
 		JS_FS_END
 	};
 
 	static JSFunctionSpec st_funcs[] = {
-		JS_FN("create", js_cocos2dx_CCLayer_create, 0, JSPROP_PERMANENT | JSPROP_SHARED),
+		JS_FN("create", js_cocos2dx_CCLayer_create, 0, JSPROP_PERMANENT | JSPROP_ENUMERATE),
 		JS_FS_END
 	};
 
@@ -29182,22 +29182,22 @@ void js_register_cocos2dx_CCLayerColor(JSContext *cx, JSObject *global) {
 	};
 
 	static JSFunctionSpec funcs[] = {
-		JS_FN("draw", js_cocos2dx_CCLayerColor_draw, 0, JSPROP_PERMANENT | JSPROP_SHARED),
-		JS_FN("setColor", js_cocos2dx_CCLayerColor_setColor, 1, JSPROP_PERMANENT | JSPROP_SHARED),
-		JS_FN("getColor", js_cocos2dx_CCLayerColor_getColor, 0, JSPROP_PERMANENT | JSPROP_SHARED),
-		JS_FN("changeWidthAndHeight", js_cocos2dx_CCLayerColor_changeWidthAndHeight, 2, JSPROP_PERMANENT | JSPROP_SHARED),
-		JS_FN("setOpacity", js_cocos2dx_CCLayerColor_setOpacity, 1, JSPROP_PERMANENT | JSPROP_SHARED),
-		JS_FN("init", js_cocos2dx_CCLayerColor_initWithColor, 0, JSPROP_PERMANENT | JSPROP_SHARED),
-		JS_FN("changeWidth", js_cocos2dx_CCLayerColor_changeWidth, 1, JSPROP_PERMANENT | JSPROP_SHARED),
-		JS_FN("getOpacity", js_cocos2dx_CCLayerColor_getOpacity, 0, JSPROP_PERMANENT | JSPROP_SHARED),
-		JS_FN("setContentSize", js_cocos2dx_CCLayerColor_setContentSize, 1, JSPROP_PERMANENT | JSPROP_SHARED),
-		JS_FN("changeHeight", js_cocos2dx_CCLayerColor_changeHeight, 1, JSPROP_PERMANENT | JSPROP_SHARED),
+		JS_FN("draw", js_cocos2dx_CCLayerColor_draw, 0, JSPROP_PERMANENT | JSPROP_ENUMERATE),
+		JS_FN("setColor", js_cocos2dx_CCLayerColor_setColor, 1, JSPROP_PERMANENT | JSPROP_ENUMERATE),
+		JS_FN("getColor", js_cocos2dx_CCLayerColor_getColor, 0, JSPROP_PERMANENT | JSPROP_ENUMERATE),
+		JS_FN("changeWidthAndHeight", js_cocos2dx_CCLayerColor_changeWidthAndHeight, 2, JSPROP_PERMANENT | JSPROP_ENUMERATE),
+		JS_FN("setOpacity", js_cocos2dx_CCLayerColor_setOpacity, 1, JSPROP_PERMANENT | JSPROP_ENUMERATE),
+		JS_FN("init", js_cocos2dx_CCLayerColor_initWithColor, 0, JSPROP_PERMANENT | JSPROP_ENUMERATE),
+		JS_FN("changeWidth", js_cocos2dx_CCLayerColor_changeWidth, 1, JSPROP_PERMANENT | JSPROP_ENUMERATE),
+		JS_FN("getOpacity", js_cocos2dx_CCLayerColor_getOpacity, 0, JSPROP_PERMANENT | JSPROP_ENUMERATE),
+		JS_FN("setContentSize", js_cocos2dx_CCLayerColor_setContentSize, 1, JSPROP_PERMANENT | JSPROP_ENUMERATE),
+		JS_FN("changeHeight", js_cocos2dx_CCLayerColor_changeHeight, 1, JSPROP_PERMANENT | JSPROP_ENUMERATE),
 		JS_FS_END
 	};
 
 	static JSFunctionSpec st_funcs[] = {
-		JS_FN("node", js_cocos2dx_CCLayerColor_node, 0, JSPROP_PERMANENT | JSPROP_SHARED),
-		JS_FN("create", js_cocos2dx_CCLayerColor_create, 0, JSPROP_PERMANENT | JSPROP_SHARED),
+		JS_FN("node", js_cocos2dx_CCLayerColor_node, 0, JSPROP_PERMANENT | JSPROP_ENUMERATE),
+		JS_FN("create", js_cocos2dx_CCLayerColor_create, 0, JSPROP_PERMANENT | JSPROP_ENUMERATE),
 		JS_FS_END
 	};
 
@@ -29602,25 +29602,25 @@ void js_register_cocos2dx_CCLayerGradient(JSContext *cx, JSObject *global) {
 	};
 
 	static JSFunctionSpec funcs[] = {
-		JS_FN("getStartColor", js_cocos2dx_CCLayerGradient_getStartColor, 0, JSPROP_PERMANENT | JSPROP_SHARED),
-		JS_FN("isCompressedInterpolation", js_cocos2dx_CCLayerGradient_isCompressedInterpolation, 0, JSPROP_PERMANENT | JSPROP_SHARED),
-		JS_FN("getStartOpacity", js_cocos2dx_CCLayerGradient_getStartOpacity, 0, JSPROP_PERMANENT | JSPROP_SHARED),
-		JS_FN("setVector", js_cocos2dx_CCLayerGradient_setVector, 1, JSPROP_PERMANENT | JSPROP_SHARED),
-		JS_FN("setStartOpacity", js_cocos2dx_CCLayerGradient_setStartOpacity, 1, JSPROP_PERMANENT | JSPROP_SHARED),
-		JS_FN("setCompressedInterpolation", js_cocos2dx_CCLayerGradient_setCompressedInterpolation, 1, JSPROP_PERMANENT | JSPROP_SHARED),
-		JS_FN("setEndOpacity", js_cocos2dx_CCLayerGradient_setEndOpacity, 1, JSPROP_PERMANENT | JSPROP_SHARED),
-		JS_FN("getVector", js_cocos2dx_CCLayerGradient_getVector, 0, JSPROP_PERMANENT | JSPROP_SHARED),
-		JS_FN("init", js_cocos2dx_CCLayerGradient_initWithColor, 0, JSPROP_PERMANENT | JSPROP_SHARED),
-		JS_FN("setEndColor", js_cocos2dx_CCLayerGradient_setEndColor, 1, JSPROP_PERMANENT | JSPROP_SHARED),
-		JS_FN("getEndColor", js_cocos2dx_CCLayerGradient_getEndColor, 0, JSPROP_PERMANENT | JSPROP_SHARED),
-		JS_FN("getEndOpacity", js_cocos2dx_CCLayerGradient_getEndOpacity, 0, JSPROP_PERMANENT | JSPROP_SHARED),
-		JS_FN("setStartColor", js_cocos2dx_CCLayerGradient_setStartColor, 1, JSPROP_PERMANENT | JSPROP_SHARED),
+		JS_FN("getStartColor", js_cocos2dx_CCLayerGradient_getStartColor, 0, JSPROP_PERMANENT | JSPROP_ENUMERATE),
+		JS_FN("isCompressedInterpolation", js_cocos2dx_CCLayerGradient_isCompressedInterpolation, 0, JSPROP_PERMANENT | JSPROP_ENUMERATE),
+		JS_FN("getStartOpacity", js_cocos2dx_CCLayerGradient_getStartOpacity, 0, JSPROP_PERMANENT | JSPROP_ENUMERATE),
+		JS_FN("setVector", js_cocos2dx_CCLayerGradient_setVector, 1, JSPROP_PERMANENT | JSPROP_ENUMERATE),
+		JS_FN("setStartOpacity", js_cocos2dx_CCLayerGradient_setStartOpacity, 1, JSPROP_PERMANENT | JSPROP_ENUMERATE),
+		JS_FN("setCompressedInterpolation", js_cocos2dx_CCLayerGradient_setCompressedInterpolation, 1, JSPROP_PERMANENT | JSPROP_ENUMERATE),
+		JS_FN("setEndOpacity", js_cocos2dx_CCLayerGradient_setEndOpacity, 1, JSPROP_PERMANENT | JSPROP_ENUMERATE),
+		JS_FN("getVector", js_cocos2dx_CCLayerGradient_getVector, 0, JSPROP_PERMANENT | JSPROP_ENUMERATE),
+		JS_FN("init", js_cocos2dx_CCLayerGradient_initWithColor, 0, JSPROP_PERMANENT | JSPROP_ENUMERATE),
+		JS_FN("setEndColor", js_cocos2dx_CCLayerGradient_setEndColor, 1, JSPROP_PERMANENT | JSPROP_ENUMERATE),
+		JS_FN("getEndColor", js_cocos2dx_CCLayerGradient_getEndColor, 0, JSPROP_PERMANENT | JSPROP_ENUMERATE),
+		JS_FN("getEndOpacity", js_cocos2dx_CCLayerGradient_getEndOpacity, 0, JSPROP_PERMANENT | JSPROP_ENUMERATE),
+		JS_FN("setStartColor", js_cocos2dx_CCLayerGradient_setStartColor, 1, JSPROP_PERMANENT | JSPROP_ENUMERATE),
 		JS_FS_END
 	};
 
 	static JSFunctionSpec st_funcs[] = {
-		JS_FN("node", js_cocos2dx_CCLayerGradient_node, 0, JSPROP_PERMANENT | JSPROP_SHARED),
-		JS_FN("create", js_cocos2dx_CCLayerGradient_create, 0, JSPROP_PERMANENT | JSPROP_SHARED),
+		JS_FN("node", js_cocos2dx_CCLayerGradient_node, 0, JSPROP_PERMANENT | JSPROP_ENUMERATE),
+		JS_FN("create", js_cocos2dx_CCLayerGradient_create, 0, JSPROP_PERMANENT | JSPROP_ENUMERATE),
 		JS_FS_END
 	};
 
@@ -29813,15 +29813,15 @@ void js_register_cocos2dx_CCLayerMultiplex(JSContext *cx, JSObject *global) {
 	};
 
 	static JSFunctionSpec funcs[] = {
-		JS_FN("initWithArray", js_cocos2dx_CCLayerMultiplex_initWithArray, 1, JSPROP_PERMANENT | JSPROP_SHARED),
-		JS_FN("switchToAndReleaseMe", js_cocos2dx_CCLayerMultiplex_switchToAndReleaseMe, 1, JSPROP_PERMANENT | JSPROP_SHARED),
-		JS_FN("addLayer", js_cocos2dx_CCLayerMultiplex_addLayer, 1, JSPROP_PERMANENT | JSPROP_SHARED),
-		JS_FN("switchTo", js_cocos2dx_CCLayerMultiplex_switchTo, 1, JSPROP_PERMANENT | JSPROP_SHARED),
+		JS_FN("initWithArray", js_cocos2dx_CCLayerMultiplex_initWithArray, 1, JSPROP_PERMANENT | JSPROP_ENUMERATE),
+		JS_FN("switchToAndReleaseMe", js_cocos2dx_CCLayerMultiplex_switchToAndReleaseMe, 1, JSPROP_PERMANENT | JSPROP_ENUMERATE),
+		JS_FN("addLayer", js_cocos2dx_CCLayerMultiplex_addLayer, 1, JSPROP_PERMANENT | JSPROP_ENUMERATE),
+		JS_FN("switchTo", js_cocos2dx_CCLayerMultiplex_switchTo, 1, JSPROP_PERMANENT | JSPROP_ENUMERATE),
 		JS_FS_END
 	};
 
 	static JSFunctionSpec st_funcs[] = {
-		JS_FN("node", js_cocos2dx_CCLayerMultiplex_node, 0, JSPROP_PERMANENT | JSPROP_SHARED),
+		JS_FN("node", js_cocos2dx_CCLayerMultiplex_node, 0, JSPROP_PERMANENT | JSPROP_ENUMERATE),
 		JS_FS_END
 	};
 
@@ -29941,12 +29941,12 @@ void js_register_cocos2dx_CCScene(JSContext *cx, JSObject *global) {
 	JSPropertySpec *properties = NULL;
 
 	static JSFunctionSpec funcs[] = {
-		JS_FN("init", js_cocos2dx_CCScene_init, 0, JSPROP_PERMANENT | JSPROP_SHARED),
+		JS_FN("init", js_cocos2dx_CCScene_init, 0, JSPROP_PERMANENT | JSPROP_ENUMERATE),
 		JS_FS_END
 	};
 
 	static JSFunctionSpec st_funcs[] = {
-		JS_FN("create", js_cocos2dx_CCScene_create, 0, JSPROP_PERMANENT | JSPROP_SHARED),
+		JS_FN("create", js_cocos2dx_CCScene_create, 0, JSPROP_PERMANENT | JSPROP_ENUMERATE),
 		JS_FS_END
 	};
 
@@ -30038,7 +30038,7 @@ void js_register_cocos2dx_CCTransitionEaseScene(JSContext *cx, JSObject *global)
 	JSPropertySpec *properties = NULL;
 
 	static JSFunctionSpec funcs[] = {
-		JS_FN("easeActionWithAction", js_cocos2dx_CCTransitionEaseScene_easeActionWithAction, 1, JSPROP_PERMANENT | JSPROP_SHARED),
+		JS_FN("easeActionWithAction", js_cocos2dx_CCTransitionEaseScene_easeActionWithAction, 1, JSPROP_PERMANENT | JSPROP_ENUMERATE),
 		JS_FS_END
 	};
 
@@ -30251,16 +30251,16 @@ void js_register_cocos2dx_CCTransitionScene(JSContext *cx, JSObject *global) {
 	};
 
 	static JSFunctionSpec funcs[] = {
-		JS_FN("draw", js_cocos2dx_CCTransitionScene_draw, 0, JSPROP_PERMANENT | JSPROP_SHARED),
-		JS_FN("finish", js_cocos2dx_CCTransitionScene_finish, 0, JSPROP_PERMANENT | JSPROP_SHARED),
-		JS_FN("initWithDuration", js_cocos2dx_CCTransitionScene_initWithDuration, 2, JSPROP_PERMANENT | JSPROP_SHARED),
-		JS_FN("cleanup", js_cocos2dx_CCTransitionScene_cleanup, 0, JSPROP_PERMANENT | JSPROP_SHARED),
-		JS_FN("hideOutShowIn", js_cocos2dx_CCTransitionScene_hideOutShowIn, 0, JSPROP_PERMANENT | JSPROP_SHARED),
+		JS_FN("draw", js_cocos2dx_CCTransitionScene_draw, 0, JSPROP_PERMANENT | JSPROP_ENUMERATE),
+		JS_FN("finish", js_cocos2dx_CCTransitionScene_finish, 0, JSPROP_PERMANENT | JSPROP_ENUMERATE),
+		JS_FN("initWithDuration", js_cocos2dx_CCTransitionScene_initWithDuration, 2, JSPROP_PERMANENT | JSPROP_ENUMERATE),
+		JS_FN("cleanup", js_cocos2dx_CCTransitionScene_cleanup, 0, JSPROP_PERMANENT | JSPROP_ENUMERATE),
+		JS_FN("hideOutShowIn", js_cocos2dx_CCTransitionScene_hideOutShowIn, 0, JSPROP_PERMANENT | JSPROP_ENUMERATE),
 		JS_FS_END
 	};
 
 	static JSFunctionSpec st_funcs[] = {
-		JS_FN("create", js_cocos2dx_CCTransitionScene_create, 2, JSPROP_PERMANENT | JSPROP_SHARED),
+		JS_FN("create", js_cocos2dx_CCTransitionScene_create, 2, JSPROP_PERMANENT | JSPROP_ENUMERATE),
 		JS_FS_END
 	};
 
@@ -30415,12 +30415,12 @@ void js_register_cocos2dx_CCTransitionSceneOriented(JSContext *cx, JSObject *glo
 	};
 
 	static JSFunctionSpec funcs[] = {
-		JS_FN("initWithDuration", js_cocos2dx_CCTransitionSceneOriented_initWithDuration, 3, JSPROP_PERMANENT | JSPROP_SHARED),
+		JS_FN("initWithDuration", js_cocos2dx_CCTransitionSceneOriented_initWithDuration, 3, JSPROP_PERMANENT | JSPROP_ENUMERATE),
 		JS_FS_END
 	};
 
 	static JSFunctionSpec st_funcs[] = {
-		JS_FN("create", js_cocos2dx_CCTransitionSceneOriented_create, 3, JSPROP_PERMANENT | JSPROP_SHARED),
+		JS_FN("create", js_cocos2dx_CCTransitionSceneOriented_create, 3, JSPROP_PERMANENT | JSPROP_ENUMERATE),
 		JS_FS_END
 	};
 
@@ -30541,7 +30541,7 @@ void js_register_cocos2dx_CCTransitionRotoZoom(JSContext *cx, JSObject *global) 
 	JSFunctionSpec *funcs = NULL;
 
 	static JSFunctionSpec st_funcs[] = {
-		JS_FN("create", js_cocos2dx_CCTransitionRotoZoom_create, 2, JSPROP_PERMANENT | JSPROP_SHARED),
+		JS_FN("create", js_cocos2dx_CCTransitionRotoZoom_create, 2, JSPROP_PERMANENT | JSPROP_ENUMERATE),
 		JS_FS_END
 	};
 
@@ -30662,7 +30662,7 @@ void js_register_cocos2dx_CCTransitionJumpZoom(JSContext *cx, JSObject *global) 
 	JSFunctionSpec *funcs = NULL;
 
 	static JSFunctionSpec st_funcs[] = {
-		JS_FN("create", js_cocos2dx_CCTransitionJumpZoom_create, 2, JSPROP_PERMANENT | JSPROP_SHARED),
+		JS_FN("create", js_cocos2dx_CCTransitionJumpZoom_create, 2, JSPROP_PERMANENT | JSPROP_ENUMERATE),
 		JS_FS_END
 	};
 
@@ -30855,14 +30855,14 @@ void js_register_cocos2dx_CCTransitionMoveInL(JSContext *cx, JSObject *global) {
 	JSPropertySpec *properties = NULL;
 
 	static JSFunctionSpec funcs[] = {
-		JS_FN("action", js_cocos2dx_CCTransitionMoveInL_action, 0, JSPROP_PERMANENT | JSPROP_SHARED),
-		JS_FN("easeActionWithAction", js_cocos2dx_CCTransitionMoveInL_easeActionWithAction, 1, JSPROP_PERMANENT | JSPROP_SHARED),
-		JS_FN("initScenes", js_cocos2dx_CCTransitionMoveInL_initScenes, 0, JSPROP_PERMANENT | JSPROP_SHARED),
+		JS_FN("action", js_cocos2dx_CCTransitionMoveInL_action, 0, JSPROP_PERMANENT | JSPROP_ENUMERATE),
+		JS_FN("easeActionWithAction", js_cocos2dx_CCTransitionMoveInL_easeActionWithAction, 1, JSPROP_PERMANENT | JSPROP_ENUMERATE),
+		JS_FN("initScenes", js_cocos2dx_CCTransitionMoveInL_initScenes, 0, JSPROP_PERMANENT | JSPROP_ENUMERATE),
 		JS_FS_END
 	};
 
 	static JSFunctionSpec st_funcs[] = {
-		JS_FN("create", js_cocos2dx_CCTransitionMoveInL_create, 2, JSPROP_PERMANENT | JSPROP_SHARED),
+		JS_FN("create", js_cocos2dx_CCTransitionMoveInL_create, 2, JSPROP_PERMANENT | JSPROP_ENUMERATE),
 		JS_FS_END
 	};
 
@@ -30996,12 +30996,12 @@ void js_register_cocos2dx_CCTransitionMoveInR(JSContext *cx, JSObject *global) {
 	JSPropertySpec *properties = NULL;
 
 	static JSFunctionSpec funcs[] = {
-		JS_FN("initScenes", js_cocos2dx_CCTransitionMoveInR_initScenes, 0, JSPROP_PERMANENT | JSPROP_SHARED),
+		JS_FN("initScenes", js_cocos2dx_CCTransitionMoveInR_initScenes, 0, JSPROP_PERMANENT | JSPROP_ENUMERATE),
 		JS_FS_END
 	};
 
 	static JSFunctionSpec st_funcs[] = {
-		JS_FN("create", js_cocos2dx_CCTransitionMoveInR_create, 2, JSPROP_PERMANENT | JSPROP_SHARED),
+		JS_FN("create", js_cocos2dx_CCTransitionMoveInR_create, 2, JSPROP_PERMANENT | JSPROP_ENUMERATE),
 		JS_FS_END
 	};
 
@@ -31135,12 +31135,12 @@ void js_register_cocos2dx_CCTransitionMoveInT(JSContext *cx, JSObject *global) {
 	JSPropertySpec *properties = NULL;
 
 	static JSFunctionSpec funcs[] = {
-		JS_FN("initScenes", js_cocos2dx_CCTransitionMoveInT_initScenes, 0, JSPROP_PERMANENT | JSPROP_SHARED),
+		JS_FN("initScenes", js_cocos2dx_CCTransitionMoveInT_initScenes, 0, JSPROP_PERMANENT | JSPROP_ENUMERATE),
 		JS_FS_END
 	};
 
 	static JSFunctionSpec st_funcs[] = {
-		JS_FN("create", js_cocos2dx_CCTransitionMoveInT_create, 2, JSPROP_PERMANENT | JSPROP_SHARED),
+		JS_FN("create", js_cocos2dx_CCTransitionMoveInT_create, 2, JSPROP_PERMANENT | JSPROP_ENUMERATE),
 		JS_FS_END
 	};
 
@@ -31274,12 +31274,12 @@ void js_register_cocos2dx_CCTransitionMoveInB(JSContext *cx, JSObject *global) {
 	JSPropertySpec *properties = NULL;
 
 	static JSFunctionSpec funcs[] = {
-		JS_FN("initScenes", js_cocos2dx_CCTransitionMoveInB_initScenes, 0, JSPROP_PERMANENT | JSPROP_SHARED),
+		JS_FN("initScenes", js_cocos2dx_CCTransitionMoveInB_initScenes, 0, JSPROP_PERMANENT | JSPROP_ENUMERATE),
 		JS_FS_END
 	};
 
 	static JSFunctionSpec st_funcs[] = {
-		JS_FN("create", js_cocos2dx_CCTransitionMoveInB_create, 2, JSPROP_PERMANENT | JSPROP_SHARED),
+		JS_FN("create", js_cocos2dx_CCTransitionMoveInB_create, 2, JSPROP_PERMANENT | JSPROP_ENUMERATE),
 		JS_FS_END
 	};
 
@@ -31472,14 +31472,14 @@ void js_register_cocos2dx_CCTransitionSlideInL(JSContext *cx, JSObject *global) 
 	JSPropertySpec *properties = NULL;
 
 	static JSFunctionSpec funcs[] = {
-		JS_FN("action", js_cocos2dx_CCTransitionSlideInL_action, 0, JSPROP_PERMANENT | JSPROP_SHARED),
-		JS_FN("easeActionWithAction", js_cocos2dx_CCTransitionSlideInL_easeActionWithAction, 1, JSPROP_PERMANENT | JSPROP_SHARED),
-		JS_FN("initScenes", js_cocos2dx_CCTransitionSlideInL_initScenes, 0, JSPROP_PERMANENT | JSPROP_SHARED),
+		JS_FN("action", js_cocos2dx_CCTransitionSlideInL_action, 0, JSPROP_PERMANENT | JSPROP_ENUMERATE),
+		JS_FN("easeActionWithAction", js_cocos2dx_CCTransitionSlideInL_easeActionWithAction, 1, JSPROP_PERMANENT | JSPROP_ENUMERATE),
+		JS_FN("initScenes", js_cocos2dx_CCTransitionSlideInL_initScenes, 0, JSPROP_PERMANENT | JSPROP_ENUMERATE),
 		JS_FS_END
 	};
 
 	static JSFunctionSpec st_funcs[] = {
-		JS_FN("create", js_cocos2dx_CCTransitionSlideInL_create, 2, JSPROP_PERMANENT | JSPROP_SHARED),
+		JS_FN("create", js_cocos2dx_CCTransitionSlideInL_create, 2, JSPROP_PERMANENT | JSPROP_ENUMERATE),
 		JS_FS_END
 	};
 
@@ -31637,13 +31637,13 @@ void js_register_cocos2dx_CCTransitionSlideInR(JSContext *cx, JSObject *global) 
 	JSPropertySpec *properties = NULL;
 
 	static JSFunctionSpec funcs[] = {
-		JS_FN("action", js_cocos2dx_CCTransitionSlideInR_action, 0, JSPROP_PERMANENT | JSPROP_SHARED),
-		JS_FN("initScenes", js_cocos2dx_CCTransitionSlideInR_initScenes, 0, JSPROP_PERMANENT | JSPROP_SHARED),
+		JS_FN("action", js_cocos2dx_CCTransitionSlideInR_action, 0, JSPROP_PERMANENT | JSPROP_ENUMERATE),
+		JS_FN("initScenes", js_cocos2dx_CCTransitionSlideInR_initScenes, 0, JSPROP_PERMANENT | JSPROP_ENUMERATE),
 		JS_FS_END
 	};
 
 	static JSFunctionSpec st_funcs[] = {
-		JS_FN("create", js_cocos2dx_CCTransitionSlideInR_create, 2, JSPROP_PERMANENT | JSPROP_SHARED),
+		JS_FN("create", js_cocos2dx_CCTransitionSlideInR_create, 2, JSPROP_PERMANENT | JSPROP_ENUMERATE),
 		JS_FS_END
 	};
 
@@ -31801,13 +31801,13 @@ void js_register_cocos2dx_CCTransitionSlideInB(JSContext *cx, JSObject *global) 
 	JSPropertySpec *properties = NULL;
 
 	static JSFunctionSpec funcs[] = {
-		JS_FN("action", js_cocos2dx_CCTransitionSlideInB_action, 0, JSPROP_PERMANENT | JSPROP_SHARED),
-		JS_FN("initScenes", js_cocos2dx_CCTransitionSlideInB_initScenes, 0, JSPROP_PERMANENT | JSPROP_SHARED),
+		JS_FN("action", js_cocos2dx_CCTransitionSlideInB_action, 0, JSPROP_PERMANENT | JSPROP_ENUMERATE),
+		JS_FN("initScenes", js_cocos2dx_CCTransitionSlideInB_initScenes, 0, JSPROP_PERMANENT | JSPROP_ENUMERATE),
 		JS_FS_END
 	};
 
 	static JSFunctionSpec st_funcs[] = {
-		JS_FN("create", js_cocos2dx_CCTransitionSlideInB_create, 2, JSPROP_PERMANENT | JSPROP_SHARED),
+		JS_FN("create", js_cocos2dx_CCTransitionSlideInB_create, 2, JSPROP_PERMANENT | JSPROP_ENUMERATE),
 		JS_FS_END
 	};
 
@@ -31965,13 +31965,13 @@ void js_register_cocos2dx_CCTransitionSlideInT(JSContext *cx, JSObject *global) 
 	JSPropertySpec *properties = NULL;
 
 	static JSFunctionSpec funcs[] = {
-		JS_FN("action", js_cocos2dx_CCTransitionSlideInT_action, 0, JSPROP_PERMANENT | JSPROP_SHARED),
-		JS_FN("initScenes", js_cocos2dx_CCTransitionSlideInT_initScenes, 0, JSPROP_PERMANENT | JSPROP_SHARED),
+		JS_FN("action", js_cocos2dx_CCTransitionSlideInT_action, 0, JSPROP_PERMANENT | JSPROP_ENUMERATE),
+		JS_FN("initScenes", js_cocos2dx_CCTransitionSlideInT_initScenes, 0, JSPROP_PERMANENT | JSPROP_ENUMERATE),
 		JS_FS_END
 	};
 
 	static JSFunctionSpec st_funcs[] = {
-		JS_FN("create", js_cocos2dx_CCTransitionSlideInT_create, 2, JSPROP_PERMANENT | JSPROP_SHARED),
+		JS_FN("create", js_cocos2dx_CCTransitionSlideInT_create, 2, JSPROP_PERMANENT | JSPROP_ENUMERATE),
 		JS_FS_END
 	};
 
@@ -32125,12 +32125,12 @@ void js_register_cocos2dx_CCTransitionShrinkGrow(JSContext *cx, JSObject *global
 	JSPropertySpec *properties = NULL;
 
 	static JSFunctionSpec funcs[] = {
-		JS_FN("easeActionWithAction", js_cocos2dx_CCTransitionShrinkGrow_easeActionWithAction, 1, JSPROP_PERMANENT | JSPROP_SHARED),
+		JS_FN("easeActionWithAction", js_cocos2dx_CCTransitionShrinkGrow_easeActionWithAction, 1, JSPROP_PERMANENT | JSPROP_ENUMERATE),
 		JS_FS_END
 	};
 
 	static JSFunctionSpec st_funcs[] = {
-		JS_FN("create", js_cocos2dx_CCTransitionShrinkGrow_create, 2, JSPROP_PERMANENT | JSPROP_SHARED),
+		JS_FN("create", js_cocos2dx_CCTransitionShrinkGrow_create, 2, JSPROP_PERMANENT | JSPROP_ENUMERATE),
 		JS_FS_END
 	};
 
@@ -32278,7 +32278,7 @@ void js_register_cocos2dx_CCTransitionFlipX(JSContext *cx, JSObject *global) {
 	JSFunctionSpec *funcs = NULL;
 
 	static JSFunctionSpec st_funcs[] = {
-		JS_FN("create", js_cocos2dx_CCTransitionFlipX_create, 2, JSPROP_PERMANENT | JSPROP_SHARED),
+		JS_FN("create", js_cocos2dx_CCTransitionFlipX_create, 2, JSPROP_PERMANENT | JSPROP_ENUMERATE),
 		JS_FS_END
 	};
 
@@ -32426,7 +32426,7 @@ void js_register_cocos2dx_CCTransitionFlipY(JSContext *cx, JSObject *global) {
 	JSFunctionSpec *funcs = NULL;
 
 	static JSFunctionSpec st_funcs[] = {
-		JS_FN("create", js_cocos2dx_CCTransitionFlipY_create, 2, JSPROP_PERMANENT | JSPROP_SHARED),
+		JS_FN("create", js_cocos2dx_CCTransitionFlipY_create, 2, JSPROP_PERMANENT | JSPROP_ENUMERATE),
 		JS_FS_END
 	};
 
@@ -32574,7 +32574,7 @@ void js_register_cocos2dx_CCTransitionFlipAngular(JSContext *cx, JSObject *globa
 	JSFunctionSpec *funcs = NULL;
 
 	static JSFunctionSpec st_funcs[] = {
-		JS_FN("create", js_cocos2dx_CCTransitionFlipAngular_create, 2, JSPROP_PERMANENT | JSPROP_SHARED),
+		JS_FN("create", js_cocos2dx_CCTransitionFlipAngular_create, 2, JSPROP_PERMANENT | JSPROP_ENUMERATE),
 		JS_FS_END
 	};
 
@@ -32722,7 +32722,7 @@ void js_register_cocos2dx_CCTransitionZoomFlipX(JSContext *cx, JSObject *global)
 	JSFunctionSpec *funcs = NULL;
 
 	static JSFunctionSpec st_funcs[] = {
-		JS_FN("create", js_cocos2dx_CCTransitionZoomFlipX_create, 2, JSPROP_PERMANENT | JSPROP_SHARED),
+		JS_FN("create", js_cocos2dx_CCTransitionZoomFlipX_create, 2, JSPROP_PERMANENT | JSPROP_ENUMERATE),
 		JS_FS_END
 	};
 
@@ -32870,7 +32870,7 @@ void js_register_cocos2dx_CCTransitionZoomFlipY(JSContext *cx, JSObject *global)
 	JSFunctionSpec *funcs = NULL;
 
 	static JSFunctionSpec st_funcs[] = {
-		JS_FN("create", js_cocos2dx_CCTransitionZoomFlipY_create, 2, JSPROP_PERMANENT | JSPROP_SHARED),
+		JS_FN("create", js_cocos2dx_CCTransitionZoomFlipY_create, 2, JSPROP_PERMANENT | JSPROP_ENUMERATE),
 		JS_FS_END
 	};
 
@@ -33018,7 +33018,7 @@ void js_register_cocos2dx_CCTransitionZoomFlipAngular(JSContext *cx, JSObject *g
 	JSFunctionSpec *funcs = NULL;
 
 	static JSFunctionSpec st_funcs[] = {
-		JS_FN("create", js_cocos2dx_CCTransitionZoomFlipAngular_create, 2, JSPROP_PERMANENT | JSPROP_SHARED),
+		JS_FN("create", js_cocos2dx_CCTransitionZoomFlipAngular_create, 2, JSPROP_PERMANENT | JSPROP_ENUMERATE),
 		JS_FS_END
 	};
 
@@ -33217,12 +33217,12 @@ void js_register_cocos2dx_CCTransitionFade(JSContext *cx, JSObject *global) {
 	};
 
 	static JSFunctionSpec funcs[] = {
-		JS_FN("initWithDuration", js_cocos2dx_CCTransitionFade_initWithDuration, 2, JSPROP_PERMANENT | JSPROP_SHARED),
+		JS_FN("initWithDuration", js_cocos2dx_CCTransitionFade_initWithDuration, 2, JSPROP_PERMANENT | JSPROP_ENUMERATE),
 		JS_FS_END
 	};
 
 	static JSFunctionSpec st_funcs[] = {
-		JS_FN("create", js_cocos2dx_CCTransitionFade_create, 2, JSPROP_PERMANENT | JSPROP_SHARED),
+		JS_FN("create", js_cocos2dx_CCTransitionFade_create, 2, JSPROP_PERMANENT | JSPROP_ENUMERATE),
 		JS_FS_END
 	};
 
@@ -33356,12 +33356,12 @@ void js_register_cocos2dx_CCTransitionCrossFade(JSContext *cx, JSObject *global)
 	JSPropertySpec *properties = NULL;
 
 	static JSFunctionSpec funcs[] = {
-		JS_FN("draw", js_cocos2dx_CCTransitionCrossFade_draw, 0, JSPROP_PERMANENT | JSPROP_SHARED),
+		JS_FN("draw", js_cocos2dx_CCTransitionCrossFade_draw, 0, JSPROP_PERMANENT | JSPROP_ENUMERATE),
 		JS_FS_END
 	};
 
 	static JSFunctionSpec st_funcs[] = {
-		JS_FN("create", js_cocos2dx_CCTransitionCrossFade_create, 2, JSPROP_PERMANENT | JSPROP_SHARED),
+		JS_FN("create", js_cocos2dx_CCTransitionCrossFade_create, 2, JSPROP_PERMANENT | JSPROP_ENUMERATE),
 		JS_FS_END
 	};
 
@@ -33515,12 +33515,12 @@ void js_register_cocos2dx_CCTransitionTurnOffTiles(JSContext *cx, JSObject *glob
 	JSPropertySpec *properties = NULL;
 
 	static JSFunctionSpec funcs[] = {
-		JS_FN("easeActionWithAction", js_cocos2dx_CCTransitionTurnOffTiles_easeActionWithAction, 1, JSPROP_PERMANENT | JSPROP_SHARED),
+		JS_FN("easeActionWithAction", js_cocos2dx_CCTransitionTurnOffTiles_easeActionWithAction, 1, JSPROP_PERMANENT | JSPROP_ENUMERATE),
 		JS_FS_END
 	};
 
 	static JSFunctionSpec st_funcs[] = {
-		JS_FN("create", js_cocos2dx_CCTransitionTurnOffTiles_create, 2, JSPROP_PERMANENT | JSPROP_SHARED),
+		JS_FN("create", js_cocos2dx_CCTransitionTurnOffTiles_create, 2, JSPROP_PERMANENT | JSPROP_ENUMERATE),
 		JS_FS_END
 	};
 
@@ -33698,13 +33698,13 @@ void js_register_cocos2dx_CCTransitionSplitCols(JSContext *cx, JSObject *global)
 	JSPropertySpec *properties = NULL;
 
 	static JSFunctionSpec funcs[] = {
-		JS_FN("action", js_cocos2dx_CCTransitionSplitCols_action, 0, JSPROP_PERMANENT | JSPROP_SHARED),
-		JS_FN("easeActionWithAction", js_cocos2dx_CCTransitionSplitCols_easeActionWithAction, 1, JSPROP_PERMANENT | JSPROP_SHARED),
+		JS_FN("action", js_cocos2dx_CCTransitionSplitCols_action, 0, JSPROP_PERMANENT | JSPROP_ENUMERATE),
+		JS_FN("easeActionWithAction", js_cocos2dx_CCTransitionSplitCols_easeActionWithAction, 1, JSPROP_PERMANENT | JSPROP_ENUMERATE),
 		JS_FS_END
 	};
 
 	static JSFunctionSpec st_funcs[] = {
-		JS_FN("create", js_cocos2dx_CCTransitionSplitCols_create, 2, JSPROP_PERMANENT | JSPROP_SHARED),
+		JS_FN("create", js_cocos2dx_CCTransitionSplitCols_create, 2, JSPROP_PERMANENT | JSPROP_ENUMERATE),
 		JS_FS_END
 	};
 
@@ -33847,12 +33847,12 @@ void js_register_cocos2dx_CCTransitionSplitRows(JSContext *cx, JSObject *global)
 	JSPropertySpec *properties = NULL;
 
 	static JSFunctionSpec funcs[] = {
-		JS_FN("action", js_cocos2dx_CCTransitionSplitRows_action, 0, JSPROP_PERMANENT | JSPROP_SHARED),
+		JS_FN("action", js_cocos2dx_CCTransitionSplitRows_action, 0, JSPROP_PERMANENT | JSPROP_ENUMERATE),
 		JS_FS_END
 	};
 
 	static JSFunctionSpec st_funcs[] = {
-		JS_FN("create", js_cocos2dx_CCTransitionSplitRows_create, 2, JSPROP_PERMANENT | JSPROP_SHARED),
+		JS_FN("create", js_cocos2dx_CCTransitionSplitRows_create, 2, JSPROP_PERMANENT | JSPROP_ENUMERATE),
 		JS_FS_END
 	};
 
@@ -34035,13 +34035,13 @@ void js_register_cocos2dx_CCTransitionFadeTR(JSContext *cx, JSObject *global) {
 	JSPropertySpec *properties = NULL;
 
 	static JSFunctionSpec funcs[] = {
-		JS_FN("easeActionWithAction", js_cocos2dx_CCTransitionFadeTR_easeActionWithAction, 1, JSPROP_PERMANENT | JSPROP_SHARED),
-		JS_FN("actionWithSize", js_cocos2dx_CCTransitionFadeTR_actionWithSize, 1, JSPROP_PERMANENT | JSPROP_SHARED),
+		JS_FN("easeActionWithAction", js_cocos2dx_CCTransitionFadeTR_easeActionWithAction, 1, JSPROP_PERMANENT | JSPROP_ENUMERATE),
+		JS_FN("actionWithSize", js_cocos2dx_CCTransitionFadeTR_actionWithSize, 1, JSPROP_PERMANENT | JSPROP_ENUMERATE),
 		JS_FS_END
 	};
 
 	static JSFunctionSpec st_funcs[] = {
-		JS_FN("create", js_cocos2dx_CCTransitionFadeTR_create, 2, JSPROP_PERMANENT | JSPROP_SHARED),
+		JS_FN("create", js_cocos2dx_CCTransitionFadeTR_create, 2, JSPROP_PERMANENT | JSPROP_ENUMERATE),
 		JS_FS_END
 	};
 
@@ -34189,12 +34189,12 @@ void js_register_cocos2dx_CCTransitionFadeBL(JSContext *cx, JSObject *global) {
 	JSPropertySpec *properties = NULL;
 
 	static JSFunctionSpec funcs[] = {
-		JS_FN("actionWithSize", js_cocos2dx_CCTransitionFadeBL_actionWithSize, 1, JSPROP_PERMANENT | JSPROP_SHARED),
+		JS_FN("actionWithSize", js_cocos2dx_CCTransitionFadeBL_actionWithSize, 1, JSPROP_PERMANENT | JSPROP_ENUMERATE),
 		JS_FS_END
 	};
 
 	static JSFunctionSpec st_funcs[] = {
-		JS_FN("create", js_cocos2dx_CCTransitionFadeBL_create, 2, JSPROP_PERMANENT | JSPROP_SHARED),
+		JS_FN("create", js_cocos2dx_CCTransitionFadeBL_create, 2, JSPROP_PERMANENT | JSPROP_ENUMERATE),
 		JS_FS_END
 	};
 
@@ -34342,12 +34342,12 @@ void js_register_cocos2dx_CCTransitionFadeUp(JSContext *cx, JSObject *global) {
 	JSPropertySpec *properties = NULL;
 
 	static JSFunctionSpec funcs[] = {
-		JS_FN("actionWithSize", js_cocos2dx_CCTransitionFadeUp_actionWithSize, 1, JSPROP_PERMANENT | JSPROP_SHARED),
+		JS_FN("actionWithSize", js_cocos2dx_CCTransitionFadeUp_actionWithSize, 1, JSPROP_PERMANENT | JSPROP_ENUMERATE),
 		JS_FS_END
 	};
 
 	static JSFunctionSpec st_funcs[] = {
-		JS_FN("create", js_cocos2dx_CCTransitionFadeUp_create, 2, JSPROP_PERMANENT | JSPROP_SHARED),
+		JS_FN("create", js_cocos2dx_CCTransitionFadeUp_create, 2, JSPROP_PERMANENT | JSPROP_ENUMERATE),
 		JS_FS_END
 	};
 
@@ -34495,12 +34495,12 @@ void js_register_cocos2dx_CCTransitionFadeDown(JSContext *cx, JSObject *global) 
 	JSPropertySpec *properties = NULL;
 
 	static JSFunctionSpec funcs[] = {
-		JS_FN("actionWithSize", js_cocos2dx_CCTransitionFadeDown_actionWithSize, 1, JSPROP_PERMANENT | JSPROP_SHARED),
+		JS_FN("actionWithSize", js_cocos2dx_CCTransitionFadeDown_actionWithSize, 1, JSPROP_PERMANENT | JSPROP_ENUMERATE),
 		JS_FS_END
 	};
 
 	static JSFunctionSpec st_funcs[] = {
-		JS_FN("create", js_cocos2dx_CCTransitionFadeDown_create, 2, JSPROP_PERMANENT | JSPROP_SHARED),
+		JS_FN("create", js_cocos2dx_CCTransitionFadeDown_create, 2, JSPROP_PERMANENT | JSPROP_ENUMERATE),
 		JS_FS_END
 	};
 
@@ -34684,13 +34684,13 @@ void js_register_cocos2dx_CCTransitionPageTurn(JSContext *cx, JSObject *global) 
 	};
 
 	static JSFunctionSpec funcs[] = {
-		JS_FN("actionWithSize", js_cocos2dx_CCTransitionPageTurn_actionWithSize, 1, JSPROP_PERMANENT | JSPROP_SHARED),
-		JS_FN("initWithDuration", js_cocos2dx_CCTransitionPageTurn_initWithDuration, 3, JSPROP_PERMANENT | JSPROP_SHARED),
+		JS_FN("actionWithSize", js_cocos2dx_CCTransitionPageTurn_actionWithSize, 1, JSPROP_PERMANENT | JSPROP_ENUMERATE),
+		JS_FN("initWithDuration", js_cocos2dx_CCTransitionPageTurn_initWithDuration, 3, JSPROP_PERMANENT | JSPROP_ENUMERATE),
 		JS_FS_END
 	};
 
 	static JSFunctionSpec st_funcs[] = {
-		JS_FN("create", js_cocos2dx_CCTransitionPageTurn_create, 3, JSPROP_PERMANENT | JSPROP_SHARED),
+		JS_FN("create", js_cocos2dx_CCTransitionPageTurn_create, 3, JSPROP_PERMANENT | JSPROP_ENUMERATE),
 		JS_FS_END
 	};
 
@@ -34813,7 +34813,7 @@ void js_register_cocos2dx_CCTransitionProgress(JSContext *cx, JSObject *global) 
 	JSFunctionSpec *funcs = NULL;
 
 	static JSFunctionSpec st_funcs[] = {
-		JS_FN("create", js_cocos2dx_CCTransitionProgress_create, 2, JSPROP_PERMANENT | JSPROP_SHARED),
+		JS_FN("create", js_cocos2dx_CCTransitionProgress_create, 2, JSPROP_PERMANENT | JSPROP_ENUMERATE),
 		JS_FS_END
 	};
 
@@ -34904,7 +34904,7 @@ void js_register_cocos2dx_CCTransitionProgressRadialCCW(JSContext *cx, JSObject 
 	JSFunctionSpec *funcs = NULL;
 
 	static JSFunctionSpec st_funcs[] = {
-		JS_FN("create", js_cocos2dx_CCTransitionProgressRadialCCW_create, 2, JSPROP_PERMANENT | JSPROP_SHARED),
+		JS_FN("create", js_cocos2dx_CCTransitionProgressRadialCCW_create, 2, JSPROP_PERMANENT | JSPROP_ENUMERATE),
 		JS_FS_END
 	};
 
@@ -34995,7 +34995,7 @@ void js_register_cocos2dx_CCTransitionProgressRadialCW(JSContext *cx, JSObject *
 	JSFunctionSpec *funcs = NULL;
 
 	static JSFunctionSpec st_funcs[] = {
-		JS_FN("create", js_cocos2dx_CCTransitionProgressRadialCW_create, 2, JSPROP_PERMANENT | JSPROP_SHARED),
+		JS_FN("create", js_cocos2dx_CCTransitionProgressRadialCW_create, 2, JSPROP_PERMANENT | JSPROP_ENUMERATE),
 		JS_FS_END
 	};
 
@@ -35086,7 +35086,7 @@ void js_register_cocos2dx_CCTransitionProgressHorizontal(JSContext *cx, JSObject
 	JSFunctionSpec *funcs = NULL;
 
 	static JSFunctionSpec st_funcs[] = {
-		JS_FN("create", js_cocos2dx_CCTransitionProgressHorizontal_create, 2, JSPROP_PERMANENT | JSPROP_SHARED),
+		JS_FN("create", js_cocos2dx_CCTransitionProgressHorizontal_create, 2, JSPROP_PERMANENT | JSPROP_ENUMERATE),
 		JS_FS_END
 	};
 
@@ -35177,7 +35177,7 @@ void js_register_cocos2dx_CCTransitionProgressVertical(JSContext *cx, JSObject *
 	JSFunctionSpec *funcs = NULL;
 
 	static JSFunctionSpec st_funcs[] = {
-		JS_FN("create", js_cocos2dx_CCTransitionProgressVertical_create, 2, JSPROP_PERMANENT | JSPROP_SHARED),
+		JS_FN("create", js_cocos2dx_CCTransitionProgressVertical_create, 2, JSPROP_PERMANENT | JSPROP_ENUMERATE),
 		JS_FS_END
 	};
 
@@ -35268,7 +35268,7 @@ void js_register_cocos2dx_CCTransitionProgressInOut(JSContext *cx, JSObject *glo
 	JSFunctionSpec *funcs = NULL;
 
 	static JSFunctionSpec st_funcs[] = {
-		JS_FN("create", js_cocos2dx_CCTransitionProgressInOut_create, 2, JSPROP_PERMANENT | JSPROP_SHARED),
+		JS_FN("create", js_cocos2dx_CCTransitionProgressInOut_create, 2, JSPROP_PERMANENT | JSPROP_ENUMERATE),
 		JS_FS_END
 	};
 
@@ -35359,7 +35359,7 @@ void js_register_cocos2dx_CCTransitionProgressOutIn(JSContext *cx, JSObject *glo
 	JSFunctionSpec *funcs = NULL;
 
 	static JSFunctionSpec st_funcs[] = {
-		JS_FN("create", js_cocos2dx_CCTransitionProgressOutIn_create, 2, JSPROP_PERMANENT | JSPROP_SHARED),
+		JS_FN("create", js_cocos2dx_CCTransitionProgressOutIn_create, 2, JSPROP_PERMANENT | JSPROP_ENUMERATE),
 		JS_FS_END
 	};
 
@@ -35616,16 +35616,16 @@ void js_register_cocos2dx_CCMenuItem(JSContext *cx, JSObject *global) {
 	};
 
 	static JSFunctionSpec funcs[] = {
-		JS_FN("setEnabled", js_cocos2dx_CCMenuItem_setEnabled, 1, JSPROP_PERMANENT | JSPROP_SHARED),
-		JS_FN("activate", js_cocos2dx_CCMenuItem_activate, 0, JSPROP_PERMANENT | JSPROP_SHARED),
-		JS_FN("unregisterScriptTapHandler", js_cocos2dx_CCMenuItem_unregisterScriptTapHandler, 0, JSPROP_PERMANENT | JSPROP_SHARED),
-		JS_FN("isEnabled", js_cocos2dx_CCMenuItem_isEnabled, 0, JSPROP_PERMANENT | JSPROP_SHARED),
-		JS_FN("selected", js_cocos2dx_CCMenuItem_selected, 0, JSPROP_PERMANENT | JSPROP_SHARED),
-		JS_FN("getScriptTapHandler", js_cocos2dx_CCMenuItem_getScriptTapHandler, 0, JSPROP_PERMANENT | JSPROP_SHARED),
-		JS_FN("isSelected", js_cocos2dx_CCMenuItem_isSelected, 0, JSPROP_PERMANENT | JSPROP_SHARED),
-		JS_FN("registerScriptTapHandler", js_cocos2dx_CCMenuItem_registerScriptTapHandler, 1, JSPROP_PERMANENT | JSPROP_SHARED),
-		JS_FN("unselected", js_cocos2dx_CCMenuItem_unselected, 0, JSPROP_PERMANENT | JSPROP_SHARED),
-		JS_FN("rect", js_cocos2dx_CCMenuItem_rect, 0, JSPROP_PERMANENT | JSPROP_SHARED),
+		JS_FN("setEnabled", js_cocos2dx_CCMenuItem_setEnabled, 1, JSPROP_PERMANENT | JSPROP_ENUMERATE),
+		JS_FN("activate", js_cocos2dx_CCMenuItem_activate, 0, JSPROP_PERMANENT | JSPROP_ENUMERATE),
+		JS_FN("unregisterScriptTapHandler", js_cocos2dx_CCMenuItem_unregisterScriptTapHandler, 0, JSPROP_PERMANENT | JSPROP_ENUMERATE),
+		JS_FN("isEnabled", js_cocos2dx_CCMenuItem_isEnabled, 0, JSPROP_PERMANENT | JSPROP_ENUMERATE),
+		JS_FN("selected", js_cocos2dx_CCMenuItem_selected, 0, JSPROP_PERMANENT | JSPROP_ENUMERATE),
+		JS_FN("getScriptTapHandler", js_cocos2dx_CCMenuItem_getScriptTapHandler, 0, JSPROP_PERMANENT | JSPROP_ENUMERATE),
+		JS_FN("isSelected", js_cocos2dx_CCMenuItem_isSelected, 0, JSPROP_PERMANENT | JSPROP_ENUMERATE),
+		JS_FN("registerScriptTapHandler", js_cocos2dx_CCMenuItem_registerScriptTapHandler, 1, JSPROP_PERMANENT | JSPROP_ENUMERATE),
+		JS_FN("unselected", js_cocos2dx_CCMenuItem_unselected, 0, JSPROP_PERMANENT | JSPROP_ENUMERATE),
+		JS_FN("rect", js_cocos2dx_CCMenuItem_rect, 0, JSPROP_PERMANENT | JSPROP_ENUMERATE),
 		JS_FS_END
 	};
 
@@ -35962,19 +35962,19 @@ void js_register_cocos2dx_CCMenuItemLabel(JSContext *cx, JSObject *global) {
 	};
 
 	static JSFunctionSpec funcs[] = {
-		JS_FN("setEnabled", js_cocos2dx_CCMenuItemLabel_setEnabled, 1, JSPROP_PERMANENT | JSPROP_SHARED),
-		JS_FN("setLabel", js_cocos2dx_CCMenuItemLabel_setLabel, 1, JSPROP_PERMANENT | JSPROP_SHARED),
-		JS_FN("activate", js_cocos2dx_CCMenuItemLabel_activate, 0, JSPROP_PERMANENT | JSPROP_SHARED),
-		JS_FN("setColor", js_cocos2dx_CCMenuItemLabel_setColor, 1, JSPROP_PERMANENT | JSPROP_SHARED),
-		JS_FN("getDisabledColor", js_cocos2dx_CCMenuItemLabel_getDisabledColor, 0, JSPROP_PERMANENT | JSPROP_SHARED),
-		JS_FN("setString", js_cocos2dx_CCMenuItemLabel_setString, 1, JSPROP_PERMANENT | JSPROP_SHARED),
-		JS_FN("selected", js_cocos2dx_CCMenuItemLabel_selected, 0, JSPROP_PERMANENT | JSPROP_SHARED),
-		JS_FN("setOpacity", js_cocos2dx_CCMenuItemLabel_setOpacity, 1, JSPROP_PERMANENT | JSPROP_SHARED),
-		JS_FN("setDisabledColor", js_cocos2dx_CCMenuItemLabel_setDisabledColor, 1, JSPROP_PERMANENT | JSPROP_SHARED),
-		JS_FN("getLabel", js_cocos2dx_CCMenuItemLabel_getLabel, 0, JSPROP_PERMANENT | JSPROP_SHARED),
-		JS_FN("getOpacity", js_cocos2dx_CCMenuItemLabel_getOpacity, 0, JSPROP_PERMANENT | JSPROP_SHARED),
-		JS_FN("getColor", js_cocos2dx_CCMenuItemLabel_getColor, 0, JSPROP_PERMANENT | JSPROP_SHARED),
-		JS_FN("unselected", js_cocos2dx_CCMenuItemLabel_unselected, 0, JSPROP_PERMANENT | JSPROP_SHARED),
+		JS_FN("setEnabled", js_cocos2dx_CCMenuItemLabel_setEnabled, 1, JSPROP_PERMANENT | JSPROP_ENUMERATE),
+		JS_FN("setLabel", js_cocos2dx_CCMenuItemLabel_setLabel, 1, JSPROP_PERMANENT | JSPROP_ENUMERATE),
+		JS_FN("activate", js_cocos2dx_CCMenuItemLabel_activate, 0, JSPROP_PERMANENT | JSPROP_ENUMERATE),
+		JS_FN("setColor", js_cocos2dx_CCMenuItemLabel_setColor, 1, JSPROP_PERMANENT | JSPROP_ENUMERATE),
+		JS_FN("getDisabledColor", js_cocos2dx_CCMenuItemLabel_getDisabledColor, 0, JSPROP_PERMANENT | JSPROP_ENUMERATE),
+		JS_FN("setString", js_cocos2dx_CCMenuItemLabel_setString, 1, JSPROP_PERMANENT | JSPROP_ENUMERATE),
+		JS_FN("selected", js_cocos2dx_CCMenuItemLabel_selected, 0, JSPROP_PERMANENT | JSPROP_ENUMERATE),
+		JS_FN("setOpacity", js_cocos2dx_CCMenuItemLabel_setOpacity, 1, JSPROP_PERMANENT | JSPROP_ENUMERATE),
+		JS_FN("setDisabledColor", js_cocos2dx_CCMenuItemLabel_setDisabledColor, 1, JSPROP_PERMANENT | JSPROP_ENUMERATE),
+		JS_FN("getLabel", js_cocos2dx_CCMenuItemLabel_getLabel, 0, JSPROP_PERMANENT | JSPROP_ENUMERATE),
+		JS_FN("getOpacity", js_cocos2dx_CCMenuItemLabel_getOpacity, 0, JSPROP_PERMANENT | JSPROP_ENUMERATE),
+		JS_FN("getColor", js_cocos2dx_CCMenuItemLabel_getColor, 0, JSPROP_PERMANENT | JSPROP_ENUMERATE),
+		JS_FN("unselected", js_cocos2dx_CCMenuItemLabel_unselected, 0, JSPROP_PERMANENT | JSPROP_ENUMERATE),
 		JS_FS_END
 	};
 
@@ -36273,18 +36273,18 @@ void js_register_cocos2dx_CCMenuItemFont(JSContext *cx, JSObject *global) {
 	};
 
 	static JSFunctionSpec funcs[] = {
-		JS_FN("setFontName", js_cocos2dx_CCMenuItemFont_setFontNameObj, 1, JSPROP_PERMANENT | JSPROP_SHARED),
-		JS_FN("fontName", js_cocos2dx_CCMenuItemFont_fontNameObj, 0, JSPROP_PERMANENT | JSPROP_SHARED),
-		JS_FN("setFontSize", js_cocos2dx_CCMenuItemFont_setFontSizeObj, 1, JSPROP_PERMANENT | JSPROP_SHARED),
-		JS_FN("fontSize", js_cocos2dx_CCMenuItemFont_fontSizeObj, 0, JSPROP_PERMANENT | JSPROP_SHARED),
+		JS_FN("setFontName", js_cocos2dx_CCMenuItemFont_setFontNameObj, 1, JSPROP_PERMANENT | JSPROP_ENUMERATE),
+		JS_FN("fontName", js_cocos2dx_CCMenuItemFont_fontNameObj, 0, JSPROP_PERMANENT | JSPROP_ENUMERATE),
+		JS_FN("setFontSize", js_cocos2dx_CCMenuItemFont_setFontSizeObj, 1, JSPROP_PERMANENT | JSPROP_ENUMERATE),
+		JS_FN("fontSize", js_cocos2dx_CCMenuItemFont_fontSizeObj, 0, JSPROP_PERMANENT | JSPROP_ENUMERATE),
 		JS_FS_END
 	};
 
 	static JSFunctionSpec st_funcs[] = {
-		JS_FN("setFontName", js_cocos2dx_CCMenuItemFont_setFontName, 1, JSPROP_PERMANENT | JSPROP_SHARED),
-		JS_FN("fontName", js_cocos2dx_CCMenuItemFont_fontName, 0, JSPROP_PERMANENT | JSPROP_SHARED),
-		JS_FN("fontSize", js_cocos2dx_CCMenuItemFont_fontSize, 0, JSPROP_PERMANENT | JSPROP_SHARED),
-		JS_FN("setFontSize", js_cocos2dx_CCMenuItemFont_setFontSize, 1, JSPROP_PERMANENT | JSPROP_SHARED),
+		JS_FN("setFontName", js_cocos2dx_CCMenuItemFont_setFontName, 1, JSPROP_PERMANENT | JSPROP_ENUMERATE),
+		JS_FN("fontName", js_cocos2dx_CCMenuItemFont_fontName, 0, JSPROP_PERMANENT | JSPROP_ENUMERATE),
+		JS_FN("fontSize", js_cocos2dx_CCMenuItemFont_fontSize, 0, JSPROP_PERMANENT | JSPROP_ENUMERATE),
+		JS_FN("setFontSize", js_cocos2dx_CCMenuItemFont_setFontSize, 1, JSPROP_PERMANENT | JSPROP_ENUMERATE),
 		JS_FS_END
 	};
 
@@ -36647,19 +36647,19 @@ void js_register_cocos2dx_CCMenuItemSprite(JSContext *cx, JSObject *global) {
 	};
 
 	static JSFunctionSpec funcs[] = {
-		JS_FN("setEnabled", js_cocos2dx_CCMenuItemSprite_setEnabled, 1, JSPROP_PERMANENT | JSPROP_SHARED),
-		JS_FN("selected", js_cocos2dx_CCMenuItemSprite_selected, 0, JSPROP_PERMANENT | JSPROP_SHARED),
-		JS_FN("setColor", js_cocos2dx_CCMenuItemSprite_setColor, 1, JSPROP_PERMANENT | JSPROP_SHARED),
-		JS_FN("setNormalImage", js_cocos2dx_CCMenuItemSprite_setNormalImage, 1, JSPROP_PERMANENT | JSPROP_SHARED),
-		JS_FN("setDisabledImage", js_cocos2dx_CCMenuItemSprite_setDisabledImage, 1, JSPROP_PERMANENT | JSPROP_SHARED),
-		JS_FN("getColor", js_cocos2dx_CCMenuItemSprite_getColor, 0, JSPROP_PERMANENT | JSPROP_SHARED),
-		JS_FN("setSelectedImage", js_cocos2dx_CCMenuItemSprite_setSelectedImage, 1, JSPROP_PERMANENT | JSPROP_SHARED),
-		JS_FN("getDisabledImage", js_cocos2dx_CCMenuItemSprite_getDisabledImage, 0, JSPROP_PERMANENT | JSPROP_SHARED),
-		JS_FN("setOpacity", js_cocos2dx_CCMenuItemSprite_setOpacity, 1, JSPROP_PERMANENT | JSPROP_SHARED),
-		JS_FN("getSelectedImage", js_cocos2dx_CCMenuItemSprite_getSelectedImage, 0, JSPROP_PERMANENT | JSPROP_SHARED),
-		JS_FN("getNormalImage", js_cocos2dx_CCMenuItemSprite_getNormalImage, 0, JSPROP_PERMANENT | JSPROP_SHARED),
-		JS_FN("getOpacity", js_cocos2dx_CCMenuItemSprite_getOpacity, 0, JSPROP_PERMANENT | JSPROP_SHARED),
-		JS_FN("unselected", js_cocos2dx_CCMenuItemSprite_unselected, 0, JSPROP_PERMANENT | JSPROP_SHARED),
+		JS_FN("setEnabled", js_cocos2dx_CCMenuItemSprite_setEnabled, 1, JSPROP_PERMANENT | JSPROP_ENUMERATE),
+		JS_FN("selected", js_cocos2dx_CCMenuItemSprite_selected, 0, JSPROP_PERMANENT | JSPROP_ENUMERATE),
+		JS_FN("setColor", js_cocos2dx_CCMenuItemSprite_setColor, 1, JSPROP_PERMANENT | JSPROP_ENUMERATE),
+		JS_FN("setNormalImage", js_cocos2dx_CCMenuItemSprite_setNormalImage, 1, JSPROP_PERMANENT | JSPROP_ENUMERATE),
+		JS_FN("setDisabledImage", js_cocos2dx_CCMenuItemSprite_setDisabledImage, 1, JSPROP_PERMANENT | JSPROP_ENUMERATE),
+		JS_FN("getColor", js_cocos2dx_CCMenuItemSprite_getColor, 0, JSPROP_PERMANENT | JSPROP_ENUMERATE),
+		JS_FN("setSelectedImage", js_cocos2dx_CCMenuItemSprite_setSelectedImage, 1, JSPROP_PERMANENT | JSPROP_ENUMERATE),
+		JS_FN("getDisabledImage", js_cocos2dx_CCMenuItemSprite_getDisabledImage, 0, JSPROP_PERMANENT | JSPROP_ENUMERATE),
+		JS_FN("setOpacity", js_cocos2dx_CCMenuItemSprite_setOpacity, 1, JSPROP_PERMANENT | JSPROP_ENUMERATE),
+		JS_FN("getSelectedImage", js_cocos2dx_CCMenuItemSprite_getSelectedImage, 0, JSPROP_PERMANENT | JSPROP_ENUMERATE),
+		JS_FN("getNormalImage", js_cocos2dx_CCMenuItemSprite_getNormalImage, 0, JSPROP_PERMANENT | JSPROP_ENUMERATE),
+		JS_FN("getOpacity", js_cocos2dx_CCMenuItemSprite_getOpacity, 0, JSPROP_PERMANENT | JSPROP_ENUMERATE),
+		JS_FN("unselected", js_cocos2dx_CCMenuItemSprite_unselected, 0, JSPROP_PERMANENT | JSPROP_ENUMERATE),
 		JS_FS_END
 	};
 
@@ -36843,10 +36843,10 @@ void js_register_cocos2dx_CCMenuItemImage(JSContext *cx, JSObject *global) {
 	JSPropertySpec *properties = NULL;
 
 	static JSFunctionSpec funcs[] = {
-		JS_FN("setDisabledSpriteFrame", js_cocos2dx_CCMenuItemImage_setDisabledSpriteFrame, 1, JSPROP_PERMANENT | JSPROP_SHARED),
-		JS_FN("setSelectedSpriteFrame", js_cocos2dx_CCMenuItemImage_setSelectedSpriteFrame, 1, JSPROP_PERMANENT | JSPROP_SHARED),
-		JS_FN("init", js_cocos2dx_CCMenuItemImage_init, 0, JSPROP_PERMANENT | JSPROP_SHARED),
-		JS_FN("setNormalSpriteFrame", js_cocos2dx_CCMenuItemImage_setNormalSpriteFrame, 1, JSPROP_PERMANENT | JSPROP_SHARED),
+		JS_FN("setDisabledSpriteFrame", js_cocos2dx_CCMenuItemImage_setDisabledSpriteFrame, 1, JSPROP_PERMANENT | JSPROP_ENUMERATE),
+		JS_FN("setSelectedSpriteFrame", js_cocos2dx_CCMenuItemImage_setSelectedSpriteFrame, 1, JSPROP_PERMANENT | JSPROP_ENUMERATE),
+		JS_FN("init", js_cocos2dx_CCMenuItemImage_init, 0, JSPROP_PERMANENT | JSPROP_ENUMERATE),
+		JS_FN("setNormalSpriteFrame", js_cocos2dx_CCMenuItemImage_setNormalSpriteFrame, 1, JSPROP_PERMANENT | JSPROP_ENUMERATE),
 		JS_FS_END
 	};
 
@@ -37211,20 +37211,20 @@ void js_register_cocos2dx_CCMenuItemToggle(JSContext *cx, JSObject *global) {
 	};
 
 	static JSFunctionSpec funcs[] = {
-		JS_FN("setSubItems", js_cocos2dx_CCMenuItemToggle_setSubItems, 1, JSPROP_PERMANENT | JSPROP_SHARED),
-		JS_FN("initWithItem", js_cocos2dx_CCMenuItemToggle_initWithItem, 1, JSPROP_PERMANENT | JSPROP_SHARED),
-		JS_FN("setSelectedIndex", js_cocos2dx_CCMenuItemToggle_setSelectedIndex, 1, JSPROP_PERMANENT | JSPROP_SHARED),
-		JS_FN("setEnabled", js_cocos2dx_CCMenuItemToggle_setEnabled, 1, JSPROP_PERMANENT | JSPROP_SHARED),
-		JS_FN("getSelectedIndex", js_cocos2dx_CCMenuItemToggle_getSelectedIndex, 0, JSPROP_PERMANENT | JSPROP_SHARED),
-		JS_FN("addSubItem", js_cocos2dx_CCMenuItemToggle_addSubItem, 1, JSPROP_PERMANENT | JSPROP_SHARED),
-		JS_FN("setOpacity", js_cocos2dx_CCMenuItemToggle_setOpacity, 1, JSPROP_PERMANENT | JSPROP_SHARED),
-		JS_FN("activate", js_cocos2dx_CCMenuItemToggle_activate, 0, JSPROP_PERMANENT | JSPROP_SHARED),
-		JS_FN("selected", js_cocos2dx_CCMenuItemToggle_selected, 0, JSPROP_PERMANENT | JSPROP_SHARED),
-		JS_FN("getColor", js_cocos2dx_CCMenuItemToggle_getColor, 0, JSPROP_PERMANENT | JSPROP_SHARED),
-		JS_FN("getOpacity", js_cocos2dx_CCMenuItemToggle_getOpacity, 0, JSPROP_PERMANENT | JSPROP_SHARED),
-		JS_FN("unselected", js_cocos2dx_CCMenuItemToggle_unselected, 0, JSPROP_PERMANENT | JSPROP_SHARED),
-		JS_FN("selectedItem", js_cocos2dx_CCMenuItemToggle_selectedItem, 0, JSPROP_PERMANENT | JSPROP_SHARED),
-		JS_FN("setColor", js_cocos2dx_CCMenuItemToggle_setColor, 1, JSPROP_PERMANENT | JSPROP_SHARED),
+		JS_FN("setSubItems", js_cocos2dx_CCMenuItemToggle_setSubItems, 1, JSPROP_PERMANENT | JSPROP_ENUMERATE),
+		JS_FN("initWithItem", js_cocos2dx_CCMenuItemToggle_initWithItem, 1, JSPROP_PERMANENT | JSPROP_ENUMERATE),
+		JS_FN("setSelectedIndex", js_cocos2dx_CCMenuItemToggle_setSelectedIndex, 1, JSPROP_PERMANENT | JSPROP_ENUMERATE),
+		JS_FN("setEnabled", js_cocos2dx_CCMenuItemToggle_setEnabled, 1, JSPROP_PERMANENT | JSPROP_ENUMERATE),
+		JS_FN("getSelectedIndex", js_cocos2dx_CCMenuItemToggle_getSelectedIndex, 0, JSPROP_PERMANENT | JSPROP_ENUMERATE),
+		JS_FN("addSubItem", js_cocos2dx_CCMenuItemToggle_addSubItem, 1, JSPROP_PERMANENT | JSPROP_ENUMERATE),
+		JS_FN("setOpacity", js_cocos2dx_CCMenuItemToggle_setOpacity, 1, JSPROP_PERMANENT | JSPROP_ENUMERATE),
+		JS_FN("activate", js_cocos2dx_CCMenuItemToggle_activate, 0, JSPROP_PERMANENT | JSPROP_ENUMERATE),
+		JS_FN("selected", js_cocos2dx_CCMenuItemToggle_selected, 0, JSPROP_PERMANENT | JSPROP_ENUMERATE),
+		JS_FN("getColor", js_cocos2dx_CCMenuItemToggle_getColor, 0, JSPROP_PERMANENT | JSPROP_ENUMERATE),
+		JS_FN("getOpacity", js_cocos2dx_CCMenuItemToggle_getOpacity, 0, JSPROP_PERMANENT | JSPROP_ENUMERATE),
+		JS_FN("unselected", js_cocos2dx_CCMenuItemToggle_unselected, 0, JSPROP_PERMANENT | JSPROP_ENUMERATE),
+		JS_FN("selectedItem", js_cocos2dx_CCMenuItemToggle_selectedItem, 0, JSPROP_PERMANENT | JSPROP_ENUMERATE),
+		JS_FN("setColor", js_cocos2dx_CCMenuItemToggle_setColor, 1, JSPROP_PERMANENT | JSPROP_ENUMERATE),
 		JS_FS_END
 	};
 
@@ -37799,26 +37799,26 @@ void js_register_cocos2dx_CCMenu(JSContext *cx, JSObject *global) {
 	};
 
 	static JSFunctionSpec funcs[] = {
-		JS_FN("initWithArray", js_cocos2dx_CCMenu_initWithArray, 1, JSPROP_PERMANENT | JSPROP_SHARED),
-		JS_FN("addChild", js_cocos2dx_CCMenu_addChild, 1, JSPROP_PERMANENT | JSPROP_SHARED),
-		JS_FN("alignItemsVertically", js_cocos2dx_CCMenu_alignItemsVertically, 0, JSPROP_PERMANENT | JSPROP_SHARED),
-		JS_FN("ccTouchBegan", js_cocos2dx_CCMenu_ccTouchBegan, 2, JSPROP_PERMANENT | JSPROP_SHARED),
-		JS_FN("ccTouchEnded", js_cocos2dx_CCMenu_ccTouchEnded, 2, JSPROP_PERMANENT | JSPROP_SHARED),
-		JS_FN("isEnabled", js_cocos2dx_CCMenu_isEnabled, 0, JSPROP_PERMANENT | JSPROP_SHARED),
-		JS_FN("setOpacity", js_cocos2dx_CCMenu_setOpacity, 1, JSPROP_PERMANENT | JSPROP_SHARED),
-		JS_FN("setHandlerPriority", js_cocos2dx_CCMenu_setHandlerPriority, 1, JSPROP_PERMANENT | JSPROP_SHARED),
-		JS_FN("init", js_cocos2dx_CCMenu_init, 0, JSPROP_PERMANENT | JSPROP_SHARED),
-		JS_FN("alignItemsHorizontallyWithPadding", js_cocos2dx_CCMenu_alignItemsHorizontallyWithPadding, 1, JSPROP_PERMANENT | JSPROP_SHARED),
-		JS_FN("getOpacity", js_cocos2dx_CCMenu_getOpacity, 0, JSPROP_PERMANENT | JSPROP_SHARED),
-		JS_FN("alignItemsHorizontally", js_cocos2dx_CCMenu_alignItemsHorizontally, 0, JSPROP_PERMANENT | JSPROP_SHARED),
-		JS_FN("setEnabled", js_cocos2dx_CCMenu_setEnabled, 1, JSPROP_PERMANENT | JSPROP_SHARED),
-		JS_FN("getColor", js_cocos2dx_CCMenu_getColor, 0, JSPROP_PERMANENT | JSPROP_SHARED),
-		JS_FN("ccTouchMoved", js_cocos2dx_CCMenu_ccTouchMoved, 2, JSPROP_PERMANENT | JSPROP_SHARED),
-		JS_FN("setColor", js_cocos2dx_CCMenu_setColor, 1, JSPROP_PERMANENT | JSPROP_SHARED),
-		JS_FN("ccTouchCancelled", js_cocos2dx_CCMenu_ccTouchCancelled, 2, JSPROP_PERMANENT | JSPROP_SHARED),
-		JS_FN("removeChild", js_cocos2dx_CCMenu_removeChild, 2, JSPROP_PERMANENT | JSPROP_SHARED),
-		JS_FN("alignItemsVerticallyWithPadding", js_cocos2dx_CCMenu_alignItemsVerticallyWithPadding, 1, JSPROP_PERMANENT | JSPROP_SHARED),
-		JS_FN("registerWithTouchDispatcher", js_cocos2dx_CCMenu_registerWithTouchDispatcher, 0, JSPROP_PERMANENT | JSPROP_SHARED),
+		JS_FN("initWithArray", js_cocos2dx_CCMenu_initWithArray, 1, JSPROP_PERMANENT | JSPROP_ENUMERATE),
+		JS_FN("addChild", js_cocos2dx_CCMenu_addChild, 1, JSPROP_PERMANENT | JSPROP_ENUMERATE),
+		JS_FN("alignItemsVertically", js_cocos2dx_CCMenu_alignItemsVertically, 0, JSPROP_PERMANENT | JSPROP_ENUMERATE),
+		JS_FN("ccTouchBegan", js_cocos2dx_CCMenu_ccTouchBegan, 2, JSPROP_PERMANENT | JSPROP_ENUMERATE),
+		JS_FN("ccTouchEnded", js_cocos2dx_CCMenu_ccTouchEnded, 2, JSPROP_PERMANENT | JSPROP_ENUMERATE),
+		JS_FN("isEnabled", js_cocos2dx_CCMenu_isEnabled, 0, JSPROP_PERMANENT | JSPROP_ENUMERATE),
+		JS_FN("setOpacity", js_cocos2dx_CCMenu_setOpacity, 1, JSPROP_PERMANENT | JSPROP_ENUMERATE),
+		JS_FN("setHandlerPriority", js_cocos2dx_CCMenu_setHandlerPriority, 1, JSPROP_PERMANENT | JSPROP_ENUMERATE),
+		JS_FN("init", js_cocos2dx_CCMenu_init, 0, JSPROP_PERMANENT | JSPROP_ENUMERATE),
+		JS_FN("alignItemsHorizontallyWithPadding", js_cocos2dx_CCMenu_alignItemsHorizontallyWithPadding, 1, JSPROP_PERMANENT | JSPROP_ENUMERATE),
+		JS_FN("getOpacity", js_cocos2dx_CCMenu_getOpacity, 0, JSPROP_PERMANENT | JSPROP_ENUMERATE),
+		JS_FN("alignItemsHorizontally", js_cocos2dx_CCMenu_alignItemsHorizontally, 0, JSPROP_PERMANENT | JSPROP_ENUMERATE),
+		JS_FN("setEnabled", js_cocos2dx_CCMenu_setEnabled, 1, JSPROP_PERMANENT | JSPROP_ENUMERATE),
+		JS_FN("getColor", js_cocos2dx_CCMenu_getColor, 0, JSPROP_PERMANENT | JSPROP_ENUMERATE),
+		JS_FN("ccTouchMoved", js_cocos2dx_CCMenu_ccTouchMoved, 2, JSPROP_PERMANENT | JSPROP_ENUMERATE),
+		JS_FN("setColor", js_cocos2dx_CCMenu_setColor, 1, JSPROP_PERMANENT | JSPROP_ENUMERATE),
+		JS_FN("ccTouchCancelled", js_cocos2dx_CCMenu_ccTouchCancelled, 2, JSPROP_PERMANENT | JSPROP_ENUMERATE),
+		JS_FN("removeChild", js_cocos2dx_CCMenu_removeChild, 2, JSPROP_PERMANENT | JSPROP_ENUMERATE),
+		JS_FN("alignItemsVerticallyWithPadding", js_cocos2dx_CCMenu_alignItemsVerticallyWithPadding, 1, JSPROP_PERMANENT | JSPROP_ENUMERATE),
+		JS_FN("registerWithTouchDispatcher", js_cocos2dx_CCMenu_registerWithTouchDispatcher, 0, JSPROP_PERMANENT | JSPROP_ENUMERATE),
 		JS_FS_END
 	};
 
@@ -38322,30 +38322,30 @@ void js_register_cocos2dx_CCProgressTimer(JSContext *cx, JSObject *global) {
 	};
 
 	static JSFunctionSpec funcs[] = {
-		JS_FN("setAnchorPoint", js_cocos2dx_CCProgressTimer_setAnchorPoint, 1, JSPROP_PERMANENT | JSPROP_SHARED),
-		JS_FN("setBarChangeRate", js_cocos2dx_CCProgressTimer_setBarChangeRate, 1, JSPROP_PERMANENT | JSPROP_SHARED),
-		JS_FN("setReverseDirection", js_cocos2dx_CCProgressTimer_setReverseDirection, 1, JSPROP_PERMANENT | JSPROP_SHARED),
-		JS_FN("setPercentage", js_cocos2dx_CCProgressTimer_setPercentage, 1, JSPROP_PERMANENT | JSPROP_SHARED),
-		JS_FN("setType", js_cocos2dx_CCProgressTimer_setType, 1, JSPROP_PERMANENT | JSPROP_SHARED),
-		JS_FN("getPercentage", js_cocos2dx_CCProgressTimer_getPercentage, 0, JSPROP_PERMANENT | JSPROP_SHARED),
-		JS_FN("setSprite", js_cocos2dx_CCProgressTimer_setSprite, 1, JSPROP_PERMANENT | JSPROP_SHARED),
-		JS_FN("setOpacity", js_cocos2dx_CCProgressTimer_setOpacity, 1, JSPROP_PERMANENT | JSPROP_SHARED),
-		JS_FN("getSprite", js_cocos2dx_CCProgressTimer_getSprite, 0, JSPROP_PERMANENT | JSPROP_SHARED),
-		JS_FN("setMidpoint", js_cocos2dx_CCProgressTimer_setMidpoint, 1, JSPROP_PERMANENT | JSPROP_SHARED),
-		JS_FN("getOpacity", js_cocos2dx_CCProgressTimer_getOpacity, 0, JSPROP_PERMANENT | JSPROP_SHARED),
-		JS_FN("getMidpoint", js_cocos2dx_CCProgressTimer_getMidpoint, 0, JSPROP_PERMANENT | JSPROP_SHARED),
-		JS_FN("draw", js_cocos2dx_CCProgressTimer_draw, 0, JSPROP_PERMANENT | JSPROP_SHARED),
-		JS_FN("getColor", js_cocos2dx_CCProgressTimer_getColor, 0, JSPROP_PERMANENT | JSPROP_SHARED),
-		JS_FN("getType", js_cocos2dx_CCProgressTimer_getType, 0, JSPROP_PERMANENT | JSPROP_SHARED),
-		JS_FN("isReverseDirection", js_cocos2dx_CCProgressTimer_isReverseDirection, 0, JSPROP_PERMANENT | JSPROP_SHARED),
-		JS_FN("setColor", js_cocos2dx_CCProgressTimer_setColor, 1, JSPROP_PERMANENT | JSPROP_SHARED),
-		JS_FN("getBarChangeRate", js_cocos2dx_CCProgressTimer_getBarChangeRate, 0, JSPROP_PERMANENT | JSPROP_SHARED),
-		JS_FN("initWithSprite", js_cocos2dx_CCProgressTimer_initWithSprite, 1, JSPROP_PERMANENT | JSPROP_SHARED),
+		JS_FN("setAnchorPoint", js_cocos2dx_CCProgressTimer_setAnchorPoint, 1, JSPROP_PERMANENT | JSPROP_ENUMERATE),
+		JS_FN("setBarChangeRate", js_cocos2dx_CCProgressTimer_setBarChangeRate, 1, JSPROP_PERMANENT | JSPROP_ENUMERATE),
+		JS_FN("setReverseDirection", js_cocos2dx_CCProgressTimer_setReverseDirection, 1, JSPROP_PERMANENT | JSPROP_ENUMERATE),
+		JS_FN("setPercentage", js_cocos2dx_CCProgressTimer_setPercentage, 1, JSPROP_PERMANENT | JSPROP_ENUMERATE),
+		JS_FN("setType", js_cocos2dx_CCProgressTimer_setType, 1, JSPROP_PERMANENT | JSPROP_ENUMERATE),
+		JS_FN("getPercentage", js_cocos2dx_CCProgressTimer_getPercentage, 0, JSPROP_PERMANENT | JSPROP_ENUMERATE),
+		JS_FN("setSprite", js_cocos2dx_CCProgressTimer_setSprite, 1, JSPROP_PERMANENT | JSPROP_ENUMERATE),
+		JS_FN("setOpacity", js_cocos2dx_CCProgressTimer_setOpacity, 1, JSPROP_PERMANENT | JSPROP_ENUMERATE),
+		JS_FN("getSprite", js_cocos2dx_CCProgressTimer_getSprite, 0, JSPROP_PERMANENT | JSPROP_ENUMERATE),
+		JS_FN("setMidpoint", js_cocos2dx_CCProgressTimer_setMidpoint, 1, JSPROP_PERMANENT | JSPROP_ENUMERATE),
+		JS_FN("getOpacity", js_cocos2dx_CCProgressTimer_getOpacity, 0, JSPROP_PERMANENT | JSPROP_ENUMERATE),
+		JS_FN("getMidpoint", js_cocos2dx_CCProgressTimer_getMidpoint, 0, JSPROP_PERMANENT | JSPROP_ENUMERATE),
+		JS_FN("draw", js_cocos2dx_CCProgressTimer_draw, 0, JSPROP_PERMANENT | JSPROP_ENUMERATE),
+		JS_FN("getColor", js_cocos2dx_CCProgressTimer_getColor, 0, JSPROP_PERMANENT | JSPROP_ENUMERATE),
+		JS_FN("getType", js_cocos2dx_CCProgressTimer_getType, 0, JSPROP_PERMANENT | JSPROP_ENUMERATE),
+		JS_FN("isReverseDirection", js_cocos2dx_CCProgressTimer_isReverseDirection, 0, JSPROP_PERMANENT | JSPROP_ENUMERATE),
+		JS_FN("setColor", js_cocos2dx_CCProgressTimer_setColor, 1, JSPROP_PERMANENT | JSPROP_ENUMERATE),
+		JS_FN("getBarChangeRate", js_cocos2dx_CCProgressTimer_getBarChangeRate, 0, JSPROP_PERMANENT | JSPROP_ENUMERATE),
+		JS_FN("initWithSprite", js_cocos2dx_CCProgressTimer_initWithSprite, 1, JSPROP_PERMANENT | JSPROP_ENUMERATE),
 		JS_FS_END
 	};
 
 	static JSFunctionSpec st_funcs[] = {
-		JS_FN("create", js_cocos2dx_CCProgressTimer_create, 1, JSPROP_PERMANENT | JSPROP_SHARED),
+		JS_FN("create", js_cocos2dx_CCProgressTimer_create, 1, JSPROP_PERMANENT | JSPROP_ENUMERATE),
 		JS_FS_END
 	};
 
@@ -39102,37 +39102,37 @@ void js_register_cocos2dx_CCRenderTexture(JSContext *cx, JSObject *global) {
 	};
 
 	static JSFunctionSpec funcs[] = {
-		JS_FN("clearStencil", js_cocos2dx_CCRenderTexture_clearStencil, 1, JSPROP_PERMANENT | JSPROP_SHARED),
-		JS_FN("begin", js_cocos2dx_CCRenderTexture_begin, 0, JSPROP_PERMANENT | JSPROP_SHARED),
-		JS_FN("listenToForeground", js_cocos2dx_CCRenderTexture_listenToForeground, 1, JSPROP_PERMANENT | JSPROP_SHARED),
-		JS_FN("getClearDepth", js_cocos2dx_CCRenderTexture_getClearDepth, 0, JSPROP_PERMANENT | JSPROP_SHARED),
-		JS_FN("getClearStencil", js_cocos2dx_CCRenderTexture_getClearStencil, 0, JSPROP_PERMANENT | JSPROP_SHARED),
-		JS_FN("end", js_cocos2dx_CCRenderTexture_end, 0, JSPROP_PERMANENT | JSPROP_SHARED),
-		JS_FN("setClearStencil", js_cocos2dx_CCRenderTexture_setClearStencil, 1, JSPROP_PERMANENT | JSPROP_SHARED),
-		JS_FN("initWithWidthAndHeight", js_cocos2dx_CCRenderTexture_initWithWidthAndHeight, 3, JSPROP_PERMANENT | JSPROP_SHARED),
-		JS_FN("visit", js_cocos2dx_CCRenderTexture_visit, 0, JSPROP_PERMANENT | JSPROP_SHARED),
-		JS_FN("getSprite", js_cocos2dx_CCRenderTexture_getSprite, 0, JSPROP_PERMANENT | JSPROP_SHARED),
-		JS_FN("isAutoDraw", js_cocos2dx_CCRenderTexture_isAutoDraw, 0, JSPROP_PERMANENT | JSPROP_SHARED),
-		JS_FN("setClearFlags", js_cocos2dx_CCRenderTexture_setClearFlags, 1, JSPROP_PERMANENT | JSPROP_SHARED),
-		JS_FN("draw", js_cocos2dx_CCRenderTexture_draw, 0, JSPROP_PERMANENT | JSPROP_SHARED),
-		JS_FN("saveToFile", js_cocos2dx_CCRenderTexture_saveToFile, 1, JSPROP_PERMANENT | JSPROP_SHARED),
-		JS_FN("setAutoDraw", js_cocos2dx_CCRenderTexture_setAutoDraw, 1, JSPROP_PERMANENT | JSPROP_SHARED),
-		JS_FN("setClearColor", js_cocos2dx_CCRenderTexture_setClearColor, 1, JSPROP_PERMANENT | JSPROP_SHARED),
-		JS_FN("endToLua", js_cocos2dx_CCRenderTexture_endToLua, 0, JSPROP_PERMANENT | JSPROP_SHARED),
-		JS_FN("beginWithClear", js_cocos2dx_CCRenderTexture_beginWithClear, 4, JSPROP_PERMANENT | JSPROP_SHARED),
-		JS_FN("clearDepth", js_cocos2dx_CCRenderTexture_clearDepth, 1, JSPROP_PERMANENT | JSPROP_SHARED),
-		JS_FN("getClearColor", js_cocos2dx_CCRenderTexture_getClearColor, 0, JSPROP_PERMANENT | JSPROP_SHARED),
-		JS_FN("listenToBackground", js_cocos2dx_CCRenderTexture_listenToBackground, 1, JSPROP_PERMANENT | JSPROP_SHARED),
-		JS_FN("clear", js_cocos2dx_CCRenderTexture_clear, 4, JSPROP_PERMANENT | JSPROP_SHARED),
-		JS_FN("getClearFlags", js_cocos2dx_CCRenderTexture_getClearFlags, 0, JSPROP_PERMANENT | JSPROP_SHARED),
-		JS_FN("newCCImage", js_cocos2dx_CCRenderTexture_newCCImage, 1, JSPROP_PERMANENT | JSPROP_SHARED),
-		JS_FN("setClearDepth", js_cocos2dx_CCRenderTexture_setClearDepth, 1, JSPROP_PERMANENT | JSPROP_SHARED),
-		JS_FN("setSprite", js_cocos2dx_CCRenderTexture_setSprite, 1, JSPROP_PERMANENT | JSPROP_SHARED),
+		JS_FN("clearStencil", js_cocos2dx_CCRenderTexture_clearStencil, 1, JSPROP_PERMANENT | JSPROP_ENUMERATE),
+		JS_FN("begin", js_cocos2dx_CCRenderTexture_begin, 0, JSPROP_PERMANENT | JSPROP_ENUMERATE),
+		JS_FN("listenToForeground", js_cocos2dx_CCRenderTexture_listenToForeground, 1, JSPROP_PERMANENT | JSPROP_ENUMERATE),
+		JS_FN("getClearDepth", js_cocos2dx_CCRenderTexture_getClearDepth, 0, JSPROP_PERMANENT | JSPROP_ENUMERATE),
+		JS_FN("getClearStencil", js_cocos2dx_CCRenderTexture_getClearStencil, 0, JSPROP_PERMANENT | JSPROP_ENUMERATE),
+		JS_FN("end", js_cocos2dx_CCRenderTexture_end, 0, JSPROP_PERMANENT | JSPROP_ENUMERATE),
+		JS_FN("setClearStencil", js_cocos2dx_CCRenderTexture_setClearStencil, 1, JSPROP_PERMANENT | JSPROP_ENUMERATE),
+		JS_FN("initWithWidthAndHeight", js_cocos2dx_CCRenderTexture_initWithWidthAndHeight, 3, JSPROP_PERMANENT | JSPROP_ENUMERATE),
+		JS_FN("visit", js_cocos2dx_CCRenderTexture_visit, 0, JSPROP_PERMANENT | JSPROP_ENUMERATE),
+		JS_FN("getSprite", js_cocos2dx_CCRenderTexture_getSprite, 0, JSPROP_PERMANENT | JSPROP_ENUMERATE),
+		JS_FN("isAutoDraw", js_cocos2dx_CCRenderTexture_isAutoDraw, 0, JSPROP_PERMANENT | JSPROP_ENUMERATE),
+		JS_FN("setClearFlags", js_cocos2dx_CCRenderTexture_setClearFlags, 1, JSPROP_PERMANENT | JSPROP_ENUMERATE),
+		JS_FN("draw", js_cocos2dx_CCRenderTexture_draw, 0, JSPROP_PERMANENT | JSPROP_ENUMERATE),
+		JS_FN("saveToFile", js_cocos2dx_CCRenderTexture_saveToFile, 1, JSPROP_PERMANENT | JSPROP_ENUMERATE),
+		JS_FN("setAutoDraw", js_cocos2dx_CCRenderTexture_setAutoDraw, 1, JSPROP_PERMANENT | JSPROP_ENUMERATE),
+		JS_FN("setClearColor", js_cocos2dx_CCRenderTexture_setClearColor, 1, JSPROP_PERMANENT | JSPROP_ENUMERATE),
+		JS_FN("endToLua", js_cocos2dx_CCRenderTexture_endToLua, 0, JSPROP_PERMANENT | JSPROP_ENUMERATE),
+		JS_FN("beginWithClear", js_cocos2dx_CCRenderTexture_beginWithClear, 4, JSPROP_PERMANENT | JSPROP_ENUMERATE),
+		JS_FN("clearDepth", js_cocos2dx_CCRenderTexture_clearDepth, 1, JSPROP_PERMANENT | JSPROP_ENUMERATE),
+		JS_FN("getClearColor", js_cocos2dx_CCRenderTexture_getClearColor, 0, JSPROP_PERMANENT | JSPROP_ENUMERATE),
+		JS_FN("listenToBackground", js_cocos2dx_CCRenderTexture_listenToBackground, 1, JSPROP_PERMANENT | JSPROP_ENUMERATE),
+		JS_FN("clear", js_cocos2dx_CCRenderTexture_clear, 4, JSPROP_PERMANENT | JSPROP_ENUMERATE),
+		JS_FN("getClearFlags", js_cocos2dx_CCRenderTexture_getClearFlags, 0, JSPROP_PERMANENT | JSPROP_ENUMERATE),
+		JS_FN("newCCImage", js_cocos2dx_CCRenderTexture_newCCImage, 1, JSPROP_PERMANENT | JSPROP_ENUMERATE),
+		JS_FN("setClearDepth", js_cocos2dx_CCRenderTexture_setClearDepth, 1, JSPROP_PERMANENT | JSPROP_ENUMERATE),
+		JS_FN("setSprite", js_cocos2dx_CCRenderTexture_setSprite, 1, JSPROP_PERMANENT | JSPROP_ENUMERATE),
 		JS_FS_END
 	};
 
 	static JSFunctionSpec st_funcs[] = {
-		JS_FN("create", js_cocos2dx_CCRenderTexture_create, 2, JSPROP_PERMANENT | JSPROP_SHARED),
+		JS_FN("create", js_cocos2dx_CCRenderTexture_create, 2, JSPROP_PERMANENT | JSPROP_ENUMERATE),
 		JS_FS_END
 	};
 
@@ -39672,27 +39672,27 @@ void js_register_cocos2dx_CCParticleBatchNode(JSContext *cx, JSObject *global) {
 	};
 
 	static JSFunctionSpec funcs[] = {
-		JS_FN("removeChildAtIndex", js_cocos2dx_CCParticleBatchNode_removeChildAtIndex, 2, JSPROP_PERMANENT | JSPROP_SHARED),
-		JS_FN("addChild", js_cocos2dx_CCParticleBatchNode_addChild, 1, JSPROP_PERMANENT | JSPROP_SHARED),
-		JS_FN("draw", js_cocos2dx_CCParticleBatchNode_draw, 0, JSPROP_PERMANENT | JSPROP_SHARED),
-		JS_FN("setTexture", js_cocos2dx_CCParticleBatchNode_setTexture, 1, JSPROP_PERMANENT | JSPROP_SHARED),
-		JS_FN("initWithFile", js_cocos2dx_CCParticleBatchNode_initWithFile, 2, JSPROP_PERMANENT | JSPROP_SHARED),
-		JS_FN("disableParticle", js_cocos2dx_CCParticleBatchNode_disableParticle, 1, JSPROP_PERMANENT | JSPROP_SHARED),
-		JS_FN("getTexture", js_cocos2dx_CCParticleBatchNode_getTexture, 0, JSPROP_PERMANENT | JSPROP_SHARED),
-		JS_FN("visit", js_cocos2dx_CCParticleBatchNode_visit, 0, JSPROP_PERMANENT | JSPROP_SHARED),
-		JS_FN("removeAllChildrenWithCleanup", js_cocos2dx_CCParticleBatchNode_removeAllChildrenWithCleanup, 1, JSPROP_PERMANENT | JSPROP_SHARED),
-		JS_FN("getTextureAtlas", js_cocos2dx_CCParticleBatchNode_getTextureAtlas, 0, JSPROP_PERMANENT | JSPROP_SHARED),
-		JS_FN("removeChild", js_cocos2dx_CCParticleBatchNode_removeChild, 2, JSPROP_PERMANENT | JSPROP_SHARED),
-		JS_FN("insertChild", js_cocos2dx_CCParticleBatchNode_insertChild, 2, JSPROP_PERMANENT | JSPROP_SHARED),
-		JS_FN("initWithTexture", js_cocos2dx_CCParticleBatchNode_initWithTexture, 2, JSPROP_PERMANENT | JSPROP_SHARED),
-		JS_FN("reorderChild", js_cocos2dx_CCParticleBatchNode_reorderChild, 2, JSPROP_PERMANENT | JSPROP_SHARED),
-		JS_FN("setTextureAtlas", js_cocos2dx_CCParticleBatchNode_setTextureAtlas, 1, JSPROP_PERMANENT | JSPROP_SHARED),
+		JS_FN("removeChildAtIndex", js_cocos2dx_CCParticleBatchNode_removeChildAtIndex, 2, JSPROP_PERMANENT | JSPROP_ENUMERATE),
+		JS_FN("addChild", js_cocos2dx_CCParticleBatchNode_addChild, 1, JSPROP_PERMANENT | JSPROP_ENUMERATE),
+		JS_FN("draw", js_cocos2dx_CCParticleBatchNode_draw, 0, JSPROP_PERMANENT | JSPROP_ENUMERATE),
+		JS_FN("setTexture", js_cocos2dx_CCParticleBatchNode_setTexture, 1, JSPROP_PERMANENT | JSPROP_ENUMERATE),
+		JS_FN("initWithFile", js_cocos2dx_CCParticleBatchNode_initWithFile, 2, JSPROP_PERMANENT | JSPROP_ENUMERATE),
+		JS_FN("disableParticle", js_cocos2dx_CCParticleBatchNode_disableParticle, 1, JSPROP_PERMANENT | JSPROP_ENUMERATE),
+		JS_FN("getTexture", js_cocos2dx_CCParticleBatchNode_getTexture, 0, JSPROP_PERMANENT | JSPROP_ENUMERATE),
+		JS_FN("visit", js_cocos2dx_CCParticleBatchNode_visit, 0, JSPROP_PERMANENT | JSPROP_ENUMERATE),
+		JS_FN("removeAllChildrenWithCleanup", js_cocos2dx_CCParticleBatchNode_removeAllChildrenWithCleanup, 1, JSPROP_PERMANENT | JSPROP_ENUMERATE),
+		JS_FN("getTextureAtlas", js_cocos2dx_CCParticleBatchNode_getTextureAtlas, 0, JSPROP_PERMANENT | JSPROP_ENUMERATE),
+		JS_FN("removeChild", js_cocos2dx_CCParticleBatchNode_removeChild, 2, JSPROP_PERMANENT | JSPROP_ENUMERATE),
+		JS_FN("insertChild", js_cocos2dx_CCParticleBatchNode_insertChild, 2, JSPROP_PERMANENT | JSPROP_ENUMERATE),
+		JS_FN("initWithTexture", js_cocos2dx_CCParticleBatchNode_initWithTexture, 2, JSPROP_PERMANENT | JSPROP_ENUMERATE),
+		JS_FN("reorderChild", js_cocos2dx_CCParticleBatchNode_reorderChild, 2, JSPROP_PERMANENT | JSPROP_ENUMERATE),
+		JS_FN("setTextureAtlas", js_cocos2dx_CCParticleBatchNode_setTextureAtlas, 1, JSPROP_PERMANENT | JSPROP_ENUMERATE),
 		JS_FS_END
 	};
 
 	static JSFunctionSpec st_funcs[] = {
-		JS_FN("create", js_cocos2dx_CCParticleBatchNode_create, 2, JSPROP_PERMANENT | JSPROP_SHARED),
-		JS_FN("createWithTexture", js_cocos2dx_CCParticleBatchNode_createWithTexture, 2, JSPROP_PERMANENT | JSPROP_SHARED),
+		JS_FN("create", js_cocos2dx_CCParticleBatchNode_create, 2, JSPROP_PERMANENT | JSPROP_ENUMERATE),
+		JS_FN("createWithTexture", js_cocos2dx_CCParticleBatchNode_createWithTexture, 2, JSPROP_PERMANENT | JSPROP_ENUMERATE),
 		JS_FS_END
 	};
 
@@ -41775,115 +41775,115 @@ void js_register_cocos2dx_CCParticleSystem(JSContext *cx, JSObject *global) {
 	};
 
 	static JSFunctionSpec funcs[] = {
-		JS_FN("getStartSizeVar", js_cocos2dx_CCParticleSystem_getStartSizeVar, 0, JSPROP_PERMANENT | JSPROP_SHARED),
-		JS_FN("getTexture", js_cocos2dx_CCParticleSystem_getTexture, 0, JSPROP_PERMANENT | JSPROP_SHARED),
-		JS_FN("isFull", js_cocos2dx_CCParticleSystem_isFull, 0, JSPROP_PERMANENT | JSPROP_SHARED),
-		JS_FN("getBatchNode", js_cocos2dx_CCParticleSystem_getBatchNode, 0, JSPROP_PERMANENT | JSPROP_SHARED),
-		JS_FN("getStartColor", js_cocos2dx_CCParticleSystem_getStartColor, 0, JSPROP_PERMANENT | JSPROP_SHARED),
-		JS_FN("getPositionType", js_cocos2dx_CCParticleSystem_getPositionType, 0, JSPROP_PERMANENT | JSPROP_SHARED),
-		JS_FN("setPosVar", js_cocos2dx_CCParticleSystem_setPosVar, 1, JSPROP_PERMANENT | JSPROP_SHARED),
-		JS_FN("getEndSpin", js_cocos2dx_CCParticleSystem_getEndSpin, 0, JSPROP_PERMANENT | JSPROP_SHARED),
-		JS_FN("setRotatePerSecondVar", js_cocos2dx_CCParticleSystem_setRotatePerSecondVar, 1, JSPROP_PERMANENT | JSPROP_SHARED),
-		JS_FN("getStartSpinVar", js_cocos2dx_CCParticleSystem_getStartSpinVar, 0, JSPROP_PERMANENT | JSPROP_SHARED),
-		JS_FN("getEndSpinVar", js_cocos2dx_CCParticleSystem_getEndSpinVar, 0, JSPROP_PERMANENT | JSPROP_SHARED),
-		JS_FN("stopSystem", js_cocos2dx_CCParticleSystem_stopSystem, 0, JSPROP_PERMANENT | JSPROP_SHARED),
-		JS_FN("init", js_cocos2dx_CCParticleSystem_init, 0, JSPROP_PERMANENT | JSPROP_SHARED),
-		JS_FN("getEndSizeVar", js_cocos2dx_CCParticleSystem_getEndSizeVar, 0, JSPROP_PERMANENT | JSPROP_SHARED),
-		JS_FN("setRotation", js_cocos2dx_CCParticleSystem_setRotation, 1, JSPROP_PERMANENT | JSPROP_SHARED),
-		JS_FN("setTangentialAccel", js_cocos2dx_CCParticleSystem_setTangentialAccel, 1, JSPROP_PERMANENT | JSPROP_SHARED),
-		JS_FN("setScaleY", js_cocos2dx_CCParticleSystem_setScaleY, 1, JSPROP_PERMANENT | JSPROP_SHARED),
-		JS_FN("setScaleX", js_cocos2dx_CCParticleSystem_setScaleX, 1, JSPROP_PERMANENT | JSPROP_SHARED),
-		JS_FN("getRadialAccel", js_cocos2dx_CCParticleSystem_getRadialAccel, 0, JSPROP_PERMANENT | JSPROP_SHARED),
-		JS_FN("setStartRadius", js_cocos2dx_CCParticleSystem_setStartRadius, 1, JSPROP_PERMANENT | JSPROP_SHARED),
-		JS_FN("setRotatePerSecond", js_cocos2dx_CCParticleSystem_setRotatePerSecond, 1, JSPROP_PERMANENT | JSPROP_SHARED),
-		JS_FN("setEndSize", js_cocos2dx_CCParticleSystem_setEndSize, 1, JSPROP_PERMANENT | JSPROP_SHARED),
-		JS_FN("getGravity", js_cocos2dx_CCParticleSystem_getGravity, 0, JSPROP_PERMANENT | JSPROP_SHARED),
-		JS_FN("getTangentialAccel", js_cocos2dx_CCParticleSystem_getTangentialAccel, 0, JSPROP_PERMANENT | JSPROP_SHARED),
-		JS_FN("setEndRadius", js_cocos2dx_CCParticleSystem_setEndRadius, 1, JSPROP_PERMANENT | JSPROP_SHARED),
-		JS_FN("getAngle", js_cocos2dx_CCParticleSystem_getAngle, 0, JSPROP_PERMANENT | JSPROP_SHARED),
-		JS_FN("getSpeed", js_cocos2dx_CCParticleSystem_getSpeed, 0, JSPROP_PERMANENT | JSPROP_SHARED),
-		JS_FN("setEndColor", js_cocos2dx_CCParticleSystem_setEndColor, 1, JSPROP_PERMANENT | JSPROP_SHARED),
-		JS_FN("setStartSpin", js_cocos2dx_CCParticleSystem_setStartSpin, 1, JSPROP_PERMANENT | JSPROP_SHARED),
-		JS_FN("setDuration", js_cocos2dx_CCParticleSystem_setDuration, 1, JSPROP_PERMANENT | JSPROP_SHARED),
-		JS_FN("initWithTotalParticles", js_cocos2dx_CCParticleSystem_initWithTotalParticles, 1, JSPROP_PERMANENT | JSPROP_SHARED),
-		JS_FN("setTexture", js_cocos2dx_CCParticleSystem_setTexture, 1, JSPROP_PERMANENT | JSPROP_SHARED),
-		JS_FN("getPosVar", js_cocos2dx_CCParticleSystem_getPosVar, 0, JSPROP_PERMANENT | JSPROP_SHARED),
-		JS_FN("updateWithNoTime", js_cocos2dx_CCParticleSystem_updateWithNoTime, 0, JSPROP_PERMANENT | JSPROP_SHARED),
-		JS_FN("isBlendAdditive", js_cocos2dx_CCParticleSystem_isBlendAdditive, 0, JSPROP_PERMANENT | JSPROP_SHARED),
-		JS_FN("getAngleVar", js_cocos2dx_CCParticleSystem_getAngleVar, 0, JSPROP_PERMANENT | JSPROP_SHARED),
-		JS_FN("setPositionType", js_cocos2dx_CCParticleSystem_setPositionType, 1, JSPROP_PERMANENT | JSPROP_SHARED),
-		JS_FN("getEndRadius", js_cocos2dx_CCParticleSystem_getEndRadius, 0, JSPROP_PERMANENT | JSPROP_SHARED),
-		JS_FN("getSourcePosition", js_cocos2dx_CCParticleSystem_getSourcePosition, 0, JSPROP_PERMANENT | JSPROP_SHARED),
-		JS_FN("setLifeVar", js_cocos2dx_CCParticleSystem_setLifeVar, 1, JSPROP_PERMANENT | JSPROP_SHARED),
-		JS_FN("setTotalParticles", js_cocos2dx_CCParticleSystem_setTotalParticles, 1, JSPROP_PERMANENT | JSPROP_SHARED),
-		JS_FN("setEndColorVar", js_cocos2dx_CCParticleSystem_setEndColorVar, 1, JSPROP_PERMANENT | JSPROP_SHARED),
-		JS_FN("updateQuadWithParticle", js_cocos2dx_CCParticleSystem_updateQuadWithParticle, 2, JSPROP_PERMANENT | JSPROP_SHARED),
-		JS_FN("getAtlasIndex", js_cocos2dx_CCParticleSystem_getAtlasIndex, 0, JSPROP_PERMANENT | JSPROP_SHARED),
-		JS_FN("getStartSize", js_cocos2dx_CCParticleSystem_getStartSize, 0, JSPROP_PERMANENT | JSPROP_SHARED),
-		JS_FN("setStartSpinVar", js_cocos2dx_CCParticleSystem_setStartSpinVar, 1, JSPROP_PERMANENT | JSPROP_SHARED),
-		JS_FN("resetSystem", js_cocos2dx_CCParticleSystem_resetSystem, 0, JSPROP_PERMANENT | JSPROP_SHARED),
-		JS_FN("setAtlasIndex", js_cocos2dx_CCParticleSystem_setAtlasIndex, 1, JSPROP_PERMANENT | JSPROP_SHARED),
-		JS_FN("setTangentialAccelVar", js_cocos2dx_CCParticleSystem_setTangentialAccelVar, 1, JSPROP_PERMANENT | JSPROP_SHARED),
-		JS_FN("setEndRadiusVar", js_cocos2dx_CCParticleSystem_setEndRadiusVar, 1, JSPROP_PERMANENT | JSPROP_SHARED),
-		JS_FN("isActive", js_cocos2dx_CCParticleSystem_isActive, 0, JSPROP_PERMANENT | JSPROP_SHARED),
-		JS_FN("setRadialAccelVar", js_cocos2dx_CCParticleSystem_setRadialAccelVar, 1, JSPROP_PERMANENT | JSPROP_SHARED),
-		JS_FN("setStartSize", js_cocos2dx_CCParticleSystem_setStartSize, 1, JSPROP_PERMANENT | JSPROP_SHARED),
-		JS_FN("setSpeed", js_cocos2dx_CCParticleSystem_setSpeed, 1, JSPROP_PERMANENT | JSPROP_SHARED),
-		JS_FN("getStartSpin", js_cocos2dx_CCParticleSystem_getStartSpin, 0, JSPROP_PERMANENT | JSPROP_SHARED),
-		JS_FN("getRotatePerSecond", js_cocos2dx_CCParticleSystem_getRotatePerSecond, 0, JSPROP_PERMANENT | JSPROP_SHARED),
-		JS_FN("initParticle", js_cocos2dx_CCParticleSystem_initParticle, 1, JSPROP_PERMANENT | JSPROP_SHARED),
-		JS_FN("setEmitterMode", js_cocos2dx_CCParticleSystem_setEmitterMode, 1, JSPROP_PERMANENT | JSPROP_SHARED),
-		JS_FN("getDuration", js_cocos2dx_CCParticleSystem_getDuration, 0, JSPROP_PERMANENT | JSPROP_SHARED),
-		JS_FN("setSourcePosition", js_cocos2dx_CCParticleSystem_setSourcePosition, 1, JSPROP_PERMANENT | JSPROP_SHARED),
-		JS_FN("getRadialAccelVar", js_cocos2dx_CCParticleSystem_getRadialAccelVar, 0, JSPROP_PERMANENT | JSPROP_SHARED),
-		JS_FN("setBlendAdditive", js_cocos2dx_CCParticleSystem_setBlendAdditive, 1, JSPROP_PERMANENT | JSPROP_SHARED),
-		JS_FN("setLife", js_cocos2dx_CCParticleSystem_setLife, 1, JSPROP_PERMANENT | JSPROP_SHARED),
-		JS_FN("setAngleVar", js_cocos2dx_CCParticleSystem_setAngleVar, 1, JSPROP_PERMANENT | JSPROP_SHARED),
-		JS_FN("setRotationIsDir", js_cocos2dx_CCParticleSystem_setRotationIsDir, 1, JSPROP_PERMANENT | JSPROP_SHARED),
-		JS_FN("setEndSizeVar", js_cocos2dx_CCParticleSystem_setEndSizeVar, 1, JSPROP_PERMANENT | JSPROP_SHARED),
-		JS_FN("setAngle", js_cocos2dx_CCParticleSystem_setAngle, 1, JSPROP_PERMANENT | JSPROP_SHARED),
-		JS_FN("setBatchNode", js_cocos2dx_CCParticleSystem_setBatchNode, 1, JSPROP_PERMANENT | JSPROP_SHARED),
-		JS_FN("getTangentialAccelVar", js_cocos2dx_CCParticleSystem_getTangentialAccelVar, 0, JSPROP_PERMANENT | JSPROP_SHARED),
-		JS_FN("getEmitterMode", js_cocos2dx_CCParticleSystem_getEmitterMode, 0, JSPROP_PERMANENT | JSPROP_SHARED),
-		JS_FN("setEndSpinVar", js_cocos2dx_CCParticleSystem_setEndSpinVar, 1, JSPROP_PERMANENT | JSPROP_SHARED),
-		JS_FN("initWithFile", js_cocos2dx_CCParticleSystem_initWithFile, 1, JSPROP_PERMANENT | JSPROP_SHARED),
-		JS_FN("getSpeedVar", js_cocos2dx_CCParticleSystem_getSpeedVar, 0, JSPROP_PERMANENT | JSPROP_SHARED),
-		JS_FN("setStartColor", js_cocos2dx_CCParticleSystem_setStartColor, 1, JSPROP_PERMANENT | JSPROP_SHARED),
-		JS_FN("getRotatePerSecondVar", js_cocos2dx_CCParticleSystem_getRotatePerSecondVar, 0, JSPROP_PERMANENT | JSPROP_SHARED),
-		JS_FN("getEndSize", js_cocos2dx_CCParticleSystem_getEndSize, 0, JSPROP_PERMANENT | JSPROP_SHARED),
-		JS_FN("getLife", js_cocos2dx_CCParticleSystem_getLife, 0, JSPROP_PERMANENT | JSPROP_SHARED),
-		JS_FN("setSpeedVar", js_cocos2dx_CCParticleSystem_setSpeedVar, 1, JSPROP_PERMANENT | JSPROP_SHARED),
-		JS_FN("setAutoRemoveOnFinish", js_cocos2dx_CCParticleSystem_setAutoRemoveOnFinish, 1, JSPROP_PERMANENT | JSPROP_SHARED),
-		JS_FN("setGravity", js_cocos2dx_CCParticleSystem_setGravity, 1, JSPROP_PERMANENT | JSPROP_SHARED),
-		JS_FN("postStep", js_cocos2dx_CCParticleSystem_postStep, 0, JSPROP_PERMANENT | JSPROP_SHARED),
-		JS_FN("setEmissionRate", js_cocos2dx_CCParticleSystem_setEmissionRate, 1, JSPROP_PERMANENT | JSPROP_SHARED),
-		JS_FN("getEndColorVar", js_cocos2dx_CCParticleSystem_getEndColorVar, 0, JSPROP_PERMANENT | JSPROP_SHARED),
-		JS_FN("getRotationIsDir", js_cocos2dx_CCParticleSystem_getRotationIsDir, 0, JSPROP_PERMANENT | JSPROP_SHARED),
-		JS_FN("setScale", js_cocos2dx_CCParticleSystem_setScale, 1, JSPROP_PERMANENT | JSPROP_SHARED),
-		JS_FN("getEmissionRate", js_cocos2dx_CCParticleSystem_getEmissionRate, 0, JSPROP_PERMANENT | JSPROP_SHARED),
-		JS_FN("getEndColor", js_cocos2dx_CCParticleSystem_getEndColor, 0, JSPROP_PERMANENT | JSPROP_SHARED),
-		JS_FN("getLifeVar", js_cocos2dx_CCParticleSystem_getLifeVar, 0, JSPROP_PERMANENT | JSPROP_SHARED),
-		JS_FN("setStartSizeVar", js_cocos2dx_CCParticleSystem_setStartSizeVar, 1, JSPROP_PERMANENT | JSPROP_SHARED),
-		JS_FN("addParticle", js_cocos2dx_CCParticleSystem_addParticle, 0, JSPROP_PERMANENT | JSPROP_SHARED),
-		JS_FN("getStartRadius", js_cocos2dx_CCParticleSystem_getStartRadius, 0, JSPROP_PERMANENT | JSPROP_SHARED),
-		JS_FN("getParticleCount", js_cocos2dx_CCParticleSystem_getParticleCount, 0, JSPROP_PERMANENT | JSPROP_SHARED),
-		JS_FN("getStartRadiusVar", js_cocos2dx_CCParticleSystem_getStartRadiusVar, 0, JSPROP_PERMANENT | JSPROP_SHARED),
-		JS_FN("setStartColorVar", js_cocos2dx_CCParticleSystem_setStartColorVar, 1, JSPROP_PERMANENT | JSPROP_SHARED),
-		JS_FN("setEndSpin", js_cocos2dx_CCParticleSystem_setEndSpin, 1, JSPROP_PERMANENT | JSPROP_SHARED),
-		JS_FN("update", js_cocos2dx_CCParticleSystem_update, 1, JSPROP_PERMANENT | JSPROP_SHARED),
-		JS_FN("setRadialAccel", js_cocos2dx_CCParticleSystem_setRadialAccel, 1, JSPROP_PERMANENT | JSPROP_SHARED),
-		JS_FN("initWithDictionary", js_cocos2dx_CCParticleSystem_initWithDictionary, 1, JSPROP_PERMANENT | JSPROP_SHARED),
-		JS_FN("isAutoRemoveOnFinish", js_cocos2dx_CCParticleSystem_isAutoRemoveOnFinish, 0, JSPROP_PERMANENT | JSPROP_SHARED),
-		JS_FN("getTotalParticles", js_cocos2dx_CCParticleSystem_getTotalParticles, 0, JSPROP_PERMANENT | JSPROP_SHARED),
-		JS_FN("setStartRadiusVar", js_cocos2dx_CCParticleSystem_setStartRadiusVar, 1, JSPROP_PERMANENT | JSPROP_SHARED),
-		JS_FN("getEndRadiusVar", js_cocos2dx_CCParticleSystem_getEndRadiusVar, 0, JSPROP_PERMANENT | JSPROP_SHARED),
-		JS_FN("getStartColorVar", js_cocos2dx_CCParticleSystem_getStartColorVar, 0, JSPROP_PERMANENT | JSPROP_SHARED),
+		JS_FN("getStartSizeVar", js_cocos2dx_CCParticleSystem_getStartSizeVar, 0, JSPROP_PERMANENT | JSPROP_ENUMERATE),
+		JS_FN("getTexture", js_cocos2dx_CCParticleSystem_getTexture, 0, JSPROP_PERMANENT | JSPROP_ENUMERATE),
+		JS_FN("isFull", js_cocos2dx_CCParticleSystem_isFull, 0, JSPROP_PERMANENT | JSPROP_ENUMERATE),
+		JS_FN("getBatchNode", js_cocos2dx_CCParticleSystem_getBatchNode, 0, JSPROP_PERMANENT | JSPROP_ENUMERATE),
+		JS_FN("getStartColor", js_cocos2dx_CCParticleSystem_getStartColor, 0, JSPROP_PERMANENT | JSPROP_ENUMERATE),
+		JS_FN("getPositionType", js_cocos2dx_CCParticleSystem_getPositionType, 0, JSPROP_PERMANENT | JSPROP_ENUMERATE),
+		JS_FN("setPosVar", js_cocos2dx_CCParticleSystem_setPosVar, 1, JSPROP_PERMANENT | JSPROP_ENUMERATE),
+		JS_FN("getEndSpin", js_cocos2dx_CCParticleSystem_getEndSpin, 0, JSPROP_PERMANENT | JSPROP_ENUMERATE),
+		JS_FN("setRotatePerSecondVar", js_cocos2dx_CCParticleSystem_setRotatePerSecondVar, 1, JSPROP_PERMANENT | JSPROP_ENUMERATE),
+		JS_FN("getStartSpinVar", js_cocos2dx_CCParticleSystem_getStartSpinVar, 0, JSPROP_PERMANENT | JSPROP_ENUMERATE),
+		JS_FN("getEndSpinVar", js_cocos2dx_CCParticleSystem_getEndSpinVar, 0, JSPROP_PERMANENT | JSPROP_ENUMERATE),
+		JS_FN("stopSystem", js_cocos2dx_CCParticleSystem_stopSystem, 0, JSPROP_PERMANENT | JSPROP_ENUMERATE),
+		JS_FN("init", js_cocos2dx_CCParticleSystem_init, 0, JSPROP_PERMANENT | JSPROP_ENUMERATE),
+		JS_FN("getEndSizeVar", js_cocos2dx_CCParticleSystem_getEndSizeVar, 0, JSPROP_PERMANENT | JSPROP_ENUMERATE),
+		JS_FN("setRotation", js_cocos2dx_CCParticleSystem_setRotation, 1, JSPROP_PERMANENT | JSPROP_ENUMERATE),
+		JS_FN("setTangentialAccel", js_cocos2dx_CCParticleSystem_setTangentialAccel, 1, JSPROP_PERMANENT | JSPROP_ENUMERATE),
+		JS_FN("setScaleY", js_cocos2dx_CCParticleSystem_setScaleY, 1, JSPROP_PERMANENT | JSPROP_ENUMERATE),
+		JS_FN("setScaleX", js_cocos2dx_CCParticleSystem_setScaleX, 1, JSPROP_PERMANENT | JSPROP_ENUMERATE),
+		JS_FN("getRadialAccel", js_cocos2dx_CCParticleSystem_getRadialAccel, 0, JSPROP_PERMANENT | JSPROP_ENUMERATE),
+		JS_FN("setStartRadius", js_cocos2dx_CCParticleSystem_setStartRadius, 1, JSPROP_PERMANENT | JSPROP_ENUMERATE),
+		JS_FN("setRotatePerSecond", js_cocos2dx_CCParticleSystem_setRotatePerSecond, 1, JSPROP_PERMANENT | JSPROP_ENUMERATE),
+		JS_FN("setEndSize", js_cocos2dx_CCParticleSystem_setEndSize, 1, JSPROP_PERMANENT | JSPROP_ENUMERATE),
+		JS_FN("getGravity", js_cocos2dx_CCParticleSystem_getGravity, 0, JSPROP_PERMANENT | JSPROP_ENUMERATE),
+		JS_FN("getTangentialAccel", js_cocos2dx_CCParticleSystem_getTangentialAccel, 0, JSPROP_PERMANENT | JSPROP_ENUMERATE),
+		JS_FN("setEndRadius", js_cocos2dx_CCParticleSystem_setEndRadius, 1, JSPROP_PERMANENT | JSPROP_ENUMERATE),
+		JS_FN("getAngle", js_cocos2dx_CCParticleSystem_getAngle, 0, JSPROP_PERMANENT | JSPROP_ENUMERATE),
+		JS_FN("getSpeed", js_cocos2dx_CCParticleSystem_getSpeed, 0, JSPROP_PERMANENT | JSPROP_ENUMERATE),
+		JS_FN("setEndColor", js_cocos2dx_CCParticleSystem_setEndColor, 1, JSPROP_PERMANENT | JSPROP_ENUMERATE),
+		JS_FN("setStartSpin", js_cocos2dx_CCParticleSystem_setStartSpin, 1, JSPROP_PERMANENT | JSPROP_ENUMERATE),
+		JS_FN("setDuration", js_cocos2dx_CCParticleSystem_setDuration, 1, JSPROP_PERMANENT | JSPROP_ENUMERATE),
+		JS_FN("initWithTotalParticles", js_cocos2dx_CCParticleSystem_initWithTotalParticles, 1, JSPROP_PERMANENT | JSPROP_ENUMERATE),
+		JS_FN("setTexture", js_cocos2dx_CCParticleSystem_setTexture, 1, JSPROP_PERMANENT | JSPROP_ENUMERATE),
+		JS_FN("getPosVar", js_cocos2dx_CCParticleSystem_getPosVar, 0, JSPROP_PERMANENT | JSPROP_ENUMERATE),
+		JS_FN("updateWithNoTime", js_cocos2dx_CCParticleSystem_updateWithNoTime, 0, JSPROP_PERMANENT | JSPROP_ENUMERATE),
+		JS_FN("isBlendAdditive", js_cocos2dx_CCParticleSystem_isBlendAdditive, 0, JSPROP_PERMANENT | JSPROP_ENUMERATE),
+		JS_FN("getAngleVar", js_cocos2dx_CCParticleSystem_getAngleVar, 0, JSPROP_PERMANENT | JSPROP_ENUMERATE),
+		JS_FN("setPositionType", js_cocos2dx_CCParticleSystem_setPositionType, 1, JSPROP_PERMANENT | JSPROP_ENUMERATE),
+		JS_FN("getEndRadius", js_cocos2dx_CCParticleSystem_getEndRadius, 0, JSPROP_PERMANENT | JSPROP_ENUMERATE),
+		JS_FN("getSourcePosition", js_cocos2dx_CCParticleSystem_getSourcePosition, 0, JSPROP_PERMANENT | JSPROP_ENUMERATE),
+		JS_FN("setLifeVar", js_cocos2dx_CCParticleSystem_setLifeVar, 1, JSPROP_PERMANENT | JSPROP_ENUMERATE),
+		JS_FN("setTotalParticles", js_cocos2dx_CCParticleSystem_setTotalParticles, 1, JSPROP_PERMANENT | JSPROP_ENUMERATE),
+		JS_FN("setEndColorVar", js_cocos2dx_CCParticleSystem_setEndColorVar, 1, JSPROP_PERMANENT | JSPROP_ENUMERATE),
+		JS_FN("updateQuadWithParticle", js_cocos2dx_CCParticleSystem_updateQuadWithParticle, 2, JSPROP_PERMANENT | JSPROP_ENUMERATE),
+		JS_FN("getAtlasIndex", js_cocos2dx_CCParticleSystem_getAtlasIndex, 0, JSPROP_PERMANENT | JSPROP_ENUMERATE),
+		JS_FN("getStartSize", js_cocos2dx_CCParticleSystem_getStartSize, 0, JSPROP_PERMANENT | JSPROP_ENUMERATE),
+		JS_FN("setStartSpinVar", js_cocos2dx_CCParticleSystem_setStartSpinVar, 1, JSPROP_PERMANENT | JSPROP_ENUMERATE),
+		JS_FN("resetSystem", js_cocos2dx_CCParticleSystem_resetSystem, 0, JSPROP_PERMANENT | JSPROP_ENUMERATE),
+		JS_FN("setAtlasIndex", js_cocos2dx_CCParticleSystem_setAtlasIndex, 1, JSPROP_PERMANENT | JSPROP_ENUMERATE),
+		JS_FN("setTangentialAccelVar", js_cocos2dx_CCParticleSystem_setTangentialAccelVar, 1, JSPROP_PERMANENT | JSPROP_ENUMERATE),
+		JS_FN("setEndRadiusVar", js_cocos2dx_CCParticleSystem_setEndRadiusVar, 1, JSPROP_PERMANENT | JSPROP_ENUMERATE),
+		JS_FN("isActive", js_cocos2dx_CCParticleSystem_isActive, 0, JSPROP_PERMANENT | JSPROP_ENUMERATE),
+		JS_FN("setRadialAccelVar", js_cocos2dx_CCParticleSystem_setRadialAccelVar, 1, JSPROP_PERMANENT | JSPROP_ENUMERATE),
+		JS_FN("setStartSize", js_cocos2dx_CCParticleSystem_setStartSize, 1, JSPROP_PERMANENT | JSPROP_ENUMERATE),
+		JS_FN("setSpeed", js_cocos2dx_CCParticleSystem_setSpeed, 1, JSPROP_PERMANENT | JSPROP_ENUMERATE),
+		JS_FN("getStartSpin", js_cocos2dx_CCParticleSystem_getStartSpin, 0, JSPROP_PERMANENT | JSPROP_ENUMERATE),
+		JS_FN("getRotatePerSecond", js_cocos2dx_CCParticleSystem_getRotatePerSecond, 0, JSPROP_PERMANENT | JSPROP_ENUMERATE),
+		JS_FN("initParticle", js_cocos2dx_CCParticleSystem_initParticle, 1, JSPROP_PERMANENT | JSPROP_ENUMERATE),
+		JS_FN("setEmitterMode", js_cocos2dx_CCParticleSystem_setEmitterMode, 1, JSPROP_PERMANENT | JSPROP_ENUMERATE),
+		JS_FN("getDuration", js_cocos2dx_CCParticleSystem_getDuration, 0, JSPROP_PERMANENT | JSPROP_ENUMERATE),
+		JS_FN("setSourcePosition", js_cocos2dx_CCParticleSystem_setSourcePosition, 1, JSPROP_PERMANENT | JSPROP_ENUMERATE),
+		JS_FN("getRadialAccelVar", js_cocos2dx_CCParticleSystem_getRadialAccelVar, 0, JSPROP_PERMANENT | JSPROP_ENUMERATE),
+		JS_FN("setBlendAdditive", js_cocos2dx_CCParticleSystem_setBlendAdditive, 1, JSPROP_PERMANENT | JSPROP_ENUMERATE),
+		JS_FN("setLife", js_cocos2dx_CCParticleSystem_setLife, 1, JSPROP_PERMANENT | JSPROP_ENUMERATE),
+		JS_FN("setAngleVar", js_cocos2dx_CCParticleSystem_setAngleVar, 1, JSPROP_PERMANENT | JSPROP_ENUMERATE),
+		JS_FN("setRotationIsDir", js_cocos2dx_CCParticleSystem_setRotationIsDir, 1, JSPROP_PERMANENT | JSPROP_ENUMERATE),
+		JS_FN("setEndSizeVar", js_cocos2dx_CCParticleSystem_setEndSizeVar, 1, JSPROP_PERMANENT | JSPROP_ENUMERATE),
+		JS_FN("setAngle", js_cocos2dx_CCParticleSystem_setAngle, 1, JSPROP_PERMANENT | JSPROP_ENUMERATE),
+		JS_FN("setBatchNode", js_cocos2dx_CCParticleSystem_setBatchNode, 1, JSPROP_PERMANENT | JSPROP_ENUMERATE),
+		JS_FN("getTangentialAccelVar", js_cocos2dx_CCParticleSystem_getTangentialAccelVar, 0, JSPROP_PERMANENT | JSPROP_ENUMERATE),
+		JS_FN("getEmitterMode", js_cocos2dx_CCParticleSystem_getEmitterMode, 0, JSPROP_PERMANENT | JSPROP_ENUMERATE),
+		JS_FN("setEndSpinVar", js_cocos2dx_CCParticleSystem_setEndSpinVar, 1, JSPROP_PERMANENT | JSPROP_ENUMERATE),
+		JS_FN("initWithFile", js_cocos2dx_CCParticleSystem_initWithFile, 1, JSPROP_PERMANENT | JSPROP_ENUMERATE),
+		JS_FN("getSpeedVar", js_cocos2dx_CCParticleSystem_getSpeedVar, 0, JSPROP_PERMANENT | JSPROP_ENUMERATE),
+		JS_FN("setStartColor", js_cocos2dx_CCParticleSystem_setStartColor, 1, JSPROP_PERMANENT | JSPROP_ENUMERATE),
+		JS_FN("getRotatePerSecondVar", js_cocos2dx_CCParticleSystem_getRotatePerSecondVar, 0, JSPROP_PERMANENT | JSPROP_ENUMERATE),
+		JS_FN("getEndSize", js_cocos2dx_CCParticleSystem_getEndSize, 0, JSPROP_PERMANENT | JSPROP_ENUMERATE),
+		JS_FN("getLife", js_cocos2dx_CCParticleSystem_getLife, 0, JSPROP_PERMANENT | JSPROP_ENUMERATE),
+		JS_FN("setSpeedVar", js_cocos2dx_CCParticleSystem_setSpeedVar, 1, JSPROP_PERMANENT | JSPROP_ENUMERATE),
+		JS_FN("setAutoRemoveOnFinish", js_cocos2dx_CCParticleSystem_setAutoRemoveOnFinish, 1, JSPROP_PERMANENT | JSPROP_ENUMERATE),
+		JS_FN("setGravity", js_cocos2dx_CCParticleSystem_setGravity, 1, JSPROP_PERMANENT | JSPROP_ENUMERATE),
+		JS_FN("postStep", js_cocos2dx_CCParticleSystem_postStep, 0, JSPROP_PERMANENT | JSPROP_ENUMERATE),
+		JS_FN("setEmissionRate", js_cocos2dx_CCParticleSystem_setEmissionRate, 1, JSPROP_PERMANENT | JSPROP_ENUMERATE),
+		JS_FN("getEndColorVar", js_cocos2dx_CCParticleSystem_getEndColorVar, 0, JSPROP_PERMANENT | JSPROP_ENUMERATE),
+		JS_FN("getRotationIsDir", js_cocos2dx_CCParticleSystem_getRotationIsDir, 0, JSPROP_PERMANENT | JSPROP_ENUMERATE),
+		JS_FN("setScale", js_cocos2dx_CCParticleSystem_setScale, 1, JSPROP_PERMANENT | JSPROP_ENUMERATE),
+		JS_FN("getEmissionRate", js_cocos2dx_CCParticleSystem_getEmissionRate, 0, JSPROP_PERMANENT | JSPROP_ENUMERATE),
+		JS_FN("getEndColor", js_cocos2dx_CCParticleSystem_getEndColor, 0, JSPROP_PERMANENT | JSPROP_ENUMERATE),
+		JS_FN("getLifeVar", js_cocos2dx_CCParticleSystem_getLifeVar, 0, JSPROP_PERMANENT | JSPROP_ENUMERATE),
+		JS_FN("setStartSizeVar", js_cocos2dx_CCParticleSystem_setStartSizeVar, 1, JSPROP_PERMANENT | JSPROP_ENUMERATE),
+		JS_FN("addParticle", js_cocos2dx_CCParticleSystem_addParticle, 0, JSPROP_PERMANENT | JSPROP_ENUMERATE),
+		JS_FN("getStartRadius", js_cocos2dx_CCParticleSystem_getStartRadius, 0, JSPROP_PERMANENT | JSPROP_ENUMERATE),
+		JS_FN("getParticleCount", js_cocos2dx_CCParticleSystem_getParticleCount, 0, JSPROP_PERMANENT | JSPROP_ENUMERATE),
+		JS_FN("getStartRadiusVar", js_cocos2dx_CCParticleSystem_getStartRadiusVar, 0, JSPROP_PERMANENT | JSPROP_ENUMERATE),
+		JS_FN("setStartColorVar", js_cocos2dx_CCParticleSystem_setStartColorVar, 1, JSPROP_PERMANENT | JSPROP_ENUMERATE),
+		JS_FN("setEndSpin", js_cocos2dx_CCParticleSystem_setEndSpin, 1, JSPROP_PERMANENT | JSPROP_ENUMERATE),
+		JS_FN("update", js_cocos2dx_CCParticleSystem_update, 1, JSPROP_PERMANENT | JSPROP_ENUMERATE),
+		JS_FN("setRadialAccel", js_cocos2dx_CCParticleSystem_setRadialAccel, 1, JSPROP_PERMANENT | JSPROP_ENUMERATE),
+		JS_FN("initWithDictionary", js_cocos2dx_CCParticleSystem_initWithDictionary, 1, JSPROP_PERMANENT | JSPROP_ENUMERATE),
+		JS_FN("isAutoRemoveOnFinish", js_cocos2dx_CCParticleSystem_isAutoRemoveOnFinish, 0, JSPROP_PERMANENT | JSPROP_ENUMERATE),
+		JS_FN("getTotalParticles", js_cocos2dx_CCParticleSystem_getTotalParticles, 0, JSPROP_PERMANENT | JSPROP_ENUMERATE),
+		JS_FN("setStartRadiusVar", js_cocos2dx_CCParticleSystem_setStartRadiusVar, 1, JSPROP_PERMANENT | JSPROP_ENUMERATE),
+		JS_FN("getEndRadiusVar", js_cocos2dx_CCParticleSystem_getEndRadiusVar, 0, JSPROP_PERMANENT | JSPROP_ENUMERATE),
+		JS_FN("getStartColorVar", js_cocos2dx_CCParticleSystem_getStartColorVar, 0, JSPROP_PERMANENT | JSPROP_ENUMERATE),
 		JS_FS_END
 	};
 
 	static JSFunctionSpec st_funcs[] = {
-		JS_FN("create", js_cocos2dx_CCParticleSystem_create, 1, JSPROP_PERMANENT | JSPROP_SHARED),
-		JS_FN("createWithTotalParticles", js_cocos2dx_CCParticleSystem_createWithTotalParticles, 1, JSPROP_PERMANENT | JSPROP_SHARED),
+		JS_FN("create", js_cocos2dx_CCParticleSystem_create, 1, JSPROP_PERMANENT | JSPROP_ENUMERATE),
+		JS_FN("createWithTotalParticles", js_cocos2dx_CCParticleSystem_createWithTotalParticles, 1, JSPROP_PERMANENT | JSPROP_ENUMERATE),
 		JS_FS_END
 	};
 
@@ -42109,15 +42109,15 @@ void js_register_cocos2dx_CCParticleSystemQuad(JSContext *cx, JSObject *global) 
 	};
 
 	static JSFunctionSpec funcs[] = {
-		JS_FN("initTexCoordsWithRect", js_cocos2dx_CCParticleSystemQuad_initTexCoordsWithRect, 1, JSPROP_PERMANENT | JSPROP_SHARED),
-		JS_FN("setTextureWithRect", js_cocos2dx_CCParticleSystemQuad_setTextureWithRect, 2, JSPROP_PERMANENT | JSPROP_SHARED),
-		JS_FN("setDisplayFrame", js_cocos2dx_CCParticleSystemQuad_setDisplayFrame, 1, JSPROP_PERMANENT | JSPROP_SHARED),
+		JS_FN("initTexCoordsWithRect", js_cocos2dx_CCParticleSystemQuad_initTexCoordsWithRect, 1, JSPROP_PERMANENT | JSPROP_ENUMERATE),
+		JS_FN("setTextureWithRect", js_cocos2dx_CCParticleSystemQuad_setTextureWithRect, 2, JSPROP_PERMANENT | JSPROP_ENUMERATE),
+		JS_FN("setDisplayFrame", js_cocos2dx_CCParticleSystemQuad_setDisplayFrame, 1, JSPROP_PERMANENT | JSPROP_ENUMERATE),
 		JS_FS_END
 	};
 
 	static JSFunctionSpec st_funcs[] = {
-		JS_FN("create", js_cocos2dx_CCParticleSystemQuad_create, 0, JSPROP_PERMANENT | JSPROP_SHARED),
-		JS_FN("createWithTotalParticles", js_cocos2dx_CCParticleSystemQuad_createWithTotalParticles, 1, JSPROP_PERMANENT | JSPROP_SHARED),
+		JS_FN("create", js_cocos2dx_CCParticleSystemQuad_create, 0, JSPROP_PERMANENT | JSPROP_ENUMERATE),
+		JS_FN("createWithTotalParticles", js_cocos2dx_CCParticleSystemQuad_createWithTotalParticles, 1, JSPROP_PERMANENT | JSPROP_ENUMERATE),
 		JS_FS_END
 	};
 
@@ -42283,14 +42283,14 @@ void js_register_cocos2dx_CCParticleFire(JSContext *cx, JSObject *global) {
 	JSPropertySpec *properties = NULL;
 
 	static JSFunctionSpec funcs[] = {
-		JS_FN("init", js_cocos2dx_CCParticleFire_init, 0, JSPROP_PERMANENT | JSPROP_SHARED),
-		JS_FN("initWithTotalParticles", js_cocos2dx_CCParticleFire_initWithTotalParticles, 1, JSPROP_PERMANENT | JSPROP_SHARED),
+		JS_FN("init", js_cocos2dx_CCParticleFire_init, 0, JSPROP_PERMANENT | JSPROP_ENUMERATE),
+		JS_FN("initWithTotalParticles", js_cocos2dx_CCParticleFire_initWithTotalParticles, 1, JSPROP_PERMANENT | JSPROP_ENUMERATE),
 		JS_FS_END
 	};
 
 	static JSFunctionSpec st_funcs[] = {
-		JS_FN("create", js_cocos2dx_CCParticleFire_create, 0, JSPROP_PERMANENT | JSPROP_SHARED),
-		JS_FN("createWithTotalParticles", js_cocos2dx_CCParticleFire_createWithTotalParticles, 1, JSPROP_PERMANENT | JSPROP_SHARED),
+		JS_FN("create", js_cocos2dx_CCParticleFire_create, 0, JSPROP_PERMANENT | JSPROP_ENUMERATE),
+		JS_FN("createWithTotalParticles", js_cocos2dx_CCParticleFire_createWithTotalParticles, 1, JSPROP_PERMANENT | JSPROP_ENUMERATE),
 		JS_FS_END
 	};
 
@@ -42456,14 +42456,14 @@ void js_register_cocos2dx_CCParticleFireworks(JSContext *cx, JSObject *global) {
 	JSPropertySpec *properties = NULL;
 
 	static JSFunctionSpec funcs[] = {
-		JS_FN("init", js_cocos2dx_CCParticleFireworks_init, 0, JSPROP_PERMANENT | JSPROP_SHARED),
-		JS_FN("initWithTotalParticles", js_cocos2dx_CCParticleFireworks_initWithTotalParticles, 1, JSPROP_PERMANENT | JSPROP_SHARED),
+		JS_FN("init", js_cocos2dx_CCParticleFireworks_init, 0, JSPROP_PERMANENT | JSPROP_ENUMERATE),
+		JS_FN("initWithTotalParticles", js_cocos2dx_CCParticleFireworks_initWithTotalParticles, 1, JSPROP_PERMANENT | JSPROP_ENUMERATE),
 		JS_FS_END
 	};
 
 	static JSFunctionSpec st_funcs[] = {
-		JS_FN("create", js_cocos2dx_CCParticleFireworks_create, 0, JSPROP_PERMANENT | JSPROP_SHARED),
-		JS_FN("createWithTotalParticles", js_cocos2dx_CCParticleFireworks_createWithTotalParticles, 1, JSPROP_PERMANENT | JSPROP_SHARED),
+		JS_FN("create", js_cocos2dx_CCParticleFireworks_create, 0, JSPROP_PERMANENT | JSPROP_ENUMERATE),
+		JS_FN("createWithTotalParticles", js_cocos2dx_CCParticleFireworks_createWithTotalParticles, 1, JSPROP_PERMANENT | JSPROP_ENUMERATE),
 		JS_FS_END
 	};
 
@@ -42629,14 +42629,14 @@ void js_register_cocos2dx_CCParticleSun(JSContext *cx, JSObject *global) {
 	JSPropertySpec *properties = NULL;
 
 	static JSFunctionSpec funcs[] = {
-		JS_FN("init", js_cocos2dx_CCParticleSun_init, 0, JSPROP_PERMANENT | JSPROP_SHARED),
-		JS_FN("initWithTotalParticles", js_cocos2dx_CCParticleSun_initWithTotalParticles, 1, JSPROP_PERMANENT | JSPROP_SHARED),
+		JS_FN("init", js_cocos2dx_CCParticleSun_init, 0, JSPROP_PERMANENT | JSPROP_ENUMERATE),
+		JS_FN("initWithTotalParticles", js_cocos2dx_CCParticleSun_initWithTotalParticles, 1, JSPROP_PERMANENT | JSPROP_ENUMERATE),
 		JS_FS_END
 	};
 
 	static JSFunctionSpec st_funcs[] = {
-		JS_FN("create", js_cocos2dx_CCParticleSun_create, 0, JSPROP_PERMANENT | JSPROP_SHARED),
-		JS_FN("createWithTotalParticles", js_cocos2dx_CCParticleSun_createWithTotalParticles, 1, JSPROP_PERMANENT | JSPROP_SHARED),
+		JS_FN("create", js_cocos2dx_CCParticleSun_create, 0, JSPROP_PERMANENT | JSPROP_ENUMERATE),
+		JS_FN("createWithTotalParticles", js_cocos2dx_CCParticleSun_createWithTotalParticles, 1, JSPROP_PERMANENT | JSPROP_ENUMERATE),
 		JS_FS_END
 	};
 
@@ -42802,14 +42802,14 @@ void js_register_cocos2dx_CCParticleGalaxy(JSContext *cx, JSObject *global) {
 	JSPropertySpec *properties = NULL;
 
 	static JSFunctionSpec funcs[] = {
-		JS_FN("init", js_cocos2dx_CCParticleGalaxy_init, 0, JSPROP_PERMANENT | JSPROP_SHARED),
-		JS_FN("initWithTotalParticles", js_cocos2dx_CCParticleGalaxy_initWithTotalParticles, 1, JSPROP_PERMANENT | JSPROP_SHARED),
+		JS_FN("init", js_cocos2dx_CCParticleGalaxy_init, 0, JSPROP_PERMANENT | JSPROP_ENUMERATE),
+		JS_FN("initWithTotalParticles", js_cocos2dx_CCParticleGalaxy_initWithTotalParticles, 1, JSPROP_PERMANENT | JSPROP_ENUMERATE),
 		JS_FS_END
 	};
 
 	static JSFunctionSpec st_funcs[] = {
-		JS_FN("create", js_cocos2dx_CCParticleGalaxy_create, 0, JSPROP_PERMANENT | JSPROP_SHARED),
-		JS_FN("createWithTotalParticles", js_cocos2dx_CCParticleGalaxy_createWithTotalParticles, 1, JSPROP_PERMANENT | JSPROP_SHARED),
+		JS_FN("create", js_cocos2dx_CCParticleGalaxy_create, 0, JSPROP_PERMANENT | JSPROP_ENUMERATE),
+		JS_FN("createWithTotalParticles", js_cocos2dx_CCParticleGalaxy_createWithTotalParticles, 1, JSPROP_PERMANENT | JSPROP_ENUMERATE),
 		JS_FS_END
 	};
 
@@ -42975,14 +42975,14 @@ void js_register_cocos2dx_CCParticleFlower(JSContext *cx, JSObject *global) {
 	JSPropertySpec *properties = NULL;
 
 	static JSFunctionSpec funcs[] = {
-		JS_FN("init", js_cocos2dx_CCParticleFlower_init, 0, JSPROP_PERMANENT | JSPROP_SHARED),
-		JS_FN("initWithTotalParticles", js_cocos2dx_CCParticleFlower_initWithTotalParticles, 1, JSPROP_PERMANENT | JSPROP_SHARED),
+		JS_FN("init", js_cocos2dx_CCParticleFlower_init, 0, JSPROP_PERMANENT | JSPROP_ENUMERATE),
+		JS_FN("initWithTotalParticles", js_cocos2dx_CCParticleFlower_initWithTotalParticles, 1, JSPROP_PERMANENT | JSPROP_ENUMERATE),
 		JS_FS_END
 	};
 
 	static JSFunctionSpec st_funcs[] = {
-		JS_FN("create", js_cocos2dx_CCParticleFlower_create, 0, JSPROP_PERMANENT | JSPROP_SHARED),
-		JS_FN("createWithTotalParticles", js_cocos2dx_CCParticleFlower_createWithTotalParticles, 1, JSPROP_PERMANENT | JSPROP_SHARED),
+		JS_FN("create", js_cocos2dx_CCParticleFlower_create, 0, JSPROP_PERMANENT | JSPROP_ENUMERATE),
+		JS_FN("createWithTotalParticles", js_cocos2dx_CCParticleFlower_createWithTotalParticles, 1, JSPROP_PERMANENT | JSPROP_ENUMERATE),
 		JS_FS_END
 	};
 
@@ -43148,14 +43148,14 @@ void js_register_cocos2dx_CCParticleMeteor(JSContext *cx, JSObject *global) {
 	JSPropertySpec *properties = NULL;
 
 	static JSFunctionSpec funcs[] = {
-		JS_FN("init", js_cocos2dx_CCParticleMeteor_init, 0, JSPROP_PERMANENT | JSPROP_SHARED),
-		JS_FN("initWithTotalParticles", js_cocos2dx_CCParticleMeteor_initWithTotalParticles, 1, JSPROP_PERMANENT | JSPROP_SHARED),
+		JS_FN("init", js_cocos2dx_CCParticleMeteor_init, 0, JSPROP_PERMANENT | JSPROP_ENUMERATE),
+		JS_FN("initWithTotalParticles", js_cocos2dx_CCParticleMeteor_initWithTotalParticles, 1, JSPROP_PERMANENT | JSPROP_ENUMERATE),
 		JS_FS_END
 	};
 
 	static JSFunctionSpec st_funcs[] = {
-		JS_FN("create", js_cocos2dx_CCParticleMeteor_create, 0, JSPROP_PERMANENT | JSPROP_SHARED),
-		JS_FN("createWithTotalParticles", js_cocos2dx_CCParticleMeteor_createWithTotalParticles, 1, JSPROP_PERMANENT | JSPROP_SHARED),
+		JS_FN("create", js_cocos2dx_CCParticleMeteor_create, 0, JSPROP_PERMANENT | JSPROP_ENUMERATE),
+		JS_FN("createWithTotalParticles", js_cocos2dx_CCParticleMeteor_createWithTotalParticles, 1, JSPROP_PERMANENT | JSPROP_ENUMERATE),
 		JS_FS_END
 	};
 
@@ -43321,14 +43321,14 @@ void js_register_cocos2dx_CCParticleSpiral(JSContext *cx, JSObject *global) {
 	JSPropertySpec *properties = NULL;
 
 	static JSFunctionSpec funcs[] = {
-		JS_FN("init", js_cocos2dx_CCParticleSpiral_init, 0, JSPROP_PERMANENT | JSPROP_SHARED),
-		JS_FN("initWithTotalParticles", js_cocos2dx_CCParticleSpiral_initWithTotalParticles, 1, JSPROP_PERMANENT | JSPROP_SHARED),
+		JS_FN("init", js_cocos2dx_CCParticleSpiral_init, 0, JSPROP_PERMANENT | JSPROP_ENUMERATE),
+		JS_FN("initWithTotalParticles", js_cocos2dx_CCParticleSpiral_initWithTotalParticles, 1, JSPROP_PERMANENT | JSPROP_ENUMERATE),
 		JS_FS_END
 	};
 
 	static JSFunctionSpec st_funcs[] = {
-		JS_FN("create", js_cocos2dx_CCParticleSpiral_create, 0, JSPROP_PERMANENT | JSPROP_SHARED),
-		JS_FN("createWithTotalParticles", js_cocos2dx_CCParticleSpiral_createWithTotalParticles, 1, JSPROP_PERMANENT | JSPROP_SHARED),
+		JS_FN("create", js_cocos2dx_CCParticleSpiral_create, 0, JSPROP_PERMANENT | JSPROP_ENUMERATE),
+		JS_FN("createWithTotalParticles", js_cocos2dx_CCParticleSpiral_createWithTotalParticles, 1, JSPROP_PERMANENT | JSPROP_ENUMERATE),
 		JS_FS_END
 	};
 
@@ -43494,14 +43494,14 @@ void js_register_cocos2dx_CCParticleExplosion(JSContext *cx, JSObject *global) {
 	JSPropertySpec *properties = NULL;
 
 	static JSFunctionSpec funcs[] = {
-		JS_FN("init", js_cocos2dx_CCParticleExplosion_init, 0, JSPROP_PERMANENT | JSPROP_SHARED),
-		JS_FN("initWithTotalParticles", js_cocos2dx_CCParticleExplosion_initWithTotalParticles, 1, JSPROP_PERMANENT | JSPROP_SHARED),
+		JS_FN("init", js_cocos2dx_CCParticleExplosion_init, 0, JSPROP_PERMANENT | JSPROP_ENUMERATE),
+		JS_FN("initWithTotalParticles", js_cocos2dx_CCParticleExplosion_initWithTotalParticles, 1, JSPROP_PERMANENT | JSPROP_ENUMERATE),
 		JS_FS_END
 	};
 
 	static JSFunctionSpec st_funcs[] = {
-		JS_FN("create", js_cocos2dx_CCParticleExplosion_create, 0, JSPROP_PERMANENT | JSPROP_SHARED),
-		JS_FN("createWithTotalParticles", js_cocos2dx_CCParticleExplosion_createWithTotalParticles, 1, JSPROP_PERMANENT | JSPROP_SHARED),
+		JS_FN("create", js_cocos2dx_CCParticleExplosion_create, 0, JSPROP_PERMANENT | JSPROP_ENUMERATE),
+		JS_FN("createWithTotalParticles", js_cocos2dx_CCParticleExplosion_createWithTotalParticles, 1, JSPROP_PERMANENT | JSPROP_ENUMERATE),
 		JS_FS_END
 	};
 
@@ -43667,14 +43667,14 @@ void js_register_cocos2dx_CCParticleSmoke(JSContext *cx, JSObject *global) {
 	JSPropertySpec *properties = NULL;
 
 	static JSFunctionSpec funcs[] = {
-		JS_FN("init", js_cocos2dx_CCParticleSmoke_init, 0, JSPROP_PERMANENT | JSPROP_SHARED),
-		JS_FN("initWithTotalParticles", js_cocos2dx_CCParticleSmoke_initWithTotalParticles, 1, JSPROP_PERMANENT | JSPROP_SHARED),
+		JS_FN("init", js_cocos2dx_CCParticleSmoke_init, 0, JSPROP_PERMANENT | JSPROP_ENUMERATE),
+		JS_FN("initWithTotalParticles", js_cocos2dx_CCParticleSmoke_initWithTotalParticles, 1, JSPROP_PERMANENT | JSPROP_ENUMERATE),
 		JS_FS_END
 	};
 
 	static JSFunctionSpec st_funcs[] = {
-		JS_FN("create", js_cocos2dx_CCParticleSmoke_create, 0, JSPROP_PERMANENT | JSPROP_SHARED),
-		JS_FN("createWithTotalParticles", js_cocos2dx_CCParticleSmoke_createWithTotalParticles, 1, JSPROP_PERMANENT | JSPROP_SHARED),
+		JS_FN("create", js_cocos2dx_CCParticleSmoke_create, 0, JSPROP_PERMANENT | JSPROP_ENUMERATE),
+		JS_FN("createWithTotalParticles", js_cocos2dx_CCParticleSmoke_createWithTotalParticles, 1, JSPROP_PERMANENT | JSPROP_ENUMERATE),
 		JS_FS_END
 	};
 
@@ -43840,14 +43840,14 @@ void js_register_cocos2dx_CCParticleSnow(JSContext *cx, JSObject *global) {
 	JSPropertySpec *properties = NULL;
 
 	static JSFunctionSpec funcs[] = {
-		JS_FN("init", js_cocos2dx_CCParticleSnow_init, 0, JSPROP_PERMANENT | JSPROP_SHARED),
-		JS_FN("initWithTotalParticles", js_cocos2dx_CCParticleSnow_initWithTotalParticles, 1, JSPROP_PERMANENT | JSPROP_SHARED),
+		JS_FN("init", js_cocos2dx_CCParticleSnow_init, 0, JSPROP_PERMANENT | JSPROP_ENUMERATE),
+		JS_FN("initWithTotalParticles", js_cocos2dx_CCParticleSnow_initWithTotalParticles, 1, JSPROP_PERMANENT | JSPROP_ENUMERATE),
 		JS_FS_END
 	};
 
 	static JSFunctionSpec st_funcs[] = {
-		JS_FN("create", js_cocos2dx_CCParticleSnow_create, 0, JSPROP_PERMANENT | JSPROP_SHARED),
-		JS_FN("createWithTotalParticles", js_cocos2dx_CCParticleSnow_createWithTotalParticles, 1, JSPROP_PERMANENT | JSPROP_SHARED),
+		JS_FN("create", js_cocos2dx_CCParticleSnow_create, 0, JSPROP_PERMANENT | JSPROP_ENUMERATE),
+		JS_FN("createWithTotalParticles", js_cocos2dx_CCParticleSnow_createWithTotalParticles, 1, JSPROP_PERMANENT | JSPROP_ENUMERATE),
 		JS_FS_END
 	};
 
@@ -44013,14 +44013,14 @@ void js_register_cocos2dx_CCParticleRain(JSContext *cx, JSObject *global) {
 	JSPropertySpec *properties = NULL;
 
 	static JSFunctionSpec funcs[] = {
-		JS_FN("init", js_cocos2dx_CCParticleRain_init, 0, JSPROP_PERMANENT | JSPROP_SHARED),
-		JS_FN("initWithTotalParticles", js_cocos2dx_CCParticleRain_initWithTotalParticles, 1, JSPROP_PERMANENT | JSPROP_SHARED),
+		JS_FN("init", js_cocos2dx_CCParticleRain_init, 0, JSPROP_PERMANENT | JSPROP_ENUMERATE),
+		JS_FN("initWithTotalParticles", js_cocos2dx_CCParticleRain_initWithTotalParticles, 1, JSPROP_PERMANENT | JSPROP_ENUMERATE),
 		JS_FS_END
 	};
 
 	static JSFunctionSpec st_funcs[] = {
-		JS_FN("create", js_cocos2dx_CCParticleRain_create, 0, JSPROP_PERMANENT | JSPROP_SHARED),
-		JS_FN("createWithTotalParticles", js_cocos2dx_CCParticleRain_createWithTotalParticles, 1, JSPROP_PERMANENT | JSPROP_SHARED),
+		JS_FN("create", js_cocos2dx_CCParticleRain_create, 0, JSPROP_PERMANENT | JSPROP_ENUMERATE),
+		JS_FN("createWithTotalParticles", js_cocos2dx_CCParticleRain_createWithTotalParticles, 1, JSPROP_PERMANENT | JSPROP_ENUMERATE),
 		JS_FS_END
 	};
 
@@ -44410,27 +44410,27 @@ void js_register_cocos2dx_CCFileUtils(JSContext *cx, JSObject *global) {
 	};
 
 	static JSFunctionSpec funcs[] = {
-		JS_FN("isFileExist", js_cocos2dx_CCFileUtils_isFileExist, 1, JSPROP_PERMANENT | JSPROP_SHARED),
-		JS_FN("isPopupNotify", js_cocos2dx_CCFileUtils_isPopupNotify, 0, JSPROP_PERMANENT | JSPROP_SHARED),
-		JS_FN("purgeCachedEntries", js_cocos2dx_CCFileUtils_purgeCachedEntries, 0, JSPROP_PERMANENT | JSPROP_SHARED),
-		JS_FN("fullPathFromRelativeFile", js_cocos2dx_CCFileUtils_fullPathFromRelativeFile, 2, JSPROP_PERMANENT | JSPROP_SHARED),
-		JS_FN("getFileData", js_cocos2dx_CCFileUtils_getFileData, 3, JSPROP_PERMANENT | JSPROP_SHARED),
-		JS_FN("setFilenameLookupDictionary", js_cocos2dx_CCFileUtils_setFilenameLookupDictionary, 1, JSPROP_PERMANENT | JSPROP_SHARED),
-		JS_FN("addSearchResolutionsOrder", js_cocos2dx_CCFileUtils_addSearchResolutionsOrder, 1, JSPROP_PERMANENT | JSPROP_SHARED),
-		JS_FN("getFileDataFromZip", js_cocos2dx_CCFileUtils_getFileDataFromZip, 3, JSPROP_PERMANENT | JSPROP_SHARED),
-		JS_FN("getClassTypeInfo", js_cocos2dx_CCFileUtils_getClassTypeInfo, 0, JSPROP_PERMANENT | JSPROP_SHARED),
-		JS_FN("fullPathForFilename", js_cocos2dx_CCFileUtils_fullPathForFilename, 1, JSPROP_PERMANENT | JSPROP_SHARED),
-		JS_FN("isAbsolutePath", js_cocos2dx_CCFileUtils_isAbsolutePath, 1, JSPROP_PERMANENT | JSPROP_SHARED),
-		JS_FN("getWritablePath", js_cocos2dx_CCFileUtils_getWritablePath, 0, JSPROP_PERMANENT | JSPROP_SHARED),
-		JS_FN("addSearchPath", js_cocos2dx_CCFileUtils_addSearchPath, 1, JSPROP_PERMANENT | JSPROP_SHARED),
-		JS_FN("setPopupNotify", js_cocos2dx_CCFileUtils_setPopupNotify, 1, JSPROP_PERMANENT | JSPROP_SHARED),
-		JS_FN("loadFilenameLookup", js_cocos2dx_CCFileUtils_loadFilenameLookupDictionaryFromFile, 1, JSPROP_PERMANENT | JSPROP_SHARED),
+		JS_FN("isFileExist", js_cocos2dx_CCFileUtils_isFileExist, 1, JSPROP_PERMANENT | JSPROP_ENUMERATE),
+		JS_FN("isPopupNotify", js_cocos2dx_CCFileUtils_isPopupNotify, 0, JSPROP_PERMANENT | JSPROP_ENUMERATE),
+		JS_FN("purgeCachedEntries", js_cocos2dx_CCFileUtils_purgeCachedEntries, 0, JSPROP_PERMANENT | JSPROP_ENUMERATE),
+		JS_FN("fullPathFromRelativeFile", js_cocos2dx_CCFileUtils_fullPathFromRelativeFile, 2, JSPROP_PERMANENT | JSPROP_ENUMERATE),
+		JS_FN("getFileData", js_cocos2dx_CCFileUtils_getFileData, 3, JSPROP_PERMANENT | JSPROP_ENUMERATE),
+		JS_FN("setFilenameLookupDictionary", js_cocos2dx_CCFileUtils_setFilenameLookupDictionary, 1, JSPROP_PERMANENT | JSPROP_ENUMERATE),
+		JS_FN("addSearchResolutionsOrder", js_cocos2dx_CCFileUtils_addSearchResolutionsOrder, 1, JSPROP_PERMANENT | JSPROP_ENUMERATE),
+		JS_FN("getFileDataFromZip", js_cocos2dx_CCFileUtils_getFileDataFromZip, 3, JSPROP_PERMANENT | JSPROP_ENUMERATE),
+		JS_FN("getClassTypeInfo", js_cocos2dx_CCFileUtils_getClassTypeInfo, 0, JSPROP_PERMANENT | JSPROP_ENUMERATE),
+		JS_FN("fullPathForFilename", js_cocos2dx_CCFileUtils_fullPathForFilename, 1, JSPROP_PERMANENT | JSPROP_ENUMERATE),
+		JS_FN("isAbsolutePath", js_cocos2dx_CCFileUtils_isAbsolutePath, 1, JSPROP_PERMANENT | JSPROP_ENUMERATE),
+		JS_FN("getWritablePath", js_cocos2dx_CCFileUtils_getWritablePath, 0, JSPROP_PERMANENT | JSPROP_ENUMERATE),
+		JS_FN("addSearchPath", js_cocos2dx_CCFileUtils_addSearchPath, 1, JSPROP_PERMANENT | JSPROP_ENUMERATE),
+		JS_FN("setPopupNotify", js_cocos2dx_CCFileUtils_setPopupNotify, 1, JSPROP_PERMANENT | JSPROP_ENUMERATE),
+		JS_FN("loadFilenameLookup", js_cocos2dx_CCFileUtils_loadFilenameLookupDictionaryFromFile, 1, JSPROP_PERMANENT | JSPROP_ENUMERATE),
 		JS_FS_END
 	};
 
 	static JSFunctionSpec st_funcs[] = {
-		JS_FN("purgeFileUtils", js_cocos2dx_CCFileUtils_purgeFileUtils, 0, JSPROP_PERMANENT | JSPROP_SHARED),
-		JS_FN("getInstance", js_cocos2dx_CCFileUtils_sharedFileUtils, 0, JSPROP_PERMANENT | JSPROP_SHARED),
+		JS_FN("purgeFileUtils", js_cocos2dx_CCFileUtils_purgeFileUtils, 0, JSPROP_PERMANENT | JSPROP_ENUMERATE),
+		JS_FN("getInstance", js_cocos2dx_CCFileUtils_sharedFileUtils, 0, JSPROP_PERMANENT | JSPROP_ENUMERATE),
 		JS_FS_END
 	};
 
@@ -44676,18 +44676,18 @@ void js_register_cocos2dx_CCAnimationCache(JSContext *cx, JSObject *global) {
 	};
 
 	static JSFunctionSpec funcs[] = {
-		JS_FN("getAnimation", js_cocos2dx_CCAnimationCache_animationByName, 1, JSPROP_PERMANENT | JSPROP_SHARED),
-		JS_FN("addAnimations", js_cocos2dx_CCAnimationCache_addAnimationsWithFile, 1, JSPROP_PERMANENT | JSPROP_SHARED),
-		JS_FN("init", js_cocos2dx_CCAnimationCache_init, 0, JSPROP_PERMANENT | JSPROP_SHARED),
-		JS_FN("addAnimationsWithDictionary", js_cocos2dx_CCAnimationCache_addAnimationsWithDictionary, 1, JSPROP_PERMANENT | JSPROP_SHARED),
-		JS_FN("removeAnimation", js_cocos2dx_CCAnimationCache_removeAnimationByName, 1, JSPROP_PERMANENT | JSPROP_SHARED),
-		JS_FN("addAnimation", js_cocos2dx_CCAnimationCache_addAnimation, 2, JSPROP_PERMANENT | JSPROP_SHARED),
+		JS_FN("getAnimation", js_cocos2dx_CCAnimationCache_animationByName, 1, JSPROP_PERMANENT | JSPROP_ENUMERATE),
+		JS_FN("addAnimations", js_cocos2dx_CCAnimationCache_addAnimationsWithFile, 1, JSPROP_PERMANENT | JSPROP_ENUMERATE),
+		JS_FN("init", js_cocos2dx_CCAnimationCache_init, 0, JSPROP_PERMANENT | JSPROP_ENUMERATE),
+		JS_FN("addAnimationsWithDictionary", js_cocos2dx_CCAnimationCache_addAnimationsWithDictionary, 1, JSPROP_PERMANENT | JSPROP_ENUMERATE),
+		JS_FN("removeAnimation", js_cocos2dx_CCAnimationCache_removeAnimationByName, 1, JSPROP_PERMANENT | JSPROP_ENUMERATE),
+		JS_FN("addAnimation", js_cocos2dx_CCAnimationCache_addAnimation, 2, JSPROP_PERMANENT | JSPROP_ENUMERATE),
 		JS_FS_END
 	};
 
 	static JSFunctionSpec st_funcs[] = {
-		JS_FN("purgeSharedAnimationCache", js_cocos2dx_CCAnimationCache_purgeSharedAnimationCache, 0, JSPROP_PERMANENT | JSPROP_SHARED),
-		JS_FN("getInstance", js_cocos2dx_CCAnimationCache_sharedAnimationCache, 0, JSPROP_PERMANENT | JSPROP_SHARED),
+		JS_FN("purgeSharedAnimationCache", js_cocos2dx_CCAnimationCache_purgeSharedAnimationCache, 0, JSPROP_PERMANENT | JSPROP_ENUMERATE),
+		JS_FN("getInstance", js_cocos2dx_CCAnimationCache_sharedAnimationCache, 0, JSPROP_PERMANENT | JSPROP_ENUMERATE),
 		JS_FS_END
 	};
 
@@ -44988,21 +44988,21 @@ void js_register_cocos2dx_CCSpriteFrameCache(JSContext *cx, JSObject *global) {
 	};
 
 	static JSFunctionSpec funcs[] = {
-		JS_FN("addSpriteFrames", js_cocos2dx_CCSpriteFrameCache_addSpriteFramesWithFile, 1, JSPROP_PERMANENT | JSPROP_SHARED),
-		JS_FN("addSpriteFrame", js_cocos2dx_CCSpriteFrameCache_addSpriteFrame, 2, JSPROP_PERMANENT | JSPROP_SHARED),
-		JS_FN("removeUnusedSpriteFrames", js_cocos2dx_CCSpriteFrameCache_removeUnusedSpriteFrames, 0, JSPROP_PERMANENT | JSPROP_SHARED),
-		JS_FN("getSpriteFrame", js_cocos2dx_CCSpriteFrameCache_spriteFrameByName, 1, JSPROP_PERMANENT | JSPROP_SHARED),
-		JS_FN("removeSpriteFramesFromFile", js_cocos2dx_CCSpriteFrameCache_removeSpriteFramesFromFile, 1, JSPROP_PERMANENT | JSPROP_SHARED),
-		JS_FN("init", js_cocos2dx_CCSpriteFrameCache_init, 0, JSPROP_PERMANENT | JSPROP_SHARED),
-		JS_FN("removeSpriteFrames", js_cocos2dx_CCSpriteFrameCache_removeSpriteFrames, 0, JSPROP_PERMANENT | JSPROP_SHARED),
-		JS_FN("removeSpriteFramesFromTexture", js_cocos2dx_CCSpriteFrameCache_removeSpriteFramesFromTexture, 1, JSPROP_PERMANENT | JSPROP_SHARED),
-		JS_FN("removeSpriteFrameByName", js_cocos2dx_CCSpriteFrameCache_removeSpriteFrameByName, 1, JSPROP_PERMANENT | JSPROP_SHARED),
+		JS_FN("addSpriteFrames", js_cocos2dx_CCSpriteFrameCache_addSpriteFramesWithFile, 1, JSPROP_PERMANENT | JSPROP_ENUMERATE),
+		JS_FN("addSpriteFrame", js_cocos2dx_CCSpriteFrameCache_addSpriteFrame, 2, JSPROP_PERMANENT | JSPROP_ENUMERATE),
+		JS_FN("removeUnusedSpriteFrames", js_cocos2dx_CCSpriteFrameCache_removeUnusedSpriteFrames, 0, JSPROP_PERMANENT | JSPROP_ENUMERATE),
+		JS_FN("getSpriteFrame", js_cocos2dx_CCSpriteFrameCache_spriteFrameByName, 1, JSPROP_PERMANENT | JSPROP_ENUMERATE),
+		JS_FN("removeSpriteFramesFromFile", js_cocos2dx_CCSpriteFrameCache_removeSpriteFramesFromFile, 1, JSPROP_PERMANENT | JSPROP_ENUMERATE),
+		JS_FN("init", js_cocos2dx_CCSpriteFrameCache_init, 0, JSPROP_PERMANENT | JSPROP_ENUMERATE),
+		JS_FN("removeSpriteFrames", js_cocos2dx_CCSpriteFrameCache_removeSpriteFrames, 0, JSPROP_PERMANENT | JSPROP_ENUMERATE),
+		JS_FN("removeSpriteFramesFromTexture", js_cocos2dx_CCSpriteFrameCache_removeSpriteFramesFromTexture, 1, JSPROP_PERMANENT | JSPROP_ENUMERATE),
+		JS_FN("removeSpriteFrameByName", js_cocos2dx_CCSpriteFrameCache_removeSpriteFrameByName, 1, JSPROP_PERMANENT | JSPROP_ENUMERATE),
 		JS_FS_END
 	};
 
 	static JSFunctionSpec st_funcs[] = {
-		JS_FN("purgeSharedSpriteFrameCache", js_cocos2dx_CCSpriteFrameCache_purgeSharedSpriteFrameCache, 0, JSPROP_PERMANENT | JSPROP_SHARED),
-		JS_FN("getInstance", js_cocos2dx_CCSpriteFrameCache_sharedSpriteFrameCache, 0, JSPROP_PERMANENT | JSPROP_SHARED),
+		JS_FN("purgeSharedSpriteFrameCache", js_cocos2dx_CCSpriteFrameCache_purgeSharedSpriteFrameCache, 0, JSPROP_PERMANENT | JSPROP_ENUMERATE),
+		JS_FN("getInstance", js_cocos2dx_CCSpriteFrameCache_sharedSpriteFrameCache, 0, JSPROP_PERMANENT | JSPROP_ENUMERATE),
 		JS_FS_END
 	};
 
@@ -45353,23 +45353,23 @@ void js_register_cocos2dx_CCTextureCache(JSContext *cx, JSObject *global) {
 	};
 
 	static JSFunctionSpec funcs[] = {
-		JS_FN("dumpCachedTextureInfo", js_cocos2dx_CCTextureCache_dumpCachedTextureInfo, 0, JSPROP_PERMANENT | JSPROP_SHARED),
-		JS_FN("addUIImage", js_cocos2dx_CCTextureCache_addUIImage, 2, JSPROP_PERMANENT | JSPROP_SHARED),
-		JS_FN("removeTextureForKey", js_cocos2dx_CCTextureCache_removeTextureForKey, 1, JSPROP_PERMANENT | JSPROP_SHARED),
-		JS_FN("textureForKey", js_cocos2dx_CCTextureCache_textureForKey, 1, JSPROP_PERMANENT | JSPROP_SHARED),
-		JS_FN("snapshotTextures", js_cocos2dx_CCTextureCache_snapshotTextures, 0, JSPROP_PERMANENT | JSPROP_SHARED),
-		JS_FN("addPVRImage", js_cocos2dx_CCTextureCache_addPVRImage, 1, JSPROP_PERMANENT | JSPROP_SHARED),
-		JS_FN("addImage", js_cocos2dx_CCTextureCache_addImage, 1, JSPROP_PERMANENT | JSPROP_SHARED),
-		JS_FN("removeAllTextures", js_cocos2dx_CCTextureCache_removeAllTextures, 0, JSPROP_PERMANENT | JSPROP_SHARED),
-		JS_FN("removeUnusedTextures", js_cocos2dx_CCTextureCache_removeUnusedTextures, 0, JSPROP_PERMANENT | JSPROP_SHARED),
-		JS_FN("removeTexture", js_cocos2dx_CCTextureCache_removeTexture, 1, JSPROP_PERMANENT | JSPROP_SHARED),
+		JS_FN("dumpCachedTextureInfo", js_cocos2dx_CCTextureCache_dumpCachedTextureInfo, 0, JSPROP_PERMANENT | JSPROP_ENUMERATE),
+		JS_FN("addUIImage", js_cocos2dx_CCTextureCache_addUIImage, 2, JSPROP_PERMANENT | JSPROP_ENUMERATE),
+		JS_FN("removeTextureForKey", js_cocos2dx_CCTextureCache_removeTextureForKey, 1, JSPROP_PERMANENT | JSPROP_ENUMERATE),
+		JS_FN("textureForKey", js_cocos2dx_CCTextureCache_textureForKey, 1, JSPROP_PERMANENT | JSPROP_ENUMERATE),
+		JS_FN("snapshotTextures", js_cocos2dx_CCTextureCache_snapshotTextures, 0, JSPROP_PERMANENT | JSPROP_ENUMERATE),
+		JS_FN("addPVRImage", js_cocos2dx_CCTextureCache_addPVRImage, 1, JSPROP_PERMANENT | JSPROP_ENUMERATE),
+		JS_FN("addImage", js_cocos2dx_CCTextureCache_addImage, 1, JSPROP_PERMANENT | JSPROP_ENUMERATE),
+		JS_FN("removeAllTextures", js_cocos2dx_CCTextureCache_removeAllTextures, 0, JSPROP_PERMANENT | JSPROP_ENUMERATE),
+		JS_FN("removeUnusedTextures", js_cocos2dx_CCTextureCache_removeUnusedTextures, 0, JSPROP_PERMANENT | JSPROP_ENUMERATE),
+		JS_FN("removeTexture", js_cocos2dx_CCTextureCache_removeTexture, 1, JSPROP_PERMANENT | JSPROP_ENUMERATE),
 		JS_FS_END
 	};
 
 	static JSFunctionSpec st_funcs[] = {
-		JS_FN("purgeSharedTextureCache", js_cocos2dx_CCTextureCache_purgeSharedTextureCache, 0, JSPROP_PERMANENT | JSPROP_SHARED),
-		JS_FN("reloadAllTextures", js_cocos2dx_CCTextureCache_reloadAllTextures, 0, JSPROP_PERMANENT | JSPROP_SHARED),
-		JS_FN("getInstance", js_cocos2dx_CCTextureCache_sharedTextureCache, 0, JSPROP_PERMANENT | JSPROP_SHARED),
+		JS_FN("purgeSharedTextureCache", js_cocos2dx_CCTextureCache_purgeSharedTextureCache, 0, JSPROP_PERMANENT | JSPROP_ENUMERATE),
+		JS_FN("reloadAllTextures", js_cocos2dx_CCTextureCache_reloadAllTextures, 0, JSPROP_PERMANENT | JSPROP_ENUMERATE),
+		JS_FN("getInstance", js_cocos2dx_CCTextureCache_sharedTextureCache, 0, JSPROP_PERMANENT | JSPROP_ENUMERATE),
 		JS_FS_END
 	};
 
@@ -45627,17 +45627,17 @@ void js_register_cocos2dx_CCParallaxNode(JSContext *cx, JSObject *global) {
 	};
 
 	static JSFunctionSpec funcs[] = {
-		JS_FN("addChild", js_cocos2dx_CCParallaxNode_addChild, 3, JSPROP_PERMANENT | JSPROP_SHARED),
-		JS_FN("visit", js_cocos2dx_CCParallaxNode_visit, 0, JSPROP_PERMANENT | JSPROP_SHARED),
-		JS_FN("removeAllChildrenWithCleanup", js_cocos2dx_CCParallaxNode_removeAllChildrenWithCleanup, 1, JSPROP_PERMANENT | JSPROP_SHARED),
-		JS_FN("removeChild", js_cocos2dx_CCParallaxNode_removeChild, 2, JSPROP_PERMANENT | JSPROP_SHARED),
-		JS_FN("getParallaxArray", js_cocos2dx_CCParallaxNode_getParallaxArray, 0, JSPROP_PERMANENT | JSPROP_SHARED),
-		JS_FN("setParallaxArray", js_cocos2dx_CCParallaxNode_setParallaxArray, 1, JSPROP_PERMANENT | JSPROP_SHARED),
+		JS_FN("addChild", js_cocos2dx_CCParallaxNode_addChild, 3, JSPROP_PERMANENT | JSPROP_ENUMERATE),
+		JS_FN("visit", js_cocos2dx_CCParallaxNode_visit, 0, JSPROP_PERMANENT | JSPROP_ENUMERATE),
+		JS_FN("removeAllChildrenWithCleanup", js_cocos2dx_CCParallaxNode_removeAllChildrenWithCleanup, 1, JSPROP_PERMANENT | JSPROP_ENUMERATE),
+		JS_FN("removeChild", js_cocos2dx_CCParallaxNode_removeChild, 2, JSPROP_PERMANENT | JSPROP_ENUMERATE),
+		JS_FN("getParallaxArray", js_cocos2dx_CCParallaxNode_getParallaxArray, 0, JSPROP_PERMANENT | JSPROP_ENUMERATE),
+		JS_FN("setParallaxArray", js_cocos2dx_CCParallaxNode_setParallaxArray, 1, JSPROP_PERMANENT | JSPROP_ENUMERATE),
 		JS_FS_END
 	};
 
 	static JSFunctionSpec st_funcs[] = {
-		JS_FN("create", js_cocos2dx_CCParallaxNode_create, 0, JSPROP_PERMANENT | JSPROP_SHARED),
+		JS_FN("create", js_cocos2dx_CCParallaxNode_create, 0, JSPROP_PERMANENT | JSPROP_ENUMERATE),
 		JS_FS_END
 	};
 
@@ -45925,16 +45925,16 @@ void js_register_cocos2dx_CCTMXObjectGroup(JSContext *cx, JSObject *global) {
 	};
 
 	static JSFunctionSpec funcs[] = {
-		JS_FN("setPositionOffset", js_cocos2dx_CCTMXObjectGroup_setPositionOffset, 1, JSPROP_PERMANENT | JSPROP_SHARED),
-		JS_FN("objectNamed", js_cocos2dx_CCTMXObjectGroup_objectNamed, 1, JSPROP_PERMANENT | JSPROP_SHARED),
-		JS_FN("getPositionOffset", js_cocos2dx_CCTMXObjectGroup_getPositionOffset, 0, JSPROP_PERMANENT | JSPROP_SHARED),
-		JS_FN("getObjects", js_cocos2dx_CCTMXObjectGroup_getObjects, 0, JSPROP_PERMANENT | JSPROP_SHARED),
-		JS_FN("setGroupName", js_cocos2dx_CCTMXObjectGroup_setGroupName, 1, JSPROP_PERMANENT | JSPROP_SHARED),
-		JS_FN("getProperties", js_cocos2dx_CCTMXObjectGroup_getProperties, 0, JSPROP_PERMANENT | JSPROP_SHARED),
-		JS_FN("getGroupName", js_cocos2dx_CCTMXObjectGroup_getGroupName, 0, JSPROP_PERMANENT | JSPROP_SHARED),
-		JS_FN("setProperties", js_cocos2dx_CCTMXObjectGroup_setProperties, 1, JSPROP_PERMANENT | JSPROP_SHARED),
-		JS_FN("propertyNamed", js_cocos2dx_CCTMXObjectGroup_propertyNamed, 1, JSPROP_PERMANENT | JSPROP_SHARED),
-		JS_FN("setObjects", js_cocos2dx_CCTMXObjectGroup_setObjects, 1, JSPROP_PERMANENT | JSPROP_SHARED),
+		JS_FN("setPositionOffset", js_cocos2dx_CCTMXObjectGroup_setPositionOffset, 1, JSPROP_PERMANENT | JSPROP_ENUMERATE),
+		JS_FN("objectNamed", js_cocos2dx_CCTMXObjectGroup_objectNamed, 1, JSPROP_PERMANENT | JSPROP_ENUMERATE),
+		JS_FN("getPositionOffset", js_cocos2dx_CCTMXObjectGroup_getPositionOffset, 0, JSPROP_PERMANENT | JSPROP_ENUMERATE),
+		JS_FN("getObjects", js_cocos2dx_CCTMXObjectGroup_getObjects, 0, JSPROP_PERMANENT | JSPROP_ENUMERATE),
+		JS_FN("setGroupName", js_cocos2dx_CCTMXObjectGroup_setGroupName, 1, JSPROP_PERMANENT | JSPROP_ENUMERATE),
+		JS_FN("getProperties", js_cocos2dx_CCTMXObjectGroup_getProperties, 0, JSPROP_PERMANENT | JSPROP_ENUMERATE),
+		JS_FN("getGroupName", js_cocos2dx_CCTMXObjectGroup_getGroupName, 0, JSPROP_PERMANENT | JSPROP_ENUMERATE),
+		JS_FN("setProperties", js_cocos2dx_CCTMXObjectGroup_setProperties, 1, JSPROP_PERMANENT | JSPROP_ENUMERATE),
+		JS_FN("propertyNamed", js_cocos2dx_CCTMXObjectGroup_propertyNamed, 1, JSPROP_PERMANENT | JSPROP_ENUMERATE),
+		JS_FN("setObjects", js_cocos2dx_CCTMXObjectGroup_setObjects, 1, JSPROP_PERMANENT | JSPROP_ENUMERATE),
 		JS_FS_END
 	};
 
@@ -46062,8 +46062,8 @@ void js_register_cocos2dx_CCTMXLayerInfo(JSContext *cx, JSObject *global) {
 	};
 
 	static JSFunctionSpec funcs[] = {
-		JS_FN("setProperties", js_cocos2dx_CCTMXLayerInfo_setProperties, 1, JSPROP_PERMANENT | JSPROP_SHARED),
-		JS_FN("getProperties", js_cocos2dx_CCTMXLayerInfo_getProperties, 0, JSPROP_PERMANENT | JSPROP_SHARED),
+		JS_FN("setProperties", js_cocos2dx_CCTMXLayerInfo_setProperties, 1, JSPROP_PERMANENT | JSPROP_ENUMERATE),
+		JS_FN("getProperties", js_cocos2dx_CCTMXLayerInfo_getProperties, 0, JSPROP_PERMANENT | JSPROP_ENUMERATE),
 		JS_FS_END
 	};
 
@@ -46176,7 +46176,7 @@ void js_register_cocos2dx_CCTMXTilesetInfo(JSContext *cx, JSObject *global) {
 	};
 
 	static JSFunctionSpec funcs[] = {
-		JS_FN("rectForGID", js_cocos2dx_CCTMXTilesetInfo_rectForGID, 1, JSPROP_PERMANENT | JSPROP_SHARED),
+		JS_FN("rectForGID", js_cocos2dx_CCTMXTilesetInfo_rectForGID, 1, JSPROP_PERMANENT | JSPROP_ENUMERATE),
 		JS_FS_END
 	};
 
@@ -46925,44 +46925,44 @@ void js_register_cocos2dx_CCTMXMapInfo(JSContext *cx, JSObject *global) {
 	};
 
 	static JSFunctionSpec funcs[] = {
-		JS_FN("getTileProperties", js_cocos2dx_CCTMXMapInfo_getTileProperties, 0, JSPROP_PERMANENT | JSPROP_SHARED),
-		JS_FN("setObjectGroups", js_cocos2dx_CCTMXMapInfo_setObjectGroups, 1, JSPROP_PERMANENT | JSPROP_SHARED),
-		JS_FN("setTileSize", js_cocos2dx_CCTMXMapInfo_setTileSize, 1, JSPROP_PERMANENT | JSPROP_SHARED),
-		JS_FN("initWithTMXFile", js_cocos2dx_CCTMXMapInfo_initWithTMXFile, 1, JSPROP_PERMANENT | JSPROP_SHARED),
-		JS_FN("getOrientation", js_cocos2dx_CCTMXMapInfo_getOrientation, 0, JSPROP_PERMANENT | JSPROP_SHARED),
-		JS_FN("setTMXFileName", js_cocos2dx_CCTMXMapInfo_setTMXFileName, 1, JSPROP_PERMANENT | JSPROP_SHARED),
-		JS_FN("setLayers", js_cocos2dx_CCTMXMapInfo_setLayers, 1, JSPROP_PERMANENT | JSPROP_SHARED),
-		JS_FN("setStoringCharacters", js_cocos2dx_CCTMXMapInfo_setStoringCharacters, 1, JSPROP_PERMANENT | JSPROP_SHARED),
-		JS_FN("getStoringCharacters", js_cocos2dx_CCTMXMapInfo_getStoringCharacters, 0, JSPROP_PERMANENT | JSPROP_SHARED),
-		JS_FN("getParentElement", js_cocos2dx_CCTMXMapInfo_getParentElement, 0, JSPROP_PERMANENT | JSPROP_SHARED),
-		JS_FN("getLayerAttribs", js_cocos2dx_CCTMXMapInfo_getLayerAttribs, 0, JSPROP_PERMANENT | JSPROP_SHARED),
-		JS_FN("getLayers", js_cocos2dx_CCTMXMapInfo_getLayers, 0, JSPROP_PERMANENT | JSPROP_SHARED),
-		JS_FN("getTilesets", js_cocos2dx_CCTMXMapInfo_getTilesets, 0, JSPROP_PERMANENT | JSPROP_SHARED),
-		JS_FN("getParentGID", js_cocos2dx_CCTMXMapInfo_getParentGID, 0, JSPROP_PERMANENT | JSPROP_SHARED),
-		JS_FN("setParentElement", js_cocos2dx_CCTMXMapInfo_setParentElement, 1, JSPROP_PERMANENT | JSPROP_SHARED),
-		JS_FN("setProperties", js_cocos2dx_CCTMXMapInfo_setProperties, 1, JSPROP_PERMANENT | JSPROP_SHARED),
-		JS_FN("setParentGID", js_cocos2dx_CCTMXMapInfo_setParentGID, 1, JSPROP_PERMANENT | JSPROP_SHARED),
-		JS_FN("parseXMLString", js_cocos2dx_CCTMXMapInfo_parseXMLString, 1, JSPROP_PERMANENT | JSPROP_SHARED),
-		JS_FN("getTileSize", js_cocos2dx_CCTMXMapInfo_getTileSize, 0, JSPROP_PERMANENT | JSPROP_SHARED),
-		JS_FN("getObjectGroups", js_cocos2dx_CCTMXMapInfo_getObjectGroups, 0, JSPROP_PERMANENT | JSPROP_SHARED),
-		JS_FN("setLayerAttribs", js_cocos2dx_CCTMXMapInfo_setLayerAttribs, 1, JSPROP_PERMANENT | JSPROP_SHARED),
-		JS_FN("getTMXFileName", js_cocos2dx_CCTMXMapInfo_getTMXFileName, 0, JSPROP_PERMANENT | JSPROP_SHARED),
-		JS_FN("setCurrentString", js_cocos2dx_CCTMXMapInfo_setCurrentString, 1, JSPROP_PERMANENT | JSPROP_SHARED),
-		JS_FN("initWithXML", js_cocos2dx_CCTMXMapInfo_initWithXML, 2, JSPROP_PERMANENT | JSPROP_SHARED),
-		JS_FN("setOrientation", js_cocos2dx_CCTMXMapInfo_setOrientation, 1, JSPROP_PERMANENT | JSPROP_SHARED),
-		JS_FN("setTileProperties", js_cocos2dx_CCTMXMapInfo_setTileProperties, 1, JSPROP_PERMANENT | JSPROP_SHARED),
-		JS_FN("setMapSize", js_cocos2dx_CCTMXMapInfo_setMapSize, 1, JSPROP_PERMANENT | JSPROP_SHARED),
-		JS_FN("parseXMLFile", js_cocos2dx_CCTMXMapInfo_parseXMLFile, 1, JSPROP_PERMANENT | JSPROP_SHARED),
-		JS_FN("getMapSize", js_cocos2dx_CCTMXMapInfo_getMapSize, 0, JSPROP_PERMANENT | JSPROP_SHARED),
-		JS_FN("setTilesets", js_cocos2dx_CCTMXMapInfo_setTilesets, 1, JSPROP_PERMANENT | JSPROP_SHARED),
-		JS_FN("getProperties", js_cocos2dx_CCTMXMapInfo_getProperties, 0, JSPROP_PERMANENT | JSPROP_SHARED),
-		JS_FN("getCurrentString", js_cocos2dx_CCTMXMapInfo_getCurrentString, 0, JSPROP_PERMANENT | JSPROP_SHARED),
+		JS_FN("getTileProperties", js_cocos2dx_CCTMXMapInfo_getTileProperties, 0, JSPROP_PERMANENT | JSPROP_ENUMERATE),
+		JS_FN("setObjectGroups", js_cocos2dx_CCTMXMapInfo_setObjectGroups, 1, JSPROP_PERMANENT | JSPROP_ENUMERATE),
+		JS_FN("setTileSize", js_cocos2dx_CCTMXMapInfo_setTileSize, 1, JSPROP_PERMANENT | JSPROP_ENUMERATE),
+		JS_FN("initWithTMXFile", js_cocos2dx_CCTMXMapInfo_initWithTMXFile, 1, JSPROP_PERMANENT | JSPROP_ENUMERATE),
+		JS_FN("getOrientation", js_cocos2dx_CCTMXMapInfo_getOrientation, 0, JSPROP_PERMANENT | JSPROP_ENUMERATE),
+		JS_FN("setTMXFileName", js_cocos2dx_CCTMXMapInfo_setTMXFileName, 1, JSPROP_PERMANENT | JSPROP_ENUMERATE),
+		JS_FN("setLayers", js_cocos2dx_CCTMXMapInfo_setLayers, 1, JSPROP_PERMANENT | JSPROP_ENUMERATE),
+		JS_FN("setStoringCharacters", js_cocos2dx_CCTMXMapInfo_setStoringCharacters, 1, JSPROP_PERMANENT | JSPROP_ENUMERATE),
+		JS_FN("getStoringCharacters", js_cocos2dx_CCTMXMapInfo_getStoringCharacters, 0, JSPROP_PERMANENT | JSPROP_ENUMERATE),
+		JS_FN("getParentElement", js_cocos2dx_CCTMXMapInfo_getParentElement, 0, JSPROP_PERMANENT | JSPROP_ENUMERATE),
+		JS_FN("getLayerAttribs", js_cocos2dx_CCTMXMapInfo_getLayerAttribs, 0, JSPROP_PERMANENT | JSPROP_ENUMERATE),
+		JS_FN("getLayers", js_cocos2dx_CCTMXMapInfo_getLayers, 0, JSPROP_PERMANENT | JSPROP_ENUMERATE),
+		JS_FN("getTilesets", js_cocos2dx_CCTMXMapInfo_getTilesets, 0, JSPROP_PERMANENT | JSPROP_ENUMERATE),
+		JS_FN("getParentGID", js_cocos2dx_CCTMXMapInfo_getParentGID, 0, JSPROP_PERMANENT | JSPROP_ENUMERATE),
+		JS_FN("setParentElement", js_cocos2dx_CCTMXMapInfo_setParentElement, 1, JSPROP_PERMANENT | JSPROP_ENUMERATE),
+		JS_FN("setProperties", js_cocos2dx_CCTMXMapInfo_setProperties, 1, JSPROP_PERMANENT | JSPROP_ENUMERATE),
+		JS_FN("setParentGID", js_cocos2dx_CCTMXMapInfo_setParentGID, 1, JSPROP_PERMANENT | JSPROP_ENUMERATE),
+		JS_FN("parseXMLString", js_cocos2dx_CCTMXMapInfo_parseXMLString, 1, JSPROP_PERMANENT | JSPROP_ENUMERATE),
+		JS_FN("getTileSize", js_cocos2dx_CCTMXMapInfo_getTileSize, 0, JSPROP_PERMANENT | JSPROP_ENUMERATE),
+		JS_FN("getObjectGroups", js_cocos2dx_CCTMXMapInfo_getObjectGroups, 0, JSPROP_PERMANENT | JSPROP_ENUMERATE),
+		JS_FN("setLayerAttribs", js_cocos2dx_CCTMXMapInfo_setLayerAttribs, 1, JSPROP_PERMANENT | JSPROP_ENUMERATE),
+		JS_FN("getTMXFileName", js_cocos2dx_CCTMXMapInfo_getTMXFileName, 0, JSPROP_PERMANENT | JSPROP_ENUMERATE),
+		JS_FN("setCurrentString", js_cocos2dx_CCTMXMapInfo_setCurrentString, 1, JSPROP_PERMANENT | JSPROP_ENUMERATE),
+		JS_FN("initWithXML", js_cocos2dx_CCTMXMapInfo_initWithXML, 2, JSPROP_PERMANENT | JSPROP_ENUMERATE),
+		JS_FN("setOrientation", js_cocos2dx_CCTMXMapInfo_setOrientation, 1, JSPROP_PERMANENT | JSPROP_ENUMERATE),
+		JS_FN("setTileProperties", js_cocos2dx_CCTMXMapInfo_setTileProperties, 1, JSPROP_PERMANENT | JSPROP_ENUMERATE),
+		JS_FN("setMapSize", js_cocos2dx_CCTMXMapInfo_setMapSize, 1, JSPROP_PERMANENT | JSPROP_ENUMERATE),
+		JS_FN("parseXMLFile", js_cocos2dx_CCTMXMapInfo_parseXMLFile, 1, JSPROP_PERMANENT | JSPROP_ENUMERATE),
+		JS_FN("getMapSize", js_cocos2dx_CCTMXMapInfo_getMapSize, 0, JSPROP_PERMANENT | JSPROP_ENUMERATE),
+		JS_FN("setTilesets", js_cocos2dx_CCTMXMapInfo_setTilesets, 1, JSPROP_PERMANENT | JSPROP_ENUMERATE),
+		JS_FN("getProperties", js_cocos2dx_CCTMXMapInfo_getProperties, 0, JSPROP_PERMANENT | JSPROP_ENUMERATE),
+		JS_FN("getCurrentString", js_cocos2dx_CCTMXMapInfo_getCurrentString, 0, JSPROP_PERMANENT | JSPROP_ENUMERATE),
 		JS_FS_END
 	};
 
 	static JSFunctionSpec st_funcs[] = {
-		JS_FN("formatWithTMXFile", js_cocos2dx_CCTMXMapInfo_formatWithTMXFile, 1, JSPROP_PERMANENT | JSPROP_SHARED),
-		JS_FN("formatWithXML", js_cocos2dx_CCTMXMapInfo_formatWithXML, 2, JSPROP_PERMANENT | JSPROP_SHARED),
+		JS_FN("formatWithTMXFile", js_cocos2dx_CCTMXMapInfo_formatWithTMXFile, 1, JSPROP_PERMANENT | JSPROP_ENUMERATE),
+		JS_FN("formatWithXML", js_cocos2dx_CCTMXMapInfo_formatWithXML, 2, JSPROP_PERMANENT | JSPROP_ENUMERATE),
 		JS_FS_END
 	};
 
@@ -47673,36 +47673,36 @@ void js_register_cocos2dx_CCTMXLayer(JSContext *cx, JSObject *global) {
 	};
 
 	static JSFunctionSpec funcs[] = {
-		JS_FN("addChild", js_cocos2dx_CCTMXLayer_addChild, 3, JSPROP_PERMANENT | JSPROP_SHARED),
-		JS_FN("getTileGIDAt", js_cocos2dx_CCTMXLayer_tileGIDAt, 1, JSPROP_PERMANENT | JSPROP_SHARED),
-		JS_FN("positionAt", js_cocos2dx_CCTMXLayer_positionAt, 1, JSPROP_PERMANENT | JSPROP_SHARED),
-		JS_FN("setLayerOrientation", js_cocos2dx_CCTMXLayer_setLayerOrientation, 1, JSPROP_PERMANENT | JSPROP_SHARED),
-		JS_FN("getTiles", js_cocos2dx_CCTMXLayer_getTiles, 0, JSPROP_PERMANENT | JSPROP_SHARED),
-		JS_FN("releaseMap", js_cocos2dx_CCTMXLayer_releaseMap, 0, JSPROP_PERMANENT | JSPROP_SHARED),
-		JS_FN("setTiles", js_cocos2dx_CCTMXLayer_setTiles, 1, JSPROP_PERMANENT | JSPROP_SHARED),
-		JS_FN("getLayerSize", js_cocos2dx_CCTMXLayer_getLayerSize, 0, JSPROP_PERMANENT | JSPROP_SHARED),
-		JS_FN("setMapTileSize", js_cocos2dx_CCTMXLayer_setMapTileSize, 1, JSPROP_PERMANENT | JSPROP_SHARED),
-		JS_FN("getLayerOrientation", js_cocos2dx_CCTMXLayer_getLayerOrientation, 0, JSPROP_PERMANENT | JSPROP_SHARED),
-		JS_FN("setProperties", js_cocos2dx_CCTMXLayer_setProperties, 1, JSPROP_PERMANENT | JSPROP_SHARED),
-		JS_FN("setLayerName", js_cocos2dx_CCTMXLayer_setLayerName, 1, JSPROP_PERMANENT | JSPROP_SHARED),
-		JS_FN("removeTileAt", js_cocos2dx_CCTMXLayer_removeTileAt, 1, JSPROP_PERMANENT | JSPROP_SHARED),
-		JS_FN("initWithTilesetInfo", js_cocos2dx_CCTMXLayer_initWithTilesetInfo, 3, JSPROP_PERMANENT | JSPROP_SHARED),
-		JS_FN("setupTiles", js_cocos2dx_CCTMXLayer_setupTiles, 0, JSPROP_PERMANENT | JSPROP_SHARED),
-		JS_FN("setTileGID", js_cocos2dx_CCTMXLayer_setTileGID, 2, JSPROP_PERMANENT | JSPROP_SHARED),
-		JS_FN("getMapTileSize", js_cocos2dx_CCTMXLayer_getMapTileSize, 0, JSPROP_PERMANENT | JSPROP_SHARED),
-		JS_FN("getProperty", js_cocos2dx_CCTMXLayer_propertyNamed, 1, JSPROP_PERMANENT | JSPROP_SHARED),
-		JS_FN("setLayerSize", js_cocos2dx_CCTMXLayer_setLayerSize, 1, JSPROP_PERMANENT | JSPROP_SHARED),
-		JS_FN("getLayerName", js_cocos2dx_CCTMXLayer_getLayerName, 0, JSPROP_PERMANENT | JSPROP_SHARED),
-		JS_FN("setTileSet", js_cocos2dx_CCTMXLayer_setTileSet, 1, JSPROP_PERMANENT | JSPROP_SHARED),
-		JS_FN("removeChild", js_cocos2dx_CCTMXLayer_removeChild, 2, JSPROP_PERMANENT | JSPROP_SHARED),
-		JS_FN("getTileSet", js_cocos2dx_CCTMXLayer_getTileSet, 0, JSPROP_PERMANENT | JSPROP_SHARED),
-		JS_FN("getProperties", js_cocos2dx_CCTMXLayer_getProperties, 0, JSPROP_PERMANENT | JSPROP_SHARED),
-		JS_FN("getTileAt", js_cocos2dx_CCTMXLayer_tileAt, 1, JSPROP_PERMANENT | JSPROP_SHARED),
+		JS_FN("addChild", js_cocos2dx_CCTMXLayer_addChild, 3, JSPROP_PERMANENT | JSPROP_ENUMERATE),
+		JS_FN("getTileGIDAt", js_cocos2dx_CCTMXLayer_tileGIDAt, 1, JSPROP_PERMANENT | JSPROP_ENUMERATE),
+		JS_FN("positionAt", js_cocos2dx_CCTMXLayer_positionAt, 1, JSPROP_PERMANENT | JSPROP_ENUMERATE),
+		JS_FN("setLayerOrientation", js_cocos2dx_CCTMXLayer_setLayerOrientation, 1, JSPROP_PERMANENT | JSPROP_ENUMERATE),
+		JS_FN("getTiles", js_cocos2dx_CCTMXLayer_getTiles, 0, JSPROP_PERMANENT | JSPROP_ENUMERATE),
+		JS_FN("releaseMap", js_cocos2dx_CCTMXLayer_releaseMap, 0, JSPROP_PERMANENT | JSPROP_ENUMERATE),
+		JS_FN("setTiles", js_cocos2dx_CCTMXLayer_setTiles, 1, JSPROP_PERMANENT | JSPROP_ENUMERATE),
+		JS_FN("getLayerSize", js_cocos2dx_CCTMXLayer_getLayerSize, 0, JSPROP_PERMANENT | JSPROP_ENUMERATE),
+		JS_FN("setMapTileSize", js_cocos2dx_CCTMXLayer_setMapTileSize, 1, JSPROP_PERMANENT | JSPROP_ENUMERATE),
+		JS_FN("getLayerOrientation", js_cocos2dx_CCTMXLayer_getLayerOrientation, 0, JSPROP_PERMANENT | JSPROP_ENUMERATE),
+		JS_FN("setProperties", js_cocos2dx_CCTMXLayer_setProperties, 1, JSPROP_PERMANENT | JSPROP_ENUMERATE),
+		JS_FN("setLayerName", js_cocos2dx_CCTMXLayer_setLayerName, 1, JSPROP_PERMANENT | JSPROP_ENUMERATE),
+		JS_FN("removeTileAt", js_cocos2dx_CCTMXLayer_removeTileAt, 1, JSPROP_PERMANENT | JSPROP_ENUMERATE),
+		JS_FN("initWithTilesetInfo", js_cocos2dx_CCTMXLayer_initWithTilesetInfo, 3, JSPROP_PERMANENT | JSPROP_ENUMERATE),
+		JS_FN("setupTiles", js_cocos2dx_CCTMXLayer_setupTiles, 0, JSPROP_PERMANENT | JSPROP_ENUMERATE),
+		JS_FN("setTileGID", js_cocos2dx_CCTMXLayer_setTileGID, 2, JSPROP_PERMANENT | JSPROP_ENUMERATE),
+		JS_FN("getMapTileSize", js_cocos2dx_CCTMXLayer_getMapTileSize, 0, JSPROP_PERMANENT | JSPROP_ENUMERATE),
+		JS_FN("getProperty", js_cocos2dx_CCTMXLayer_propertyNamed, 1, JSPROP_PERMANENT | JSPROP_ENUMERATE),
+		JS_FN("setLayerSize", js_cocos2dx_CCTMXLayer_setLayerSize, 1, JSPROP_PERMANENT | JSPROP_ENUMERATE),
+		JS_FN("getLayerName", js_cocos2dx_CCTMXLayer_getLayerName, 0, JSPROP_PERMANENT | JSPROP_ENUMERATE),
+		JS_FN("setTileSet", js_cocos2dx_CCTMXLayer_setTileSet, 1, JSPROP_PERMANENT | JSPROP_ENUMERATE),
+		JS_FN("removeChild", js_cocos2dx_CCTMXLayer_removeChild, 2, JSPROP_PERMANENT | JSPROP_ENUMERATE),
+		JS_FN("getTileSet", js_cocos2dx_CCTMXLayer_getTileSet, 0, JSPROP_PERMANENT | JSPROP_ENUMERATE),
+		JS_FN("getProperties", js_cocos2dx_CCTMXLayer_getProperties, 0, JSPROP_PERMANENT | JSPROP_ENUMERATE),
+		JS_FN("getTileAt", js_cocos2dx_CCTMXLayer_tileAt, 1, JSPROP_PERMANENT | JSPROP_ENUMERATE),
 		JS_FS_END
 	};
 
 	static JSFunctionSpec st_funcs[] = {
-		JS_FN("create", js_cocos2dx_CCTMXLayer_create, 3, JSPROP_PERMANENT | JSPROP_SHARED),
+		JS_FN("create", js_cocos2dx_CCTMXLayer_create, 3, JSPROP_PERMANENT | JSPROP_ENUMERATE),
 		JS_FS_END
 	};
 
@@ -48181,28 +48181,28 @@ void js_register_cocos2dx_CCTMXTiledMap(JSContext *cx, JSObject *global) {
 	};
 
 	static JSFunctionSpec funcs[] = {
-		JS_FN("propertiesForGID", js_cocos2dx_CCTMXTiledMap_propertiesForGID, 1, JSPROP_PERMANENT | JSPROP_SHARED),
-		JS_FN("setObjectGroups", js_cocos2dx_CCTMXTiledMap_setObjectGroups, 1, JSPROP_PERMANENT | JSPROP_SHARED),
-		JS_FN("setTileSize", js_cocos2dx_CCTMXTiledMap_setTileSize, 1, JSPROP_PERMANENT | JSPROP_SHARED),
-		JS_FN("setMapSize", js_cocos2dx_CCTMXTiledMap_setMapSize, 1, JSPROP_PERMANENT | JSPROP_SHARED),
-		JS_FN("getTileSize", js_cocos2dx_CCTMXTiledMap_getTileSize, 0, JSPROP_PERMANENT | JSPROP_SHARED),
-		JS_FN("getObjectGroups", js_cocos2dx_CCTMXTiledMap_getObjectGroups, 0, JSPROP_PERMANENT | JSPROP_SHARED),
-		JS_FN("initWithXML", js_cocos2dx_CCTMXTiledMap_initWithXML, 2, JSPROP_PERMANENT | JSPROP_SHARED),
-		JS_FN("initWithTMXFile", js_cocos2dx_CCTMXTiledMap_initWithTMXFile, 1, JSPROP_PERMANENT | JSPROP_SHARED),
-		JS_FN("getObjectGroup", js_cocos2dx_CCTMXTiledMap_objectGroupNamed, 1, JSPROP_PERMANENT | JSPROP_SHARED),
-		JS_FN("getMapSize", js_cocos2dx_CCTMXTiledMap_getMapSize, 0, JSPROP_PERMANENT | JSPROP_SHARED),
-		JS_FN("getProperties", js_cocos2dx_CCTMXTiledMap_getProperties, 0, JSPROP_PERMANENT | JSPROP_SHARED),
-		JS_FN("setMapOrientation", js_cocos2dx_CCTMXTiledMap_setMapOrientation, 1, JSPROP_PERMANENT | JSPROP_SHARED),
-		JS_FN("setProperties", js_cocos2dx_CCTMXTiledMap_setProperties, 1, JSPROP_PERMANENT | JSPROP_SHARED),
-		JS_FN("getLayer", js_cocos2dx_CCTMXTiledMap_layerNamed, 1, JSPROP_PERMANENT | JSPROP_SHARED),
-		JS_FN("getMapOrientation", js_cocos2dx_CCTMXTiledMap_getMapOrientation, 0, JSPROP_PERMANENT | JSPROP_SHARED),
-		JS_FN("getProperty", js_cocos2dx_CCTMXTiledMap_propertyNamed, 1, JSPROP_PERMANENT | JSPROP_SHARED),
+		JS_FN("propertiesForGID", js_cocos2dx_CCTMXTiledMap_propertiesForGID, 1, JSPROP_PERMANENT | JSPROP_ENUMERATE),
+		JS_FN("setObjectGroups", js_cocos2dx_CCTMXTiledMap_setObjectGroups, 1, JSPROP_PERMANENT | JSPROP_ENUMERATE),
+		JS_FN("setTileSize", js_cocos2dx_CCTMXTiledMap_setTileSize, 1, JSPROP_PERMANENT | JSPROP_ENUMERATE),
+		JS_FN("setMapSize", js_cocos2dx_CCTMXTiledMap_setMapSize, 1, JSPROP_PERMANENT | JSPROP_ENUMERATE),
+		JS_FN("getTileSize", js_cocos2dx_CCTMXTiledMap_getTileSize, 0, JSPROP_PERMANENT | JSPROP_ENUMERATE),
+		JS_FN("getObjectGroups", js_cocos2dx_CCTMXTiledMap_getObjectGroups, 0, JSPROP_PERMANENT | JSPROP_ENUMERATE),
+		JS_FN("initWithXML", js_cocos2dx_CCTMXTiledMap_initWithXML, 2, JSPROP_PERMANENT | JSPROP_ENUMERATE),
+		JS_FN("initWithTMXFile", js_cocos2dx_CCTMXTiledMap_initWithTMXFile, 1, JSPROP_PERMANENT | JSPROP_ENUMERATE),
+		JS_FN("getObjectGroup", js_cocos2dx_CCTMXTiledMap_objectGroupNamed, 1, JSPROP_PERMANENT | JSPROP_ENUMERATE),
+		JS_FN("getMapSize", js_cocos2dx_CCTMXTiledMap_getMapSize, 0, JSPROP_PERMANENT | JSPROP_ENUMERATE),
+		JS_FN("getProperties", js_cocos2dx_CCTMXTiledMap_getProperties, 0, JSPROP_PERMANENT | JSPROP_ENUMERATE),
+		JS_FN("setMapOrientation", js_cocos2dx_CCTMXTiledMap_setMapOrientation, 1, JSPROP_PERMANENT | JSPROP_ENUMERATE),
+		JS_FN("setProperties", js_cocos2dx_CCTMXTiledMap_setProperties, 1, JSPROP_PERMANENT | JSPROP_ENUMERATE),
+		JS_FN("getLayer", js_cocos2dx_CCTMXTiledMap_layerNamed, 1, JSPROP_PERMANENT | JSPROP_ENUMERATE),
+		JS_FN("getMapOrientation", js_cocos2dx_CCTMXTiledMap_getMapOrientation, 0, JSPROP_PERMANENT | JSPROP_ENUMERATE),
+		JS_FN("getProperty", js_cocos2dx_CCTMXTiledMap_propertyNamed, 1, JSPROP_PERMANENT | JSPROP_ENUMERATE),
 		JS_FS_END
 	};
 
 	static JSFunctionSpec st_funcs[] = {
-		JS_FN("create", js_cocos2dx_CCTMXTiledMap_create, 1, JSPROP_PERMANENT | JSPROP_SHARED),
-		JS_FN("createWithXML", js_cocos2dx_CCTMXTiledMap_createWithXML, 2, JSPROP_PERMANENT | JSPROP_SHARED),
+		JS_FN("create", js_cocos2dx_CCTMXTiledMap_create, 1, JSPROP_PERMANENT | JSPROP_ENUMERATE),
+		JS_FN("createWithXML", js_cocos2dx_CCTMXTiledMap_createWithXML, 2, JSPROP_PERMANENT | JSPROP_ENUMERATE),
 		JS_FS_END
 	};
 
@@ -48445,17 +48445,17 @@ void js_register_cocos2dx_CCTileMapAtlas(JSContext *cx, JSObject *global) {
 	};
 
 	static JSFunctionSpec funcs[] = {
-		JS_FN("initWithTileFile", js_cocos2dx_CCTileMapAtlas_initWithTileFile, 4, JSPROP_PERMANENT | JSPROP_SHARED),
-		JS_FN("releaseMap", js_cocos2dx_CCTileMapAtlas_releaseMap, 0, JSPROP_PERMANENT | JSPROP_SHARED),
-		JS_FN("getTGAInfo", js_cocos2dx_CCTileMapAtlas_getTGAInfo, 0, JSPROP_PERMANENT | JSPROP_SHARED),
-		JS_FN("getTileAt", js_cocos2dx_CCTileMapAtlas_tileAt, 1, JSPROP_PERMANENT | JSPROP_SHARED),
-		JS_FN("setTile", js_cocos2dx_CCTileMapAtlas_setTile, 2, JSPROP_PERMANENT | JSPROP_SHARED),
-		JS_FN("setTGAInfo", js_cocos2dx_CCTileMapAtlas_setTGAInfo, 1, JSPROP_PERMANENT | JSPROP_SHARED),
+		JS_FN("initWithTileFile", js_cocos2dx_CCTileMapAtlas_initWithTileFile, 4, JSPROP_PERMANENT | JSPROP_ENUMERATE),
+		JS_FN("releaseMap", js_cocos2dx_CCTileMapAtlas_releaseMap, 0, JSPROP_PERMANENT | JSPROP_ENUMERATE),
+		JS_FN("getTGAInfo", js_cocos2dx_CCTileMapAtlas_getTGAInfo, 0, JSPROP_PERMANENT | JSPROP_ENUMERATE),
+		JS_FN("getTileAt", js_cocos2dx_CCTileMapAtlas_tileAt, 1, JSPROP_PERMANENT | JSPROP_ENUMERATE),
+		JS_FN("setTile", js_cocos2dx_CCTileMapAtlas_setTile, 2, JSPROP_PERMANENT | JSPROP_ENUMERATE),
+		JS_FN("setTGAInfo", js_cocos2dx_CCTileMapAtlas_setTGAInfo, 1, JSPROP_PERMANENT | JSPROP_ENUMERATE),
 		JS_FS_END
 	};
 
 	static JSFunctionSpec st_funcs[] = {
-		JS_FN("create", js_cocos2dx_CCTileMapAtlas_create, 4, JSPROP_PERMANENT | JSPROP_SHARED),
+		JS_FN("create", js_cocos2dx_CCTileMapAtlas_create, 4, JSPROP_PERMANENT | JSPROP_ENUMERATE),
 		JS_FS_END
 	};
 
@@ -48668,16 +48668,16 @@ void js_register_cocos2dx_CCTimer(JSContext *cx, JSObject *global) {
 	};
 
 	static JSFunctionSpec funcs[] = {
-		JS_FN("getInterval", js_cocos2dx_CCTimer_getInterval, 0, JSPROP_PERMANENT | JSPROP_SHARED),
-		JS_FN("setInterval", js_cocos2dx_CCTimer_setInterval, 1, JSPROP_PERMANENT | JSPROP_SHARED),
-		JS_FN("initWithScriptHandler", js_cocos2dx_CCTimer_initWithScriptHandler, 2, JSPROP_PERMANENT | JSPROP_SHARED),
-		JS_FN("update", js_cocos2dx_CCTimer_update, 1, JSPROP_PERMANENT | JSPROP_SHARED),
-		JS_FN("getScriptHandler", js_cocos2dx_CCTimer_getScriptHandler, 0, JSPROP_PERMANENT | JSPROP_SHARED),
+		JS_FN("getInterval", js_cocos2dx_CCTimer_getInterval, 0, JSPROP_PERMANENT | JSPROP_ENUMERATE),
+		JS_FN("setInterval", js_cocos2dx_CCTimer_setInterval, 1, JSPROP_PERMANENT | JSPROP_ENUMERATE),
+		JS_FN("initWithScriptHandler", js_cocos2dx_CCTimer_initWithScriptHandler, 2, JSPROP_PERMANENT | JSPROP_ENUMERATE),
+		JS_FN("update", js_cocos2dx_CCTimer_update, 1, JSPROP_PERMANENT | JSPROP_ENUMERATE),
+		JS_FN("getScriptHandler", js_cocos2dx_CCTimer_getScriptHandler, 0, JSPROP_PERMANENT | JSPROP_ENUMERATE),
 		JS_FS_END
 	};
 
 	static JSFunctionSpec st_funcs[] = {
-		JS_FN("timerWithScriptHandler", js_cocos2dx_CCTimer_timerWithScriptHandler, 2, JSPROP_PERMANENT | JSPROP_SHARED),
+		JS_FN("timerWithScriptHandler", js_cocos2dx_CCTimer_timerWithScriptHandler, 2, JSPROP_PERMANENT | JSPROP_ENUMERATE),
 		JS_FS_END
 	};
 
@@ -49014,17 +49014,17 @@ void js_register_cocos2dx_CCScheduler(JSContext *cx, JSObject *global) {
 	};
 
 	static JSFunctionSpec funcs[] = {
-		JS_FN("setTimeScale", js_cocos2dx_CCScheduler_setTimeScale, 1, JSPROP_PERMANENT | JSPROP_SHARED),
-		JS_FN("unscheduleUpdateForTarget", js_cocos2dx_CCScheduler_unscheduleUpdateForTarget, 1, JSPROP_PERMANENT | JSPROP_SHARED),
-		JS_FN("scheduleUpdateForTarget", js_cocos2dx_CCScheduler_scheduleUpdateForTarget, 3, JSPROP_PERMANENT | JSPROP_SHARED),
-		JS_FN("unscheduleAllCallbacks", js_cocos2dx_CCScheduler_unscheduleAll, 0, JSPROP_PERMANENT | JSPROP_SHARED),
-		JS_FN("unscheduleAllWithMinPriority", js_cocos2dx_CCScheduler_unscheduleAllWithMinPriority, 1, JSPROP_PERMANENT | JSPROP_SHARED),
-		JS_FN("isTargetPaused", js_cocos2dx_CCScheduler_isTargetPaused, 1, JSPROP_PERMANENT | JSPROP_SHARED),
-		JS_FN("update", js_cocos2dx_CCScheduler_update, 1, JSPROP_PERMANENT | JSPROP_SHARED),
-		JS_FN("unscheduleScriptEntry", js_cocos2dx_CCScheduler_unscheduleScriptEntry, 1, JSPROP_PERMANENT | JSPROP_SHARED),
-		JS_FN("unscheduleAllForTarget", js_cocos2dx_CCScheduler_unscheduleAllForTarget, 1, JSPROP_PERMANENT | JSPROP_SHARED),
-		JS_FN("scheduleScriptFunc", js_cocos2dx_CCScheduler_scheduleScriptFunc, 3, JSPROP_PERMANENT | JSPROP_SHARED),
-		JS_FN("getTimeScale", js_cocos2dx_CCScheduler_getTimeScale, 0, JSPROP_PERMANENT | JSPROP_SHARED),
+		JS_FN("setTimeScale", js_cocos2dx_CCScheduler_setTimeScale, 1, JSPROP_PERMANENT | JSPROP_ENUMERATE),
+		JS_FN("unscheduleUpdateForTarget", js_cocos2dx_CCScheduler_unscheduleUpdateForTarget, 1, JSPROP_PERMANENT | JSPROP_ENUMERATE),
+		JS_FN("scheduleUpdateForTarget", js_cocos2dx_CCScheduler_scheduleUpdateForTarget, 3, JSPROP_PERMANENT | JSPROP_ENUMERATE),
+		JS_FN("unscheduleAllCallbacks", js_cocos2dx_CCScheduler_unscheduleAll, 0, JSPROP_PERMANENT | JSPROP_ENUMERATE),
+		JS_FN("unscheduleAllWithMinPriority", js_cocos2dx_CCScheduler_unscheduleAllWithMinPriority, 1, JSPROP_PERMANENT | JSPROP_ENUMERATE),
+		JS_FN("isTargetPaused", js_cocos2dx_CCScheduler_isTargetPaused, 1, JSPROP_PERMANENT | JSPROP_ENUMERATE),
+		JS_FN("update", js_cocos2dx_CCScheduler_update, 1, JSPROP_PERMANENT | JSPROP_ENUMERATE),
+		JS_FN("unscheduleScriptEntry", js_cocos2dx_CCScheduler_unscheduleScriptEntry, 1, JSPROP_PERMANENT | JSPROP_ENUMERATE),
+		JS_FN("unscheduleAllForTarget", js_cocos2dx_CCScheduler_unscheduleAllForTarget, 1, JSPROP_PERMANENT | JSPROP_ENUMERATE),
+		JS_FN("scheduleScriptFunc", js_cocos2dx_CCScheduler_scheduleScriptFunc, 3, JSPROP_PERMANENT | JSPROP_ENUMERATE),
+		JS_FN("getTimeScale", js_cocos2dx_CCScheduler_getTimeScale, 0, JSPROP_PERMANENT | JSPROP_ENUMERATE),
 		JS_FS_END
 	};
 
@@ -49538,34 +49538,34 @@ void js_register_cocos2dx_SimpleAudioEngine(JSContext *cx, JSObject *global) {
 	JSPropertySpec *properties = NULL;
 
 	static JSFunctionSpec funcs[] = {
-		JS_FN("stopAllEffects", js_cocos2dx_SimpleAudioEngine_stopAllEffects, 0, JSPROP_PERMANENT | JSPROP_SHARED),
-		JS_FN("getMusicVolume", js_cocos2dx_SimpleAudioEngine_getBackgroundMusicVolume, 0, JSPROP_PERMANENT | JSPROP_SHARED),
-		JS_FN("isMusicPlaying", js_cocos2dx_SimpleAudioEngine_isBackgroundMusicPlaying, 0, JSPROP_PERMANENT | JSPROP_SHARED),
-		JS_FN("getEffectsVolume", js_cocos2dx_SimpleAudioEngine_getEffectsVolume, 0, JSPROP_PERMANENT | JSPROP_SHARED),
-		JS_FN("setMusicVolume", js_cocos2dx_SimpleAudioEngine_setBackgroundMusicVolume, 1, JSPROP_PERMANENT | JSPROP_SHARED),
-		JS_FN("stopEffect", js_cocos2dx_SimpleAudioEngine_stopEffect, 1, JSPROP_PERMANENT | JSPROP_SHARED),
-		JS_FN("stopMusic", js_cocos2dx_SimpleAudioEngine_stopBackgroundMusic, 0, JSPROP_PERMANENT | JSPROP_SHARED),
-		JS_FN("playMusic", js_cocos2dx_SimpleAudioEngine_playBackgroundMusic, 1, JSPROP_PERMANENT | JSPROP_SHARED),
-		JS_FN("pauseAllEffects", js_cocos2dx_SimpleAudioEngine_pauseAllEffects, 0, JSPROP_PERMANENT | JSPROP_SHARED),
-		JS_FN("preloadMusic", js_cocos2dx_SimpleAudioEngine_preloadBackgroundMusic, 1, JSPROP_PERMANENT | JSPROP_SHARED),
-		JS_FN("resumeMusic", js_cocos2dx_SimpleAudioEngine_resumeBackgroundMusic, 0, JSPROP_PERMANENT | JSPROP_SHARED),
-		JS_FN("playEffect", js_cocos2dx_SimpleAudioEngine_playEffect, 1, JSPROP_PERMANENT | JSPROP_SHARED),
-		JS_FN("rewindMusic", js_cocos2dx_SimpleAudioEngine_rewindBackgroundMusic, 0, JSPROP_PERMANENT | JSPROP_SHARED),
-		JS_FN("willPlayMusic", js_cocos2dx_SimpleAudioEngine_willPlayBackgroundMusic, 0, JSPROP_PERMANENT | JSPROP_SHARED),
-		JS_FN("unloadEffect", js_cocos2dx_SimpleAudioEngine_unloadEffect, 1, JSPROP_PERMANENT | JSPROP_SHARED),
-		JS_FN("preloadEffect", js_cocos2dx_SimpleAudioEngine_preloadEffect, 1, JSPROP_PERMANENT | JSPROP_SHARED),
-		JS_FN("setEffectsVolume", js_cocos2dx_SimpleAudioEngine_setEffectsVolume, 1, JSPROP_PERMANENT | JSPROP_SHARED),
-		JS_FN("pauseEffect", js_cocos2dx_SimpleAudioEngine_pauseEffect, 1, JSPROP_PERMANENT | JSPROP_SHARED),
-		JS_FN("getClassTypeInfo", js_cocos2dx_SimpleAudioEngine_getClassTypeInfo, 0, JSPROP_PERMANENT | JSPROP_SHARED),
-		JS_FN("resumeAllEffects", js_cocos2dx_SimpleAudioEngine_resumeAllEffects, 0, JSPROP_PERMANENT | JSPROP_SHARED),
-		JS_FN("pauseMusic", js_cocos2dx_SimpleAudioEngine_pauseBackgroundMusic, 0, JSPROP_PERMANENT | JSPROP_SHARED),
-		JS_FN("resumeEffect", js_cocos2dx_SimpleAudioEngine_resumeEffect, 1, JSPROP_PERMANENT | JSPROP_SHARED),
+		JS_FN("stopAllEffects", js_cocos2dx_SimpleAudioEngine_stopAllEffects, 0, JSPROP_PERMANENT | JSPROP_ENUMERATE),
+		JS_FN("getMusicVolume", js_cocos2dx_SimpleAudioEngine_getBackgroundMusicVolume, 0, JSPROP_PERMANENT | JSPROP_ENUMERATE),
+		JS_FN("isMusicPlaying", js_cocos2dx_SimpleAudioEngine_isBackgroundMusicPlaying, 0, JSPROP_PERMANENT | JSPROP_ENUMERATE),
+		JS_FN("getEffectsVolume", js_cocos2dx_SimpleAudioEngine_getEffectsVolume, 0, JSPROP_PERMANENT | JSPROP_ENUMERATE),
+		JS_FN("setMusicVolume", js_cocos2dx_SimpleAudioEngine_setBackgroundMusicVolume, 1, JSPROP_PERMANENT | JSPROP_ENUMERATE),
+		JS_FN("stopEffect", js_cocos2dx_SimpleAudioEngine_stopEffect, 1, JSPROP_PERMANENT | JSPROP_ENUMERATE),
+		JS_FN("stopMusic", js_cocos2dx_SimpleAudioEngine_stopBackgroundMusic, 0, JSPROP_PERMANENT | JSPROP_ENUMERATE),
+		JS_FN("playMusic", js_cocos2dx_SimpleAudioEngine_playBackgroundMusic, 1, JSPROP_PERMANENT | JSPROP_ENUMERATE),
+		JS_FN("pauseAllEffects", js_cocos2dx_SimpleAudioEngine_pauseAllEffects, 0, JSPROP_PERMANENT | JSPROP_ENUMERATE),
+		JS_FN("preloadMusic", js_cocos2dx_SimpleAudioEngine_preloadBackgroundMusic, 1, JSPROP_PERMANENT | JSPROP_ENUMERATE),
+		JS_FN("resumeMusic", js_cocos2dx_SimpleAudioEngine_resumeBackgroundMusic, 0, JSPROP_PERMANENT | JSPROP_ENUMERATE),
+		JS_FN("playEffect", js_cocos2dx_SimpleAudioEngine_playEffect, 1, JSPROP_PERMANENT | JSPROP_ENUMERATE),
+		JS_FN("rewindMusic", js_cocos2dx_SimpleAudioEngine_rewindBackgroundMusic, 0, JSPROP_PERMANENT | JSPROP_ENUMERATE),
+		JS_FN("willPlayMusic", js_cocos2dx_SimpleAudioEngine_willPlayBackgroundMusic, 0, JSPROP_PERMANENT | JSPROP_ENUMERATE),
+		JS_FN("unloadEffect", js_cocos2dx_SimpleAudioEngine_unloadEffect, 1, JSPROP_PERMANENT | JSPROP_ENUMERATE),
+		JS_FN("preloadEffect", js_cocos2dx_SimpleAudioEngine_preloadEffect, 1, JSPROP_PERMANENT | JSPROP_ENUMERATE),
+		JS_FN("setEffectsVolume", js_cocos2dx_SimpleAudioEngine_setEffectsVolume, 1, JSPROP_PERMANENT | JSPROP_ENUMERATE),
+		JS_FN("pauseEffect", js_cocos2dx_SimpleAudioEngine_pauseEffect, 1, JSPROP_PERMANENT | JSPROP_ENUMERATE),
+		JS_FN("getClassTypeInfo", js_cocos2dx_SimpleAudioEngine_getClassTypeInfo, 0, JSPROP_PERMANENT | JSPROP_ENUMERATE),
+		JS_FN("resumeAllEffects", js_cocos2dx_SimpleAudioEngine_resumeAllEffects, 0, JSPROP_PERMANENT | JSPROP_ENUMERATE),
+		JS_FN("pauseMusic", js_cocos2dx_SimpleAudioEngine_pauseBackgroundMusic, 0, JSPROP_PERMANENT | JSPROP_ENUMERATE),
+		JS_FN("resumeEffect", js_cocos2dx_SimpleAudioEngine_resumeEffect, 1, JSPROP_PERMANENT | JSPROP_ENUMERATE),
 		JS_FS_END
 	};
 
 	static JSFunctionSpec st_funcs[] = {
-		JS_FN("end", js_cocos2dx_SimpleAudioEngine_end, 0, JSPROP_PERMANENT | JSPROP_SHARED),
-		JS_FN("getInstance", js_cocos2dx_SimpleAudioEngine_sharedEngine, 0, JSPROP_PERMANENT | JSPROP_SHARED),
+		JS_FN("end", js_cocos2dx_SimpleAudioEngine_end, 0, JSPROP_PERMANENT | JSPROP_ENUMERATE),
+		JS_FN("getInstance", js_cocos2dx_SimpleAudioEngine_sharedEngine, 0, JSPROP_PERMANENT | JSPROP_ENUMERATE),
 		JS_FS_END
 	};
 
@@ -49949,17 +49949,17 @@ void js_register_cocos2dx_CCBReader(JSContext *cx, JSObject *global) {
 	};
 
 	static JSFunctionSpec funcs[] = {
-		JS_FN("getOwnerCallbackNames", js_cocos2dx_CCBReader_getOwnerCallbackNames, 0, JSPROP_PERMANENT | JSPROP_SHARED),
-		JS_FN("setCCBRootPath", js_cocos2dx_CCBReader_setCCBRootPath, 1, JSPROP_PERMANENT | JSPROP_SHARED),
-		JS_FN("getOwnerCallbackNodes", js_cocos2dx_CCBReader_getOwnerCallbackNodes, 0, JSPROP_PERMANENT | JSPROP_SHARED),
-		JS_FN("getOwnerOutletNames", js_cocos2dx_CCBReader_getOwnerOutletNames, 0, JSPROP_PERMANENT | JSPROP_SHARED),
-		JS_FN("getCCBRootPath", js_cocos2dx_CCBReader_getCCBRootPath, 0, JSPROP_PERMANENT | JSPROP_SHARED),
-		JS_FN("getOwnerOutletNodes", js_cocos2dx_CCBReader_getOwnerOutletNodes, 0, JSPROP_PERMANENT | JSPROP_SHARED),
-		JS_FN("readUTF8", js_cocos2dx_CCBReader_readUTF8, 0, JSPROP_PERMANENT | JSPROP_SHARED),
-		JS_FN("setActionManager", js_cocos2dx_CCBReader_setAnimationManager, 1, JSPROP_PERMANENT | JSPROP_SHARED),
-		JS_FN("getAnimationManagersForNodes", js_cocos2dx_CCBReader_getAnimationManagersForNodes, 0, JSPROP_PERMANENT | JSPROP_SHARED),
-		JS_FN("getNodesWithAnimationManagers", js_cocos2dx_CCBReader_getNodesWithAnimationManagers, 0, JSPROP_PERMANENT | JSPROP_SHARED),
-		JS_FN("getActionManager", js_cocos2dx_CCBReader_getAnimationManager, 0, JSPROP_PERMANENT | JSPROP_SHARED),
+		JS_FN("getOwnerCallbackNames", js_cocos2dx_CCBReader_getOwnerCallbackNames, 0, JSPROP_PERMANENT | JSPROP_ENUMERATE),
+		JS_FN("setCCBRootPath", js_cocos2dx_CCBReader_setCCBRootPath, 1, JSPROP_PERMANENT | JSPROP_ENUMERATE),
+		JS_FN("getOwnerCallbackNodes", js_cocos2dx_CCBReader_getOwnerCallbackNodes, 0, JSPROP_PERMANENT | JSPROP_ENUMERATE),
+		JS_FN("getOwnerOutletNames", js_cocos2dx_CCBReader_getOwnerOutletNames, 0, JSPROP_PERMANENT | JSPROP_ENUMERATE),
+		JS_FN("getCCBRootPath", js_cocos2dx_CCBReader_getCCBRootPath, 0, JSPROP_PERMANENT | JSPROP_ENUMERATE),
+		JS_FN("getOwnerOutletNodes", js_cocos2dx_CCBReader_getOwnerOutletNodes, 0, JSPROP_PERMANENT | JSPROP_ENUMERATE),
+		JS_FN("readUTF8", js_cocos2dx_CCBReader_readUTF8, 0, JSPROP_PERMANENT | JSPROP_ENUMERATE),
+		JS_FN("setActionManager", js_cocos2dx_CCBReader_setAnimationManager, 1, JSPROP_PERMANENT | JSPROP_ENUMERATE),
+		JS_FN("getAnimationManagersForNodes", js_cocos2dx_CCBReader_getAnimationManagersForNodes, 0, JSPROP_PERMANENT | JSPROP_ENUMERATE),
+		JS_FN("getNodesWithAnimationManagers", js_cocos2dx_CCBReader_getNodesWithAnimationManagers, 0, JSPROP_PERMANENT | JSPROP_ENUMERATE),
+		JS_FN("getActionManager", js_cocos2dx_CCBReader_getAnimationManager, 0, JSPROP_PERMANENT | JSPROP_ENUMERATE),
 		JS_FS_END
 	};
 
@@ -50896,40 +50896,40 @@ void js_register_cocos2dx_CCScale9Sprite(JSContext *cx, JSObject *global) {
 	};
 
 	static JSFunctionSpec funcs[] = {
-		JS_FN("getCapInsets", js_cocos2dx_CCScale9Sprite_getCapInsets, 0, JSPROP_PERMANENT | JSPROP_SHARED),
-		JS_FN("initWithSpriteFrameName", js_cocos2dx_CCScale9Sprite_initWithSpriteFrameName, 1, JSPROP_PERMANENT | JSPROP_SHARED),
-		JS_FN("updateWithBatchNode", js_cocos2dx_CCScale9Sprite_updateWithBatchNode, 4, JSPROP_PERMANENT | JSPROP_SHARED),
-		JS_FN("setInsetBottom", js_cocos2dx_CCScale9Sprite_setInsetBottom, 1, JSPROP_PERMANENT | JSPROP_SHARED),
-		JS_FN("visit", js_cocos2dx_CCScale9Sprite_visit, 0, JSPROP_PERMANENT | JSPROP_SHARED),
-		JS_FN("setOpacity", js_cocos2dx_CCScale9Sprite_setOpacity, 1, JSPROP_PERMANENT | JSPROP_SHARED),
-		JS_FN("setInsetTop", js_cocos2dx_CCScale9Sprite_setInsetTop, 1, JSPROP_PERMANENT | JSPROP_SHARED),
-		JS_FN("init", js_cocos2dx_CCScale9Sprite_init, 0, JSPROP_PERMANENT | JSPROP_SHARED),
-		JS_FN("setPreferredSize", js_cocos2dx_CCScale9Sprite_setPreferredSize, 1, JSPROP_PERMANENT | JSPROP_SHARED),
-		JS_FN("getOpacity", js_cocos2dx_CCScale9Sprite_getOpacity, 0, JSPROP_PERMANENT | JSPROP_SHARED),
-		JS_FN("setSpriteFrame", js_cocos2dx_CCScale9Sprite_setSpriteFrame, 1, JSPROP_PERMANENT | JSPROP_SHARED),
-		JS_FN("getColor", js_cocos2dx_CCScale9Sprite_getColor, 0, JSPROP_PERMANENT | JSPROP_SHARED),
-		JS_FN("initWithBatchNode", js_cocos2dx_CCScale9Sprite_initWithBatchNode, 3, JSPROP_PERMANENT | JSPROP_SHARED),
-		JS_FN("getInsetBottom", js_cocos2dx_CCScale9Sprite_getInsetBottom, 0, JSPROP_PERMANENT | JSPROP_SHARED),
-		JS_FN("resizableSpriteWithCapInsets", js_cocos2dx_CCScale9Sprite_resizableSpriteWithCapInsets, 1, JSPROP_PERMANENT | JSPROP_SHARED),
-		JS_FN("setContentSize", js_cocos2dx_CCScale9Sprite_setContentSize, 1, JSPROP_PERMANENT | JSPROP_SHARED),
-		JS_FN("getInsetRight", js_cocos2dx_CCScale9Sprite_getInsetRight, 0, JSPROP_PERMANENT | JSPROP_SHARED),
-		JS_FN("getOriginalSize", js_cocos2dx_CCScale9Sprite_getOriginalSize, 0, JSPROP_PERMANENT | JSPROP_SHARED),
-		JS_FN("initWithFile", js_cocos2dx_CCScale9Sprite_initWithFile, 1, JSPROP_PERMANENT | JSPROP_SHARED),
-		JS_FN("setColor", js_cocos2dx_CCScale9Sprite_setColor, 1, JSPROP_PERMANENT | JSPROP_SHARED),
-		JS_FN("getInsetTop", js_cocos2dx_CCScale9Sprite_getInsetTop, 0, JSPROP_PERMANENT | JSPROP_SHARED),
-		JS_FN("setInsetLeft", js_cocos2dx_CCScale9Sprite_setInsetLeft, 1, JSPROP_PERMANENT | JSPROP_SHARED),
-		JS_FN("initWithSpriteFrame", js_cocos2dx_CCScale9Sprite_initWithSpriteFrame, 1, JSPROP_PERMANENT | JSPROP_SHARED),
-		JS_FN("getPreferredSize", js_cocos2dx_CCScale9Sprite_getPreferredSize, 0, JSPROP_PERMANENT | JSPROP_SHARED),
-		JS_FN("setCapInsets", js_cocos2dx_CCScale9Sprite_setCapInsets, 1, JSPROP_PERMANENT | JSPROP_SHARED),
-		JS_FN("getInsetLeft", js_cocos2dx_CCScale9Sprite_getInsetLeft, 0, JSPROP_PERMANENT | JSPROP_SHARED),
-		JS_FN("setInsetRight", js_cocos2dx_CCScale9Sprite_setInsetRight, 1, JSPROP_PERMANENT | JSPROP_SHARED),
+		JS_FN("getCapInsets", js_cocos2dx_CCScale9Sprite_getCapInsets, 0, JSPROP_PERMANENT | JSPROP_ENUMERATE),
+		JS_FN("initWithSpriteFrameName", js_cocos2dx_CCScale9Sprite_initWithSpriteFrameName, 1, JSPROP_PERMANENT | JSPROP_ENUMERATE),
+		JS_FN("updateWithBatchNode", js_cocos2dx_CCScale9Sprite_updateWithBatchNode, 4, JSPROP_PERMANENT | JSPROP_ENUMERATE),
+		JS_FN("setInsetBottom", js_cocos2dx_CCScale9Sprite_setInsetBottom, 1, JSPROP_PERMANENT | JSPROP_ENUMERATE),
+		JS_FN("visit", js_cocos2dx_CCScale9Sprite_visit, 0, JSPROP_PERMANENT | JSPROP_ENUMERATE),
+		JS_FN("setOpacity", js_cocos2dx_CCScale9Sprite_setOpacity, 1, JSPROP_PERMANENT | JSPROP_ENUMERATE),
+		JS_FN("setInsetTop", js_cocos2dx_CCScale9Sprite_setInsetTop, 1, JSPROP_PERMANENT | JSPROP_ENUMERATE),
+		JS_FN("init", js_cocos2dx_CCScale9Sprite_init, 0, JSPROP_PERMANENT | JSPROP_ENUMERATE),
+		JS_FN("setPreferredSize", js_cocos2dx_CCScale9Sprite_setPreferredSize, 1, JSPROP_PERMANENT | JSPROP_ENUMERATE),
+		JS_FN("getOpacity", js_cocos2dx_CCScale9Sprite_getOpacity, 0, JSPROP_PERMANENT | JSPROP_ENUMERATE),
+		JS_FN("setSpriteFrame", js_cocos2dx_CCScale9Sprite_setSpriteFrame, 1, JSPROP_PERMANENT | JSPROP_ENUMERATE),
+		JS_FN("getColor", js_cocos2dx_CCScale9Sprite_getColor, 0, JSPROP_PERMANENT | JSPROP_ENUMERATE),
+		JS_FN("initWithBatchNode", js_cocos2dx_CCScale9Sprite_initWithBatchNode, 3, JSPROP_PERMANENT | JSPROP_ENUMERATE),
+		JS_FN("getInsetBottom", js_cocos2dx_CCScale9Sprite_getInsetBottom, 0, JSPROP_PERMANENT | JSPROP_ENUMERATE),
+		JS_FN("resizableSpriteWithCapInsets", js_cocos2dx_CCScale9Sprite_resizableSpriteWithCapInsets, 1, JSPROP_PERMANENT | JSPROP_ENUMERATE),
+		JS_FN("setContentSize", js_cocos2dx_CCScale9Sprite_setContentSize, 1, JSPROP_PERMANENT | JSPROP_ENUMERATE),
+		JS_FN("getInsetRight", js_cocos2dx_CCScale9Sprite_getInsetRight, 0, JSPROP_PERMANENT | JSPROP_ENUMERATE),
+		JS_FN("getOriginalSize", js_cocos2dx_CCScale9Sprite_getOriginalSize, 0, JSPROP_PERMANENT | JSPROP_ENUMERATE),
+		JS_FN("initWithFile", js_cocos2dx_CCScale9Sprite_initWithFile, 1, JSPROP_PERMANENT | JSPROP_ENUMERATE),
+		JS_FN("setColor", js_cocos2dx_CCScale9Sprite_setColor, 1, JSPROP_PERMANENT | JSPROP_ENUMERATE),
+		JS_FN("getInsetTop", js_cocos2dx_CCScale9Sprite_getInsetTop, 0, JSPROP_PERMANENT | JSPROP_ENUMERATE),
+		JS_FN("setInsetLeft", js_cocos2dx_CCScale9Sprite_setInsetLeft, 1, JSPROP_PERMANENT | JSPROP_ENUMERATE),
+		JS_FN("initWithSpriteFrame", js_cocos2dx_CCScale9Sprite_initWithSpriteFrame, 1, JSPROP_PERMANENT | JSPROP_ENUMERATE),
+		JS_FN("getPreferredSize", js_cocos2dx_CCScale9Sprite_getPreferredSize, 0, JSPROP_PERMANENT | JSPROP_ENUMERATE),
+		JS_FN("setCapInsets", js_cocos2dx_CCScale9Sprite_setCapInsets, 1, JSPROP_PERMANENT | JSPROP_ENUMERATE),
+		JS_FN("getInsetLeft", js_cocos2dx_CCScale9Sprite_getInsetLeft, 0, JSPROP_PERMANENT | JSPROP_ENUMERATE),
+		JS_FN("setInsetRight", js_cocos2dx_CCScale9Sprite_setInsetRight, 1, JSPROP_PERMANENT | JSPROP_ENUMERATE),
 		JS_FS_END
 	};
 
 	static JSFunctionSpec st_funcs[] = {
-		JS_FN("create", js_cocos2dx_CCScale9Sprite_create, 0, JSPROP_PERMANENT | JSPROP_SHARED),
-		JS_FN("createWithSpriteFrameName", js_cocos2dx_CCScale9Sprite_createWithSpriteFrameName, 1, JSPROP_PERMANENT | JSPROP_SHARED),
-		JS_FN("createWithSpriteFrame", js_cocos2dx_CCScale9Sprite_createWithSpriteFrame, 1, JSPROP_PERMANENT | JSPROP_SHARED),
+		JS_FN("create", js_cocos2dx_CCScale9Sprite_create, 0, JSPROP_PERMANENT | JSPROP_ENUMERATE),
+		JS_FN("createWithSpriteFrameName", js_cocos2dx_CCScale9Sprite_createWithSpriteFrameName, 1, JSPROP_PERMANENT | JSPROP_ENUMERATE),
+		JS_FN("createWithSpriteFrame", js_cocos2dx_CCScale9Sprite_createWithSpriteFrame, 1, JSPROP_PERMANENT | JSPROP_ENUMERATE),
 		JS_FS_END
 	};
 
@@ -52357,66 +52357,66 @@ void js_register_cocos2dx_CCControlButton(JSContext *cx, JSObject *global) {
 	};
 
 	static JSFunctionSpec funcs[] = {
-		JS_FN("setTitleColorDispatchTable", js_cocos2dx_CCControlButton_setTitleColorDispatchTable, 1, JSPROP_PERMANENT | JSPROP_SHARED),
-		JS_FN("isPushed", js_cocos2dx_CCControlButton_isPushed, 0, JSPROP_PERMANENT | JSPROP_SHARED),
-		JS_FN("setSelected", js_cocos2dx_CCControlButton_setSelected, 1, JSPROP_PERMANENT | JSPROP_SHARED),
-		JS_FN("setTitleLabel", js_cocos2dx_CCControlButton_setTitleLabel, 1, JSPROP_PERMANENT | JSPROP_SHARED),
-		JS_FN("ccTouchBegan", js_cocos2dx_CCControlButton_ccTouchBegan, 2, JSPROP_PERMANENT | JSPROP_SHARED),
-		JS_FN("setTitleTTFSizeForState", js_cocos2dx_CCControlButton_setTitleTTFSizeForState, 2, JSPROP_PERMANENT | JSPROP_SHARED),
-		JS_FN("setAdjustBackgroundImage", js_cocos2dx_CCControlButton_setAdjustBackgroundImage, 1, JSPROP_PERMANENT | JSPROP_SHARED),
-		JS_FN("ccTouchEnded", js_cocos2dx_CCControlButton_ccTouchEnded, 2, JSPROP_PERMANENT | JSPROP_SHARED),
-		JS_FN("setHighlighted", js_cocos2dx_CCControlButton_setHighlighted, 1, JSPROP_PERMANENT | JSPROP_SHARED),
-		JS_FN("setBackgroundSpriteDispatchTable", js_cocos2dx_CCControlButton_setBackgroundSpriteDispatchTable, 1, JSPROP_PERMANENT | JSPROP_SHARED),
-		JS_FN("setZoomOnTouchDown", js_cocos2dx_CCControlButton_setZoomOnTouchDown, 1, JSPROP_PERMANENT | JSPROP_SHARED),
-		JS_FN("getTitleDispatchTable", js_cocos2dx_CCControlButton_getTitleDispatchTable, 0, JSPROP_PERMANENT | JSPROP_SHARED),
-		JS_FN("setLabelAnchorPoint", js_cocos2dx_CCControlButton_setLabelAnchorPoint, 1, JSPROP_PERMANENT | JSPROP_SHARED),
-		JS_FN("ccTouchCancelled", js_cocos2dx_CCControlButton_ccTouchCancelled, 2, JSPROP_PERMANENT | JSPROP_SHARED),
-		JS_FN("getLabelAnchorPoint", js_cocos2dx_CCControlButton_getLabelAnchorPoint, 0, JSPROP_PERMANENT | JSPROP_SHARED),
-		JS_FN("initWithBackgroundSprite", js_cocos2dx_CCControlButton_initWithBackgroundSprite, 1, JSPROP_PERMANENT | JSPROP_SHARED),
-		JS_FN("getTitleTTFSizeForState", js_cocos2dx_CCControlButton_getTitleTTFSizeForState, 1, JSPROP_PERMANENT | JSPROP_SHARED),
-		JS_FN("setTitleDispatchTable", js_cocos2dx_CCControlButton_setTitleDispatchTable, 1, JSPROP_PERMANENT | JSPROP_SHARED),
-		JS_FN("setOpacity", js_cocos2dx_CCControlButton_setOpacity, 1, JSPROP_PERMANENT | JSPROP_SHARED),
-		JS_FN("init", js_cocos2dx_CCControlButton_init, 0, JSPROP_PERMANENT | JSPROP_SHARED),
-		JS_FN("setTitleTTFForState", js_cocos2dx_CCControlButton_setTitleTTFForState, 2, JSPROP_PERMANENT | JSPROP_SHARED),
-		JS_FN("setPreferredSize", js_cocos2dx_CCControlButton_setPreferredSize, 1, JSPROP_PERMANENT | JSPROP_SHARED),
-		JS_FN("setTitleLabelForState", js_cocos2dx_CCControlButton_setTitleLabelForState, 2, JSPROP_PERMANENT | JSPROP_SHARED),
-		JS_FN("ccTouchMoved", js_cocos2dx_CCControlButton_ccTouchMoved, 2, JSPROP_PERMANENT | JSPROP_SHARED),
-		JS_FN("getOpacity", js_cocos2dx_CCControlButton_getOpacity, 0, JSPROP_PERMANENT | JSPROP_SHARED),
-		JS_FN("getCurrentTitleColor", js_cocos2dx_CCControlButton_getCurrentTitleColor, 0, JSPROP_PERMANENT | JSPROP_SHARED),
-		JS_FN("getTitleColorDispatchTable", js_cocos2dx_CCControlButton_getTitleColorDispatchTable, 0, JSPROP_PERMANENT | JSPROP_SHARED),
-		JS_FN("setEnabled", js_cocos2dx_CCControlButton_setEnabled, 1, JSPROP_PERMANENT | JSPROP_SHARED),
-		JS_FN("getBackgroundSpriteForState", js_cocos2dx_CCControlButton_getBackgroundSpriteForState, 1, JSPROP_PERMANENT | JSPROP_SHARED),
-		JS_FN("getHorizontalOrigin", js_cocos2dx_CCControlButton_getHorizontalOrigin, 0, JSPROP_PERMANENT | JSPROP_SHARED),
-		JS_FN("setMargins", js_cocos2dx_CCControlButton_setMargins, 2, JSPROP_PERMANENT | JSPROP_SHARED),
-		JS_FN("needsLayout", js_cocos2dx_CCControlButton_needsLayout, 0, JSPROP_PERMANENT | JSPROP_SHARED),
-		JS_FN("initWithTitleAndFontNameAndFontSize", js_cocos2dx_CCControlButton_initWithTitleAndFontNameAndFontSize, 3, JSPROP_PERMANENT | JSPROP_SHARED),
-		JS_FN("setTitleBMFontForState", js_cocos2dx_CCControlButton_setTitleBMFontForState, 2, JSPROP_PERMANENT | JSPROP_SHARED),
-		JS_FN("getTitleTTFForState", js_cocos2dx_CCControlButton_getTitleTTFForState, 1, JSPROP_PERMANENT | JSPROP_SHARED),
-		JS_FN("getBackgroundSprite", js_cocos2dx_CCControlButton_getBackgroundSprite, 0, JSPROP_PERMANENT | JSPROP_SHARED),
-		JS_FN("getTitleColorForState", js_cocos2dx_CCControlButton_getTitleColorForState, 1, JSPROP_PERMANENT | JSPROP_SHARED),
-		JS_FN("setTitleColorForState", js_cocos2dx_CCControlButton_setTitleColorForState, 2, JSPROP_PERMANENT | JSPROP_SHARED),
-		JS_FN("doesAdjustBackgroundImage", js_cocos2dx_CCControlButton_doesAdjustBackgroundImage, 0, JSPROP_PERMANENT | JSPROP_SHARED),
-		JS_FN("setBackgroundSpriteFrameForState", js_cocos2dx_CCControlButton_setBackgroundSpriteFrameForState, 2, JSPROP_PERMANENT | JSPROP_SHARED),
-		JS_FN("setBackgroundSpriteForState", js_cocos2dx_CCControlButton_setBackgroundSpriteForState, 2, JSPROP_PERMANENT | JSPROP_SHARED),
-		JS_FN("getTitleLabelDispatchTable", js_cocos2dx_CCControlButton_getTitleLabelDispatchTable, 0, JSPROP_PERMANENT | JSPROP_SHARED),
-		JS_FN("initWithLabelAndBackgroundSprite", js_cocos2dx_CCControlButton_initWithLabelAndBackgroundSprite, 2, JSPROP_PERMANENT | JSPROP_SHARED),
-		JS_FN("setTitleLabelDispatchTable", js_cocos2dx_CCControlButton_setTitleLabelDispatchTable, 1, JSPROP_PERMANENT | JSPROP_SHARED),
-		JS_FN("getTitleLabel", js_cocos2dx_CCControlButton_getTitleLabel, 0, JSPROP_PERMANENT | JSPROP_SHARED),
-		JS_FN("getPreferredSize", js_cocos2dx_CCControlButton_getPreferredSize, 0, JSPROP_PERMANENT | JSPROP_SHARED),
-		JS_FN("getVerticalMargin", js_cocos2dx_CCControlButton_getVerticalMargin, 0, JSPROP_PERMANENT | JSPROP_SHARED),
-		JS_FN("getBackgroundSpriteDispatchTable", js_cocos2dx_CCControlButton_getBackgroundSpriteDispatchTable, 0, JSPROP_PERMANENT | JSPROP_SHARED),
-		JS_FN("getTitleLabelForState", js_cocos2dx_CCControlButton_getTitleLabelForState, 1, JSPROP_PERMANENT | JSPROP_SHARED),
-		JS_FN("getCurrentTitle", js_cocos2dx_CCControlButton_getCurrentTitle, 0, JSPROP_PERMANENT | JSPROP_SHARED),
-		JS_FN("getTitleBMFontForState", js_cocos2dx_CCControlButton_getTitleBMFontForState, 1, JSPROP_PERMANENT | JSPROP_SHARED),
-		JS_FN("setTitleForState", js_cocos2dx_CCControlButton_setTitleForState, 2, JSPROP_PERMANENT | JSPROP_SHARED),
-		JS_FN("setBackgroundSprite", js_cocos2dx_CCControlButton_setBackgroundSprite, 1, JSPROP_PERMANENT | JSPROP_SHARED),
-		JS_FN("getZoomOnTouchDown", js_cocos2dx_CCControlButton_getZoomOnTouchDown, 0, JSPROP_PERMANENT | JSPROP_SHARED),
-		JS_FN("getTitleForState", js_cocos2dx_CCControlButton_getTitleForState, 1, JSPROP_PERMANENT | JSPROP_SHARED),
+		JS_FN("setTitleColorDispatchTable", js_cocos2dx_CCControlButton_setTitleColorDispatchTable, 1, JSPROP_PERMANENT | JSPROP_ENUMERATE),
+		JS_FN("isPushed", js_cocos2dx_CCControlButton_isPushed, 0, JSPROP_PERMANENT | JSPROP_ENUMERATE),
+		JS_FN("setSelected", js_cocos2dx_CCControlButton_setSelected, 1, JSPROP_PERMANENT | JSPROP_ENUMERATE),
+		JS_FN("setTitleLabel", js_cocos2dx_CCControlButton_setTitleLabel, 1, JSPROP_PERMANENT | JSPROP_ENUMERATE),
+		JS_FN("ccTouchBegan", js_cocos2dx_CCControlButton_ccTouchBegan, 2, JSPROP_PERMANENT | JSPROP_ENUMERATE),
+		JS_FN("setTitleTTFSizeForState", js_cocos2dx_CCControlButton_setTitleTTFSizeForState, 2, JSPROP_PERMANENT | JSPROP_ENUMERATE),
+		JS_FN("setAdjustBackgroundImage", js_cocos2dx_CCControlButton_setAdjustBackgroundImage, 1, JSPROP_PERMANENT | JSPROP_ENUMERATE),
+		JS_FN("ccTouchEnded", js_cocos2dx_CCControlButton_ccTouchEnded, 2, JSPROP_PERMANENT | JSPROP_ENUMERATE),
+		JS_FN("setHighlighted", js_cocos2dx_CCControlButton_setHighlighted, 1, JSPROP_PERMANENT | JSPROP_ENUMERATE),
+		JS_FN("setBackgroundSpriteDispatchTable", js_cocos2dx_CCControlButton_setBackgroundSpriteDispatchTable, 1, JSPROP_PERMANENT | JSPROP_ENUMERATE),
+		JS_FN("setZoomOnTouchDown", js_cocos2dx_CCControlButton_setZoomOnTouchDown, 1, JSPROP_PERMANENT | JSPROP_ENUMERATE),
+		JS_FN("getTitleDispatchTable", js_cocos2dx_CCControlButton_getTitleDispatchTable, 0, JSPROP_PERMANENT | JSPROP_ENUMERATE),
+		JS_FN("setLabelAnchorPoint", js_cocos2dx_CCControlButton_setLabelAnchorPoint, 1, JSPROP_PERMANENT | JSPROP_ENUMERATE),
+		JS_FN("ccTouchCancelled", js_cocos2dx_CCControlButton_ccTouchCancelled, 2, JSPROP_PERMANENT | JSPROP_ENUMERATE),
+		JS_FN("getLabelAnchorPoint", js_cocos2dx_CCControlButton_getLabelAnchorPoint, 0, JSPROP_PERMANENT | JSPROP_ENUMERATE),
+		JS_FN("initWithBackgroundSprite", js_cocos2dx_CCControlButton_initWithBackgroundSprite, 1, JSPROP_PERMANENT | JSPROP_ENUMERATE),
+		JS_FN("getTitleTTFSizeForState", js_cocos2dx_CCControlButton_getTitleTTFSizeForState, 1, JSPROP_PERMANENT | JSPROP_ENUMERATE),
+		JS_FN("setTitleDispatchTable", js_cocos2dx_CCControlButton_setTitleDispatchTable, 1, JSPROP_PERMANENT | JSPROP_ENUMERATE),
+		JS_FN("setOpacity", js_cocos2dx_CCControlButton_setOpacity, 1, JSPROP_PERMANENT | JSPROP_ENUMERATE),
+		JS_FN("init", js_cocos2dx_CCControlButton_init, 0, JSPROP_PERMANENT | JSPROP_ENUMERATE),
+		JS_FN("setTitleTTFForState", js_cocos2dx_CCControlButton_setTitleTTFForState, 2, JSPROP_PERMANENT | JSPROP_ENUMERATE),
+		JS_FN("setPreferredSize", js_cocos2dx_CCControlButton_setPreferredSize, 1, JSPROP_PERMANENT | JSPROP_ENUMERATE),
+		JS_FN("setTitleLabelForState", js_cocos2dx_CCControlButton_setTitleLabelForState, 2, JSPROP_PERMANENT | JSPROP_ENUMERATE),
+		JS_FN("ccTouchMoved", js_cocos2dx_CCControlButton_ccTouchMoved, 2, JSPROP_PERMANENT | JSPROP_ENUMERATE),
+		JS_FN("getOpacity", js_cocos2dx_CCControlButton_getOpacity, 0, JSPROP_PERMANENT | JSPROP_ENUMERATE),
+		JS_FN("getCurrentTitleColor", js_cocos2dx_CCControlButton_getCurrentTitleColor, 0, JSPROP_PERMANENT | JSPROP_ENUMERATE),
+		JS_FN("getTitleColorDispatchTable", js_cocos2dx_CCControlButton_getTitleColorDispatchTable, 0, JSPROP_PERMANENT | JSPROP_ENUMERATE),
+		JS_FN("setEnabled", js_cocos2dx_CCControlButton_setEnabled, 1, JSPROP_PERMANENT | JSPROP_ENUMERATE),
+		JS_FN("getBackgroundSpriteForState", js_cocos2dx_CCControlButton_getBackgroundSpriteForState, 1, JSPROP_PERMANENT | JSPROP_ENUMERATE),
+		JS_FN("getHorizontalOrigin", js_cocos2dx_CCControlButton_getHorizontalOrigin, 0, JSPROP_PERMANENT | JSPROP_ENUMERATE),
+		JS_FN("setMargins", js_cocos2dx_CCControlButton_setMargins, 2, JSPROP_PERMANENT | JSPROP_ENUMERATE),
+		JS_FN("needsLayout", js_cocos2dx_CCControlButton_needsLayout, 0, JSPROP_PERMANENT | JSPROP_ENUMERATE),
+		JS_FN("initWithTitleAndFontNameAndFontSize", js_cocos2dx_CCControlButton_initWithTitleAndFontNameAndFontSize, 3, JSPROP_PERMANENT | JSPROP_ENUMERATE),
+		JS_FN("setTitleBMFontForState", js_cocos2dx_CCControlButton_setTitleBMFontForState, 2, JSPROP_PERMANENT | JSPROP_ENUMERATE),
+		JS_FN("getTitleTTFForState", js_cocos2dx_CCControlButton_getTitleTTFForState, 1, JSPROP_PERMANENT | JSPROP_ENUMERATE),
+		JS_FN("getBackgroundSprite", js_cocos2dx_CCControlButton_getBackgroundSprite, 0, JSPROP_PERMANENT | JSPROP_ENUMERATE),
+		JS_FN("getTitleColorForState", js_cocos2dx_CCControlButton_getTitleColorForState, 1, JSPROP_PERMANENT | JSPROP_ENUMERATE),
+		JS_FN("setTitleColorForState", js_cocos2dx_CCControlButton_setTitleColorForState, 2, JSPROP_PERMANENT | JSPROP_ENUMERATE),
+		JS_FN("doesAdjustBackgroundImage", js_cocos2dx_CCControlButton_doesAdjustBackgroundImage, 0, JSPROP_PERMANENT | JSPROP_ENUMERATE),
+		JS_FN("setBackgroundSpriteFrameForState", js_cocos2dx_CCControlButton_setBackgroundSpriteFrameForState, 2, JSPROP_PERMANENT | JSPROP_ENUMERATE),
+		JS_FN("setBackgroundSpriteForState", js_cocos2dx_CCControlButton_setBackgroundSpriteForState, 2, JSPROP_PERMANENT | JSPROP_ENUMERATE),
+		JS_FN("getTitleLabelDispatchTable", js_cocos2dx_CCControlButton_getTitleLabelDispatchTable, 0, JSPROP_PERMANENT | JSPROP_ENUMERATE),
+		JS_FN("initWithLabelAndBackgroundSprite", js_cocos2dx_CCControlButton_initWithLabelAndBackgroundSprite, 2, JSPROP_PERMANENT | JSPROP_ENUMERATE),
+		JS_FN("setTitleLabelDispatchTable", js_cocos2dx_CCControlButton_setTitleLabelDispatchTable, 1, JSPROP_PERMANENT | JSPROP_ENUMERATE),
+		JS_FN("getTitleLabel", js_cocos2dx_CCControlButton_getTitleLabel, 0, JSPROP_PERMANENT | JSPROP_ENUMERATE),
+		JS_FN("getPreferredSize", js_cocos2dx_CCControlButton_getPreferredSize, 0, JSPROP_PERMANENT | JSPROP_ENUMERATE),
+		JS_FN("getVerticalMargin", js_cocos2dx_CCControlButton_getVerticalMargin, 0, JSPROP_PERMANENT | JSPROP_ENUMERATE),
+		JS_FN("getBackgroundSpriteDispatchTable", js_cocos2dx_CCControlButton_getBackgroundSpriteDispatchTable, 0, JSPROP_PERMANENT | JSPROP_ENUMERATE),
+		JS_FN("getTitleLabelForState", js_cocos2dx_CCControlButton_getTitleLabelForState, 1, JSPROP_PERMANENT | JSPROP_ENUMERATE),
+		JS_FN("getCurrentTitle", js_cocos2dx_CCControlButton_getCurrentTitle, 0, JSPROP_PERMANENT | JSPROP_ENUMERATE),
+		JS_FN("getTitleBMFontForState", js_cocos2dx_CCControlButton_getTitleBMFontForState, 1, JSPROP_PERMANENT | JSPROP_ENUMERATE),
+		JS_FN("setTitleForState", js_cocos2dx_CCControlButton_setTitleForState, 2, JSPROP_PERMANENT | JSPROP_ENUMERATE),
+		JS_FN("setBackgroundSprite", js_cocos2dx_CCControlButton_setBackgroundSprite, 1, JSPROP_PERMANENT | JSPROP_ENUMERATE),
+		JS_FN("getZoomOnTouchDown", js_cocos2dx_CCControlButton_getZoomOnTouchDown, 0, JSPROP_PERMANENT | JSPROP_ENUMERATE),
+		JS_FN("getTitleForState", js_cocos2dx_CCControlButton_getTitleForState, 1, JSPROP_PERMANENT | JSPROP_ENUMERATE),
 		JS_FS_END
 	};
 
 	static JSFunctionSpec st_funcs[] = {
-		JS_FN("create", js_cocos2dx_CCControlButton_create, 0, JSPROP_PERMANENT | JSPROP_SHARED),
+		JS_FN("create", js_cocos2dx_CCControlButton_create, 0, JSPROP_PERMANENT | JSPROP_ENUMERATE),
 		JS_FS_END
 	};
 
@@ -53381,47 +53381,47 @@ void js_register_cocos2dx_CCScrollView(JSContext *cx, JSObject *global) {
 	};
 
 	static JSFunctionSpec funcs[] = {
-		JS_FN("isClippingToBounds", js_cocos2dx_CCScrollView_isClippingToBounds, 0, JSPROP_PERMANENT | JSPROP_SHARED),
-		JS_FN("setContainer", js_cocos2dx_CCScrollView_setContainer, 1, JSPROP_PERMANENT | JSPROP_SHARED),
-		JS_FN("setContentOffsetInDuration", js_cocos2dx_CCScrollView_setContentOffsetInDuration, 2, JSPROP_PERMANENT | JSPROP_SHARED),
-		JS_FN("setZoomScaleInDuration", js_cocos2dx_CCScrollView_setZoomScaleInDuration, 2, JSPROP_PERMANENT | JSPROP_SHARED),
-		JS_FN("addChild", js_cocos2dx_CCScrollView_addChild, 1, JSPROP_PERMANENT | JSPROP_SHARED),
-		JS_FN("ccTouchBegan", js_cocos2dx_CCScrollView_ccTouchBegan, 2, JSPROP_PERMANENT | JSPROP_SHARED),
-		JS_FN("getContainer", js_cocos2dx_CCScrollView_getContainer, 0, JSPROP_PERMANENT | JSPROP_SHARED),
-		JS_FN("ccTouchEnded", js_cocos2dx_CCScrollView_ccTouchEnded, 2, JSPROP_PERMANENT | JSPROP_SHARED),
-		JS_FN("getDirection", js_cocos2dx_CCScrollView_getDirection, 0, JSPROP_PERMANENT | JSPROP_SHARED),
-		JS_FN("getZoomScale", js_cocos2dx_CCScrollView_getZoomScale, 0, JSPROP_PERMANENT | JSPROP_SHARED),
-		JS_FN("updateInset", js_cocos2dx_CCScrollView_updateInset, 0, JSPROP_PERMANENT | JSPROP_SHARED),
-		JS_FN("initWithViewSize", js_cocos2dx_CCScrollView_initWithViewSize, 2, JSPROP_PERMANENT | JSPROP_SHARED),
-		JS_FN("pause", js_cocos2dx_CCScrollView_pause, 1, JSPROP_PERMANENT | JSPROP_SHARED),
-		JS_FN("setDirection", js_cocos2dx_CCScrollView_setDirection, 1, JSPROP_PERMANENT | JSPROP_SHARED),
-		JS_FN("visit", js_cocos2dx_CCScrollView_visit, 0, JSPROP_PERMANENT | JSPROP_SHARED),
-		JS_FN("setBounceable", js_cocos2dx_CCScrollView_setBounceable, 1, JSPROP_PERMANENT | JSPROP_SHARED),
-		JS_FN("setContentOffset", js_cocos2dx_CCScrollView_setContentOffset, 2, JSPROP_PERMANENT | JSPROP_SHARED),
-		JS_FN("isDragging", js_cocos2dx_CCScrollView_isDragging, 0, JSPROP_PERMANENT | JSPROP_SHARED),
-		JS_FN("init", js_cocos2dx_CCScrollView_init, 0, JSPROP_PERMANENT | JSPROP_SHARED),
-		JS_FN("isBounceable", js_cocos2dx_CCScrollView_isBounceable, 0, JSPROP_PERMANENT | JSPROP_SHARED),
-		JS_FN("getContentSize", js_cocos2dx_CCScrollView_getContentSize, 0, JSPROP_PERMANENT | JSPROP_SHARED),
-		JS_FN("ccTouchMoved", js_cocos2dx_CCScrollView_ccTouchMoved, 2, JSPROP_PERMANENT | JSPROP_SHARED),
-		JS_FN("setTouchEnabled", js_cocos2dx_CCScrollView_setTouchEnabled, 1, JSPROP_PERMANENT | JSPROP_SHARED),
-		JS_FN("getContentOffset", js_cocos2dx_CCScrollView_getContentOffset, 0, JSPROP_PERMANENT | JSPROP_SHARED),
-		JS_FN("resume", js_cocos2dx_CCScrollView_resume, 1, JSPROP_PERMANENT | JSPROP_SHARED),
-		JS_FN("setClippingToBounds", js_cocos2dx_CCScrollView_setClippingToBounds, 1, JSPROP_PERMANENT | JSPROP_SHARED),
-		JS_FN("setViewSize", js_cocos2dx_CCScrollView_setViewSize, 1, JSPROP_PERMANENT | JSPROP_SHARED),
-		JS_FN("getViewSize", js_cocos2dx_CCScrollView_getViewSize, 0, JSPROP_PERMANENT | JSPROP_SHARED),
-		JS_FN("maxContainerOffset", js_cocos2dx_CCScrollView_maxContainerOffset, 0, JSPROP_PERMANENT | JSPROP_SHARED),
-		JS_FN("setContentSize", js_cocos2dx_CCScrollView_setContentSize, 1, JSPROP_PERMANENT | JSPROP_SHARED),
-		JS_FN("isTouchMoved", js_cocos2dx_CCScrollView_isTouchMoved, 0, JSPROP_PERMANENT | JSPROP_SHARED),
-		JS_FN("isNodeVisible", js_cocos2dx_CCScrollView_isNodeVisible, 1, JSPROP_PERMANENT | JSPROP_SHARED),
-		JS_FN("ccTouchCancelled", js_cocos2dx_CCScrollView_ccTouchCancelled, 2, JSPROP_PERMANENT | JSPROP_SHARED),
-		JS_FN("minContainerOffset", js_cocos2dx_CCScrollView_minContainerOffset, 0, JSPROP_PERMANENT | JSPROP_SHARED),
-		JS_FN("registerWithTouchDispatcher", js_cocos2dx_CCScrollView_registerWithTouchDispatcher, 0, JSPROP_PERMANENT | JSPROP_SHARED),
-		JS_FN("setZoomScale", js_cocos2dx_CCScrollView_setZoomScale, 1, JSPROP_PERMANENT | JSPROP_SHARED),
+		JS_FN("isClippingToBounds", js_cocos2dx_CCScrollView_isClippingToBounds, 0, JSPROP_PERMANENT | JSPROP_ENUMERATE),
+		JS_FN("setContainer", js_cocos2dx_CCScrollView_setContainer, 1, JSPROP_PERMANENT | JSPROP_ENUMERATE),
+		JS_FN("setContentOffsetInDuration", js_cocos2dx_CCScrollView_setContentOffsetInDuration, 2, JSPROP_PERMANENT | JSPROP_ENUMERATE),
+		JS_FN("setZoomScaleInDuration", js_cocos2dx_CCScrollView_setZoomScaleInDuration, 2, JSPROP_PERMANENT | JSPROP_ENUMERATE),
+		JS_FN("addChild", js_cocos2dx_CCScrollView_addChild, 1, JSPROP_PERMANENT | JSPROP_ENUMERATE),
+		JS_FN("ccTouchBegan", js_cocos2dx_CCScrollView_ccTouchBegan, 2, JSPROP_PERMANENT | JSPROP_ENUMERATE),
+		JS_FN("getContainer", js_cocos2dx_CCScrollView_getContainer, 0, JSPROP_PERMANENT | JSPROP_ENUMERATE),
+		JS_FN("ccTouchEnded", js_cocos2dx_CCScrollView_ccTouchEnded, 2, JSPROP_PERMANENT | JSPROP_ENUMERATE),
+		JS_FN("getDirection", js_cocos2dx_CCScrollView_getDirection, 0, JSPROP_PERMANENT | JSPROP_ENUMERATE),
+		JS_FN("getZoomScale", js_cocos2dx_CCScrollView_getZoomScale, 0, JSPROP_PERMANENT | JSPROP_ENUMERATE),
+		JS_FN("updateInset", js_cocos2dx_CCScrollView_updateInset, 0, JSPROP_PERMANENT | JSPROP_ENUMERATE),
+		JS_FN("initWithViewSize", js_cocos2dx_CCScrollView_initWithViewSize, 2, JSPROP_PERMANENT | JSPROP_ENUMERATE),
+		JS_FN("pause", js_cocos2dx_CCScrollView_pause, 1, JSPROP_PERMANENT | JSPROP_ENUMERATE),
+		JS_FN("setDirection", js_cocos2dx_CCScrollView_setDirection, 1, JSPROP_PERMANENT | JSPROP_ENUMERATE),
+		JS_FN("visit", js_cocos2dx_CCScrollView_visit, 0, JSPROP_PERMANENT | JSPROP_ENUMERATE),
+		JS_FN("setBounceable", js_cocos2dx_CCScrollView_setBounceable, 1, JSPROP_PERMANENT | JSPROP_ENUMERATE),
+		JS_FN("setContentOffset", js_cocos2dx_CCScrollView_setContentOffset, 2, JSPROP_PERMANENT | JSPROP_ENUMERATE),
+		JS_FN("isDragging", js_cocos2dx_CCScrollView_isDragging, 0, JSPROP_PERMANENT | JSPROP_ENUMERATE),
+		JS_FN("init", js_cocos2dx_CCScrollView_init, 0, JSPROP_PERMANENT | JSPROP_ENUMERATE),
+		JS_FN("isBounceable", js_cocos2dx_CCScrollView_isBounceable, 0, JSPROP_PERMANENT | JSPROP_ENUMERATE),
+		JS_FN("getContentSize", js_cocos2dx_CCScrollView_getContentSize, 0, JSPROP_PERMANENT | JSPROP_ENUMERATE),
+		JS_FN("ccTouchMoved", js_cocos2dx_CCScrollView_ccTouchMoved, 2, JSPROP_PERMANENT | JSPROP_ENUMERATE),
+		JS_FN("setTouchEnabled", js_cocos2dx_CCScrollView_setTouchEnabled, 1, JSPROP_PERMANENT | JSPROP_ENUMERATE),
+		JS_FN("getContentOffset", js_cocos2dx_CCScrollView_getContentOffset, 0, JSPROP_PERMANENT | JSPROP_ENUMERATE),
+		JS_FN("resume", js_cocos2dx_CCScrollView_resume, 1, JSPROP_PERMANENT | JSPROP_ENUMERATE),
+		JS_FN("setClippingToBounds", js_cocos2dx_CCScrollView_setClippingToBounds, 1, JSPROP_PERMANENT | JSPROP_ENUMERATE),
+		JS_FN("setViewSize", js_cocos2dx_CCScrollView_setViewSize, 1, JSPROP_PERMANENT | JSPROP_ENUMERATE),
+		JS_FN("getViewSize", js_cocos2dx_CCScrollView_getViewSize, 0, JSPROP_PERMANENT | JSPROP_ENUMERATE),
+		JS_FN("maxContainerOffset", js_cocos2dx_CCScrollView_maxContainerOffset, 0, JSPROP_PERMANENT | JSPROP_ENUMERATE),
+		JS_FN("setContentSize", js_cocos2dx_CCScrollView_setContentSize, 1, JSPROP_PERMANENT | JSPROP_ENUMERATE),
+		JS_FN("isTouchMoved", js_cocos2dx_CCScrollView_isTouchMoved, 0, JSPROP_PERMANENT | JSPROP_ENUMERATE),
+		JS_FN("isNodeVisible", js_cocos2dx_CCScrollView_isNodeVisible, 1, JSPROP_PERMANENT | JSPROP_ENUMERATE),
+		JS_FN("ccTouchCancelled", js_cocos2dx_CCScrollView_ccTouchCancelled, 2, JSPROP_PERMANENT | JSPROP_ENUMERATE),
+		JS_FN("minContainerOffset", js_cocos2dx_CCScrollView_minContainerOffset, 0, JSPROP_PERMANENT | JSPROP_ENUMERATE),
+		JS_FN("registerWithTouchDispatcher", js_cocos2dx_CCScrollView_registerWithTouchDispatcher, 0, JSPROP_PERMANENT | JSPROP_ENUMERATE),
+		JS_FN("setZoomScale", js_cocos2dx_CCScrollView_setZoomScale, 1, JSPROP_PERMANENT | JSPROP_ENUMERATE),
 		JS_FS_END
 	};
 
 	static JSFunctionSpec st_funcs[] = {
-		JS_FN("create", js_cocos2dx_CCScrollView_create, 0, JSPROP_PERMANENT | JSPROP_SHARED),
+		JS_FN("create", js_cocos2dx_CCScrollView_create, 0, JSPROP_PERMANENT | JSPROP_ENUMERATE),
 		JS_FS_END
 	};
 
@@ -54217,38 +54217,38 @@ void js_register_cocos2dx_CCBAnimationManager(JSContext *cx, JSObject *global) {
 	};
 
 	static JSFunctionSpec funcs[] = {
-		JS_FN("moveAnimationsFromNode", js_cocos2dx_CCBAnimationManager_moveAnimationsFromNode, 2, JSPROP_PERMANENT | JSPROP_SHARED),
-		JS_FN("setAutoPlaySequenceId", js_cocos2dx_CCBAnimationManager_setAutoPlaySequenceId, 1, JSPROP_PERMANENT | JSPROP_SHARED),
-		JS_FN("getDocumentCallbackNames", js_cocos2dx_CCBAnimationManager_getDocumentCallbackNames, 0, JSPROP_PERMANENT | JSPROP_SHARED),
-		JS_FN("setBaseValue", js_cocos2dx_CCBAnimationManager_setBaseValue, 3, JSPROP_PERMANENT | JSPROP_SHARED),
-		JS_FN("getDocumentOutletNodes", js_cocos2dx_CCBAnimationManager_getDocumentOutletNodes, 0, JSPROP_PERMANENT | JSPROP_SHARED),
-		JS_FN("addNode", js_cocos2dx_CCBAnimationManager_addNode, 2, JSPROP_PERMANENT | JSPROP_SHARED),
-		JS_FN("getLastCompletedSequenceName", js_cocos2dx_CCBAnimationManager_getLastCompletedSequenceName, 0, JSPROP_PERMANENT | JSPROP_SHARED),
-		JS_FN("setRootNode", js_cocos2dx_CCBAnimationManager_setRootNode, 1, JSPROP_PERMANENT | JSPROP_SHARED),
-		JS_FN("addDocumentOutletName", js_cocos2dx_CCBAnimationManager_addDocumentOutletName, 1, JSPROP_PERMANENT | JSPROP_SHARED),
-		JS_FN("getSequences", js_cocos2dx_CCBAnimationManager_getSequences, 0, JSPROP_PERMANENT | JSPROP_SHARED),
-		JS_FN("getRootContainerSize", js_cocos2dx_CCBAnimationManager_getRootContainerSize, 0, JSPROP_PERMANENT | JSPROP_SHARED),
-		JS_FN("setDocumentControllerName", js_cocos2dx_CCBAnimationManager_setDocumentControllerName, 1, JSPROP_PERMANENT | JSPROP_SHARED),
-		JS_FN("getContainerSize", js_cocos2dx_CCBAnimationManager_getContainerSize, 1, JSPROP_PERMANENT | JSPROP_SHARED),
-		JS_FN("getDocumentOutletNames", js_cocos2dx_CCBAnimationManager_getDocumentOutletNames, 0, JSPROP_PERMANENT | JSPROP_SHARED),
-		JS_FN("init", js_cocos2dx_CCBAnimationManager_init, 0, JSPROP_PERMANENT | JSPROP_SHARED),
-		JS_FN("runAnimationsForSequenceNamedTweenDuration", js_cocos2dx_CCBAnimationManager_runAnimationsForSequenceNamedTweenDuration, 2, JSPROP_PERMANENT | JSPROP_SHARED),
-		JS_FN("setRootContainerSize", js_cocos2dx_CCBAnimationManager_setRootContainerSize, 1, JSPROP_PERMANENT | JSPROP_SHARED),
-		JS_FN("runAnimationsForSequenceIdTweenDuration", js_cocos2dx_CCBAnimationManager_runAnimationsForSequenceIdTweenDuration, 2, JSPROP_PERMANENT | JSPROP_SHARED),
-		JS_FN("getRunningSequenceName", js_cocos2dx_CCBAnimationManager_getRunningSequenceName, 0, JSPROP_PERMANENT | JSPROP_SHARED),
-		JS_FN("getAutoPlaySequenceId", js_cocos2dx_CCBAnimationManager_getAutoPlaySequenceId, 0, JSPROP_PERMANENT | JSPROP_SHARED),
-		JS_FN("addDocumentCallbackName", js_cocos2dx_CCBAnimationManager_addDocumentCallbackName, 1, JSPROP_PERMANENT | JSPROP_SHARED),
-		JS_FN("getRootNode", js_cocos2dx_CCBAnimationManager_getRootNode, 0, JSPROP_PERMANENT | JSPROP_SHARED),
-		JS_FN("addDocumentOutletNode", js_cocos2dx_CCBAnimationManager_addDocumentOutletNode, 1, JSPROP_PERMANENT | JSPROP_SHARED),
-		JS_FN("setDelegate", js_cocos2dx_CCBAnimationManager_setDelegate, 1, JSPROP_PERMANENT | JSPROP_SHARED),
-		JS_FN("addDocumentCallbackNode", js_cocos2dx_CCBAnimationManager_addDocumentCallbackNode, 1, JSPROP_PERMANENT | JSPROP_SHARED),
-		JS_FN("getDelegate", js_cocos2dx_CCBAnimationManager_getDelegate, 0, JSPROP_PERMANENT | JSPROP_SHARED),
-		JS_FN("runAnimations", js_cocos2dx_CCBAnimationManager_runAnimations, 1, JSPROP_PERMANENT | JSPROP_SHARED),
-		JS_FN("runAnimationsForSequenceNamed", js_cocos2dx_CCBAnimationManager_runAnimationsForSequenceNamed, 1, JSPROP_PERMANENT | JSPROP_SHARED),
-		JS_FN("getDocumentCallbackNodes", js_cocos2dx_CCBAnimationManager_getDocumentCallbackNodes, 0, JSPROP_PERMANENT | JSPROP_SHARED),
-		JS_FN("setSequences", js_cocos2dx_CCBAnimationManager_setSequences, 1, JSPROP_PERMANENT | JSPROP_SHARED),
-		JS_FN("debug", js_cocos2dx_CCBAnimationManager_debug, 0, JSPROP_PERMANENT | JSPROP_SHARED),
-		JS_FN("getDocumentControllerName", js_cocos2dx_CCBAnimationManager_getDocumentControllerName, 0, JSPROP_PERMANENT | JSPROP_SHARED),
+		JS_FN("moveAnimationsFromNode", js_cocos2dx_CCBAnimationManager_moveAnimationsFromNode, 2, JSPROP_PERMANENT | JSPROP_ENUMERATE),
+		JS_FN("setAutoPlaySequenceId", js_cocos2dx_CCBAnimationManager_setAutoPlaySequenceId, 1, JSPROP_PERMANENT | JSPROP_ENUMERATE),
+		JS_FN("getDocumentCallbackNames", js_cocos2dx_CCBAnimationManager_getDocumentCallbackNames, 0, JSPROP_PERMANENT | JSPROP_ENUMERATE),
+		JS_FN("setBaseValue", js_cocos2dx_CCBAnimationManager_setBaseValue, 3, JSPROP_PERMANENT | JSPROP_ENUMERATE),
+		JS_FN("getDocumentOutletNodes", js_cocos2dx_CCBAnimationManager_getDocumentOutletNodes, 0, JSPROP_PERMANENT | JSPROP_ENUMERATE),
+		JS_FN("addNode", js_cocos2dx_CCBAnimationManager_addNode, 2, JSPROP_PERMANENT | JSPROP_ENUMERATE),
+		JS_FN("getLastCompletedSequenceName", js_cocos2dx_CCBAnimationManager_getLastCompletedSequenceName, 0, JSPROP_PERMANENT | JSPROP_ENUMERATE),
+		JS_FN("setRootNode", js_cocos2dx_CCBAnimationManager_setRootNode, 1, JSPROP_PERMANENT | JSPROP_ENUMERATE),
+		JS_FN("addDocumentOutletName", js_cocos2dx_CCBAnimationManager_addDocumentOutletName, 1, JSPROP_PERMANENT | JSPROP_ENUMERATE),
+		JS_FN("getSequences", js_cocos2dx_CCBAnimationManager_getSequences, 0, JSPROP_PERMANENT | JSPROP_ENUMERATE),
+		JS_FN("getRootContainerSize", js_cocos2dx_CCBAnimationManager_getRootContainerSize, 0, JSPROP_PERMANENT | JSPROP_ENUMERATE),
+		JS_FN("setDocumentControllerName", js_cocos2dx_CCBAnimationManager_setDocumentControllerName, 1, JSPROP_PERMANENT | JSPROP_ENUMERATE),
+		JS_FN("getContainerSize", js_cocos2dx_CCBAnimationManager_getContainerSize, 1, JSPROP_PERMANENT | JSPROP_ENUMERATE),
+		JS_FN("getDocumentOutletNames", js_cocos2dx_CCBAnimationManager_getDocumentOutletNames, 0, JSPROP_PERMANENT | JSPROP_ENUMERATE),
+		JS_FN("init", js_cocos2dx_CCBAnimationManager_init, 0, JSPROP_PERMANENT | JSPROP_ENUMERATE),
+		JS_FN("runAnimationsForSequenceNamedTweenDuration", js_cocos2dx_CCBAnimationManager_runAnimationsForSequenceNamedTweenDuration, 2, JSPROP_PERMANENT | JSPROP_ENUMERATE),
+		JS_FN("setRootContainerSize", js_cocos2dx_CCBAnimationManager_setRootContainerSize, 1, JSPROP_PERMANENT | JSPROP_ENUMERATE),
+		JS_FN("runAnimationsForSequenceIdTweenDuration", js_cocos2dx_CCBAnimationManager_runAnimationsForSequenceIdTweenDuration, 2, JSPROP_PERMANENT | JSPROP_ENUMERATE),
+		JS_FN("getRunningSequenceName", js_cocos2dx_CCBAnimationManager_getRunningSequenceName, 0, JSPROP_PERMANENT | JSPROP_ENUMERATE),
+		JS_FN("getAutoPlaySequenceId", js_cocos2dx_CCBAnimationManager_getAutoPlaySequenceId, 0, JSPROP_PERMANENT | JSPROP_ENUMERATE),
+		JS_FN("addDocumentCallbackName", js_cocos2dx_CCBAnimationManager_addDocumentCallbackName, 1, JSPROP_PERMANENT | JSPROP_ENUMERATE),
+		JS_FN("getRootNode", js_cocos2dx_CCBAnimationManager_getRootNode, 0, JSPROP_PERMANENT | JSPROP_ENUMERATE),
+		JS_FN("addDocumentOutletNode", js_cocos2dx_CCBAnimationManager_addDocumentOutletNode, 1, JSPROP_PERMANENT | JSPROP_ENUMERATE),
+		JS_FN("setDelegate", js_cocos2dx_CCBAnimationManager_setDelegate, 1, JSPROP_PERMANENT | JSPROP_ENUMERATE),
+		JS_FN("addDocumentCallbackNode", js_cocos2dx_CCBAnimationManager_addDocumentCallbackNode, 1, JSPROP_PERMANENT | JSPROP_ENUMERATE),
+		JS_FN("getDelegate", js_cocos2dx_CCBAnimationManager_getDelegate, 0, JSPROP_PERMANENT | JSPROP_ENUMERATE),
+		JS_FN("runAnimations", js_cocos2dx_CCBAnimationManager_runAnimations, 1, JSPROP_PERMANENT | JSPROP_ENUMERATE),
+		JS_FN("runAnimationsForSequenceNamed", js_cocos2dx_CCBAnimationManager_runAnimationsForSequenceNamed, 1, JSPROP_PERMANENT | JSPROP_ENUMERATE),
+		JS_FN("getDocumentCallbackNodes", js_cocos2dx_CCBAnimationManager_getDocumentCallbackNodes, 0, JSPROP_PERMANENT | JSPROP_ENUMERATE),
+		JS_FN("setSequences", js_cocos2dx_CCBAnimationManager_setSequences, 1, JSPROP_PERMANENT | JSPROP_ENUMERATE),
+		JS_FN("debug", js_cocos2dx_CCBAnimationManager_debug, 0, JSPROP_PERMANENT | JSPROP_ENUMERATE),
+		JS_FN("getDocumentControllerName", js_cocos2dx_CCBAnimationManager_getDocumentControllerName, 0, JSPROP_PERMANENT | JSPROP_ENUMERATE),
 		JS_FS_END
 	};
 
@@ -54428,11 +54428,11 @@ void js_register_cocos2dx_CCTableViewCell(JSContext *cx, JSObject *global) {
 	};
 
 	static JSFunctionSpec funcs[] = {
-		JS_FN("reset", js_cocos2dx_CCTableViewCell_reset, 0, JSPROP_PERMANENT | JSPROP_SHARED),
-		JS_FN("setIdx", js_cocos2dx_CCTableViewCell_setIdx, 1, JSPROP_PERMANENT | JSPROP_SHARED),
-		JS_FN("setObjectID", js_cocos2dx_CCTableViewCell_setObjectID, 1, JSPROP_PERMANENT | JSPROP_SHARED),
-		JS_FN("getObjectID", js_cocos2dx_CCTableViewCell_getObjectID, 0, JSPROP_PERMANENT | JSPROP_SHARED),
-		JS_FN("getIdx", js_cocos2dx_CCTableViewCell_getIdx, 0, JSPROP_PERMANENT | JSPROP_SHARED),
+		JS_FN("reset", js_cocos2dx_CCTableViewCell_reset, 0, JSPROP_PERMANENT | JSPROP_ENUMERATE),
+		JS_FN("setIdx", js_cocos2dx_CCTableViewCell_setIdx, 1, JSPROP_PERMANENT | JSPROP_ENUMERATE),
+		JS_FN("setObjectID", js_cocos2dx_CCTableViewCell_setObjectID, 1, JSPROP_PERMANENT | JSPROP_ENUMERATE),
+		JS_FN("getObjectID", js_cocos2dx_CCTableViewCell_getObjectID, 0, JSPROP_PERMANENT | JSPROP_ENUMERATE),
+		JS_FN("getIdx", js_cocos2dx_CCTableViewCell_getIdx, 0, JSPROP_PERMANENT | JSPROP_ENUMERATE),
 		JS_FS_END
 	};
 
@@ -54923,22 +54923,22 @@ void js_register_cocos2dx_CCTableView(JSContext *cx, JSObject *global) {
 	};
 
 	static JSFunctionSpec funcs[] = {
-		JS_FN("updateCellAtIndex", js_cocos2dx_CCTableView_updateCellAtIndex, 1, JSPROP_PERMANENT | JSPROP_SHARED),
-		JS_FN("setVerticalFillOrder", js_cocos2dx_CCTableView_setVerticalFillOrder, 1, JSPROP_PERMANENT | JSPROP_SHARED),
-		JS_FN("scrollViewDidZoom", js_cocos2dx_CCTableView_scrollViewDidZoom, 1, JSPROP_PERMANENT | JSPROP_SHARED),
-		JS_FN("ccTouchBegan", js_cocos2dx_CCTableView_ccTouchBegan, 2, JSPROP_PERMANENT | JSPROP_SHARED),
-		JS_FN("getVerticalFillOrder", js_cocos2dx_CCTableView_getVerticalFillOrder, 0, JSPROP_PERMANENT | JSPROP_SHARED),
-		JS_FN("removeCellAtIndex", js_cocos2dx_CCTableView_removeCellAtIndex, 1, JSPROP_PERMANENT | JSPROP_SHARED),
-		JS_FN("initWithViewSize", js_cocos2dx_CCTableView_initWithViewSize, 2, JSPROP_PERMANENT | JSPROP_SHARED),
-		JS_FN("scrollViewDidScroll", js_cocos2dx_CCTableView_scrollViewDidScroll, 1, JSPROP_PERMANENT | JSPROP_SHARED),
-		JS_FN("reloadData", js_cocos2dx_CCTableView_reloadData, 0, JSPROP_PERMANENT | JSPROP_SHARED),
-		JS_FN("ccTouchCancelled", js_cocos2dx_CCTableView_ccTouchCancelled, 2, JSPROP_PERMANENT | JSPROP_SHARED),
-		JS_FN("ccTouchEnded", js_cocos2dx_CCTableView_ccTouchEnded, 2, JSPROP_PERMANENT | JSPROP_SHARED),
-		JS_FN("ccTouchMoved", js_cocos2dx_CCTableView_ccTouchMoved, 2, JSPROP_PERMANENT | JSPROP_SHARED),
-		JS_FN("_updateContentSize", js_cocos2dx_CCTableView__updateContentSize, 0, JSPROP_PERMANENT | JSPROP_SHARED),
-		JS_FN("insertCellAtIndex", js_cocos2dx_CCTableView_insertCellAtIndex, 1, JSPROP_PERMANENT | JSPROP_SHARED),
-		JS_FN("cellAtIndex", js_cocos2dx_CCTableView_cellAtIndex, 1, JSPROP_PERMANENT | JSPROP_SHARED),
-		JS_FN("dequeueCell", js_cocos2dx_CCTableView_dequeueCell, 0, JSPROP_PERMANENT | JSPROP_SHARED),
+		JS_FN("updateCellAtIndex", js_cocos2dx_CCTableView_updateCellAtIndex, 1, JSPROP_PERMANENT | JSPROP_ENUMERATE),
+		JS_FN("setVerticalFillOrder", js_cocos2dx_CCTableView_setVerticalFillOrder, 1, JSPROP_PERMANENT | JSPROP_ENUMERATE),
+		JS_FN("scrollViewDidZoom", js_cocos2dx_CCTableView_scrollViewDidZoom, 1, JSPROP_PERMANENT | JSPROP_ENUMERATE),
+		JS_FN("ccTouchBegan", js_cocos2dx_CCTableView_ccTouchBegan, 2, JSPROP_PERMANENT | JSPROP_ENUMERATE),
+		JS_FN("getVerticalFillOrder", js_cocos2dx_CCTableView_getVerticalFillOrder, 0, JSPROP_PERMANENT | JSPROP_ENUMERATE),
+		JS_FN("removeCellAtIndex", js_cocos2dx_CCTableView_removeCellAtIndex, 1, JSPROP_PERMANENT | JSPROP_ENUMERATE),
+		JS_FN("initWithViewSize", js_cocos2dx_CCTableView_initWithViewSize, 2, JSPROP_PERMANENT | JSPROP_ENUMERATE),
+		JS_FN("scrollViewDidScroll", js_cocos2dx_CCTableView_scrollViewDidScroll, 1, JSPROP_PERMANENT | JSPROP_ENUMERATE),
+		JS_FN("reloadData", js_cocos2dx_CCTableView_reloadData, 0, JSPROP_PERMANENT | JSPROP_ENUMERATE),
+		JS_FN("ccTouchCancelled", js_cocos2dx_CCTableView_ccTouchCancelled, 2, JSPROP_PERMANENT | JSPROP_ENUMERATE),
+		JS_FN("ccTouchEnded", js_cocos2dx_CCTableView_ccTouchEnded, 2, JSPROP_PERMANENT | JSPROP_ENUMERATE),
+		JS_FN("ccTouchMoved", js_cocos2dx_CCTableView_ccTouchMoved, 2, JSPROP_PERMANENT | JSPROP_ENUMERATE),
+		JS_FN("_updateContentSize", js_cocos2dx_CCTableView__updateContentSize, 0, JSPROP_PERMANENT | JSPROP_ENUMERATE),
+		JS_FN("insertCellAtIndex", js_cocos2dx_CCTableView_insertCellAtIndex, 1, JSPROP_PERMANENT | JSPROP_ENUMERATE),
+		JS_FN("cellAtIndex", js_cocos2dx_CCTableView_cellAtIndex, 1, JSPROP_PERMANENT | JSPROP_ENUMERATE),
+		JS_FN("dequeueCell", js_cocos2dx_CCTableView_dequeueCell, 0, JSPROP_PERMANENT | JSPROP_ENUMERATE),
 		JS_FS_END
 	};
 
