@@ -2590,6 +2590,12 @@ update : function () {},
 initWithAction : function () {},
 
 /**
+ * @method getInnerAction
+ * @return A value converted from C/C++ "cocos2d::CCActionInterval*"
+ */
+getInnerAction : function () {},
+
+/**
  * @method create
  * @return A value converted from C/C++ "cocos2d::CCActionEase*"
  * @param {cocos2d::CCActionInterval*}

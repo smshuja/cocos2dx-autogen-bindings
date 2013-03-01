@@ -11795,6 +11795,30 @@ JSBool js_cocos2dx_CCActionEase_initWithAction(JSContext *cx, uint32_t argc, jsv
 	JS_ReportError(cx, "wrong number of arguments: %d, was expecting %d", argc, 1);
 	return JS_FALSE;
 }
+JSBool js_cocos2dx_CCActionEase_getInnerAction(JSContext *cx, uint32_t argc, jsval *vp)
+{
+	JSObject *obj = JS_THIS_OBJECT(cx, vp);
+	js_proxy_t *proxy; JS_GET_NATIVE_PROXY(proxy, obj);
+	cocos2d::CCActionEase* cobj = (cocos2d::CCActionEase *)(proxy ? proxy->ptr : NULL);
+	JSB_PRECONDITION2( cobj, cx, JS_FALSE, "Invalid Native Object");
+
+	if (argc == 0) {
+		cocos2d::CCActionInterval* ret = cobj->getInnerAction();
+		jsval jsret;
+		do {
+			if (ret) {
+				js_proxy_t *proxy = js_get_or_create_proxy<cocos2d::CCActionInterval>(cx, ret);
+				jsret = OBJECT_TO_JSVAL(proxy->obj);
+			} else {
+				jsret = JSVAL_NULL;
+			}
+		} while (0);
+		JS_SET_RVAL(cx, vp, jsret);
+		return JS_TRUE;
+	}
+	JS_ReportError(cx, "wrong number of arguments: %d, was expecting %d", argc, 0);
+	return JS_FALSE;
+}
 JSBool js_cocos2dx_CCActionEase_create(JSContext *cx, uint32_t argc, jsval *vp)
 {
 	jsval *argv = JS_ARGV(cx, vp);
@@ -11853,6 +11877,7 @@ void js_register_cocos2dx_CCActionEase(JSContext *cx, JSObject *global) {
 		JS_FN("stop", js_cocos2dx_CCActionEase_stop, 0, JSPROP_PERMANENT | JSPROP_ENUMERATE),
 		JS_FN("update", js_cocos2dx_CCActionEase_update, 1, JSPROP_PERMANENT | JSPROP_ENUMERATE),
 		JS_FN("initWithAction", js_cocos2dx_CCActionEase_initWithAction, 1, JSPROP_PERMANENT | JSPROP_ENUMERATE),
+		JS_FN("getInnerAction", js_cocos2dx_CCActionEase_getInnerAction, 0, JSPROP_PERMANENT | JSPROP_ENUMERATE),
 		JS_FS_END
 	};
 
