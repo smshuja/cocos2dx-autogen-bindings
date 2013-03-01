@@ -1037,6 +1037,97 @@ CCNode : function () {},
 };
 
 /**
+ * @class CCNodeRGBA
+ */
+cc.CCNodeRGBA = {
+
+/**
+ * @method updateDisplayedColor
+ * @param {cocos2d::ccColor3B}
+ */
+updateDisplayedColor : function () {},
+
+/**
+ * @method setColor
+ * @param {cocos2d::ccColor3B}
+ */
+setColor : function () {},
+
+/**
+ * @method isCascadeOpacityEnabled
+ * @return A value converted from C/C++ "bool"
+ */
+isCascadeOpacityEnabled : function () {},
+
+/**
+ * @method getColor
+ * @return A value converted from C/C++ "cocos2d::ccColor3B"
+ */
+getColor : function () {},
+
+/**
+ * @method getDisplayedOpacity
+ * @return A value converted from C/C++ "unsigned char"
+ */
+getDisplayedOpacity : function () {},
+
+/**
+ * @method setCascadeColorEnabled
+ * @param {bool}
+ */
+setCascadeColorEnabled : function () {},
+
+/**
+ * @method setOpacity
+ * @param {unsigned char}
+ */
+setOpacity : function () {},
+
+/**
+ * @method setCascadeOpacityEnabled
+ * @param {bool}
+ */
+setCascadeOpacityEnabled : function () {},
+
+/**
+ * @method updateDisplayedOpacity
+ * @param {unsigned char}
+ */
+updateDisplayedOpacity : function () {},
+
+/**
+ * @method init
+ * @return A value converted from C/C++ "bool"
+ */
+init : function () {},
+
+/**
+ * @method getOpacity
+ * @return A value converted from C/C++ "unsigned char"
+ */
+getOpacity : function () {},
+
+/**
+ * @method isCascadeColorEnabled
+ * @return A value converted from C/C++ "bool"
+ */
+isCascadeColorEnabled : function () {},
+
+/**
+ * @method getDisplayedColor
+ * @return A value converted from C/C++ "cocos2d::ccColor3B"
+ */
+getDisplayedColor : function () {},
+
+/**
+ * @method CCNodeRGBA
+ * @constructor
+ */
+CCNodeRGBA : function () {},
+
+};
+
+/**
  * @class CCSpriteFrame
  */
 cc.CCSpriteFrame = {
@@ -5300,12 +5391,6 @@ getVerticalAlignment : function () {},
 getHorizontalAlignment : function () {},
 
 /**
- * @method node
- * @return A value converted from C/C++ "cocos2d::CCLabelTTF*"
- */
-node : function () {},
-
-/**
  * @method CCLabelTTF
  * @constructor
  */
@@ -5577,12 +5662,6 @@ getScheduler : function () {},
  * @param {cocos2d::CCScene*}
  */
 pushScene : function () {},
-
-/**
- * @method getClassTypeInfo
- * @return A value converted from C/C++ "long"
- */
-getClassTypeInfo : function () {},
 
 /**
  * @method getAnimationInterval
@@ -6468,12 +6547,6 @@ setContentSize : function () {},
 changeHeight : function () {},
 
 /**
- * @method node
- * @return A value converted from C/C++ "cocos2d::CCLayerColor*"
- */
-node : function () {},
-
-/**
  * @method CCLayerColor
  * @constructor
  */
@@ -6557,12 +6630,6 @@ getEndOpacity : function () {},
  * @param {cocos2d::ccColor3B}
  */
 setStartColor : function () {},
-
-/**
- * @method node
- * @return A value converted from C/C++ "cocos2d::CCLayerGradient*"
- */
-node : function () {},
 
 };
 
@@ -9552,12 +9619,6 @@ addSearchResolutionsOrder : function () {},
 getFileDataFromZip : function () {},
 
 /**
- * @method getClassTypeInfo
- * @return A value converted from C/C++ "long"
- */
-getClassTypeInfo : function () {},
-
-/**
  * @method fullPathForFilename
  * @return A value converted from C/C++ "std::string"
  * @param {const char*}
@@ -10810,12 +10871,6 @@ setEffectsVolume : function () {},
  * @param {unsigned int}
  */
 pauseEffect : function () {},
-
-/**
- * @method getClassTypeInfo
- * @return A value converted from C/C++ "long"
- */
-getClassTypeInfo : function () {},
 
 /**
  * @method resumeAllEffects

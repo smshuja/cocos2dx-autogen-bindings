@@ -4310,6 +4310,348 @@ void js_register_cocos2dx_CCNode(JSContext *cx, JSObject *global) {
 }
 
 
+JSClass  *js_cocos2dx_CCNodeRGBA_class;
+JSObject *js_cocos2dx_CCNodeRGBA_prototype;
+
+JSBool js_cocos2dx_CCNodeRGBA_updateDisplayedColor(JSContext *cx, uint32_t argc, jsval *vp)
+{
+	jsval *argv = JS_ARGV(cx, vp);
+	JSBool ok = JS_TRUE;
+	JSObject *obj = JS_THIS_OBJECT(cx, vp);
+	js_proxy_t *proxy; JS_GET_NATIVE_PROXY(proxy, obj);
+	cocos2d::CCNodeRGBA* cobj = (cocos2d::CCNodeRGBA *)(proxy ? proxy->ptr : NULL);
+	JSB_PRECONDITION2( cobj, cx, JS_FALSE, "Invalid Native Object");
+
+	if (argc == 1) {
+		cocos2d::ccColor3B arg0;
+		ok &= jsval_to_cccolor3b(cx, argv[0], &arg0);
+		JSB_PRECONDITION2(ok, cx, JS_FALSE, "Error processing arguments");
+		cobj->updateDisplayedColor(arg0);
+		JS_SET_RVAL(cx, vp, JSVAL_VOID);
+		return JS_TRUE;
+	}
+	JS_ReportError(cx, "wrong number of arguments: %d, was expecting %d", argc, 1);
+	return JS_FALSE;
+}
+JSBool js_cocos2dx_CCNodeRGBA_setColor(JSContext *cx, uint32_t argc, jsval *vp)
+{
+	jsval *argv = JS_ARGV(cx, vp);
+	JSBool ok = JS_TRUE;
+	JSObject *obj = JS_THIS_OBJECT(cx, vp);
+	js_proxy_t *proxy; JS_GET_NATIVE_PROXY(proxy, obj);
+	cocos2d::CCNodeRGBA* cobj = (cocos2d::CCNodeRGBA *)(proxy ? proxy->ptr : NULL);
+	JSB_PRECONDITION2( cobj, cx, JS_FALSE, "Invalid Native Object");
+
+	if (argc == 1) {
+		cocos2d::ccColor3B arg0;
+		ok &= jsval_to_cccolor3b(cx, argv[0], &arg0);
+		JSB_PRECONDITION2(ok, cx, JS_FALSE, "Error processing arguments");
+		cobj->setColor(arg0);
+		JS_SET_RVAL(cx, vp, JSVAL_VOID);
+		return JS_TRUE;
+	}
+	JS_ReportError(cx, "wrong number of arguments: %d, was expecting %d", argc, 1);
+	return JS_FALSE;
+}
+JSBool js_cocos2dx_CCNodeRGBA_isCascadeOpacityEnabled(JSContext *cx, uint32_t argc, jsval *vp)
+{
+	JSObject *obj = JS_THIS_OBJECT(cx, vp);
+	js_proxy_t *proxy; JS_GET_NATIVE_PROXY(proxy, obj);
+	cocos2d::CCNodeRGBA* cobj = (cocos2d::CCNodeRGBA *)(proxy ? proxy->ptr : NULL);
+	JSB_PRECONDITION2( cobj, cx, JS_FALSE, "Invalid Native Object");
+
+	if (argc == 0) {
+		bool ret = cobj->isCascadeOpacityEnabled();
+		jsval jsret;
+		jsret = BOOLEAN_TO_JSVAL(ret);
+		JS_SET_RVAL(cx, vp, jsret);
+		return JS_TRUE;
+	}
+	JS_ReportError(cx, "wrong number of arguments: %d, was expecting %d", argc, 0);
+	return JS_FALSE;
+}
+JSBool js_cocos2dx_CCNodeRGBA_getColor(JSContext *cx, uint32_t argc, jsval *vp)
+{
+	JSObject *obj = JS_THIS_OBJECT(cx, vp);
+	js_proxy_t *proxy; JS_GET_NATIVE_PROXY(proxy, obj);
+	cocos2d::CCNodeRGBA* cobj = (cocos2d::CCNodeRGBA *)(proxy ? proxy->ptr : NULL);
+	JSB_PRECONDITION2( cobj, cx, JS_FALSE, "Invalid Native Object");
+
+	if (argc == 0) {
+		cocos2d::ccColor3B ret = cobj->getColor();
+		jsval jsret;
+		jsret = cccolor3b_to_jsval(cx, ret);
+		JS_SET_RVAL(cx, vp, jsret);
+		return JS_TRUE;
+	}
+	JS_ReportError(cx, "wrong number of arguments: %d, was expecting %d", argc, 0);
+	return JS_FALSE;
+}
+JSBool js_cocos2dx_CCNodeRGBA_getDisplayedOpacity(JSContext *cx, uint32_t argc, jsval *vp)
+{
+	JSObject *obj = JS_THIS_OBJECT(cx, vp);
+	js_proxy_t *proxy; JS_GET_NATIVE_PROXY(proxy, obj);
+	cocos2d::CCNodeRGBA* cobj = (cocos2d::CCNodeRGBA *)(proxy ? proxy->ptr : NULL);
+	JSB_PRECONDITION2( cobj, cx, JS_FALSE, "Invalid Native Object");
+
+	if (argc == 0) {
+		unsigned char ret = cobj->getDisplayedOpacity();
+		jsval jsret;
+		jsret = uint32_to_jsval(cx, ret);
+		JS_SET_RVAL(cx, vp, jsret);
+		return JS_TRUE;
+	}
+	JS_ReportError(cx, "wrong number of arguments: %d, was expecting %d", argc, 0);
+	return JS_FALSE;
+}
+JSBool js_cocos2dx_CCNodeRGBA_setCascadeColorEnabled(JSContext *cx, uint32_t argc, jsval *vp)
+{
+	jsval *argv = JS_ARGV(cx, vp);
+	JSBool ok = JS_TRUE;
+	JSObject *obj = JS_THIS_OBJECT(cx, vp);
+	js_proxy_t *proxy; JS_GET_NATIVE_PROXY(proxy, obj);
+	cocos2d::CCNodeRGBA* cobj = (cocos2d::CCNodeRGBA *)(proxy ? proxy->ptr : NULL);
+	JSB_PRECONDITION2( cobj, cx, JS_FALSE, "Invalid Native Object");
+
+	if (argc == 1) {
+		JSBool arg0;
+		ok &= JS_ValueToBoolean(cx, argv[0], &arg0);
+		JSB_PRECONDITION2(ok, cx, JS_FALSE, "Error processing arguments");
+		cobj->setCascadeColorEnabled(arg0);
+		JS_SET_RVAL(cx, vp, JSVAL_VOID);
+		return JS_TRUE;
+	}
+	JS_ReportError(cx, "wrong number of arguments: %d, was expecting %d", argc, 1);
+	return JS_FALSE;
+}
+JSBool js_cocos2dx_CCNodeRGBA_setOpacity(JSContext *cx, uint32_t argc, jsval *vp)
+{
+	jsval *argv = JS_ARGV(cx, vp);
+	JSBool ok = JS_TRUE;
+	JSObject *obj = JS_THIS_OBJECT(cx, vp);
+	js_proxy_t *proxy; JS_GET_NATIVE_PROXY(proxy, obj);
+	cocos2d::CCNodeRGBA* cobj = (cocos2d::CCNodeRGBA *)(proxy ? proxy->ptr : NULL);
+	JSB_PRECONDITION2( cobj, cx, JS_FALSE, "Invalid Native Object");
+
+	if (argc == 1) {
+		uint16_t arg0;
+		ok &= jsval_to_uint16(cx, argv[0], &arg0);
+		JSB_PRECONDITION2(ok, cx, JS_FALSE, "Error processing arguments");
+		cobj->setOpacity(arg0);
+		JS_SET_RVAL(cx, vp, JSVAL_VOID);
+		return JS_TRUE;
+	}
+	JS_ReportError(cx, "wrong number of arguments: %d, was expecting %d", argc, 1);
+	return JS_FALSE;
+}
+JSBool js_cocos2dx_CCNodeRGBA_setCascadeOpacityEnabled(JSContext *cx, uint32_t argc, jsval *vp)
+{
+	jsval *argv = JS_ARGV(cx, vp);
+	JSBool ok = JS_TRUE;
+	JSObject *obj = JS_THIS_OBJECT(cx, vp);
+	js_proxy_t *proxy; JS_GET_NATIVE_PROXY(proxy, obj);
+	cocos2d::CCNodeRGBA* cobj = (cocos2d::CCNodeRGBA *)(proxy ? proxy->ptr : NULL);
+	JSB_PRECONDITION2( cobj, cx, JS_FALSE, "Invalid Native Object");
+
+	if (argc == 1) {
+		JSBool arg0;
+		ok &= JS_ValueToBoolean(cx, argv[0], &arg0);
+		JSB_PRECONDITION2(ok, cx, JS_FALSE, "Error processing arguments");
+		cobj->setCascadeOpacityEnabled(arg0);
+		JS_SET_RVAL(cx, vp, JSVAL_VOID);
+		return JS_TRUE;
+	}
+	JS_ReportError(cx, "wrong number of arguments: %d, was expecting %d", argc, 1);
+	return JS_FALSE;
+}
+JSBool js_cocos2dx_CCNodeRGBA_updateDisplayedOpacity(JSContext *cx, uint32_t argc, jsval *vp)
+{
+	jsval *argv = JS_ARGV(cx, vp);
+	JSBool ok = JS_TRUE;
+	JSObject *obj = JS_THIS_OBJECT(cx, vp);
+	js_proxy_t *proxy; JS_GET_NATIVE_PROXY(proxy, obj);
+	cocos2d::CCNodeRGBA* cobj = (cocos2d::CCNodeRGBA *)(proxy ? proxy->ptr : NULL);
+	JSB_PRECONDITION2( cobj, cx, JS_FALSE, "Invalid Native Object");
+
+	if (argc == 1) {
+		uint16_t arg0;
+		ok &= jsval_to_uint16(cx, argv[0], &arg0);
+		JSB_PRECONDITION2(ok, cx, JS_FALSE, "Error processing arguments");
+		cobj->updateDisplayedOpacity(arg0);
+		JS_SET_RVAL(cx, vp, JSVAL_VOID);
+		return JS_TRUE;
+	}
+	JS_ReportError(cx, "wrong number of arguments: %d, was expecting %d", argc, 1);
+	return JS_FALSE;
+}
+JSBool js_cocos2dx_CCNodeRGBA_init(JSContext *cx, uint32_t argc, jsval *vp)
+{
+	JSObject *obj = JS_THIS_OBJECT(cx, vp);
+	js_proxy_t *proxy; JS_GET_NATIVE_PROXY(proxy, obj);
+	cocos2d::CCNodeRGBA* cobj = (cocos2d::CCNodeRGBA *)(proxy ? proxy->ptr : NULL);
+	JSB_PRECONDITION2( cobj, cx, JS_FALSE, "Invalid Native Object");
+
+	if (argc == 0) {
+		bool ret = cobj->init();
+		jsval jsret;
+		jsret = BOOLEAN_TO_JSVAL(ret);
+		JS_SET_RVAL(cx, vp, jsret);
+		return JS_TRUE;
+	}
+	JS_ReportError(cx, "wrong number of arguments: %d, was expecting %d", argc, 0);
+	return JS_FALSE;
+}
+JSBool js_cocos2dx_CCNodeRGBA_getOpacity(JSContext *cx, uint32_t argc, jsval *vp)
+{
+	JSObject *obj = JS_THIS_OBJECT(cx, vp);
+	js_proxy_t *proxy; JS_GET_NATIVE_PROXY(proxy, obj);
+	cocos2d::CCNodeRGBA* cobj = (cocos2d::CCNodeRGBA *)(proxy ? proxy->ptr : NULL);
+	JSB_PRECONDITION2( cobj, cx, JS_FALSE, "Invalid Native Object");
+
+	if (argc == 0) {
+		unsigned char ret = cobj->getOpacity();
+		jsval jsret;
+		jsret = uint32_to_jsval(cx, ret);
+		JS_SET_RVAL(cx, vp, jsret);
+		return JS_TRUE;
+	}
+	JS_ReportError(cx, "wrong number of arguments: %d, was expecting %d", argc, 0);
+	return JS_FALSE;
+}
+JSBool js_cocos2dx_CCNodeRGBA_isCascadeColorEnabled(JSContext *cx, uint32_t argc, jsval *vp)
+{
+	JSObject *obj = JS_THIS_OBJECT(cx, vp);
+	js_proxy_t *proxy; JS_GET_NATIVE_PROXY(proxy, obj);
+	cocos2d::CCNodeRGBA* cobj = (cocos2d::CCNodeRGBA *)(proxy ? proxy->ptr : NULL);
+	JSB_PRECONDITION2( cobj, cx, JS_FALSE, "Invalid Native Object");
+
+	if (argc == 0) {
+		bool ret = cobj->isCascadeColorEnabled();
+		jsval jsret;
+		jsret = BOOLEAN_TO_JSVAL(ret);
+		JS_SET_RVAL(cx, vp, jsret);
+		return JS_TRUE;
+	}
+	JS_ReportError(cx, "wrong number of arguments: %d, was expecting %d", argc, 0);
+	return JS_FALSE;
+}
+JSBool js_cocos2dx_CCNodeRGBA_getDisplayedColor(JSContext *cx, uint32_t argc, jsval *vp)
+{
+	JSObject *obj = JS_THIS_OBJECT(cx, vp);
+	js_proxy_t *proxy; JS_GET_NATIVE_PROXY(proxy, obj);
+	cocos2d::CCNodeRGBA* cobj = (cocos2d::CCNodeRGBA *)(proxy ? proxy->ptr : NULL);
+	JSB_PRECONDITION2( cobj, cx, JS_FALSE, "Invalid Native Object");
+
+	if (argc == 0) {
+		cocos2d::ccColor3B ret = cobj->getDisplayedColor();
+		jsval jsret;
+		jsret = cccolor3b_to_jsval(cx, ret);
+		JS_SET_RVAL(cx, vp, jsret);
+		return JS_TRUE;
+	}
+	JS_ReportError(cx, "wrong number of arguments: %d, was expecting %d", argc, 0);
+	return JS_FALSE;
+}
+JSBool js_cocos2dx_CCNodeRGBA_constructor(JSContext *cx, uint32_t argc, jsval *vp)
+{
+
+	if (argc == 0) {
+		cocos2d::CCNodeRGBA* cobj = new cocos2d::CCNodeRGBA();
+#ifdef COCOS2D_JAVASCRIPT
+		cocos2d::CCObject *_ccobj = dynamic_cast<cocos2d::CCObject *>(cobj);
+		if (_ccobj) {
+			_ccobj->autorelease();
+		}
+#endif
+		TypeTest<cocos2d::CCNodeRGBA> t;
+		js_type_class_t *typeClass;
+		uint32_t typeId = t.s_id();
+		HASH_FIND_INT(_js_global_type_ht, &typeId, typeClass);
+		assert(typeClass);
+		JSObject *obj = JS_NewObject(cx, typeClass->jsclass, typeClass->proto, typeClass->parentProto);
+		JS_SET_RVAL(cx, vp, OBJECT_TO_JSVAL(obj));
+		// link the native object with the javascript object
+		js_proxy_t *p;
+		JS_NEW_PROXY(p, cobj, obj);
+#ifdef COCOS2D_JAVASCRIPT
+		JS_AddNamedObjectRoot(cx, &p->obj, "cocos2d::CCNodeRGBA");
+#endif
+		return JS_TRUE;
+	}
+	JS_ReportError(cx, "wrong number of arguments: %d, was expecting %d", argc, 0);
+	return JS_FALSE;
+}
+
+
+
+void js_cocos2dx_CCNodeRGBA_finalize(JSFreeOp *fop, JSObject *obj) {
+}
+
+void js_register_cocos2dx_CCNodeRGBA(JSContext *cx, JSObject *global) {
+	js_cocos2dx_CCNodeRGBA_class = (JSClass *)calloc(1, sizeof(JSClass));
+	js_cocos2dx_CCNodeRGBA_class->name = "NodeRGBA";
+	js_cocos2dx_CCNodeRGBA_class->addProperty = JS_PropertyStub;
+	js_cocos2dx_CCNodeRGBA_class->delProperty = JS_PropertyStub;
+	js_cocos2dx_CCNodeRGBA_class->getProperty = JS_PropertyStub;
+	js_cocos2dx_CCNodeRGBA_class->setProperty = JS_StrictPropertyStub;
+	js_cocos2dx_CCNodeRGBA_class->enumerate = JS_EnumerateStub;
+	js_cocos2dx_CCNodeRGBA_class->resolve = JS_ResolveStub;
+	js_cocos2dx_CCNodeRGBA_class->convert = JS_ConvertStub;
+	js_cocos2dx_CCNodeRGBA_class->finalize = js_cocos2dx_CCNodeRGBA_finalize;
+	js_cocos2dx_CCNodeRGBA_class->flags = JSCLASS_HAS_RESERVED_SLOTS(2);
+
+	static JSPropertySpec properties[] = {
+		{0, 0, 0, 0, 0}
+	};
+
+	static JSFunctionSpec funcs[] = {
+		JS_FN("updateDisplayedColor", js_cocos2dx_CCNodeRGBA_updateDisplayedColor, 1, JSPROP_PERMANENT | JSPROP_ENUMERATE),
+		JS_FN("setColor", js_cocos2dx_CCNodeRGBA_setColor, 1, JSPROP_PERMANENT | JSPROP_ENUMERATE),
+		JS_FN("isCascadeOpacityEnabled", js_cocos2dx_CCNodeRGBA_isCascadeOpacityEnabled, 0, JSPROP_PERMANENT | JSPROP_ENUMERATE),
+		JS_FN("getColor", js_cocos2dx_CCNodeRGBA_getColor, 0, JSPROP_PERMANENT | JSPROP_ENUMERATE),
+		JS_FN("getDisplayedOpacity", js_cocos2dx_CCNodeRGBA_getDisplayedOpacity, 0, JSPROP_PERMANENT | JSPROP_ENUMERATE),
+		JS_FN("setCascadeColorEnabled", js_cocos2dx_CCNodeRGBA_setCascadeColorEnabled, 1, JSPROP_PERMANENT | JSPROP_ENUMERATE),
+		JS_FN("setOpacity", js_cocos2dx_CCNodeRGBA_setOpacity, 1, JSPROP_PERMANENT | JSPROP_ENUMERATE),
+		JS_FN("setCascadeOpacityEnabled", js_cocos2dx_CCNodeRGBA_setCascadeOpacityEnabled, 1, JSPROP_PERMANENT | JSPROP_ENUMERATE),
+		JS_FN("updateDisplayedOpacity", js_cocos2dx_CCNodeRGBA_updateDisplayedOpacity, 1, JSPROP_PERMANENT | JSPROP_ENUMERATE),
+		JS_FN("init", js_cocos2dx_CCNodeRGBA_init, 0, JSPROP_PERMANENT | JSPROP_ENUMERATE),
+		JS_FN("getOpacity", js_cocos2dx_CCNodeRGBA_getOpacity, 0, JSPROP_PERMANENT | JSPROP_ENUMERATE),
+		JS_FN("isCascadeColorEnabled", js_cocos2dx_CCNodeRGBA_isCascadeColorEnabled, 0, JSPROP_PERMANENT | JSPROP_ENUMERATE),
+		JS_FN("getDisplayedColor", js_cocos2dx_CCNodeRGBA_getDisplayedColor, 0, JSPROP_PERMANENT | JSPROP_ENUMERATE),
+		JS_FS_END
+	};
+
+	JSFunctionSpec *st_funcs = NULL;
+
+	js_cocos2dx_CCNodeRGBA_prototype = JS_InitClass(
+		cx, global,
+		js_cocos2dx_CCNode_prototype,
+		js_cocos2dx_CCNodeRGBA_class,
+		js_cocos2dx_CCNodeRGBA_constructor, 0, // constructor
+		properties,
+		funcs,
+		NULL, // no static properties
+		st_funcs);
+	// make the class enumerable in the registered namespace
+	JSBool found;
+	JS_SetPropertyAttributes(cx, global, "NodeRGBA", JSPROP_ENUMERATE | JSPROP_READONLY, &found);
+
+	// add the proto and JSClass to the type->js info hash table
+	TypeTest<cocos2d::CCNodeRGBA> t;
+	js_type_class_t *p;
+	uint32_t typeId = t.s_id();
+	HASH_FIND_INT(_js_global_type_ht, &typeId, p);
+	if (!p) {
+		p = (js_type_class_t *)malloc(sizeof(js_type_class_t));
+		p->type = typeId;
+		p->jsclass = js_cocos2dx_CCNodeRGBA_class;
+		p->proto = js_cocos2dx_CCNodeRGBA_prototype;
+		p->parentProto = js_cocos2dx_CCNode_prototype;
+		HASH_ADD_INT(_js_global_type_ht, type, p);
+	}
+}
+
+
 JSClass  *js_cocos2dx_CCSpriteFrame_class;
 JSObject *js_cocos2dx_CCSpriteFrame_prototype;
 
@@ -22080,7 +22422,7 @@ void js_register_cocos2dx_CCAtlasNode(JSContext *cx, JSObject *global) {
 
 	js_cocos2dx_CCAtlasNode_prototype = JS_InitClass(
 		cx, global,
-		NULL, // parent proto
+		js_cocos2dx_CCNodeRGBA_prototype,
 		js_cocos2dx_CCAtlasNode_class,
 		js_cocos2dx_CCAtlasNode_constructor, 0, // constructor
 		properties,
@@ -22101,7 +22443,7 @@ void js_register_cocos2dx_CCAtlasNode(JSContext *cx, JSObject *global) {
 		p->type = typeId;
 		p->jsclass = js_cocos2dx_CCAtlasNode_class;
 		p->proto = js_cocos2dx_CCAtlasNode_prototype;
-		p->parentProto = NULL;
+		p->parentProto = js_cocos2dx_CCNodeRGBA_prototype;
 		HASH_ADD_INT(_js_global_type_ht, type, p);
 	}
 }
@@ -24095,7 +24437,7 @@ void js_register_cocos2dx_CCSprite(JSContext *cx, JSObject *global) {
 
 	js_cocos2dx_CCSprite_prototype = JS_InitClass(
 		cx, global,
-		NULL, // parent proto
+		js_cocos2dx_CCNodeRGBA_prototype,
 		js_cocos2dx_CCSprite_class,
 		js_cocos2dx_CCSprite_constructor, 0, // constructor
 		properties,
@@ -24116,7 +24458,7 @@ void js_register_cocos2dx_CCSprite(JSContext *cx, JSObject *global) {
 		p->type = typeId;
 		p->jsclass = js_cocos2dx_CCSprite_class;
 		p->proto = js_cocos2dx_CCSprite_prototype;
-		p->parentProto = NULL;
+		p->parentProto = js_cocos2dx_CCNodeRGBA_prototype;
 		HASH_ADD_INT(_js_global_type_ht, type, p);
 	}
 }
@@ -24428,22 +24770,6 @@ JSBool js_cocos2dx_CCLabelTTF_getHorizontalAlignment(JSContext *cx, uint32_t arg
 	JS_ReportError(cx, "wrong number of arguments: %d, was expecting %d", argc, 0);
 	return JS_FALSE;
 }
-JSBool js_cocos2dx_CCLabelTTF_node(JSContext *cx, uint32_t argc, jsval *vp)
-{
-	cocos2d::CCLabelTTF* ret = cocos2d::CCLabelTTF::node();
-	jsval jsret;
-	do {
-		if (ret) {
-			js_proxy_t *proxy = js_get_or_create_proxy<cocos2d::CCLabelTTF>(cx, ret);
-			jsret = OBJECT_TO_JSVAL(proxy->obj);
-		} else {
-			jsret = JSVAL_NULL;
-		}
-	} while (0);
-	JS_SET_RVAL(cx, vp, jsret);
-	return JS_TRUE;
-}
-
 JSBool js_cocos2dx_CCLabelTTF_create(JSContext *cx, uint32_t argc, jsval *vp)
 {
 	jsval *argv = JS_ARGV(cx, vp);
@@ -24610,7 +24936,6 @@ void js_register_cocos2dx_CCLabelTTF(JSContext *cx, JSObject *global) {
 	};
 
 	static JSFunctionSpec st_funcs[] = {
-		JS_FN("node", js_cocos2dx_CCLabelTTF_node, 0, JSPROP_PERMANENT | JSPROP_ENUMERATE),
 		JS_FN("create", js_cocos2dx_CCLabelTTF_create, 0, JSPROP_PERMANENT | JSPROP_ENUMERATE),
 		JS_FS_END
 	};
@@ -25531,23 +25856,6 @@ JSBool js_cocos2dx_CCDirector_pushScene(JSContext *cx, uint32_t argc, jsval *vp)
 	JS_ReportError(cx, "wrong number of arguments: %d, was expecting %d", argc, 1);
 	return JS_FALSE;
 }
-JSBool js_cocos2dx_CCDirector_getClassTypeInfo(JSContext *cx, uint32_t argc, jsval *vp)
-{
-	JSObject *obj = JS_THIS_OBJECT(cx, vp);
-	js_proxy_t *proxy; JS_GET_NATIVE_PROXY(proxy, obj);
-	cocos2d::CCDirector* cobj = (cocos2d::CCDirector *)(proxy ? proxy->ptr : NULL);
-	JSB_PRECONDITION2( cobj, cx, JS_FALSE, "Invalid Native Object");
-
-	if (argc == 0) {
-		long ret = cobj->getClassTypeInfo();
-		jsval jsret;
-		#pragma warning NO CONVERSION FROM NATIVE FOR long;
-		JS_SET_RVAL(cx, vp, jsret);
-		return JS_TRUE;
-	}
-	JS_ReportError(cx, "wrong number of arguments: %d, was expecting %d", argc, 0);
-	return JS_FALSE;
-}
 JSBool js_cocos2dx_CCDirector_getAnimationInterval(JSContext *cx, uint32_t argc, jsval *vp)
 {
 	JSObject *obj = JS_THIS_OBJECT(cx, vp);
@@ -25756,7 +26064,6 @@ void js_register_cocos2dx_CCDirector(JSContext *cx, JSObject *global) {
 		JS_FN("getVisibleSize", js_cocos2dx_CCDirector_getVisibleSize, 0, JSPROP_PERMANENT | JSPROP_ENUMERATE),
 		JS_FN("getScheduler", js_cocos2dx_CCDirector_getScheduler, 0, JSPROP_PERMANENT | JSPROP_ENUMERATE),
 		JS_FN("pushScene", js_cocos2dx_CCDirector_pushScene, 1, JSPROP_PERMANENT | JSPROP_ENUMERATE),
-		JS_FN("getClassTypeInfo", js_cocos2dx_CCDirector_getClassTypeInfo, 0, JSPROP_PERMANENT | JSPROP_ENUMERATE),
 		JS_FN("getAnimationInterval", js_cocos2dx_CCDirector_getAnimationInterval, 0, JSPROP_PERMANENT | JSPROP_ENUMERATE),
 		JS_FN("isPaused", js_cocos2dx_CCDirector_isPaused, 0, JSPROP_PERMANENT | JSPROP_ENUMERATE),
 		JS_FN("setDisplayStats", js_cocos2dx_CCDirector_setDisplayStats, 1, JSPROP_PERMANENT | JSPROP_ENUMERATE),
@@ -29616,22 +29923,6 @@ JSBool js_cocos2dx_CCLayerColor_changeHeight(JSContext *cx, uint32_t argc, jsval
 	JS_ReportError(cx, "wrong number of arguments: %d, was expecting %d", argc, 1);
 	return JS_FALSE;
 }
-JSBool js_cocos2dx_CCLayerColor_node(JSContext *cx, uint32_t argc, jsval *vp)
-{
-	cocos2d::CCLayerColor* ret = cocos2d::CCLayerColor::node();
-	jsval jsret;
-	do {
-		if (ret) {
-			js_proxy_t *proxy = js_get_or_create_proxy<cocos2d::CCLayerColor>(cx, ret);
-			jsret = OBJECT_TO_JSVAL(proxy->obj);
-		} else {
-			jsret = JSVAL_NULL;
-		}
-	} while (0);
-	JS_SET_RVAL(cx, vp, jsret);
-	return JS_TRUE;
-}
-
 JSBool js_cocos2dx_CCLayerColor_create(JSContext *cx, uint32_t argc, jsval *vp)
 {
 	jsval *argv = JS_ARGV(cx, vp);
@@ -29757,7 +30048,6 @@ void js_register_cocos2dx_CCLayerColor(JSContext *cx, JSObject *global) {
 	};
 
 	static JSFunctionSpec st_funcs[] = {
-		JS_FN("node", js_cocos2dx_CCLayerColor_node, 0, JSPROP_PERMANENT | JSPROP_ENUMERATE),
 		JS_FN("create", js_cocos2dx_CCLayerColor_create, 0, JSPROP_PERMANENT | JSPROP_ENUMERATE),
 		JS_FS_END
 	};
@@ -30062,22 +30352,6 @@ JSBool js_cocos2dx_CCLayerGradient_setStartColor(JSContext *cx, uint32_t argc, j
 	JS_ReportError(cx, "wrong number of arguments: %d, was expecting %d", argc, 1);
 	return JS_FALSE;
 }
-JSBool js_cocos2dx_CCLayerGradient_node(JSContext *cx, uint32_t argc, jsval *vp)
-{
-	cocos2d::CCLayerGradient* ret = cocos2d::CCLayerGradient::node();
-	jsval jsret;
-	do {
-		if (ret) {
-			js_proxy_t *proxy = js_get_or_create_proxy<cocos2d::CCLayerGradient>(cx, ret);
-			jsret = OBJECT_TO_JSVAL(proxy->obj);
-		} else {
-			jsret = JSVAL_NULL;
-		}
-	} while (0);
-	JS_SET_RVAL(cx, vp, jsret);
-	return JS_TRUE;
-}
-
 JSBool js_cocos2dx_CCLayerGradient_create(JSContext *cx, uint32_t argc, jsval *vp)
 {
 	jsval *argv = JS_ARGV(cx, vp);
@@ -30180,7 +30454,6 @@ void js_register_cocos2dx_CCLayerGradient(JSContext *cx, JSObject *global) {
 	};
 
 	static JSFunctionSpec st_funcs[] = {
-		JS_FN("node", js_cocos2dx_CCLayerGradient_node, 0, JSPROP_PERMANENT | JSPROP_ENUMERATE),
 		JS_FN("create", js_cocos2dx_CCLayerGradient_create, 0, JSPROP_PERMANENT | JSPROP_ENUMERATE),
 		JS_FS_END
 	};
@@ -36175,7 +36448,7 @@ void js_register_cocos2dx_CCMenuItem(JSContext *cx, JSObject *global) {
 
 	js_cocos2dx_CCMenuItem_prototype = JS_InitClass(
 		cx, global,
-		NULL, // parent proto
+		js_cocos2dx_CCNodeRGBA_prototype,
 		js_cocos2dx_CCMenuItem_class,
 		js_cocos2dx_CCMenuItem_constructor, 0, // constructor
 		properties,
@@ -36196,7 +36469,7 @@ void js_register_cocos2dx_CCMenuItem(JSContext *cx, JSObject *global) {
 		p->type = typeId;
 		p->jsclass = js_cocos2dx_CCMenuItem_class;
 		p->proto = js_cocos2dx_CCMenuItem_prototype;
-		p->parentProto = NULL;
+		p->parentProto = js_cocos2dx_CCNodeRGBA_prototype;
 		HASH_ADD_INT(_js_global_type_ht, type, p);
 	}
 }
@@ -38503,7 +38776,7 @@ void js_register_cocos2dx_CCProgressTimer(JSContext *cx, JSObject *global) {
 
 	js_cocos2dx_CCProgressTimer_prototype = JS_InitClass(
 		cx, global,
-		NULL, // parent proto
+		js_cocos2dx_CCNodeRGBA_prototype,
 		js_cocos2dx_CCProgressTimer_class,
 		js_cocos2dx_CCProgressTimer_constructor, 0, // constructor
 		properties,
@@ -38524,7 +38797,7 @@ void js_register_cocos2dx_CCProgressTimer(JSContext *cx, JSObject *global) {
 		p->type = typeId;
 		p->jsclass = js_cocos2dx_CCProgressTimer_class;
 		p->proto = js_cocos2dx_CCProgressTimer_prototype;
-		p->parentProto = NULL;
+		p->parentProto = js_cocos2dx_CCNodeRGBA_prototype;
 		HASH_ADD_INT(_js_global_type_ht, type, p);
 	}
 }
@@ -44394,23 +44667,6 @@ JSBool js_cocos2dx_CCFileUtils_getFileDataFromZip(JSContext *cx, uint32_t argc, 
 	JS_ReportError(cx, "wrong number of arguments: %d, was expecting %d", argc, 3);
 	return JS_FALSE;
 }
-JSBool js_cocos2dx_CCFileUtils_getClassTypeInfo(JSContext *cx, uint32_t argc, jsval *vp)
-{
-	JSObject *obj = JS_THIS_OBJECT(cx, vp);
-	js_proxy_t *proxy; JS_GET_NATIVE_PROXY(proxy, obj);
-	cocos2d::CCFileUtils* cobj = (cocos2d::CCFileUtils *)(proxy ? proxy->ptr : NULL);
-	JSB_PRECONDITION2( cobj, cx, JS_FALSE, "Invalid Native Object");
-
-	if (argc == 0) {
-		long ret = cobj->getClassTypeInfo();
-		jsval jsret;
-		#pragma warning NO CONVERSION FROM NATIVE FOR long;
-		JS_SET_RVAL(cx, vp, jsret);
-		return JS_TRUE;
-	}
-	JS_ReportError(cx, "wrong number of arguments: %d, was expecting %d", argc, 0);
-	return JS_FALSE;
-}
 JSBool js_cocos2dx_CCFileUtils_fullPathForFilename(JSContext *cx, uint32_t argc, jsval *vp)
 {
 	jsval *argv = JS_ARGV(cx, vp);
@@ -44586,7 +44842,6 @@ void js_register_cocos2dx_CCFileUtils(JSContext *cx, JSObject *global) {
 		JS_FN("setFilenameLookupDictionary", js_cocos2dx_CCFileUtils_setFilenameLookupDictionary, 1, JSPROP_PERMANENT | JSPROP_ENUMERATE),
 		JS_FN("addSearchResolutionsOrder", js_cocos2dx_CCFileUtils_addSearchResolutionsOrder, 1, JSPROP_PERMANENT | JSPROP_ENUMERATE),
 		JS_FN("getFileDataFromZip", js_cocos2dx_CCFileUtils_getFileDataFromZip, 3, JSPROP_PERMANENT | JSPROP_ENUMERATE),
-		JS_FN("getClassTypeInfo", js_cocos2dx_CCFileUtils_getClassTypeInfo, 0, JSPROP_PERMANENT | JSPROP_ENUMERATE),
 		JS_FN("fullPathForFilename", js_cocos2dx_CCFileUtils_fullPathForFilename, 1, JSPROP_PERMANENT | JSPROP_ENUMERATE),
 		JS_FN("isAbsolutePath", js_cocos2dx_CCFileUtils_isAbsolutePath, 1, JSPROP_PERMANENT | JSPROP_ENUMERATE),
 		JS_FN("getWritablePath", js_cocos2dx_CCFileUtils_getWritablePath, 0, JSPROP_PERMANENT | JSPROP_ENUMERATE),
@@ -49595,23 +49850,6 @@ JSBool js_cocos2dx_SimpleAudioEngine_pauseEffect(JSContext *cx, uint32_t argc, j
 	JS_ReportError(cx, "wrong number of arguments: %d, was expecting %d", argc, 1);
 	return JS_FALSE;
 }
-JSBool js_cocos2dx_SimpleAudioEngine_getClassTypeInfo(JSContext *cx, uint32_t argc, jsval *vp)
-{
-	JSObject *obj = JS_THIS_OBJECT(cx, vp);
-	js_proxy_t *proxy; JS_GET_NATIVE_PROXY(proxy, obj);
-	CocosDenshion::SimpleAudioEngine* cobj = (CocosDenshion::SimpleAudioEngine *)(proxy ? proxy->ptr : NULL);
-	JSB_PRECONDITION2( cobj, cx, JS_FALSE, "Invalid Native Object");
-
-	if (argc == 0) {
-		long ret = cobj->getClassTypeInfo();
-		jsval jsret;
-		#pragma warning NO CONVERSION FROM NATIVE FOR long;
-		JS_SET_RVAL(cx, vp, jsret);
-		return JS_TRUE;
-	}
-	JS_ReportError(cx, "wrong number of arguments: %d, was expecting %d", argc, 0);
-	return JS_FALSE;
-}
 JSBool js_cocos2dx_SimpleAudioEngine_resumeAllEffects(JSContext *cx, uint32_t argc, jsval *vp)
 {
 	JSObject *obj = JS_THIS_OBJECT(cx, vp);
@@ -49724,7 +49962,6 @@ void js_register_cocos2dx_SimpleAudioEngine(JSContext *cx, JSObject *global) {
 		JS_FN("preloadEffect", js_cocos2dx_SimpleAudioEngine_preloadEffect, 1, JSPROP_PERMANENT | JSPROP_ENUMERATE),
 		JS_FN("setEffectsVolume", js_cocos2dx_SimpleAudioEngine_setEffectsVolume, 1, JSPROP_PERMANENT | JSPROP_ENUMERATE),
 		JS_FN("pauseEffect", js_cocos2dx_SimpleAudioEngine_pauseEffect, 1, JSPROP_PERMANENT | JSPROP_ENUMERATE),
-		JS_FN("getClassTypeInfo", js_cocos2dx_SimpleAudioEngine_getClassTypeInfo, 0, JSPROP_PERMANENT | JSPROP_ENUMERATE),
 		JS_FN("resumeAllEffects", js_cocos2dx_SimpleAudioEngine_resumeAllEffects, 0, JSPROP_PERMANENT | JSPROP_ENUMERATE),
 		JS_FN("pauseMusic", js_cocos2dx_SimpleAudioEngine_pauseBackgroundMusic, 0, JSPROP_PERMANENT | JSPROP_ENUMERATE),
 		JS_FN("resumeEffect", js_cocos2dx_SimpleAudioEngine_resumeEffect, 1, JSPROP_PERMANENT | JSPROP_ENUMERATE),
@@ -51025,7 +51262,7 @@ void js_register_cocos2dx_CCScale9Sprite(JSContext *cx, JSObject *global) {
 
 	js_cocos2dx_CCScale9Sprite_prototype = JS_InitClass(
 		cx, global,
-		NULL, // parent proto
+		js_cocos2dx_CCNodeRGBA_prototype,
 		js_cocos2dx_CCScale9Sprite_class,
 		js_cocos2dx_CCScale9Sprite_constructor, 0, // constructor
 		properties,
@@ -51046,7 +51283,7 @@ void js_register_cocos2dx_CCScale9Sprite(JSContext *cx, JSObject *global) {
 		p->type = typeId;
 		p->jsclass = js_cocos2dx_CCScale9Sprite_class;
 		p->proto = js_cocos2dx_CCScale9Sprite_prototype;
-		p->parentProto = NULL;
+		p->parentProto = js_cocos2dx_CCNodeRGBA_prototype;
 		HASH_ADD_INT(_js_global_type_ht, type, p);
 	}
 }
@@ -55080,6 +55317,7 @@ void register_all_cocos2dx(JSContext* cx, JSObject* obj) {
 	js_register_cocos2dx_CCParticleSystem(cx, obj);
 	js_register_cocos2dx_CCParticleSystemQuad(cx, obj);
 	js_register_cocos2dx_CCParticleMeteor(cx, obj);
+	js_register_cocos2dx_CCNodeRGBA(cx, obj);
 	js_register_cocos2dx_CCMenuItem(cx, obj);
 	js_register_cocos2dx_CCMenuItemLabel(cx, obj);
 	js_register_cocos2dx_CCMenuItemAtlasFont(cx, obj);
@@ -55258,13 +55496,13 @@ void register_all_cocos2dx(JSContext* cx, JSObject* obj) {
 	js_register_cocos2dx_CCEaseExponentialOut(cx, obj);
 	js_register_cocos2dx_CCTwirl(cx, obj);
 	js_register_cocos2dx_CCEaseElasticInOut(cx, obj);
-	js_register_cocos2dx_CCAnimationFrame(cx, obj);
 	js_register_cocos2dx_CCBezierTo(cx, obj);
 	js_register_cocos2dx_CCParticleSmoke(cx, obj);
 	js_register_cocos2dx_CCLens3D(cx, obj);
 	js_register_cocos2dx_CCWaves3D(cx, obj);
 	js_register_cocos2dx_CCJumpTo(cx, obj);
 	js_register_cocos2dx_CCEaseBackOut(cx, obj);
+	js_register_cocos2dx_CCAnimationFrame(cx, obj);
 	js_register_cocos2dx_CCLayerGradient(cx, obj);
 	js_register_cocos2dx_CCWavesTiles3D(cx, obj);
 	js_register_cocos2dx_CCTurnOffTiles(cx, obj);

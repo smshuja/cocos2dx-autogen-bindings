@@ -239,6 +239,28 @@ JSBool js_cocos2dx_CCNode_getActionManager(JSContext *cx, uint32_t argc, jsval *
 JSBool js_cocos2dx_CCNode_create(JSContext *cx, uint32_t argc, jsval *vp);
 JSBool js_cocos2dx_CCNode_CCNode(JSContext *cx, uint32_t argc, jsval *vp);
 
+extern JSClass  *js_cocos2dx_CCNodeRGBA_class;
+extern JSObject *js_cocos2dx_CCNodeRGBA_prototype;
+
+JSBool js_cocos2dx_CCNodeRGBA_constructor(JSContext *cx, uint32_t argc, jsval *vp);
+void js_cocos2dx_CCNodeRGBA_finalize(JSContext *cx, JSObject *obj);
+void js_register_cocos2dx_CCNodeRGBA(JSContext *cx, JSObject *global);
+void register_all_cocos2dx(JSContext* cx, JSObject* obj);
+JSBool js_cocos2dx_CCNodeRGBA_updateDisplayedColor(JSContext *cx, uint32_t argc, jsval *vp);
+JSBool js_cocos2dx_CCNodeRGBA_setColor(JSContext *cx, uint32_t argc, jsval *vp);
+JSBool js_cocos2dx_CCNodeRGBA_isCascadeOpacityEnabled(JSContext *cx, uint32_t argc, jsval *vp);
+JSBool js_cocos2dx_CCNodeRGBA_getColor(JSContext *cx, uint32_t argc, jsval *vp);
+JSBool js_cocos2dx_CCNodeRGBA_getDisplayedOpacity(JSContext *cx, uint32_t argc, jsval *vp);
+JSBool js_cocos2dx_CCNodeRGBA_setCascadeColorEnabled(JSContext *cx, uint32_t argc, jsval *vp);
+JSBool js_cocos2dx_CCNodeRGBA_setOpacity(JSContext *cx, uint32_t argc, jsval *vp);
+JSBool js_cocos2dx_CCNodeRGBA_setCascadeOpacityEnabled(JSContext *cx, uint32_t argc, jsval *vp);
+JSBool js_cocos2dx_CCNodeRGBA_updateDisplayedOpacity(JSContext *cx, uint32_t argc, jsval *vp);
+JSBool js_cocos2dx_CCNodeRGBA_init(JSContext *cx, uint32_t argc, jsval *vp);
+JSBool js_cocos2dx_CCNodeRGBA_getOpacity(JSContext *cx, uint32_t argc, jsval *vp);
+JSBool js_cocos2dx_CCNodeRGBA_isCascadeColorEnabled(JSContext *cx, uint32_t argc, jsval *vp);
+JSBool js_cocos2dx_CCNodeRGBA_getDisplayedColor(JSContext *cx, uint32_t argc, jsval *vp);
+JSBool js_cocos2dx_CCNodeRGBA_CCNodeRGBA(JSContext *cx, uint32_t argc, jsval *vp);
+
 extern JSClass  *js_cocos2dx_CCSpriteFrame_class;
 extern JSObject *js_cocos2dx_CCSpriteFrame_prototype;
 
@@ -1591,7 +1613,6 @@ JSBool js_cocos2dx_CCLabelTTF_setHorizontalAlignment(JSContext *cx, uint32_t arg
 JSBool js_cocos2dx_CCLabelTTF_init(JSContext *cx, uint32_t argc, jsval *vp);
 JSBool js_cocos2dx_CCLabelTTF_getVerticalAlignment(JSContext *cx, uint32_t argc, jsval *vp);
 JSBool js_cocos2dx_CCLabelTTF_getHorizontalAlignment(JSContext *cx, uint32_t argc, jsval *vp);
-JSBool js_cocos2dx_CCLabelTTF_node(JSContext *cx, uint32_t argc, jsval *vp);
 JSBool js_cocos2dx_CCLabelTTF_create(JSContext *cx, uint32_t argc, jsval *vp);
 JSBool js_cocos2dx_CCLabelTTF_CCLabelTTF(JSContext *cx, uint32_t argc, jsval *vp);
 
@@ -1647,7 +1668,6 @@ JSBool js_cocos2dx_CCDirector_setNextDeltaTimeZero(JSContext *cx, uint32_t argc,
 JSBool js_cocos2dx_CCDirector_getVisibleSize(JSContext *cx, uint32_t argc, jsval *vp);
 JSBool js_cocos2dx_CCDirector_getScheduler(JSContext *cx, uint32_t argc, jsval *vp);
 JSBool js_cocos2dx_CCDirector_pushScene(JSContext *cx, uint32_t argc, jsval *vp);
-JSBool js_cocos2dx_CCDirector_getClassTypeInfo(JSContext *cx, uint32_t argc, jsval *vp);
 JSBool js_cocos2dx_CCDirector_getAnimationInterval(JSContext *cx, uint32_t argc, jsval *vp);
 JSBool js_cocos2dx_CCDirector_isPaused(JSContext *cx, uint32_t argc, jsval *vp);
 JSBool js_cocos2dx_CCDirector_setDisplayStats(JSContext *cx, uint32_t argc, jsval *vp);
@@ -1857,7 +1877,6 @@ JSBool js_cocos2dx_CCLayerColor_changeWidth(JSContext *cx, uint32_t argc, jsval 
 JSBool js_cocos2dx_CCLayerColor_setOpacity(JSContext *cx, uint32_t argc, jsval *vp);
 JSBool js_cocos2dx_CCLayerColor_setContentSize(JSContext *cx, uint32_t argc, jsval *vp);
 JSBool js_cocos2dx_CCLayerColor_changeHeight(JSContext *cx, uint32_t argc, jsval *vp);
-JSBool js_cocos2dx_CCLayerColor_node(JSContext *cx, uint32_t argc, jsval *vp);
 JSBool js_cocos2dx_CCLayerColor_create(JSContext *cx, uint32_t argc, jsval *vp);
 JSBool js_cocos2dx_CCLayerColor_CCLayerColor(JSContext *cx, uint32_t argc, jsval *vp);
 
@@ -1881,7 +1900,6 @@ JSBool js_cocos2dx_CCLayerGradient_setEndColor(JSContext *cx, uint32_t argc, jsv
 JSBool js_cocos2dx_CCLayerGradient_getEndColor(JSContext *cx, uint32_t argc, jsval *vp);
 JSBool js_cocos2dx_CCLayerGradient_getEndOpacity(JSContext *cx, uint32_t argc, jsval *vp);
 JSBool js_cocos2dx_CCLayerGradient_setStartColor(JSContext *cx, uint32_t argc, jsval *vp);
-JSBool js_cocos2dx_CCLayerGradient_node(JSContext *cx, uint32_t argc, jsval *vp);
 JSBool js_cocos2dx_CCLayerGradient_create(JSContext *cx, uint32_t argc, jsval *vp);
 
 extern JSClass  *js_cocos2dx_CCLayerMultiplex_class;
@@ -2818,7 +2836,6 @@ JSBool js_cocos2dx_CCFileUtils_getFileData(JSContext *cx, uint32_t argc, jsval *
 JSBool js_cocos2dx_CCFileUtils_setFilenameLookupDictionary(JSContext *cx, uint32_t argc, jsval *vp);
 JSBool js_cocos2dx_CCFileUtils_addSearchResolutionsOrder(JSContext *cx, uint32_t argc, jsval *vp);
 JSBool js_cocos2dx_CCFileUtils_getFileDataFromZip(JSContext *cx, uint32_t argc, jsval *vp);
-JSBool js_cocos2dx_CCFileUtils_getClassTypeInfo(JSContext *cx, uint32_t argc, jsval *vp);
 JSBool js_cocos2dx_CCFileUtils_fullPathForFilename(JSContext *cx, uint32_t argc, jsval *vp);
 JSBool js_cocos2dx_CCFileUtils_isAbsolutePath(JSContext *cx, uint32_t argc, jsval *vp);
 JSBool js_cocos2dx_CCFileUtils_getWritablePath(JSContext *cx, uint32_t argc, jsval *vp);
@@ -3123,7 +3140,6 @@ JSBool js_cocos2dx_SimpleAudioEngine_unloadEffect(JSContext *cx, uint32_t argc, 
 JSBool js_cocos2dx_SimpleAudioEngine_preloadEffect(JSContext *cx, uint32_t argc, jsval *vp);
 JSBool js_cocos2dx_SimpleAudioEngine_setEffectsVolume(JSContext *cx, uint32_t argc, jsval *vp);
 JSBool js_cocos2dx_SimpleAudioEngine_pauseEffect(JSContext *cx, uint32_t argc, jsval *vp);
-JSBool js_cocos2dx_SimpleAudioEngine_getClassTypeInfo(JSContext *cx, uint32_t argc, jsval *vp);
 JSBool js_cocos2dx_SimpleAudioEngine_resumeAllEffects(JSContext *cx, uint32_t argc, jsval *vp);
 JSBool js_cocos2dx_SimpleAudioEngine_pauseBackgroundMusic(JSContext *cx, uint32_t argc, jsval *vp);
 JSBool js_cocos2dx_SimpleAudioEngine_resumeEffect(JSContext *cx, uint32_t argc, jsval *vp);
