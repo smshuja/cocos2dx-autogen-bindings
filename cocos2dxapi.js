@@ -371,6 +371,168 @@ containsObject : function () {},
 };
 
 /**
+ * @class CCTexture2D
+ */
+cc.CCTexture2D = {
+
+/**
+ * @method getShaderProgram
+ * @return A value converted from C/C++ "cocos2d::CCGLProgram*"
+ */
+getShaderProgram : function () {},
+
+/**
+ * @method getMaxT
+ * @return A value converted from C/C++ "float"
+ */
+getMaxT : function () {},
+
+/**
+ * @method stringForFormat
+ * @return A value converted from C/C++ "const char*"
+ */
+stringForFormat : function () {},
+
+/**
+ * @method initWithImage
+ * @return A value converted from C/C++ "bool"
+ * @param {cocos2d::CCImage*}
+ */
+initWithImage : function () {},
+
+/**
+ * @method setShaderProgram
+ * @param {cocos2d::CCGLProgram*}
+ */
+setShaderProgram : function () {},
+
+/**
+ * @method getMaxS
+ * @return A value converted from C/C++ "float"
+ */
+getMaxS : function () {},
+
+/**
+ * @method hasPremultipliedAlpha
+ * @return A value converted from C/C++ "bool"
+ */
+hasPremultipliedAlpha : function () {},
+
+/**
+ * @method getPixelsHigh
+ * @return A value converted from C/C++ "unsigned int"
+ */
+getPixelsHigh : function () {},
+
+/**
+ * @method getName
+ * @return A value converted from C/C++ "unsigned int"
+ */
+getName : function () {},
+
+/**
+ * @method setMaxT
+ * @param {float}
+ */
+setMaxT : function () {},
+
+/**
+ * @method drawInRect
+ * @param {cocos2d::CCRect}
+ */
+drawInRect : function () {},
+
+/**
+ * @method getContentSize
+ * @return A value converted from C/C++ "cocos2d::CCSize"
+ */
+getContentSize : function () {},
+
+/**
+ * @method setAliasTexParameters
+ */
+setAliasTexParameters : function () {},
+
+/**
+ * @method setAntiAliasTexParameters
+ */
+setAntiAliasTexParameters : function () {},
+
+/**
+ * @method generateMipmap
+ */
+generateMipmap : function () {},
+
+/**
+ * @method getPixelFormat
+ * @return A value converted from C/C++ "cocos2d::CCTexture2DPixelFormat"
+ */
+getPixelFormat : function () {},
+
+/**
+ * @method getContentSizeInPixels
+ * @return A value converted from C/C++ "cocos2d::CCSize"
+ */
+getContentSizeInPixels : function () {},
+
+/**
+ * @method getPixelsWide
+ * @return A value converted from C/C++ "unsigned int"
+ */
+getPixelsWide : function () {},
+
+/**
+ * @method drawAtPoint
+ * @param {cocos2d::CCPoint}
+ */
+drawAtPoint : function () {},
+
+/**
+ * @method hasMipmaps
+ * @return A value converted from C/C++ "bool"
+ */
+hasMipmaps : function () {},
+
+/**
+ * @method initWithPVRFile
+ * @return A value converted from C/C++ "bool"
+ * @param {const char*}
+ */
+initWithPVRFile : function () {},
+
+/**
+ * @method setMaxS
+ * @param {float}
+ */
+setMaxS : function () {},
+
+/**
+ * @method setDefaultAlphaPixelFormat
+ * @param {cocos2d::CCTexture2DPixelFormat}
+ */
+setDefaultAlphaPixelFormat : function () {},
+
+/**
+ * @method defaultAlphaPixelFormat
+ * @return A value converted from C/C++ "cocos2d::CCTexture2DPixelFormat"
+ */
+defaultAlphaPixelFormat : function () {},
+
+/**
+ * @method PVRImagesHavePremultipliedAlpha
+ * @param {bool}
+ */
+PVRImagesHavePremultipliedAlpha : function () {},
+
+/**
+ * @method CCTexture2D
+ * @constructor
+ */
+CCTexture2D : function () {},
+
+};
+
+/**
  * @class CCNode
  */
 cc.CCNode = {
@@ -393,6 +555,12 @@ convertToWorldSpaceAR : function () {},
  * @return A value converted from C/C++ "bool"
  */
 isIgnoreAnchorPointForPosition : function () {},
+
+/**
+ * @method init
+ * @return A value converted from C/C++ "bool"
+ */
+init : function () {},
 
 /**
  * @method setRotation
@@ -865,168 +1033,6 @@ create : function () {},
  * @constructor
  */
 CCNode : function () {},
-
-};
-
-/**
- * @class CCTexture2D
- */
-cc.CCTexture2D = {
-
-/**
- * @method getShaderProgram
- * @return A value converted from C/C++ "cocos2d::CCGLProgram*"
- */
-getShaderProgram : function () {},
-
-/**
- * @method getMaxT
- * @return A value converted from C/C++ "float"
- */
-getMaxT : function () {},
-
-/**
- * @method stringForFormat
- * @return A value converted from C/C++ "const char*"
- */
-stringForFormat : function () {},
-
-/**
- * @method initWithImage
- * @return A value converted from C/C++ "bool"
- * @param {cocos2d::CCImage*}
- */
-initWithImage : function () {},
-
-/**
- * @method setShaderProgram
- * @param {cocos2d::CCGLProgram*}
- */
-setShaderProgram : function () {},
-
-/**
- * @method getMaxS
- * @return A value converted from C/C++ "float"
- */
-getMaxS : function () {},
-
-/**
- * @method hasPremultipliedAlpha
- * @return A value converted from C/C++ "bool"
- */
-hasPremultipliedAlpha : function () {},
-
-/**
- * @method getPixelsHigh
- * @return A value converted from C/C++ "unsigned int"
- */
-getPixelsHigh : function () {},
-
-/**
- * @method getName
- * @return A value converted from C/C++ "unsigned int"
- */
-getName : function () {},
-
-/**
- * @method setMaxT
- * @param {float}
- */
-setMaxT : function () {},
-
-/**
- * @method drawInRect
- * @param {cocos2d::CCRect}
- */
-drawInRect : function () {},
-
-/**
- * @method getContentSize
- * @return A value converted from C/C++ "cocos2d::CCSize"
- */
-getContentSize : function () {},
-
-/**
- * @method setAliasTexParameters
- */
-setAliasTexParameters : function () {},
-
-/**
- * @method setAntiAliasTexParameters
- */
-setAntiAliasTexParameters : function () {},
-
-/**
- * @method generateMipmap
- */
-generateMipmap : function () {},
-
-/**
- * @method getPixelFormat
- * @return A value converted from C/C++ "cocos2d::CCTexture2DPixelFormat"
- */
-getPixelFormat : function () {},
-
-/**
- * @method getContentSizeInPixels
- * @return A value converted from C/C++ "cocos2d::CCSize"
- */
-getContentSizeInPixels : function () {},
-
-/**
- * @method getPixelsWide
- * @return A value converted from C/C++ "unsigned int"
- */
-getPixelsWide : function () {},
-
-/**
- * @method drawAtPoint
- * @param {cocos2d::CCPoint}
- */
-drawAtPoint : function () {},
-
-/**
- * @method hasMipmaps
- * @return A value converted from C/C++ "bool"
- */
-hasMipmaps : function () {},
-
-/**
- * @method initWithPVRFile
- * @return A value converted from C/C++ "bool"
- * @param {const char*}
- */
-initWithPVRFile : function () {},
-
-/**
- * @method setMaxS
- * @param {float}
- */
-setMaxS : function () {},
-
-/**
- * @method setDefaultAlphaPixelFormat
- * @param {cocos2d::CCTexture2DPixelFormat}
- */
-setDefaultAlphaPixelFormat : function () {},
-
-/**
- * @method defaultAlphaPixelFormat
- * @return A value converted from C/C++ "cocos2d::CCTexture2DPixelFormat"
- */
-defaultAlphaPixelFormat : function () {},
-
-/**
- * @method PVRImagesHavePremultipliedAlpha
- * @param {bool}
- */
-PVRImagesHavePremultipliedAlpha : function () {},
-
-/**
- * @method CCTexture2D
- * @constructor
- */
-CCTexture2D : function () {},
 
 };
 
@@ -4668,6 +4674,16 @@ setTexture : function () {},
 draw : function () {},
 
 /**
+ * @method initWithTileFile
+ * @return A value converted from C/C++ "bool"
+ * @param {const char*}
+ * @param {unsigned int}
+ * @param {unsigned int}
+ * @param {unsigned int}
+ */
+initWithTileFile : function () {},
+
+/**
  * @method setColor
  * @param {cocos2d::ccColor3B}
  */
@@ -4680,16 +4696,16 @@ setColor : function () {},
 setOpacity : function () {},
 
 /**
- * @method getTexture
- * @return A value converted from C/C++ "cocos2d::CCTexture2D*"
- */
-getTexture : function () {},
-
-/**
  * @method setTextureAtlas
  * @param {cocos2d::CCTextureAtlas*}
  */
 setTextureAtlas : function () {},
+
+/**
+ * @method getTexture
+ * @return A value converted from C/C++ "cocos2d::CCTexture2D*"
+ */
+getTexture : function () {},
 
 /**
  * @method getTextureAtlas
@@ -4709,26 +4725,20 @@ getQuadsToDraw : function () {},
 updateAtlasValues : function () {},
 
 /**
- * @method initWithTileFile
- * @return A value converted from C/C++ "bool"
- * @param {const char*}
- * @param {unsigned int}
- * @param {unsigned int}
- * @param {unsigned int}
- */
-initWithTileFile : function () {},
-
-/**
  * @method getColor
  * @return A value converted from C/C++ "cocos2d::ccColor3B"
  */
 getColor : function () {},
 
 /**
- * @method getOpacity
- * @return A value converted from C/C++ "unsigned char"
+ * @method initWithTexture
+ * @return A value converted from C/C++ "bool"
+ * @param {cocos2d::CCTexture2D*}
+ * @param {unsigned int}
+ * @param {unsigned int}
+ * @param {unsigned int}
  */
-getOpacity : function () {},
+initWithTexture : function () {},
 
 /**
  * @method setQuadsToDraw
@@ -4941,6 +4951,12 @@ setScaleY : function () {},
 setScale : function () {},
 
 /**
+ * @method setOpacity
+ * @param {unsigned char}
+ */
+setOpacity : function () {},
+
+/**
  * @method setDisplayFrameWithAnimationName
  * @param {const char*}
  * @param {int}
@@ -4972,10 +4988,10 @@ getBatchNode : function () {},
 isTextureRectRotated : function () {},
 
 /**
- * @method setOpacity
- * @param {unsigned char}
+ * @method init
+ * @return A value converted from C/C++ "bool"
  */
-setOpacity : function () {},
+init : function () {},
 
 /**
  * @method setVertexZ
@@ -4988,6 +5004,12 @@ setVertexZ : function () {},
  * @return A value converted from C/C++ "cocos2d::CCRect"
  */
 getTextureRect : function () {},
+
+/**
+ * @method updateDisplayedOpacity
+ * @param {unsigned char}
+ */
+updateDisplayedOpacity : function () {},
 
 /**
  * @method initWithSpriteFrameName
@@ -5010,16 +5032,10 @@ isFrameDisplayed : function () {},
 getAtlasIndex : function () {},
 
 /**
- * @method setTextureAtlas
- * @param {cocos2d::CCTextureAtlas*}
+ * @method setRotation
+ * @param {float}
  */
-setTextureAtlas : function () {},
-
-/**
- * @method getOpacity
- * @return A value converted from C/C++ "unsigned char"
- */
-getOpacity : function () {},
+setRotation : function () {},
 
 /**
  * @method setDisplayFrame
@@ -5052,10 +5068,10 @@ setRotationX : function () {},
 setScaleX : function () {},
 
 /**
- * @method getColor
- * @return A value converted from C/C++ "cocos2d::ccColor3B"
+ * @method setTextureAtlas
+ * @param {cocos2d::CCTextureAtlas*}
  */
-getColor : function () {},
+setTextureAtlas : function () {},
 
 /**
  * @method setFlipY
@@ -5087,10 +5103,10 @@ sortAllChildren : function () {},
 setAtlasIndex : function () {},
 
 /**
- * @method setRotation
- * @param {float}
+ * @method setVertexRect
+ * @param {cocos2d::CCRect}
  */
-setRotation : function () {},
+setVertexRect : function () {},
 
 /**
  * @method setDirty
@@ -5116,12 +5132,6 @@ reorderChild : function () {},
  * @param {bool}
  */
 ignoreAnchorPointForPosition : function () {},
-
-/**
- * @method init
- * @return A value converted from C/C++ "bool"
- */
-init : function () {},
 
 /**
  * @method setColor
@@ -5161,10 +5171,10 @@ updateTransform : function () {},
 isFlipY : function () {},
 
 /**
- * @method setVertexRect
- * @param {cocos2d::CCRect}
+ * @method updateDisplayedColor
+ * @param {cocos2d::ccColor3B}
  */
-setVertexRect : function () {},
+updateDisplayedColor : function () {},
 
 /**
  * @method setSkewX
@@ -5441,6 +5451,11 @@ startAnimation : function () {},
  * @return A value converted from C/C++ "cocos2d::CCScene*"
  */
 getRunningScene : function () {},
+
+/**
+ * @method setViewport
+ */
+setViewport : function () {},
 
 /**
  * @method stopAnimation
@@ -5931,6 +5946,18 @@ getString : function () {},
 setScale : function () {},
 
 /**
+ * @method setOpacity
+ * @param {unsigned char}
+ */
+setOpacity : function () {},
+
+/**
+ * @method setCascadeOpacityEnabled
+ * @param {bool}
+ */
+setCascadeOpacityEnabled : function () {},
+
+/**
  * @method getFntFile
  * @return A value converted from C/C++ "const char*"
  */
@@ -5948,6 +5975,12 @@ updateLabel : function () {},
 setWidth : function () {},
 
 /**
+ * @method isCascadeOpacityEnabled
+ * @return A value converted from C/C++ "bool"
+ */
+isCascadeOpacityEnabled : function () {},
+
+/**
  * @method initWithString
  * @return A value converted from C/C++ "bool"
  * @param {const char*}
@@ -5959,10 +5992,16 @@ setWidth : function () {},
 initWithString : function () {},
 
 /**
- * @method setOpacity
+ * @method setCascadeColorEnabled
+ * @param {bool}
+ */
+setCascadeColorEnabled : function () {},
+
+/**
+ * @method updateDisplayedOpacity
  * @param {unsigned char}
  */
-setOpacity : function () {},
+updateDisplayedOpacity : function () {},
 
 /**
  * @method init
@@ -6007,6 +6046,18 @@ setScaleX : function () {},
 getColor : function () {},
 
 /**
+ * @method getDisplayedOpacity
+ * @return A value converted from C/C++ "unsigned char"
+ */
+getDisplayedOpacity : function () {},
+
+/**
+ * @method isCascadeColorEnabled
+ * @return A value converted from C/C++ "bool"
+ */
+isCascadeColorEnabled : function () {},
+
+/**
  * @method updateString
  * @param {bool}
  */
@@ -6023,6 +6074,18 @@ setColor : function () {},
  * @param {const char*}
  */
 setCString : function () {},
+
+/**
+ * @method getDisplayedColor
+ * @return A value converted from C/C++ "cocos2d::ccColor3B"
+ */
+getDisplayedColor : function () {},
+
+/**
+ * @method updateDisplayedColor
+ * @param {cocos2d::ccColor3B}
+ */
+updateDisplayedColor : function () {},
 
 /**
  * @method setAlignment
@@ -6261,6 +6324,103 @@ CCLayer : function () {},
 };
 
 /**
+ * @class CCLayerRGBA
+ */
+cc.CCLayerRGBA = {
+
+/**
+ * @method updateDisplayedColor
+ * @param {cocos2d::ccColor3B}
+ */
+updateDisplayedColor : function () {},
+
+/**
+ * @method setColor
+ * @param {cocos2d::ccColor3B}
+ */
+setColor : function () {},
+
+/**
+ * @method isCascadeOpacityEnabled
+ * @return A value converted from C/C++ "bool"
+ */
+isCascadeOpacityEnabled : function () {},
+
+/**
+ * @method getColor
+ * @return A value converted from C/C++ "cocos2d::ccColor3B"
+ */
+getColor : function () {},
+
+/**
+ * @method getDisplayedOpacity
+ * @return A value converted from C/C++ "unsigned char"
+ */
+getDisplayedOpacity : function () {},
+
+/**
+ * @method setCascadeColorEnabled
+ * @param {bool}
+ */
+setCascadeColorEnabled : function () {},
+
+/**
+ * @method setOpacity
+ * @param {unsigned char}
+ */
+setOpacity : function () {},
+
+/**
+ * @method setCascadeOpacityEnabled
+ * @param {bool}
+ */
+setCascadeOpacityEnabled : function () {},
+
+/**
+ * @method updateDisplayedOpacity
+ * @param {unsigned char}
+ */
+updateDisplayedOpacity : function () {},
+
+/**
+ * @method init
+ * @return A value converted from C/C++ "bool"
+ */
+init : function () {},
+
+/**
+ * @method getOpacity
+ * @return A value converted from C/C++ "unsigned char"
+ */
+getOpacity : function () {},
+
+/**
+ * @method isCascadeColorEnabled
+ * @return A value converted from C/C++ "bool"
+ */
+isCascadeColorEnabled : function () {},
+
+/**
+ * @method getDisplayedColor
+ * @return A value converted from C/C++ "cocos2d::ccColor3B"
+ */
+getDisplayedColor : function () {},
+
+/**
+ * @method create
+ * @return A value converted from C/C++ "cocos2d::CCLayerRGBA*"
+ */
+create : function () {},
+
+/**
+ * @method CCLayerRGBA
+ * @constructor
+ */
+CCLayerRGBA : function () {},
+
+};
+
+/**
  * @class CCLayerColor
  */
 cc.CCLayerColor = {
@@ -6277,23 +6437,11 @@ draw : function () {},
 setColor : function () {},
 
 /**
- * @method getColor
- * @return A value converted from C/C++ "cocos2d::ccColor3B"
- */
-getColor : function () {},
-
-/**
  * @method changeWidthAndHeight
  * @param {float}
  * @param {float}
  */
 changeWidthAndHeight : function () {},
-
-/**
- * @method setOpacity
- * @param {unsigned char}
- */
-setOpacity : function () {},
 
 /**
  * @method changeWidth
@@ -6302,10 +6450,10 @@ setOpacity : function () {},
 changeWidth : function () {},
 
 /**
- * @method getOpacity
- * @return A value converted from C/C++ "unsigned char"
+ * @method setOpacity
+ * @param {unsigned char}
  */
-getOpacity : function () {},
+setOpacity : function () {},
 
 /**
  * @method setContentSize
@@ -6447,12 +6595,6 @@ addLayer : function () {},
  * @param {unsigned int}
  */
 switchTo : function () {},
-
-/**
- * @method node
- * @return A value converted from C/C++ "cocos2d::CCLayerMultiplex*"
- */
-node : function () {},
 
 /**
  * @method CCLayerMultiplex
@@ -7469,12 +7611,6 @@ setLabel : function () {},
 activate : function () {},
 
 /**
- * @method setColor
- * @param {cocos2d::ccColor3B}
- */
-setColor : function () {},
-
-/**
  * @method getDisabledColor
  * @return A value converted from C/C++ "cocos2d::ccColor3B"
  */
@@ -7492,12 +7628,6 @@ setString : function () {},
 selected : function () {},
 
 /**
- * @method setOpacity
- * @param {unsigned char}
- */
-setOpacity : function () {},
-
-/**
  * @method setDisabledColor
  * @param {cocos2d::ccColor3B}
  */
@@ -7508,18 +7638,6 @@ setDisabledColor : function () {},
  * @return A value converted from C/C++ "cocos2d::CCNode*"
  */
 getLabel : function () {},
-
-/**
- * @method getOpacity
- * @return A value converted from C/C++ "unsigned char"
- */
-getOpacity : function () {},
-
-/**
- * @method getColor
- * @return A value converted from C/C++ "cocos2d::ccColor3B"
- */
-getColor : function () {},
 
 /**
  * @method unselected
@@ -7625,12 +7743,6 @@ setEnabled : function () {},
 selected : function () {},
 
 /**
- * @method setColor
- * @param {cocos2d::ccColor3B}
- */
-setColor : function () {},
-
-/**
  * @method setNormalImage
  * @param {cocos2d::CCNode*}
  */
@@ -7641,12 +7753,6 @@ setNormalImage : function () {},
  * @param {cocos2d::CCNode*}
  */
 setDisabledImage : function () {},
-
-/**
- * @method getColor
- * @return A value converted from C/C++ "cocos2d::ccColor3B"
- */
-getColor : function () {},
 
 /**
  * @method setSelectedImage
@@ -7661,12 +7767,6 @@ setSelectedImage : function () {},
 getDisabledImage : function () {},
 
 /**
- * @method setOpacity
- * @param {unsigned char}
- */
-setOpacity : function () {},
-
-/**
  * @method getSelectedImage
  * @return A value converted from C/C++ "cocos2d::CCNode*"
  */
@@ -7677,12 +7777,6 @@ getSelectedImage : function () {},
  * @return A value converted from C/C++ "cocos2d::CCNode*"
  */
 getNormalImage : function () {},
-
-/**
- * @method getOpacity
- * @return A value converted from C/C++ "unsigned char"
- */
-getOpacity : function () {},
 
 /**
  * @method unselected
@@ -7777,32 +7871,14 @@ getSelectedIndex : function () {},
 addSubItem : function () {},
 
 /**
- * @method setOpacity
- * @param {unsigned char}
- */
-setOpacity : function () {},
-
-/**
- * @method activate
- */
-activate : function () {},
-
-/**
  * @method selected
  */
 selected : function () {},
 
 /**
- * @method getColor
- * @return A value converted from C/C++ "cocos2d::ccColor3B"
+ * @method activate
  */
-getColor : function () {},
-
-/**
- * @method getOpacity
- * @return A value converted from C/C++ "unsigned char"
- */
-getOpacity : function () {},
+activate : function () {},
 
 /**
  * @method unselected
@@ -7814,12 +7890,6 @@ unselected : function () {},
  * @return A value converted from C/C++ "cocos2d::CCMenuItem*"
  */
 selectedItem : function () {},
-
-/**
- * @method setColor
- * @param {cocos2d::ccColor3B}
- */
-setColor : function () {},
 
 /**
  * @method CCMenuItemToggle
@@ -7868,12 +7938,6 @@ ccTouchEnded : function () {},
 isEnabled : function () {},
 
 /**
- * @method setOpacity
- * @param {unsigned char}
- */
-setOpacity : function () {},
-
-/**
  * @method setHandlerPriority
  * @param {int}
  */
@@ -7892,12 +7956,6 @@ init : function () {},
 alignItemsHorizontallyWithPadding : function () {},
 
 /**
- * @method getOpacity
- * @return A value converted from C/C++ "unsigned char"
- */
-getOpacity : function () {},
-
-/**
  * @method alignItemsHorizontally
  */
 alignItemsHorizontally : function () {},
@@ -7909,23 +7967,11 @@ alignItemsHorizontally : function () {},
 setEnabled : function () {},
 
 /**
- * @method getColor
- * @return A value converted from C/C++ "cocos2d::ccColor3B"
- */
-getColor : function () {},
-
-/**
  * @method ccTouchMoved
  * @param {cocos2d::CCTouch*}
  * @param {cocos2d::CCEvent*}
  */
 ccTouchMoved : function () {},
-
-/**
- * @method setColor
- * @param {cocos2d::ccColor3B}
- */
-setColor : function () {},
 
 /**
  * @method ccTouchCancelled
@@ -7972,22 +8018,21 @@ cc.CCProgressTimer = {
 setAnchorPoint : function () {},
 
 /**
+ * @method draw
+ */
+draw : function () {},
+
+/**
+ * @method isReverseDirection
+ * @return A value converted from C/C++ "bool"
+ */
+isReverseDirection : function () {},
+
+/**
  * @method setBarChangeRate
  * @param {cocos2d::CCPoint}
  */
 setBarChangeRate : function () {},
-
-/**
- * @method setPercentage
- * @param {float}
- */
-setPercentage : function () {},
-
-/**
- * @method setType
- * @param {cocos2d::CCProgressTimerType}
- */
-setType : function () {},
 
 /**
  * @method getPercentage
@@ -8002,10 +8047,10 @@ getPercentage : function () {},
 setSprite : function () {},
 
 /**
- * @method setOpacity
- * @param {unsigned char}
+ * @method getType
+ * @return A value converted from C/C++ "cocos2d::CCProgressTimerType"
  */
-setOpacity : function () {},
+getType : function () {},
 
 /**
  * @method getSprite
@@ -8020,45 +8065,10 @@ getSprite : function () {},
 setMidpoint : function () {},
 
 /**
- * @method getOpacity
- * @return A value converted from C/C++ "unsigned char"
- */
-getOpacity : function () {},
-
-/**
  * @method getMidpoint
  * @return A value converted from C/C++ "cocos2d::CCPoint"
  */
 getMidpoint : function () {},
-
-/**
- * @method draw
- */
-draw : function () {},
-
-/**
- * @method getColor
- * @return A value converted from C/C++ "cocos2d::ccColor3B"
- */
-getColor : function () {},
-
-/**
- * @method getType
- * @return A value converted from C/C++ "cocos2d::CCProgressTimerType"
- */
-getType : function () {},
-
-/**
- * @method isReverseDirection
- * @return A value converted from C/C++ "bool"
- */
-isReverseDirection : function () {},
-
-/**
- * @method setColor
- * @param {cocos2d::ccColor3B}
- */
-setColor : function () {},
 
 /**
  * @method getBarChangeRate
@@ -8072,6 +8082,18 @@ getBarChangeRate : function () {},
  * @param {cocos2d::CCSprite*}
  */
 initWithSprite : function () {},
+
+/**
+ * @method setPercentage
+ * @param {float}
+ */
+setPercentage : function () {},
+
+/**
+ * @method setType
+ * @param {cocos2d::CCProgressTimerType}
+ */
+setType : function () {},
 
 /**
  * @method create
@@ -9012,6 +9034,11 @@ initTexCoordsWithRect : function () {},
  * @param {cocos2d::CCRect}
  */
 setTextureWithRect : function () {},
+
+/**
+ * @method initIndices
+ */
+initIndices : function () {},
 
 /**
  * @method setDisplayFrame
@@ -10925,12 +10952,6 @@ setInsetBottom : function () {},
 visit : function () {},
 
 /**
- * @method setOpacity
- * @param {unsigned char}
- */
-setOpacity : function () {},
-
-/**
  * @method setInsetTop
  * @param {float}
  */
@@ -10949,22 +10970,10 @@ init : function () {},
 setPreferredSize : function () {},
 
 /**
- * @method getOpacity
- * @return A value converted from C/C++ "unsigned char"
- */
-getOpacity : function () {},
-
-/**
  * @method setSpriteFrame
  * @param {cocos2d::CCSpriteFrame*}
  */
 setSpriteFrame : function () {},
-
-/**
- * @method getColor
- * @return A value converted from C/C++ "cocos2d::ccColor3B"
- */
-getColor : function () {},
 
 /**
  * @method getInsetBottom
@@ -10996,12 +11005,6 @@ getInsetRight : function () {},
  * @return A value converted from C/C++ "cocos2d::CCSize"
  */
 getOriginalSize : function () {},
-
-/**
- * @method setColor
- * @param {cocos2d::ccColor3B}
- */
-setColor : function () {},
 
 /**
  * @method getInsetTop
