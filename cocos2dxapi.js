@@ -282,18 +282,30 @@ getLocation : function () {},
 getDelta : function () {},
 
 /**
- * @method setTouchInfo
- * @param {int}
- * @param {float}
- * @param {float}
+ * @method getStartLocationInView
+ * @return A value converted from C/C++ "cocos2d::CCPoint"
  */
-setTouchInfo : function () {},
+getStartLocationInView : function () {},
+
+/**
+ * @method getStartLocation
+ * @return A value converted from C/C++ "cocos2d::CCPoint"
+ */
+getStartLocation : function () {},
 
 /**
  * @method getID
  * @return A value converted from C/C++ "int"
  */
 getID : function () {},
+
+/**
+ * @method setTouchInfo
+ * @param {int}
+ * @param {float}
+ * @param {float}
+ */
+setTouchInfo : function () {},
 
 /**
  * @method getLocationInView

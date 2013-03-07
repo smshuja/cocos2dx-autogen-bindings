@@ -1201,6 +1201,57 @@ JSBool js_cocos2dx_CCTouch_getDelta(JSContext *cx, uint32_t argc, jsval *vp)
 	JS_ReportError(cx, "wrong number of arguments: %d, was expecting %d", argc, 0);
 	return JS_FALSE;
 }
+JSBool js_cocos2dx_CCTouch_getStartLocationInView(JSContext *cx, uint32_t argc, jsval *vp)
+{
+	JSObject *obj = JS_THIS_OBJECT(cx, vp);
+	js_proxy_t *proxy; JS_GET_NATIVE_PROXY(proxy, obj);
+	cocos2d::CCTouch* cobj = (cocos2d::CCTouch *)(proxy ? proxy->ptr : NULL);
+	JSB_PRECONDITION2( cobj, cx, JS_FALSE, "Invalid Native Object");
+
+	if (argc == 0) {
+		cocos2d::CCPoint ret = cobj->getStartLocationInView();
+		jsval jsret;
+		jsret = ccpoint_to_jsval(cx, ret);
+		JS_SET_RVAL(cx, vp, jsret);
+		return JS_TRUE;
+	}
+	JS_ReportError(cx, "wrong number of arguments: %d, was expecting %d", argc, 0);
+	return JS_FALSE;
+}
+JSBool js_cocos2dx_CCTouch_getStartLocation(JSContext *cx, uint32_t argc, jsval *vp)
+{
+	JSObject *obj = JS_THIS_OBJECT(cx, vp);
+	js_proxy_t *proxy; JS_GET_NATIVE_PROXY(proxy, obj);
+	cocos2d::CCTouch* cobj = (cocos2d::CCTouch *)(proxy ? proxy->ptr : NULL);
+	JSB_PRECONDITION2( cobj, cx, JS_FALSE, "Invalid Native Object");
+
+	if (argc == 0) {
+		cocos2d::CCPoint ret = cobj->getStartLocation();
+		jsval jsret;
+		jsret = ccpoint_to_jsval(cx, ret);
+		JS_SET_RVAL(cx, vp, jsret);
+		return JS_TRUE;
+	}
+	JS_ReportError(cx, "wrong number of arguments: %d, was expecting %d", argc, 0);
+	return JS_FALSE;
+}
+JSBool js_cocos2dx_CCTouch_getID(JSContext *cx, uint32_t argc, jsval *vp)
+{
+	JSObject *obj = JS_THIS_OBJECT(cx, vp);
+	js_proxy_t *proxy; JS_GET_NATIVE_PROXY(proxy, obj);
+	cocos2d::CCTouch* cobj = (cocos2d::CCTouch *)(proxy ? proxy->ptr : NULL);
+	JSB_PRECONDITION2( cobj, cx, JS_FALSE, "Invalid Native Object");
+
+	if (argc == 0) {
+		int ret = cobj->getID();
+		jsval jsret;
+		jsret = int32_to_jsval(cx, ret);
+		JS_SET_RVAL(cx, vp, jsret);
+		return JS_TRUE;
+	}
+	JS_ReportError(cx, "wrong number of arguments: %d, was expecting %d", argc, 0);
+	return JS_FALSE;
+}
 JSBool js_cocos2dx_CCTouch_setTouchInfo(JSContext *cx, uint32_t argc, jsval *vp)
 {
 	jsval *argv = JS_ARGV(cx, vp);
@@ -1223,23 +1274,6 @@ JSBool js_cocos2dx_CCTouch_setTouchInfo(JSContext *cx, uint32_t argc, jsval *vp)
 		return JS_TRUE;
 	}
 	JS_ReportError(cx, "wrong number of arguments: %d, was expecting %d", argc, 3);
-	return JS_FALSE;
-}
-JSBool js_cocos2dx_CCTouch_getID(JSContext *cx, uint32_t argc, jsval *vp)
-{
-	JSObject *obj = JS_THIS_OBJECT(cx, vp);
-	js_proxy_t *proxy; JS_GET_NATIVE_PROXY(proxy, obj);
-	cocos2d::CCTouch* cobj = (cocos2d::CCTouch *)(proxy ? proxy->ptr : NULL);
-	JSB_PRECONDITION2( cobj, cx, JS_FALSE, "Invalid Native Object");
-
-	if (argc == 0) {
-		int ret = cobj->getID();
-		jsval jsret;
-		jsret = int32_to_jsval(cx, ret);
-		JS_SET_RVAL(cx, vp, jsret);
-		return JS_TRUE;
-	}
-	JS_ReportError(cx, "wrong number of arguments: %d, was expecting %d", argc, 0);
 	return JS_FALSE;
 }
 JSBool js_cocos2dx_CCTouch_getLocationInView(JSContext *cx, uint32_t argc, jsval *vp)
@@ -1332,8 +1366,10 @@ void js_register_cocos2dx_CCTouch(JSContext *cx, JSObject *global) {
 		JS_FN("getPreviousLocationInView", js_cocos2dx_CCTouch_getPreviousLocationInView, 0, JSPROP_PERMANENT | JSPROP_ENUMERATE),
 		JS_FN("getLocation", js_cocos2dx_CCTouch_getLocation, 0, JSPROP_PERMANENT | JSPROP_ENUMERATE),
 		JS_FN("getDelta", js_cocos2dx_CCTouch_getDelta, 0, JSPROP_PERMANENT | JSPROP_ENUMERATE),
-		JS_FN("setTouchInfo", js_cocos2dx_CCTouch_setTouchInfo, 3, JSPROP_PERMANENT | JSPROP_ENUMERATE),
+		JS_FN("getStartLocationInView", js_cocos2dx_CCTouch_getStartLocationInView, 0, JSPROP_PERMANENT | JSPROP_ENUMERATE),
+		JS_FN("getStartLocation", js_cocos2dx_CCTouch_getStartLocation, 0, JSPROP_PERMANENT | JSPROP_ENUMERATE),
 		JS_FN("getId", js_cocos2dx_CCTouch_getID, 0, JSPROP_PERMANENT | JSPROP_ENUMERATE),
+		JS_FN("setTouchInfo", js_cocos2dx_CCTouch_setTouchInfo, 3, JSPROP_PERMANENT | JSPROP_ENUMERATE),
 		JS_FN("getLocationInView", js_cocos2dx_CCTouch_getLocationInView, 0, JSPROP_PERMANENT | JSPROP_ENUMERATE),
 		JS_FN("getPreviousLocation", js_cocos2dx_CCTouch_getPreviousLocation, 0, JSPROP_PERMANENT | JSPROP_ENUMERATE),
 		JS_FS_END
