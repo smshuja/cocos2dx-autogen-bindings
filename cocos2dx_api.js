@@ -1,12 +1,12 @@
 /**
  * @module cocos2dx
  */
-var cc = cc = cc || {};
+var cc = cc || {};
 
 /**
  * @class CCAction
  */
-cc.CCAction = {
+cc.Action = {
 
 /**
  * @method startWithTarget
@@ -90,7 +90,7 @@ CCAction : function () {},
 /**
  * @class CCFiniteTimeAction
  */
-cc.CCFiniteTimeAction = {
+cc.FiniteTimeAction = {
 
 /**
  * @method setDuration
@@ -121,7 +121,7 @@ CCFiniteTimeAction : function () {},
 /**
  * @class CCSpeed
  */
-cc.CCSpeed = {
+cc.Speed = {
 
 /**
  * @method startWithTarget
@@ -203,7 +203,7 @@ CCSpeed : function () {},
 /**
  * @class CCFollow
  */
-cc.CCFollow = {
+cc.Follow = {
 
 /**
  * @method initWithTarget
@@ -261,7 +261,7 @@ CCFollow : function () {},
 /**
  * @class CCTouch
  */
-cc.CCTouch = {
+cc.Touch = {
 
 /**
  * @method getPreviousLocationInView
@@ -330,7 +330,7 @@ CCTouch : function () {},
 /**
  * @class CCSet
  */
-cc.CCSet = {
+cc.Set = {
 
 /**
  * @method count
@@ -385,7 +385,7 @@ containsObject : function () {},
 /**
  * @class CCTexture2D
  */
-cc.CCTexture2D = {
+cc.Texture2D = {
 
 /**
  * @method getShaderProgram
@@ -547,7 +547,7 @@ CCTexture2D : function () {},
 /**
  * @class CCNode
  */
-cc.CCNode = {
+cc.Node = {
 
 /**
  * @method getScriptHandler
@@ -1051,7 +1051,7 @@ CCNode : function () {},
 /**
  * @class CCNodeRGBA
  */
-cc.CCNodeRGBA = {
+cc.NodeRGBA = {
 
 /**
  * @method updateDisplayedColor
@@ -1142,7 +1142,7 @@ CCNodeRGBA : function () {},
 /**
  * @class CCSpriteFrame
  */
-cc.CCSpriteFrame = {
+cc.SpriteFrame = {
 
 /**
  * @method setRotated
@@ -1245,7 +1245,7 @@ getOriginalSize : function () {},
 /**
  * @class CCAnimationFrame
  */
-cc.CCAnimationFrame = {
+cc.AnimationFrame = {
 
 /**
  * @method setSpriteFrame
@@ -1303,7 +1303,7 @@ CCAnimationFrame : function () {},
 /**
  * @class CCAnimation
  */
-cc.CCAnimation = {
+cc.Animation = {
 
 /**
  * @method getLoops
@@ -1418,7 +1418,7 @@ CCAnimation : function () {},
 /**
  * @class CCActionInterval
  */
-cc.CCActionInterval = {
+cc.ActionInterval = {
 
 /**
  * @method startWithTarget
@@ -1481,7 +1481,7 @@ create : function () {},
 /**
  * @class CCSequence
  */
-cc.CCSequence = {
+cc.Sequence = {
 
 /**
  * @method startWithTarget
@@ -1519,7 +1519,7 @@ initWithTwoActions : function () {},
 /**
  * @class CCRepeat
  */
-cc.CCRepeat = {
+cc.Repeat = {
 
 /**
  * @method startWithTarget
@@ -1583,7 +1583,7 @@ create : function () {},
 /**
  * @class CCRepeatForever
  */
-cc.CCRepeatForever = {
+cc.RepeatForever = {
 
 /**
  * @method startWithTarget
@@ -1646,7 +1646,7 @@ CCRepeatForever : function () {},
 /**
  * @class CCSpawn
  */
-cc.CCSpawn = {
+cc.Spawn = {
 
 /**
  * @method startWithTarget
@@ -1684,7 +1684,7 @@ initWithTwoActions : function () {},
 /**
  * @class CCRotateTo
  */
-cc.CCRotateTo = {
+cc.RotateTo = {
 
 /**
  * @method startWithTarget
@@ -1703,7 +1703,7 @@ update : function () {},
 /**
  * @class CCRotateBy
  */
-cc.CCRotateBy = {
+cc.RotateBy = {
 
 /**
  * @method startWithTarget
@@ -1728,7 +1728,7 @@ update : function () {},
 /**
  * @class CCMoveBy
  */
-cc.CCMoveBy = {
+cc.MoveBy = {
 
 /**
  * @method startWithTarget
@@ -1769,7 +1769,7 @@ create : function () {},
 /**
  * @class CCMoveTo
  */
-cc.CCMoveTo = {
+cc.MoveTo = {
 
 /**
  * @method startWithTarget
@@ -1798,7 +1798,7 @@ create : function () {},
 /**
  * @class CCSkewTo
  */
-cc.CCSkewTo = {
+cc.SkewTo = {
 
 /**
  * @method startWithTarget
@@ -1841,7 +1841,7 @@ CCSkewTo : function () {},
 /**
  * @class CCSkewBy
  */
-cc.CCSkewBy = {
+cc.SkewBy = {
 
 /**
  * @method startWithTarget
@@ -1878,7 +1878,7 @@ create : function () {},
 /**
  * @class CCJumpBy
  */
-cc.CCJumpBy = {
+cc.JumpBy = {
 
 /**
  * @method startWithTarget
@@ -1923,7 +1923,7 @@ create : function () {},
 /**
  * @class CCJumpTo
  */
-cc.CCJumpTo = {
+cc.JumpTo = {
 
 /**
  * @method startWithTarget
@@ -1946,7 +1946,7 @@ create : function () {},
 /**
  * @class CCBezierBy
  */
-cc.CCBezierBy = {
+cc.BezierBy = {
 
 /**
  * @method startWithTarget
@@ -1979,7 +1979,7 @@ update : function () {},
 /**
  * @class CCBezierTo
  */
-cc.CCBezierTo = {
+cc.BezierTo = {
 
 /**
  * @method startWithTarget
@@ -2000,7 +2000,7 @@ initWithDuration : function () {},
 /**
  * @class CCScaleTo
  */
-cc.CCScaleTo = {
+cc.ScaleTo = {
 
 /**
  * @method startWithTarget
@@ -2019,7 +2019,7 @@ update : function () {},
 /**
  * @class CCScaleBy
  */
-cc.CCScaleBy = {
+cc.ScaleBy = {
 
 /**
  * @method startWithTarget
@@ -2038,7 +2038,7 @@ reverse : function () {},
 /**
  * @class CCBlink
  */
-cc.CCBlink = {
+cc.Blink = {
 
 /**
  * @method startWithTarget
@@ -2084,7 +2084,7 @@ create : function () {},
 /**
  * @class CCFadeIn
  */
-cc.CCFadeIn = {
+cc.FadeIn = {
 
 /**
  * @method update
@@ -2110,7 +2110,7 @@ create : function () {},
 /**
  * @class CCFadeOut
  */
-cc.CCFadeOut = {
+cc.FadeOut = {
 
 /**
  * @method update
@@ -2136,7 +2136,7 @@ create : function () {},
 /**
  * @class CCFadeTo
  */
-cc.CCFadeTo = {
+cc.FadeTo = {
 
 /**
  * @method startWithTarget
@@ -2171,7 +2171,7 @@ create : function () {},
 /**
  * @class CCTintTo
  */
-cc.CCTintTo = {
+cc.TintTo = {
 
 /**
  * @method startWithTarget
@@ -2210,7 +2210,7 @@ create : function () {},
 /**
  * @class CCTintBy
  */
-cc.CCTintBy = {
+cc.TintBy = {
 
 /**
  * @method startWithTarget
@@ -2255,7 +2255,7 @@ create : function () {},
 /**
  * @class CCDelayTime
  */
-cc.CCDelayTime = {
+cc.DelayTime = {
 
 /**
  * @method update
@@ -2281,7 +2281,7 @@ create : function () {},
 /**
  * @class CCAnimate
  */
-cc.CCAnimate = {
+cc.Animate = {
 
 /**
  * @method startWithTarget
@@ -2343,7 +2343,7 @@ CCAnimate : function () {},
 /**
  * @class CCTargetedAction
  */
-cc.CCTargetedAction = {
+cc.TargetedAction = {
 
 /**
  * @method startWithTarget
@@ -2401,7 +2401,7 @@ CCTargetedAction : function () {},
 /**
  * @class CCActionCamera
  */
-cc.CCActionCamera = {
+cc.ActionCamera = {
 
 /**
  * @method startWithTarget
@@ -2426,7 +2426,7 @@ CCActionCamera : function () {},
 /**
  * @class CCOrbitCamera
  */
-cc.CCOrbitCamera = {
+cc.OrbitCamera = {
 
 /**
  * @method startWithTarget
@@ -2485,7 +2485,7 @@ CCOrbitCamera : function () {},
 /**
  * @class CCActionManager
  */
-cc.CCActionManager = {
+cc.ActionManager = {
 
 /**
  * @method getActionByTag
@@ -2569,7 +2569,7 @@ CCActionManager : function () {},
 /**
  * @class CCActionEase
  */
-cc.CCActionEase = {
+cc.ActionEase = {
 
 /**
  * @method startWithTarget
@@ -2619,7 +2619,7 @@ create : function () {},
 /**
  * @class CCEaseRateAction
  */
-cc.CCEaseRateAction = {
+cc.EaseRateAction = {
 
 /**
  * @method setRate
@@ -2660,7 +2660,7 @@ create : function () {},
 /**
  * @class CCEaseIn
  */
-cc.CCEaseIn = {
+cc.EaseIn = {
 
 /**
  * @method update
@@ -2687,7 +2687,7 @@ create : function () {},
 /**
  * @class CCEaseOut
  */
-cc.CCEaseOut = {
+cc.EaseOut = {
 
 /**
  * @method update
@@ -2714,7 +2714,7 @@ create : function () {},
 /**
  * @class CCEaseInOut
  */
-cc.CCEaseInOut = {
+cc.EaseInOut = {
 
 /**
  * @method reverse
@@ -2741,7 +2741,7 @@ create : function () {},
 /**
  * @class CCEaseExponentialIn
  */
-cc.CCEaseExponentialIn = {
+cc.EaseExponentialIn = {
 
 /**
  * @method update
@@ -2767,7 +2767,7 @@ create : function () {},
 /**
  * @class CCEaseExponentialOut
  */
-cc.CCEaseExponentialOut = {
+cc.EaseExponentialOut = {
 
 /**
  * @method update
@@ -2793,7 +2793,7 @@ create : function () {},
 /**
  * @class CCEaseExponentialInOut
  */
-cc.CCEaseExponentialInOut = {
+cc.EaseExponentialInOut = {
 
 /**
  * @method reverse
@@ -2819,7 +2819,7 @@ create : function () {},
 /**
  * @class CCEaseSineIn
  */
-cc.CCEaseSineIn = {
+cc.EaseSineIn = {
 
 /**
  * @method update
@@ -2845,7 +2845,7 @@ create : function () {},
 /**
  * @class CCEaseSineOut
  */
-cc.CCEaseSineOut = {
+cc.EaseSineOut = {
 
 /**
  * @method update
@@ -2871,7 +2871,7 @@ create : function () {},
 /**
  * @class CCEaseSineInOut
  */
-cc.CCEaseSineInOut = {
+cc.EaseSineInOut = {
 
 /**
  * @method reverse
@@ -2897,7 +2897,7 @@ create : function () {},
 /**
  * @class CCEaseElastic
  */
-cc.CCEaseElastic = {
+cc.EaseElastic = {
 
 /**
  * @method setPeriod
@@ -2930,7 +2930,7 @@ reverse : function () {},
 /**
  * @class CCEaseElasticIn
  */
-cc.CCEaseElasticIn = {
+cc.EaseElasticIn = {
 
 /**
  * @method update
@@ -2949,7 +2949,7 @@ reverse : function () {},
 /**
  * @class CCEaseElasticOut
  */
-cc.CCEaseElasticOut = {
+cc.EaseElasticOut = {
 
 /**
  * @method update
@@ -2968,7 +2968,7 @@ reverse : function () {},
 /**
  * @class CCEaseElasticInOut
  */
-cc.CCEaseElasticInOut = {
+cc.EaseElasticInOut = {
 
 /**
  * @method update
@@ -2987,7 +2987,7 @@ reverse : function () {},
 /**
  * @class CCEaseBounce
  */
-cc.CCEaseBounce = {
+cc.EaseBounce = {
 
 /**
  * @method bounceTime
@@ -3014,7 +3014,7 @@ create : function () {},
 /**
  * @class CCEaseBounceIn
  */
-cc.CCEaseBounceIn = {
+cc.EaseBounceIn = {
 
 /**
  * @method update
@@ -3040,7 +3040,7 @@ create : function () {},
 /**
  * @class CCEaseBounceOut
  */
-cc.CCEaseBounceOut = {
+cc.EaseBounceOut = {
 
 /**
  * @method update
@@ -3066,7 +3066,7 @@ create : function () {},
 /**
  * @class CCEaseBounceInOut
  */
-cc.CCEaseBounceInOut = {
+cc.EaseBounceInOut = {
 
 /**
  * @method reverse
@@ -3092,7 +3092,7 @@ create : function () {},
 /**
  * @class CCEaseBackIn
  */
-cc.CCEaseBackIn = {
+cc.EaseBackIn = {
 
 /**
  * @method update
@@ -3118,7 +3118,7 @@ create : function () {},
 /**
  * @class CCEaseBackOut
  */
-cc.CCEaseBackOut = {
+cc.EaseBackOut = {
 
 /**
  * @method update
@@ -3144,7 +3144,7 @@ create : function () {},
 /**
  * @class CCEaseBackInOut
  */
-cc.CCEaseBackInOut = {
+cc.EaseBackInOut = {
 
 /**
  * @method reverse
@@ -3170,7 +3170,7 @@ create : function () {},
 /**
  * @class CCActionInstant
  */
-cc.CCActionInstant = {
+cc.ActionInstant = {
 
 /**
  * @method reverse
@@ -3207,7 +3207,7 @@ CCActionInstant : function () {},
 /**
  * @class CCShow
  */
-cc.CCShow = {
+cc.Show = {
 
 /**
  * @method reverse
@@ -3238,7 +3238,7 @@ CCShow : function () {},
 /**
  * @class CCHide
  */
-cc.CCHide = {
+cc.Hide = {
 
 /**
  * @method reverse
@@ -3269,7 +3269,7 @@ CCHide : function () {},
 /**
  * @class CCToggleVisibility
  */
-cc.CCToggleVisibility = {
+cc.ToggleVisibility = {
 
 /**
  * @method update
@@ -3294,7 +3294,7 @@ CCToggleVisibility : function () {},
 /**
  * @class CCFlipX
  */
-cc.CCFlipX = {
+cc.FlipX = {
 
 /**
  * @method initWithFlipX
@@ -3333,7 +3333,7 @@ CCFlipX : function () {},
 /**
  * @class CCFlipY
  */
-cc.CCFlipY = {
+cc.FlipY = {
 
 /**
  * @method initWithFlipY
@@ -3372,7 +3372,7 @@ CCFlipY : function () {},
 /**
  * @class CCPlace
  */
-cc.CCPlace = {
+cc.Place = {
 
 /**
  * @method initWithPosition
@@ -3405,7 +3405,7 @@ CCPlace : function () {},
 /**
  * @class CCCallFunc
  */
-cc.CCCallFunc = {
+cc.CallFunc = {
 
 /**
  * @method execute
@@ -3454,7 +3454,7 @@ CCCallFunc : function () {},
 /**
  * @class CCGridAction
  */
-cc.CCGridAction = {
+cc.GridAction = {
 
 /**
  * @method startWithTarget
@@ -3495,7 +3495,7 @@ create : function () {},
 /**
  * @class CCGrid3DAction
  */
-cc.CCGrid3DAction = {
+cc.Grid3DAction = {
 
 /**
  * @method setVertex
@@ -3529,7 +3529,7 @@ originalVertex : function () {},
 /**
  * @class CCTiledGrid3DAction
  */
-cc.CCTiledGrid3DAction = {
+cc.TiledGrid3DAction = {
 
 /**
  * @method tile
@@ -3563,7 +3563,7 @@ getGrid : function () {},
 /**
  * @class CCWaves3D
  */
-cc.CCWaves3D = {
+cc.Waves3D = {
 
 /**
  * @method initWithDuration
@@ -3620,7 +3620,7 @@ create : function () {},
 /**
  * @class CCFlipX3D
  */
-cc.CCFlipX3D = {
+cc.FlipX3D = {
 
 /**
  * @method initWithSize
@@ -3655,7 +3655,7 @@ create : function () {},
 /**
  * @class CCFlipY3D
  */
-cc.CCFlipY3D = {
+cc.FlipY3D = {
 
 /**
  * @method update
@@ -3675,7 +3675,7 @@ create : function () {},
 /**
  * @class CCLens3D
  */
-cc.CCLens3D = {
+cc.Lens3D = {
 
 /**
  * @method setConcave
@@ -3738,7 +3738,7 @@ create : function () {},
 /**
  * @class CCRipple3D
  */
-cc.CCRipple3D = {
+cc.Ripple3D = {
 
 /**
  * @method setAmplitudeRate
@@ -3811,7 +3811,7 @@ create : function () {},
 /**
  * @class CCShaky3D
  */
-cc.CCShaky3D = {
+cc.Shaky3D = {
 
 /**
  * @method initWithDuration
@@ -3844,7 +3844,7 @@ create : function () {},
 /**
  * @class CCLiquid
  */
-cc.CCLiquid = {
+cc.Liquid = {
 
 /**
  * @method initWithDuration
@@ -3901,7 +3901,7 @@ create : function () {},
 /**
  * @class CCWaves
  */
-cc.CCWaves = {
+cc.Waves = {
 
 /**
  * @method initWithDuration
@@ -3962,7 +3962,7 @@ create : function () {},
 /**
  * @class CCTwirl
  */
-cc.CCTwirl = {
+cc.Twirl = {
 
 /**
  * @method setAmplitudeRate
@@ -4033,7 +4033,7 @@ create : function () {},
 /**
  * @class CCPageTurn3D
  */
-cc.CCPageTurn3D = {
+cc.PageTurn3D = {
 
 /**
  * @method update
@@ -4054,7 +4054,7 @@ create : function () {},
 /**
  * @class CCProgressTo
  */
-cc.CCProgressTo = {
+cc.ProgressTo = {
 
 /**
  * @method startWithTarget
@@ -4089,7 +4089,7 @@ create : function () {},
 /**
  * @class CCProgressFromTo
  */
-cc.CCProgressFromTo = {
+cc.ProgressFromTo = {
 
 /**
  * @method startWithTarget
@@ -4132,7 +4132,7 @@ create : function () {},
 /**
  * @class CCShakyTiles3D
  */
-cc.CCShakyTiles3D = {
+cc.ShakyTiles3D = {
 
 /**
  * @method initWithDuration
@@ -4165,7 +4165,7 @@ create : function () {},
 /**
  * @class CCShatteredTiles3D
  */
-cc.CCShatteredTiles3D = {
+cc.ShatteredTiles3D = {
 
 /**
  * @method initWithDuration
@@ -4198,7 +4198,7 @@ create : function () {},
 /**
  * @class CCShuffleTiles
  */
-cc.CCShuffleTiles = {
+cc.ShuffleTiles = {
 
 /**
  * @method startWithTarget
@@ -4256,7 +4256,7 @@ create : function () {},
 /**
  * @class CCFadeOutTRTiles
  */
-cc.CCFadeOutTRTiles = {
+cc.FadeOutTRTiles = {
 
 /**
  * @method turnOnTile
@@ -4304,7 +4304,7 @@ create : function () {},
 /**
  * @class CCFadeOutBLTiles
  */
-cc.CCFadeOutBLTiles = {
+cc.FadeOutBLTiles = {
 
 /**
  * @method testFunc
@@ -4327,7 +4327,7 @@ create : function () {},
 /**
  * @class CCFadeOutUpTiles
  */
-cc.CCFadeOutUpTiles = {
+cc.FadeOutUpTiles = {
 
 /**
  * @method transformTile
@@ -4357,7 +4357,7 @@ create : function () {},
 /**
  * @class CCFadeOutDownTiles
  */
-cc.CCFadeOutDownTiles = {
+cc.FadeOutDownTiles = {
 
 /**
  * @method testFunc
@@ -4380,7 +4380,7 @@ create : function () {},
 /**
  * @class CCTurnOffTiles
  */
-cc.CCTurnOffTiles = {
+cc.TurnOffTiles = {
 
 /**
  * @method turnOnTile
@@ -4427,7 +4427,7 @@ update : function () {},
 /**
  * @class CCWavesTiles3D
  */
-cc.CCWavesTiles3D = {
+cc.WavesTiles3D = {
 
 /**
  * @method initWithDuration
@@ -4484,7 +4484,7 @@ create : function () {},
 /**
  * @class CCJumpTiles3D
  */
-cc.CCJumpTiles3D = {
+cc.JumpTiles3D = {
 
 /**
  * @method initWithDuration
@@ -4541,7 +4541,7 @@ create : function () {},
 /**
  * @class CCSplitRows
  */
-cc.CCSplitRows = {
+cc.SplitRows = {
 
 /**
  * @method startWithTarget
@@ -4576,7 +4576,7 @@ create : function () {},
 /**
  * @class CCSplitCols
  */
-cc.CCSplitCols = {
+cc.SplitCols = {
 
 /**
  * @method startWithTarget
@@ -4611,7 +4611,7 @@ create : function () {},
 /**
  * @class CCActionTween
  */
-cc.CCActionTween = {
+cc.ActionTween = {
 
 /**
  * @method startWithTarget
@@ -4656,7 +4656,7 @@ create : function () {},
 /**
  * @class CCCardinalSplineTo
  */
-cc.CCCardinalSplineTo = {
+cc.CardinalSplineTo = {
 
 /**
  * @method startWithTarget
@@ -4708,7 +4708,7 @@ CCCardinalSplineTo : function () {},
 /**
  * @class CCCardinalSplineBy
  */
-cc.CCCardinalSplineBy = {
+cc.CardinalSplineBy = {
 
 /**
  * @method startWithTarget
@@ -4739,7 +4739,7 @@ CCCardinalSplineBy : function () {},
 /**
  * @class CCCatmullRomTo
  */
-cc.CCCatmullRomTo = {
+cc.CatmullRomTo = {
 
 /**
  * @method initWithDuration
@@ -4754,7 +4754,7 @@ initWithDuration : function () {},
 /**
  * @class CCCatmullRomBy
  */
-cc.CCCatmullRomBy = {
+cc.CatmullRomBy = {
 
 /**
  * @method initWithDuration
@@ -4769,7 +4769,7 @@ initWithDuration : function () {},
 /**
  * @class CCAtlasNode
  */
-cc.CCAtlasNode = {
+cc.AtlasNode = {
 
 /**
  * @method setTexture
@@ -4876,7 +4876,7 @@ CCAtlasNode : function () {},
 /**
  * @class CCDrawNode
  */
-cc.CCDrawNode = {
+cc.DrawNode = {
 
 /**
  * @method draw
@@ -4928,7 +4928,7 @@ CCDrawNode : function () {},
 /**
  * @class CCCamera
  */
-cc.CCCamera = {
+cc.Camera = {
 
 /**
  * @method locate
@@ -5022,7 +5022,7 @@ CCCamera : function () {},
 /**
  * @class CCSprite
  */
-cc.CCSprite = {
+cc.Sprite = {
 
 /**
  * @method draw
@@ -5328,7 +5328,7 @@ CCSprite : function () {},
 /**
  * @class CCLabelTTF
  */
-cc.CCLabelTTF = {
+cc.LabelTTF = {
 
 /**
  * @method setFontName
@@ -5419,7 +5419,7 @@ CCLabelTTF : function () {},
 /**
  * @class CCDirector
  */
-cc.CCDirector = {
+cc.Director = {
 
 /**
  * @method pause
@@ -5726,9 +5726,107 @@ sharedDirector : function () {},
 };
 
 /**
+ * @class CCGridBase
+ */
+cc.GridBase = {
+
+/**
+ * @method setGridSize
+ * @param {cocos2d::CCSize}
+ */
+setGridSize : function () {},
+
+/**
+ * @method calculateVertexPoints
+ */
+calculateVertexPoints : function () {},
+
+/**
+ * @method afterDraw
+ * @param {cocos2d::CCNode*}
+ */
+afterDraw : function () {},
+
+/**
+ * @method beforeDraw
+ */
+beforeDraw : function () {},
+
+/**
+ * @method isTextureFlipped
+ * @return A value converted from C/C++ "bool"
+ */
+isTextureFlipped : function () {},
+
+/**
+ * @method getGridSize
+ * @return A value converted from C/C++ "cocos2d::CCSize"
+ */
+getGridSize : function () {},
+
+/**
+ * @method getStep
+ * @return A value converted from C/C++ "cocos2d::CCPoint"
+ */
+getStep : function () {},
+
+/**
+ * @method set2DProjection
+ */
+set2DProjection : function () {},
+
+/**
+ * @method setStep
+ * @param {cocos2d::CCPoint}
+ */
+setStep : function () {},
+
+/**
+ * @method setTextureFlipped
+ * @param {bool}
+ */
+setTextureFlipped : function () {},
+
+/**
+ * @method blit
+ */
+blit : function () {},
+
+/**
+ * @method setActive
+ * @param {bool}
+ */
+setActive : function () {},
+
+/**
+ * @method getReuseGrid
+ * @return A value converted from C/C++ "int"
+ */
+getReuseGrid : function () {},
+
+/**
+ * @method setReuseGrid
+ * @param {int}
+ */
+setReuseGrid : function () {},
+
+/**
+ * @method isActive
+ * @return A value converted from C/C++ "bool"
+ */
+isActive : function () {},
+
+/**
+ * @method reuse
+ */
+reuse : function () {},
+
+};
+
+/**
  * @class CCGrid3D
  */
-cc.CCGrid3D = {
+cc.Grid3D = {
 
 /**
  * @method calculateVertexPoints
@@ -5777,7 +5875,7 @@ CCGrid3D : function () {},
 /**
  * @class CCTiledGrid3D
  */
-cc.CCTiledGrid3D = {
+cc.TiledGrid3D = {
 
 /**
  * @method calculateVertexPoints
@@ -5826,7 +5924,7 @@ CCTiledGrid3D : function () {},
 /**
  * @class CCLabelAtlas
  */
-cc.CCLabelAtlas = {
+cc.LabelAtlas = {
 
 /**
  * @method setString
@@ -5856,7 +5954,7 @@ CCLabelAtlas : function () {},
 /**
  * @class CCSpriteBatchNode
  */
-cc.CCSpriteBatchNode = {
+cc.SpriteBatchNode = {
 
 /**
  * @method appendChild
@@ -6017,7 +6115,7 @@ highestAtlasIndexInChild : function () {},
 /**
  * @class CCLabelBMFont
  */
-cc.CCLabelBMFont = {
+cc.LabelBMFont = {
 
 /**
  * @method setAnchorPoint
@@ -6206,7 +6304,7 @@ CCLabelBMFont : function () {},
 /**
  * @class CCLayer
  */
-cc.CCLayer = {
+cc.Layer = {
 
 /**
  * @method unregisterScriptTouchHandler
@@ -6423,7 +6521,7 @@ CCLayer : function () {},
 /**
  * @class CCLayerRGBA
  */
-cc.CCLayerRGBA = {
+cc.LayerRGBA = {
 
 /**
  * @method updateDisplayedColor
@@ -6520,7 +6618,7 @@ CCLayerRGBA : function () {},
 /**
  * @class CCLayerColor
  */
-cc.CCLayerColor = {
+cc.LayerColor = {
 
 /**
  * @method draw
@@ -6575,7 +6673,7 @@ CCLayerColor : function () {},
 /**
  * @class CCLayerGradient
  */
-cc.CCLayerGradient = {
+cc.LayerGradient = {
 
 /**
  * @method getStartColor
@@ -6654,7 +6752,7 @@ setStartColor : function () {},
 /**
  * @class CCLayerMultiplex
  */
-cc.CCLayerMultiplex = {
+cc.LayerMultiplex = {
 
 /**
  * @method initWithArray
@@ -6692,7 +6790,7 @@ CCLayerMultiplex : function () {},
 /**
  * @class CCScene
  */
-cc.CCScene = {
+cc.Scene = {
 
 /**
  * @method init
@@ -6717,7 +6815,7 @@ CCScene : function () {},
 /**
  * @class CCTransitionEaseScene
  */
-cc.CCTransitionEaseScene = {
+cc.TransitionEaseScene = {
 
 /**
  * @method easeActionWithAction
@@ -6731,7 +6829,7 @@ easeActionWithAction : function () {},
 /**
  * @class CCTransitionScene
  */
-cc.CCTransitionScene = {
+cc.TransitionScene = {
 
 /**
  * @method draw
@@ -6780,7 +6878,7 @@ CCTransitionScene : function () {},
 /**
  * @class CCTransitionSceneOriented
  */
-cc.CCTransitionSceneOriented = {
+cc.TransitionSceneOriented = {
 
 /**
  * @method initWithDuration
@@ -6811,7 +6909,7 @@ CCTransitionSceneOriented : function () {},
 /**
  * @class CCTransitionRotoZoom
  */
-cc.CCTransitionRotoZoom = {
+cc.TransitionRotoZoom = {
 
 /**
  * @method create
@@ -6832,7 +6930,7 @@ CCTransitionRotoZoom : function () {},
 /**
  * @class CCTransitionJumpZoom
  */
-cc.CCTransitionJumpZoom = {
+cc.TransitionJumpZoom = {
 
 /**
  * @method create
@@ -6853,7 +6951,7 @@ CCTransitionJumpZoom : function () {},
 /**
  * @class CCTransitionMoveInL
  */
-cc.CCTransitionMoveInL = {
+cc.TransitionMoveInL = {
 
 /**
  * @method action
@@ -6892,7 +6990,7 @@ CCTransitionMoveInL : function () {},
 /**
  * @class CCTransitionMoveInR
  */
-cc.CCTransitionMoveInR = {
+cc.TransitionMoveInR = {
 
 /**
  * @method initScenes
@@ -6918,7 +7016,7 @@ CCTransitionMoveInR : function () {},
 /**
  * @class CCTransitionMoveInT
  */
-cc.CCTransitionMoveInT = {
+cc.TransitionMoveInT = {
 
 /**
  * @method initScenes
@@ -6944,7 +7042,7 @@ CCTransitionMoveInT : function () {},
 /**
  * @class CCTransitionMoveInB
  */
-cc.CCTransitionMoveInB = {
+cc.TransitionMoveInB = {
 
 /**
  * @method initScenes
@@ -6970,7 +7068,7 @@ CCTransitionMoveInB : function () {},
 /**
  * @class CCTransitionSlideInL
  */
-cc.CCTransitionSlideInL = {
+cc.TransitionSlideInL = {
 
 /**
  * @method action
@@ -7009,7 +7107,7 @@ CCTransitionSlideInL : function () {},
 /**
  * @class CCTransitionSlideInR
  */
-cc.CCTransitionSlideInR = {
+cc.TransitionSlideInR = {
 
 /**
  * @method action
@@ -7041,7 +7139,7 @@ CCTransitionSlideInR : function () {},
 /**
  * @class CCTransitionSlideInB
  */
-cc.CCTransitionSlideInB = {
+cc.TransitionSlideInB = {
 
 /**
  * @method action
@@ -7073,7 +7171,7 @@ CCTransitionSlideInB : function () {},
 /**
  * @class CCTransitionSlideInT
  */
-cc.CCTransitionSlideInT = {
+cc.TransitionSlideInT = {
 
 /**
  * @method action
@@ -7105,7 +7203,7 @@ CCTransitionSlideInT : function () {},
 /**
  * @class CCTransitionShrinkGrow
  */
-cc.CCTransitionShrinkGrow = {
+cc.TransitionShrinkGrow = {
 
 /**
  * @method easeActionWithAction
@@ -7133,7 +7231,7 @@ CCTransitionShrinkGrow : function () {},
 /**
  * @class CCTransitionFlipX
  */
-cc.CCTransitionFlipX = {
+cc.TransitionFlipX = {
 
 /**
  * @method CCTransitionFlipX
@@ -7146,7 +7244,7 @@ CCTransitionFlipX : function () {},
 /**
  * @class CCTransitionFlipY
  */
-cc.CCTransitionFlipY = {
+cc.TransitionFlipY = {
 
 /**
  * @method CCTransitionFlipY
@@ -7159,7 +7257,7 @@ CCTransitionFlipY : function () {},
 /**
  * @class CCTransitionFlipAngular
  */
-cc.CCTransitionFlipAngular = {
+cc.TransitionFlipAngular = {
 
 /**
  * @method CCTransitionFlipAngular
@@ -7172,7 +7270,7 @@ CCTransitionFlipAngular : function () {},
 /**
  * @class CCTransitionZoomFlipX
  */
-cc.CCTransitionZoomFlipX = {
+cc.TransitionZoomFlipX = {
 
 /**
  * @method CCTransitionZoomFlipX
@@ -7185,7 +7283,7 @@ CCTransitionZoomFlipX : function () {},
 /**
  * @class CCTransitionZoomFlipY
  */
-cc.CCTransitionZoomFlipY = {
+cc.TransitionZoomFlipY = {
 
 /**
  * @method CCTransitionZoomFlipY
@@ -7198,7 +7296,7 @@ CCTransitionZoomFlipY : function () {},
 /**
  * @class CCTransitionZoomFlipAngular
  */
-cc.CCTransitionZoomFlipAngular = {
+cc.TransitionZoomFlipAngular = {
 
 /**
  * @method CCTransitionZoomFlipAngular
@@ -7211,7 +7309,7 @@ CCTransitionZoomFlipAngular : function () {},
 /**
  * @class CCTransitionFade
  */
-cc.CCTransitionFade = {
+cc.TransitionFade = {
 
 /**
  * @method CCTransitionFade
@@ -7224,7 +7322,7 @@ CCTransitionFade : function () {},
 /**
  * @class CCTransitionCrossFade
  */
-cc.CCTransitionCrossFade = {
+cc.TransitionCrossFade = {
 
 /**
  * @method draw
@@ -7250,7 +7348,7 @@ CCTransitionCrossFade : function () {},
 /**
  * @class CCTransitionTurnOffTiles
  */
-cc.CCTransitionTurnOffTiles = {
+cc.TransitionTurnOffTiles = {
 
 /**
  * @method easeActionWithAction
@@ -7278,7 +7376,7 @@ CCTransitionTurnOffTiles : function () {},
 /**
  * @class CCTransitionSplitCols
  */
-cc.CCTransitionSplitCols = {
+cc.TransitionSplitCols = {
 
 /**
  * @method action
@@ -7312,7 +7410,7 @@ CCTransitionSplitCols : function () {},
 /**
  * @class CCTransitionSplitRows
  */
-cc.CCTransitionSplitRows = {
+cc.TransitionSplitRows = {
 
 /**
  * @method action
@@ -7339,7 +7437,7 @@ CCTransitionSplitRows : function () {},
 /**
  * @class CCTransitionFadeTR
  */
-cc.CCTransitionFadeTR = {
+cc.TransitionFadeTR = {
 
 /**
  * @method easeActionWithAction
@@ -7374,7 +7472,7 @@ CCTransitionFadeTR : function () {},
 /**
  * @class CCTransitionFadeBL
  */
-cc.CCTransitionFadeBL = {
+cc.TransitionFadeBL = {
 
 /**
  * @method actionWithSize
@@ -7402,7 +7500,7 @@ CCTransitionFadeBL : function () {},
 /**
  * @class CCTransitionFadeUp
  */
-cc.CCTransitionFadeUp = {
+cc.TransitionFadeUp = {
 
 /**
  * @method actionWithSize
@@ -7430,7 +7528,7 @@ CCTransitionFadeUp : function () {},
 /**
  * @class CCTransitionFadeDown
  */
-cc.CCTransitionFadeDown = {
+cc.TransitionFadeDown = {
 
 /**
  * @method actionWithSize
@@ -7458,7 +7556,7 @@ CCTransitionFadeDown : function () {},
 /**
  * @class CCTransitionPageTurn
  */
-cc.CCTransitionPageTurn = {
+cc.TransitionPageTurn = {
 
 /**
  * @method actionWithSize
@@ -7496,7 +7594,7 @@ CCTransitionPageTurn : function () {},
 /**
  * @class CCTransitionProgress
  */
-cc.CCTransitionProgress = {
+cc.TransitionProgress = {
 
 /**
  * @method create
@@ -7517,7 +7615,7 @@ CCTransitionProgress : function () {},
 /**
  * @class CCTransitionProgressRadialCCW
  */
-cc.CCTransitionProgressRadialCCW = {
+cc.TransitionProgressRadialCCW = {
 
 /**
  * @method create
@@ -7532,7 +7630,7 @@ create : function () {},
 /**
  * @class CCTransitionProgressRadialCW
  */
-cc.CCTransitionProgressRadialCW = {
+cc.TransitionProgressRadialCW = {
 
 /**
  * @method create
@@ -7547,7 +7645,7 @@ create : function () {},
 /**
  * @class CCTransitionProgressHorizontal
  */
-cc.CCTransitionProgressHorizontal = {
+cc.TransitionProgressHorizontal = {
 
 /**
  * @method create
@@ -7562,7 +7660,7 @@ create : function () {},
 /**
  * @class CCTransitionProgressVertical
  */
-cc.CCTransitionProgressVertical = {
+cc.TransitionProgressVertical = {
 
 /**
  * @method create
@@ -7577,7 +7675,7 @@ create : function () {},
 /**
  * @class CCTransitionProgressInOut
  */
-cc.CCTransitionProgressInOut = {
+cc.TransitionProgressInOut = {
 
 /**
  * @method create
@@ -7592,7 +7690,7 @@ create : function () {},
 /**
  * @class CCTransitionProgressOutIn
  */
-cc.CCTransitionProgressOutIn = {
+cc.TransitionProgressOutIn = {
 
 /**
  * @method create
@@ -7607,7 +7705,7 @@ create : function () {},
 /**
  * @class CCMenuItem
  */
-cc.CCMenuItem = {
+cc.MenuItem = {
 
 /**
  * @method setEnabled
@@ -7676,7 +7774,7 @@ CCMenuItem : function () {},
 /**
  * @class CCMenuItemLabel
  */
-cc.CCMenuItemLabel = {
+cc.MenuItemLabel = {
 
 /**
  * @method setEnabled
@@ -7740,7 +7838,7 @@ CCMenuItemLabel : function () {},
 /**
  * @class CCMenuItemAtlasFont
  */
-cc.CCMenuItemAtlasFont = {
+cc.MenuItemAtlasFont = {
 
 /**
  * @method CCMenuItemAtlasFont
@@ -7753,7 +7851,7 @@ CCMenuItemAtlasFont : function () {},
 /**
  * @class CCMenuItemFont
  */
-cc.CCMenuItemFont = {
+cc.MenuItemFont = {
 
 /**
  * @method setFontNameObj
@@ -7814,7 +7912,7 @@ CCMenuItemFont : function () {},
 /**
  * @class CCMenuItemSprite
  */
-cc.CCMenuItemSprite = {
+cc.MenuItemSprite = {
 
 /**
  * @method setEnabled
@@ -7879,7 +7977,7 @@ CCMenuItemSprite : function () {},
 /**
  * @class CCMenuItemImage
  */
-cc.CCMenuItemImage = {
+cc.MenuItemImage = {
 
 /**
  * @method setDisabledSpriteFrame
@@ -7916,7 +8014,7 @@ CCMenuItemImage : function () {},
 /**
  * @class CCMenuItemToggle
  */
-cc.CCMenuItemToggle = {
+cc.MenuItemToggle = {
 
 /**
  * @method setSubItems
@@ -7987,7 +8085,7 @@ CCMenuItemToggle : function () {},
 /**
  * @class CCMenu
  */
-cc.CCMenu = {
+cc.Menu = {
 
 /**
  * @method initWithArray
@@ -8094,7 +8192,7 @@ CCMenu : function () {},
 /**
  * @class CCProgressTimer
  */
-cc.CCProgressTimer = {
+cc.ProgressTimer = {
 
 /**
  * @method setAnchorPoint
@@ -8198,7 +8296,7 @@ CCProgressTimer : function () {},
 /**
  * @class CCRenderTexture
  */
-cc.CCRenderTexture = {
+cc.RenderTexture = {
 
 /**
  * @method clearStencil
@@ -8321,7 +8419,6 @@ getClearFlags : function () {},
 /**
  * @method newCCImage
  * @return A value converted from C/C++ "cocos2d::CCImage*"
- * @param {bool}
  */
 newCCImage : function () {},
 
@@ -8348,7 +8445,7 @@ CCRenderTexture : function () {},
 /**
  * @class CCParticleBatchNode
  */
-cc.CCParticleBatchNode = {
+cc.ParticleBatchNode = {
 
 /**
  * @method removeChildAtIndex
@@ -8467,7 +8564,7 @@ CCParticleBatchNode : function () {},
 /**
  * @class CCParticleSystem
  */
-cc.CCParticleSystem = {
+cc.ParticleSystem = {
 
 /**
  * @method getStartSizeVar
@@ -9105,7 +9202,7 @@ CCParticleSystem : function () {},
 /**
  * @class CCParticleSystemQuad
  */
-cc.CCParticleSystemQuad = {
+cc.ParticleSystem = {
 
 /**
  * @method initTexCoordsWithRect
@@ -9149,7 +9246,7 @@ CCParticleSystemQuad : function () {},
 /**
  * @class CCParticleFire
  */
-cc.CCParticleFire = {
+cc.ParticleFire = {
 
 /**
  * @method init
@@ -9188,7 +9285,7 @@ CCParticleFire : function () {},
 /**
  * @class CCParticleFireworks
  */
-cc.CCParticleFireworks = {
+cc.ParticleFireworks = {
 
 /**
  * @method init
@@ -9227,7 +9324,7 @@ CCParticleFireworks : function () {},
 /**
  * @class CCParticleSun
  */
-cc.CCParticleSun = {
+cc.ParticleSun = {
 
 /**
  * @method init
@@ -9266,7 +9363,7 @@ CCParticleSun : function () {},
 /**
  * @class CCParticleGalaxy
  */
-cc.CCParticleGalaxy = {
+cc.ParticleGalaxy = {
 
 /**
  * @method init
@@ -9305,7 +9402,7 @@ CCParticleGalaxy : function () {},
 /**
  * @class CCParticleFlower
  */
-cc.CCParticleFlower = {
+cc.ParticleFlower = {
 
 /**
  * @method init
@@ -9344,7 +9441,7 @@ CCParticleFlower : function () {},
 /**
  * @class CCParticleMeteor
  */
-cc.CCParticleMeteor = {
+cc.ParticleMeteor = {
 
 /**
  * @method init
@@ -9383,7 +9480,7 @@ CCParticleMeteor : function () {},
 /**
  * @class CCParticleSpiral
  */
-cc.CCParticleSpiral = {
+cc.ParticleSpiral = {
 
 /**
  * @method init
@@ -9422,7 +9519,7 @@ CCParticleSpiral : function () {},
 /**
  * @class CCParticleExplosion
  */
-cc.CCParticleExplosion = {
+cc.ParticleExplosion = {
 
 /**
  * @method init
@@ -9461,7 +9558,7 @@ CCParticleExplosion : function () {},
 /**
  * @class CCParticleSmoke
  */
-cc.CCParticleSmoke = {
+cc.ParticleSmoke = {
 
 /**
  * @method init
@@ -9500,7 +9597,7 @@ CCParticleSmoke : function () {},
 /**
  * @class CCParticleSnow
  */
-cc.CCParticleSnow = {
+cc.ParticleSnow = {
 
 /**
  * @method init
@@ -9539,7 +9636,7 @@ CCParticleSnow : function () {},
 /**
  * @class CCParticleRain
  */
-cc.CCParticleRain = {
+cc.ParticleRain = {
 
 /**
  * @method init
@@ -9578,7 +9675,7 @@ CCParticleRain : function () {},
 /**
  * @class CCFileUtils
  */
-cc.CCFileUtils = {
+cc.FileUtils = {
 
 /**
  * @method isFileExist
@@ -9690,7 +9787,7 @@ sharedFileUtils : function () {},
 /**
  * @class CCAnimationCache
  */
-cc.CCAnimationCache = {
+cc.AnimationCache = {
 
 /**
  * @method animationByName
@@ -9752,7 +9849,7 @@ CCAnimationCache : function () {},
 /**
  * @class CCSpriteFrameCache
  */
-cc.CCSpriteFrameCache = {
+cc.SpriteFrameCache = {
 
 /**
  * @method addSpriteFrame
@@ -9818,7 +9915,7 @@ sharedSpriteFrameCache : function () {},
 /**
  * @class CCTextureCache
  */
-cc.CCTextureCache = {
+cc.TextureCache = {
 
 /**
  * @method dumpCachedTextureInfo
@@ -9909,7 +10006,7 @@ CCTextureCache : function () {},
 /**
  * @class CCParallaxNode
  */
-cc.CCParallaxNode = {
+cc.ParallaxNode = {
 
 /**
  * @method visit
@@ -9958,7 +10055,7 @@ CCParallaxNode : function () {},
 /**
  * @class CCTMXObjectGroup
  */
-cc.CCTMXObjectGroup = {
+cc.TMXObjectGroup = {
 
 /**
  * @method setPositionOffset
@@ -10033,7 +10130,7 @@ CCTMXObjectGroup : function () {},
 /**
  * @class CCTMXLayerInfo
  */
-cc.CCTMXLayerInfo = {
+cc.TMXLayerInfo = {
 
 /**
  * @method setProperties
@@ -10058,7 +10155,7 @@ CCTMXLayerInfo : function () {},
 /**
  * @class CCTMXTilesetInfo
  */
-cc.CCTMXTilesetInfo = {
+cc.TMXTilesetInfo = {
 
 /**
  * @method rectForGID
@@ -10078,7 +10175,7 @@ CCTMXTilesetInfo : function () {},
 /**
  * @class CCTMXMapInfo
  */
-cc.CCTMXMapInfo = {
+cc.TMXMapInfo = {
 
 /**
  * @method getTileProperties
@@ -10303,7 +10400,7 @@ CCTMXMapInfo : function () {},
 /**
  * @class CCTMXLayer
  */
-cc.CCTMXLayer = {
+cc.TMXLayer = {
 
 /**
  * @method addChild
@@ -10470,7 +10567,7 @@ CCTMXLayer : function () {},
 /**
  * @class CCTMXTiledMap
  */
-cc.CCTMXTiledMap = {
+cc.TMXTiledMap = {
 
 /**
  * @method propertiesForGID
@@ -10601,7 +10698,7 @@ CCTMXTiledMap : function () {},
 /**
  * @class CCTileMapAtlas
  */
-cc.CCTileMapAtlas = {
+cc.TileMapAtlas = {
 
 /**
  * @method initWithTileFile
@@ -10665,7 +10762,7 @@ CCTileMapAtlas : function () {},
 /**
  * @class CCTimer
  */
-cc.CCTimer = {
+cc.Timer = {
 
 /**
  * @method getInterval
@@ -10718,7 +10815,7 @@ CCTimer : function () {},
 /**
  * @class CCScheduler
  */
-cc.CCScheduler = {
+cc.Scheduler = {
 
 /**
  * @method setTimeScale
@@ -10802,7 +10899,7 @@ CCScheduler : function () {},
 /**
  * @class SimpleAudioEngine
  */
-cc.SimpleAudioEngine = {
+cc.AudioEngine = {
 
 /**
  * @method stopAllEffects
@@ -10922,7 +11019,7 @@ sharedEngine : function () {},
 /**
  * @class CCBReader
  */
-cc.CCBReader = {
+cc._Reader = {
 
 /**
  * @method getOwnerCallbackNames
@@ -10993,9 +11090,118 @@ getAnimationManager : function () {},
 };
 
 /**
+ * @class CCControl
+ */
+cc.Control = {
+
+/**
+ * @method setEnabled
+ * @param {bool}
+ */
+setEnabled : function () {},
+
+/**
+ * @method getState
+ * @return A value converted from C/C++ "unsigned int"
+ */
+getState : function () {},
+
+/**
+ * @method sendActionsForControlEvents
+ * @param {unsigned int}
+ */
+sendActionsForControlEvents : function () {},
+
+/**
+ * @method setSelected
+ * @param {bool}
+ */
+setSelected : function () {},
+
+/**
+ * @method getTouchLocation
+ * @return A value converted from C/C++ "cocos2d::CCPoint"
+ * @param {cocos2d::CCTouch*}
+ */
+getTouchLocation : function () {},
+
+/**
+ * @method isEnabled
+ * @return A value converted from C/C++ "bool"
+ */
+isEnabled : function () {},
+
+/**
+ * @method isTouchInside
+ * @return A value converted from C/C++ "bool"
+ * @param {cocos2d::CCTouch*}
+ */
+isTouchInside : function () {},
+
+/**
+ * @method needsLayout
+ */
+needsLayout : function () {},
+
+/**
+ * @method hasVisibleParents
+ * @return A value converted from C/C++ "bool"
+ */
+hasVisibleParents : function () {},
+
+/**
+ * @method isSelected
+ * @return A value converted from C/C++ "bool"
+ */
+isSelected : function () {},
+
+/**
+ * @method init
+ * @return A value converted from C/C++ "bool"
+ */
+init : function () {},
+
+/**
+ * @method getDefaultTouchPriority
+ * @return A value converted from C/C++ "int"
+ */
+getDefaultTouchPriority : function () {},
+
+/**
+ * @method setHighlighted
+ * @param {bool}
+ */
+setHighlighted : function () {},
+
+/**
+ * @method registerWithTouchDispatcher
+ */
+registerWithTouchDispatcher : function () {},
+
+/**
+ * @method isHighlighted
+ * @return A value converted from C/C++ "bool"
+ */
+isHighlighted : function () {},
+
+/**
+ * @method setDefaultTouchPriority
+ * @param {int}
+ */
+setDefaultTouchPriority : function () {},
+
+/**
+ * @method CCControl
+ * @constructor
+ */
+CCControl : function () {},
+
+};
+
+/**
  * @class CCScale9Sprite
  */
-cc.CCScale9Sprite = {
+cc.Scale9Sprite = {
 
 /**
  * @method getCapInsets
@@ -11126,7 +11332,7 @@ CCScale9Sprite : function () {},
 /**
  * @class CCControlButton
  */
-cc.CCControlButton = {
+cc.ControlButton = {
 
 /**
  * @method setTitleColorDispatchTable
@@ -11495,7 +11701,7 @@ CCControlButton : function () {},
 /**
  * @class CCScrollView
  */
-cc.CCScrollView = {
+cc.ScrollView = {
 
 /**
  * @method isClippingToBounds
@@ -11720,7 +11926,7 @@ CCScrollView : function () {},
 /**
  * @class CCBAnimationManager
  */
-cc.CCBAnimationManager = {
+cc.AnimationManager = {
 
 /**
  * @method moveAnimationsFromNode
@@ -11925,7 +12131,7 @@ CCBAnimationManager : function () {},
 /**
  * @class CCTableViewCell
  */
-cc.CCTableViewCell = {
+cc.TableViewCell = {
 
 /**
  * @method reset
@@ -11967,7 +12173,7 @@ CCTableViewCell : function () {},
 /**
  * @class CCTableView
  */
-cc.CCTableView = {
+cc.TableView = {
 
 /**
  * @method updateCellAtIndex
