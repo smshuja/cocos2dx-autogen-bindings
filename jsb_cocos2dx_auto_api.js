@@ -10888,12 +10888,6 @@ scheduleScriptFunc : function () {},
  */
 getTimeScale : function () {},
 
-/**
- * @method CCScheduler
- * @constructor
- */
-CCScheduler : function () {},
-
 };
 
 /**

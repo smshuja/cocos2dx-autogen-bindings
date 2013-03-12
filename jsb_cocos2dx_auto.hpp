@@ -3142,7 +3142,6 @@ JSBool js_cocos2dx_CCScheduler_unscheduleScriptEntry(JSContext *cx, uint32_t arg
 JSBool js_cocos2dx_CCScheduler_unscheduleAllForTarget(JSContext *cx, uint32_t argc, jsval *vp);
 JSBool js_cocos2dx_CCScheduler_scheduleScriptFunc(JSContext *cx, uint32_t argc, jsval *vp);
 JSBool js_cocos2dx_CCScheduler_getTimeScale(JSContext *cx, uint32_t argc, jsval *vp);
-JSBool js_cocos2dx_CCScheduler_CCScheduler(JSContext *cx, uint32_t argc, jsval *vp);
 
 extern JSClass  *jsb_SimpleAudioEngine_class;
 extern JSObject *jsb_SimpleAudioEngine_prototype;
