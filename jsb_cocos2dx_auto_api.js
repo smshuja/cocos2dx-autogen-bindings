@@ -5451,6 +5451,12 @@ getContentScaleFactor : function () {},
 getWinSizeInPixels : function () {},
 
 /**
+ * @method getDeltaTime
+ * @return A value converted from C/C++ "float"
+ */
+getDeltaTime : function () {},
+
+/**
  * @method setKeypadDispatcher
  * @param {cocos2d::CCKeypadDispatcher*}
  */
