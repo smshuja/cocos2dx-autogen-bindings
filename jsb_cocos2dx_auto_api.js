@@ -550,6 +550,12 @@ CCTexture2D : function () {},
 cc.Node = {
 
 /**
+ * @method getChildren
+ * @return A value converted from C/C++ "cocos2d::CCArray*"
+ */
+getChildren : function () {},
+
+/**
  * @method getScriptHandler
  * @return A value converted from C/C++ "int"
  */
@@ -706,6 +712,12 @@ getAnchorPoint : function () {},
  * @return A value converted from C/C++ "bool"
  */
 isVisible : function () {},
+
+/**
+ * @method getChildrenCount
+ * @return A value converted from C/C++ "unsigned int"
+ */
+getChildrenCount : function () {},
 
 /**
  * @method setAnchorPoint
