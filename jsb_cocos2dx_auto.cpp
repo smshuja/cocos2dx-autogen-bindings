@@ -1582,6 +1582,26 @@ JSBool js_cocos2dx_CCSet_containsObject(JSContext *cx, uint32_t argc, jsval *vp)
 	JS_ReportError(cx, "wrong number of arguments: %d, was expecting %d", argc, 1);
 	return JS_FALSE;
 }
+JSBool js_cocos2dx_CCSet_create(JSContext *cx, uint32_t argc, jsval *vp)
+{
+	if (argc == 0) {
+		cocos2d::CCSet* ret = cocos2d::CCSet::create();
+		jsval jsret;
+		do {
+		if (ret) {
+			js_proxy_t *proxy = js_get_or_create_proxy<cocos2d::CCSet>(cx, ret);
+			jsret = OBJECT_TO_JSVAL(proxy->obj);
+		} else {
+			jsret = JSVAL_NULL;
+		}
+	} while (0);
+		JS_SET_RVAL(cx, vp, jsret);
+		return JS_TRUE;
+	}
+	JS_ReportError(cx, "wrong number of arguments");
+	return JS_FALSE;
+}
+
 
 
 
@@ -1617,7 +1637,10 @@ void js_register_cocos2dx_CCSet(JSContext *cx, JSObject *global) {
 		JS_FS_END
 	};
 
-	JSFunctionSpec *st_funcs = NULL;
+	static JSFunctionSpec st_funcs[] = {
+		JS_FN("create", js_cocos2dx_CCSet_create, 0, JSPROP_PERMANENT | JSPROP_ENUMERATE),
+		JS_FS_END
+	};
 
 	jsb_CCSet_prototype = JS_InitClass(
 		cx, global,

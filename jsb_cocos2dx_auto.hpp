@@ -107,6 +107,7 @@ JSBool js_cocos2dx_CCSet_removeAllObjects(JSContext *cx, uint32_t argc, jsval *v
 JSBool js_cocos2dx_CCSet_removeObject(JSContext *cx, uint32_t argc, jsval *vp);
 JSBool js_cocos2dx_CCSet_copy(JSContext *cx, uint32_t argc, jsval *vp);
 JSBool js_cocos2dx_CCSet_containsObject(JSContext *cx, uint32_t argc, jsval *vp);
+JSBool js_cocos2dx_CCSet_create(JSContext *cx, uint32_t argc, jsval *vp);
 
 extern JSClass  *jsb_CCTexture2D_class;
 extern JSObject *jsb_CCTexture2D_prototype;

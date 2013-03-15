@@ -574,38 +574,6 @@ JSBool js_cocos2dx_extension_CCControl_getState(JSContext *cx, uint32_t argc, js
 	JS_ReportError(cx, "wrong number of arguments: %d, was expecting %d", argc, 0);
 	return JS_FALSE;
 }
-JSBool js_cocos2dx_extension_CCControl_isOpacityModifyRGB(JSContext *cx, uint32_t argc, jsval *vp)
-{
-	JSObject *obj = JS_THIS_OBJECT(cx, vp);
-	js_proxy_t *proxy; JS_GET_NATIVE_PROXY(proxy, obj);
-	cocos2d::extension::CCControl* cobj = (cocos2d::extension::CCControl *)(proxy ? proxy->ptr : NULL);
-	JSB_PRECONDITION2( cobj, cx, JS_FALSE, "Invalid Native Object");
-	if (argc == 0) {
-		bool ret = cobj->isOpacityModifyRGB();
-		jsval jsret;
-		jsret = BOOLEAN_TO_JSVAL(ret);
-		JS_SET_RVAL(cx, vp, jsret);
-		return JS_TRUE;
-	}
-
-	JS_ReportError(cx, "wrong number of arguments: %d, was expecting %d", argc, 0);
-	return JS_FALSE;
-}
-JSBool js_cocos2dx_extension_CCControl_onExit(JSContext *cx, uint32_t argc, jsval *vp)
-{
-	JSObject *obj = JS_THIS_OBJECT(cx, vp);
-	js_proxy_t *proxy; JS_GET_NATIVE_PROXY(proxy, obj);
-	cocos2d::extension::CCControl* cobj = (cocos2d::extension::CCControl *)(proxy ? proxy->ptr : NULL);
-	JSB_PRECONDITION2( cobj, cx, JS_FALSE, "Invalid Native Object");
-	if (argc == 0) {
-		cobj->onExit();
-		JS_SET_RVAL(cx, vp, JSVAL_VOID);
-		return JS_TRUE;
-	}
-
-	JS_ReportError(cx, "wrong number of arguments: %d, was expecting %d", argc, 0);
-	return JS_FALSE;
-}
 JSBool js_cocos2dx_extension_CCControl_sendActionsForControlEvents(JSContext *cx, uint32_t argc, jsval *vp)
 {
 	jsval *argv = JS_ARGV(cx, vp);
@@ -719,26 +687,6 @@ JSBool js_cocos2dx_extension_CCControl_isTouchInside(JSContext *cx, uint32_t arg
 	JS_ReportError(cx, "wrong number of arguments: %d, was expecting %d", argc, 1);
 	return JS_FALSE;
 }
-JSBool js_cocos2dx_extension_CCControl_setOpacityModifyRGB(JSContext *cx, uint32_t argc, jsval *vp)
-{
-	jsval *argv = JS_ARGV(cx, vp);
-	JSBool ok = JS_TRUE;
-	JSObject *obj = JS_THIS_OBJECT(cx, vp);
-	js_proxy_t *proxy; JS_GET_NATIVE_PROXY(proxy, obj);
-	cocos2d::extension::CCControl* cobj = (cocos2d::extension::CCControl *)(proxy ? proxy->ptr : NULL);
-	JSB_PRECONDITION2( cobj, cx, JS_FALSE, "Invalid Native Object");
-	if (argc == 1) {
-		JSBool arg0;
-		ok &= JS_ValueToBoolean(cx, argv[0], &arg0);
-		JSB_PRECONDITION2(ok, cx, JS_FALSE, "Error processing arguments");
-		cobj->setOpacityModifyRGB(arg0);
-		JS_SET_RVAL(cx, vp, JSVAL_VOID);
-		return JS_TRUE;
-	}
-
-	JS_ReportError(cx, "wrong number of arguments: %d, was expecting %d", argc, 1);
-	return JS_FALSE;
-}
 JSBool js_cocos2dx_extension_CCControl_needsLayout(JSContext *cx, uint32_t argc, jsval *vp)
 {
 	JSObject *obj = JS_THIS_OBJECT(cx, vp);
@@ -840,21 +788,6 @@ JSBool js_cocos2dx_extension_CCControl_setHighlighted(JSContext *cx, uint32_t ar
 	}
 
 	JS_ReportError(cx, "wrong number of arguments: %d, was expecting %d", argc, 1);
-	return JS_FALSE;
-}
-JSBool js_cocos2dx_extension_CCControl_onEnter(JSContext *cx, uint32_t argc, jsval *vp)
-{
-	JSObject *obj = JS_THIS_OBJECT(cx, vp);
-	js_proxy_t *proxy; JS_GET_NATIVE_PROXY(proxy, obj);
-	cocos2d::extension::CCControl* cobj = (cocos2d::extension::CCControl *)(proxy ? proxy->ptr : NULL);
-	JSB_PRECONDITION2( cobj, cx, JS_FALSE, "Invalid Native Object");
-	if (argc == 0) {
-		cobj->onEnter();
-		JS_SET_RVAL(cx, vp, JSVAL_VOID);
-		return JS_TRUE;
-	}
-
-	JS_ReportError(cx, "wrong number of arguments: %d, was expecting %d", argc, 0);
 	return JS_FALSE;
 }
 JSBool js_cocos2dx_extension_CCControl_registerWithTouchDispatcher(JSContext *cx, uint32_t argc, jsval *vp)
@@ -962,21 +895,17 @@ void js_register_cocos2dx_extension_CCControl(JSContext *cx, JSObject *global) {
 	static JSFunctionSpec funcs[] = {
 		JS_FN("setEnabled", js_cocos2dx_extension_CCControl_setEnabled, 1, JSPROP_PERMANENT | JSPROP_ENUMERATE),
 		JS_FN("getState", js_cocos2dx_extension_CCControl_getState, 0, JSPROP_PERMANENT | JSPROP_ENUMERATE),
-		JS_FN("isOpacityModifyRGB", js_cocos2dx_extension_CCControl_isOpacityModifyRGB, 0, JSPROP_PERMANENT | JSPROP_ENUMERATE),
-		JS_FN("onExit", js_cocos2dx_extension_CCControl_onExit, 0, JSPROP_PERMANENT | JSPROP_ENUMERATE),
 		JS_FN("sendActionsForControlEvents", js_cocos2dx_extension_CCControl_sendActionsForControlEvents, 1, JSPROP_PERMANENT | JSPROP_ENUMERATE),
 		JS_FN("setSelected", js_cocos2dx_extension_CCControl_setSelected, 1, JSPROP_PERMANENT | JSPROP_ENUMERATE),
 		JS_FN("getTouchLocation", js_cocos2dx_extension_CCControl_getTouchLocation, 1, JSPROP_PERMANENT | JSPROP_ENUMERATE),
 		JS_FN("isEnabled", js_cocos2dx_extension_CCControl_isEnabled, 0, JSPROP_PERMANENT | JSPROP_ENUMERATE),
 		JS_FN("isTouchInside", js_cocos2dx_extension_CCControl_isTouchInside, 1, JSPROP_PERMANENT | JSPROP_ENUMERATE),
-		JS_FN("setOpacityModifyRGB", js_cocos2dx_extension_CCControl_setOpacityModifyRGB, 1, JSPROP_PERMANENT | JSPROP_ENUMERATE),
 		JS_FN("needsLayout", js_cocos2dx_extension_CCControl_needsLayout, 0, JSPROP_PERMANENT | JSPROP_ENUMERATE),
 		JS_FN("hasVisibleParents", js_cocos2dx_extension_CCControl_hasVisibleParents, 0, JSPROP_PERMANENT | JSPROP_ENUMERATE),
 		JS_FN("isSelected", js_cocos2dx_extension_CCControl_isSelected, 0, JSPROP_PERMANENT | JSPROP_ENUMERATE),
 		JS_FN("init", js_cocos2dx_extension_CCControl_init, 0, JSPROP_PERMANENT | JSPROP_ENUMERATE),
 		JS_FN("getDefaultTouchPriority", js_cocos2dx_extension_CCControl_getDefaultTouchPriority, 0, JSPROP_PERMANENT | JSPROP_ENUMERATE),
 		JS_FN("setHighlighted", js_cocos2dx_extension_CCControl_setHighlighted, 1, JSPROP_PERMANENT | JSPROP_ENUMERATE),
-		JS_FN("onEnter", js_cocos2dx_extension_CCControl_onEnter, 0, JSPROP_PERMANENT | JSPROP_ENUMERATE),
 		JS_FN("registerWithTouchDispatcher", js_cocos2dx_extension_CCControl_registerWithTouchDispatcher, 0, JSPROP_PERMANENT | JSPROP_ENUMERATE),
 		JS_FN("isHighlighted", js_cocos2dx_extension_CCControl_isHighlighted, 0, JSPROP_PERMANENT | JSPROP_ENUMERATE),
 		JS_FN("setDefaultTouchPriority", js_cocos2dx_extension_CCControl_setDefaultTouchPriority, 1, JSPROP_PERMANENT | JSPROP_ENUMERATE),
@@ -1034,26 +963,6 @@ JSBool js_cocos2dx_extension_CCScale9Sprite_getCapInsets(JSContext *cx, uint32_t
 	JS_ReportError(cx, "wrong number of arguments: %d, was expecting %d", argc, 0);
 	return JS_FALSE;
 }
-JSBool js_cocos2dx_extension_CCScale9Sprite_setOpacityModifyRGB(JSContext *cx, uint32_t argc, jsval *vp)
-{
-	jsval *argv = JS_ARGV(cx, vp);
-	JSBool ok = JS_TRUE;
-	JSObject *obj = JS_THIS_OBJECT(cx, vp);
-	js_proxy_t *proxy; JS_GET_NATIVE_PROXY(proxy, obj);
-	cocos2d::extension::CCScale9Sprite* cobj = (cocos2d::extension::CCScale9Sprite *)(proxy ? proxy->ptr : NULL);
-	JSB_PRECONDITION2( cobj, cx, JS_FALSE, "Invalid Native Object");
-	if (argc == 1) {
-		JSBool arg0;
-		ok &= JS_ValueToBoolean(cx, argv[0], &arg0);
-		JSB_PRECONDITION2(ok, cx, JS_FALSE, "Error processing arguments");
-		cobj->setOpacityModifyRGB(arg0);
-		JS_SET_RVAL(cx, vp, JSVAL_VOID);
-		return JS_TRUE;
-	}
-
-	JS_ReportError(cx, "wrong number of arguments: %d, was expecting %d", argc, 1);
-	return JS_FALSE;
-}
 JSBool js_cocos2dx_extension_CCScale9Sprite_updateWithBatchNode(JSContext *cx, uint32_t argc, jsval *vp)
 {
 	jsval *argv = JS_ARGV(cx, vp);
@@ -1106,38 +1015,6 @@ JSBool js_cocos2dx_extension_CCScale9Sprite_setInsetBottom(JSContext *cx, uint32
 	}
 
 	JS_ReportError(cx, "wrong number of arguments: %d, was expecting %d", argc, 1);
-	return JS_FALSE;
-}
-JSBool js_cocos2dx_extension_CCScale9Sprite_isOpacityModifyRGB(JSContext *cx, uint32_t argc, jsval *vp)
-{
-	JSObject *obj = JS_THIS_OBJECT(cx, vp);
-	js_proxy_t *proxy; JS_GET_NATIVE_PROXY(proxy, obj);
-	cocos2d::extension::CCScale9Sprite* cobj = (cocos2d::extension::CCScale9Sprite *)(proxy ? proxy->ptr : NULL);
-	JSB_PRECONDITION2( cobj, cx, JS_FALSE, "Invalid Native Object");
-	if (argc == 0) {
-		bool ret = cobj->isOpacityModifyRGB();
-		jsval jsret;
-		jsret = BOOLEAN_TO_JSVAL(ret);
-		JS_SET_RVAL(cx, vp, jsret);
-		return JS_TRUE;
-	}
-
-	JS_ReportError(cx, "wrong number of arguments: %d, was expecting %d", argc, 0);
-	return JS_FALSE;
-}
-JSBool js_cocos2dx_extension_CCScale9Sprite_visit(JSContext *cx, uint32_t argc, jsval *vp)
-{
-	JSObject *obj = JS_THIS_OBJECT(cx, vp);
-	js_proxy_t *proxy; JS_GET_NATIVE_PROXY(proxy, obj);
-	cocos2d::extension::CCScale9Sprite* cobj = (cocos2d::extension::CCScale9Sprite *)(proxy ? proxy->ptr : NULL);
-	JSB_PRECONDITION2( cobj, cx, JS_FALSE, "Invalid Native Object");
-	if (argc == 0) {
-		cobj->visit();
-		JS_SET_RVAL(cx, vp, JSVAL_VOID);
-		return JS_TRUE;
-	}
-
-	JS_ReportError(cx, "wrong number of arguments: %d, was expecting %d", argc, 0);
 	return JS_FALSE;
 }
 JSBool js_cocos2dx_extension_CCScale9Sprite_initWithSpriteFrameName(JSContext *cx, uint32_t argc, jsval *vp)
@@ -1947,11 +1824,8 @@ void js_register_cocos2dx_extension_CCScale9Sprite(JSContext *cx, JSObject *glob
 
 	static JSFunctionSpec funcs[] = {
 		JS_FN("getCapInsets", js_cocos2dx_extension_CCScale9Sprite_getCapInsets, 0, JSPROP_PERMANENT | JSPROP_ENUMERATE),
-		JS_FN("setOpacityModifyRGB", js_cocos2dx_extension_CCScale9Sprite_setOpacityModifyRGB, 1, JSPROP_PERMANENT | JSPROP_ENUMERATE),
 		JS_FN("updateWithBatchNode", js_cocos2dx_extension_CCScale9Sprite_updateWithBatchNode, 4, JSPROP_PERMANENT | JSPROP_ENUMERATE),
 		JS_FN("setInsetBottom", js_cocos2dx_extension_CCScale9Sprite_setInsetBottom, 1, JSPROP_PERMANENT | JSPROP_ENUMERATE),
-		JS_FN("isOpacityModifyRGB", js_cocos2dx_extension_CCScale9Sprite_isOpacityModifyRGB, 0, JSPROP_PERMANENT | JSPROP_ENUMERATE),
-		JS_FN("visit", js_cocos2dx_extension_CCScale9Sprite_visit, 0, JSPROP_PERMANENT | JSPROP_ENUMERATE),
 		JS_FN("initWithSpriteFrameName", js_cocos2dx_extension_CCScale9Sprite_initWithSpriteFrameName, 1, JSPROP_PERMANENT | JSPROP_ENUMERATE),
 		JS_FN("setInsetTop", js_cocos2dx_extension_CCScale9Sprite_setInsetTop, 1, JSPROP_PERMANENT | JSPROP_ENUMERATE),
 		JS_FN("init", js_cocos2dx_extension_CCScale9Sprite_init, 0, JSPROP_PERMANENT | JSPROP_ENUMERATE),
@@ -3902,21 +3776,6 @@ JSBool js_cocos2dx_extension_CCScrollView_setDirection(JSContext *cx, uint32_t a
 	JS_ReportError(cx, "wrong number of arguments: %d, was expecting %d", argc, 1);
 	return JS_FALSE;
 }
-JSBool js_cocos2dx_extension_CCScrollView_visit(JSContext *cx, uint32_t argc, jsval *vp)
-{
-	JSObject *obj = JS_THIS_OBJECT(cx, vp);
-	js_proxy_t *proxy; JS_GET_NATIVE_PROXY(proxy, obj);
-	cocos2d::extension::CCScrollView* cobj = (cocos2d::extension::CCScrollView *)(proxy ? proxy->ptr : NULL);
-	JSB_PRECONDITION2( cobj, cx, JS_FALSE, "Invalid Native Object");
-	if (argc == 0) {
-		cobj->visit();
-		JS_SET_RVAL(cx, vp, JSVAL_VOID);
-		return JS_TRUE;
-	}
-
-	JS_ReportError(cx, "wrong number of arguments: %d, was expecting %d", argc, 0);
-	return JS_FALSE;
-}
 JSBool js_cocos2dx_extension_CCScrollView_setBounceable(JSContext *cx, uint32_t argc, jsval *vp)
 {
 	jsval *argv = JS_ARGV(cx, vp);
@@ -4513,7 +4372,6 @@ void js_register_cocos2dx_extension_CCScrollView(JSContext *cx, JSObject *global
 		JS_FN("initWithViewSize", js_cocos2dx_extension_CCScrollView_initWithViewSize, 1, JSPROP_PERMANENT | JSPROP_ENUMERATE),
 		JS_FN("pause", js_cocos2dx_extension_CCScrollView_pause, 1, JSPROP_PERMANENT | JSPROP_ENUMERATE),
 		JS_FN("setDirection", js_cocos2dx_extension_CCScrollView_setDirection, 1, JSPROP_PERMANENT | JSPROP_ENUMERATE),
-		JS_FN("visit", js_cocos2dx_extension_CCScrollView_visit, 0, JSPROP_PERMANENT | JSPROP_ENUMERATE),
 		JS_FN("setBounceable", js_cocos2dx_extension_CCScrollView_setBounceable, 1, JSPROP_PERMANENT | JSPROP_ENUMERATE),
 		JS_FN("setContentOffset", js_cocos2dx_extension_CCScrollView_setContentOffset, 1, JSPROP_PERMANENT | JSPROP_ENUMERATE),
 		JS_FN("isDragging", js_cocos2dx_extension_CCScrollView_isDragging, 0, JSPROP_PERMANENT | JSPROP_ENUMERATE),
@@ -6103,6 +5961,587 @@ void js_register_cocos2dx_extension_CCTableView(JSContext *cx, JSObject *global)
 	}
 }
 
+
+JSClass  *jsb_CCEditBox_class;
+JSObject *jsb_CCEditBox_prototype;
+
+JSBool js_cocos2dx_extension_CCEditBox_setAnchorPoint(JSContext *cx, uint32_t argc, jsval *vp)
+{
+	jsval *argv = JS_ARGV(cx, vp);
+	JSBool ok = JS_TRUE;
+	JSObject *obj = JS_THIS_OBJECT(cx, vp);
+	js_proxy_t *proxy; JS_GET_NATIVE_PROXY(proxy, obj);
+	cocos2d::extension::CCEditBox* cobj = (cocos2d::extension::CCEditBox *)(proxy ? proxy->ptr : NULL);
+	JSB_PRECONDITION2( cobj, cx, JS_FALSE, "Invalid Native Object");
+	if (argc == 1) {
+		cocos2d::CCPoint arg0;
+		ok &= jsval_to_ccpoint(cx, argv[0], &arg0);
+		JSB_PRECONDITION2(ok, cx, JS_FALSE, "Error processing arguments");
+		cobj->setAnchorPoint(arg0);
+		JS_SET_RVAL(cx, vp, JSVAL_VOID);
+		return JS_TRUE;
+	}
+
+	JS_ReportError(cx, "wrong number of arguments: %d, was expecting %d", argc, 1);
+	return JS_FALSE;
+}
+JSBool js_cocos2dx_extension_CCEditBox_getText(JSContext *cx, uint32_t argc, jsval *vp)
+{
+	JSObject *obj = JS_THIS_OBJECT(cx, vp);
+	js_proxy_t *proxy; JS_GET_NATIVE_PROXY(proxy, obj);
+	cocos2d::extension::CCEditBox* cobj = (cocos2d::extension::CCEditBox *)(proxy ? proxy->ptr : NULL);
+	JSB_PRECONDITION2( cobj, cx, JS_FALSE, "Invalid Native Object");
+	if (argc == 0) {
+		const char* ret = cobj->getText();
+		jsval jsret;
+		jsret = c_string_to_jsval(cx, ret);
+		JS_SET_RVAL(cx, vp, jsret);
+		return JS_TRUE;
+	}
+
+	JS_ReportError(cx, "wrong number of arguments: %d, was expecting %d", argc, 0);
+	return JS_FALSE;
+}
+JSBool js_cocos2dx_extension_CCEditBox_setContentSize(JSContext *cx, uint32_t argc, jsval *vp)
+{
+	jsval *argv = JS_ARGV(cx, vp);
+	JSBool ok = JS_TRUE;
+	JSObject *obj = JS_THIS_OBJECT(cx, vp);
+	js_proxy_t *proxy; JS_GET_NATIVE_PROXY(proxy, obj);
+	cocos2d::extension::CCEditBox* cobj = (cocos2d::extension::CCEditBox *)(proxy ? proxy->ptr : NULL);
+	JSB_PRECONDITION2( cobj, cx, JS_FALSE, "Invalid Native Object");
+	if (argc == 1) {
+		cocos2d::CCSize arg0;
+		ok &= jsval_to_ccsize(cx, argv[0], &arg0);
+		JSB_PRECONDITION2(ok, cx, JS_FALSE, "Error processing arguments");
+		cobj->setContentSize(arg0);
+		JS_SET_RVAL(cx, vp, JSVAL_VOID);
+		return JS_TRUE;
+	}
+
+	JS_ReportError(cx, "wrong number of arguments: %d, was expecting %d", argc, 1);
+	return JS_FALSE;
+}
+JSBool js_cocos2dx_extension_CCEditBox_getPlaceHolder(JSContext *cx, uint32_t argc, jsval *vp)
+{
+	JSObject *obj = JS_THIS_OBJECT(cx, vp);
+	js_proxy_t *proxy; JS_GET_NATIVE_PROXY(proxy, obj);
+	cocos2d::extension::CCEditBox* cobj = (cocos2d::extension::CCEditBox *)(proxy ? proxy->ptr : NULL);
+	JSB_PRECONDITION2( cobj, cx, JS_FALSE, "Invalid Native Object");
+	if (argc == 0) {
+		const char* ret = cobj->getPlaceHolder();
+		jsval jsret;
+		jsret = c_string_to_jsval(cx, ret);
+		JS_SET_RVAL(cx, vp, jsret);
+		return JS_TRUE;
+	}
+
+	JS_ReportError(cx, "wrong number of arguments: %d, was expecting %d", argc, 0);
+	return JS_FALSE;
+}
+JSBool js_cocos2dx_extension_CCEditBox_setInputMode(JSContext *cx, uint32_t argc, jsval *vp)
+{
+	jsval *argv = JS_ARGV(cx, vp);
+	JSBool ok = JS_TRUE;
+	JSObject *obj = JS_THIS_OBJECT(cx, vp);
+	js_proxy_t *proxy; JS_GET_NATIVE_PROXY(proxy, obj);
+	cocos2d::extension::CCEditBox* cobj = (cocos2d::extension::CCEditBox *)(proxy ? proxy->ptr : NULL);
+	JSB_PRECONDITION2( cobj, cx, JS_FALSE, "Invalid Native Object");
+	if (argc == 1) {
+		cocos2d::extension::EditBoxInputMode arg0;
+		ok &= jsval_to_int32(cx, argv[0], (int32_t *)&arg0);
+		JSB_PRECONDITION2(ok, cx, JS_FALSE, "Error processing arguments");
+		cobj->setInputMode(arg0);
+		JS_SET_RVAL(cx, vp, JSVAL_VOID);
+		return JS_TRUE;
+	}
+
+	JS_ReportError(cx, "wrong number of arguments: %d, was expecting %d", argc, 1);
+	return JS_FALSE;
+}
+JSBool js_cocos2dx_extension_CCEditBox_setPlaceholderFontColor(JSContext *cx, uint32_t argc, jsval *vp)
+{
+	jsval *argv = JS_ARGV(cx, vp);
+	JSBool ok = JS_TRUE;
+	JSObject *obj = JS_THIS_OBJECT(cx, vp);
+	js_proxy_t *proxy; JS_GET_NATIVE_PROXY(proxy, obj);
+	cocos2d::extension::CCEditBox* cobj = (cocos2d::extension::CCEditBox *)(proxy ? proxy->ptr : NULL);
+	JSB_PRECONDITION2( cobj, cx, JS_FALSE, "Invalid Native Object");
+	if (argc == 1) {
+		cocos2d::ccColor3B arg0;
+		ok &= jsval_to_cccolor3b(cx, argv[0], &arg0);
+		JSB_PRECONDITION2(ok, cx, JS_FALSE, "Error processing arguments");
+		cobj->setPlaceholderFontColor(arg0);
+		JS_SET_RVAL(cx, vp, JSVAL_VOID);
+		return JS_TRUE;
+	}
+
+	JS_ReportError(cx, "wrong number of arguments: %d, was expecting %d", argc, 1);
+	return JS_FALSE;
+}
+JSBool js_cocos2dx_extension_CCEditBox_setFontColor(JSContext *cx, uint32_t argc, jsval *vp)
+{
+	jsval *argv = JS_ARGV(cx, vp);
+	JSBool ok = JS_TRUE;
+	JSObject *obj = JS_THIS_OBJECT(cx, vp);
+	js_proxy_t *proxy; JS_GET_NATIVE_PROXY(proxy, obj);
+	cocos2d::extension::CCEditBox* cobj = (cocos2d::extension::CCEditBox *)(proxy ? proxy->ptr : NULL);
+	JSB_PRECONDITION2( cobj, cx, JS_FALSE, "Invalid Native Object");
+	if (argc == 1) {
+		cocos2d::ccColor3B arg0;
+		ok &= jsval_to_cccolor3b(cx, argv[0], &arg0);
+		JSB_PRECONDITION2(ok, cx, JS_FALSE, "Error processing arguments");
+		cobj->setFontColor(arg0);
+		JS_SET_RVAL(cx, vp, JSVAL_VOID);
+		return JS_TRUE;
+	}
+
+	JS_ReportError(cx, "wrong number of arguments: %d, was expecting %d", argc, 1);
+	return JS_FALSE;
+}
+JSBool js_cocos2dx_extension_CCEditBox_setPlaceholderFont(JSContext *cx, uint32_t argc, jsval *vp)
+{
+	jsval *argv = JS_ARGV(cx, vp);
+	JSBool ok = JS_TRUE;
+	JSObject *obj = JS_THIS_OBJECT(cx, vp);
+	js_proxy_t *proxy; JS_GET_NATIVE_PROXY(proxy, obj);
+	cocos2d::extension::CCEditBox* cobj = (cocos2d::extension::CCEditBox *)(proxy ? proxy->ptr : NULL);
+	JSB_PRECONDITION2( cobj, cx, JS_FALSE, "Invalid Native Object");
+	if (argc == 2) {
+		const char* arg0;
+		int arg1;
+		std::string arg0_tmp; ok &= jsval_to_std_string(cx, argv[0], &arg0_tmp); arg0 = arg0_tmp.c_str();
+		ok &= jsval_to_int32(cx, argv[1], (int32_t *)&arg1);
+		JSB_PRECONDITION2(ok, cx, JS_FALSE, "Error processing arguments");
+		cobj->setPlaceholderFont(arg0, arg1);
+		JS_SET_RVAL(cx, vp, JSVAL_VOID);
+		return JS_TRUE;
+	}
+
+	JS_ReportError(cx, "wrong number of arguments: %d, was expecting %d", argc, 2);
+	return JS_FALSE;
+}
+JSBool js_cocos2dx_extension_CCEditBox_initWithSizeAndBackgroundSprite(JSContext *cx, uint32_t argc, jsval *vp)
+{
+	jsval *argv = JS_ARGV(cx, vp);
+	JSBool ok = JS_TRUE;
+	JSObject *obj = JS_THIS_OBJECT(cx, vp);
+	js_proxy_t *proxy; JS_GET_NATIVE_PROXY(proxy, obj);
+	cocos2d::extension::CCEditBox* cobj = (cocos2d::extension::CCEditBox *)(proxy ? proxy->ptr : NULL);
+	JSB_PRECONDITION2( cobj, cx, JS_FALSE, "Invalid Native Object");
+	if (argc == 2) {
+		cocos2d::CCSize arg0;
+		cocos2d::extension::CCScale9Sprite* arg1;
+		ok &= jsval_to_ccsize(cx, argv[0], &arg0);
+		do {
+			js_proxy_t *proxy;
+			JSObject *tmpObj = JSVAL_TO_OBJECT(argv[1]);
+			JS_GET_NATIVE_PROXY(proxy, tmpObj);
+			arg1 = (cocos2d::extension::CCScale9Sprite*)(proxy ? proxy->ptr : NULL);
+			JSB_PRECONDITION2( arg1, cx, JS_FALSE, "Invalid Native Object");
+		} while (0);
+		JSB_PRECONDITION2(ok, cx, JS_FALSE, "Error processing arguments");
+		bool ret = cobj->initWithSizeAndBackgroundSprite(arg0, arg1);
+		jsval jsret;
+		jsret = BOOLEAN_TO_JSVAL(ret);
+		JS_SET_RVAL(cx, vp, jsret);
+		return JS_TRUE;
+	}
+
+	JS_ReportError(cx, "wrong number of arguments: %d, was expecting %d", argc, 2);
+	return JS_FALSE;
+}
+JSBool js_cocos2dx_extension_CCEditBox_setPlaceHolder(JSContext *cx, uint32_t argc, jsval *vp)
+{
+	jsval *argv = JS_ARGV(cx, vp);
+	JSBool ok = JS_TRUE;
+	JSObject *obj = JS_THIS_OBJECT(cx, vp);
+	js_proxy_t *proxy; JS_GET_NATIVE_PROXY(proxy, obj);
+	cocos2d::extension::CCEditBox* cobj = (cocos2d::extension::CCEditBox *)(proxy ? proxy->ptr : NULL);
+	JSB_PRECONDITION2( cobj, cx, JS_FALSE, "Invalid Native Object");
+	if (argc == 1) {
+		const char* arg0;
+		std::string arg0_tmp; ok &= jsval_to_std_string(cx, argv[0], &arg0_tmp); arg0 = arg0_tmp.c_str();
+		JSB_PRECONDITION2(ok, cx, JS_FALSE, "Error processing arguments");
+		cobj->setPlaceHolder(arg0);
+		JS_SET_RVAL(cx, vp, JSVAL_VOID);
+		return JS_TRUE;
+	}
+
+	JS_ReportError(cx, "wrong number of arguments: %d, was expecting %d", argc, 1);
+	return JS_FALSE;
+}
+JSBool js_cocos2dx_extension_CCEditBox_setPosition(JSContext *cx, uint32_t argc, jsval *vp)
+{
+	jsval *argv = JS_ARGV(cx, vp);
+	JSBool ok = JS_TRUE;
+	JSObject *obj = JS_THIS_OBJECT(cx, vp);
+	js_proxy_t *proxy; JS_GET_NATIVE_PROXY(proxy, obj);
+	cocos2d::extension::CCEditBox* cobj = (cocos2d::extension::CCEditBox *)(proxy ? proxy->ptr : NULL);
+	JSB_PRECONDITION2( cobj, cx, JS_FALSE, "Invalid Native Object");
+	if (argc == 1) {
+		cocos2d::CCPoint arg0;
+		ok &= jsval_to_ccpoint(cx, argv[0], &arg0);
+		JSB_PRECONDITION2(ok, cx, JS_FALSE, "Error processing arguments");
+		cobj->setPosition(arg0);
+		JS_SET_RVAL(cx, vp, JSVAL_VOID);
+		return JS_TRUE;
+	}
+
+	JS_ReportError(cx, "wrong number of arguments: %d, was expecting %d", argc, 1);
+	return JS_FALSE;
+}
+JSBool js_cocos2dx_extension_CCEditBox_setReturnType(JSContext *cx, uint32_t argc, jsval *vp)
+{
+	jsval *argv = JS_ARGV(cx, vp);
+	JSBool ok = JS_TRUE;
+	JSObject *obj = JS_THIS_OBJECT(cx, vp);
+	js_proxy_t *proxy; JS_GET_NATIVE_PROXY(proxy, obj);
+	cocos2d::extension::CCEditBox* cobj = (cocos2d::extension::CCEditBox *)(proxy ? proxy->ptr : NULL);
+	JSB_PRECONDITION2( cobj, cx, JS_FALSE, "Invalid Native Object");
+	if (argc == 1) {
+		cocos2d::extension::KeyboardReturnType arg0;
+		ok &= jsval_to_int32(cx, argv[0], (int32_t *)&arg0);
+		JSB_PRECONDITION2(ok, cx, JS_FALSE, "Error processing arguments");
+		cobj->setReturnType(arg0);
+		JS_SET_RVAL(cx, vp, JSVAL_VOID);
+		return JS_TRUE;
+	}
+
+	JS_ReportError(cx, "wrong number of arguments: %d, was expecting %d", argc, 1);
+	return JS_FALSE;
+}
+JSBool js_cocos2dx_extension_CCEditBox_getMaxLength(JSContext *cx, uint32_t argc, jsval *vp)
+{
+	JSObject *obj = JS_THIS_OBJECT(cx, vp);
+	js_proxy_t *proxy; JS_GET_NATIVE_PROXY(proxy, obj);
+	cocos2d::extension::CCEditBox* cobj = (cocos2d::extension::CCEditBox *)(proxy ? proxy->ptr : NULL);
+	JSB_PRECONDITION2( cobj, cx, JS_FALSE, "Invalid Native Object");
+	if (argc == 0) {
+		int ret = cobj->getMaxLength();
+		jsval jsret;
+		jsret = int32_to_jsval(cx, ret);
+		JS_SET_RVAL(cx, vp, jsret);
+		return JS_TRUE;
+	}
+
+	JS_ReportError(cx, "wrong number of arguments: %d, was expecting %d", argc, 0);
+	return JS_FALSE;
+}
+JSBool js_cocos2dx_extension_CCEditBox_setInputFlag(JSContext *cx, uint32_t argc, jsval *vp)
+{
+	jsval *argv = JS_ARGV(cx, vp);
+	JSBool ok = JS_TRUE;
+	JSObject *obj = JS_THIS_OBJECT(cx, vp);
+	js_proxy_t *proxy; JS_GET_NATIVE_PROXY(proxy, obj);
+	cocos2d::extension::CCEditBox* cobj = (cocos2d::extension::CCEditBox *)(proxy ? proxy->ptr : NULL);
+	JSB_PRECONDITION2( cobj, cx, JS_FALSE, "Invalid Native Object");
+	if (argc == 1) {
+		cocos2d::extension::EditBoxInputFlag arg0;
+		ok &= jsval_to_int32(cx, argv[0], (int32_t *)&arg0);
+		JSB_PRECONDITION2(ok, cx, JS_FALSE, "Error processing arguments");
+		cobj->setInputFlag(arg0);
+		JS_SET_RVAL(cx, vp, JSVAL_VOID);
+		return JS_TRUE;
+	}
+
+	JS_ReportError(cx, "wrong number of arguments: %d, was expecting %d", argc, 1);
+	return JS_FALSE;
+}
+JSBool js_cocos2dx_extension_CCEditBox_setText(JSContext *cx, uint32_t argc, jsval *vp)
+{
+	jsval *argv = JS_ARGV(cx, vp);
+	JSBool ok = JS_TRUE;
+	JSObject *obj = JS_THIS_OBJECT(cx, vp);
+	js_proxy_t *proxy; JS_GET_NATIVE_PROXY(proxy, obj);
+	cocos2d::extension::CCEditBox* cobj = (cocos2d::extension::CCEditBox *)(proxy ? proxy->ptr : NULL);
+	JSB_PRECONDITION2( cobj, cx, JS_FALSE, "Invalid Native Object");
+	if (argc == 1) {
+		const char* arg0;
+		std::string arg0_tmp; ok &= jsval_to_std_string(cx, argv[0], &arg0_tmp); arg0 = arg0_tmp.c_str();
+		JSB_PRECONDITION2(ok, cx, JS_FALSE, "Error processing arguments");
+		cobj->setText(arg0);
+		JS_SET_RVAL(cx, vp, JSVAL_VOID);
+		return JS_TRUE;
+	}
+
+	JS_ReportError(cx, "wrong number of arguments: %d, was expecting %d", argc, 1);
+	return JS_FALSE;
+}
+JSBool js_cocos2dx_extension_CCEditBox_setMaxLength(JSContext *cx, uint32_t argc, jsval *vp)
+{
+	jsval *argv = JS_ARGV(cx, vp);
+	JSBool ok = JS_TRUE;
+	JSObject *obj = JS_THIS_OBJECT(cx, vp);
+	js_proxy_t *proxy; JS_GET_NATIVE_PROXY(proxy, obj);
+	cocos2d::extension::CCEditBox* cobj = (cocos2d::extension::CCEditBox *)(proxy ? proxy->ptr : NULL);
+	JSB_PRECONDITION2( cobj, cx, JS_FALSE, "Invalid Native Object");
+	if (argc == 1) {
+		int arg0;
+		ok &= jsval_to_int32(cx, argv[0], (int32_t *)&arg0);
+		JSB_PRECONDITION2(ok, cx, JS_FALSE, "Error processing arguments");
+		cobj->setMaxLength(arg0);
+		JS_SET_RVAL(cx, vp, JSVAL_VOID);
+		return JS_TRUE;
+	}
+
+	JS_ReportError(cx, "wrong number of arguments: %d, was expecting %d", argc, 1);
+	return JS_FALSE;
+}
+JSBool js_cocos2dx_extension_CCEditBox_setFont(JSContext *cx, uint32_t argc, jsval *vp)
+{
+	jsval *argv = JS_ARGV(cx, vp);
+	JSBool ok = JS_TRUE;
+	JSObject *obj = JS_THIS_OBJECT(cx, vp);
+	js_proxy_t *proxy; JS_GET_NATIVE_PROXY(proxy, obj);
+	cocos2d::extension::CCEditBox* cobj = (cocos2d::extension::CCEditBox *)(proxy ? proxy->ptr : NULL);
+	JSB_PRECONDITION2( cobj, cx, JS_FALSE, "Invalid Native Object");
+	if (argc == 2) {
+		const char* arg0;
+		int arg1;
+		std::string arg0_tmp; ok &= jsval_to_std_string(cx, argv[0], &arg0_tmp); arg0 = arg0_tmp.c_str();
+		ok &= jsval_to_int32(cx, argv[1], (int32_t *)&arg1);
+		JSB_PRECONDITION2(ok, cx, JS_FALSE, "Error processing arguments");
+		cobj->setFont(arg0, arg1);
+		JS_SET_RVAL(cx, vp, JSVAL_VOID);
+		return JS_TRUE;
+	}
+
+	JS_ReportError(cx, "wrong number of arguments: %d, was expecting %d", argc, 2);
+	return JS_FALSE;
+}
+JSBool js_cocos2dx_extension_CCEditBox_setVisible(JSContext *cx, uint32_t argc, jsval *vp)
+{
+	jsval *argv = JS_ARGV(cx, vp);
+	JSBool ok = JS_TRUE;
+	JSObject *obj = JS_THIS_OBJECT(cx, vp);
+	js_proxy_t *proxy; JS_GET_NATIVE_PROXY(proxy, obj);
+	cocos2d::extension::CCEditBox* cobj = (cocos2d::extension::CCEditBox *)(proxy ? proxy->ptr : NULL);
+	JSB_PRECONDITION2( cobj, cx, JS_FALSE, "Invalid Native Object");
+	if (argc == 1) {
+		JSBool arg0;
+		ok &= JS_ValueToBoolean(cx, argv[0], &arg0);
+		JSB_PRECONDITION2(ok, cx, JS_FALSE, "Error processing arguments");
+		cobj->setVisible(arg0);
+		JS_SET_RVAL(cx, vp, JSVAL_VOID);
+		return JS_TRUE;
+	}
+
+	JS_ReportError(cx, "wrong number of arguments: %d, was expecting %d", argc, 1);
+	return JS_FALSE;
+}
+JSBool js_cocos2dx_extension_CCEditBox_create(JSContext *cx, uint32_t argc, jsval *vp)
+{
+	jsval *argv = JS_ARGV(cx, vp);
+	JSBool ok = JS_TRUE;
+	if (argc == 2) {
+		cocos2d::CCSize arg0;
+		cocos2d::extension::CCScale9Sprite* arg1;
+		ok &= jsval_to_ccsize(cx, argv[0], &arg0);
+		do {
+			js_proxy_t *proxy;
+			JSObject *tmpObj = JSVAL_TO_OBJECT(argv[1]);
+			JS_GET_NATIVE_PROXY(proxy, tmpObj);
+			arg1 = (cocos2d::extension::CCScale9Sprite*)(proxy ? proxy->ptr : NULL);
+			JSB_PRECONDITION2( arg1, cx, JS_FALSE, "Invalid Native Object");
+		} while (0);
+		JSB_PRECONDITION2(ok, cx, JS_FALSE, "Error processing arguments");
+		cocos2d::extension::CCEditBox* ret = cocos2d::extension::CCEditBox::create(arg0, arg1);
+		jsval jsret;
+		do {
+		if (ret) {
+			js_proxy_t *proxy = js_get_or_create_proxy<cocos2d::extension::CCEditBox>(cx, ret);
+			jsret = OBJECT_TO_JSVAL(proxy->obj);
+		} else {
+			jsret = JSVAL_NULL;
+		}
+	} while (0);
+		JS_SET_RVAL(cx, vp, jsret);
+		return JS_TRUE;
+	}
+	if (argc == 3) {
+		cocos2d::CCSize arg0;
+		cocos2d::extension::CCScale9Sprite* arg1;
+		cocos2d::extension::CCScale9Sprite* arg2;
+		ok &= jsval_to_ccsize(cx, argv[0], &arg0);
+		do {
+			js_proxy_t *proxy;
+			JSObject *tmpObj = JSVAL_TO_OBJECT(argv[1]);
+			JS_GET_NATIVE_PROXY(proxy, tmpObj);
+			arg1 = (cocos2d::extension::CCScale9Sprite*)(proxy ? proxy->ptr : NULL);
+			JSB_PRECONDITION2( arg1, cx, JS_FALSE, "Invalid Native Object");
+		} while (0);
+		do {
+			js_proxy_t *proxy;
+			JSObject *tmpObj = JSVAL_TO_OBJECT(argv[2]);
+			JS_GET_NATIVE_PROXY(proxy, tmpObj);
+			arg2 = (cocos2d::extension::CCScale9Sprite*)(proxy ? proxy->ptr : NULL);
+			JSB_PRECONDITION2( arg2, cx, JS_FALSE, "Invalid Native Object");
+		} while (0);
+		JSB_PRECONDITION2(ok, cx, JS_FALSE, "Error processing arguments");
+		cocos2d::extension::CCEditBox* ret = cocos2d::extension::CCEditBox::create(arg0, arg1, arg2);
+		jsval jsret;
+		do {
+		if (ret) {
+			js_proxy_t *proxy = js_get_or_create_proxy<cocos2d::extension::CCEditBox>(cx, ret);
+			jsret = OBJECT_TO_JSVAL(proxy->obj);
+		} else {
+			jsret = JSVAL_NULL;
+		}
+	} while (0);
+		JS_SET_RVAL(cx, vp, jsret);
+		return JS_TRUE;
+	}
+	if (argc == 4) {
+		cocos2d::CCSize arg0;
+		cocos2d::extension::CCScale9Sprite* arg1;
+		cocos2d::extension::CCScale9Sprite* arg2;
+		cocos2d::extension::CCScale9Sprite* arg3;
+		ok &= jsval_to_ccsize(cx, argv[0], &arg0);
+		do {
+			js_proxy_t *proxy;
+			JSObject *tmpObj = JSVAL_TO_OBJECT(argv[1]);
+			JS_GET_NATIVE_PROXY(proxy, tmpObj);
+			arg1 = (cocos2d::extension::CCScale9Sprite*)(proxy ? proxy->ptr : NULL);
+			JSB_PRECONDITION2( arg1, cx, JS_FALSE, "Invalid Native Object");
+		} while (0);
+		do {
+			js_proxy_t *proxy;
+			JSObject *tmpObj = JSVAL_TO_OBJECT(argv[2]);
+			JS_GET_NATIVE_PROXY(proxy, tmpObj);
+			arg2 = (cocos2d::extension::CCScale9Sprite*)(proxy ? proxy->ptr : NULL);
+			JSB_PRECONDITION2( arg2, cx, JS_FALSE, "Invalid Native Object");
+		} while (0);
+		do {
+			js_proxy_t *proxy;
+			JSObject *tmpObj = JSVAL_TO_OBJECT(argv[3]);
+			JS_GET_NATIVE_PROXY(proxy, tmpObj);
+			arg3 = (cocos2d::extension::CCScale9Sprite*)(proxy ? proxy->ptr : NULL);
+			JSB_PRECONDITION2( arg3, cx, JS_FALSE, "Invalid Native Object");
+		} while (0);
+		JSB_PRECONDITION2(ok, cx, JS_FALSE, "Error processing arguments");
+		cocos2d::extension::CCEditBox* ret = cocos2d::extension::CCEditBox::create(arg0, arg1, arg2, arg3);
+		jsval jsret;
+		do {
+		if (ret) {
+			js_proxy_t *proxy = js_get_or_create_proxy<cocos2d::extension::CCEditBox>(cx, ret);
+			jsret = OBJECT_TO_JSVAL(proxy->obj);
+		} else {
+			jsret = JSVAL_NULL;
+		}
+	} while (0);
+		JS_SET_RVAL(cx, vp, jsret);
+		return JS_TRUE;
+	}
+	JS_ReportError(cx, "wrong number of arguments");
+	return JS_FALSE;
+}
+
+JSBool js_cocos2dx_extension_CCEditBox_constructor(JSContext *cx, uint32_t argc, jsval *vp)
+{
+	if (argc == 0) {
+		cocos2d::extension::CCEditBox* cobj = new cocos2d::extension::CCEditBox();
+		cocos2d::CCObject *_ccobj = dynamic_cast<cocos2d::CCObject *>(cobj);
+		if (_ccobj) {
+			_ccobj->autorelease();
+		}
+		TypeTest<cocos2d::extension::CCEditBox> t;
+		js_type_class_t *typeClass;
+		uint32_t typeId = t.s_id();
+		HASH_FIND_INT(_js_global_type_ht, &typeId, typeClass);
+		assert(typeClass);
+		JSObject *obj = JS_NewObject(cx, typeClass->jsclass, typeClass->proto, typeClass->parentProto);
+		JS_SET_RVAL(cx, vp, OBJECT_TO_JSVAL(obj));
+		// link the native object with the javascript object
+		js_proxy_t *p;
+		JS_NEW_PROXY(p, cobj, obj);
+		JS_AddNamedObjectRoot(cx, &p->obj, "cocos2d::extension::CCEditBox");
+		return JS_TRUE;
+	}
+
+	JS_ReportError(cx, "wrong number of arguments: %d, was expecting %d", argc, 0);
+	return JS_FALSE;
+}
+
+
+
+extern JSObject *jsb_CCControlButton_prototype;
+
+void js_cocos2dx_extension_CCEditBox_finalize(JSFreeOp *fop, JSObject *obj) {
+}
+
+void js_register_cocos2dx_extension_CCEditBox(JSContext *cx, JSObject *global) {
+	jsb_CCEditBox_class = (JSClass *)calloc(1, sizeof(JSClass));
+	jsb_CCEditBox_class->name = "EditBox";
+	jsb_CCEditBox_class->addProperty = JS_PropertyStub;
+	jsb_CCEditBox_class->delProperty = JS_PropertyStub;
+	jsb_CCEditBox_class->getProperty = JS_PropertyStub;
+	jsb_CCEditBox_class->setProperty = JS_StrictPropertyStub;
+	jsb_CCEditBox_class->enumerate = JS_EnumerateStub;
+	jsb_CCEditBox_class->resolve = JS_ResolveStub;
+	jsb_CCEditBox_class->convert = JS_ConvertStub;
+	jsb_CCEditBox_class->finalize = js_cocos2dx_extension_CCEditBox_finalize;
+	jsb_CCEditBox_class->flags = JSCLASS_HAS_RESERVED_SLOTS(2);
+
+	static JSPropertySpec properties[] = {
+		{0, 0, 0, 0, 0}
+	};
+
+	static JSFunctionSpec funcs[] = {
+		JS_FN("setAnchorPoint", js_cocos2dx_extension_CCEditBox_setAnchorPoint, 1, JSPROP_PERMANENT | JSPROP_ENUMERATE),
+		JS_FN("getText", js_cocos2dx_extension_CCEditBox_getText, 0, JSPROP_PERMANENT | JSPROP_ENUMERATE),
+		JS_FN("setContentSize", js_cocos2dx_extension_CCEditBox_setContentSize, 1, JSPROP_PERMANENT | JSPROP_ENUMERATE),
+		JS_FN("getPlaceHolder", js_cocos2dx_extension_CCEditBox_getPlaceHolder, 0, JSPROP_PERMANENT | JSPROP_ENUMERATE),
+		JS_FN("setInputMode", js_cocos2dx_extension_CCEditBox_setInputMode, 1, JSPROP_PERMANENT | JSPROP_ENUMERATE),
+		JS_FN("setPlaceholderFontColor", js_cocos2dx_extension_CCEditBox_setPlaceholderFontColor, 1, JSPROP_PERMANENT | JSPROP_ENUMERATE),
+		JS_FN("setFontColor", js_cocos2dx_extension_CCEditBox_setFontColor, 1, JSPROP_PERMANENT | JSPROP_ENUMERATE),
+		JS_FN("setPlaceholderFont", js_cocos2dx_extension_CCEditBox_setPlaceholderFont, 2, JSPROP_PERMANENT | JSPROP_ENUMERATE),
+		JS_FN("initWithSizeAndBackgroundSprite", js_cocos2dx_extension_CCEditBox_initWithSizeAndBackgroundSprite, 2, JSPROP_PERMANENT | JSPROP_ENUMERATE),
+		JS_FN("setPlaceHolder", js_cocos2dx_extension_CCEditBox_setPlaceHolder, 1, JSPROP_PERMANENT | JSPROP_ENUMERATE),
+		JS_FN("setPosition", js_cocos2dx_extension_CCEditBox_setPosition, 1, JSPROP_PERMANENT | JSPROP_ENUMERATE),
+		JS_FN("setReturnType", js_cocos2dx_extension_CCEditBox_setReturnType, 1, JSPROP_PERMANENT | JSPROP_ENUMERATE),
+		JS_FN("getMaxLength", js_cocos2dx_extension_CCEditBox_getMaxLength, 0, JSPROP_PERMANENT | JSPROP_ENUMERATE),
+		JS_FN("setInputFlag", js_cocos2dx_extension_CCEditBox_setInputFlag, 1, JSPROP_PERMANENT | JSPROP_ENUMERATE),
+		JS_FN("setText", js_cocos2dx_extension_CCEditBox_setText, 1, JSPROP_PERMANENT | JSPROP_ENUMERATE),
+		JS_FN("setMaxLength", js_cocos2dx_extension_CCEditBox_setMaxLength, 1, JSPROP_PERMANENT | JSPROP_ENUMERATE),
+		JS_FN("setFont", js_cocos2dx_extension_CCEditBox_setFont, 2, JSPROP_PERMANENT | JSPROP_ENUMERATE),
+		JS_FN("setVisible", js_cocos2dx_extension_CCEditBox_setVisible, 1, JSPROP_PERMANENT | JSPROP_ENUMERATE),
+		JS_FS_END
+	};
+
+	static JSFunctionSpec st_funcs[] = {
+		JS_FN("create", js_cocos2dx_extension_CCEditBox_create, 2, JSPROP_PERMANENT | JSPROP_ENUMERATE),
+		JS_FS_END
+	};
+
+	jsb_CCEditBox_prototype = JS_InitClass(
+		cx, global,
+		jsb_CCControlButton_prototype,
+		jsb_CCEditBox_class,
+		js_cocos2dx_extension_CCEditBox_constructor, 0, // constructor
+		properties,
+		funcs,
+		NULL, // no static properties
+		st_funcs);
+	// make the class enumerable in the registered namespace
+	JSBool found;
+	JS_SetPropertyAttributes(cx, global, "EditBox", JSPROP_ENUMERATE | JSPROP_READONLY, &found);
+
+	// add the proto and JSClass to the type->js info hash table
+	TypeTest<cocos2d::extension::CCEditBox> t;
+	js_type_class_t *p;
+	uint32_t typeId = t.s_id();
+	HASH_FIND_INT(_js_global_type_ht, &typeId, p);
+	if (!p) {
+		p = (js_type_class_t *)malloc(sizeof(js_type_class_t));
+		p->type = typeId;
+		p->jsclass = jsb_CCEditBox_class;
+		p->proto = jsb_CCEditBox_prototype;
+		p->parentProto = jsb_CCControlButton_prototype;
+		HASH_ADD_INT(_js_global_type_ht, type, p);
+	}
+}
+
 void register_all_cocos2dx_extension(JSContext* cx, JSObject* obj) {
 	// first, try to get the ns
 	jsval nsval;
@@ -6122,6 +6561,7 @@ void register_all_cocos2dx_extension(JSContext* cx, JSObject* obj) {
 	js_register_cocos2dx_extension_CCTableView(cx, obj);
 	js_register_cocos2dx_extension_CCControl(cx, obj);
 	js_register_cocos2dx_extension_CCControlButton(cx, obj);
+	js_register_cocos2dx_extension_CCEditBox(cx, obj);
 	js_register_cocos2dx_extension_CCBReader(cx, obj);
 	js_register_cocos2dx_extension_CCTableViewCell(cx, obj);
 	js_register_cocos2dx_extension_CCScale9Sprite(cx, obj);

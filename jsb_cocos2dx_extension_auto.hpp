@@ -34,21 +34,17 @@ void js_register_cocos2dx_extension_CCControl(JSContext *cx, JSObject *global);
 void register_all_cocos2dx_extension(JSContext* cx, JSObject* obj);
 JSBool js_cocos2dx_extension_CCControl_setEnabled(JSContext *cx, uint32_t argc, jsval *vp);
 JSBool js_cocos2dx_extension_CCControl_getState(JSContext *cx, uint32_t argc, jsval *vp);
-JSBool js_cocos2dx_extension_CCControl_isOpacityModifyRGB(JSContext *cx, uint32_t argc, jsval *vp);
-JSBool js_cocos2dx_extension_CCControl_onExit(JSContext *cx, uint32_t argc, jsval *vp);
 JSBool js_cocos2dx_extension_CCControl_sendActionsForControlEvents(JSContext *cx, uint32_t argc, jsval *vp);
 JSBool js_cocos2dx_extension_CCControl_setSelected(JSContext *cx, uint32_t argc, jsval *vp);
 JSBool js_cocos2dx_extension_CCControl_getTouchLocation(JSContext *cx, uint32_t argc, jsval *vp);
 JSBool js_cocos2dx_extension_CCControl_isEnabled(JSContext *cx, uint32_t argc, jsval *vp);
 JSBool js_cocos2dx_extension_CCControl_isTouchInside(JSContext *cx, uint32_t argc, jsval *vp);
-JSBool js_cocos2dx_extension_CCControl_setOpacityModifyRGB(JSContext *cx, uint32_t argc, jsval *vp);
 JSBool js_cocos2dx_extension_CCControl_needsLayout(JSContext *cx, uint32_t argc, jsval *vp);
 JSBool js_cocos2dx_extension_CCControl_hasVisibleParents(JSContext *cx, uint32_t argc, jsval *vp);
 JSBool js_cocos2dx_extension_CCControl_isSelected(JSContext *cx, uint32_t argc, jsval *vp);
 JSBool js_cocos2dx_extension_CCControl_init(JSContext *cx, uint32_t argc, jsval *vp);
 JSBool js_cocos2dx_extension_CCControl_getDefaultTouchPriority(JSContext *cx, uint32_t argc, jsval *vp);
 JSBool js_cocos2dx_extension_CCControl_setHighlighted(JSContext *cx, uint32_t argc, jsval *vp);
-JSBool js_cocos2dx_extension_CCControl_onEnter(JSContext *cx, uint32_t argc, jsval *vp);
 JSBool js_cocos2dx_extension_CCControl_registerWithTouchDispatcher(JSContext *cx, uint32_t argc, jsval *vp);
 JSBool js_cocos2dx_extension_CCControl_isHighlighted(JSContext *cx, uint32_t argc, jsval *vp);
 JSBool js_cocos2dx_extension_CCControl_setDefaultTouchPriority(JSContext *cx, uint32_t argc, jsval *vp);
@@ -62,11 +58,8 @@ void js_cocos2dx_extension_CCScale9Sprite_finalize(JSContext *cx, JSObject *obj)
 void js_register_cocos2dx_extension_CCScale9Sprite(JSContext *cx, JSObject *global);
 void register_all_cocos2dx_extension(JSContext* cx, JSObject* obj);
 JSBool js_cocos2dx_extension_CCScale9Sprite_getCapInsets(JSContext *cx, uint32_t argc, jsval *vp);
-JSBool js_cocos2dx_extension_CCScale9Sprite_setOpacityModifyRGB(JSContext *cx, uint32_t argc, jsval *vp);
 JSBool js_cocos2dx_extension_CCScale9Sprite_updateWithBatchNode(JSContext *cx, uint32_t argc, jsval *vp);
 JSBool js_cocos2dx_extension_CCScale9Sprite_setInsetBottom(JSContext *cx, uint32_t argc, jsval *vp);
-JSBool js_cocos2dx_extension_CCScale9Sprite_isOpacityModifyRGB(JSContext *cx, uint32_t argc, jsval *vp);
-JSBool js_cocos2dx_extension_CCScale9Sprite_visit(JSContext *cx, uint32_t argc, jsval *vp);
 JSBool js_cocos2dx_extension_CCScale9Sprite_initWithSpriteFrameName(JSContext *cx, uint32_t argc, jsval *vp);
 JSBool js_cocos2dx_extension_CCScale9Sprite_setInsetTop(JSContext *cx, uint32_t argc, jsval *vp);
 JSBool js_cocos2dx_extension_CCScale9Sprite_init(JSContext *cx, uint32_t argc, jsval *vp);
@@ -177,7 +170,6 @@ JSBool js_cocos2dx_extension_CCScrollView_updateInset(JSContext *cx, uint32_t ar
 JSBool js_cocos2dx_extension_CCScrollView_initWithViewSize(JSContext *cx, uint32_t argc, jsval *vp);
 JSBool js_cocos2dx_extension_CCScrollView_pause(JSContext *cx, uint32_t argc, jsval *vp);
 JSBool js_cocos2dx_extension_CCScrollView_setDirection(JSContext *cx, uint32_t argc, jsval *vp);
-JSBool js_cocos2dx_extension_CCScrollView_visit(JSContext *cx, uint32_t argc, jsval *vp);
 JSBool js_cocos2dx_extension_CCScrollView_setBounceable(JSContext *cx, uint32_t argc, jsval *vp);
 JSBool js_cocos2dx_extension_CCScrollView_setContentOffset(JSContext *cx, uint32_t argc, jsval *vp);
 JSBool js_cocos2dx_extension_CCScrollView_isDragging(JSContext *cx, uint32_t argc, jsval *vp);
@@ -281,5 +273,33 @@ JSBool js_cocos2dx_extension_CCTableView_insertCellAtIndex(JSContext *cx, uint32
 JSBool js_cocos2dx_extension_CCTableView_cellAtIndex(JSContext *cx, uint32_t argc, jsval *vp);
 JSBool js_cocos2dx_extension_CCTableView_dequeueCell(JSContext *cx, uint32_t argc, jsval *vp);
 JSBool js_cocos2dx_extension_CCTableView_CCTableView(JSContext *cx, uint32_t argc, jsval *vp);
+
+extern JSClass  *jsb_CCEditBox_class;
+extern JSObject *jsb_CCEditBox_prototype;
+
+JSBool js_cocos2dx_extension_CCEditBox_constructor(JSContext *cx, uint32_t argc, jsval *vp);
+void js_cocos2dx_extension_CCEditBox_finalize(JSContext *cx, JSObject *obj);
+void js_register_cocos2dx_extension_CCEditBox(JSContext *cx, JSObject *global);
+void register_all_cocos2dx_extension(JSContext* cx, JSObject* obj);
+JSBool js_cocos2dx_extension_CCEditBox_setAnchorPoint(JSContext *cx, uint32_t argc, jsval *vp);
+JSBool js_cocos2dx_extension_CCEditBox_getText(JSContext *cx, uint32_t argc, jsval *vp);
+JSBool js_cocos2dx_extension_CCEditBox_setContentSize(JSContext *cx, uint32_t argc, jsval *vp);
+JSBool js_cocos2dx_extension_CCEditBox_getPlaceHolder(JSContext *cx, uint32_t argc, jsval *vp);
+JSBool js_cocos2dx_extension_CCEditBox_setInputMode(JSContext *cx, uint32_t argc, jsval *vp);
+JSBool js_cocos2dx_extension_CCEditBox_setPlaceholderFontColor(JSContext *cx, uint32_t argc, jsval *vp);
+JSBool js_cocos2dx_extension_CCEditBox_setFontColor(JSContext *cx, uint32_t argc, jsval *vp);
+JSBool js_cocos2dx_extension_CCEditBox_setPlaceholderFont(JSContext *cx, uint32_t argc, jsval *vp);
+JSBool js_cocos2dx_extension_CCEditBox_initWithSizeAndBackgroundSprite(JSContext *cx, uint32_t argc, jsval *vp);
+JSBool js_cocos2dx_extension_CCEditBox_setPlaceHolder(JSContext *cx, uint32_t argc, jsval *vp);
+JSBool js_cocos2dx_extension_CCEditBox_setPosition(JSContext *cx, uint32_t argc, jsval *vp);
+JSBool js_cocos2dx_extension_CCEditBox_setReturnType(JSContext *cx, uint32_t argc, jsval *vp);
+JSBool js_cocos2dx_extension_CCEditBox_getMaxLength(JSContext *cx, uint32_t argc, jsval *vp);
+JSBool js_cocos2dx_extension_CCEditBox_setInputFlag(JSContext *cx, uint32_t argc, jsval *vp);
+JSBool js_cocos2dx_extension_CCEditBox_setText(JSContext *cx, uint32_t argc, jsval *vp);
+JSBool js_cocos2dx_extension_CCEditBox_setMaxLength(JSContext *cx, uint32_t argc, jsval *vp);
+JSBool js_cocos2dx_extension_CCEditBox_setFont(JSContext *cx, uint32_t argc, jsval *vp);
+JSBool js_cocos2dx_extension_CCEditBox_setVisible(JSContext *cx, uint32_t argc, jsval *vp);
+JSBool js_cocos2dx_extension_CCEditBox_create(JSContext *cx, uint32_t argc, jsval *vp);
+JSBool js_cocos2dx_extension_CCEditBox_CCEditBox(JSContext *cx, uint32_t argc, jsval *vp);
 #endif
 

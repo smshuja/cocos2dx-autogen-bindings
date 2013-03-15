@@ -94,17 +94,6 @@ setEnabled : function () {},
 getState : function () {},
 
 /**
- * @method isOpacityModifyRGB
- * @return A value converted from C/C++ "bool"
- */
-isOpacityModifyRGB : function () {},
-
-/**
- * @method onExit
- */
-onExit : function () {},
-
-/**
  * @method sendActionsForControlEvents
  * @param {unsigned int}
  */
@@ -135,12 +124,6 @@ isEnabled : function () {},
  * @param {cocos2d::CCTouch*}
  */
 isTouchInside : function () {},
-
-/**
- * @method setOpacityModifyRGB
- * @param {bool}
- */
-setOpacityModifyRGB : function () {},
 
 /**
  * @method needsLayout
@@ -176,11 +159,6 @@ getDefaultTouchPriority : function () {},
  * @param {bool}
  */
 setHighlighted : function () {},
-
-/**
- * @method onEnter
- */
-onEnter : function () {},
 
 /**
  * @method registerWithTouchDispatcher
@@ -219,12 +197,6 @@ cc.Scale9Sprite = {
 getCapInsets : function () {},
 
 /**
- * @method setOpacityModifyRGB
- * @param {bool}
- */
-setOpacityModifyRGB : function () {},
-
-/**
  * @method updateWithBatchNode
  * @return A value converted from C/C++ "bool"
  * @param {cocos2d::CCSpriteBatchNode*}
@@ -239,17 +211,6 @@ updateWithBatchNode : function () {},
  * @param {float}
  */
 setInsetBottom : function () {},
-
-/**
- * @method isOpacityModifyRGB
- * @return A value converted from C/C++ "bool"
- */
-isOpacityModifyRGB : function () {},
-
-/**
- * @method visit
- */
-visit : function () {},
 
 /**
  * @method setInsetTop
@@ -809,11 +770,6 @@ pause : function () {},
 setDirection : function () {},
 
 /**
- * @method visit
- */
-visit : function () {},
-
-/**
  * @method setBounceable
  * @param {bool}
  */
@@ -1303,5 +1259,140 @@ dequeueCell : function () {},
  * @constructor
  */
 CCTableView : function () {},
+
+};
+
+/**
+ * @class CCEditBox
+ */
+cc.EditBox = {
+
+/**
+ * @method setAnchorPoint
+ * @param {cocos2d::CCPoint}
+ */
+setAnchorPoint : function () {},
+
+/**
+ * @method getText
+ * @return A value converted from C/C++ "const char*"
+ */
+getText : function () {},
+
+/**
+ * @method setContentSize
+ * @param {cocos2d::CCSize}
+ */
+setContentSize : function () {},
+
+/**
+ * @method getPlaceHolder
+ * @return A value converted from C/C++ "const char*"
+ */
+getPlaceHolder : function () {},
+
+/**
+ * @method setInputMode
+ * @param {cocos2d::extension::EditBoxInputMode}
+ */
+setInputMode : function () {},
+
+/**
+ * @method setPlaceholderFontColor
+ * @param {cocos2d::ccColor3B}
+ */
+setPlaceholderFontColor : function () {},
+
+/**
+ * @method setFontColor
+ * @param {cocos2d::ccColor3B}
+ */
+setFontColor : function () {},
+
+/**
+ * @method setPlaceholderFont
+ * @param {const char*}
+ * @param {int}
+ */
+setPlaceholderFont : function () {},
+
+/**
+ * @method initWithSizeAndBackgroundSprite
+ * @return A value converted from C/C++ "bool"
+ * @param {cocos2d::CCSize}
+ * @param {cocos2d::extension::CCScale9Sprite*}
+ */
+initWithSizeAndBackgroundSprite : function () {},
+
+/**
+ * @method setPlaceHolder
+ * @param {const char*}
+ */
+setPlaceHolder : function () {},
+
+/**
+ * @method setPosition
+ * @param {cocos2d::CCPoint}
+ */
+setPosition : function () {},
+
+/**
+ * @method setReturnType
+ * @param {cocos2d::extension::KeyboardReturnType}
+ */
+setReturnType : function () {},
+
+/**
+ * @method getMaxLength
+ * @return A value converted from C/C++ "int"
+ */
+getMaxLength : function () {},
+
+/**
+ * @method setInputFlag
+ * @param {cocos2d::extension::EditBoxInputFlag}
+ */
+setInputFlag : function () {},
+
+/**
+ * @method setText
+ * @param {const char*}
+ */
+setText : function () {},
+
+/**
+ * @method setMaxLength
+ * @param {int}
+ */
+setMaxLength : function () {},
+
+/**
+ * @method setFont
+ * @param {const char*}
+ * @param {int}
+ */
+setFont : function () {},
+
+/**
+ * @method setVisible
+ * @param {bool}
+ */
+setVisible : function () {},
+
+/**
+ * @method create
+ * @return A value converted from C/C++ "cocos2d::extension::CCEditBox*"
+ * @param {cocos2d::CCSize}
+ * @param {cocos2d::extension::CCScale9Sprite*}
+ * @param {cocos2d::extension::CCScale9Sprite*}
+ * @param {cocos2d::extension::CCScale9Sprite*}
+ */
+create : function () {},
+
+/**
+ * @method CCEditBox
+ * @constructor
+ */
+CCEditBox : function () {},
 
 };

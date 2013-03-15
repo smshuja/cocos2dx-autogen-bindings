@@ -380,6 +380,12 @@ copy : function () {},
  */
 containsObject : function () {},
 
+/**
+ * @method create
+ * @return A value converted from C/C++ "cocos2d::CCSet*"
+ */
+create : function () {},
+
 };
 
 /**
