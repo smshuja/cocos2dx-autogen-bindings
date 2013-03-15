@@ -1114,6 +1114,12 @@ setCascadeColorEnabled : function () {},
 setOpacity : function () {},
 
 /**
+ * @method setOpacityModifyRGB
+ * @param {bool}
+ */
+setOpacityModifyRGB : function () {},
+
+/**
  * @method setCascadeOpacityEnabled
  * @param {bool}
  */
@@ -1136,6 +1142,12 @@ init : function () {},
  * @return A value converted from C/C++ "unsigned char"
  */
 getOpacity : function () {},
+
+/**
+ * @method isOpacityModifyRGB
+ * @return A value converted from C/C++ "bool"
+ */
+isOpacityModifyRGB : function () {},
 
 /**
  * @method isCascadeColorEnabled
@@ -4841,6 +4853,12 @@ getTexture : function () {},
 getTextureAtlas : function () {},
 
 /**
+ * @method setOpacityModifyRGB
+ * @param {bool}
+ */
+setOpacityModifyRGB : function () {},
+
+/**
  * @method getQuadsToDraw
  * @return A value converted from C/C++ "unsigned int"
  */
@@ -4866,6 +4884,12 @@ getColor : function () {},
  * @param {unsigned int}
  */
 initWithTexture : function () {},
+
+/**
+ * @method isOpacityModifyRGB
+ * @return A value converted from C/C++ "bool"
+ */
+isOpacityModifyRGB : function () {},
 
 /**
  * @method setQuadsToDraw
@@ -5103,6 +5127,12 @@ setRotationY : function () {},
 setAnchorPoint : function () {},
 
 /**
+ * @method setOpacityModifyRGB
+ * @param {bool}
+ */
+setOpacityModifyRGB : function () {},
+
+/**
  * @method getBatchNode
  * @return A value converted from C/C++ "cocos2d::CCSpriteBatchNode*"
  */
@@ -5113,6 +5143,12 @@ getBatchNode : function () {},
  * @return A value converted from C/C++ "bool"
  */
 isTextureRectRotated : function () {},
+
+/**
+ * @method isOpacityModifyRGB
+ * @return A value converted from C/C++ "bool"
+ */
+isOpacityModifyRGB : function () {},
 
 /**
  * @method init
@@ -6194,6 +6230,12 @@ updateLabel : function () {},
 setWidth : function () {},
 
 /**
+ * @method isOpacityModifyRGB
+ * @return A value converted from C/C++ "bool"
+ */
+isOpacityModifyRGB : function () {},
+
+/**
  * @method isCascadeOpacityEnabled
  * @return A value converted from C/C++ "bool"
  */
@@ -6215,6 +6257,12 @@ initWithString : function () {},
  * @param {bool}
  */
 setCascadeColorEnabled : function () {},
+
+/**
+ * @method setOpacityModifyRGB
+ * @param {bool}
+ */
+setOpacityModifyRGB : function () {},
 
 /**
  * @method updateDisplayedOpacity
@@ -6590,6 +6638,12 @@ setCascadeColorEnabled : function () {},
 setOpacity : function () {},
 
 /**
+ * @method setOpacityModifyRGB
+ * @param {bool}
+ */
+setOpacityModifyRGB : function () {},
+
+/**
  * @method setCascadeOpacityEnabled
  * @param {bool}
  */
@@ -6612,6 +6666,12 @@ init : function () {},
  * @return A value converted from C/C++ "unsigned char"
  */
 getOpacity : function () {},
+
+/**
+ * @method isOpacityModifyRGB
+ * @return A value converted from C/C++ "bool"
+ */
+isOpacityModifyRGB : function () {},
 
 /**
  * @method isCascadeColorEnabled
@@ -6650,6 +6710,12 @@ cc.LayerColor = {
 draw : function () {},
 
 /**
+ * @method isOpacityModifyRGB
+ * @return A value converted from C/C++ "bool"
+ */
+isOpacityModifyRGB : function () {},
+
+/**
  * @method setColor
  * @param {cocos2d::ccColor3B}
  */
@@ -6661,6 +6727,12 @@ setColor : function () {},
  * @param {float}
  */
 changeWidthAndHeight : function () {},
+
+/**
+ * @method setOpacityModifyRGB
+ * @param {bool}
+ */
+setOpacityModifyRGB : function () {},
 
 /**
  * @method changeWidth
@@ -7759,6 +7831,12 @@ isEnabled : function () {},
 selected : function () {},
 
 /**
+ * @method setOpacityModifyRGB
+ * @param {bool}
+ */
+setOpacityModifyRGB : function () {},
+
+/**
  * @method getScriptTapHandler
  * @return A value converted from C/C++ "int"
  */
@@ -7769,6 +7847,12 @@ getScriptTapHandler : function () {},
  * @return A value converted from C/C++ "bool"
  */
 isSelected : function () {},
+
+/**
+ * @method isOpacityModifyRGB
+ * @return A value converted from C/C++ "bool"
+ */
+isOpacityModifyRGB : function () {},
 
 /**
  * @method registerScriptTapHandler
@@ -7950,6 +8034,12 @@ setEnabled : function () {},
 selected : function () {},
 
 /**
+ * @method isOpacityModifyRGB
+ * @return A value converted from C/C++ "bool"
+ */
+isOpacityModifyRGB : function () {},
+
+/**
  * @method setNormalImage
  * @param {cocos2d::CCNode*}
  */
@@ -7972,6 +8062,12 @@ setSelectedImage : function () {},
  * @return A value converted from C/C++ "cocos2d::CCNode*"
  */
 getDisabledImage : function () {},
+
+/**
+ * @method setOpacityModifyRGB
+ * @param {bool}
+ */
+setOpacityModifyRGB : function () {},
 
 /**
  * @method getSelectedImage
@@ -8054,6 +8150,12 @@ setSubItems : function () {},
 initWithItem : function () {},
 
 /**
+ * @method isOpacityModifyRGB
+ * @return A value converted from C/C++ "bool"
+ */
+isOpacityModifyRGB : function () {},
+
+/**
  * @method setSelectedIndex
  * @param {unsigned int}
  */
@@ -8081,6 +8183,12 @@ addSubItem : function () {},
  * @method selected
  */
 selected : function () {},
+
+/**
+ * @method setOpacityModifyRGB
+ * @param {bool}
+ */
+setOpacityModifyRGB : function () {},
 
 /**
  * @method activate
@@ -8139,10 +8247,22 @@ ccTouchBegan : function () {},
 ccTouchEnded : function () {},
 
 /**
+ * @method isOpacityModifyRGB
+ * @return A value converted from C/C++ "bool"
+ */
+isOpacityModifyRGB : function () {},
+
+/**
  * @method isEnabled
  * @return A value converted from C/C++ "bool"
  */
 isEnabled : function () {},
+
+/**
+ * @method setOpacityModifyRGB
+ * @param {bool}
+ */
+setOpacityModifyRGB : function () {},
 
 /**
  * @method setHandlerPriority
@@ -8236,6 +8356,12 @@ draw : function () {},
 isReverseDirection : function () {},
 
 /**
+ * @method isOpacityModifyRGB
+ * @return A value converted from C/C++ "bool"
+ */
+isOpacityModifyRGB : function () {},
+
+/**
  * @method setBarChangeRate
  * @param {cocos2d::CCPoint}
  */
@@ -8258,6 +8384,12 @@ setSprite : function () {},
  * @return A value converted from C/C++ "cocos2d::CCProgressTimerType"
  */
 getType : function () {},
+
+/**
+ * @method setOpacityModifyRGB
+ * @param {bool}
+ */
+setOpacityModifyRGB : function () {},
 
 /**
  * @method getSprite
@@ -9124,10 +9256,22 @@ getLifeVar : function () {},
 setStartSizeVar : function () {},
 
 /**
+ * @method setOpacityModifyRGB
+ * @param {bool}
+ */
+setOpacityModifyRGB : function () {},
+
+/**
  * @method addParticle
  * @return A value converted from C/C++ "bool"
  */
 addParticle : function () {},
+
+/**
+ * @method getOpacityModifyRGB
+ * @return A value converted from C/C++ "bool"
+ */
+getOpacityModifyRGB : function () {},
 
 /**
  * @method getStartRadius

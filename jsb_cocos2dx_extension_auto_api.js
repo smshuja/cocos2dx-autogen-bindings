@@ -94,6 +94,12 @@ setEnabled : function () {},
 getState : function () {},
 
 /**
+ * @method isOpacityModifyRGB
+ * @return A value converted from C/C++ "bool"
+ */
+isOpacityModifyRGB : function () {},
+
+/**
  * @method sendActionsForControlEvents
  * @param {unsigned int}
  */
@@ -124,6 +130,12 @@ isEnabled : function () {},
  * @param {cocos2d::CCTouch*}
  */
 isTouchInside : function () {},
+
+/**
+ * @method setOpacityModifyRGB
+ * @param {bool}
+ */
+setOpacityModifyRGB : function () {},
 
 /**
  * @method needsLayout
@@ -197,6 +209,12 @@ cc.Scale9Sprite = {
 getCapInsets : function () {},
 
 /**
+ * @method setOpacityModifyRGB
+ * @param {bool}
+ */
+setOpacityModifyRGB : function () {},
+
+/**
  * @method updateWithBatchNode
  * @return A value converted from C/C++ "bool"
  * @param {cocos2d::CCSpriteBatchNode*}
@@ -211,6 +229,12 @@ updateWithBatchNode : function () {},
  * @param {float}
  */
 setInsetBottom : function () {},
+
+/**
+ * @method isOpacityModifyRGB
+ * @return A value converted from C/C++ "bool"
+ */
+isOpacityModifyRGB : function () {},
 
 /**
  * @method setInsetTop
