@@ -611,12 +611,6 @@ setScaleY : function () {},
 setScaleX : function () {},
 
 /**
- * @method scheduleUpdateWithPriority
- * @param {int}
- */
-scheduleUpdateWithPriority : function () {},
-
-/**
  * @method unregisterScriptHandler
  */
 unregisterScriptHandler : function () {},
@@ -664,11 +658,6 @@ getRotationX : function () {},
  * @return A value converted from C/C++ "float"
  */
 getRotationY : function () {},
-
-/**
- * @method unscheduleUpdate
- */
-unscheduleUpdate : function () {},
 
 /**
  * @method setParent
@@ -748,13 +737,6 @@ visit : function () {},
  * @param {cocos2d::CCGLProgram*}
  */
 setShaderProgram : function () {},
-
-/**
- * @method scheduleUpdateWithPriorityLua
- * @param {int}
- * @param {int}
- */
-scheduleUpdateWithPriorityLua : function () {},
 
 /**
  * @method getRotation
@@ -1034,11 +1016,6 @@ getCamera : function () {},
  * @param {int}
  */
 setTag : function () {},
-
-/**
- * @method scheduleUpdate
- */
-scheduleUpdate : function () {},
 
 /**
  * @method stopAction
@@ -10992,69 +10969,16 @@ cc.Scheduler = {
 setTimeScale : function () {},
 
 /**
- * @method unscheduleUpdateForTarget
- * @param {cocos2d::CCObject*}
- */
-unscheduleUpdateForTarget : function () {},
-
-/**
- * @method scheduleUpdateForTarget
- * @param {cocos2d::CCObject*}
- * @param {int}
- * @param {bool}
- */
-scheduleUpdateForTarget : function () {},
-
-/**
- * @method unscheduleAll
- */
-unscheduleAll : function () {},
-
-/**
- * @method unscheduleAllWithMinPriority
- * @param {int}
- */
-unscheduleAllWithMinPriority : function () {},
-
-/**
- * @method isTargetPaused
- * @return A value converted from C/C++ "bool"
- * @param {cocos2d::CCObject*}
- */
-isTargetPaused : function () {},
-
-/**
- * @method update
- * @param {float}
- */
-update : function () {},
-
-/**
- * @method unscheduleScriptEntry
- * @param {unsigned int}
- */
-unscheduleScriptEntry : function () {},
-
-/**
- * @method unscheduleAllForTarget
- * @param {cocos2d::CCObject*}
- */
-unscheduleAllForTarget : function () {},
-
-/**
- * @method scheduleScriptFunc
- * @return A value converted from C/C++ "unsigned int"
- * @param {unsigned int}
- * @param {float}
- * @param {bool}
- */
-scheduleScriptFunc : function () {},
-
-/**
  * @method getTimeScale
  * @return A value converted from C/C++ "float"
  */
 getTimeScale : function () {},
+
+/**
+ * @method CCScheduler
+ * @constructor
+ */
+CCScheduler : function () {},
 
 };
 
