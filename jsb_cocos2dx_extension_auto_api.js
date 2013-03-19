@@ -1122,7 +1122,7 @@ addDocumentCallbackNode : function () {},
 
 /**
  * @method setCallFunc
- * @param {cocos2d::CCCallFuncN*}
+ * @param {cocos2d::CCCallFunc*}
  * @param {std::string}
  */
 setCallFunc : function () {},
