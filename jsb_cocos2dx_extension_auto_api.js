@@ -27,10 +27,11 @@ setCCBRootPath : function () {},
 getOwnerCallbackNodes : function () {},
 
 /**
- * @method getOwnerOutletNames
- * @return A value converted from C/C++ "cocos2d::CCArray*"
+ * @method readSoundKeyframesForSeq
+ * @return A value converted from C/C++ "bool"
+ * @param {cocos2d::extension::CCBSequence*}
  */
-getOwnerOutletNames : function () {},
+readSoundKeyframesForSeq : function () {},
 
 /**
  * @method getCCBRootPath
@@ -51,10 +52,23 @@ getOwnerOutletNodes : function () {},
 readUTF8 : function () {},
 
 /**
+ * @method getOwnerOutletNames
+ * @return A value converted from C/C++ "cocos2d::CCArray*"
+ */
+getOwnerOutletNames : function () {},
+
+/**
  * @method setAnimationManager
  * @param {cocos2d::extension::CCBAnimationManager*}
  */
 setAnimationManager : function () {},
+
+/**
+ * @method readCallbackKeyframesForSeq
+ * @return A value converted from C/C++ "bool"
+ * @param {cocos2d::extension::CCBSequence*}
+ */
+readCallbackKeyframesForSeq : function () {},
 
 /**
  * @method getAnimationManagersForNodes
@@ -949,6 +963,13 @@ setAutoPlaySequenceId : function () {},
 getDocumentCallbackNames : function () {},
 
 /**
+ * @method actionForSoundChannel
+ * @return A value converted from C/C++ "cocos2d::CCObject*"
+ * @param {cocos2d::extension::CCBSequenceProperty*}
+ */
+actionForSoundChannel : function () {},
+
+/**
  * @method setBaseValue
  * @param {cocos2d::CCObject*}
  * @param {cocos2d::CCNode*}
@@ -1013,6 +1034,13 @@ setDocumentControllerName : function () {},
 getContainerSize : function () {},
 
 /**
+ * @method actionForCallbackChannel
+ * @return A value converted from C/C++ "cocos2d::CCObject*"
+ * @param {cocos2d::extension::CCBSequenceProperty*}
+ */
+actionForCallbackChannel : function () {},
+
+/**
  * @method getDocumentOutletNames
  * @return A value converted from C/C++ "cocos2d::CCArray*"
  */
@@ -1023,6 +1051,12 @@ getDocumentOutletNames : function () {},
  * @return A value converted from C/C++ "bool"
  */
 init : function () {},
+
+/**
+ * @method getKeyframeCallbacks
+ * @return A value converted from C/C++ "cocos2d::CCArray*"
+ */
+getKeyframeCallbacks : function () {},
 
 /**
  * @method runAnimationsForSequenceNamedTweenDuration
@@ -1085,6 +1119,13 @@ setDelegate : function () {},
  * @param {cocos2d::CCNode*}
  */
 addDocumentCallbackNode : function () {},
+
+/**
+ * @method setCallFunc
+ * @param {cocos2d::CCCallFuncN*}
+ * @param {std::string}
+ */
+setCallFunc : function () {},
 
 /**
  * @method getDelegate
