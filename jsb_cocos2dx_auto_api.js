@@ -4960,12 +4960,12 @@ locate : function () {},
 restore : function () {},
 
 /**
- * @method setUpXYZ
+ * @method setEyeXYZ
  * @param {float}
  * @param {float}
  * @param {float}
  */
-setUpXYZ : function () {},
+setEyeXYZ : function () {},
 
 /**
  * @method setCenterXYZ
@@ -4976,28 +4976,12 @@ setUpXYZ : function () {},
 setCenterXYZ : function () {},
 
 /**
- * @method setEyeXYZ
- * @param {float}
- * @param {float}
- * @param {float}
- */
-setEyeXYZ : function () {},
-
-/**
  * @method getCenterXYZ
  * @param {float*}
  * @param {float*}
  * @param {float*}
  */
 getCenterXYZ : function () {},
-
-/**
- * @method getEyeXYZ
- * @param {float*}
- * @param {float*}
- * @param {float*}
- */
-getEyeXYZ : function () {},
 
 /**
  * @method isDirty
@@ -5011,6 +4995,20 @@ isDirty : function () {},
 init : function () {},
 
 /**
+ * @method setDirty
+ * @param {bool}
+ */
+setDirty : function () {},
+
+/**
+ * @method setUpXYZ
+ * @param {float}
+ * @param {float}
+ * @param {float}
+ */
+setUpXYZ : function () {},
+
+/**
  * @method getUpXYZ
  * @param {float*}
  * @param {float*}
@@ -5019,10 +5017,12 @@ init : function () {},
 getUpXYZ : function () {},
 
 /**
- * @method setDirty
- * @param {bool}
+ * @method getEyeXYZ
+ * @param {float*}
+ * @param {float*}
+ * @param {float*}
  */
-setDirty : function () {},
+getEyeXYZ : function () {},
 
 /**
  * @method getZEye
@@ -5126,12 +5126,6 @@ isTextureRectRotated : function () {},
  * @return A value converted from C/C++ "bool"
  */
 isOpacityModifyRGB : function () {},
-
-/**
- * @method init
- * @return A value converted from C/C++ "bool"
- */
-init : function () {},
 
 /**
  * @method setVertexZ
@@ -6006,6 +6000,12 @@ appendChild : function () {},
 reorderBatch : function () {},
 
 /**
+ * @method getTexture
+ * @return A value converted from C/C++ "cocos2d::CCTexture2D*"
+ */
+getTexture : function () {},
+
+/**
  * @method visit
  */
 visit : function () {},
@@ -6038,21 +6038,9 @@ removeSpriteFromAtlas : function () {},
 atlasIndexForChild : function () {},
 
 /**
- * @method getTexture
- * @return A value converted from C/C++ "cocos2d::CCTexture2D*"
- */
-getTexture : function () {},
-
-/**
  * @method increaseAtlasCapacity
  */
 increaseAtlasCapacity : function () {},
-
-/**
- * @method init
- * @return A value converted from C/C++ "bool"
- */
-init : function () {},
 
 /**
  * @method insertChild
@@ -6104,14 +6092,6 @@ sortAllChildren : function () {},
  * @param {int}
  */
 reorderChild : function () {},
-
-/**
- * @method initWithFile
- * @return A value converted from C/C++ "bool"
- * @param {const char*}
- * @param {unsigned int}
- */
-initWithFile : function () {},
 
 /**
  * @method rebuildIndexInOrder
