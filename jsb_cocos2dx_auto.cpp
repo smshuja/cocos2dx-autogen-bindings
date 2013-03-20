@@ -29413,26 +29413,6 @@ JSBool js_cocos2dx_CCLabelBMFont_isCascadeColorEnabled(JSContext *cx, uint32_t a
 	JS_ReportError(cx, "wrong number of arguments: %d, was expecting %d", argc, 0);
 	return JS_FALSE;
 }
-JSBool js_cocos2dx_CCLabelBMFont_updateString(JSContext *cx, uint32_t argc, jsval *vp)
-{
-	jsval *argv = JS_ARGV(cx, vp);
-	JSBool ok = JS_TRUE;
-	JSObject *obj = JS_THIS_OBJECT(cx, vp);
-	js_proxy_t *proxy; JS_GET_NATIVE_PROXY(proxy, obj);
-	cocos2d::CCLabelBMFont* cobj = (cocos2d::CCLabelBMFont *)(proxy ? proxy->ptr : NULL);
-	JSB_PRECONDITION2( cobj, cx, JS_FALSE, "Invalid Native Object");
-	if (argc == 1) {
-		JSBool arg0;
-		ok &= JS_ValueToBoolean(cx, argv[0], &arg0);
-		JSB_PRECONDITION2(ok, cx, JS_FALSE, "Error processing arguments");
-		cobj->updateString(arg0);
-		JS_SET_RVAL(cx, vp, JSVAL_VOID);
-		return JS_TRUE;
-	}
-
-	JS_ReportError(cx, "wrong number of arguments: %d, was expecting %d", argc, 1);
-	return JS_FALSE;
-}
 JSBool js_cocos2dx_CCLabelBMFont_setColor(JSContext *cx, uint32_t argc, jsval *vp)
 {
 	jsval *argv = JS_ARGV(cx, vp);
@@ -29751,7 +29731,6 @@ void js_register_cocos2dx_CCLabelBMFont(JSContext *cx, JSObject *global) {
 		JS_FN("getColor", js_cocos2dx_CCLabelBMFont_getColor, 0, JSPROP_PERMANENT | JSPROP_ENUMERATE),
 		JS_FN("getDisplayedOpacity", js_cocos2dx_CCLabelBMFont_getDisplayedOpacity, 0, JSPROP_PERMANENT | JSPROP_ENUMERATE),
 		JS_FN("isCascadeColorEnabled", js_cocos2dx_CCLabelBMFont_isCascadeColorEnabled, 0, JSPROP_PERMANENT | JSPROP_ENUMERATE),
-		JS_FN("updateString", js_cocos2dx_CCLabelBMFont_updateString, 1, JSPROP_PERMANENT | JSPROP_ENUMERATE),
 		JS_FN("setColor", js_cocos2dx_CCLabelBMFont_setColor, 1, JSPROP_PERMANENT | JSPROP_ENUMERATE),
 		JS_FN("setCString", js_cocos2dx_CCLabelBMFont_setCString, 1, JSPROP_PERMANENT | JSPROP_ENUMERATE),
 		JS_FN("getDisplayedColor", js_cocos2dx_CCLabelBMFont_getDisplayedColor, 0, JSPROP_PERMANENT | JSPROP_ENUMERATE),

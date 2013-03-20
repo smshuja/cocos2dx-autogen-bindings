@@ -6302,12 +6302,6 @@ getDisplayedOpacity : function () {},
 isCascadeColorEnabled : function () {},
 
 /**
- * @method updateString
- * @param {bool}
- */
-updateString : function () {},
-
-/**
  * @method setColor
  * @param {cocos2d::ccColor3B}
  */

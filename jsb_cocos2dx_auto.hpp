@@ -1824,7 +1824,6 @@ JSBool js_cocos2dx_CCLabelBMFont_setScaleX(JSContext *cx, uint32_t argc, jsval *
 JSBool js_cocos2dx_CCLabelBMFont_getColor(JSContext *cx, uint32_t argc, jsval *vp);
 JSBool js_cocos2dx_CCLabelBMFont_getDisplayedOpacity(JSContext *cx, uint32_t argc, jsval *vp);
 JSBool js_cocos2dx_CCLabelBMFont_isCascadeColorEnabled(JSContext *cx, uint32_t argc, jsval *vp);
-JSBool js_cocos2dx_CCLabelBMFont_updateString(JSContext *cx, uint32_t argc, jsval *vp);
 JSBool js_cocos2dx_CCLabelBMFont_setColor(JSContext *cx, uint32_t argc, jsval *vp);
 JSBool js_cocos2dx_CCLabelBMFont_setCString(JSContext *cx, uint32_t argc, jsval *vp);
 JSBool js_cocos2dx_CCLabelBMFont_getDisplayedColor(JSContext *cx, uint32_t argc, jsval *vp);
