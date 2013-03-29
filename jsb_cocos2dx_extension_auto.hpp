@@ -47,11 +47,9 @@ JSBool js_cocos2dx_extension_CCControl_needsLayout(JSContext *cx, uint32_t argc,
 JSBool js_cocos2dx_extension_CCControl_hasVisibleParents(JSContext *cx, uint32_t argc, jsval *vp);
 JSBool js_cocos2dx_extension_CCControl_isSelected(JSContext *cx, uint32_t argc, jsval *vp);
 JSBool js_cocos2dx_extension_CCControl_init(JSContext *cx, uint32_t argc, jsval *vp);
-JSBool js_cocos2dx_extension_CCControl_getDefaultTouchPriority(JSContext *cx, uint32_t argc, jsval *vp);
 JSBool js_cocos2dx_extension_CCControl_setHighlighted(JSContext *cx, uint32_t argc, jsval *vp);
 JSBool js_cocos2dx_extension_CCControl_registerWithTouchDispatcher(JSContext *cx, uint32_t argc, jsval *vp);
 JSBool js_cocos2dx_extension_CCControl_isHighlighted(JSContext *cx, uint32_t argc, jsval *vp);
-JSBool js_cocos2dx_extension_CCControl_setDefaultTouchPriority(JSContext *cx, uint32_t argc, jsval *vp);
 JSBool js_cocos2dx_extension_CCControl_CCControl(JSContext *cx, uint32_t argc, jsval *vp);
 
 extern JSClass  *jsb_CCScale9Sprite_class;

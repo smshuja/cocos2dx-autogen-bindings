@@ -175,12 +175,6 @@ isSelected : function () {},
 init : function () {},
 
 /**
- * @method getDefaultTouchPriority
- * @return A value converted from C/C++ "int"
- */
-getDefaultTouchPriority : function () {},
-
-/**
  * @method setHighlighted
  * @param {bool}
  */
@@ -196,12 +190,6 @@ registerWithTouchDispatcher : function () {},
  * @return A value converted from C/C++ "bool"
  */
 isHighlighted : function () {},
-
-/**
- * @method setDefaultTouchPriority
- * @param {int}
- */
-setDefaultTouchPriority : function () {},
 
 /**
  * @method CCControl
