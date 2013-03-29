@@ -259,6 +259,102 @@ CCFollow : function () {},
 };
 
 /**
+ * @class CCGLProgram
+ */
+cc.GLProgram = {
+
+/**
+ * @method fragmentShaderLog
+ * @return A value converted from C/C++ "const char*"
+ */
+fragmentShaderLog : function () {},
+
+/**
+ * @method addAttribute
+ * @param {const char*}
+ * @param {unsigned int}
+ */
+addAttribute : function () {},
+
+/**
+ * @method setUniformsForBuiltins
+ */
+setUniformsForBuiltins : function () {},
+
+/**
+ * @method use
+ */
+use : function () {},
+
+/**
+ * @method vertexShaderLog
+ * @return A value converted from C/C++ "const char*"
+ */
+vertexShaderLog : function () {},
+
+/**
+ * @method initWithVertexShaderByteArray
+ * @return A value converted from C/C++ "bool"
+ * @param {const char*}
+ * @param {const char*}
+ */
+initWithVertexShaderByteArray : function () {},
+
+/**
+ * @method initWithVertexShaderFilename
+ * @return A value converted from C/C++ "bool"
+ * @param {const char*}
+ * @param {const char*}
+ */
+initWithVertexShaderFilename : function () {},
+
+/**
+ * @method getUniformLocationForName
+ * @return A value converted from C/C++ "int"
+ * @param {const char*}
+ */
+getUniformLocationForName : function () {},
+
+/**
+ * @method updateUniforms
+ */
+updateUniforms : function () {},
+
+/**
+ * @method setUniformLocationWithMatrix4fv
+ * @param {int}
+ * @param {float*}
+ * @param {unsigned int}
+ */
+setUniformLocationWithMatrix4fv : function () {},
+
+/**
+ * @method link
+ * @return A value converted from C/C++ "bool"
+ */
+link : function () {},
+
+/**
+ * @method reset
+ */
+reset : function () {},
+
+/**
+ * @method setUniformLocationWith1i
+ * @param {int}
+ * @param {int}
+ */
+setUniformLocationWith1i : function () {},
+
+/**
+ * @method CCGLProgram
+ * @constructor
+ */
+CCGLProgram : function () {},
+
+};
+
+/**
  * @class CCTouch
  */
 cc.Touch = {
@@ -554,6 +650,12 @@ CCTexture2D : function () {},
  * @class CCNode
  */
 cc.Node = {
+
+/**
+ * @method getShaderProgram
+ * @return A value converted from C/C++ "cocos2d::CCGLProgram*"
+ */
+getShaderProgram : function () {},
 
 /**
  * @method getChildren
@@ -9900,6 +10002,54 @@ purgeFileUtils : function () {},
  * @return A value converted from C/C++ "cocos2d::CCFileUtils*"
  */
 sharedFileUtils : function () {},
+
+};
+
+/**
+ * @class CCShaderCache
+ */
+cc.ShaderCache = {
+
+/**
+ * @method reloadDefaultShaders
+ */
+reloadDefaultShaders : function () {},
+
+/**
+ * @method addProgram
+ * @param {cocos2d::CCGLProgram*}
+ * @param {const char*}
+ */
+addProgram : function () {},
+
+/**
+ * @method programForKey
+ * @return A value converted from C/C++ "cocos2d::CCGLProgram*"
+ * @param {const char*}
+ */
+programForKey : function () {},
+
+/**
+ * @method loadDefaultShaders
+ */
+loadDefaultShaders : function () {},
+
+/**
+ * @method sharedShaderCache
+ * @return A value converted from C/C++ "cocos2d::CCShaderCache*"
+ */
+sharedShaderCache : function () {},
+
+/**
+ * @method purgeSharedShaderCache
+ */
+purgeSharedShaderCache : function () {},
+
+/**
+ * @method CCShaderCache
+ * @constructor
+ */
+CCShaderCache : function () {},
 
 };
 

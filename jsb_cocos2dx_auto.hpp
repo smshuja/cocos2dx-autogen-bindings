@@ -74,6 +74,28 @@ JSBool js_cocos2dx_CCFollow_isBoundarySet(JSContext *cx, uint32_t argc, jsval *v
 JSBool js_cocos2dx_CCFollow_create(JSContext *cx, uint32_t argc, jsval *vp);
 JSBool js_cocos2dx_CCFollow_CCFollow(JSContext *cx, uint32_t argc, jsval *vp);
 
+extern JSClass  *jsb_CCGLProgram_class;
+extern JSObject *jsb_CCGLProgram_prototype;
+
+JSBool js_cocos2dx_CCGLProgram_constructor(JSContext *cx, uint32_t argc, jsval *vp);
+void js_cocos2dx_CCGLProgram_finalize(JSContext *cx, JSObject *obj);
+void js_register_cocos2dx_CCGLProgram(JSContext *cx, JSObject *global);
+void register_all_cocos2dx(JSContext* cx, JSObject* obj);
+JSBool js_cocos2dx_CCGLProgram_fragmentShaderLog(JSContext *cx, uint32_t argc, jsval *vp);
+JSBool js_cocos2dx_CCGLProgram_addAttribute(JSContext *cx, uint32_t argc, jsval *vp);
+JSBool js_cocos2dx_CCGLProgram_setUniformsForBuiltins(JSContext *cx, uint32_t argc, jsval *vp);
+JSBool js_cocos2dx_CCGLProgram_use(JSContext *cx, uint32_t argc, jsval *vp);
+JSBool js_cocos2dx_CCGLProgram_vertexShaderLog(JSContext *cx, uint32_t argc, jsval *vp);
+JSBool js_cocos2dx_CCGLProgram_initWithVertexShaderByteArray(JSContext *cx, uint32_t argc, jsval *vp);
+JSBool js_cocos2dx_CCGLProgram_initWithVertexShaderFilename(JSContext *cx, uint32_t argc, jsval *vp);
+JSBool js_cocos2dx_CCGLProgram_getUniformLocationForName(JSContext *cx, uint32_t argc, jsval *vp);
+JSBool js_cocos2dx_CCGLProgram_updateUniforms(JSContext *cx, uint32_t argc, jsval *vp);
+JSBool js_cocos2dx_CCGLProgram_setUniformLocationWithMatrix4fv(JSContext *cx, uint32_t argc, jsval *vp);
+JSBool js_cocos2dx_CCGLProgram_link(JSContext *cx, uint32_t argc, jsval *vp);
+JSBool js_cocos2dx_CCGLProgram_reset(JSContext *cx, uint32_t argc, jsval *vp);
+JSBool js_cocos2dx_CCGLProgram_setUniformLocationWith1i(JSContext *cx, uint32_t argc, jsval *vp);
+JSBool js_cocos2dx_CCGLProgram_CCGLProgram(JSContext *cx, uint32_t argc, jsval *vp);
+
 extern JSClass  *jsb_CCTouch_class;
 extern JSObject *jsb_CCTouch_prototype;
 
@@ -153,6 +175,7 @@ void js_cocos2dx_CCNode_finalize(JSContext *cx, JSObject *obj);
 void js_register_cocos2dx_CCNode(JSContext *cx, JSObject *global);
 void register_all_cocos2dx(JSContext* cx, JSObject* obj);
 JSBool js_cocos2dx_CCNode_addChild(JSContext *cx, uint32_t argc, jsval *vp);
+JSBool js_cocos2dx_CCNode_getShaderProgram(JSContext *cx, uint32_t argc, jsval *vp);
 JSBool js_cocos2dx_CCNode_getChildren(JSContext *cx, uint32_t argc, jsval *vp);
 JSBool js_cocos2dx_CCNode_getScriptHandler(JSContext *cx, uint32_t argc, jsval *vp);
 JSBool js_cocos2dx_CCNode_convertToWorldSpaceAR(JSContext *cx, uint32_t argc, jsval *vp);
@@ -2894,6 +2917,21 @@ JSBool js_cocos2dx_CCFileUtils_setPopupNotify(JSContext *cx, uint32_t argc, jsva
 JSBool js_cocos2dx_CCFileUtils_loadFilenameLookupDictionaryFromFile(JSContext *cx, uint32_t argc, jsval *vp);
 JSBool js_cocos2dx_CCFileUtils_purgeFileUtils(JSContext *cx, uint32_t argc, jsval *vp);
 JSBool js_cocos2dx_CCFileUtils_sharedFileUtils(JSContext *cx, uint32_t argc, jsval *vp);
+
+extern JSClass  *jsb_CCShaderCache_class;
+extern JSObject *jsb_CCShaderCache_prototype;
+
+JSBool js_cocos2dx_CCShaderCache_constructor(JSContext *cx, uint32_t argc, jsval *vp);
+void js_cocos2dx_CCShaderCache_finalize(JSContext *cx, JSObject *obj);
+void js_register_cocos2dx_CCShaderCache(JSContext *cx, JSObject *global);
+void register_all_cocos2dx(JSContext* cx, JSObject* obj);
+JSBool js_cocos2dx_CCShaderCache_reloadDefaultShaders(JSContext *cx, uint32_t argc, jsval *vp);
+JSBool js_cocos2dx_CCShaderCache_addProgram(JSContext *cx, uint32_t argc, jsval *vp);
+JSBool js_cocos2dx_CCShaderCache_programForKey(JSContext *cx, uint32_t argc, jsval *vp);
+JSBool js_cocos2dx_CCShaderCache_loadDefaultShaders(JSContext *cx, uint32_t argc, jsval *vp);
+JSBool js_cocos2dx_CCShaderCache_sharedShaderCache(JSContext *cx, uint32_t argc, jsval *vp);
+JSBool js_cocos2dx_CCShaderCache_purgeSharedShaderCache(JSContext *cx, uint32_t argc, jsval *vp);
+JSBool js_cocos2dx_CCShaderCache_CCShaderCache(JSContext *cx, uint32_t argc, jsval *vp);
 
 extern JSClass  *jsb_CCAnimationCache_class;
 extern JSObject *jsb_CCAnimationCache_prototype;
