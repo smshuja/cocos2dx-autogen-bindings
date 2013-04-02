@@ -277,9 +277,19 @@ fragmentShaderLog : function () {},
 addAttribute : function () {},
 
 /**
- * @method setUniformsForBuiltins
+ * @method setUniformLocationWithMatrix4fv
+ * @param {int}
+ * @param {float*}
+ * @param {unsigned int}
  */
-setUniformsForBuiltins : function () {},
+setUniformLocationWithMatrix4fv : function () {},
+
+/**
+ * @method getUniformLocationForName
+ * @return A value converted from C/C++ "int"
+ * @param {const char*}
+ */
+getUniformLocationForName : function () {},
 
 /**
  * @method use
@@ -309,11 +319,26 @@ initWithVertexShaderByteArray : function () {},
 initWithVertexShaderFilename : function () {},
 
 /**
- * @method getUniformLocationForName
- * @return A value converted from C/C++ "int"
- * @param {const char*}
+ * @method setUniformsForBuiltins
  */
-getUniformLocationForName : function () {},
+setUniformsForBuiltins : function () {},
+
+/**
+ * @method setUniformLocationWith3i
+ * @param {int}
+ * @param {int}
+ * @param {int}
+ * @param {int}
+ */
+setUniformLocationWith3i : function () {},
+
+/**
+ * @method setUniformLocationWith3iv
+ * @param {int}
+ * @param {int*}
+ * @param {unsigned int}
+ */
+setUniformLocationWith3iv : function () {},
 
 /**
  * @method updateUniforms
@@ -321,12 +346,12 @@ getUniformLocationForName : function () {},
 updateUniforms : function () {},
 
 /**
- * @method setUniformLocationWithMatrix4fv
+ * @method setUniformLocationWith4iv
  * @param {int}
- * @param {float*}
+ * @param {int*}
  * @param {unsigned int}
  */
-setUniformLocationWithMatrix4fv : function () {},
+setUniformLocationWith4iv : function () {},
 
 /**
  * @method link
@@ -335,9 +360,27 @@ setUniformLocationWithMatrix4fv : function () {},
 link : function () {},
 
 /**
+ * @method setUniformLocationWith2iv
+ * @param {int}
+ * @param {int*}
+ * @param {unsigned int}
+ */
+setUniformLocationWith2iv : function () {},
+
+/**
  * @method reset
  */
 reset : function () {},
+
+/**
+ * @method setUniformLocationWith4i
+ * @param {int}
+ * @param {int}
+ * @param {int}
+ * @param {int}
+ * @param {int}
+ */
+setUniformLocationWith4i : function () {},
 
 /**
  * @method setUniformLocationWith1i
@@ -345,6 +388,14 @@ reset : function () {},
  * @param {int}
  */
 setUniformLocationWith1i : function () {},
+
+/**
+ * @method setUniformLocationWith2i
+ * @param {int}
+ * @param {int}
+ * @param {int}
+ */
+setUniformLocationWith2i : function () {},
 
 /**
  * @method CCGLProgram
