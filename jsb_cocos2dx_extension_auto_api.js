@@ -1333,16 +1333,28 @@ setAnchorPoint : function () {},
 getText : function () {},
 
 /**
- * @method setContentSize
- * @param {cocos2d::CCSize}
+ * @method setPlaceholderFontName
+ * @param {const char*}
  */
-setContentSize : function () {},
+setPlaceholderFontName : function () {},
 
 /**
  * @method getPlaceHolder
  * @return A value converted from C/C++ "const char*"
  */
 getPlaceHolder : function () {},
+
+/**
+ * @method setFontName
+ * @param {const char*}
+ */
+setFontName : function () {},
+
+/**
+ * @method setPlaceholderFontSize
+ * @param {int}
+ */
+setPlaceholderFontSize : function () {},
 
 /**
  * @method setInputMode
@@ -1368,6 +1380,12 @@ setFontColor : function () {},
  * @param {int}
  */
 setPlaceholderFont : function () {},
+
+/**
+ * @method setFontSize
+ * @param {int}
+ */
+setFontSize : function () {},
 
 /**
  * @method initWithSizeAndBackgroundSprite
@@ -1418,6 +1436,12 @@ setText : function () {},
  * @param {int}
  */
 setMaxLength : function () {},
+
+/**
+ * @method setContentSize
+ * @param {cocos2d::CCSize}
+ */
+setContentSize : function () {},
 
 /**
  * @method setFont
