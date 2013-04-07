@@ -319,6 +319,18 @@ JSBool js_cocos2dx_CCAction_constructor(JSContext *cx, uint32_t argc, jsval *vp)
 void js_cocos2dx_CCAction_finalize(JSFreeOp *fop, JSObject *obj) {
 }
 
+static JSBool js_cocos2dx_CCAction_ctor(JSContext *cx, uint32_t argc, jsval *vp)
+{
+	JSObject *obj = JS_THIS_OBJECT(cx, vp);
+    cocos2d::CCAction *nobj = new cocos2d::CCAction();
+    js_proxy_t* p;
+    JS_NEW_PROXY(p, nobj, obj);
+    nobj->autorelease();
+    JS_AddNamedObjectRoot(cx, &p->obj, "cocos2d::CCAction");
+    JS_SET_RVAL(cx, vp, JSVAL_VOID);
+    return JS_TRUE;
+}
+
 void js_register_cocos2dx_CCAction(JSContext *cx, JSObject *global) {
 	jsb_CCAction_class = (JSClass *)calloc(1, sizeof(JSClass));
 	jsb_CCAction_class->name = "Action";
@@ -348,7 +360,8 @@ void js_register_cocos2dx_CCAction(JSContext *cx, JSObject *global) {
 		JS_FN("setTag", js_cocos2dx_CCAction_setTag, 1, JSPROP_PERMANENT | JSPROP_ENUMERATE),
 		JS_FN("getTag", js_cocos2dx_CCAction_getTag, 0, JSPROP_PERMANENT | JSPROP_ENUMERATE),
 		JS_FN("isDone", js_cocos2dx_CCAction_isDone, 0, JSPROP_PERMANENT | JSPROP_ENUMERATE),
-		JS_FS_END
+        JS_FN("ctor", js_cocos2dx_CCAction_ctor, 0, JSPROP_PERMANENT | JSPROP_ENUMERATE),
+        JS_FS_END
 	};
 
 	static JSFunctionSpec st_funcs[] = {
@@ -482,6 +495,18 @@ extern JSObject *jsb_CCAction_prototype;
 void js_cocos2dx_CCFiniteTimeAction_finalize(JSFreeOp *fop, JSObject *obj) {
 }
 
+static JSBool js_cocos2dx_CCFiniteTimeAction_ctor(JSContext *cx, uint32_t argc, jsval *vp)
+{
+	JSObject *obj = JS_THIS_OBJECT(cx, vp);
+    cocos2d::CCFiniteTimeAction *nobj = new cocos2d::CCFiniteTimeAction();
+    js_proxy_t* p;
+    JS_NEW_PROXY(p, nobj, obj);
+    nobj->autorelease();
+    JS_AddNamedObjectRoot(cx, &p->obj, "cocos2d::CCFiniteTimeAction");
+    JS_SET_RVAL(cx, vp, JSVAL_VOID);
+    return JS_TRUE;
+}
+
 void js_register_cocos2dx_CCFiniteTimeAction(JSContext *cx, JSObject *global) {
 	jsb_CCFiniteTimeAction_class = (JSClass *)calloc(1, sizeof(JSClass));
 	jsb_CCFiniteTimeAction_class->name = "FiniteTimeAction";
@@ -503,7 +528,8 @@ void js_register_cocos2dx_CCFiniteTimeAction(JSContext *cx, JSObject *global) {
 		JS_FN("setDuration", js_cocos2dx_CCFiniteTimeAction_setDuration, 1, JSPROP_PERMANENT | JSPROP_ENUMERATE),
 		JS_FN("getDuration", js_cocos2dx_CCFiniteTimeAction_getDuration, 0, JSPROP_PERMANENT | JSPROP_ENUMERATE),
 		JS_FN("reverse", js_cocos2dx_CCFiniteTimeAction_reverse, 0, JSPROP_PERMANENT | JSPROP_ENUMERATE),
-		JS_FS_END
+        JS_FN("ctor", js_cocos2dx_CCFiniteTimeAction_ctor, 0, JSPROP_PERMANENT | JSPROP_ENUMERATE),
+        JS_FS_END
 	};
 
 	JSFunctionSpec *st_funcs = NULL;
@@ -825,6 +851,18 @@ extern JSObject *jsb_CCAction_prototype;
 void js_cocos2dx_CCSpeed_finalize(JSFreeOp *fop, JSObject *obj) {
 }
 
+static JSBool js_cocos2dx_CCSpeed_ctor(JSContext *cx, uint32_t argc, jsval *vp)
+{
+	JSObject *obj = JS_THIS_OBJECT(cx, vp);
+    cocos2d::CCSpeed *nobj = new cocos2d::CCSpeed();
+    js_proxy_t* p;
+    JS_NEW_PROXY(p, nobj, obj);
+    nobj->autorelease();
+    JS_AddNamedObjectRoot(cx, &p->obj, "cocos2d::CCSpeed");
+    JS_SET_RVAL(cx, vp, JSVAL_VOID);
+    return JS_TRUE;
+}
+
 void js_register_cocos2dx_CCSpeed(JSContext *cx, JSObject *global) {
 	jsb_CCSpeed_class = (JSClass *)calloc(1, sizeof(JSClass));
 	jsb_CCSpeed_class->name = "Speed";
@@ -853,7 +891,8 @@ void js_register_cocos2dx_CCSpeed(JSContext *cx, JSObject *global) {
 		JS_FN("getInnerAction", js_cocos2dx_CCSpeed_getInnerAction, 0, JSPROP_PERMANENT | JSPROP_ENUMERATE),
 		JS_FN("isDone", js_cocos2dx_CCSpeed_isDone, 0, JSPROP_PERMANENT | JSPROP_ENUMERATE),
 		JS_FN("getSpeed", js_cocos2dx_CCSpeed_getSpeed, 0, JSPROP_PERMANENT | JSPROP_ENUMERATE),
-		JS_FS_END
+        JS_FN("ctor", js_cocos2dx_CCSpeed_ctor, 0, JSPROP_PERMANENT | JSPROP_ENUMERATE),
+        JS_FS_END
 	};
 
 	static JSFunctionSpec st_funcs[] = {
@@ -1078,6 +1117,18 @@ extern JSObject *jsb_CCAction_prototype;
 void js_cocos2dx_CCFollow_finalize(JSFreeOp *fop, JSObject *obj) {
 }
 
+static JSBool js_cocos2dx_CCFollow_ctor(JSContext *cx, uint32_t argc, jsval *vp)
+{
+	JSObject *obj = JS_THIS_OBJECT(cx, vp);
+    cocos2d::CCFollow *nobj = new cocos2d::CCFollow();
+    js_proxy_t* p;
+    JS_NEW_PROXY(p, nobj, obj);
+    nobj->autorelease();
+    JS_AddNamedObjectRoot(cx, &p->obj, "cocos2d::CCFollow");
+    JS_SET_RVAL(cx, vp, JSVAL_VOID);
+    return JS_TRUE;
+}
+
 void js_register_cocos2dx_CCFollow(JSContext *cx, JSObject *global) {
 	jsb_CCFollow_class = (JSClass *)calloc(1, sizeof(JSClass));
 	jsb_CCFollow_class->name = "Follow";
@@ -1102,7 +1153,8 @@ void js_register_cocos2dx_CCFollow(JSContext *cx, JSObject *global) {
 		JS_FN("step", js_cocos2dx_CCFollow_step, 1, JSPROP_PERMANENT | JSPROP_ENUMERATE),
 		JS_FN("isDone", js_cocos2dx_CCFollow_isDone, 0, JSPROP_PERMANENT | JSPROP_ENUMERATE),
 		JS_FN("isBoundarySet", js_cocos2dx_CCFollow_isBoundarySet, 0, JSPROP_PERMANENT | JSPROP_ENUMERATE),
-		JS_FS_END
+        JS_FN("ctor", js_cocos2dx_CCFollow_ctor, 0, JSPROP_PERMANENT | JSPROP_ENUMERATE),
+        JS_FS_END
 	};
 
 	static JSFunctionSpec st_funcs[] = {
@@ -1573,6 +1625,18 @@ JSBool js_cocos2dx_CCGLProgram_constructor(JSContext *cx, uint32_t argc, jsval *
 void js_cocos2dx_CCGLProgram_finalize(JSFreeOp *fop, JSObject *obj) {
 }
 
+static JSBool js_cocos2dx_CCGLProgram_ctor(JSContext *cx, uint32_t argc, jsval *vp)
+{
+	JSObject *obj = JS_THIS_OBJECT(cx, vp);
+    cocos2d::CCGLProgram *nobj = new cocos2d::CCGLProgram();
+    js_proxy_t* p;
+    JS_NEW_PROXY(p, nobj, obj);
+    nobj->autorelease();
+    JS_AddNamedObjectRoot(cx, &p->obj, "cocos2d::CCGLProgram");
+    JS_SET_RVAL(cx, vp, JSVAL_VOID);
+    return JS_TRUE;
+}
+
 void js_register_cocos2dx_CCGLProgram(JSContext *cx, JSObject *global) {
 	jsb_CCGLProgram_class = (JSClass *)calloc(1, sizeof(JSClass));
 	jsb_CCGLProgram_class->name = "GLProgram";
@@ -1610,7 +1674,8 @@ void js_register_cocos2dx_CCGLProgram(JSContext *cx, JSObject *global) {
 		JS_FN("setUniformLocationWith4i", js_cocos2dx_CCGLProgram_setUniformLocationWith4i, 5, JSPROP_PERMANENT | JSPROP_ENUMERATE),
 		JS_FN("setUniformLocationI32", js_cocos2dx_CCGLProgram_setUniformLocationWith1i, 2, JSPROP_PERMANENT | JSPROP_ENUMERATE),
 		JS_FN("setUniformLocationWith2i", js_cocos2dx_CCGLProgram_setUniformLocationWith2i, 3, JSPROP_PERMANENT | JSPROP_ENUMERATE),
-		JS_FS_END
+        JS_FN("ctor", js_cocos2dx_CCGLProgram_ctor, 0, JSPROP_PERMANENT | JSPROP_ENUMERATE),
+        JS_FS_END
 	};
 
 	JSFunctionSpec *st_funcs = NULL;
@@ -1839,6 +1904,18 @@ JSBool js_cocos2dx_CCTouch_constructor(JSContext *cx, uint32_t argc, jsval *vp)
 void js_cocos2dx_CCTouch_finalize(JSFreeOp *fop, JSObject *obj) {
 }
 
+static JSBool js_cocos2dx_CCTouch_ctor(JSContext *cx, uint32_t argc, jsval *vp)
+{
+	JSObject *obj = JS_THIS_OBJECT(cx, vp);
+    cocos2d::CCTouch *nobj = new cocos2d::CCTouch();
+    js_proxy_t* p;
+    JS_NEW_PROXY(p, nobj, obj);
+    nobj->autorelease();
+    JS_AddNamedObjectRoot(cx, &p->obj, "cocos2d::CCTouch");
+    JS_SET_RVAL(cx, vp, JSVAL_VOID);
+    return JS_TRUE;
+}
+
 void js_register_cocos2dx_CCTouch(JSContext *cx, JSObject *global) {
 	jsb_CCTouch_class = (JSClass *)calloc(1, sizeof(JSClass));
 	jsb_CCTouch_class->name = "Touch";
@@ -1866,7 +1943,8 @@ void js_register_cocos2dx_CCTouch(JSContext *cx, JSObject *global) {
 		JS_FN("setTouchInfo", js_cocos2dx_CCTouch_setTouchInfo, 3, JSPROP_PERMANENT | JSPROP_ENUMERATE),
 		JS_FN("getLocationInView", js_cocos2dx_CCTouch_getLocationInView, 0, JSPROP_PERMANENT | JSPROP_ENUMERATE),
 		JS_FN("getPreviousLocation", js_cocos2dx_CCTouch_getPreviousLocation, 0, JSPROP_PERMANENT | JSPROP_ENUMERATE),
-		JS_FS_END
+        JS_FN("ctor", js_cocos2dx_CCTouch_ctor, 0, JSPROP_PERMANENT | JSPROP_ENUMERATE),
+        JS_FS_END
 	};
 
 	JSFunctionSpec *st_funcs = NULL;
@@ -2139,7 +2217,7 @@ void js_register_cocos2dx_CCSet(JSContext *cx, JSObject *global) {
 		JS_FN("removeObject", js_cocos2dx_CCSet_removeObject, 1, JSPROP_PERMANENT | JSPROP_ENUMERATE),
 		JS_FN("copy", js_cocos2dx_CCSet_copy, 0, JSPROP_PERMANENT | JSPROP_ENUMERATE),
 		JS_FN("containsObject", js_cocos2dx_CCSet_containsObject, 1, JSPROP_PERMANENT | JSPROP_ENUMERATE),
-		JS_FS_END
+        JS_FS_END
 	};
 
 	static JSFunctionSpec st_funcs[] = {
@@ -2762,6 +2840,18 @@ JSBool js_cocos2dx_CCTexture2D_constructor(JSContext *cx, uint32_t argc, jsval *
 void js_cocos2dx_CCTexture2D_finalize(JSFreeOp *fop, JSObject *obj) {
 }
 
+static JSBool js_cocos2dx_CCTexture2D_ctor(JSContext *cx, uint32_t argc, jsval *vp)
+{
+	JSObject *obj = JS_THIS_OBJECT(cx, vp);
+    cocos2d::CCTexture2D *nobj = new cocos2d::CCTexture2D();
+    js_proxy_t* p;
+    JS_NEW_PROXY(p, nobj, obj);
+    nobj->autorelease();
+    JS_AddNamedObjectRoot(cx, &p->obj, "cocos2d::CCTexture2D");
+    JS_SET_RVAL(cx, vp, JSVAL_VOID);
+    return JS_TRUE;
+}
+
 void js_register_cocos2dx_CCTexture2D(JSContext *cx, JSObject *global) {
 	jsb_CCTexture2D_class = (JSClass *)calloc(1, sizeof(JSClass));
 	jsb_CCTexture2D_class->name = "Texture2D";
@@ -2804,7 +2894,8 @@ void js_register_cocos2dx_CCTexture2D(JSContext *cx, JSObject *global) {
 		JS_FN("hasMipmaps", js_cocos2dx_CCTexture2D_hasMipmaps, 0, JSPROP_PERMANENT | JSPROP_ENUMERATE),
 		JS_FN("initWithPVRFile", js_cocos2dx_CCTexture2D_initWithPVRFile, 1, JSPROP_PERMANENT | JSPROP_ENUMERATE),
 		JS_FN("setMaxS", js_cocos2dx_CCTexture2D_setMaxS, 1, JSPROP_PERMANENT | JSPROP_ENUMERATE),
-		JS_FS_END
+        JS_FN("ctor", js_cocos2dx_CCTexture2D_ctor, 0, JSPROP_PERMANENT | JSPROP_ENUMERATE),
+        JS_FS_END
 	};
 
 	static JSFunctionSpec st_funcs[] = {
@@ -4764,6 +4855,18 @@ JSBool js_cocos2dx_CCNode_constructor(JSContext *cx, uint32_t argc, jsval *vp)
 void js_cocos2dx_CCNode_finalize(JSFreeOp *fop, JSObject *obj) {
 }
 
+static JSBool js_cocos2dx_CCNode_ctor(JSContext *cx, uint32_t argc, jsval *vp)
+{
+	JSObject *obj = JS_THIS_OBJECT(cx, vp);
+    cocos2d::CCNode *nobj = new cocos2d::CCNode();
+    js_proxy_t* p;
+    JS_NEW_PROXY(p, nobj, obj);
+    nobj->autorelease();
+    JS_AddNamedObjectRoot(cx, &p->obj, "cocos2d::CCNode");
+    JS_SET_RVAL(cx, vp, JSVAL_VOID);
+    return JS_TRUE;
+}
+
 void js_register_cocos2dx_CCNode(JSContext *cx, JSObject *global) {
 	jsb_CCNode_class = (JSClass *)calloc(1, sizeof(JSClass));
 	jsb_CCNode_class->name = "Node";
@@ -4868,7 +4971,8 @@ void js_register_cocos2dx_CCNode(JSContext *cx, JSObject *global) {
 		JS_FN("setTag", js_cocos2dx_CCNode_setTag, 1, JSPROP_PERMANENT | JSPROP_ENUMERATE),
 		JS_FN("stopAction", js_cocos2dx_CCNode_stopAction, 1, JSPROP_PERMANENT | JSPROP_ENUMERATE),
 		JS_FN("getActionManager", js_cocos2dx_CCNode_getActionManager, 0, JSPROP_PERMANENT | JSPROP_ENUMERATE),
-		JS_FS_END
+        JS_FN("ctor", js_cocos2dx_CCNode_ctor, 0, JSPROP_PERMANENT | JSPROP_ENUMERATE),
+        JS_FS_END
 	};
 
 	static JSFunctionSpec st_funcs[] = {
@@ -5217,6 +5321,18 @@ extern JSObject *jsb_CCNode_prototype;
 void js_cocos2dx_CCNodeRGBA_finalize(JSFreeOp *fop, JSObject *obj) {
 }
 
+static JSBool js_cocos2dx_CCNodeRGBA_ctor(JSContext *cx, uint32_t argc, jsval *vp)
+{
+	JSObject *obj = JS_THIS_OBJECT(cx, vp);
+    cocos2d::CCNodeRGBA *nobj = new cocos2d::CCNodeRGBA();
+    js_proxy_t* p;
+    JS_NEW_PROXY(p, nobj, obj);
+    nobj->autorelease();
+    JS_AddNamedObjectRoot(cx, &p->obj, "cocos2d::CCNodeRGBA");
+    JS_SET_RVAL(cx, vp, JSVAL_VOID);
+    return JS_TRUE;
+}
+
 void js_register_cocos2dx_CCNodeRGBA(JSContext *cx, JSObject *global) {
 	jsb_CCNodeRGBA_class = (JSClass *)calloc(1, sizeof(JSClass));
 	jsb_CCNodeRGBA_class->name = "NodeRGBA";
@@ -5250,7 +5366,8 @@ void js_register_cocos2dx_CCNodeRGBA(JSContext *cx, JSObject *global) {
 		JS_FN("isOpacityModifyRGB", js_cocos2dx_CCNodeRGBA_isOpacityModifyRGB, 0, JSPROP_PERMANENT | JSPROP_ENUMERATE),
 		JS_FN("isCascadeColorEnabled", js_cocos2dx_CCNodeRGBA_isCascadeColorEnabled, 0, JSPROP_PERMANENT | JSPROP_ENUMERATE),
 		JS_FN("getDisplayedColor", js_cocos2dx_CCNodeRGBA_getDisplayedColor, 0, JSPROP_PERMANENT | JSPROP_ENUMERATE),
-		JS_FS_END
+        JS_FN("ctor", js_cocos2dx_CCNodeRGBA_ctor, 0, JSPROP_PERMANENT | JSPROP_ENUMERATE),
+        JS_FS_END
 	};
 
 	JSFunctionSpec *st_funcs = NULL;
@@ -5856,6 +5973,18 @@ JSBool js_cocos2dx_CCSpriteFrame_createWithTexture(JSContext *cx, uint32_t argc,
 void js_cocos2dx_CCSpriteFrame_finalize(JSFreeOp *fop, JSObject *obj) {
 }
 
+static JSBool js_cocos2dx_CCSpriteFrame_ctor(JSContext *cx, uint32_t argc, jsval *vp)
+{
+	JSObject *obj = JS_THIS_OBJECT(cx, vp);
+    cocos2d::CCSpriteFrame *nobj = new cocos2d::CCSpriteFrame();
+    js_proxy_t* p;
+    JS_NEW_PROXY(p, nobj, obj);
+    nobj->autorelease();
+    JS_AddNamedObjectRoot(cx, &p->obj, "cocos2d::CCSpriteFrame");
+    JS_SET_RVAL(cx, vp, JSVAL_VOID);
+    return JS_TRUE;
+}
+
 void js_register_cocos2dx_CCSpriteFrame(JSContext *cx, JSObject *global) {
 	jsb_CCSpriteFrame_class = (JSClass *)calloc(1, sizeof(JSClass));
 	jsb_CCSpriteFrame_class->name = "SpriteFrame";
@@ -5892,7 +6021,8 @@ void js_register_cocos2dx_CCSpriteFrame(JSContext *cx, JSObject *global) {
 		JS_FN("setRect", js_cocos2dx_CCSpriteFrame_setRect, 1, JSPROP_PERMANENT | JSPROP_ENUMERATE),
 		JS_FN("getOffsetInPixels", js_cocos2dx_CCSpriteFrame_getOffsetInPixels, 0, JSPROP_PERMANENT | JSPROP_ENUMERATE),
 		JS_FN("getOriginalSize", js_cocos2dx_CCSpriteFrame_getOriginalSize, 0, JSPROP_PERMANENT | JSPROP_ENUMERATE),
-		JS_FS_END
+        JS_FN("ctor", js_cocos2dx_CCSpriteFrame_ctor, 0, JSPROP_PERMANENT | JSPROP_ENUMERATE),
+        JS_FS_END
 	};
 
 	static JSFunctionSpec st_funcs[] = {
@@ -6121,6 +6251,18 @@ JSBool js_cocos2dx_CCAnimationFrame_constructor(JSContext *cx, uint32_t argc, js
 void js_cocos2dx_CCAnimationFrame_finalize(JSFreeOp *fop, JSObject *obj) {
 }
 
+static JSBool js_cocos2dx_CCAnimationFrame_ctor(JSContext *cx, uint32_t argc, jsval *vp)
+{
+	JSObject *obj = JS_THIS_OBJECT(cx, vp);
+    cocos2d::CCAnimationFrame *nobj = new cocos2d::CCAnimationFrame();
+    js_proxy_t* p;
+    JS_NEW_PROXY(p, nobj, obj);
+    nobj->autorelease();
+    JS_AddNamedObjectRoot(cx, &p->obj, "cocos2d::CCAnimationFrame");
+    JS_SET_RVAL(cx, vp, JSVAL_VOID);
+    return JS_TRUE;
+}
+
 void js_register_cocos2dx_CCAnimationFrame(JSContext *cx, JSObject *global) {
 	jsb_CCAnimationFrame_class = (JSClass *)calloc(1, sizeof(JSClass));
 	jsb_CCAnimationFrame_class->name = "AnimationFrame";
@@ -6146,7 +6288,8 @@ void js_register_cocos2dx_CCAnimationFrame(JSContext *cx, JSObject *global) {
 		JS_FN("getDelayUnits", js_cocos2dx_CCAnimationFrame_getDelayUnits, 0, JSPROP_PERMANENT | JSPROP_ENUMERATE),
 		JS_FN("setUserInfo", js_cocos2dx_CCAnimationFrame_setUserInfo, 1, JSPROP_PERMANENT | JSPROP_ENUMERATE),
 		JS_FN("initWithSpriteFrame", js_cocos2dx_CCAnimationFrame_initWithSpriteFrame, 3, JSPROP_PERMANENT | JSPROP_ENUMERATE),
-		JS_FS_END
+        JS_FN("ctor", js_cocos2dx_CCAnimationFrame_ctor, 0, JSPROP_PERMANENT | JSPROP_ENUMERATE),
+        JS_FS_END
 	};
 
 	JSFunctionSpec *st_funcs = NULL;
@@ -6548,6 +6691,18 @@ JSBool js_cocos2dx_CCAnimation_constructor(JSContext *cx, uint32_t argc, jsval *
 void js_cocos2dx_CCAnimation_finalize(JSFreeOp *fop, JSObject *obj) {
 }
 
+static JSBool js_cocos2dx_CCAnimation_ctor(JSContext *cx, uint32_t argc, jsval *vp)
+{
+	JSObject *obj = JS_THIS_OBJECT(cx, vp);
+    cocos2d::CCAnimation *nobj = new cocos2d::CCAnimation();
+    js_proxy_t* p;
+    JS_NEW_PROXY(p, nobj, obj);
+    nobj->autorelease();
+    JS_AddNamedObjectRoot(cx, &p->obj, "cocos2d::CCAnimation");
+    JS_SET_RVAL(cx, vp, JSVAL_VOID);
+    return JS_TRUE;
+}
+
 void js_register_cocos2dx_CCAnimation(JSContext *cx, JSObject *global) {
 	jsb_CCAnimation_class = (JSClass *)calloc(1, sizeof(JSClass));
 	jsb_CCAnimation_class->name = "Animation";
@@ -6582,7 +6737,8 @@ void js_register_cocos2dx_CCAnimation(JSContext *cx, JSObject *global) {
 		JS_FN("getRestoreOriginalFrame", js_cocos2dx_CCAnimation_getRestoreOriginalFrame, 0, JSPROP_PERMANENT | JSPROP_ENUMERATE),
 		JS_FN("getDuration", js_cocos2dx_CCAnimation_getDuration, 0, JSPROP_PERMANENT | JSPROP_ENUMERATE),
 		JS_FN("addSpriteFrameWithTexture", js_cocos2dx_CCAnimation_addSpriteFrameWithTexture, 2, JSPROP_PERMANENT | JSPROP_ENUMERATE),
-		JS_FS_END
+        JS_FN("ctor", js_cocos2dx_CCAnimation_ctor, 0, JSPROP_PERMANENT | JSPROP_ENUMERATE),
+        JS_FS_END
 	};
 
 	JSFunctionSpec *st_funcs = NULL;
@@ -6814,6 +6970,18 @@ extern JSObject *jsb_CCFiniteTimeAction_prototype;
 void js_cocos2dx_CCActionInterval_finalize(JSFreeOp *fop, JSObject *obj) {
 }
 
+static JSBool js_cocos2dx_CCActionInterval_ctor(JSContext *cx, uint32_t argc, jsval *vp)
+{
+	JSObject *obj = JS_THIS_OBJECT(cx, vp);
+    cocos2d::CCActionInterval *nobj = new cocos2d::CCActionInterval();
+    js_proxy_t* p;
+    JS_NEW_PROXY(p, nobj, obj);
+    nobj->autorelease();
+    JS_AddNamedObjectRoot(cx, &p->obj, "cocos2d::CCActionInterval");
+    JS_SET_RVAL(cx, vp, JSVAL_VOID);
+    return JS_TRUE;
+}
+
 void js_register_cocos2dx_CCActionInterval(JSContext *cx, JSObject *global) {
 	jsb_CCActionInterval_class = (JSClass *)calloc(1, sizeof(JSClass));
 	jsb_CCActionInterval_class->name = "ActionInterval";
@@ -6840,7 +7008,8 @@ void js_register_cocos2dx_CCActionInterval(JSContext *cx, JSObject *global) {
 		JS_FN("getElapsed", js_cocos2dx_CCActionInterval_getElapsed, 0, JSPROP_PERMANENT | JSPROP_ENUMERATE),
 		JS_FN("isDone", js_cocos2dx_CCActionInterval_isDone, 0, JSPROP_PERMANENT | JSPROP_ENUMERATE),
 		JS_FN("reverse", js_cocos2dx_CCActionInterval_reverse, 0, JSPROP_PERMANENT | JSPROP_ENUMERATE),
-		JS_FS_END
+        JS_FN("ctor", js_cocos2dx_CCActionInterval_ctor, 0, JSPROP_PERMANENT | JSPROP_ENUMERATE),
+        JS_FS_END
 	};
 
 	static JSFunctionSpec st_funcs[] = {
@@ -7008,6 +7177,18 @@ extern JSObject *jsb_CCActionInterval_prototype;
 void js_cocos2dx_CCSequence_finalize(JSFreeOp *fop, JSObject *obj) {
 }
 
+static JSBool js_cocos2dx_CCSequence_ctor(JSContext *cx, uint32_t argc, jsval *vp)
+{
+	JSObject *obj = JS_THIS_OBJECT(cx, vp);
+    cocos2d::CCSequence *nobj = new cocos2d::CCSequence();
+    js_proxy_t* p;
+    JS_NEW_PROXY(p, nobj, obj);
+    nobj->autorelease();
+    JS_AddNamedObjectRoot(cx, &p->obj, "cocos2d::CCSequence");
+    JS_SET_RVAL(cx, vp, JSVAL_VOID);
+    return JS_TRUE;
+}
+
 void js_register_cocos2dx_CCSequence(JSContext *cx, JSObject *global) {
 	jsb_CCSequence_class = (JSClass *)calloc(1, sizeof(JSClass));
 	jsb_CCSequence_class->name = "Sequence";
@@ -7031,7 +7212,8 @@ void js_register_cocos2dx_CCSequence(JSContext *cx, JSObject *global) {
 		JS_FN("stop", js_cocos2dx_CCSequence_stop, 0, JSPROP_PERMANENT | JSPROP_ENUMERATE),
 		JS_FN("update", js_cocos2dx_CCSequence_update, 1, JSPROP_PERMANENT | JSPROP_ENUMERATE),
 		JS_FN("initWithTwoActions", js_cocos2dx_CCSequence_initWithTwoActions, 2, JSPROP_PERMANENT | JSPROP_ENUMERATE),
-		JS_FS_END
+        JS_FN("ctor", js_cocos2dx_CCSequence_ctor, 0, JSPROP_PERMANENT | JSPROP_ENUMERATE),
+        JS_FS_END
 	};
 
 	JSFunctionSpec *st_funcs = NULL;
@@ -7290,6 +7472,18 @@ extern JSObject *jsb_CCActionInterval_prototype;
 void js_cocos2dx_CCRepeat_finalize(JSFreeOp *fop, JSObject *obj) {
 }
 
+static JSBool js_cocos2dx_CCRepeat_ctor(JSContext *cx, uint32_t argc, jsval *vp)
+{
+	JSObject *obj = JS_THIS_OBJECT(cx, vp);
+    cocos2d::CCRepeat *nobj = new cocos2d::CCRepeat();
+    js_proxy_t* p;
+    JS_NEW_PROXY(p, nobj, obj);
+    nobj->autorelease();
+    JS_AddNamedObjectRoot(cx, &p->obj, "cocos2d::CCRepeat");
+    JS_SET_RVAL(cx, vp, JSVAL_VOID);
+    return JS_TRUE;
+}
+
 void js_register_cocos2dx_CCRepeat(JSContext *cx, JSObject *global) {
 	jsb_CCRepeat_class = (JSClass *)calloc(1, sizeof(JSClass));
 	jsb_CCRepeat_class->name = "Repeat";
@@ -7316,7 +7510,8 @@ void js_register_cocos2dx_CCRepeat(JSContext *cx, JSObject *global) {
 		JS_FN("getInnerAction", js_cocos2dx_CCRepeat_getInnerAction, 0, JSPROP_PERMANENT | JSPROP_ENUMERATE),
 		JS_FN("isDone", js_cocos2dx_CCRepeat_isDone, 0, JSPROP_PERMANENT | JSPROP_ENUMERATE),
 		JS_FN("reverse", js_cocos2dx_CCRepeat_reverse, 0, JSPROP_PERMANENT | JSPROP_ENUMERATE),
-		JS_FS_END
+        JS_FN("ctor", js_cocos2dx_CCRepeat_ctor, 0, JSPROP_PERMANENT | JSPROP_ENUMERATE),
+        JS_FS_END
 	};
 
 	static JSFunctionSpec st_funcs[] = {
@@ -7585,6 +7780,18 @@ extern JSObject *jsb_CCActionInterval_prototype;
 void js_cocos2dx_CCRepeatForever_finalize(JSFreeOp *fop, JSObject *obj) {
 }
 
+static JSBool js_cocos2dx_CCRepeatForever_ctor(JSContext *cx, uint32_t argc, jsval *vp)
+{
+	JSObject *obj = JS_THIS_OBJECT(cx, vp);
+    cocos2d::CCRepeatForever *nobj = new cocos2d::CCRepeatForever();
+    js_proxy_t* p;
+    JS_NEW_PROXY(p, nobj, obj);
+    nobj->autorelease();
+    JS_AddNamedObjectRoot(cx, &p->obj, "cocos2d::CCRepeatForever");
+    JS_SET_RVAL(cx, vp, JSVAL_VOID);
+    return JS_TRUE;
+}
+
 void js_register_cocos2dx_CCRepeatForever(JSContext *cx, JSObject *global) {
 	jsb_CCRepeatForever_class = (JSClass *)calloc(1, sizeof(JSClass));
 	jsb_CCRepeatForever_class->name = "RepeatForever";
@@ -7610,7 +7817,8 @@ void js_register_cocos2dx_CCRepeatForever(JSContext *cx, JSObject *global) {
 		JS_FN("getInnerAction", js_cocos2dx_CCRepeatForever_getInnerAction, 0, JSPROP_PERMANENT | JSPROP_ENUMERATE),
 		JS_FN("isDone", js_cocos2dx_CCRepeatForever_isDone, 0, JSPROP_PERMANENT | JSPROP_ENUMERATE),
 		JS_FN("reverse", js_cocos2dx_CCRepeatForever_reverse, 0, JSPROP_PERMANENT | JSPROP_ENUMERATE),
-		JS_FS_END
+        JS_FN("ctor", js_cocos2dx_CCRepeatForever_ctor, 0, JSPROP_PERMANENT | JSPROP_ENUMERATE),
+        JS_FS_END
 	};
 
 	static JSFunctionSpec st_funcs[] = {
@@ -7778,6 +7986,18 @@ extern JSObject *jsb_CCActionInterval_prototype;
 void js_cocos2dx_CCSpawn_finalize(JSFreeOp *fop, JSObject *obj) {
 }
 
+static JSBool js_cocos2dx_CCSpawn_ctor(JSContext *cx, uint32_t argc, jsval *vp)
+{
+	JSObject *obj = JS_THIS_OBJECT(cx, vp);
+    cocos2d::CCSpawn *nobj = new cocos2d::CCSpawn();
+    js_proxy_t* p;
+    JS_NEW_PROXY(p, nobj, obj);
+    nobj->autorelease();
+    JS_AddNamedObjectRoot(cx, &p->obj, "cocos2d::CCSpawn");
+    JS_SET_RVAL(cx, vp, JSVAL_VOID);
+    return JS_TRUE;
+}
+
 void js_register_cocos2dx_CCSpawn(JSContext *cx, JSObject *global) {
 	jsb_CCSpawn_class = (JSClass *)calloc(1, sizeof(JSClass));
 	jsb_CCSpawn_class->name = "Spawn";
@@ -7801,7 +8021,8 @@ void js_register_cocos2dx_CCSpawn(JSContext *cx, JSObject *global) {
 		JS_FN("stop", js_cocos2dx_CCSpawn_stop, 0, JSPROP_PERMANENT | JSPROP_ENUMERATE),
 		JS_FN("update", js_cocos2dx_CCSpawn_update, 1, JSPROP_PERMANENT | JSPROP_ENUMERATE),
 		JS_FN("initWithTwoActions", js_cocos2dx_CCSpawn_initWithTwoActions, 2, JSPROP_PERMANENT | JSPROP_ENUMERATE),
-		JS_FS_END
+        JS_FN("ctor", js_cocos2dx_CCSpawn_ctor, 0, JSPROP_PERMANENT | JSPROP_ENUMERATE),
+        JS_FS_END
 	};
 
 	JSFunctionSpec *st_funcs = NULL;
@@ -7994,6 +8215,18 @@ extern JSObject *jsb_CCActionInterval_prototype;
 void js_cocos2dx_CCRotateTo_finalize(JSFreeOp *fop, JSObject *obj) {
 }
 
+static JSBool js_cocos2dx_CCRotateTo_ctor(JSContext *cx, uint32_t argc, jsval *vp)
+{
+	JSObject *obj = JS_THIS_OBJECT(cx, vp);
+    cocos2d::CCRotateTo *nobj = new cocos2d::CCRotateTo();
+    js_proxy_t* p;
+    JS_NEW_PROXY(p, nobj, obj);
+    nobj->autorelease();
+    JS_AddNamedObjectRoot(cx, &p->obj, "cocos2d::CCRotateTo");
+    JS_SET_RVAL(cx, vp, JSVAL_VOID);
+    return JS_TRUE;
+}
+
 void js_register_cocos2dx_CCRotateTo(JSContext *cx, JSObject *global) {
 	jsb_CCRotateTo_class = (JSClass *)calloc(1, sizeof(JSClass));
 	jsb_CCRotateTo_class->name = "RotateTo";
@@ -8015,7 +8248,8 @@ void js_register_cocos2dx_CCRotateTo(JSContext *cx, JSObject *global) {
 		JS_FN("startWithTarget", js_cocos2dx_CCRotateTo_startWithTarget, 1, JSPROP_PERMANENT | JSPROP_ENUMERATE),
 		JS_FN("initWithDuration", js_cocos2dx_CCRotateTo_initWithDuration, 2, JSPROP_PERMANENT | JSPROP_ENUMERATE),
 		JS_FN("update", js_cocos2dx_CCRotateTo_update, 1, JSPROP_PERMANENT | JSPROP_ENUMERATE),
-		JS_FS_END
+        JS_FN("ctor", js_cocos2dx_CCRotateTo_ctor, 0, JSPROP_PERMANENT | JSPROP_ENUMERATE),
+        JS_FS_END
 	};
 
 	static JSFunctionSpec st_funcs[] = {
@@ -8235,6 +8469,18 @@ extern JSObject *jsb_CCActionInterval_prototype;
 void js_cocos2dx_CCRotateBy_finalize(JSFreeOp *fop, JSObject *obj) {
 }
 
+static JSBool js_cocos2dx_CCRotateBy_ctor(JSContext *cx, uint32_t argc, jsval *vp)
+{
+	JSObject *obj = JS_THIS_OBJECT(cx, vp);
+    cocos2d::CCRotateBy *nobj = new cocos2d::CCRotateBy();
+    js_proxy_t* p;
+    JS_NEW_PROXY(p, nobj, obj);
+    nobj->autorelease();
+    JS_AddNamedObjectRoot(cx, &p->obj, "cocos2d::CCRotateBy");
+    JS_SET_RVAL(cx, vp, JSVAL_VOID);
+    return JS_TRUE;
+}
+
 void js_register_cocos2dx_CCRotateBy(JSContext *cx, JSObject *global) {
 	jsb_CCRotateBy_class = (JSClass *)calloc(1, sizeof(JSClass));
 	jsb_CCRotateBy_class->name = "RotateBy";
@@ -8257,7 +8503,8 @@ void js_register_cocos2dx_CCRotateBy(JSContext *cx, JSObject *global) {
 		JS_FN("reverse", js_cocos2dx_CCRotateBy_reverse, 0, JSPROP_PERMANENT | JSPROP_ENUMERATE),
 		JS_FN("initWithDuration", js_cocos2dx_CCRotateBy_initWithDuration, 2, JSPROP_PERMANENT | JSPROP_ENUMERATE),
 		JS_FN("update", js_cocos2dx_CCRotateBy_update, 1, JSPROP_PERMANENT | JSPROP_ENUMERATE),
-		JS_FS_END
+        JS_FN("ctor", js_cocos2dx_CCRotateBy_ctor, 0, JSPROP_PERMANENT | JSPROP_ENUMERATE),
+        JS_FS_END
 	};
 
 	static JSFunctionSpec st_funcs[] = {
@@ -8425,6 +8672,18 @@ extern JSObject *jsb_CCActionInterval_prototype;
 void js_cocos2dx_CCMoveBy_finalize(JSFreeOp *fop, JSObject *obj) {
 }
 
+static JSBool js_cocos2dx_CCMoveBy_ctor(JSContext *cx, uint32_t argc, jsval *vp)
+{
+	JSObject *obj = JS_THIS_OBJECT(cx, vp);
+    cocos2d::CCMoveBy *nobj = new cocos2d::CCMoveBy();
+    js_proxy_t* p;
+    JS_NEW_PROXY(p, nobj, obj);
+    nobj->autorelease();
+    JS_AddNamedObjectRoot(cx, &p->obj, "cocos2d::CCMoveBy");
+    JS_SET_RVAL(cx, vp, JSVAL_VOID);
+    return JS_TRUE;
+}
+
 void js_register_cocos2dx_CCMoveBy(JSContext *cx, JSObject *global) {
 	jsb_CCMoveBy_class = (JSClass *)calloc(1, sizeof(JSClass));
 	jsb_CCMoveBy_class->name = "MoveBy";
@@ -8447,7 +8706,8 @@ void js_register_cocos2dx_CCMoveBy(JSContext *cx, JSObject *global) {
 		JS_FN("update", js_cocos2dx_CCMoveBy_update, 1, JSPROP_PERMANENT | JSPROP_ENUMERATE),
 		JS_FN("initWithDuration", js_cocos2dx_CCMoveBy_initWithDuration, 2, JSPROP_PERMANENT | JSPROP_ENUMERATE),
 		JS_FN("reverse", js_cocos2dx_CCMoveBy_reverse, 0, JSPROP_PERMANENT | JSPROP_ENUMERATE),
-		JS_FS_END
+        JS_FN("ctor", js_cocos2dx_CCMoveBy_ctor, 0, JSPROP_PERMANENT | JSPROP_ENUMERATE),
+        JS_FS_END
 	};
 
 	static JSFunctionSpec st_funcs[] = {
@@ -8571,6 +8831,18 @@ extern JSObject *jsb_CCMoveBy_prototype;
 void js_cocos2dx_CCMoveTo_finalize(JSFreeOp *fop, JSObject *obj) {
 }
 
+static JSBool js_cocos2dx_CCMoveTo_ctor(JSContext *cx, uint32_t argc, jsval *vp)
+{
+	JSObject *obj = JS_THIS_OBJECT(cx, vp);
+    cocos2d::CCMoveTo *nobj = new cocos2d::CCMoveTo();
+    js_proxy_t* p;
+    JS_NEW_PROXY(p, nobj, obj);
+    nobj->autorelease();
+    JS_AddNamedObjectRoot(cx, &p->obj, "cocos2d::CCMoveTo");
+    JS_SET_RVAL(cx, vp, JSVAL_VOID);
+    return JS_TRUE;
+}
+
 void js_register_cocos2dx_CCMoveTo(JSContext *cx, JSObject *global) {
 	jsb_CCMoveTo_class = (JSClass *)calloc(1, sizeof(JSClass));
 	jsb_CCMoveTo_class->name = "MoveTo";
@@ -8591,7 +8863,8 @@ void js_register_cocos2dx_CCMoveTo(JSContext *cx, JSObject *global) {
 	static JSFunctionSpec funcs[] = {
 		JS_FN("startWithTarget", js_cocos2dx_CCMoveTo_startWithTarget, 1, JSPROP_PERMANENT | JSPROP_ENUMERATE),
 		JS_FN("initWithDuration", js_cocos2dx_CCMoveTo_initWithDuration, 2, JSPROP_PERMANENT | JSPROP_ENUMERATE),
-		JS_FS_END
+        JS_FN("ctor", js_cocos2dx_CCMoveTo_ctor, 0, JSPROP_PERMANENT | JSPROP_ENUMERATE),
+        JS_FS_END
 	};
 
 	static JSFunctionSpec st_funcs[] = {
@@ -8765,6 +9038,18 @@ extern JSObject *jsb_CCActionInterval_prototype;
 void js_cocos2dx_CCSkewTo_finalize(JSFreeOp *fop, JSObject *obj) {
 }
 
+static JSBool js_cocos2dx_CCSkewTo_ctor(JSContext *cx, uint32_t argc, jsval *vp)
+{
+	JSObject *obj = JS_THIS_OBJECT(cx, vp);
+    cocos2d::CCSkewTo *nobj = new cocos2d::CCSkewTo();
+    js_proxy_t* p;
+    JS_NEW_PROXY(p, nobj, obj);
+    nobj->autorelease();
+    JS_AddNamedObjectRoot(cx, &p->obj, "cocos2d::CCSkewTo");
+    JS_SET_RVAL(cx, vp, JSVAL_VOID);
+    return JS_TRUE;
+}
+
 void js_register_cocos2dx_CCSkewTo(JSContext *cx, JSObject *global) {
 	jsb_CCSkewTo_class = (JSClass *)calloc(1, sizeof(JSClass));
 	jsb_CCSkewTo_class->name = "SkewTo";
@@ -8786,7 +9071,8 @@ void js_register_cocos2dx_CCSkewTo(JSContext *cx, JSObject *global) {
 		JS_FN("startWithTarget", js_cocos2dx_CCSkewTo_startWithTarget, 1, JSPROP_PERMANENT | JSPROP_ENUMERATE),
 		JS_FN("update", js_cocos2dx_CCSkewTo_update, 1, JSPROP_PERMANENT | JSPROP_ENUMERATE),
 		JS_FN("initWithDuration", js_cocos2dx_CCSkewTo_initWithDuration, 3, JSPROP_PERMANENT | JSPROP_ENUMERATE),
-		JS_FS_END
+        JS_FN("ctor", js_cocos2dx_CCSkewTo_ctor, 0, JSPROP_PERMANENT | JSPROP_ENUMERATE),
+        JS_FS_END
 	};
 
 	static JSFunctionSpec st_funcs[] = {
@@ -8938,6 +9224,18 @@ extern JSObject *jsb_CCSkewTo_prototype;
 void js_cocos2dx_CCSkewBy_finalize(JSFreeOp *fop, JSObject *obj) {
 }
 
+static JSBool js_cocos2dx_CCSkewBy_ctor(JSContext *cx, uint32_t argc, jsval *vp)
+{
+	JSObject *obj = JS_THIS_OBJECT(cx, vp);
+    cocos2d::CCSkewBy *nobj = new cocos2d::CCSkewBy();
+    js_proxy_t* p;
+    JS_NEW_PROXY(p, nobj, obj);
+    nobj->autorelease();
+    JS_AddNamedObjectRoot(cx, &p->obj, "cocos2d::CCSkewBy");
+    JS_SET_RVAL(cx, vp, JSVAL_VOID);
+    return JS_TRUE;
+}
+
 void js_register_cocos2dx_CCSkewBy(JSContext *cx, JSObject *global) {
 	jsb_CCSkewBy_class = (JSClass *)calloc(1, sizeof(JSClass));
 	jsb_CCSkewBy_class->name = "SkewBy";
@@ -8957,7 +9255,8 @@ void js_register_cocos2dx_CCSkewBy(JSContext *cx, JSObject *global) {
 		JS_FN("startWithTarget", js_cocos2dx_CCSkewBy_startWithTarget, 1, JSPROP_PERMANENT | JSPROP_ENUMERATE),
 		JS_FN("reverse", js_cocos2dx_CCSkewBy_reverse, 0, JSPROP_PERMANENT | JSPROP_ENUMERATE),
 		JS_FN("initWithDuration", js_cocos2dx_CCSkewBy_initWithDuration, 3, JSPROP_PERMANENT | JSPROP_ENUMERATE),
-		JS_FS_END
+        JS_FN("ctor", js_cocos2dx_CCSkewBy_ctor, 0, JSPROP_PERMANENT | JSPROP_ENUMERATE),
+        JS_FS_END
 	};
 
 	static JSFunctionSpec st_funcs[] = {
@@ -9133,6 +9432,18 @@ extern JSObject *jsb_CCActionInterval_prototype;
 void js_cocos2dx_CCJumpBy_finalize(JSFreeOp *fop, JSObject *obj) {
 }
 
+static JSBool js_cocos2dx_CCJumpBy_ctor(JSContext *cx, uint32_t argc, jsval *vp)
+{
+	JSObject *obj = JS_THIS_OBJECT(cx, vp);
+    cocos2d::CCJumpBy *nobj = new cocos2d::CCJumpBy();
+    js_proxy_t* p;
+    JS_NEW_PROXY(p, nobj, obj);
+    nobj->autorelease();
+    JS_AddNamedObjectRoot(cx, &p->obj, "cocos2d::CCJumpBy");
+    JS_SET_RVAL(cx, vp, JSVAL_VOID);
+    return JS_TRUE;
+}
+
 void js_register_cocos2dx_CCJumpBy(JSContext *cx, JSObject *global) {
 	jsb_CCJumpBy_class = (JSClass *)calloc(1, sizeof(JSClass));
 	jsb_CCJumpBy_class->name = "JumpBy";
@@ -9155,7 +9466,8 @@ void js_register_cocos2dx_CCJumpBy(JSContext *cx, JSObject *global) {
 		JS_FN("reverse", js_cocos2dx_CCJumpBy_reverse, 0, JSPROP_PERMANENT | JSPROP_ENUMERATE),
 		JS_FN("initWithDuration", js_cocos2dx_CCJumpBy_initWithDuration, 4, JSPROP_PERMANENT | JSPROP_ENUMERATE),
 		JS_FN("update", js_cocos2dx_CCJumpBy_update, 1, JSPROP_PERMANENT | JSPROP_ENUMERATE),
-		JS_FS_END
+        JS_FN("ctor", js_cocos2dx_CCJumpBy_ctor, 0, JSPROP_PERMANENT | JSPROP_ENUMERATE),
+        JS_FS_END
 	};
 
 	static JSFunctionSpec st_funcs[] = {
@@ -9259,6 +9571,18 @@ extern JSObject *jsb_CCJumpBy_prototype;
 void js_cocos2dx_CCJumpTo_finalize(JSFreeOp *fop, JSObject *obj) {
 }
 
+static JSBool js_cocos2dx_CCJumpTo_ctor(JSContext *cx, uint32_t argc, jsval *vp)
+{
+	JSObject *obj = JS_THIS_OBJECT(cx, vp);
+    cocos2d::CCJumpTo *nobj = new cocos2d::CCJumpTo();
+    js_proxy_t* p;
+    JS_NEW_PROXY(p, nobj, obj);
+    nobj->autorelease();
+    JS_AddNamedObjectRoot(cx, &p->obj, "cocos2d::CCJumpTo");
+    JS_SET_RVAL(cx, vp, JSVAL_VOID);
+    return JS_TRUE;
+}
+
 void js_register_cocos2dx_CCJumpTo(JSContext *cx, JSObject *global) {
 	jsb_CCJumpTo_class = (JSClass *)calloc(1, sizeof(JSClass));
 	jsb_CCJumpTo_class->name = "JumpTo";
@@ -9276,7 +9600,8 @@ void js_register_cocos2dx_CCJumpTo(JSContext *cx, JSObject *global) {
 
 	static JSFunctionSpec funcs[] = {
 		JS_FN("startWithTarget", js_cocos2dx_CCJumpTo_startWithTarget, 1, JSPROP_PERMANENT | JSPROP_ENUMERATE),
-		JS_FS_END
+        JS_FN("ctor", js_cocos2dx_CCJumpTo_ctor, 0, JSPROP_PERMANENT | JSPROP_ENUMERATE),
+        JS_FS_END
 	};
 
 	static JSFunctionSpec st_funcs[] = {
@@ -9417,6 +9742,18 @@ extern JSObject *jsb_CCActionInterval_prototype;
 void js_cocos2dx_CCBezierBy_finalize(JSFreeOp *fop, JSObject *obj) {
 }
 
+static JSBool js_cocos2dx_CCBezierBy_ctor(JSContext *cx, uint32_t argc, jsval *vp)
+{
+	JSObject *obj = JS_THIS_OBJECT(cx, vp);
+    cocos2d::CCBezierBy *nobj = new cocos2d::CCBezierBy();
+    js_proxy_t* p;
+    JS_NEW_PROXY(p, nobj, obj);
+    nobj->autorelease();
+    JS_AddNamedObjectRoot(cx, &p->obj, "cocos2d::CCBezierBy");
+    JS_SET_RVAL(cx, vp, JSVAL_VOID);
+    return JS_TRUE;
+}
+
 void js_register_cocos2dx_CCBezierBy(JSContext *cx, JSObject *global) {
 	jsb_CCBezierBy_class = (JSClass *)calloc(1, sizeof(JSClass));
 	jsb_CCBezierBy_class->name = "BezierBy";
@@ -9439,7 +9776,8 @@ void js_register_cocos2dx_CCBezierBy(JSContext *cx, JSObject *global) {
 		JS_FN("reverse", js_cocos2dx_CCBezierBy_reverse, 0, JSPROP_PERMANENT | JSPROP_ENUMERATE),
 		JS_FN("initWithDuration", js_cocos2dx_CCBezierBy_initWithDuration, 2, JSPROP_PERMANENT | JSPROP_ENUMERATE),
 		JS_FN("update", js_cocos2dx_CCBezierBy_update, 1, JSPROP_PERMANENT | JSPROP_ENUMERATE),
-		JS_FS_END
+        JS_FN("ctor", js_cocos2dx_CCBezierBy_ctor, 0, JSPROP_PERMANENT | JSPROP_ENUMERATE),
+        JS_FS_END
 	};
 
 	JSFunctionSpec *st_funcs = NULL;
@@ -9533,6 +9871,18 @@ extern JSObject *jsb_CCBezierBy_prototype;
 void js_cocos2dx_CCBezierTo_finalize(JSFreeOp *fop, JSObject *obj) {
 }
 
+static JSBool js_cocos2dx_CCBezierTo_ctor(JSContext *cx, uint32_t argc, jsval *vp)
+{
+	JSObject *obj = JS_THIS_OBJECT(cx, vp);
+    cocos2d::CCBezierTo *nobj = new cocos2d::CCBezierTo();
+    js_proxy_t* p;
+    JS_NEW_PROXY(p, nobj, obj);
+    nobj->autorelease();
+    JS_AddNamedObjectRoot(cx, &p->obj, "cocos2d::CCBezierTo");
+    JS_SET_RVAL(cx, vp, JSVAL_VOID);
+    return JS_TRUE;
+}
+
 void js_register_cocos2dx_CCBezierTo(JSContext *cx, JSObject *global) {
 	jsb_CCBezierTo_class = (JSClass *)calloc(1, sizeof(JSClass));
 	jsb_CCBezierTo_class->name = "BezierTo";
@@ -9553,7 +9903,8 @@ void js_register_cocos2dx_CCBezierTo(JSContext *cx, JSObject *global) {
 	static JSFunctionSpec funcs[] = {
 		JS_FN("startWithTarget", js_cocos2dx_CCBezierTo_startWithTarget, 1, JSPROP_PERMANENT | JSPROP_ENUMERATE),
 		JS_FN("initWithDuration", js_cocos2dx_CCBezierTo_initWithDuration, 2, JSPROP_PERMANENT | JSPROP_ENUMERATE),
-		JS_FS_END
+        JS_FN("ctor", js_cocos2dx_CCBezierTo_ctor, 0, JSPROP_PERMANENT | JSPROP_ENUMERATE),
+        JS_FS_END
 	};
 
 	JSFunctionSpec *st_funcs = NULL;
@@ -9746,6 +10097,18 @@ extern JSObject *jsb_CCActionInterval_prototype;
 void js_cocos2dx_CCScaleTo_finalize(JSFreeOp *fop, JSObject *obj) {
 }
 
+static JSBool js_cocos2dx_CCScaleTo_ctor(JSContext *cx, uint32_t argc, jsval *vp)
+{
+	JSObject *obj = JS_THIS_OBJECT(cx, vp);
+    cocos2d::CCScaleTo *nobj = new cocos2d::CCScaleTo();
+    js_proxy_t* p;
+    JS_NEW_PROXY(p, nobj, obj);
+    nobj->autorelease();
+    JS_AddNamedObjectRoot(cx, &p->obj, "cocos2d::CCScaleTo");
+    JS_SET_RVAL(cx, vp, JSVAL_VOID);
+    return JS_TRUE;
+}
+
 void js_register_cocos2dx_CCScaleTo(JSContext *cx, JSObject *global) {
 	jsb_CCScaleTo_class = (JSClass *)calloc(1, sizeof(JSClass));
 	jsb_CCScaleTo_class->name = "ScaleTo";
@@ -9767,7 +10130,8 @@ void js_register_cocos2dx_CCScaleTo(JSContext *cx, JSObject *global) {
 		JS_FN("startWithTarget", js_cocos2dx_CCScaleTo_startWithTarget, 1, JSPROP_PERMANENT | JSPROP_ENUMERATE),
 		JS_FN("initWithDuration", js_cocos2dx_CCScaleTo_initWithDuration, 2, JSPROP_PERMANENT | JSPROP_ENUMERATE),
 		JS_FN("update", js_cocos2dx_CCScaleTo_update, 1, JSPROP_PERMANENT | JSPROP_ENUMERATE),
-		JS_FS_END
+        JS_FN("ctor", js_cocos2dx_CCScaleTo_ctor, 0, JSPROP_PERMANENT | JSPROP_ENUMERATE),
+        JS_FS_END
 	};
 
 	static JSFunctionSpec st_funcs[] = {
@@ -9920,6 +10284,18 @@ extern JSObject *jsb_CCScaleTo_prototype;
 void js_cocos2dx_CCScaleBy_finalize(JSFreeOp *fop, JSObject *obj) {
 }
 
+static JSBool js_cocos2dx_CCScaleBy_ctor(JSContext *cx, uint32_t argc, jsval *vp)
+{
+	JSObject *obj = JS_THIS_OBJECT(cx, vp);
+    cocos2d::CCScaleBy *nobj = new cocos2d::CCScaleBy();
+    js_proxy_t* p;
+    JS_NEW_PROXY(p, nobj, obj);
+    nobj->autorelease();
+    JS_AddNamedObjectRoot(cx, &p->obj, "cocos2d::CCScaleBy");
+    JS_SET_RVAL(cx, vp, JSVAL_VOID);
+    return JS_TRUE;
+}
+
 void js_register_cocos2dx_CCScaleBy(JSContext *cx, JSObject *global) {
 	jsb_CCScaleBy_class = (JSClass *)calloc(1, sizeof(JSClass));
 	jsb_CCScaleBy_class->name = "ScaleBy";
@@ -9938,7 +10314,8 @@ void js_register_cocos2dx_CCScaleBy(JSContext *cx, JSObject *global) {
 	static JSFunctionSpec funcs[] = {
 		JS_FN("startWithTarget", js_cocos2dx_CCScaleBy_startWithTarget, 1, JSPROP_PERMANENT | JSPROP_ENUMERATE),
 		JS_FN("reverse", js_cocos2dx_CCScaleBy_reverse, 0, JSPROP_PERMANENT | JSPROP_ENUMERATE),
-		JS_FS_END
+        JS_FN("ctor", js_cocos2dx_CCScaleBy_ctor, 0, JSPROP_PERMANENT | JSPROP_ENUMERATE),
+        JS_FS_END
 	};
 
 	static JSFunctionSpec st_funcs[] = {
@@ -10121,6 +10498,18 @@ extern JSObject *jsb_CCActionInterval_prototype;
 void js_cocos2dx_CCBlink_finalize(JSFreeOp *fop, JSObject *obj) {
 }
 
+static JSBool js_cocos2dx_CCBlink_ctor(JSContext *cx, uint32_t argc, jsval *vp)
+{
+	JSObject *obj = JS_THIS_OBJECT(cx, vp);
+    cocos2d::CCBlink *nobj = new cocos2d::CCBlink();
+    js_proxy_t* p;
+    JS_NEW_PROXY(p, nobj, obj);
+    nobj->autorelease();
+    JS_AddNamedObjectRoot(cx, &p->obj, "cocos2d::CCBlink");
+    JS_SET_RVAL(cx, vp, JSVAL_VOID);
+    return JS_TRUE;
+}
+
 void js_register_cocos2dx_CCBlink(JSContext *cx, JSObject *global) {
 	jsb_CCBlink_class = (JSClass *)calloc(1, sizeof(JSClass));
 	jsb_CCBlink_class->name = "Blink";
@@ -10144,7 +10533,8 @@ void js_register_cocos2dx_CCBlink(JSContext *cx, JSObject *global) {
 		JS_FN("initWithDuration", js_cocos2dx_CCBlink_initWithDuration, 2, JSPROP_PERMANENT | JSPROP_ENUMERATE),
 		JS_FN("stop", js_cocos2dx_CCBlink_stop, 0, JSPROP_PERMANENT | JSPROP_ENUMERATE),
 		JS_FN("update", js_cocos2dx_CCBlink_update, 1, JSPROP_PERMANENT | JSPROP_ENUMERATE),
-		JS_FS_END
+        JS_FN("ctor", js_cocos2dx_CCBlink_ctor, 0, JSPROP_PERMANENT | JSPROP_ENUMERATE),
+        JS_FS_END
 	};
 
 	static JSFunctionSpec st_funcs[] = {
@@ -10260,6 +10650,18 @@ extern JSObject *jsb_CCActionInterval_prototype;
 void js_cocos2dx_CCFadeIn_finalize(JSFreeOp *fop, JSObject *obj) {
 }
 
+static JSBool js_cocos2dx_CCFadeIn_ctor(JSContext *cx, uint32_t argc, jsval *vp)
+{
+	JSObject *obj = JS_THIS_OBJECT(cx, vp);
+    cocos2d::CCFadeIn *nobj = new cocos2d::CCFadeIn();
+    js_proxy_t* p;
+    JS_NEW_PROXY(p, nobj, obj);
+    nobj->autorelease();
+    JS_AddNamedObjectRoot(cx, &p->obj, "cocos2d::CCFadeIn");
+    JS_SET_RVAL(cx, vp, JSVAL_VOID);
+    return JS_TRUE;
+}
+
 void js_register_cocos2dx_CCFadeIn(JSContext *cx, JSObject *global) {
 	jsb_CCFadeIn_class = (JSClass *)calloc(1, sizeof(JSClass));
 	jsb_CCFadeIn_class->name = "FadeIn";
@@ -10278,7 +10680,8 @@ void js_register_cocos2dx_CCFadeIn(JSContext *cx, JSObject *global) {
 	static JSFunctionSpec funcs[] = {
 		JS_FN("update", js_cocos2dx_CCFadeIn_update, 1, JSPROP_PERMANENT | JSPROP_ENUMERATE),
 		JS_FN("reverse", js_cocos2dx_CCFadeIn_reverse, 0, JSPROP_PERMANENT | JSPROP_ENUMERATE),
-		JS_FS_END
+        JS_FN("ctor", js_cocos2dx_CCFadeIn_ctor, 0, JSPROP_PERMANENT | JSPROP_ENUMERATE),
+        JS_FS_END
 	};
 
 	static JSFunctionSpec st_funcs[] = {
@@ -10394,6 +10797,18 @@ extern JSObject *jsb_CCActionInterval_prototype;
 void js_cocos2dx_CCFadeOut_finalize(JSFreeOp *fop, JSObject *obj) {
 }
 
+static JSBool js_cocos2dx_CCFadeOut_ctor(JSContext *cx, uint32_t argc, jsval *vp)
+{
+	JSObject *obj = JS_THIS_OBJECT(cx, vp);
+    cocos2d::CCFadeOut *nobj = new cocos2d::CCFadeOut();
+    js_proxy_t* p;
+    JS_NEW_PROXY(p, nobj, obj);
+    nobj->autorelease();
+    JS_AddNamedObjectRoot(cx, &p->obj, "cocos2d::CCFadeOut");
+    JS_SET_RVAL(cx, vp, JSVAL_VOID);
+    return JS_TRUE;
+}
+
 void js_register_cocos2dx_CCFadeOut(JSContext *cx, JSObject *global) {
 	jsb_CCFadeOut_class = (JSClass *)calloc(1, sizeof(JSClass));
 	jsb_CCFadeOut_class->name = "FadeOut";
@@ -10412,7 +10827,8 @@ void js_register_cocos2dx_CCFadeOut(JSContext *cx, JSObject *global) {
 	static JSFunctionSpec funcs[] = {
 		JS_FN("update", js_cocos2dx_CCFadeOut_update, 1, JSPROP_PERMANENT | JSPROP_ENUMERATE),
 		JS_FN("reverse", js_cocos2dx_CCFadeOut_reverse, 0, JSPROP_PERMANENT | JSPROP_ENUMERATE),
-		JS_FS_END
+        JS_FN("ctor", js_cocos2dx_CCFadeOut_ctor, 0, JSPROP_PERMANENT | JSPROP_ENUMERATE),
+        JS_FS_END
 	};
 
 	static JSFunctionSpec st_funcs[] = {
@@ -10556,6 +10972,18 @@ extern JSObject *jsb_CCActionInterval_prototype;
 void js_cocos2dx_CCFadeTo_finalize(JSFreeOp *fop, JSObject *obj) {
 }
 
+static JSBool js_cocos2dx_CCFadeTo_ctor(JSContext *cx, uint32_t argc, jsval *vp)
+{
+	JSObject *obj = JS_THIS_OBJECT(cx, vp);
+    cocos2d::CCFadeTo *nobj = new cocos2d::CCFadeTo();
+    js_proxy_t* p;
+    JS_NEW_PROXY(p, nobj, obj);
+    nobj->autorelease();
+    JS_AddNamedObjectRoot(cx, &p->obj, "cocos2d::CCFadeTo");
+    JS_SET_RVAL(cx, vp, JSVAL_VOID);
+    return JS_TRUE;
+}
+
 void js_register_cocos2dx_CCFadeTo(JSContext *cx, JSObject *global) {
 	jsb_CCFadeTo_class = (JSClass *)calloc(1, sizeof(JSClass));
 	jsb_CCFadeTo_class->name = "FadeTo";
@@ -10577,7 +11005,8 @@ void js_register_cocos2dx_CCFadeTo(JSContext *cx, JSObject *global) {
 		JS_FN("startWithTarget", js_cocos2dx_CCFadeTo_startWithTarget, 1, JSPROP_PERMANENT | JSPROP_ENUMERATE),
 		JS_FN("initWithDuration", js_cocos2dx_CCFadeTo_initWithDuration, 2, JSPROP_PERMANENT | JSPROP_ENUMERATE),
 		JS_FN("update", js_cocos2dx_CCFadeTo_update, 1, JSPROP_PERMANENT | JSPROP_ENUMERATE),
-		JS_FS_END
+        JS_FN("ctor", js_cocos2dx_CCFadeTo_ctor, 0, JSPROP_PERMANENT | JSPROP_ENUMERATE),
+        JS_FS_END
 	};
 
 	static JSFunctionSpec st_funcs[] = {
@@ -10729,6 +11158,18 @@ extern JSObject *jsb_CCActionInterval_prototype;
 void js_cocos2dx_CCTintTo_finalize(JSFreeOp *fop, JSObject *obj) {
 }
 
+static JSBool js_cocos2dx_CCTintTo_ctor(JSContext *cx, uint32_t argc, jsval *vp)
+{
+	JSObject *obj = JS_THIS_OBJECT(cx, vp);
+    cocos2d::CCTintTo *nobj = new cocos2d::CCTintTo();
+    js_proxy_t* p;
+    JS_NEW_PROXY(p, nobj, obj);
+    nobj->autorelease();
+    JS_AddNamedObjectRoot(cx, &p->obj, "cocos2d::CCTintTo");
+    JS_SET_RVAL(cx, vp, JSVAL_VOID);
+    return JS_TRUE;
+}
+
 void js_register_cocos2dx_CCTintTo(JSContext *cx, JSObject *global) {
 	jsb_CCTintTo_class = (JSClass *)calloc(1, sizeof(JSClass));
 	jsb_CCTintTo_class->name = "TintTo";
@@ -10750,7 +11191,8 @@ void js_register_cocos2dx_CCTintTo(JSContext *cx, JSObject *global) {
 		JS_FN("startWithTarget", js_cocos2dx_CCTintTo_startWithTarget, 1, JSPROP_PERMANENT | JSPROP_ENUMERATE),
 		JS_FN("initWithDuration", js_cocos2dx_CCTintTo_initWithDuration, 4, JSPROP_PERMANENT | JSPROP_ENUMERATE),
 		JS_FN("update", js_cocos2dx_CCTintTo_update, 1, JSPROP_PERMANENT | JSPROP_ENUMERATE),
-		JS_FS_END
+        JS_FN("ctor", js_cocos2dx_CCTintTo_ctor, 0, JSPROP_PERMANENT | JSPROP_ENUMERATE),
+        JS_FS_END
 	};
 
 	static JSFunctionSpec st_funcs[] = {
@@ -10926,6 +11368,18 @@ extern JSObject *jsb_CCActionInterval_prototype;
 void js_cocos2dx_CCTintBy_finalize(JSFreeOp *fop, JSObject *obj) {
 }
 
+static JSBool js_cocos2dx_CCTintBy_ctor(JSContext *cx, uint32_t argc, jsval *vp)
+{
+	JSObject *obj = JS_THIS_OBJECT(cx, vp);
+    cocos2d::CCTintBy *nobj = new cocos2d::CCTintBy();
+    js_proxy_t* p;
+    JS_NEW_PROXY(p, nobj, obj);
+    nobj->autorelease();
+    JS_AddNamedObjectRoot(cx, &p->obj, "cocos2d::CCTintBy");
+    JS_SET_RVAL(cx, vp, JSVAL_VOID);
+    return JS_TRUE;
+}
+
 void js_register_cocos2dx_CCTintBy(JSContext *cx, JSObject *global) {
 	jsb_CCTintBy_class = (JSClass *)calloc(1, sizeof(JSClass));
 	jsb_CCTintBy_class->name = "TintBy";
@@ -10948,7 +11402,8 @@ void js_register_cocos2dx_CCTintBy(JSContext *cx, JSObject *global) {
 		JS_FN("reverse", js_cocos2dx_CCTintBy_reverse, 0, JSPROP_PERMANENT | JSPROP_ENUMERATE),
 		JS_FN("initWithDuration", js_cocos2dx_CCTintBy_initWithDuration, 4, JSPROP_PERMANENT | JSPROP_ENUMERATE),
 		JS_FN("update", js_cocos2dx_CCTintBy_update, 1, JSPROP_PERMANENT | JSPROP_ENUMERATE),
-		JS_FS_END
+        JS_FN("ctor", js_cocos2dx_CCTintBy_ctor, 0, JSPROP_PERMANENT | JSPROP_ENUMERATE),
+        JS_FS_END
 	};
 
 	static JSFunctionSpec st_funcs[] = {
@@ -11064,6 +11519,18 @@ extern JSObject *jsb_CCActionInterval_prototype;
 void js_cocos2dx_CCDelayTime_finalize(JSFreeOp *fop, JSObject *obj) {
 }
 
+static JSBool js_cocos2dx_CCDelayTime_ctor(JSContext *cx, uint32_t argc, jsval *vp)
+{
+	JSObject *obj = JS_THIS_OBJECT(cx, vp);
+    cocos2d::CCDelayTime *nobj = new cocos2d::CCDelayTime();
+    js_proxy_t* p;
+    JS_NEW_PROXY(p, nobj, obj);
+    nobj->autorelease();
+    JS_AddNamedObjectRoot(cx, &p->obj, "cocos2d::CCDelayTime");
+    JS_SET_RVAL(cx, vp, JSVAL_VOID);
+    return JS_TRUE;
+}
+
 void js_register_cocos2dx_CCDelayTime(JSContext *cx, JSObject *global) {
 	jsb_CCDelayTime_class = (JSClass *)calloc(1, sizeof(JSClass));
 	jsb_CCDelayTime_class->name = "DelayTime";
@@ -11082,7 +11549,8 @@ void js_register_cocos2dx_CCDelayTime(JSContext *cx, JSObject *global) {
 	static JSFunctionSpec funcs[] = {
 		JS_FN("update", js_cocos2dx_CCDelayTime_update, 1, JSPROP_PERMANENT | JSPROP_ENUMERATE),
 		JS_FN("reverse", js_cocos2dx_CCDelayTime_reverse, 0, JSPROP_PERMANENT | JSPROP_ENUMERATE),
-		JS_FS_END
+        JS_FN("ctor", js_cocos2dx_CCDelayTime_ctor, 0, JSPROP_PERMANENT | JSPROP_ENUMERATE),
+        JS_FS_END
 	};
 
 	static JSFunctionSpec st_funcs[] = {
@@ -11349,6 +11817,18 @@ extern JSObject *jsb_CCActionInterval_prototype;
 void js_cocos2dx_CCAnimate_finalize(JSFreeOp *fop, JSObject *obj) {
 }
 
+static JSBool js_cocos2dx_CCAnimate_ctor(JSContext *cx, uint32_t argc, jsval *vp)
+{
+	JSObject *obj = JS_THIS_OBJECT(cx, vp);
+    cocos2d::CCAnimate *nobj = new cocos2d::CCAnimate();
+    js_proxy_t* p;
+    JS_NEW_PROXY(p, nobj, obj);
+    nobj->autorelease();
+    JS_AddNamedObjectRoot(cx, &p->obj, "cocos2d::CCAnimate");
+    JS_SET_RVAL(cx, vp, JSVAL_VOID);
+    return JS_TRUE;
+}
+
 void js_register_cocos2dx_CCAnimate(JSContext *cx, JSObject *global) {
 	jsb_CCAnimate_class = (JSClass *)calloc(1, sizeof(JSClass));
 	jsb_CCAnimate_class->name = "Animate";
@@ -11374,7 +11854,8 @@ void js_register_cocos2dx_CCAnimate(JSContext *cx, JSObject *global) {
 		JS_FN("initWithAnimation", js_cocos2dx_CCAnimate_initWithAnimation, 1, JSPROP_PERMANENT | JSPROP_ENUMERATE),
 		JS_FN("setAnimation", js_cocos2dx_CCAnimate_setAnimation, 1, JSPROP_PERMANENT | JSPROP_ENUMERATE),
 		JS_FN("reverse", js_cocos2dx_CCAnimate_reverse, 0, JSPROP_PERMANENT | JSPROP_ENUMERATE),
-		JS_FS_END
+        JS_FN("ctor", js_cocos2dx_CCAnimate_ctor, 0, JSPROP_PERMANENT | JSPROP_ENUMERATE),
+        JS_FS_END
 	};
 
 	static JSFunctionSpec st_funcs[] = {
@@ -11633,6 +12114,18 @@ extern JSObject *jsb_CCActionInterval_prototype;
 void js_cocos2dx_CCTargetedAction_finalize(JSFreeOp *fop, JSObject *obj) {
 }
 
+static JSBool js_cocos2dx_CCTargetedAction_ctor(JSContext *cx, uint32_t argc, jsval *vp)
+{
+	JSObject *obj = JS_THIS_OBJECT(cx, vp);
+    cocos2d::CCTargetedAction *nobj = new cocos2d::CCTargetedAction();
+    js_proxy_t* p;
+    JS_NEW_PROXY(p, nobj, obj);
+    nobj->autorelease();
+    JS_AddNamedObjectRoot(cx, &p->obj, "cocos2d::CCTargetedAction");
+    JS_SET_RVAL(cx, vp, JSVAL_VOID);
+    return JS_TRUE;
+}
+
 void js_register_cocos2dx_CCTargetedAction(JSContext *cx, JSObject *global) {
 	jsb_CCTargetedAction_class = (JSClass *)calloc(1, sizeof(JSClass));
 	jsb_CCTargetedAction_class->name = "TargetedAction";
@@ -11657,7 +12150,8 @@ void js_register_cocos2dx_CCTargetedAction(JSContext *cx, JSObject *global) {
 		JS_FN("stop", js_cocos2dx_CCTargetedAction_stop, 0, JSPROP_PERMANENT | JSPROP_ENUMERATE),
 		JS_FN("update", js_cocos2dx_CCTargetedAction_update, 1, JSPROP_PERMANENT | JSPROP_ENUMERATE),
 		JS_FN("getForcedTarget", js_cocos2dx_CCTargetedAction_getForcedTarget, 0, JSPROP_PERMANENT | JSPROP_ENUMERATE),
-		JS_FS_END
+        JS_FN("ctor", js_cocos2dx_CCTargetedAction_ctor, 0, JSPROP_PERMANENT | JSPROP_ENUMERATE),
+        JS_FS_END
 	};
 
 	static JSFunctionSpec st_funcs[] = {
@@ -11780,6 +12274,18 @@ extern JSObject *jsb_CCActionInterval_prototype;
 void js_cocos2dx_CCActionCamera_finalize(JSFreeOp *fop, JSObject *obj) {
 }
 
+static JSBool js_cocos2dx_CCActionCamera_ctor(JSContext *cx, uint32_t argc, jsval *vp)
+{
+	JSObject *obj = JS_THIS_OBJECT(cx, vp);
+    cocos2d::CCActionCamera *nobj = new cocos2d::CCActionCamera();
+    js_proxy_t* p;
+    JS_NEW_PROXY(p, nobj, obj);
+    nobj->autorelease();
+    JS_AddNamedObjectRoot(cx, &p->obj, "cocos2d::CCActionCamera");
+    JS_SET_RVAL(cx, vp, JSVAL_VOID);
+    return JS_TRUE;
+}
+
 void js_register_cocos2dx_CCActionCamera(JSContext *cx, JSObject *global) {
 	jsb_CCActionCamera_class = (JSClass *)calloc(1, sizeof(JSClass));
 	jsb_CCActionCamera_class->name = "ActionCamera";
@@ -11800,7 +12306,8 @@ void js_register_cocos2dx_CCActionCamera(JSContext *cx, JSObject *global) {
 	static JSFunctionSpec funcs[] = {
 		JS_FN("startWithTarget", js_cocos2dx_CCActionCamera_startWithTarget, 1, JSPROP_PERMANENT | JSPROP_ENUMERATE),
 		JS_FN("reverse", js_cocos2dx_CCActionCamera_reverse, 0, JSPROP_PERMANENT | JSPROP_ENUMERATE),
-		JS_FS_END
+        JS_FN("ctor", js_cocos2dx_CCActionCamera_ctor, 0, JSPROP_PERMANENT | JSPROP_ENUMERATE),
+        JS_FS_END
 	};
 
 	JSFunctionSpec *st_funcs = NULL;
@@ -12011,6 +12518,18 @@ extern JSObject *jsb_CCActionCamera_prototype;
 void js_cocos2dx_CCOrbitCamera_finalize(JSFreeOp *fop, JSObject *obj) {
 }
 
+static JSBool js_cocos2dx_CCOrbitCamera_ctor(JSContext *cx, uint32_t argc, jsval *vp)
+{
+	JSObject *obj = JS_THIS_OBJECT(cx, vp);
+    cocos2d::CCOrbitCamera *nobj = new cocos2d::CCOrbitCamera();
+    js_proxy_t* p;
+    JS_NEW_PROXY(p, nobj, obj);
+    nobj->autorelease();
+    JS_AddNamedObjectRoot(cx, &p->obj, "cocos2d::CCOrbitCamera");
+    JS_SET_RVAL(cx, vp, JSVAL_VOID);
+    return JS_TRUE;
+}
+
 void js_register_cocos2dx_CCOrbitCamera(JSContext *cx, JSObject *global) {
 	jsb_CCOrbitCamera_class = (JSClass *)calloc(1, sizeof(JSClass));
 	jsb_CCOrbitCamera_class->name = "OrbitCamera";
@@ -12033,7 +12552,8 @@ void js_register_cocos2dx_CCOrbitCamera(JSContext *cx, JSObject *global) {
 		JS_FN("initWithDuration", js_cocos2dx_CCOrbitCamera_initWithDuration, 7, JSPROP_PERMANENT | JSPROP_ENUMERATE),
 		JS_FN("sphericalRadius", js_cocos2dx_CCOrbitCamera_sphericalRadius, 3, JSPROP_PERMANENT | JSPROP_ENUMERATE),
 		JS_FN("update", js_cocos2dx_CCOrbitCamera_update, 1, JSPROP_PERMANENT | JSPROP_ENUMERATE),
-		JS_FS_END
+        JS_FN("ctor", js_cocos2dx_CCOrbitCamera_ctor, 0, JSPROP_PERMANENT | JSPROP_ENUMERATE),
+        JS_FS_END
 	};
 
 	static JSFunctionSpec st_funcs[] = {
@@ -12403,6 +12923,18 @@ JSBool js_cocos2dx_CCActionManager_constructor(JSContext *cx, uint32_t argc, jsv
 void js_cocos2dx_CCActionManager_finalize(JSFreeOp *fop, JSObject *obj) {
 }
 
+static JSBool js_cocos2dx_CCActionManager_ctor(JSContext *cx, uint32_t argc, jsval *vp)
+{
+	JSObject *obj = JS_THIS_OBJECT(cx, vp);
+    cocos2d::CCActionManager *nobj = new cocos2d::CCActionManager();
+    js_proxy_t* p;
+    JS_NEW_PROXY(p, nobj, obj);
+    nobj->autorelease();
+    JS_AddNamedObjectRoot(cx, &p->obj, "cocos2d::CCActionManager");
+    JS_SET_RVAL(cx, vp, JSVAL_VOID);
+    return JS_TRUE;
+}
+
 void js_register_cocos2dx_CCActionManager(JSContext *cx, JSObject *global) {
 	jsb_CCActionManager_class = (JSClass *)calloc(1, sizeof(JSClass));
 	jsb_CCActionManager_class->name = "ActionManager";
@@ -12432,7 +12964,8 @@ void js_register_cocos2dx_CCActionManager(JSContext *cx, JSObject *global) {
 		JS_FN("removeAction", js_cocos2dx_CCActionManager_removeAction, 1, JSPROP_PERMANENT | JSPROP_ENUMERATE),
 		JS_FN("numberOfRunningActionsInTarget", js_cocos2dx_CCActionManager_numberOfRunningActionsInTarget, 1, JSPROP_PERMANENT | JSPROP_ENUMERATE),
 		JS_FN("pauseAllRunningActions", js_cocos2dx_CCActionManager_pauseAllRunningActions, 0, JSPROP_PERMANENT | JSPROP_ENUMERATE),
-		JS_FS_END
+        JS_FN("ctor", js_cocos2dx_CCActionManager_ctor, 0, JSPROP_PERMANENT | JSPROP_ENUMERATE),
+        JS_FS_END
 	};
 
 	JSFunctionSpec *st_funcs = NULL;
@@ -12644,6 +13177,18 @@ extern JSObject *jsb_CCActionInterval_prototype;
 void js_cocos2dx_CCActionEase_finalize(JSFreeOp *fop, JSObject *obj) {
 }
 
+static JSBool js_cocos2dx_CCActionEase_ctor(JSContext *cx, uint32_t argc, jsval *vp)
+{
+	JSObject *obj = JS_THIS_OBJECT(cx, vp);
+    cocos2d::CCActionEase *nobj = new cocos2d::CCActionEase();
+    js_proxy_t* p;
+    JS_NEW_PROXY(p, nobj, obj);
+    nobj->autorelease();
+    JS_AddNamedObjectRoot(cx, &p->obj, "cocos2d::CCActionEase");
+    JS_SET_RVAL(cx, vp, JSVAL_VOID);
+    return JS_TRUE;
+}
+
 void js_register_cocos2dx_CCActionEase(JSContext *cx, JSObject *global) {
 	jsb_CCActionEase_class = (JSClass *)calloc(1, sizeof(JSClass));
 	jsb_CCActionEase_class->name = "ActionEase";
@@ -12668,7 +13213,8 @@ void js_register_cocos2dx_CCActionEase(JSContext *cx, JSObject *global) {
 		JS_FN("update", js_cocos2dx_CCActionEase_update, 1, JSPROP_PERMANENT | JSPROP_ENUMERATE),
 		JS_FN("initWithAction", js_cocos2dx_CCActionEase_initWithAction, 1, JSPROP_PERMANENT | JSPROP_ENUMERATE),
 		JS_FN("getInnerAction", js_cocos2dx_CCActionEase_getInnerAction, 0, JSPROP_PERMANENT | JSPROP_ENUMERATE),
-		JS_FS_END
+        JS_FN("ctor", js_cocos2dx_CCActionEase_ctor, 0, JSPROP_PERMANENT | JSPROP_ENUMERATE),
+        JS_FS_END
 	};
 
 	static JSFunctionSpec st_funcs[] = {
@@ -12839,6 +13385,18 @@ extern JSObject *jsb_CCActionEase_prototype;
 void js_cocos2dx_CCEaseRateAction_finalize(JSFreeOp *fop, JSObject *obj) {
 }
 
+static JSBool js_cocos2dx_CCEaseRateAction_ctor(JSContext *cx, uint32_t argc, jsval *vp)
+{
+	JSObject *obj = JS_THIS_OBJECT(cx, vp);
+    cocos2d::CCEaseRateAction *nobj = new cocos2d::CCEaseRateAction();
+    js_proxy_t* p;
+    JS_NEW_PROXY(p, nobj, obj);
+    nobj->autorelease();
+    JS_AddNamedObjectRoot(cx, &p->obj, "cocos2d::CCEaseRateAction");
+    JS_SET_RVAL(cx, vp, JSVAL_VOID);
+    return JS_TRUE;
+}
+
 void js_register_cocos2dx_CCEaseRateAction(JSContext *cx, JSObject *global) {
 	jsb_CCEaseRateAction_class = (JSClass *)calloc(1, sizeof(JSClass));
 	jsb_CCEaseRateAction_class->name = "EaseRateAction";
@@ -12861,7 +13419,8 @@ void js_register_cocos2dx_CCEaseRateAction(JSContext *cx, JSObject *global) {
 		JS_FN("initWithAction", js_cocos2dx_CCEaseRateAction_initWithAction, 2, JSPROP_PERMANENT | JSPROP_ENUMERATE),
 		JS_FN("reverse", js_cocos2dx_CCEaseRateAction_reverse, 0, JSPROP_PERMANENT | JSPROP_ENUMERATE),
 		JS_FN("getRate", js_cocos2dx_CCEaseRateAction_getRate, 0, JSPROP_PERMANENT | JSPROP_ENUMERATE),
-		JS_FS_END
+        JS_FN("ctor", js_cocos2dx_CCEaseRateAction_ctor, 0, JSPROP_PERMANENT | JSPROP_ENUMERATE),
+        JS_FS_END
 	};
 
 	static JSFunctionSpec st_funcs[] = {
@@ -12985,6 +13544,18 @@ extern JSObject *jsb_CCEaseRateAction_prototype;
 void js_cocos2dx_CCEaseIn_finalize(JSFreeOp *fop, JSObject *obj) {
 }
 
+static JSBool js_cocos2dx_CCEaseIn_ctor(JSContext *cx, uint32_t argc, jsval *vp)
+{
+	JSObject *obj = JS_THIS_OBJECT(cx, vp);
+    cocos2d::CCEaseIn *nobj = new cocos2d::CCEaseIn();
+    js_proxy_t* p;
+    JS_NEW_PROXY(p, nobj, obj);
+    nobj->autorelease();
+    JS_AddNamedObjectRoot(cx, &p->obj, "cocos2d::CCEaseIn");
+    JS_SET_RVAL(cx, vp, JSVAL_VOID);
+    return JS_TRUE;
+}
+
 void js_register_cocos2dx_CCEaseIn(JSContext *cx, JSObject *global) {
 	jsb_CCEaseIn_class = (JSClass *)calloc(1, sizeof(JSClass));
 	jsb_CCEaseIn_class->name = "EaseIn";
@@ -13003,7 +13574,8 @@ void js_register_cocos2dx_CCEaseIn(JSContext *cx, JSObject *global) {
 	static JSFunctionSpec funcs[] = {
 		JS_FN("update", js_cocos2dx_CCEaseIn_update, 1, JSPROP_PERMANENT | JSPROP_ENUMERATE),
 		JS_FN("reverse", js_cocos2dx_CCEaseIn_reverse, 0, JSPROP_PERMANENT | JSPROP_ENUMERATE),
-		JS_FS_END
+        JS_FN("ctor", js_cocos2dx_CCEaseIn_ctor, 0, JSPROP_PERMANENT | JSPROP_ENUMERATE),
+        JS_FS_END
 	};
 
 	static JSFunctionSpec st_funcs[] = {
@@ -13127,6 +13699,18 @@ extern JSObject *jsb_CCEaseRateAction_prototype;
 void js_cocos2dx_CCEaseOut_finalize(JSFreeOp *fop, JSObject *obj) {
 }
 
+static JSBool js_cocos2dx_CCEaseOut_ctor(JSContext *cx, uint32_t argc, jsval *vp)
+{
+	JSObject *obj = JS_THIS_OBJECT(cx, vp);
+    cocos2d::CCEaseOut *nobj = new cocos2d::CCEaseOut();
+    js_proxy_t* p;
+    JS_NEW_PROXY(p, nobj, obj);
+    nobj->autorelease();
+    JS_AddNamedObjectRoot(cx, &p->obj, "cocos2d::CCEaseOut");
+    JS_SET_RVAL(cx, vp, JSVAL_VOID);
+    return JS_TRUE;
+}
+
 void js_register_cocos2dx_CCEaseOut(JSContext *cx, JSObject *global) {
 	jsb_CCEaseOut_class = (JSClass *)calloc(1, sizeof(JSClass));
 	jsb_CCEaseOut_class->name = "EaseOut";
@@ -13145,7 +13729,8 @@ void js_register_cocos2dx_CCEaseOut(JSContext *cx, JSObject *global) {
 	static JSFunctionSpec funcs[] = {
 		JS_FN("update", js_cocos2dx_CCEaseOut_update, 1, JSPROP_PERMANENT | JSPROP_ENUMERATE),
 		JS_FN("reverse", js_cocos2dx_CCEaseOut_reverse, 0, JSPROP_PERMANENT | JSPROP_ENUMERATE),
-		JS_FS_END
+        JS_FN("ctor", js_cocos2dx_CCEaseOut_ctor, 0, JSPROP_PERMANENT | JSPROP_ENUMERATE),
+        JS_FS_END
 	};
 
 	static JSFunctionSpec st_funcs[] = {
@@ -13269,6 +13854,18 @@ extern JSObject *jsb_CCEaseRateAction_prototype;
 void js_cocos2dx_CCEaseInOut_finalize(JSFreeOp *fop, JSObject *obj) {
 }
 
+static JSBool js_cocos2dx_CCEaseInOut_ctor(JSContext *cx, uint32_t argc, jsval *vp)
+{
+	JSObject *obj = JS_THIS_OBJECT(cx, vp);
+    cocos2d::CCEaseInOut *nobj = new cocos2d::CCEaseInOut();
+    js_proxy_t* p;
+    JS_NEW_PROXY(p, nobj, obj);
+    nobj->autorelease();
+    JS_AddNamedObjectRoot(cx, &p->obj, "cocos2d::CCEaseInOut");
+    JS_SET_RVAL(cx, vp, JSVAL_VOID);
+    return JS_TRUE;
+}
+
 void js_register_cocos2dx_CCEaseInOut(JSContext *cx, JSObject *global) {
 	jsb_CCEaseInOut_class = (JSClass *)calloc(1, sizeof(JSClass));
 	jsb_CCEaseInOut_class->name = "EaseInOut";
@@ -13287,7 +13884,8 @@ void js_register_cocos2dx_CCEaseInOut(JSContext *cx, JSObject *global) {
 	static JSFunctionSpec funcs[] = {
 		JS_FN("reverse", js_cocos2dx_CCEaseInOut_reverse, 0, JSPROP_PERMANENT | JSPROP_ENUMERATE),
 		JS_FN("update", js_cocos2dx_CCEaseInOut_update, 1, JSPROP_PERMANENT | JSPROP_ENUMERATE),
-		JS_FS_END
+        JS_FN("ctor", js_cocos2dx_CCEaseInOut_ctor, 0, JSPROP_PERMANENT | JSPROP_ENUMERATE),
+        JS_FS_END
 	};
 
 	static JSFunctionSpec st_funcs[] = {
@@ -13409,6 +14007,18 @@ extern JSObject *jsb_CCActionEase_prototype;
 void js_cocos2dx_CCEaseExponentialIn_finalize(JSFreeOp *fop, JSObject *obj) {
 }
 
+static JSBool js_cocos2dx_CCEaseExponentialIn_ctor(JSContext *cx, uint32_t argc, jsval *vp)
+{
+	JSObject *obj = JS_THIS_OBJECT(cx, vp);
+    cocos2d::CCEaseExponentialIn *nobj = new cocos2d::CCEaseExponentialIn();
+    js_proxy_t* p;
+    JS_NEW_PROXY(p, nobj, obj);
+    nobj->autorelease();
+    JS_AddNamedObjectRoot(cx, &p->obj, "cocos2d::CCEaseExponentialIn");
+    JS_SET_RVAL(cx, vp, JSVAL_VOID);
+    return JS_TRUE;
+}
+
 void js_register_cocos2dx_CCEaseExponentialIn(JSContext *cx, JSObject *global) {
 	jsb_CCEaseExponentialIn_class = (JSClass *)calloc(1, sizeof(JSClass));
 	jsb_CCEaseExponentialIn_class->name = "EaseExponentialIn";
@@ -13427,7 +14037,8 @@ void js_register_cocos2dx_CCEaseExponentialIn(JSContext *cx, JSObject *global) {
 	static JSFunctionSpec funcs[] = {
 		JS_FN("update", js_cocos2dx_CCEaseExponentialIn_update, 1, JSPROP_PERMANENT | JSPROP_ENUMERATE),
 		JS_FN("reverse", js_cocos2dx_CCEaseExponentialIn_reverse, 0, JSPROP_PERMANENT | JSPROP_ENUMERATE),
-		JS_FS_END
+        JS_FN("ctor", js_cocos2dx_CCEaseExponentialIn_ctor, 0, JSPROP_PERMANENT | JSPROP_ENUMERATE),
+        JS_FS_END
 	};
 
 	static JSFunctionSpec st_funcs[] = {
@@ -13549,6 +14160,18 @@ extern JSObject *jsb_CCActionEase_prototype;
 void js_cocos2dx_CCEaseExponentialOut_finalize(JSFreeOp *fop, JSObject *obj) {
 }
 
+static JSBool js_cocos2dx_CCEaseExponentialOut_ctor(JSContext *cx, uint32_t argc, jsval *vp)
+{
+	JSObject *obj = JS_THIS_OBJECT(cx, vp);
+    cocos2d::CCEaseExponentialOut *nobj = new cocos2d::CCEaseExponentialOut();
+    js_proxy_t* p;
+    JS_NEW_PROXY(p, nobj, obj);
+    nobj->autorelease();
+    JS_AddNamedObjectRoot(cx, &p->obj, "cocos2d::CCEaseExponentialOut");
+    JS_SET_RVAL(cx, vp, JSVAL_VOID);
+    return JS_TRUE;
+}
+
 void js_register_cocos2dx_CCEaseExponentialOut(JSContext *cx, JSObject *global) {
 	jsb_CCEaseExponentialOut_class = (JSClass *)calloc(1, sizeof(JSClass));
 	jsb_CCEaseExponentialOut_class->name = "EaseExponentialOut";
@@ -13567,7 +14190,8 @@ void js_register_cocos2dx_CCEaseExponentialOut(JSContext *cx, JSObject *global) 
 	static JSFunctionSpec funcs[] = {
 		JS_FN("update", js_cocos2dx_CCEaseExponentialOut_update, 1, JSPROP_PERMANENT | JSPROP_ENUMERATE),
 		JS_FN("reverse", js_cocos2dx_CCEaseExponentialOut_reverse, 0, JSPROP_PERMANENT | JSPROP_ENUMERATE),
-		JS_FS_END
+        JS_FN("ctor", js_cocos2dx_CCEaseExponentialOut_ctor, 0, JSPROP_PERMANENT | JSPROP_ENUMERATE),
+        JS_FS_END
 	};
 
 	static JSFunctionSpec st_funcs[] = {
@@ -13689,6 +14313,18 @@ extern JSObject *jsb_CCActionEase_prototype;
 void js_cocos2dx_CCEaseExponentialInOut_finalize(JSFreeOp *fop, JSObject *obj) {
 }
 
+static JSBool js_cocos2dx_CCEaseExponentialInOut_ctor(JSContext *cx, uint32_t argc, jsval *vp)
+{
+	JSObject *obj = JS_THIS_OBJECT(cx, vp);
+    cocos2d::CCEaseExponentialInOut *nobj = new cocos2d::CCEaseExponentialInOut();
+    js_proxy_t* p;
+    JS_NEW_PROXY(p, nobj, obj);
+    nobj->autorelease();
+    JS_AddNamedObjectRoot(cx, &p->obj, "cocos2d::CCEaseExponentialInOut");
+    JS_SET_RVAL(cx, vp, JSVAL_VOID);
+    return JS_TRUE;
+}
+
 void js_register_cocos2dx_CCEaseExponentialInOut(JSContext *cx, JSObject *global) {
 	jsb_CCEaseExponentialInOut_class = (JSClass *)calloc(1, sizeof(JSClass));
 	jsb_CCEaseExponentialInOut_class->name = "EaseExponentialInOut";
@@ -13707,7 +14343,8 @@ void js_register_cocos2dx_CCEaseExponentialInOut(JSContext *cx, JSObject *global
 	static JSFunctionSpec funcs[] = {
 		JS_FN("reverse", js_cocos2dx_CCEaseExponentialInOut_reverse, 0, JSPROP_PERMANENT | JSPROP_ENUMERATE),
 		JS_FN("update", js_cocos2dx_CCEaseExponentialInOut_update, 1, JSPROP_PERMANENT | JSPROP_ENUMERATE),
-		JS_FS_END
+        JS_FN("ctor", js_cocos2dx_CCEaseExponentialInOut_ctor, 0, JSPROP_PERMANENT | JSPROP_ENUMERATE),
+        JS_FS_END
 	};
 
 	static JSFunctionSpec st_funcs[] = {
@@ -13829,6 +14466,18 @@ extern JSObject *jsb_CCActionEase_prototype;
 void js_cocos2dx_CCEaseSineIn_finalize(JSFreeOp *fop, JSObject *obj) {
 }
 
+static JSBool js_cocos2dx_CCEaseSineIn_ctor(JSContext *cx, uint32_t argc, jsval *vp)
+{
+	JSObject *obj = JS_THIS_OBJECT(cx, vp);
+    cocos2d::CCEaseSineIn *nobj = new cocos2d::CCEaseSineIn();
+    js_proxy_t* p;
+    JS_NEW_PROXY(p, nobj, obj);
+    nobj->autorelease();
+    JS_AddNamedObjectRoot(cx, &p->obj, "cocos2d::CCEaseSineIn");
+    JS_SET_RVAL(cx, vp, JSVAL_VOID);
+    return JS_TRUE;
+}
+
 void js_register_cocos2dx_CCEaseSineIn(JSContext *cx, JSObject *global) {
 	jsb_CCEaseSineIn_class = (JSClass *)calloc(1, sizeof(JSClass));
 	jsb_CCEaseSineIn_class->name = "EaseSineIn";
@@ -13847,7 +14496,8 @@ void js_register_cocos2dx_CCEaseSineIn(JSContext *cx, JSObject *global) {
 	static JSFunctionSpec funcs[] = {
 		JS_FN("update", js_cocos2dx_CCEaseSineIn_update, 1, JSPROP_PERMANENT | JSPROP_ENUMERATE),
 		JS_FN("reverse", js_cocos2dx_CCEaseSineIn_reverse, 0, JSPROP_PERMANENT | JSPROP_ENUMERATE),
-		JS_FS_END
+        JS_FN("ctor", js_cocos2dx_CCEaseSineIn_ctor, 0, JSPROP_PERMANENT | JSPROP_ENUMERATE),
+        JS_FS_END
 	};
 
 	static JSFunctionSpec st_funcs[] = {
@@ -13969,6 +14619,18 @@ extern JSObject *jsb_CCActionEase_prototype;
 void js_cocos2dx_CCEaseSineOut_finalize(JSFreeOp *fop, JSObject *obj) {
 }
 
+static JSBool js_cocos2dx_CCEaseSineOut_ctor(JSContext *cx, uint32_t argc, jsval *vp)
+{
+	JSObject *obj = JS_THIS_OBJECT(cx, vp);
+    cocos2d::CCEaseSineOut *nobj = new cocos2d::CCEaseSineOut();
+    js_proxy_t* p;
+    JS_NEW_PROXY(p, nobj, obj);
+    nobj->autorelease();
+    JS_AddNamedObjectRoot(cx, &p->obj, "cocos2d::CCEaseSineOut");
+    JS_SET_RVAL(cx, vp, JSVAL_VOID);
+    return JS_TRUE;
+}
+
 void js_register_cocos2dx_CCEaseSineOut(JSContext *cx, JSObject *global) {
 	jsb_CCEaseSineOut_class = (JSClass *)calloc(1, sizeof(JSClass));
 	jsb_CCEaseSineOut_class->name = "EaseSineOut";
@@ -13987,7 +14649,8 @@ void js_register_cocos2dx_CCEaseSineOut(JSContext *cx, JSObject *global) {
 	static JSFunctionSpec funcs[] = {
 		JS_FN("update", js_cocos2dx_CCEaseSineOut_update, 1, JSPROP_PERMANENT | JSPROP_ENUMERATE),
 		JS_FN("reverse", js_cocos2dx_CCEaseSineOut_reverse, 0, JSPROP_PERMANENT | JSPROP_ENUMERATE),
-		JS_FS_END
+        JS_FN("ctor", js_cocos2dx_CCEaseSineOut_ctor, 0, JSPROP_PERMANENT | JSPROP_ENUMERATE),
+        JS_FS_END
 	};
 
 	static JSFunctionSpec st_funcs[] = {
@@ -14109,6 +14772,18 @@ extern JSObject *jsb_CCActionEase_prototype;
 void js_cocos2dx_CCEaseSineInOut_finalize(JSFreeOp *fop, JSObject *obj) {
 }
 
+static JSBool js_cocos2dx_CCEaseSineInOut_ctor(JSContext *cx, uint32_t argc, jsval *vp)
+{
+	JSObject *obj = JS_THIS_OBJECT(cx, vp);
+    cocos2d::CCEaseSineInOut *nobj = new cocos2d::CCEaseSineInOut();
+    js_proxy_t* p;
+    JS_NEW_PROXY(p, nobj, obj);
+    nobj->autorelease();
+    JS_AddNamedObjectRoot(cx, &p->obj, "cocos2d::CCEaseSineInOut");
+    JS_SET_RVAL(cx, vp, JSVAL_VOID);
+    return JS_TRUE;
+}
+
 void js_register_cocos2dx_CCEaseSineInOut(JSContext *cx, JSObject *global) {
 	jsb_CCEaseSineInOut_class = (JSClass *)calloc(1, sizeof(JSClass));
 	jsb_CCEaseSineInOut_class->name = "EaseSineInOut";
@@ -14127,7 +14802,8 @@ void js_register_cocos2dx_CCEaseSineInOut(JSContext *cx, JSObject *global) {
 	static JSFunctionSpec funcs[] = {
 		JS_FN("reverse", js_cocos2dx_CCEaseSineInOut_reverse, 0, JSPROP_PERMANENT | JSPROP_ENUMERATE),
 		JS_FN("update", js_cocos2dx_CCEaseSineInOut_update, 1, JSPROP_PERMANENT | JSPROP_ENUMERATE),
-		JS_FS_END
+        JS_FN("ctor", js_cocos2dx_CCEaseSineInOut_ctor, 0, JSPROP_PERMANENT | JSPROP_ENUMERATE),
+        JS_FS_END
 	};
 
 	static JSFunctionSpec st_funcs[] = {
@@ -14343,6 +15019,18 @@ extern JSObject *jsb_CCActionEase_prototype;
 void js_cocos2dx_CCEaseElastic_finalize(JSFreeOp *fop, JSObject *obj) {
 }
 
+static JSBool js_cocos2dx_CCEaseElastic_ctor(JSContext *cx, uint32_t argc, jsval *vp)
+{
+	JSObject *obj = JS_THIS_OBJECT(cx, vp);
+    cocos2d::CCEaseElastic *nobj = new cocos2d::CCEaseElastic();
+    js_proxy_t* p;
+    JS_NEW_PROXY(p, nobj, obj);
+    nobj->autorelease();
+    JS_AddNamedObjectRoot(cx, &p->obj, "cocos2d::CCEaseElastic");
+    JS_SET_RVAL(cx, vp, JSVAL_VOID);
+    return JS_TRUE;
+}
+
 void js_register_cocos2dx_CCEaseElastic(JSContext *cx, JSObject *global) {
 	jsb_CCEaseElastic_class = (JSClass *)calloc(1, sizeof(JSClass));
 	jsb_CCEaseElastic_class->name = "EaseElastic";
@@ -14365,7 +15053,8 @@ void js_register_cocos2dx_CCEaseElastic(JSContext *cx, JSObject *global) {
 		JS_FN("initWithAction", js_cocos2dx_CCEaseElastic_initWithAction, 1, JSPROP_PERMANENT | JSPROP_ENUMERATE),
 		JS_FN("getPeriod", js_cocos2dx_CCEaseElastic_getPeriod, 0, JSPROP_PERMANENT | JSPROP_ENUMERATE),
 		JS_FN("reverse", js_cocos2dx_CCEaseElastic_reverse, 0, JSPROP_PERMANENT | JSPROP_ENUMERATE),
-		JS_FS_END
+        JS_FN("ctor", js_cocos2dx_CCEaseElastic_ctor, 0, JSPROP_PERMANENT | JSPROP_ENUMERATE),
+        JS_FS_END
 	};
 
 	static JSFunctionSpec st_funcs[] = {
@@ -14518,6 +15207,18 @@ extern JSObject *jsb_CCEaseElastic_prototype;
 void js_cocos2dx_CCEaseElasticIn_finalize(JSFreeOp *fop, JSObject *obj) {
 }
 
+static JSBool js_cocos2dx_CCEaseElasticIn_ctor(JSContext *cx, uint32_t argc, jsval *vp)
+{
+	JSObject *obj = JS_THIS_OBJECT(cx, vp);
+    cocos2d::CCEaseElasticIn *nobj = new cocos2d::CCEaseElasticIn();
+    js_proxy_t* p;
+    JS_NEW_PROXY(p, nobj, obj);
+    nobj->autorelease();
+    JS_AddNamedObjectRoot(cx, &p->obj, "cocos2d::CCEaseElasticIn");
+    JS_SET_RVAL(cx, vp, JSVAL_VOID);
+    return JS_TRUE;
+}
+
 void js_register_cocos2dx_CCEaseElasticIn(JSContext *cx, JSObject *global) {
 	jsb_CCEaseElasticIn_class = (JSClass *)calloc(1, sizeof(JSClass));
 	jsb_CCEaseElasticIn_class->name = "EaseElasticIn";
@@ -14536,7 +15237,8 @@ void js_register_cocos2dx_CCEaseElasticIn(JSContext *cx, JSObject *global) {
 	static JSFunctionSpec funcs[] = {
 		JS_FN("update", js_cocos2dx_CCEaseElasticIn_update, 1, JSPROP_PERMANENT | JSPROP_ENUMERATE),
 		JS_FN("reverse", js_cocos2dx_CCEaseElasticIn_reverse, 0, JSPROP_PERMANENT | JSPROP_ENUMERATE),
-		JS_FS_END
+        JS_FN("ctor", js_cocos2dx_CCEaseElasticIn_ctor, 0, JSPROP_PERMANENT | JSPROP_ENUMERATE),
+        JS_FS_END
 	};
 
 	static JSFunctionSpec st_funcs[] = {
@@ -14689,6 +15391,18 @@ extern JSObject *jsb_CCEaseElastic_prototype;
 void js_cocos2dx_CCEaseElasticOut_finalize(JSFreeOp *fop, JSObject *obj) {
 }
 
+static JSBool js_cocos2dx_CCEaseElasticOut_ctor(JSContext *cx, uint32_t argc, jsval *vp)
+{
+	JSObject *obj = JS_THIS_OBJECT(cx, vp);
+    cocos2d::CCEaseElasticOut *nobj = new cocos2d::CCEaseElasticOut();
+    js_proxy_t* p;
+    JS_NEW_PROXY(p, nobj, obj);
+    nobj->autorelease();
+    JS_AddNamedObjectRoot(cx, &p->obj, "cocos2d::CCEaseElasticOut");
+    JS_SET_RVAL(cx, vp, JSVAL_VOID);
+    return JS_TRUE;
+}
+
 void js_register_cocos2dx_CCEaseElasticOut(JSContext *cx, JSObject *global) {
 	jsb_CCEaseElasticOut_class = (JSClass *)calloc(1, sizeof(JSClass));
 	jsb_CCEaseElasticOut_class->name = "EaseElasticOut";
@@ -14707,7 +15421,8 @@ void js_register_cocos2dx_CCEaseElasticOut(JSContext *cx, JSObject *global) {
 	static JSFunctionSpec funcs[] = {
 		JS_FN("update", js_cocos2dx_CCEaseElasticOut_update, 1, JSPROP_PERMANENT | JSPROP_ENUMERATE),
 		JS_FN("reverse", js_cocos2dx_CCEaseElasticOut_reverse, 0, JSPROP_PERMANENT | JSPROP_ENUMERATE),
-		JS_FS_END
+        JS_FN("ctor", js_cocos2dx_CCEaseElasticOut_ctor, 0, JSPROP_PERMANENT | JSPROP_ENUMERATE),
+        JS_FS_END
 	};
 
 	static JSFunctionSpec st_funcs[] = {
@@ -14860,6 +15575,18 @@ extern JSObject *jsb_CCEaseElastic_prototype;
 void js_cocos2dx_CCEaseElasticInOut_finalize(JSFreeOp *fop, JSObject *obj) {
 }
 
+static JSBool js_cocos2dx_CCEaseElasticInOut_ctor(JSContext *cx, uint32_t argc, jsval *vp)
+{
+	JSObject *obj = JS_THIS_OBJECT(cx, vp);
+    cocos2d::CCEaseElasticInOut *nobj = new cocos2d::CCEaseElasticInOut();
+    js_proxy_t* p;
+    JS_NEW_PROXY(p, nobj, obj);
+    nobj->autorelease();
+    JS_AddNamedObjectRoot(cx, &p->obj, "cocos2d::CCEaseElasticInOut");
+    JS_SET_RVAL(cx, vp, JSVAL_VOID);
+    return JS_TRUE;
+}
+
 void js_register_cocos2dx_CCEaseElasticInOut(JSContext *cx, JSObject *global) {
 	jsb_CCEaseElasticInOut_class = (JSClass *)calloc(1, sizeof(JSClass));
 	jsb_CCEaseElasticInOut_class->name = "EaseElasticInOut";
@@ -14878,7 +15605,8 @@ void js_register_cocos2dx_CCEaseElasticInOut(JSContext *cx, JSObject *global) {
 	static JSFunctionSpec funcs[] = {
 		JS_FN("update", js_cocos2dx_CCEaseElasticInOut_update, 1, JSPROP_PERMANENT | JSPROP_ENUMERATE),
 		JS_FN("reverse", js_cocos2dx_CCEaseElasticInOut_reverse, 0, JSPROP_PERMANENT | JSPROP_ENUMERATE),
-		JS_FS_END
+        JS_FN("ctor", js_cocos2dx_CCEaseElasticInOut_ctor, 0, JSPROP_PERMANENT | JSPROP_ENUMERATE),
+        JS_FS_END
 	};
 
 	static JSFunctionSpec st_funcs[] = {
@@ -15002,6 +15730,18 @@ extern JSObject *jsb_CCActionEase_prototype;
 void js_cocos2dx_CCEaseBounce_finalize(JSFreeOp *fop, JSObject *obj) {
 }
 
+static JSBool js_cocos2dx_CCEaseBounce_ctor(JSContext *cx, uint32_t argc, jsval *vp)
+{
+	JSObject *obj = JS_THIS_OBJECT(cx, vp);
+    cocos2d::CCEaseBounce *nobj = new cocos2d::CCEaseBounce();
+    js_proxy_t* p;
+    JS_NEW_PROXY(p, nobj, obj);
+    nobj->autorelease();
+    JS_AddNamedObjectRoot(cx, &p->obj, "cocos2d::CCEaseBounce");
+    JS_SET_RVAL(cx, vp, JSVAL_VOID);
+    return JS_TRUE;
+}
+
 void js_register_cocos2dx_CCEaseBounce(JSContext *cx, JSObject *global) {
 	jsb_CCEaseBounce_class = (JSClass *)calloc(1, sizeof(JSClass));
 	jsb_CCEaseBounce_class->name = "EaseBounce";
@@ -15020,7 +15760,8 @@ void js_register_cocos2dx_CCEaseBounce(JSContext *cx, JSObject *global) {
 	static JSFunctionSpec funcs[] = {
 		JS_FN("bounceTime", js_cocos2dx_CCEaseBounce_bounceTime, 1, JSPROP_PERMANENT | JSPROP_ENUMERATE),
 		JS_FN("reverse", js_cocos2dx_CCEaseBounce_reverse, 0, JSPROP_PERMANENT | JSPROP_ENUMERATE),
-		JS_FS_END
+        JS_FN("ctor", js_cocos2dx_CCEaseBounce_ctor, 0, JSPROP_PERMANENT | JSPROP_ENUMERATE),
+        JS_FS_END
 	};
 
 	static JSFunctionSpec st_funcs[] = {
@@ -15142,6 +15883,18 @@ extern JSObject *jsb_CCEaseBounce_prototype;
 void js_cocos2dx_CCEaseBounceIn_finalize(JSFreeOp *fop, JSObject *obj) {
 }
 
+static JSBool js_cocos2dx_CCEaseBounceIn_ctor(JSContext *cx, uint32_t argc, jsval *vp)
+{
+	JSObject *obj = JS_THIS_OBJECT(cx, vp);
+    cocos2d::CCEaseBounceIn *nobj = new cocos2d::CCEaseBounceIn();
+    js_proxy_t* p;
+    JS_NEW_PROXY(p, nobj, obj);
+    nobj->autorelease();
+    JS_AddNamedObjectRoot(cx, &p->obj, "cocos2d::CCEaseBounceIn");
+    JS_SET_RVAL(cx, vp, JSVAL_VOID);
+    return JS_TRUE;
+}
+
 void js_register_cocos2dx_CCEaseBounceIn(JSContext *cx, JSObject *global) {
 	jsb_CCEaseBounceIn_class = (JSClass *)calloc(1, sizeof(JSClass));
 	jsb_CCEaseBounceIn_class->name = "EaseBounceIn";
@@ -15160,7 +15913,8 @@ void js_register_cocos2dx_CCEaseBounceIn(JSContext *cx, JSObject *global) {
 	static JSFunctionSpec funcs[] = {
 		JS_FN("update", js_cocos2dx_CCEaseBounceIn_update, 1, JSPROP_PERMANENT | JSPROP_ENUMERATE),
 		JS_FN("reverse", js_cocos2dx_CCEaseBounceIn_reverse, 0, JSPROP_PERMANENT | JSPROP_ENUMERATE),
-		JS_FS_END
+        JS_FN("ctor", js_cocos2dx_CCEaseBounceIn_ctor, 0, JSPROP_PERMANENT | JSPROP_ENUMERATE),
+        JS_FS_END
 	};
 
 	static JSFunctionSpec st_funcs[] = {
@@ -15282,6 +16036,18 @@ extern JSObject *jsb_CCEaseBounce_prototype;
 void js_cocos2dx_CCEaseBounceOut_finalize(JSFreeOp *fop, JSObject *obj) {
 }
 
+static JSBool js_cocos2dx_CCEaseBounceOut_ctor(JSContext *cx, uint32_t argc, jsval *vp)
+{
+	JSObject *obj = JS_THIS_OBJECT(cx, vp);
+    cocos2d::CCEaseBounceOut *nobj = new cocos2d::CCEaseBounceOut();
+    js_proxy_t* p;
+    JS_NEW_PROXY(p, nobj, obj);
+    nobj->autorelease();
+    JS_AddNamedObjectRoot(cx, &p->obj, "cocos2d::CCEaseBounceOut");
+    JS_SET_RVAL(cx, vp, JSVAL_VOID);
+    return JS_TRUE;
+}
+
 void js_register_cocos2dx_CCEaseBounceOut(JSContext *cx, JSObject *global) {
 	jsb_CCEaseBounceOut_class = (JSClass *)calloc(1, sizeof(JSClass));
 	jsb_CCEaseBounceOut_class->name = "EaseBounceOut";
@@ -15300,7 +16066,8 @@ void js_register_cocos2dx_CCEaseBounceOut(JSContext *cx, JSObject *global) {
 	static JSFunctionSpec funcs[] = {
 		JS_FN("update", js_cocos2dx_CCEaseBounceOut_update, 1, JSPROP_PERMANENT | JSPROP_ENUMERATE),
 		JS_FN("reverse", js_cocos2dx_CCEaseBounceOut_reverse, 0, JSPROP_PERMANENT | JSPROP_ENUMERATE),
-		JS_FS_END
+        JS_FN("ctor", js_cocos2dx_CCEaseBounceOut_ctor, 0, JSPROP_PERMANENT | JSPROP_ENUMERATE),
+        JS_FS_END
 	};
 
 	static JSFunctionSpec st_funcs[] = {
@@ -15422,6 +16189,18 @@ extern JSObject *jsb_CCEaseBounce_prototype;
 void js_cocos2dx_CCEaseBounceInOut_finalize(JSFreeOp *fop, JSObject *obj) {
 }
 
+static JSBool js_cocos2dx_CCEaseBounceInOut_ctor(JSContext *cx, uint32_t argc, jsval *vp)
+{
+	JSObject *obj = JS_THIS_OBJECT(cx, vp);
+    cocos2d::CCEaseBounceInOut *nobj = new cocos2d::CCEaseBounceInOut();
+    js_proxy_t* p;
+    JS_NEW_PROXY(p, nobj, obj);
+    nobj->autorelease();
+    JS_AddNamedObjectRoot(cx, &p->obj, "cocos2d::CCEaseBounceInOut");
+    JS_SET_RVAL(cx, vp, JSVAL_VOID);
+    return JS_TRUE;
+}
+
 void js_register_cocos2dx_CCEaseBounceInOut(JSContext *cx, JSObject *global) {
 	jsb_CCEaseBounceInOut_class = (JSClass *)calloc(1, sizeof(JSClass));
 	jsb_CCEaseBounceInOut_class->name = "EaseBounceInOut";
@@ -15440,7 +16219,8 @@ void js_register_cocos2dx_CCEaseBounceInOut(JSContext *cx, JSObject *global) {
 	static JSFunctionSpec funcs[] = {
 		JS_FN("reverse", js_cocos2dx_CCEaseBounceInOut_reverse, 0, JSPROP_PERMANENT | JSPROP_ENUMERATE),
 		JS_FN("update", js_cocos2dx_CCEaseBounceInOut_update, 1, JSPROP_PERMANENT | JSPROP_ENUMERATE),
-		JS_FS_END
+        JS_FN("ctor", js_cocos2dx_CCEaseBounceInOut_ctor, 0, JSPROP_PERMANENT | JSPROP_ENUMERATE),
+        JS_FS_END
 	};
 
 	static JSFunctionSpec st_funcs[] = {
@@ -15562,6 +16342,18 @@ extern JSObject *jsb_CCActionEase_prototype;
 void js_cocos2dx_CCEaseBackIn_finalize(JSFreeOp *fop, JSObject *obj) {
 }
 
+static JSBool js_cocos2dx_CCEaseBackIn_ctor(JSContext *cx, uint32_t argc, jsval *vp)
+{
+	JSObject *obj = JS_THIS_OBJECT(cx, vp);
+    cocos2d::CCEaseBackIn *nobj = new cocos2d::CCEaseBackIn();
+    js_proxy_t* p;
+    JS_NEW_PROXY(p, nobj, obj);
+    nobj->autorelease();
+    JS_AddNamedObjectRoot(cx, &p->obj, "cocos2d::CCEaseBackIn");
+    JS_SET_RVAL(cx, vp, JSVAL_VOID);
+    return JS_TRUE;
+}
+
 void js_register_cocos2dx_CCEaseBackIn(JSContext *cx, JSObject *global) {
 	jsb_CCEaseBackIn_class = (JSClass *)calloc(1, sizeof(JSClass));
 	jsb_CCEaseBackIn_class->name = "EaseBackIn";
@@ -15580,7 +16372,8 @@ void js_register_cocos2dx_CCEaseBackIn(JSContext *cx, JSObject *global) {
 	static JSFunctionSpec funcs[] = {
 		JS_FN("update", js_cocos2dx_CCEaseBackIn_update, 1, JSPROP_PERMANENT | JSPROP_ENUMERATE),
 		JS_FN("reverse", js_cocos2dx_CCEaseBackIn_reverse, 0, JSPROP_PERMANENT | JSPROP_ENUMERATE),
-		JS_FS_END
+        JS_FN("ctor", js_cocos2dx_CCEaseBackIn_ctor, 0, JSPROP_PERMANENT | JSPROP_ENUMERATE),
+        JS_FS_END
 	};
 
 	static JSFunctionSpec st_funcs[] = {
@@ -15702,6 +16495,18 @@ extern JSObject *jsb_CCActionEase_prototype;
 void js_cocos2dx_CCEaseBackOut_finalize(JSFreeOp *fop, JSObject *obj) {
 }
 
+static JSBool js_cocos2dx_CCEaseBackOut_ctor(JSContext *cx, uint32_t argc, jsval *vp)
+{
+	JSObject *obj = JS_THIS_OBJECT(cx, vp);
+    cocos2d::CCEaseBackOut *nobj = new cocos2d::CCEaseBackOut();
+    js_proxy_t* p;
+    JS_NEW_PROXY(p, nobj, obj);
+    nobj->autorelease();
+    JS_AddNamedObjectRoot(cx, &p->obj, "cocos2d::CCEaseBackOut");
+    JS_SET_RVAL(cx, vp, JSVAL_VOID);
+    return JS_TRUE;
+}
+
 void js_register_cocos2dx_CCEaseBackOut(JSContext *cx, JSObject *global) {
 	jsb_CCEaseBackOut_class = (JSClass *)calloc(1, sizeof(JSClass));
 	jsb_CCEaseBackOut_class->name = "EaseBackOut";
@@ -15720,7 +16525,8 @@ void js_register_cocos2dx_CCEaseBackOut(JSContext *cx, JSObject *global) {
 	static JSFunctionSpec funcs[] = {
 		JS_FN("update", js_cocos2dx_CCEaseBackOut_update, 1, JSPROP_PERMANENT | JSPROP_ENUMERATE),
 		JS_FN("reverse", js_cocos2dx_CCEaseBackOut_reverse, 0, JSPROP_PERMANENT | JSPROP_ENUMERATE),
-		JS_FS_END
+        JS_FN("ctor", js_cocos2dx_CCEaseBackOut_ctor, 0, JSPROP_PERMANENT | JSPROP_ENUMERATE),
+        JS_FS_END
 	};
 
 	static JSFunctionSpec st_funcs[] = {
@@ -15842,6 +16648,18 @@ extern JSObject *jsb_CCActionEase_prototype;
 void js_cocos2dx_CCEaseBackInOut_finalize(JSFreeOp *fop, JSObject *obj) {
 }
 
+static JSBool js_cocos2dx_CCEaseBackInOut_ctor(JSContext *cx, uint32_t argc, jsval *vp)
+{
+	JSObject *obj = JS_THIS_OBJECT(cx, vp);
+    cocos2d::CCEaseBackInOut *nobj = new cocos2d::CCEaseBackInOut();
+    js_proxy_t* p;
+    JS_NEW_PROXY(p, nobj, obj);
+    nobj->autorelease();
+    JS_AddNamedObjectRoot(cx, &p->obj, "cocos2d::CCEaseBackInOut");
+    JS_SET_RVAL(cx, vp, JSVAL_VOID);
+    return JS_TRUE;
+}
+
 void js_register_cocos2dx_CCEaseBackInOut(JSContext *cx, JSObject *global) {
 	jsb_CCEaseBackInOut_class = (JSClass *)calloc(1, sizeof(JSClass));
 	jsb_CCEaseBackInOut_class->name = "EaseBackInOut";
@@ -15860,7 +16678,8 @@ void js_register_cocos2dx_CCEaseBackInOut(JSContext *cx, JSObject *global) {
 	static JSFunctionSpec funcs[] = {
 		JS_FN("reverse", js_cocos2dx_CCEaseBackInOut_reverse, 0, JSPROP_PERMANENT | JSPROP_ENUMERATE),
 		JS_FN("update", js_cocos2dx_CCEaseBackInOut_update, 1, JSPROP_PERMANENT | JSPROP_ENUMERATE),
-		JS_FS_END
+        JS_FN("ctor", js_cocos2dx_CCEaseBackInOut_ctor, 0, JSPROP_PERMANENT | JSPROP_ENUMERATE),
+        JS_FS_END
 	};
 
 	static JSFunctionSpec st_funcs[] = {
@@ -16014,6 +16833,18 @@ extern JSObject *jsb_CCFiniteTimeAction_prototype;
 void js_cocos2dx_CCActionInstant_finalize(JSFreeOp *fop, JSObject *obj) {
 }
 
+static JSBool js_cocos2dx_CCActionInstant_ctor(JSContext *cx, uint32_t argc, jsval *vp)
+{
+	JSObject *obj = JS_THIS_OBJECT(cx, vp);
+    cocos2d::CCActionInstant *nobj = new cocos2d::CCActionInstant();
+    js_proxy_t* p;
+    JS_NEW_PROXY(p, nobj, obj);
+    nobj->autorelease();
+    JS_AddNamedObjectRoot(cx, &p->obj, "cocos2d::CCActionInstant");
+    JS_SET_RVAL(cx, vp, JSVAL_VOID);
+    return JS_TRUE;
+}
+
 void js_register_cocos2dx_CCActionInstant(JSContext *cx, JSObject *global) {
 	jsb_CCActionInstant_class = (JSClass *)calloc(1, sizeof(JSClass));
 	jsb_CCActionInstant_class->name = "ActionInstant";
@@ -16034,7 +16865,8 @@ void js_register_cocos2dx_CCActionInstant(JSContext *cx, JSObject *global) {
 		JS_FN("update", js_cocos2dx_CCActionInstant_update, 1, JSPROP_PERMANENT | JSPROP_ENUMERATE),
 		JS_FN("step", js_cocos2dx_CCActionInstant_step, 1, JSPROP_PERMANENT | JSPROP_ENUMERATE),
 		JS_FN("isDone", js_cocos2dx_CCActionInstant_isDone, 0, JSPROP_PERMANENT | JSPROP_ENUMERATE),
-		JS_FS_END
+        JS_FN("ctor", js_cocos2dx_CCActionInstant_ctor, 0, JSPROP_PERMANENT | JSPROP_ENUMERATE),
+        JS_FS_END
 	};
 
 	JSFunctionSpec *st_funcs = NULL;
@@ -16168,6 +17000,18 @@ extern JSObject *jsb_CCActionInstant_prototype;
 void js_cocos2dx_CCShow_finalize(JSFreeOp *fop, JSObject *obj) {
 }
 
+static JSBool js_cocos2dx_CCShow_ctor(JSContext *cx, uint32_t argc, jsval *vp)
+{
+	JSObject *obj = JS_THIS_OBJECT(cx, vp);
+    cocos2d::CCShow *nobj = new cocos2d::CCShow();
+    js_proxy_t* p;
+    JS_NEW_PROXY(p, nobj, obj);
+    nobj->autorelease();
+    JS_AddNamedObjectRoot(cx, &p->obj, "cocos2d::CCShow");
+    JS_SET_RVAL(cx, vp, JSVAL_VOID);
+    return JS_TRUE;
+}
+
 void js_register_cocos2dx_CCShow(JSContext *cx, JSObject *global) {
 	jsb_CCShow_class = (JSClass *)calloc(1, sizeof(JSClass));
 	jsb_CCShow_class->name = "Show";
@@ -16186,7 +17030,8 @@ void js_register_cocos2dx_CCShow(JSContext *cx, JSObject *global) {
 	static JSFunctionSpec funcs[] = {
 		JS_FN("reverse", js_cocos2dx_CCShow_reverse, 0, JSPROP_PERMANENT | JSPROP_ENUMERATE),
 		JS_FN("update", js_cocos2dx_CCShow_update, 1, JSPROP_PERMANENT | JSPROP_ENUMERATE),
-		JS_FS_END
+        JS_FN("ctor", js_cocos2dx_CCShow_ctor, 0, JSPROP_PERMANENT | JSPROP_ENUMERATE),
+        JS_FS_END
 	};
 
 	static JSFunctionSpec st_funcs[] = {
@@ -16323,6 +17168,18 @@ extern JSObject *jsb_CCActionInstant_prototype;
 void js_cocos2dx_CCHide_finalize(JSFreeOp *fop, JSObject *obj) {
 }
 
+static JSBool js_cocos2dx_CCHide_ctor(JSContext *cx, uint32_t argc, jsval *vp)
+{
+	JSObject *obj = JS_THIS_OBJECT(cx, vp);
+    cocos2d::CCHide *nobj = new cocos2d::CCHide();
+    js_proxy_t* p;
+    JS_NEW_PROXY(p, nobj, obj);
+    nobj->autorelease();
+    JS_AddNamedObjectRoot(cx, &p->obj, "cocos2d::CCHide");
+    JS_SET_RVAL(cx, vp, JSVAL_VOID);
+    return JS_TRUE;
+}
+
 void js_register_cocos2dx_CCHide(JSContext *cx, JSObject *global) {
 	jsb_CCHide_class = (JSClass *)calloc(1, sizeof(JSClass));
 	jsb_CCHide_class->name = "Hide";
@@ -16341,7 +17198,8 @@ void js_register_cocos2dx_CCHide(JSContext *cx, JSObject *global) {
 	static JSFunctionSpec funcs[] = {
 		JS_FN("reverse", js_cocos2dx_CCHide_reverse, 0, JSPROP_PERMANENT | JSPROP_ENUMERATE),
 		JS_FN("update", js_cocos2dx_CCHide_update, 1, JSPROP_PERMANENT | JSPROP_ENUMERATE),
-		JS_FS_END
+        JS_FN("ctor", js_cocos2dx_CCHide_ctor, 0, JSPROP_PERMANENT | JSPROP_ENUMERATE),
+        JS_FS_END
 	};
 
 	static JSFunctionSpec st_funcs[] = {
@@ -16454,6 +17312,18 @@ extern JSObject *jsb_CCActionInstant_prototype;
 void js_cocos2dx_CCToggleVisibility_finalize(JSFreeOp *fop, JSObject *obj) {
 }
 
+static JSBool js_cocos2dx_CCToggleVisibility_ctor(JSContext *cx, uint32_t argc, jsval *vp)
+{
+	JSObject *obj = JS_THIS_OBJECT(cx, vp);
+    cocos2d::CCToggleVisibility *nobj = new cocos2d::CCToggleVisibility();
+    js_proxy_t* p;
+    JS_NEW_PROXY(p, nobj, obj);
+    nobj->autorelease();
+    JS_AddNamedObjectRoot(cx, &p->obj, "cocos2d::CCToggleVisibility");
+    JS_SET_RVAL(cx, vp, JSVAL_VOID);
+    return JS_TRUE;
+}
+
 void js_register_cocos2dx_CCToggleVisibility(JSContext *cx, JSObject *global) {
 	jsb_CCToggleVisibility_class = (JSClass *)calloc(1, sizeof(JSClass));
 	jsb_CCToggleVisibility_class->name = "ToggleVisibility";
@@ -16471,7 +17341,8 @@ void js_register_cocos2dx_CCToggleVisibility(JSContext *cx, JSObject *global) {
 
 	static JSFunctionSpec funcs[] = {
 		JS_FN("update", js_cocos2dx_CCToggleVisibility_update, 1, JSPROP_PERMANENT | JSPROP_ENUMERATE),
-		JS_FS_END
+        JS_FN("ctor", js_cocos2dx_CCToggleVisibility_ctor, 0, JSPROP_PERMANENT | JSPROP_ENUMERATE),
+        JS_FS_END
 	};
 
 	static JSFunctionSpec st_funcs[] = {
@@ -16635,6 +17506,18 @@ extern JSObject *jsb_CCActionInstant_prototype;
 void js_cocos2dx_CCFlipX_finalize(JSFreeOp *fop, JSObject *obj) {
 }
 
+static JSBool js_cocos2dx_CCFlipX_ctor(JSContext *cx, uint32_t argc, jsval *vp)
+{
+	JSObject *obj = JS_THIS_OBJECT(cx, vp);
+    cocos2d::CCFlipX *nobj = new cocos2d::CCFlipX();
+    js_proxy_t* p;
+    JS_NEW_PROXY(p, nobj, obj);
+    nobj->autorelease();
+    JS_AddNamedObjectRoot(cx, &p->obj, "cocos2d::CCFlipX");
+    JS_SET_RVAL(cx, vp, JSVAL_VOID);
+    return JS_TRUE;
+}
+
 void js_register_cocos2dx_CCFlipX(JSContext *cx, JSObject *global) {
 	jsb_CCFlipX_class = (JSClass *)calloc(1, sizeof(JSClass));
 	jsb_CCFlipX_class->name = "FlipX";
@@ -16656,7 +17539,8 @@ void js_register_cocos2dx_CCFlipX(JSContext *cx, JSObject *global) {
 		JS_FN("initWithFlipX", js_cocos2dx_CCFlipX_initWithFlipX, 1, JSPROP_PERMANENT | JSPROP_ENUMERATE),
 		JS_FN("reverse", js_cocos2dx_CCFlipX_reverse, 0, JSPROP_PERMANENT | JSPROP_ENUMERATE),
 		JS_FN("update", js_cocos2dx_CCFlipX_update, 1, JSPROP_PERMANENT | JSPROP_ENUMERATE),
-		JS_FS_END
+        JS_FN("ctor", js_cocos2dx_CCFlipX_ctor, 0, JSPROP_PERMANENT | JSPROP_ENUMERATE),
+        JS_FS_END
 	};
 
 	static JSFunctionSpec st_funcs[] = {
@@ -16820,6 +17704,18 @@ extern JSObject *jsb_CCActionInstant_prototype;
 void js_cocos2dx_CCFlipY_finalize(JSFreeOp *fop, JSObject *obj) {
 }
 
+static JSBool js_cocos2dx_CCFlipY_ctor(JSContext *cx, uint32_t argc, jsval *vp)
+{
+	JSObject *obj = JS_THIS_OBJECT(cx, vp);
+    cocos2d::CCFlipY *nobj = new cocos2d::CCFlipY();
+    js_proxy_t* p;
+    JS_NEW_PROXY(p, nobj, obj);
+    nobj->autorelease();
+    JS_AddNamedObjectRoot(cx, &p->obj, "cocos2d::CCFlipY");
+    JS_SET_RVAL(cx, vp, JSVAL_VOID);
+    return JS_TRUE;
+}
+
 void js_register_cocos2dx_CCFlipY(JSContext *cx, JSObject *global) {
 	jsb_CCFlipY_class = (JSClass *)calloc(1, sizeof(JSClass));
 	jsb_CCFlipY_class->name = "FlipY";
@@ -16841,7 +17737,8 @@ void js_register_cocos2dx_CCFlipY(JSContext *cx, JSObject *global) {
 		JS_FN("initWithFlipY", js_cocos2dx_CCFlipY_initWithFlipY, 1, JSPROP_PERMANENT | JSPROP_ENUMERATE),
 		JS_FN("reverse", js_cocos2dx_CCFlipY_reverse, 0, JSPROP_PERMANENT | JSPROP_ENUMERATE),
 		JS_FN("update", js_cocos2dx_CCFlipY_update, 1, JSPROP_PERMANENT | JSPROP_ENUMERATE),
-		JS_FS_END
+        JS_FN("ctor", js_cocos2dx_CCFlipY_ctor, 0, JSPROP_PERMANENT | JSPROP_ENUMERATE),
+        JS_FS_END
 	};
 
 	static JSFunctionSpec st_funcs[] = {
@@ -16981,6 +17878,18 @@ extern JSObject *jsb_CCActionInstant_prototype;
 void js_cocos2dx_CCPlace_finalize(JSFreeOp *fop, JSObject *obj) {
 }
 
+static JSBool js_cocos2dx_CCPlace_ctor(JSContext *cx, uint32_t argc, jsval *vp)
+{
+	JSObject *obj = JS_THIS_OBJECT(cx, vp);
+    cocos2d::CCPlace *nobj = new cocos2d::CCPlace();
+    js_proxy_t* p;
+    JS_NEW_PROXY(p, nobj, obj);
+    nobj->autorelease();
+    JS_AddNamedObjectRoot(cx, &p->obj, "cocos2d::CCPlace");
+    JS_SET_RVAL(cx, vp, JSVAL_VOID);
+    return JS_TRUE;
+}
+
 void js_register_cocos2dx_CCPlace(JSContext *cx, JSObject *global) {
 	jsb_CCPlace_class = (JSClass *)calloc(1, sizeof(JSClass));
 	jsb_CCPlace_class->name = "Place";
@@ -17001,7 +17910,8 @@ void js_register_cocos2dx_CCPlace(JSContext *cx, JSObject *global) {
 	static JSFunctionSpec funcs[] = {
 		JS_FN("initWithPosition", js_cocos2dx_CCPlace_initWithPosition, 1, JSPROP_PERMANENT | JSPROP_ENUMERATE),
 		JS_FN("update", js_cocos2dx_CCPlace_update, 1, JSPROP_PERMANENT | JSPROP_ENUMERATE),
-		JS_FS_END
+        JS_FN("ctor", js_cocos2dx_CCPlace_ctor, 0, JSPROP_PERMANENT | JSPROP_ENUMERATE),
+        JS_FS_END
 	};
 
 	static JSFunctionSpec st_funcs[] = {
@@ -17204,6 +18114,18 @@ extern JSObject *jsb_CCActionInstant_prototype;
 void js_cocos2dx_CCCallFunc_finalize(JSFreeOp *fop, JSObject *obj) {
 }
 
+static JSBool js_cocos2dx_CCCallFunc_ctor(JSContext *cx, uint32_t argc, jsval *vp)
+{
+	JSObject *obj = JS_THIS_OBJECT(cx, vp);
+    cocos2d::CCCallFunc *nobj = new cocos2d::CCCallFunc();
+    js_proxy_t* p;
+    JS_NEW_PROXY(p, nobj, obj);
+    nobj->autorelease();
+    JS_AddNamedObjectRoot(cx, &p->obj, "cocos2d::CCCallFunc");
+    JS_SET_RVAL(cx, vp, JSVAL_VOID);
+    return JS_TRUE;
+}
+
 void js_register_cocos2dx_CCCallFunc(JSContext *cx, JSObject *global) {
 	jsb_CCCallFunc_class = (JSClass *)calloc(1, sizeof(JSClass));
 	jsb_CCCallFunc_class->name = "CallFunc";
@@ -17228,7 +18150,8 @@ void js_register_cocos2dx_CCCallFunc(JSContext *cx, JSObject *global) {
 		JS_FN("getTargetCallback", js_cocos2dx_CCCallFunc_getTargetCallback, 0, JSPROP_PERMANENT | JSPROP_ENUMERATE),
 		JS_FN("getScriptHandler", js_cocos2dx_CCCallFunc_getScriptHandler, 0, JSPROP_PERMANENT | JSPROP_ENUMERATE),
 		JS_FN("setTargetCallback", js_cocos2dx_CCCallFunc_setTargetCallback, 1, JSPROP_PERMANENT | JSPROP_ENUMERATE),
-		JS_FS_END
+        JS_FN("ctor", js_cocos2dx_CCCallFunc_ctor, 0, JSPROP_PERMANENT | JSPROP_ENUMERATE),
+        JS_FS_END
 	};
 
 	JSFunctionSpec *st_funcs = NULL;
@@ -17397,6 +18320,18 @@ extern JSObject *jsb_CCActionInterval_prototype;
 void js_cocos2dx_CCGridAction_finalize(JSFreeOp *fop, JSObject *obj) {
 }
 
+static JSBool js_cocos2dx_CCGridAction_ctor(JSContext *cx, uint32_t argc, jsval *vp)
+{
+	JSObject *obj = JS_THIS_OBJECT(cx, vp);
+    cocos2d::CCGridAction *nobj = new cocos2d::CCGridAction();
+    js_proxy_t* p;
+    JS_NEW_PROXY(p, nobj, obj);
+    nobj->autorelease();
+    JS_AddNamedObjectRoot(cx, &p->obj, "cocos2d::CCGridAction");
+    JS_SET_RVAL(cx, vp, JSVAL_VOID);
+    return JS_TRUE;
+}
+
 void js_register_cocos2dx_CCGridAction(JSContext *cx, JSObject *global) {
 	jsb_CCGridAction_class = (JSClass *)calloc(1, sizeof(JSClass));
 	jsb_CCGridAction_class->name = "GridAction";
@@ -17419,7 +18354,8 @@ void js_register_cocos2dx_CCGridAction(JSContext *cx, JSObject *global) {
 		JS_FN("getGrid", js_cocos2dx_CCGridAction_getGrid, 0, JSPROP_PERMANENT | JSPROP_ENUMERATE),
 		JS_FN("initWithDuration", js_cocos2dx_CCGridAction_initWithDuration, 2, JSPROP_PERMANENT | JSPROP_ENUMERATE),
 		JS_FN("reverse", js_cocos2dx_CCGridAction_reverse, 0, JSPROP_PERMANENT | JSPROP_ENUMERATE),
-		JS_FS_END
+        JS_FN("ctor", js_cocos2dx_CCGridAction_ctor, 0, JSPROP_PERMANENT | JSPROP_ENUMERATE),
+        JS_FS_END
 	};
 
 	static JSFunctionSpec st_funcs[] = {
@@ -17556,6 +18492,18 @@ extern JSObject *jsb_CCGridAction_prototype;
 void js_cocos2dx_CCGrid3DAction_finalize(JSFreeOp *fop, JSObject *obj) {
 }
 
+static JSBool js_cocos2dx_CCGrid3DAction_ctor(JSContext *cx, uint32_t argc, jsval *vp)
+{
+	JSObject *obj = JS_THIS_OBJECT(cx, vp);
+    cocos2d::CCGrid3DAction *nobj = new cocos2d::CCGrid3DAction();
+    js_proxy_t* p;
+    JS_NEW_PROXY(p, nobj, obj);
+    nobj->autorelease();
+    JS_AddNamedObjectRoot(cx, &p->obj, "cocos2d::CCGrid3DAction");
+    JS_SET_RVAL(cx, vp, JSVAL_VOID);
+    return JS_TRUE;
+}
+
 void js_register_cocos2dx_CCGrid3DAction(JSContext *cx, JSObject *global) {
 	jsb_CCGrid3DAction_class = (JSClass *)calloc(1, sizeof(JSClass));
 	jsb_CCGrid3DAction_class->name = "Grid3DAction";
@@ -17576,7 +18524,8 @@ void js_register_cocos2dx_CCGrid3DAction(JSContext *cx, JSObject *global) {
 		JS_FN("getGrid", js_cocos2dx_CCGrid3DAction_getGrid, 0, JSPROP_PERMANENT | JSPROP_ENUMERATE),
 		JS_FN("vertex", js_cocos2dx_CCGrid3DAction_vertex, 1, JSPROP_PERMANENT | JSPROP_ENUMERATE),
 		JS_FN("originalVertex", js_cocos2dx_CCGrid3DAction_originalVertex, 1, JSPROP_PERMANENT | JSPROP_ENUMERATE),
-		JS_FS_END
+        JS_FN("ctor", js_cocos2dx_CCGrid3DAction_ctor, 0, JSPROP_PERMANENT | JSPROP_ENUMERATE),
+        JS_FS_END
 	};
 
 	JSFunctionSpec *st_funcs = NULL;
@@ -17710,6 +18659,18 @@ extern JSObject *jsb_CCGridAction_prototype;
 void js_cocos2dx_CCTiledGrid3DAction_finalize(JSFreeOp *fop, JSObject *obj) {
 }
 
+static JSBool js_cocos2dx_CCTiledGrid3DAction_ctor(JSContext *cx, uint32_t argc, jsval *vp)
+{
+	JSObject *obj = JS_THIS_OBJECT(cx, vp);
+    cocos2d::CCTiledGrid3DAction *nobj = new cocos2d::CCTiledGrid3DAction();
+    js_proxy_t* p;
+    JS_NEW_PROXY(p, nobj, obj);
+    nobj->autorelease();
+    JS_AddNamedObjectRoot(cx, &p->obj, "cocos2d::CCTiledGrid3DAction");
+    JS_SET_RVAL(cx, vp, JSVAL_VOID);
+    return JS_TRUE;
+}
+
 void js_register_cocos2dx_CCTiledGrid3DAction(JSContext *cx, JSObject *global) {
 	jsb_CCTiledGrid3DAction_class = (JSClass *)calloc(1, sizeof(JSClass));
 	jsb_CCTiledGrid3DAction_class->name = "TiledGrid3DAction";
@@ -17730,7 +18691,8 @@ void js_register_cocos2dx_CCTiledGrid3DAction(JSContext *cx, JSObject *global) {
 		JS_FN("setTile", js_cocos2dx_CCTiledGrid3DAction_setTile, 2, JSPROP_PERMANENT | JSPROP_ENUMERATE),
 		JS_FN("originalTile", js_cocos2dx_CCTiledGrid3DAction_originalTile, 1, JSPROP_PERMANENT | JSPROP_ENUMERATE),
 		JS_FN("getGrid", js_cocos2dx_CCTiledGrid3DAction_getGrid, 0, JSPROP_PERMANENT | JSPROP_ENUMERATE),
-		JS_FS_END
+        JS_FN("ctor", js_cocos2dx_CCTiledGrid3DAction_ctor, 0, JSPROP_PERMANENT | JSPROP_ENUMERATE),
+        JS_FS_END
 	};
 
 	JSFunctionSpec *st_funcs = NULL;
@@ -17927,6 +18889,18 @@ extern JSObject *jsb_CCGrid3DAction_prototype;
 void js_cocos2dx_CCWaves3D_finalize(JSFreeOp *fop, JSObject *obj) {
 }
 
+static JSBool js_cocos2dx_CCWaves3D_ctor(JSContext *cx, uint32_t argc, jsval *vp)
+{
+	JSObject *obj = JS_THIS_OBJECT(cx, vp);
+    cocos2d::CCWaves3D *nobj = new cocos2d::CCWaves3D();
+    js_proxy_t* p;
+    JS_NEW_PROXY(p, nobj, obj);
+    nobj->autorelease();
+    JS_AddNamedObjectRoot(cx, &p->obj, "cocos2d::CCWaves3D");
+    JS_SET_RVAL(cx, vp, JSVAL_VOID);
+    return JS_TRUE;
+}
+
 void js_register_cocos2dx_CCWaves3D(JSContext *cx, JSObject *global) {
 	jsb_CCWaves3D_class = (JSClass *)calloc(1, sizeof(JSClass));
 	jsb_CCWaves3D_class->name = "Waves3D";
@@ -17951,7 +18925,8 @@ void js_register_cocos2dx_CCWaves3D(JSContext *cx, JSObject *global) {
 		JS_FN("setAmplitude", js_cocos2dx_CCWaves3D_setAmplitude, 1, JSPROP_PERMANENT | JSPROP_ENUMERATE),
 		JS_FN("getAmplitude", js_cocos2dx_CCWaves3D_getAmplitude, 0, JSPROP_PERMANENT | JSPROP_ENUMERATE),
 		JS_FN("setAmplitudeRate", js_cocos2dx_CCWaves3D_setAmplitudeRate, 1, JSPROP_PERMANENT | JSPROP_ENUMERATE),
-		JS_FS_END
+        JS_FN("ctor", js_cocos2dx_CCWaves3D_ctor, 0, JSPROP_PERMANENT | JSPROP_ENUMERATE),
+        JS_FS_END
 	};
 
 	static JSFunctionSpec st_funcs[] = {
@@ -18089,6 +19064,18 @@ extern JSObject *jsb_CCGrid3DAction_prototype;
 void js_cocos2dx_CCFlipX3D_finalize(JSFreeOp *fop, JSObject *obj) {
 }
 
+static JSBool js_cocos2dx_CCFlipX3D_ctor(JSContext *cx, uint32_t argc, jsval *vp)
+{
+	JSObject *obj = JS_THIS_OBJECT(cx, vp);
+    cocos2d::CCFlipX3D *nobj = new cocos2d::CCFlipX3D();
+    js_proxy_t* p;
+    JS_NEW_PROXY(p, nobj, obj);
+    nobj->autorelease();
+    JS_AddNamedObjectRoot(cx, &p->obj, "cocos2d::CCFlipX3D");
+    JS_SET_RVAL(cx, vp, JSVAL_VOID);
+    return JS_TRUE;
+}
+
 void js_register_cocos2dx_CCFlipX3D(JSContext *cx, JSObject *global) {
 	jsb_CCFlipX3D_class = (JSClass *)calloc(1, sizeof(JSClass));
 	jsb_CCFlipX3D_class->name = "FlipX3D";
@@ -18108,7 +19095,8 @@ void js_register_cocos2dx_CCFlipX3D(JSContext *cx, JSObject *global) {
 		JS_FN("initWithSize", js_cocos2dx_CCFlipX3D_initWithSize, 2, JSPROP_PERMANENT | JSPROP_ENUMERATE),
 		JS_FN("initWithDuration", js_cocos2dx_CCFlipX3D_initWithDuration, 1, JSPROP_PERMANENT | JSPROP_ENUMERATE),
 		JS_FN("update", js_cocos2dx_CCFlipX3D_update, 1, JSPROP_PERMANENT | JSPROP_ENUMERATE),
-		JS_FS_END
+        JS_FN("ctor", js_cocos2dx_CCFlipX3D_ctor, 0, JSPROP_PERMANENT | JSPROP_ENUMERATE),
+        JS_FS_END
 	};
 
 	static JSFunctionSpec st_funcs[] = {
@@ -18200,6 +19188,18 @@ extern JSObject *jsb_CCFlipX3D_prototype;
 void js_cocos2dx_CCFlipY3D_finalize(JSFreeOp *fop, JSObject *obj) {
 }
 
+static JSBool js_cocos2dx_CCFlipY3D_ctor(JSContext *cx, uint32_t argc, jsval *vp)
+{
+	JSObject *obj = JS_THIS_OBJECT(cx, vp);
+    cocos2d::CCFlipY3D *nobj = new cocos2d::CCFlipY3D();
+    js_proxy_t* p;
+    JS_NEW_PROXY(p, nobj, obj);
+    nobj->autorelease();
+    JS_AddNamedObjectRoot(cx, &p->obj, "cocos2d::CCFlipY3D");
+    JS_SET_RVAL(cx, vp, JSVAL_VOID);
+    return JS_TRUE;
+}
+
 void js_register_cocos2dx_CCFlipY3D(JSContext *cx, JSObject *global) {
 	jsb_CCFlipY3D_class = (JSClass *)calloc(1, sizeof(JSClass));
 	jsb_CCFlipY3D_class->name = "FlipY3D";
@@ -18217,7 +19217,8 @@ void js_register_cocos2dx_CCFlipY3D(JSContext *cx, JSObject *global) {
 
 	static JSFunctionSpec funcs[] = {
 		JS_FN("update", js_cocos2dx_CCFlipY3D_update, 1, JSPROP_PERMANENT | JSPROP_ENUMERATE),
-		JS_FS_END
+        JS_FN("ctor", js_cocos2dx_CCFlipY3D_ctor, 0, JSPROP_PERMANENT | JSPROP_ENUMERATE),
+        JS_FS_END
 	};
 
 	static JSFunctionSpec st_funcs[] = {
@@ -18437,6 +19438,18 @@ extern JSObject *jsb_CCGrid3DAction_prototype;
 void js_cocos2dx_CCLens3D_finalize(JSFreeOp *fop, JSObject *obj) {
 }
 
+static JSBool js_cocos2dx_CCLens3D_ctor(JSContext *cx, uint32_t argc, jsval *vp)
+{
+	JSObject *obj = JS_THIS_OBJECT(cx, vp);
+    cocos2d::CCLens3D *nobj = new cocos2d::CCLens3D();
+    js_proxy_t* p;
+    JS_NEW_PROXY(p, nobj, obj);
+    nobj->autorelease();
+    JS_AddNamedObjectRoot(cx, &p->obj, "cocos2d::CCLens3D");
+    JS_SET_RVAL(cx, vp, JSVAL_VOID);
+    return JS_TRUE;
+}
+
 void js_register_cocos2dx_CCLens3D(JSContext *cx, JSObject *global) {
 	jsb_CCLens3D_class = (JSClass *)calloc(1, sizeof(JSClass));
 	jsb_CCLens3D_class->name = "Lens3D";
@@ -18462,7 +19475,8 @@ void js_register_cocos2dx_CCLens3D(JSContext *cx, JSObject *global) {
 		JS_FN("getLensEffect", js_cocos2dx_CCLens3D_getLensEffect, 0, JSPROP_PERMANENT | JSPROP_ENUMERATE),
 		JS_FN("setPosition", js_cocos2dx_CCLens3D_setPosition, 1, JSPROP_PERMANENT | JSPROP_ENUMERATE),
 		JS_FN("getPosition", js_cocos2dx_CCLens3D_getPosition, 0, JSPROP_PERMANENT | JSPROP_ENUMERATE),
-		JS_FS_END
+        JS_FN("ctor", js_cocos2dx_CCLens3D_ctor, 0, JSPROP_PERMANENT | JSPROP_ENUMERATE),
+        JS_FS_END
 	};
 
 	static JSFunctionSpec st_funcs[] = {
@@ -18707,6 +19721,18 @@ extern JSObject *jsb_CCGrid3DAction_prototype;
 void js_cocos2dx_CCRipple3D_finalize(JSFreeOp *fop, JSObject *obj) {
 }
 
+static JSBool js_cocos2dx_CCRipple3D_ctor(JSContext *cx, uint32_t argc, jsval *vp)
+{
+	JSObject *obj = JS_THIS_OBJECT(cx, vp);
+    cocos2d::CCRipple3D *nobj = new cocos2d::CCRipple3D();
+    js_proxy_t* p;
+    JS_NEW_PROXY(p, nobj, obj);
+    nobj->autorelease();
+    JS_AddNamedObjectRoot(cx, &p->obj, "cocos2d::CCRipple3D");
+    JS_SET_RVAL(cx, vp, JSVAL_VOID);
+    return JS_TRUE;
+}
+
 void js_register_cocos2dx_CCRipple3D(JSContext *cx, JSObject *global) {
 	jsb_CCRipple3D_class = (JSClass *)calloc(1, sizeof(JSClass));
 	jsb_CCRipple3D_class->name = "Ripple3D";
@@ -18733,7 +19759,8 @@ void js_register_cocos2dx_CCRipple3D(JSContext *cx, JSObject *global) {
 		JS_FN("getAmplitude", js_cocos2dx_CCRipple3D_getAmplitude, 0, JSPROP_PERMANENT | JSPROP_ENUMERATE),
 		JS_FN("setPosition", js_cocos2dx_CCRipple3D_setPosition, 1, JSPROP_PERMANENT | JSPROP_ENUMERATE),
 		JS_FN("getPosition", js_cocos2dx_CCRipple3D_getPosition, 0, JSPROP_PERMANENT | JSPROP_ENUMERATE),
-		JS_FS_END
+        JS_FN("ctor", js_cocos2dx_CCRipple3D_ctor, 0, JSPROP_PERMANENT | JSPROP_ENUMERATE),
+        JS_FS_END
 	};
 
 	static JSFunctionSpec st_funcs[] = {
@@ -18859,6 +19886,18 @@ extern JSObject *jsb_CCGrid3DAction_prototype;
 void js_cocos2dx_CCShaky3D_finalize(JSFreeOp *fop, JSObject *obj) {
 }
 
+static JSBool js_cocos2dx_CCShaky3D_ctor(JSContext *cx, uint32_t argc, jsval *vp)
+{
+	JSObject *obj = JS_THIS_OBJECT(cx, vp);
+    cocos2d::CCShaky3D *nobj = new cocos2d::CCShaky3D();
+    js_proxy_t* p;
+    JS_NEW_PROXY(p, nobj, obj);
+    nobj->autorelease();
+    JS_AddNamedObjectRoot(cx, &p->obj, "cocos2d::CCShaky3D");
+    JS_SET_RVAL(cx, vp, JSVAL_VOID);
+    return JS_TRUE;
+}
+
 void js_register_cocos2dx_CCShaky3D(JSContext *cx, JSObject *global) {
 	jsb_CCShaky3D_class = (JSClass *)calloc(1, sizeof(JSClass));
 	jsb_CCShaky3D_class->name = "Shaky3D";
@@ -18879,7 +19918,8 @@ void js_register_cocos2dx_CCShaky3D(JSContext *cx, JSObject *global) {
 	static JSFunctionSpec funcs[] = {
 		JS_FN("initWithDuration", js_cocos2dx_CCShaky3D_initWithDuration, 4, JSPROP_PERMANENT | JSPROP_ENUMERATE),
 		JS_FN("update", js_cocos2dx_CCShaky3D_update, 1, JSPROP_PERMANENT | JSPROP_ENUMERATE),
-		JS_FS_END
+        JS_FN("ctor", js_cocos2dx_CCShaky3D_ctor, 0, JSPROP_PERMANENT | JSPROP_ENUMERATE),
+        JS_FS_END
 	};
 
 	static JSFunctionSpec st_funcs[] = {
@@ -19079,6 +20119,18 @@ extern JSObject *jsb_CCGrid3DAction_prototype;
 void js_cocos2dx_CCLiquid_finalize(JSFreeOp *fop, JSObject *obj) {
 }
 
+static JSBool js_cocos2dx_CCLiquid_ctor(JSContext *cx, uint32_t argc, jsval *vp)
+{
+	JSObject *obj = JS_THIS_OBJECT(cx, vp);
+    cocos2d::CCLiquid *nobj = new cocos2d::CCLiquid();
+    js_proxy_t* p;
+    JS_NEW_PROXY(p, nobj, obj);
+    nobj->autorelease();
+    JS_AddNamedObjectRoot(cx, &p->obj, "cocos2d::CCLiquid");
+    JS_SET_RVAL(cx, vp, JSVAL_VOID);
+    return JS_TRUE;
+}
+
 void js_register_cocos2dx_CCLiquid(JSContext *cx, JSObject *global) {
 	jsb_CCLiquid_class = (JSClass *)calloc(1, sizeof(JSClass));
 	jsb_CCLiquid_class->name = "Liquid";
@@ -19103,7 +20155,8 @@ void js_register_cocos2dx_CCLiquid(JSContext *cx, JSObject *global) {
 		JS_FN("setAmplitude", js_cocos2dx_CCLiquid_setAmplitude, 1, JSPROP_PERMANENT | JSPROP_ENUMERATE),
 		JS_FN("getAmplitude", js_cocos2dx_CCLiquid_getAmplitude, 0, JSPROP_PERMANENT | JSPROP_ENUMERATE),
 		JS_FN("setAmplitudeRate", js_cocos2dx_CCLiquid_setAmplitudeRate, 1, JSPROP_PERMANENT | JSPROP_ENUMERATE),
-		JS_FS_END
+        JS_FN("ctor", js_cocos2dx_CCLiquid_ctor, 0, JSPROP_PERMANENT | JSPROP_ENUMERATE),
+        JS_FS_END
 	};
 
 	static JSFunctionSpec st_funcs[] = {
@@ -19311,6 +20364,18 @@ extern JSObject *jsb_CCGrid3DAction_prototype;
 void js_cocos2dx_CCWaves_finalize(JSFreeOp *fop, JSObject *obj) {
 }
 
+static JSBool js_cocos2dx_CCWaves_ctor(JSContext *cx, uint32_t argc, jsval *vp)
+{
+	JSObject *obj = JS_THIS_OBJECT(cx, vp);
+    cocos2d::CCWaves *nobj = new cocos2d::CCWaves();
+    js_proxy_t* p;
+    JS_NEW_PROXY(p, nobj, obj);
+    nobj->autorelease();
+    JS_AddNamedObjectRoot(cx, &p->obj, "cocos2d::CCWaves");
+    JS_SET_RVAL(cx, vp, JSVAL_VOID);
+    return JS_TRUE;
+}
+
 void js_register_cocos2dx_CCWaves(JSContext *cx, JSObject *global) {
 	jsb_CCWaves_class = (JSClass *)calloc(1, sizeof(JSClass));
 	jsb_CCWaves_class->name = "Waves";
@@ -19335,7 +20400,8 @@ void js_register_cocos2dx_CCWaves(JSContext *cx, JSObject *global) {
 		JS_FN("setAmplitude", js_cocos2dx_CCWaves_setAmplitude, 1, JSPROP_PERMANENT | JSPROP_ENUMERATE),
 		JS_FN("getAmplitude", js_cocos2dx_CCWaves_getAmplitude, 0, JSPROP_PERMANENT | JSPROP_ENUMERATE),
 		JS_FN("setAmplitudeRate", js_cocos2dx_CCWaves_setAmplitudeRate, 1, JSPROP_PERMANENT | JSPROP_ENUMERATE),
-		JS_FS_END
+        JS_FN("ctor", js_cocos2dx_CCWaves_ctor, 0, JSPROP_PERMANENT | JSPROP_ENUMERATE),
+        JS_FS_END
 	};
 
 	static JSFunctionSpec st_funcs[] = {
@@ -19576,6 +20642,18 @@ extern JSObject *jsb_CCGrid3DAction_prototype;
 void js_cocos2dx_CCTwirl_finalize(JSFreeOp *fop, JSObject *obj) {
 }
 
+static JSBool js_cocos2dx_CCTwirl_ctor(JSContext *cx, uint32_t argc, jsval *vp)
+{
+	JSObject *obj = JS_THIS_OBJECT(cx, vp);
+    cocos2d::CCTwirl *nobj = new cocos2d::CCTwirl();
+    js_proxy_t* p;
+    JS_NEW_PROXY(p, nobj, obj);
+    nobj->autorelease();
+    JS_AddNamedObjectRoot(cx, &p->obj, "cocos2d::CCTwirl");
+    JS_SET_RVAL(cx, vp, JSVAL_VOID);
+    return JS_TRUE;
+}
+
 void js_register_cocos2dx_CCTwirl(JSContext *cx, JSObject *global) {
 	jsb_CCTwirl_class = (JSClass *)calloc(1, sizeof(JSClass));
 	jsb_CCTwirl_class->name = "Twirl";
@@ -19602,7 +20680,8 @@ void js_register_cocos2dx_CCTwirl(JSContext *cx, JSObject *global) {
 		JS_FN("getAmplitude", js_cocos2dx_CCTwirl_getAmplitude, 0, JSPROP_PERMANENT | JSPROP_ENUMERATE),
 		JS_FN("setPosition", js_cocos2dx_CCTwirl_setPosition, 1, JSPROP_PERMANENT | JSPROP_ENUMERATE),
 		JS_FN("getPosition", js_cocos2dx_CCTwirl_getPosition, 0, JSPROP_PERMANENT | JSPROP_ENUMERATE),
-		JS_FS_END
+        JS_FN("ctor", js_cocos2dx_CCTwirl_ctor, 0, JSPROP_PERMANENT | JSPROP_ENUMERATE),
+        JS_FS_END
 	};
 
 	static JSFunctionSpec st_funcs[] = {
@@ -19696,6 +20775,18 @@ extern JSObject *jsb_CCGrid3DAction_prototype;
 void js_cocos2dx_CCPageTurn3D_finalize(JSFreeOp *fop, JSObject *obj) {
 }
 
+static JSBool js_cocos2dx_CCPageTurn3D_ctor(JSContext *cx, uint32_t argc, jsval *vp)
+{
+	JSObject *obj = JS_THIS_OBJECT(cx, vp);
+    cocos2d::CCPageTurn3D *nobj = new cocos2d::CCPageTurn3D();
+    js_proxy_t* p;
+    JS_NEW_PROXY(p, nobj, obj);
+    nobj->autorelease();
+    JS_AddNamedObjectRoot(cx, &p->obj, "cocos2d::CCPageTurn3D");
+    JS_SET_RVAL(cx, vp, JSVAL_VOID);
+    return JS_TRUE;
+}
+
 void js_register_cocos2dx_CCPageTurn3D(JSContext *cx, JSObject *global) {
 	jsb_CCPageTurn3D_class = (JSClass *)calloc(1, sizeof(JSClass));
 	jsb_CCPageTurn3D_class->name = "PageTurn3D";
@@ -19713,7 +20804,8 @@ void js_register_cocos2dx_CCPageTurn3D(JSContext *cx, JSObject *global) {
 
 	static JSFunctionSpec funcs[] = {
 		JS_FN("update", js_cocos2dx_CCPageTurn3D_update, 1, JSPROP_PERMANENT | JSPROP_ENUMERATE),
-		JS_FS_END
+        JS_FN("ctor", js_cocos2dx_CCPageTurn3D_ctor, 0, JSPROP_PERMANENT | JSPROP_ENUMERATE),
+        JS_FS_END
 	};
 
 	static JSFunctionSpec st_funcs[] = {
@@ -19857,6 +20949,18 @@ extern JSObject *jsb_CCActionInterval_prototype;
 void js_cocos2dx_CCProgressTo_finalize(JSFreeOp *fop, JSObject *obj) {
 }
 
+static JSBool js_cocos2dx_CCProgressTo_ctor(JSContext *cx, uint32_t argc, jsval *vp)
+{
+	JSObject *obj = JS_THIS_OBJECT(cx, vp);
+    cocos2d::CCProgressTo *nobj = new cocos2d::CCProgressTo();
+    js_proxy_t* p;
+    JS_NEW_PROXY(p, nobj, obj);
+    nobj->autorelease();
+    JS_AddNamedObjectRoot(cx, &p->obj, "cocos2d::CCProgressTo");
+    JS_SET_RVAL(cx, vp, JSVAL_VOID);
+    return JS_TRUE;
+}
+
 void js_register_cocos2dx_CCProgressTo(JSContext *cx, JSObject *global) {
 	jsb_CCProgressTo_class = (JSClass *)calloc(1, sizeof(JSClass));
 	jsb_CCProgressTo_class->name = "ProgressTo";
@@ -19878,7 +20982,8 @@ void js_register_cocos2dx_CCProgressTo(JSContext *cx, JSObject *global) {
 		JS_FN("startWithTarget", js_cocos2dx_CCProgressTo_startWithTarget, 1, JSPROP_PERMANENT | JSPROP_ENUMERATE),
 		JS_FN("initWithDuration", js_cocos2dx_CCProgressTo_initWithDuration, 2, JSPROP_PERMANENT | JSPROP_ENUMERATE),
 		JS_FN("update", js_cocos2dx_CCProgressTo_update, 1, JSPROP_PERMANENT | JSPROP_ENUMERATE),
-		JS_FS_END
+        JS_FN("ctor", js_cocos2dx_CCProgressTo_ctor, 0, JSPROP_PERMANENT | JSPROP_ENUMERATE),
+        JS_FS_END
 	};
 
 	static JSFunctionSpec st_funcs[] = {
@@ -20050,6 +21155,18 @@ extern JSObject *jsb_CCActionInterval_prototype;
 void js_cocos2dx_CCProgressFromTo_finalize(JSFreeOp *fop, JSObject *obj) {
 }
 
+static JSBool js_cocos2dx_CCProgressFromTo_ctor(JSContext *cx, uint32_t argc, jsval *vp)
+{
+	JSObject *obj = JS_THIS_OBJECT(cx, vp);
+    cocos2d::CCProgressFromTo *nobj = new cocos2d::CCProgressFromTo();
+    js_proxy_t* p;
+    JS_NEW_PROXY(p, nobj, obj);
+    nobj->autorelease();
+    JS_AddNamedObjectRoot(cx, &p->obj, "cocos2d::CCProgressFromTo");
+    JS_SET_RVAL(cx, vp, JSVAL_VOID);
+    return JS_TRUE;
+}
+
 void js_register_cocos2dx_CCProgressFromTo(JSContext *cx, JSObject *global) {
 	jsb_CCProgressFromTo_class = (JSClass *)calloc(1, sizeof(JSClass));
 	jsb_CCProgressFromTo_class->name = "ProgressFromTo";
@@ -20072,7 +21189,8 @@ void js_register_cocos2dx_CCProgressFromTo(JSContext *cx, JSObject *global) {
 		JS_FN("update", js_cocos2dx_CCProgressFromTo_update, 1, JSPROP_PERMANENT | JSPROP_ENUMERATE),
 		JS_FN("initWithDuration", js_cocos2dx_CCProgressFromTo_initWithDuration, 3, JSPROP_PERMANENT | JSPROP_ENUMERATE),
 		JS_FN("reverse", js_cocos2dx_CCProgressFromTo_reverse, 0, JSPROP_PERMANENT | JSPROP_ENUMERATE),
-		JS_FS_END
+        JS_FN("ctor", js_cocos2dx_CCProgressFromTo_ctor, 0, JSPROP_PERMANENT | JSPROP_ENUMERATE),
+        JS_FS_END
 	};
 
 	static JSFunctionSpec st_funcs[] = {
@@ -20198,6 +21316,18 @@ extern JSObject *jsb_CCTiledGrid3DAction_prototype;
 void js_cocos2dx_CCShakyTiles3D_finalize(JSFreeOp *fop, JSObject *obj) {
 }
 
+static JSBool js_cocos2dx_CCShakyTiles3D_ctor(JSContext *cx, uint32_t argc, jsval *vp)
+{
+	JSObject *obj = JS_THIS_OBJECT(cx, vp);
+    cocos2d::CCShakyTiles3D *nobj = new cocos2d::CCShakyTiles3D();
+    js_proxy_t* p;
+    JS_NEW_PROXY(p, nobj, obj);
+    nobj->autorelease();
+    JS_AddNamedObjectRoot(cx, &p->obj, "cocos2d::CCShakyTiles3D");
+    JS_SET_RVAL(cx, vp, JSVAL_VOID);
+    return JS_TRUE;
+}
+
 void js_register_cocos2dx_CCShakyTiles3D(JSContext *cx, JSObject *global) {
 	jsb_CCShakyTiles3D_class = (JSClass *)calloc(1, sizeof(JSClass));
 	jsb_CCShakyTiles3D_class->name = "ShakyTiles3D";
@@ -20218,7 +21348,8 @@ void js_register_cocos2dx_CCShakyTiles3D(JSContext *cx, JSObject *global) {
 	static JSFunctionSpec funcs[] = {
 		JS_FN("initWithDuration", js_cocos2dx_CCShakyTiles3D_initWithDuration, 4, JSPROP_PERMANENT | JSPROP_ENUMERATE),
 		JS_FN("update", js_cocos2dx_CCShakyTiles3D_update, 1, JSPROP_PERMANENT | JSPROP_ENUMERATE),
-		JS_FS_END
+        JS_FN("ctor", js_cocos2dx_CCShakyTiles3D_ctor, 0, JSPROP_PERMANENT | JSPROP_ENUMERATE),
+        JS_FS_END
 	};
 
 	static JSFunctionSpec st_funcs[] = {
@@ -20344,6 +21475,18 @@ extern JSObject *jsb_CCTiledGrid3DAction_prototype;
 void js_cocos2dx_CCShatteredTiles3D_finalize(JSFreeOp *fop, JSObject *obj) {
 }
 
+static JSBool js_cocos2dx_CCShatteredTiles3D_ctor(JSContext *cx, uint32_t argc, jsval *vp)
+{
+	JSObject *obj = JS_THIS_OBJECT(cx, vp);
+    cocos2d::CCShatteredTiles3D *nobj = new cocos2d::CCShatteredTiles3D();
+    js_proxy_t* p;
+    JS_NEW_PROXY(p, nobj, obj);
+    nobj->autorelease();
+    JS_AddNamedObjectRoot(cx, &p->obj, "cocos2d::CCShatteredTiles3D");
+    JS_SET_RVAL(cx, vp, JSVAL_VOID);
+    return JS_TRUE;
+}
+
 void js_register_cocos2dx_CCShatteredTiles3D(JSContext *cx, JSObject *global) {
 	jsb_CCShatteredTiles3D_class = (JSClass *)calloc(1, sizeof(JSClass));
 	jsb_CCShatteredTiles3D_class->name = "ShatteredTiles3D";
@@ -20364,7 +21507,8 @@ void js_register_cocos2dx_CCShatteredTiles3D(JSContext *cx, JSObject *global) {
 	static JSFunctionSpec funcs[] = {
 		JS_FN("initWithDuration", js_cocos2dx_CCShatteredTiles3D_initWithDuration, 4, JSPROP_PERMANENT | JSPROP_ENUMERATE),
 		JS_FN("update", js_cocos2dx_CCShatteredTiles3D_update, 1, JSPROP_PERMANENT | JSPROP_ENUMERATE),
-		JS_FS_END
+        JS_FN("ctor", js_cocos2dx_CCShatteredTiles3D_ctor, 0, JSPROP_PERMANENT | JSPROP_ENUMERATE),
+        JS_FS_END
 	};
 
 	static JSFunctionSpec st_funcs[] = {
@@ -20584,6 +21728,18 @@ extern JSObject *jsb_CCTiledGrid3DAction_prototype;
 void js_cocos2dx_CCShuffleTiles_finalize(JSFreeOp *fop, JSObject *obj) {
 }
 
+static JSBool js_cocos2dx_CCShuffleTiles_ctor(JSContext *cx, uint32_t argc, jsval *vp)
+{
+	JSObject *obj = JS_THIS_OBJECT(cx, vp);
+    cocos2d::CCShuffleTiles *nobj = new cocos2d::CCShuffleTiles();
+    js_proxy_t* p;
+    JS_NEW_PROXY(p, nobj, obj);
+    nobj->autorelease();
+    JS_AddNamedObjectRoot(cx, &p->obj, "cocos2d::CCShuffleTiles");
+    JS_SET_RVAL(cx, vp, JSVAL_VOID);
+    return JS_TRUE;
+}
+
 void js_register_cocos2dx_CCShuffleTiles(JSContext *cx, JSObject *global) {
 	jsb_CCShuffleTiles_class = (JSClass *)calloc(1, sizeof(JSClass));
 	jsb_CCShuffleTiles_class->name = "ShuffleTiles";
@@ -20608,7 +21764,8 @@ void js_register_cocos2dx_CCShuffleTiles(JSContext *cx, JSObject *global) {
 		JS_FN("getDelta", js_cocos2dx_CCShuffleTiles_getDelta, 1, JSPROP_PERMANENT | JSPROP_ENUMERATE),
 		JS_FN("update", js_cocos2dx_CCShuffleTiles_update, 1, JSPROP_PERMANENT | JSPROP_ENUMERATE),
 		JS_FN("shuffle", js_cocos2dx_CCShuffleTiles_shuffle, 2, JSPROP_PERMANENT | JSPROP_ENUMERATE),
-		JS_FS_END
+        JS_FN("ctor", js_cocos2dx_CCShuffleTiles_ctor, 0, JSPROP_PERMANENT | JSPROP_ENUMERATE),
+        JS_FS_END
 	};
 
 	static JSFunctionSpec st_funcs[] = {
@@ -20788,6 +21945,18 @@ extern JSObject *jsb_CCTiledGrid3DAction_prototype;
 void js_cocos2dx_CCFadeOutTRTiles_finalize(JSFreeOp *fop, JSObject *obj) {
 }
 
+static JSBool js_cocos2dx_CCFadeOutTRTiles_ctor(JSContext *cx, uint32_t argc, jsval *vp)
+{
+	JSObject *obj = JS_THIS_OBJECT(cx, vp);
+    cocos2d::CCFadeOutTRTiles *nobj = new cocos2d::CCFadeOutTRTiles();
+    js_proxy_t* p;
+    JS_NEW_PROXY(p, nobj, obj);
+    nobj->autorelease();
+    JS_AddNamedObjectRoot(cx, &p->obj, "cocos2d::CCFadeOutTRTiles");
+    JS_SET_RVAL(cx, vp, JSVAL_VOID);
+    return JS_TRUE;
+}
+
 void js_register_cocos2dx_CCFadeOutTRTiles(JSContext *cx, JSObject *global) {
 	jsb_CCFadeOutTRTiles_class = (JSClass *)calloc(1, sizeof(JSClass));
 	jsb_CCFadeOutTRTiles_class->name = "FadeOutTRTiles";
@@ -20809,7 +21978,8 @@ void js_register_cocos2dx_CCFadeOutTRTiles(JSContext *cx, JSObject *global) {
 		JS_FN("transformTile", js_cocos2dx_CCFadeOutTRTiles_transformTile, 2, JSPROP_PERMANENT | JSPROP_ENUMERATE),
 		JS_FN("testFunc", js_cocos2dx_CCFadeOutTRTiles_testFunc, 2, JSPROP_PERMANENT | JSPROP_ENUMERATE),
 		JS_FN("update", js_cocos2dx_CCFadeOutTRTiles_update, 1, JSPROP_PERMANENT | JSPROP_ENUMERATE),
-		JS_FS_END
+        JS_FN("ctor", js_cocos2dx_CCFadeOutTRTiles_ctor, 0, JSPROP_PERMANENT | JSPROP_ENUMERATE),
+        JS_FS_END
 	};
 
 	static JSFunctionSpec st_funcs[] = {
@@ -20907,6 +22077,18 @@ extern JSObject *jsb_CCFadeOutTRTiles_prototype;
 void js_cocos2dx_CCFadeOutBLTiles_finalize(JSFreeOp *fop, JSObject *obj) {
 }
 
+static JSBool js_cocos2dx_CCFadeOutBLTiles_ctor(JSContext *cx, uint32_t argc, jsval *vp)
+{
+	JSObject *obj = JS_THIS_OBJECT(cx, vp);
+    cocos2d::CCFadeOutBLTiles *nobj = new cocos2d::CCFadeOutBLTiles();
+    js_proxy_t* p;
+    JS_NEW_PROXY(p, nobj, obj);
+    nobj->autorelease();
+    JS_AddNamedObjectRoot(cx, &p->obj, "cocos2d::CCFadeOutBLTiles");
+    JS_SET_RVAL(cx, vp, JSVAL_VOID);
+    return JS_TRUE;
+}
+
 void js_register_cocos2dx_CCFadeOutBLTiles(JSContext *cx, JSObject *global) {
 	jsb_CCFadeOutBLTiles_class = (JSClass *)calloc(1, sizeof(JSClass));
 	jsb_CCFadeOutBLTiles_class->name = "FadeOutBLTiles";
@@ -20924,7 +22106,8 @@ void js_register_cocos2dx_CCFadeOutBLTiles(JSContext *cx, JSObject *global) {
 
 	static JSFunctionSpec funcs[] = {
 		JS_FN("testFunc", js_cocos2dx_CCFadeOutBLTiles_testFunc, 2, JSPROP_PERMANENT | JSPROP_ENUMERATE),
-		JS_FS_END
+        JS_FN("ctor", js_cocos2dx_CCFadeOutBLTiles_ctor, 0, JSPROP_PERMANENT | JSPROP_ENUMERATE),
+        JS_FS_END
 	};
 
 	static JSFunctionSpec st_funcs[] = {
@@ -21044,6 +22227,18 @@ extern JSObject *jsb_CCFadeOutTRTiles_prototype;
 void js_cocos2dx_CCFadeOutUpTiles_finalize(JSFreeOp *fop, JSObject *obj) {
 }
 
+static JSBool js_cocos2dx_CCFadeOutUpTiles_ctor(JSContext *cx, uint32_t argc, jsval *vp)
+{
+	JSObject *obj = JS_THIS_OBJECT(cx, vp);
+    cocos2d::CCFadeOutUpTiles *nobj = new cocos2d::CCFadeOutUpTiles();
+    js_proxy_t* p;
+    JS_NEW_PROXY(p, nobj, obj);
+    nobj->autorelease();
+    JS_AddNamedObjectRoot(cx, &p->obj, "cocos2d::CCFadeOutUpTiles");
+    JS_SET_RVAL(cx, vp, JSVAL_VOID);
+    return JS_TRUE;
+}
+
 void js_register_cocos2dx_CCFadeOutUpTiles(JSContext *cx, JSObject *global) {
 	jsb_CCFadeOutUpTiles_class = (JSClass *)calloc(1, sizeof(JSClass));
 	jsb_CCFadeOutUpTiles_class->name = "FadeOutUpTiles";
@@ -21062,7 +22257,8 @@ void js_register_cocos2dx_CCFadeOutUpTiles(JSContext *cx, JSObject *global) {
 	static JSFunctionSpec funcs[] = {
 		JS_FN("transformTile", js_cocos2dx_CCFadeOutUpTiles_transformTile, 2, JSPROP_PERMANENT | JSPROP_ENUMERATE),
 		JS_FN("testFunc", js_cocos2dx_CCFadeOutUpTiles_testFunc, 2, JSPROP_PERMANENT | JSPROP_ENUMERATE),
-		JS_FS_END
+        JS_FN("ctor", js_cocos2dx_CCFadeOutUpTiles_ctor, 0, JSPROP_PERMANENT | JSPROP_ENUMERATE),
+        JS_FS_END
 	};
 
 	static JSFunctionSpec st_funcs[] = {
@@ -21160,6 +22356,18 @@ extern JSObject *jsb_CCFadeOutUpTiles_prototype;
 void js_cocos2dx_CCFadeOutDownTiles_finalize(JSFreeOp *fop, JSObject *obj) {
 }
 
+static JSBool js_cocos2dx_CCFadeOutDownTiles_ctor(JSContext *cx, uint32_t argc, jsval *vp)
+{
+	JSObject *obj = JS_THIS_OBJECT(cx, vp);
+    cocos2d::CCFadeOutDownTiles *nobj = new cocos2d::CCFadeOutDownTiles();
+    js_proxy_t* p;
+    JS_NEW_PROXY(p, nobj, obj);
+    nobj->autorelease();
+    JS_AddNamedObjectRoot(cx, &p->obj, "cocos2d::CCFadeOutDownTiles");
+    JS_SET_RVAL(cx, vp, JSVAL_VOID);
+    return JS_TRUE;
+}
+
 void js_register_cocos2dx_CCFadeOutDownTiles(JSContext *cx, JSObject *global) {
 	jsb_CCFadeOutDownTiles_class = (JSClass *)calloc(1, sizeof(JSClass));
 	jsb_CCFadeOutDownTiles_class->name = "FadeOutDownTiles";
@@ -21177,7 +22385,8 @@ void js_register_cocos2dx_CCFadeOutDownTiles(JSContext *cx, JSObject *global) {
 
 	static JSFunctionSpec funcs[] = {
 		JS_FN("testFunc", js_cocos2dx_CCFadeOutDownTiles_testFunc, 2, JSPROP_PERMANENT | JSPROP_ENUMERATE),
-		JS_FS_END
+        JS_FN("ctor", js_cocos2dx_CCFadeOutDownTiles_ctor, 0, JSPROP_PERMANENT | JSPROP_ENUMERATE),
+        JS_FS_END
 	};
 
 	static JSFunctionSpec st_funcs[] = {
@@ -21414,6 +22623,18 @@ extern JSObject *jsb_CCTiledGrid3DAction_prototype;
 void js_cocos2dx_CCTurnOffTiles_finalize(JSFreeOp *fop, JSObject *obj) {
 }
 
+static JSBool js_cocos2dx_CCTurnOffTiles_ctor(JSContext *cx, uint32_t argc, jsval *vp)
+{
+	JSObject *obj = JS_THIS_OBJECT(cx, vp);
+    cocos2d::CCTurnOffTiles *nobj = new cocos2d::CCTurnOffTiles();
+    js_proxy_t* p;
+    JS_NEW_PROXY(p, nobj, obj);
+    nobj->autorelease();
+    JS_AddNamedObjectRoot(cx, &p->obj, "cocos2d::CCTurnOffTiles");
+    JS_SET_RVAL(cx, vp, JSVAL_VOID);
+    return JS_TRUE;
+}
+
 void js_register_cocos2dx_CCTurnOffTiles(JSContext *cx, JSObject *global) {
 	jsb_CCTurnOffTiles_class = (JSClass *)calloc(1, sizeof(JSClass));
 	jsb_CCTurnOffTiles_class->name = "TurnOffTiles";
@@ -21438,7 +22659,8 @@ void js_register_cocos2dx_CCTurnOffTiles(JSContext *cx, JSObject *global) {
 		JS_FN("shuffle", js_cocos2dx_CCTurnOffTiles_shuffle, 2, JSPROP_PERMANENT | JSPROP_ENUMERATE),
 		JS_FN("initWithDuration", js_cocos2dx_CCTurnOffTiles_initWithDuration, 3, JSPROP_PERMANENT | JSPROP_ENUMERATE),
 		JS_FN("update", js_cocos2dx_CCTurnOffTiles_update, 1, JSPROP_PERMANENT | JSPROP_ENUMERATE),
-		JS_FS_END
+        JS_FN("ctor", js_cocos2dx_CCTurnOffTiles_ctor, 0, JSPROP_PERMANENT | JSPROP_ENUMERATE),
+        JS_FS_END
 	};
 
 	static JSFunctionSpec st_funcs[] = {
@@ -21638,6 +22860,18 @@ extern JSObject *jsb_CCTiledGrid3DAction_prototype;
 void js_cocos2dx_CCWavesTiles3D_finalize(JSFreeOp *fop, JSObject *obj) {
 }
 
+static JSBool js_cocos2dx_CCWavesTiles3D_ctor(JSContext *cx, uint32_t argc, jsval *vp)
+{
+	JSObject *obj = JS_THIS_OBJECT(cx, vp);
+    cocos2d::CCWavesTiles3D *nobj = new cocos2d::CCWavesTiles3D();
+    js_proxy_t* p;
+    JS_NEW_PROXY(p, nobj, obj);
+    nobj->autorelease();
+    JS_AddNamedObjectRoot(cx, &p->obj, "cocos2d::CCWavesTiles3D");
+    JS_SET_RVAL(cx, vp, JSVAL_VOID);
+    return JS_TRUE;
+}
+
 void js_register_cocos2dx_CCWavesTiles3D(JSContext *cx, JSObject *global) {
 	jsb_CCWavesTiles3D_class = (JSClass *)calloc(1, sizeof(JSClass));
 	jsb_CCWavesTiles3D_class->name = "WavesTiles3D";
@@ -21662,7 +22896,8 @@ void js_register_cocos2dx_CCWavesTiles3D(JSContext *cx, JSObject *global) {
 		JS_FN("setAmplitude", js_cocos2dx_CCWavesTiles3D_setAmplitude, 1, JSPROP_PERMANENT | JSPROP_ENUMERATE),
 		JS_FN("getAmplitude", js_cocos2dx_CCWavesTiles3D_getAmplitude, 0, JSPROP_PERMANENT | JSPROP_ENUMERATE),
 		JS_FN("setAmplitudeRate", js_cocos2dx_CCWavesTiles3D_setAmplitudeRate, 1, JSPROP_PERMANENT | JSPROP_ENUMERATE),
-		JS_FS_END
+        JS_FN("ctor", js_cocos2dx_CCWavesTiles3D_ctor, 0, JSPROP_PERMANENT | JSPROP_ENUMERATE),
+        JS_FS_END
 	};
 
 	static JSFunctionSpec st_funcs[] = {
@@ -21862,6 +23097,18 @@ extern JSObject *jsb_CCTiledGrid3DAction_prototype;
 void js_cocos2dx_CCJumpTiles3D_finalize(JSFreeOp *fop, JSObject *obj) {
 }
 
+static JSBool js_cocos2dx_CCJumpTiles3D_ctor(JSContext *cx, uint32_t argc, jsval *vp)
+{
+	JSObject *obj = JS_THIS_OBJECT(cx, vp);
+    cocos2d::CCJumpTiles3D *nobj = new cocos2d::CCJumpTiles3D();
+    js_proxy_t* p;
+    JS_NEW_PROXY(p, nobj, obj);
+    nobj->autorelease();
+    JS_AddNamedObjectRoot(cx, &p->obj, "cocos2d::CCJumpTiles3D");
+    JS_SET_RVAL(cx, vp, JSVAL_VOID);
+    return JS_TRUE;
+}
+
 void js_register_cocos2dx_CCJumpTiles3D(JSContext *cx, JSObject *global) {
 	jsb_CCJumpTiles3D_class = (JSClass *)calloc(1, sizeof(JSClass));
 	jsb_CCJumpTiles3D_class->name = "JumpTiles3D";
@@ -21886,7 +23133,8 @@ void js_register_cocos2dx_CCJumpTiles3D(JSContext *cx, JSObject *global) {
 		JS_FN("setAmplitude", js_cocos2dx_CCJumpTiles3D_setAmplitude, 1, JSPROP_PERMANENT | JSPROP_ENUMERATE),
 		JS_FN("getAmplitude", js_cocos2dx_CCJumpTiles3D_getAmplitude, 0, JSPROP_PERMANENT | JSPROP_ENUMERATE),
 		JS_FN("setAmplitudeRate", js_cocos2dx_CCJumpTiles3D_setAmplitudeRate, 1, JSPROP_PERMANENT | JSPROP_ENUMERATE),
-		JS_FS_END
+        JS_FN("ctor", js_cocos2dx_CCJumpTiles3D_ctor, 0, JSPROP_PERMANENT | JSPROP_ENUMERATE),
+        JS_FS_END
 	};
 
 	static JSFunctionSpec st_funcs[] = {
@@ -22030,6 +23278,18 @@ extern JSObject *jsb_CCTiledGrid3DAction_prototype;
 void js_cocos2dx_CCSplitRows_finalize(JSFreeOp *fop, JSObject *obj) {
 }
 
+static JSBool js_cocos2dx_CCSplitRows_ctor(JSContext *cx, uint32_t argc, jsval *vp)
+{
+	JSObject *obj = JS_THIS_OBJECT(cx, vp);
+    cocos2d::CCSplitRows *nobj = new cocos2d::CCSplitRows();
+    js_proxy_t* p;
+    JS_NEW_PROXY(p, nobj, obj);
+    nobj->autorelease();
+    JS_AddNamedObjectRoot(cx, &p->obj, "cocos2d::CCSplitRows");
+    JS_SET_RVAL(cx, vp, JSVAL_VOID);
+    return JS_TRUE;
+}
+
 void js_register_cocos2dx_CCSplitRows(JSContext *cx, JSObject *global) {
 	jsb_CCSplitRows_class = (JSClass *)calloc(1, sizeof(JSClass));
 	jsb_CCSplitRows_class->name = "SplitRows";
@@ -22051,7 +23311,8 @@ void js_register_cocos2dx_CCSplitRows(JSContext *cx, JSObject *global) {
 		JS_FN("startWithTarget", js_cocos2dx_CCSplitRows_startWithTarget, 1, JSPROP_PERMANENT | JSPROP_ENUMERATE),
 		JS_FN("initWithDuration", js_cocos2dx_CCSplitRows_initWithDuration, 2, JSPROP_PERMANENT | JSPROP_ENUMERATE),
 		JS_FN("update", js_cocos2dx_CCSplitRows_update, 1, JSPROP_PERMANENT | JSPROP_ENUMERATE),
-		JS_FS_END
+        JS_FN("ctor", js_cocos2dx_CCSplitRows_ctor, 0, JSPROP_PERMANENT | JSPROP_ENUMERATE),
+        JS_FS_END
 	};
 
 	static JSFunctionSpec st_funcs[] = {
@@ -22195,6 +23456,18 @@ extern JSObject *jsb_CCTiledGrid3DAction_prototype;
 void js_cocos2dx_CCSplitCols_finalize(JSFreeOp *fop, JSObject *obj) {
 }
 
+static JSBool js_cocos2dx_CCSplitCols_ctor(JSContext *cx, uint32_t argc, jsval *vp)
+{
+	JSObject *obj = JS_THIS_OBJECT(cx, vp);
+    cocos2d::CCSplitCols *nobj = new cocos2d::CCSplitCols();
+    js_proxy_t* p;
+    JS_NEW_PROXY(p, nobj, obj);
+    nobj->autorelease();
+    JS_AddNamedObjectRoot(cx, &p->obj, "cocos2d::CCSplitCols");
+    JS_SET_RVAL(cx, vp, JSVAL_VOID);
+    return JS_TRUE;
+}
+
 void js_register_cocos2dx_CCSplitCols(JSContext *cx, JSObject *global) {
 	jsb_CCSplitCols_class = (JSClass *)calloc(1, sizeof(JSClass));
 	jsb_CCSplitCols_class->name = "SplitCols";
@@ -22216,7 +23489,8 @@ void js_register_cocos2dx_CCSplitCols(JSContext *cx, JSObject *global) {
 		JS_FN("startWithTarget", js_cocos2dx_CCSplitCols_startWithTarget, 1, JSPROP_PERMANENT | JSPROP_ENUMERATE),
 		JS_FN("initWithDuration", js_cocos2dx_CCSplitCols_initWithDuration, 2, JSPROP_PERMANENT | JSPROP_ENUMERATE),
 		JS_FN("update", js_cocos2dx_CCSplitCols_update, 1, JSPROP_PERMANENT | JSPROP_ENUMERATE),
-		JS_FS_END
+        JS_FN("ctor", js_cocos2dx_CCSplitCols_ctor, 0, JSPROP_PERMANENT | JSPROP_ENUMERATE),
+        JS_FS_END
 	};
 
 	static JSFunctionSpec st_funcs[] = {
@@ -22392,6 +23666,18 @@ extern JSObject *jsb_CCActionInterval_prototype;
 void js_cocos2dx_CCActionTween_finalize(JSFreeOp *fop, JSObject *obj) {
 }
 
+static JSBool js_cocos2dx_CCActionTween_ctor(JSContext *cx, uint32_t argc, jsval *vp)
+{
+	JSObject *obj = JS_THIS_OBJECT(cx, vp);
+    cocos2d::CCActionTween *nobj = new cocos2d::CCActionTween();
+    js_proxy_t* p;
+    JS_NEW_PROXY(p, nobj, obj);
+    nobj->autorelease();
+    JS_AddNamedObjectRoot(cx, &p->obj, "cocos2d::CCActionTween");
+    JS_SET_RVAL(cx, vp, JSVAL_VOID);
+    return JS_TRUE;
+}
+
 void js_register_cocos2dx_CCActionTween(JSContext *cx, JSObject *global) {
 	jsb_CCActionTween_class = (JSClass *)calloc(1, sizeof(JSClass));
 	jsb_CCActionTween_class->name = "ActionTween";
@@ -22414,7 +23700,8 @@ void js_register_cocos2dx_CCActionTween(JSContext *cx, JSObject *global) {
 		JS_FN("update", js_cocos2dx_CCActionTween_update, 1, JSPROP_PERMANENT | JSPROP_ENUMERATE),
 		JS_FN("initWithDuration", js_cocos2dx_CCActionTween_initWithDuration, 4, JSPROP_PERMANENT | JSPROP_ENUMERATE),
 		JS_FN("reverse", js_cocos2dx_CCActionTween_reverse, 0, JSPROP_PERMANENT | JSPROP_ENUMERATE),
-		JS_FS_END
+        JS_FN("ctor", js_cocos2dx_CCActionTween_ctor, 0, JSPROP_PERMANENT | JSPROP_ENUMERATE),
+        JS_FS_END
 	};
 
 	static JSFunctionSpec st_funcs[] = {
@@ -22633,6 +23920,18 @@ extern JSObject *jsb_CCActionInterval_prototype;
 void js_cocos2dx_CCCardinalSplineTo_finalize(JSFreeOp *fop, JSObject *obj) {
 }
 
+static JSBool js_cocos2dx_CCCardinalSplineTo_ctor(JSContext *cx, uint32_t argc, jsval *vp)
+{
+	JSObject *obj = JS_THIS_OBJECT(cx, vp);
+    cocos2d::CCCardinalSplineTo *nobj = new cocos2d::CCCardinalSplineTo();
+    js_proxy_t* p;
+    JS_NEW_PROXY(p, nobj, obj);
+    nobj->autorelease();
+    JS_AddNamedObjectRoot(cx, &p->obj, "cocos2d::CCCardinalSplineTo");
+    JS_SET_RVAL(cx, vp, JSVAL_VOID);
+    return JS_TRUE;
+}
+
 void js_register_cocos2dx_CCCardinalSplineTo(JSContext *cx, JSObject *global) {
 	jsb_CCCardinalSplineTo_class = (JSClass *)calloc(1, sizeof(JSClass));
 	jsb_CCCardinalSplineTo_class->name = "CardinalSplineTo";
@@ -22657,7 +23956,8 @@ void js_register_cocos2dx_CCCardinalSplineTo(JSContext *cx, JSObject *global) {
 		JS_FN("getPoints", js_cocos2dx_CCCardinalSplineTo_getPoints, 0, JSPROP_PERMANENT | JSPROP_ENUMERATE),
 		JS_FN("update", js_cocos2dx_CCCardinalSplineTo_update, 1, JSPROP_PERMANENT | JSPROP_ENUMERATE),
 		JS_FN("updatePosition", js_cocos2dx_CCCardinalSplineTo_updatePosition, 1, JSPROP_PERMANENT | JSPROP_ENUMERATE),
-		JS_FS_END
+        JS_FN("ctor", js_cocos2dx_CCCardinalSplineTo_ctor, 0, JSPROP_PERMANENT | JSPROP_ENUMERATE),
+        JS_FS_END
 	};
 
 	JSFunctionSpec *st_funcs = NULL;
@@ -22797,6 +24097,18 @@ extern JSObject *jsb_CCCardinalSplineTo_prototype;
 void js_cocos2dx_CCCardinalSplineBy_finalize(JSFreeOp *fop, JSObject *obj) {
 }
 
+static JSBool js_cocos2dx_CCCardinalSplineBy_ctor(JSContext *cx, uint32_t argc, jsval *vp)
+{
+	JSObject *obj = JS_THIS_OBJECT(cx, vp);
+    cocos2d::CCCardinalSplineBy *nobj = new cocos2d::CCCardinalSplineBy();
+    js_proxy_t* p;
+    JS_NEW_PROXY(p, nobj, obj);
+    nobj->autorelease();
+    JS_AddNamedObjectRoot(cx, &p->obj, "cocos2d::CCCardinalSplineBy");
+    JS_SET_RVAL(cx, vp, JSVAL_VOID);
+    return JS_TRUE;
+}
+
 void js_register_cocos2dx_CCCardinalSplineBy(JSContext *cx, JSObject *global) {
 	jsb_CCCardinalSplineBy_class = (JSClass *)calloc(1, sizeof(JSClass));
 	jsb_CCCardinalSplineBy_class->name = "CardinalSplineBy";
@@ -22818,7 +24130,8 @@ void js_register_cocos2dx_CCCardinalSplineBy(JSContext *cx, JSObject *global) {
 		JS_FN("startWithTarget", js_cocos2dx_CCCardinalSplineBy_startWithTarget, 1, JSPROP_PERMANENT | JSPROP_ENUMERATE),
 		JS_FN("updatePosition", js_cocos2dx_CCCardinalSplineBy_updatePosition, 1, JSPROP_PERMANENT | JSPROP_ENUMERATE),
 		JS_FN("reverse", js_cocos2dx_CCCardinalSplineBy_reverse, 0, JSPROP_PERMANENT | JSPROP_ENUMERATE),
-		JS_FS_END
+        JS_FN("ctor", js_cocos2dx_CCCardinalSplineBy_ctor, 0, JSPROP_PERMANENT | JSPROP_ENUMERATE),
+        JS_FS_END
 	};
 
 	JSFunctionSpec *st_funcs = NULL;
@@ -22892,6 +24205,18 @@ extern JSObject *jsb_CCCardinalSplineTo_prototype;
 void js_cocos2dx_CCCatmullRomTo_finalize(JSFreeOp *fop, JSObject *obj) {
 }
 
+static JSBool js_cocos2dx_CCCatmullRomTo_ctor(JSContext *cx, uint32_t argc, jsval *vp)
+{
+	JSObject *obj = JS_THIS_OBJECT(cx, vp);
+    cocos2d::CCCatmullRomTo *nobj = new cocos2d::CCCatmullRomTo();
+    js_proxy_t* p;
+    JS_NEW_PROXY(p, nobj, obj);
+    nobj->autorelease();
+    JS_AddNamedObjectRoot(cx, &p->obj, "cocos2d::CCCatmullRomTo");
+    JS_SET_RVAL(cx, vp, JSVAL_VOID);
+    return JS_TRUE;
+}
+
 void js_register_cocos2dx_CCCatmullRomTo(JSContext *cx, JSObject *global) {
 	jsb_CCCatmullRomTo_class = (JSClass *)calloc(1, sizeof(JSClass));
 	jsb_CCCatmullRomTo_class->name = "CatmullRomTo";
@@ -22909,7 +24234,8 @@ void js_register_cocos2dx_CCCatmullRomTo(JSContext *cx, JSObject *global) {
 
 	static JSFunctionSpec funcs[] = {
 		JS_FN("initWithDuration", js_cocos2dx_CCCatmullRomTo_initWithDuration, 2, JSPROP_PERMANENT | JSPROP_ENUMERATE),
-		JS_FS_END
+        JS_FN("ctor", js_cocos2dx_CCCatmullRomTo_ctor, 0, JSPROP_PERMANENT | JSPROP_ENUMERATE),
+        JS_FS_END
 	};
 
 	JSFunctionSpec *st_funcs = NULL;
@@ -22983,6 +24309,18 @@ extern JSObject *jsb_CCCardinalSplineBy_prototype;
 void js_cocos2dx_CCCatmullRomBy_finalize(JSFreeOp *fop, JSObject *obj) {
 }
 
+static JSBool js_cocos2dx_CCCatmullRomBy_ctor(JSContext *cx, uint32_t argc, jsval *vp)
+{
+	JSObject *obj = JS_THIS_OBJECT(cx, vp);
+    cocos2d::CCCatmullRomBy *nobj = new cocos2d::CCCatmullRomBy();
+    js_proxy_t* p;
+    JS_NEW_PROXY(p, nobj, obj);
+    nobj->autorelease();
+    JS_AddNamedObjectRoot(cx, &p->obj, "cocos2d::CCCatmullRomBy");
+    JS_SET_RVAL(cx, vp, JSVAL_VOID);
+    return JS_TRUE;
+}
+
 void js_register_cocos2dx_CCCatmullRomBy(JSContext *cx, JSObject *global) {
 	jsb_CCCatmullRomBy_class = (JSClass *)calloc(1, sizeof(JSClass));
 	jsb_CCCatmullRomBy_class->name = "CatmullRomBy";
@@ -23000,7 +24338,8 @@ void js_register_cocos2dx_CCCatmullRomBy(JSContext *cx, JSObject *global) {
 
 	static JSFunctionSpec funcs[] = {
 		JS_FN("initWithDuration", js_cocos2dx_CCCatmullRomBy_initWithDuration, 2, JSPROP_PERMANENT | JSPROP_ENUMERATE),
-		JS_FS_END
+        JS_FN("ctor", js_cocos2dx_CCCatmullRomBy_ctor, 0, JSPROP_PERMANENT | JSPROP_ENUMERATE),
+        JS_FS_END
 	};
 
 	JSFunctionSpec *st_funcs = NULL;
@@ -23424,6 +24763,18 @@ extern JSObject *jsb_CCNodeRGBA_prototype;
 void js_cocos2dx_CCAtlasNode_finalize(JSFreeOp *fop, JSObject *obj) {
 }
 
+static JSBool js_cocos2dx_CCAtlasNode_ctor(JSContext *cx, uint32_t argc, jsval *vp)
+{
+	JSObject *obj = JS_THIS_OBJECT(cx, vp);
+    cocos2d::CCAtlasNode *nobj = new cocos2d::CCAtlasNode();
+    js_proxy_t* p;
+    JS_NEW_PROXY(p, nobj, obj);
+    nobj->autorelease();
+    JS_AddNamedObjectRoot(cx, &p->obj, "cocos2d::CCAtlasNode");
+    JS_SET_RVAL(cx, vp, JSVAL_VOID);
+    return JS_TRUE;
+}
+
 void js_register_cocos2dx_CCAtlasNode(JSContext *cx, JSObject *global) {
 	jsb_CCAtlasNode_class = (JSClass *)calloc(1, sizeof(JSClass));
 	jsb_CCAtlasNode_class->name = "AtlasNode";
@@ -23457,7 +24808,8 @@ void js_register_cocos2dx_CCAtlasNode(JSContext *cx, JSObject *global) {
 		JS_FN("initWithTexture", js_cocos2dx_CCAtlasNode_initWithTexture, 4, JSPROP_PERMANENT | JSPROP_ENUMERATE),
 		JS_FN("isOpacityModifyRGB", js_cocos2dx_CCAtlasNode_isOpacityModifyRGB, 0, JSPROP_PERMANENT | JSPROP_ENUMERATE),
 		JS_FN("setQuadsToDraw", js_cocos2dx_CCAtlasNode_setQuadsToDraw, 1, JSPROP_PERMANENT | JSPROP_ENUMERATE),
-		JS_FS_END
+        JS_FN("ctor", js_cocos2dx_CCAtlasNode_ctor, 0, JSPROP_PERMANENT | JSPROP_ENUMERATE),
+        JS_FS_END
 	};
 
 	static JSFunctionSpec st_funcs[] = {
@@ -23647,6 +24999,18 @@ extern JSObject *jsb_CCNode_prototype;
 void js_cocos2dx_CCDrawNode_finalize(JSFreeOp *fop, JSObject *obj) {
 }
 
+static JSBool js_cocos2dx_CCDrawNode_ctor(JSContext *cx, uint32_t argc, jsval *vp)
+{
+	JSObject *obj = JS_THIS_OBJECT(cx, vp);
+    cocos2d::CCDrawNode *nobj = new cocos2d::CCDrawNode();
+    js_proxy_t* p;
+    JS_NEW_PROXY(p, nobj, obj);
+    nobj->autorelease();
+    JS_AddNamedObjectRoot(cx, &p->obj, "cocos2d::CCDrawNode");
+    JS_SET_RVAL(cx, vp, JSVAL_VOID);
+    return JS_TRUE;
+}
+
 void js_register_cocos2dx_CCDrawNode(JSContext *cx, JSObject *global) {
 	jsb_CCDrawNode_class = (JSClass *)calloc(1, sizeof(JSClass));
 	jsb_CCDrawNode_class->name = "DrawNode";
@@ -23670,7 +25034,8 @@ void js_register_cocos2dx_CCDrawNode(JSContext *cx, JSObject *global) {
 		JS_FN("init", js_cocos2dx_CCDrawNode_init, 0, JSPROP_PERMANENT | JSPROP_ENUMERATE),
 		JS_FN("drawDot", js_cocos2dx_CCDrawNode_drawDot, 3, JSPROP_PERMANENT | JSPROP_ENUMERATE),
 		JS_FN("drawSegment", js_cocos2dx_CCDrawNode_drawSegment, 4, JSPROP_PERMANENT | JSPROP_ENUMERATE),
-		JS_FS_END
+        JS_FN("ctor", js_cocos2dx_CCDrawNode_ctor, 0, JSPROP_PERMANENT | JSPROP_ENUMERATE),
+        JS_FS_END
 	};
 
 	static JSFunctionSpec st_funcs[] = {
@@ -23981,6 +25346,18 @@ JSBool js_cocos2dx_CCCamera_constructor(JSContext *cx, uint32_t argc, jsval *vp)
 void js_cocos2dx_CCCamera_finalize(JSFreeOp *fop, JSObject *obj) {
 }
 
+static JSBool js_cocos2dx_CCCamera_ctor(JSContext *cx, uint32_t argc, jsval *vp)
+{
+	JSObject *obj = JS_THIS_OBJECT(cx, vp);
+    cocos2d::CCCamera *nobj = new cocos2d::CCCamera();
+    js_proxy_t* p;
+    JS_NEW_PROXY(p, nobj, obj);
+    nobj->autorelease();
+    JS_AddNamedObjectRoot(cx, &p->obj, "cocos2d::CCCamera");
+    JS_SET_RVAL(cx, vp, JSVAL_VOID);
+    return JS_TRUE;
+}
+
 void js_register_cocos2dx_CCCamera(JSContext *cx, JSObject *global) {
 	jsb_CCCamera_class = (JSClass *)calloc(1, sizeof(JSClass));
 	jsb_CCCamera_class->name = "Camera";
@@ -24010,7 +25387,8 @@ void js_register_cocos2dx_CCCamera(JSContext *cx, JSObject *global) {
 		JS_FN("setUp", js_cocos2dx_CCCamera_setUpXYZ, 3, JSPROP_PERMANENT | JSPROP_ENUMERATE),
 		JS_FN("getUp", js_cocos2dx_CCCamera_getUpXYZ, 3, JSPROP_PERMANENT | JSPROP_ENUMERATE),
 		JS_FN("getEye", js_cocos2dx_CCCamera_getEyeXYZ, 3, JSPROP_PERMANENT | JSPROP_ENUMERATE),
-		JS_FS_END
+        JS_FN("ctor", js_cocos2dx_CCCamera_ctor, 0, JSPROP_PERMANENT | JSPROP_ENUMERATE),
+        JS_FS_END
 	};
 
 	static JSFunctionSpec st_funcs[] = {
@@ -25484,6 +26862,18 @@ extern JSObject *jsb_CCNodeRGBA_prototype;
 void js_cocos2dx_CCSprite_finalize(JSFreeOp *fop, JSObject *obj) {
 }
 
+static JSBool js_cocos2dx_CCSprite_ctor(JSContext *cx, uint32_t argc, jsval *vp)
+{
+	JSObject *obj = JS_THIS_OBJECT(cx, vp);
+    cocos2d::CCSprite *nobj = new cocos2d::CCSprite();
+    js_proxy_t* p;
+    JS_NEW_PROXY(p, nobj, obj);
+    nobj->autorelease();
+    JS_AddNamedObjectRoot(cx, &p->obj, "cocos2d::CCSprite");
+    JS_SET_RVAL(cx, vp, JSVAL_VOID);
+    return JS_TRUE;
+}
+
 void js_register_cocos2dx_CCSprite(JSContext *cx, JSObject *global) {
 	jsb_CCSprite_class = (JSClass *)calloc(1, sizeof(JSClass));
 	jsb_CCSprite_class->name = "Sprite";
@@ -25553,7 +26943,8 @@ void js_register_cocos2dx_CCSprite(JSContext *cx, JSObject *global) {
 		JS_FN("setSkewX", js_cocos2dx_CCSprite_setSkewX, 1, JSPROP_PERMANENT | JSPROP_ENUMERATE),
 		JS_FN("setSkewY", js_cocos2dx_CCSprite_setSkewY, 1, JSPROP_PERMANENT | JSPROP_ENUMERATE),
 		JS_FN("setVisible", js_cocos2dx_CCSprite_setVisible, 1, JSPROP_PERMANENT | JSPROP_ENUMERATE),
-		JS_FS_END
+        JS_FN("ctor", js_cocos2dx_CCSprite_ctor, 0, JSPROP_PERMANENT | JSPROP_ENUMERATE),
+        JS_FS_END
 	};
 
 	static JSFunctionSpec st_funcs[] = {
@@ -26068,6 +27459,18 @@ extern JSObject *jsb_CCSprite_prototype;
 void js_cocos2dx_CCLabelTTF_finalize(JSFreeOp *fop, JSObject *obj) {
 }
 
+static JSBool js_cocos2dx_CCLabelTTF_ctor(JSContext *cx, uint32_t argc, jsval *vp)
+{
+	JSObject *obj = JS_THIS_OBJECT(cx, vp);
+    cocos2d::CCLabelTTF *nobj = new cocos2d::CCLabelTTF();
+    js_proxy_t* p;
+    JS_NEW_PROXY(p, nobj, obj);
+    nobj->autorelease();
+    JS_AddNamedObjectRoot(cx, &p->obj, "cocos2d::CCLabelTTF");
+    JS_SET_RVAL(cx, vp, JSVAL_VOID);
+    return JS_TRUE;
+}
+
 void js_register_cocos2dx_CCLabelTTF(JSContext *cx, JSObject *global) {
 	jsb_CCLabelTTF_class = (JSClass *)calloc(1, sizeof(JSClass));
 	jsb_CCLabelTTF_class->name = "LabelTTF";
@@ -26100,7 +27503,8 @@ void js_register_cocos2dx_CCLabelTTF(JSContext *cx, JSObject *global) {
 		JS_FN("init", js_cocos2dx_CCLabelTTF_init, 0, JSPROP_PERMANENT | JSPROP_ENUMERATE),
 		JS_FN("getVerticalAlignment", js_cocos2dx_CCLabelTTF_getVerticalAlignment, 0, JSPROP_PERMANENT | JSPROP_ENUMERATE),
 		JS_FN("getHorizontalAlignment", js_cocos2dx_CCLabelTTF_getHorizontalAlignment, 0, JSPROP_PERMANENT | JSPROP_ENUMERATE),
-		JS_FS_END
+        JS_FN("ctor", js_cocos2dx_CCLabelTTF_ctor, 0, JSPROP_PERMANENT | JSPROP_ENUMERATE),
+        JS_FS_END
 	};
 
 	static JSFunctionSpec st_funcs[] = {
@@ -27261,7 +28665,7 @@ void js_register_cocos2dx_CCDirector(JSContext *cx, JSObject *global) {
 		JS_FN("replaceScene", js_cocos2dx_CCDirector_replaceScene, 1, JSPROP_PERMANENT | JSPROP_ENUMERATE),
 		JS_FN("setAnimationInterval", js_cocos2dx_CCDirector_setAnimationInterval, 1, JSPROP_PERMANENT | JSPROP_ENUMERATE),
 		JS_FN("getActionManager", js_cocos2dx_CCDirector_getActionManager, 0, JSPROP_PERMANENT | JSPROP_ENUMERATE),
-		JS_FS_END
+        JS_FS_END
 	};
 
 	static JSFunctionSpec st_funcs[] = {
@@ -27702,6 +29106,18 @@ JSBool js_cocos2dx_CCGridBase_create(JSContext *cx, uint32_t argc, jsval *vp)
 void js_cocos2dx_CCGridBase_finalize(JSFreeOp *fop, JSObject *obj) {
 }
 
+static JSBool js_cocos2dx_CCGridBase_ctor(JSContext *cx, uint32_t argc, jsval *vp)
+{
+	JSObject *obj = JS_THIS_OBJECT(cx, vp);
+    cocos2d::CCGridBase *nobj = new cocos2d::CCGridBase();
+    js_proxy_t* p;
+    JS_NEW_PROXY(p, nobj, obj);
+    nobj->autorelease();
+    JS_AddNamedObjectRoot(cx, &p->obj, "cocos2d::CCGridBase");
+    JS_SET_RVAL(cx, vp, JSVAL_VOID);
+    return JS_TRUE;
+}
+
 void js_register_cocos2dx_CCGridBase(JSContext *cx, JSObject *global) {
 	jsb_CCGridBase_class = (JSClass *)calloc(1, sizeof(JSClass));
 	jsb_CCGridBase_class->name = "GridBase";
@@ -27737,7 +29153,8 @@ void js_register_cocos2dx_CCGridBase(JSContext *cx, JSObject *global) {
 		JS_FN("setReuseGrid", js_cocos2dx_CCGridBase_setReuseGrid, 1, JSPROP_PERMANENT | JSPROP_ENUMERATE),
 		JS_FN("isActive", js_cocos2dx_CCGridBase_isActive, 0, JSPROP_PERMANENT | JSPROP_ENUMERATE),
 		JS_FN("reuse", js_cocos2dx_CCGridBase_reuse, 0, JSPROP_PERMANENT | JSPROP_ENUMERATE),
-		JS_FS_END
+        JS_FN("ctor", js_cocos2dx_CCGridBase_ctor, 0, JSPROP_PERMANENT | JSPROP_ENUMERATE),
+        JS_FS_END
 	};
 
 	static JSFunctionSpec st_funcs[] = {
@@ -27980,6 +29397,18 @@ extern JSObject *jsb_CCGridBase_prototype;
 void js_cocos2dx_CCGrid3D_finalize(JSFreeOp *fop, JSObject *obj) {
 }
 
+static JSBool js_cocos2dx_CCGrid3D_ctor(JSContext *cx, uint32_t argc, jsval *vp)
+{
+	JSObject *obj = JS_THIS_OBJECT(cx, vp);
+    cocos2d::CCGrid3D *nobj = new cocos2d::CCGrid3D();
+    js_proxy_t* p;
+    JS_NEW_PROXY(p, nobj, obj);
+    nobj->autorelease();
+    JS_AddNamedObjectRoot(cx, &p->obj, "cocos2d::CCGrid3D");
+    JS_SET_RVAL(cx, vp, JSVAL_VOID);
+    return JS_TRUE;
+}
+
 void js_register_cocos2dx_CCGrid3D(JSContext *cx, JSObject *global) {
 	jsb_CCGrid3D_class = (JSClass *)calloc(1, sizeof(JSClass));
 	jsb_CCGrid3D_class->name = "Grid3D";
@@ -28004,7 +29433,8 @@ void js_register_cocos2dx_CCGrid3D(JSContext *cx, JSObject *global) {
 		JS_FN("vertex", js_cocos2dx_CCGrid3D_vertex, 1, JSPROP_PERMANENT | JSPROP_ENUMERATE),
 		JS_FN("blit", js_cocos2dx_CCGrid3D_blit, 0, JSPROP_PERMANENT | JSPROP_ENUMERATE),
 		JS_FN("originalVertex", js_cocos2dx_CCGrid3D_originalVertex, 1, JSPROP_PERMANENT | JSPROP_ENUMERATE),
-		JS_FS_END
+        JS_FN("ctor", js_cocos2dx_CCGrid3D_ctor, 0, JSPROP_PERMANENT | JSPROP_ENUMERATE),
+        JS_FS_END
 	};
 
 	static JSFunctionSpec st_funcs[] = {
@@ -28247,6 +29677,18 @@ extern JSObject *jsb_CCGridBase_prototype;
 void js_cocos2dx_CCTiledGrid3D_finalize(JSFreeOp *fop, JSObject *obj) {
 }
 
+static JSBool js_cocos2dx_CCTiledGrid3D_ctor(JSContext *cx, uint32_t argc, jsval *vp)
+{
+	JSObject *obj = JS_THIS_OBJECT(cx, vp);
+    cocos2d::CCTiledGrid3D *nobj = new cocos2d::CCTiledGrid3D();
+    js_proxy_t* p;
+    JS_NEW_PROXY(p, nobj, obj);
+    nobj->autorelease();
+    JS_AddNamedObjectRoot(cx, &p->obj, "cocos2d::CCTiledGrid3D");
+    JS_SET_RVAL(cx, vp, JSVAL_VOID);
+    return JS_TRUE;
+}
+
 void js_register_cocos2dx_CCTiledGrid3D(JSContext *cx, JSObject *global) {
 	jsb_CCTiledGrid3D_class = (JSClass *)calloc(1, sizeof(JSClass));
 	jsb_CCTiledGrid3D_class->name = "TiledGrid3D";
@@ -28271,7 +29713,8 @@ void js_register_cocos2dx_CCTiledGrid3D(JSContext *cx, JSObject *global) {
 		JS_FN("tile", js_cocos2dx_CCTiledGrid3D_tile, 1, JSPROP_PERMANENT | JSPROP_ENUMERATE),
 		JS_FN("setTile", js_cocos2dx_CCTiledGrid3D_setTile, 2, JSPROP_PERMANENT | JSPROP_ENUMERATE),
 		JS_FN("blit", js_cocos2dx_CCTiledGrid3D_blit, 0, JSPROP_PERMANENT | JSPROP_ENUMERATE),
-		JS_FS_END
+        JS_FN("ctor", js_cocos2dx_CCTiledGrid3D_ctor, 0, JSPROP_PERMANENT | JSPROP_ENUMERATE),
+        JS_FS_END
 	};
 
 	static JSFunctionSpec st_funcs[] = {
@@ -28541,6 +29984,18 @@ extern JSObject *jsb_CCAtlasNode_prototype;
 void js_cocos2dx_CCLabelAtlas_finalize(JSFreeOp *fop, JSObject *obj) {
 }
 
+static JSBool js_cocos2dx_CCLabelAtlas_ctor(JSContext *cx, uint32_t argc, jsval *vp)
+{
+	JSObject *obj = JS_THIS_OBJECT(cx, vp);
+    cocos2d::CCLabelAtlas *nobj = new cocos2d::CCLabelAtlas();
+    js_proxy_t* p;
+    JS_NEW_PROXY(p, nobj, obj);
+    nobj->autorelease();
+    JS_AddNamedObjectRoot(cx, &p->obj, "cocos2d::CCLabelAtlas");
+    JS_SET_RVAL(cx, vp, JSVAL_VOID);
+    return JS_TRUE;
+}
+
 void js_register_cocos2dx_CCLabelAtlas(JSContext *cx, JSObject *global) {
 	jsb_CCLabelAtlas_class = (JSClass *)calloc(1, sizeof(JSClass));
 	jsb_CCLabelAtlas_class->name = "LabelAtlas";
@@ -28563,7 +30018,8 @@ void js_register_cocos2dx_CCLabelAtlas(JSContext *cx, JSObject *global) {
 		JS_FN("initWithString", js_cocos2dx_CCLabelAtlas_initWithString, 2, JSPROP_PERMANENT | JSPROP_ENUMERATE),
 		JS_FN("updateAtlasValues", js_cocos2dx_CCLabelAtlas_updateAtlasValues, 0, JSPROP_PERMANENT | JSPROP_ENUMERATE),
 		JS_FN("getString", js_cocos2dx_CCLabelAtlas_getString, 0, JSPROP_PERMANENT | JSPROP_ENUMERATE),
-		JS_FS_END
+        JS_FN("ctor", js_cocos2dx_CCLabelAtlas_ctor, 0, JSPROP_PERMANENT | JSPROP_ENUMERATE),
+        JS_FS_END
 	};
 
 	static JSFunctionSpec st_funcs[] = {
@@ -29355,6 +30811,18 @@ extern JSObject *jsb_CCNode_prototype;
 void js_cocos2dx_CCSpriteBatchNode_finalize(JSFreeOp *fop, JSObject *obj) {
 }
 
+static JSBool js_cocos2dx_CCSpriteBatchNode_ctor(JSContext *cx, uint32_t argc, jsval *vp)
+{
+	JSObject *obj = JS_THIS_OBJECT(cx, vp);
+    cocos2d::CCSpriteBatchNode *nobj = new cocos2d::CCSpriteBatchNode();
+    js_proxy_t* p;
+    JS_NEW_PROXY(p, nobj, obj);
+    nobj->autorelease();
+    JS_AddNamedObjectRoot(cx, &p->obj, "cocos2d::CCSpriteBatchNode");
+    JS_SET_RVAL(cx, vp, JSVAL_VOID);
+    return JS_TRUE;
+}
+
 void js_register_cocos2dx_CCSpriteBatchNode(JSContext *cx, JSObject *global) {
 	jsb_CCSpriteBatchNode_class = (JSClass *)calloc(1, sizeof(JSClass));
 	jsb_CCSpriteBatchNode_class->name = "SpriteBatchNode";
@@ -29397,7 +30865,8 @@ void js_register_cocos2dx_CCSpriteBatchNode(JSContext *cx, JSObject *global) {
 		JS_FN("getDescendants", js_cocos2dx_CCSpriteBatchNode_getDescendants, 0, JSPROP_PERMANENT | JSPROP_ENUMERATE),
 		JS_FN("removeChild", js_cocos2dx_CCSpriteBatchNode_removeChild, 2, JSPROP_PERMANENT | JSPROP_ENUMERATE),
 		JS_FN("highestAtlasIndexInChild", js_cocos2dx_CCSpriteBatchNode_highestAtlasIndexInChild, 1, JSPROP_PERMANENT | JSPROP_ENUMERATE),
-		JS_FS_END
+        JS_FN("ctor", js_cocos2dx_CCSpriteBatchNode_ctor, 0, JSPROP_PERMANENT | JSPROP_ENUMERATE),
+        JS_FS_END
 	};
 
 	static JSFunctionSpec st_funcs[] = {
@@ -30205,6 +31674,18 @@ extern JSObject *jsb_CCSpriteBatchNode_prototype;
 void js_cocos2dx_CCLabelBMFont_finalize(JSFreeOp *fop, JSObject *obj) {
 }
 
+static JSBool js_cocos2dx_CCLabelBMFont_ctor(JSContext *cx, uint32_t argc, jsval *vp)
+{
+	JSObject *obj = JS_THIS_OBJECT(cx, vp);
+    cocos2d::CCLabelBMFont *nobj = new cocos2d::CCLabelBMFont();
+    js_proxy_t* p;
+    JS_NEW_PROXY(p, nobj, obj);
+    nobj->autorelease();
+    JS_AddNamedObjectRoot(cx, &p->obj, "cocos2d::CCLabelBMFont");
+    JS_SET_RVAL(cx, vp, JSVAL_VOID);
+    return JS_TRUE;
+}
+
 void js_register_cocos2dx_CCLabelBMFont(JSContext *cx, JSObject *global) {
 	jsb_CCLabelBMFont_class = (JSClass *)calloc(1, sizeof(JSClass));
 	jsb_CCLabelBMFont_class->name = "LabelBMFont";
@@ -30253,7 +31734,8 @@ void js_register_cocos2dx_CCLabelBMFont(JSContext *cx, JSObject *global) {
 		JS_FN("getDisplayedColor", js_cocos2dx_CCLabelBMFont_getDisplayedColor, 0, JSPROP_PERMANENT | JSPROP_ENUMERATE),
 		JS_FN("updateDisplayedColor", js_cocos2dx_CCLabelBMFont_updateDisplayedColor, 1, JSPROP_PERMANENT | JSPROP_ENUMERATE),
 		JS_FN("setAlignment", js_cocos2dx_CCLabelBMFont_setAlignment, 1, JSPROP_PERMANENT | JSPROP_ENUMERATE),
-		JS_FS_END
+        JS_FN("ctor", js_cocos2dx_CCLabelBMFont_ctor, 0, JSPROP_PERMANENT | JSPROP_ENUMERATE),
+        JS_FS_END
 	};
 
 	static JSFunctionSpec st_funcs[] = {
@@ -31101,6 +32583,18 @@ extern JSObject *jsb_CCNode_prototype;
 void js_cocos2dx_CCLayer_finalize(JSFreeOp *fop, JSObject *obj) {
 }
 
+static JSBool js_cocos2dx_CCLayer_ctor(JSContext *cx, uint32_t argc, jsval *vp)
+{
+	JSObject *obj = JS_THIS_OBJECT(cx, vp);
+    cocos2d::CCLayer *nobj = new cocos2d::CCLayer();
+    js_proxy_t* p;
+    JS_NEW_PROXY(p, nobj, obj);
+    nobj->autorelease();
+    JS_AddNamedObjectRoot(cx, &p->obj, "cocos2d::CCLayer");
+    JS_SET_RVAL(cx, vp, JSVAL_VOID);
+    return JS_TRUE;
+}
+
 void js_register_cocos2dx_CCLayer(JSContext *cx, JSObject *global) {
 	jsb_CCLayer_class = (JSClass *)calloc(1, sizeof(JSClass));
 	jsb_CCLayer_class->name = "Layer";
@@ -31151,7 +32645,8 @@ void js_register_cocos2dx_CCLayer(JSContext *cx, JSObject *global) {
 		JS_FN("registerWithTouchDispatcher", js_cocos2dx_CCLayer_registerWithTouchDispatcher, 0, JSPROP_PERMANENT | JSPROP_ENUMERATE),
 		JS_FN("keyMenuClicked", js_cocos2dx_CCLayer_keyMenuClicked, 0, JSPROP_PERMANENT | JSPROP_ENUMERATE),
 		JS_FN("registerScriptKeypadHandler", js_cocos2dx_CCLayer_registerScriptKeypadHandler, 1, JSPROP_PERMANENT | JSPROP_ENUMERATE),
-		JS_FS_END
+        JS_FN("ctor", js_cocos2dx_CCLayer_ctor, 0, JSPROP_PERMANENT | JSPROP_ENUMERATE),
+        JS_FS_END
 	};
 
 	static JSFunctionSpec st_funcs[] = {
@@ -31520,6 +33015,18 @@ extern JSObject *jsb_CCLayer_prototype;
 void js_cocos2dx_CCLayerRGBA_finalize(JSFreeOp *fop, JSObject *obj) {
 }
 
+static JSBool js_cocos2dx_CCLayerRGBA_ctor(JSContext *cx, uint32_t argc, jsval *vp)
+{
+	JSObject *obj = JS_THIS_OBJECT(cx, vp);
+    cocos2d::CCLayerRGBA *nobj = new cocos2d::CCLayerRGBA();
+    js_proxy_t* p;
+    JS_NEW_PROXY(p, nobj, obj);
+    nobj->autorelease();
+    JS_AddNamedObjectRoot(cx, &p->obj, "cocos2d::CCLayerRGBA");
+    JS_SET_RVAL(cx, vp, JSVAL_VOID);
+    return JS_TRUE;
+}
+
 void js_register_cocos2dx_CCLayerRGBA(JSContext *cx, JSObject *global) {
 	jsb_CCLayerRGBA_class = (JSClass *)calloc(1, sizeof(JSClass));
 	jsb_CCLayerRGBA_class->name = "LayerRGBA";
@@ -31553,7 +33060,8 @@ void js_register_cocos2dx_CCLayerRGBA(JSContext *cx, JSObject *global) {
 		JS_FN("isOpacityModifyRGB", js_cocos2dx_CCLayerRGBA_isOpacityModifyRGB, 0, JSPROP_PERMANENT | JSPROP_ENUMERATE),
 		JS_FN("isCascadeColorEnabled", js_cocos2dx_CCLayerRGBA_isCascadeColorEnabled, 0, JSPROP_PERMANENT | JSPROP_ENUMERATE),
 		JS_FN("getDisplayedColor", js_cocos2dx_CCLayerRGBA_getDisplayedColor, 0, JSPROP_PERMANENT | JSPROP_ENUMERATE),
-		JS_FS_END
+        JS_FN("ctor", js_cocos2dx_CCLayerRGBA_ctor, 0, JSPROP_PERMANENT | JSPROP_ENUMERATE),
+        JS_FS_END
 	};
 
 	static JSFunctionSpec st_funcs[] = {
@@ -31923,6 +33431,18 @@ extern JSObject *jsb_CCLayerRGBA_prototype;
 void js_cocos2dx_CCLayerColor_finalize(JSFreeOp *fop, JSObject *obj) {
 }
 
+static JSBool js_cocos2dx_CCLayerColor_ctor(JSContext *cx, uint32_t argc, jsval *vp)
+{
+	JSObject *obj = JS_THIS_OBJECT(cx, vp);
+    cocos2d::CCLayerColor *nobj = new cocos2d::CCLayerColor();
+    js_proxy_t* p;
+    JS_NEW_PROXY(p, nobj, obj);
+    nobj->autorelease();
+    JS_AddNamedObjectRoot(cx, &p->obj, "cocos2d::CCLayerColor");
+    JS_SET_RVAL(cx, vp, JSVAL_VOID);
+    return JS_TRUE;
+}
+
 void js_register_cocos2dx_CCLayerColor(JSContext *cx, JSObject *global) {
 	jsb_CCLayerColor_class = (JSClass *)calloc(1, sizeof(JSClass));
 	jsb_CCLayerColor_class->name = "LayerColor";
@@ -31951,7 +33471,8 @@ void js_register_cocos2dx_CCLayerColor(JSContext *cx, JSObject *global) {
 		JS_FN("setOpacity", js_cocos2dx_CCLayerColor_setOpacity, 1, JSPROP_PERMANENT | JSPROP_ENUMERATE),
 		JS_FN("setContentSize", js_cocos2dx_CCLayerColor_setContentSize, 1, JSPROP_PERMANENT | JSPROP_ENUMERATE),
 		JS_FN("changeHeight", js_cocos2dx_CCLayerColor_changeHeight, 1, JSPROP_PERMANENT | JSPROP_ENUMERATE),
-		JS_FS_END
+        JS_FN("ctor", js_cocos2dx_CCLayerColor_ctor, 0, JSPROP_PERMANENT | JSPROP_ENUMERATE),
+        JS_FS_END
 	};
 
 	static JSFunctionSpec st_funcs[] = {
@@ -32349,6 +33870,18 @@ extern JSObject *jsb_CCLayerColor_prototype;
 void js_cocos2dx_CCLayerGradient_finalize(JSFreeOp *fop, JSObject *obj) {
 }
 
+static JSBool js_cocos2dx_CCLayerGradient_ctor(JSContext *cx, uint32_t argc, jsval *vp)
+{
+	JSObject *obj = JS_THIS_OBJECT(cx, vp);
+    cocos2d::CCLayerGradient *nobj = new cocos2d::CCLayerGradient();
+    js_proxy_t* p;
+    JS_NEW_PROXY(p, nobj, obj);
+    nobj->autorelease();
+    JS_AddNamedObjectRoot(cx, &p->obj, "cocos2d::CCLayerGradient");
+    JS_SET_RVAL(cx, vp, JSVAL_VOID);
+    return JS_TRUE;
+}
+
 void js_register_cocos2dx_CCLayerGradient(JSContext *cx, JSObject *global) {
 	jsb_CCLayerGradient_class = (JSClass *)calloc(1, sizeof(JSClass));
 	jsb_CCLayerGradient_class->name = "LayerGradient";
@@ -32380,7 +33913,8 @@ void js_register_cocos2dx_CCLayerGradient(JSContext *cx, JSObject *global) {
 		JS_FN("getEndColor", js_cocos2dx_CCLayerGradient_getEndColor, 0, JSPROP_PERMANENT | JSPROP_ENUMERATE),
 		JS_FN("getEndOpacity", js_cocos2dx_CCLayerGradient_getEndOpacity, 0, JSPROP_PERMANENT | JSPROP_ENUMERATE),
 		JS_FN("setStartColor", js_cocos2dx_CCLayerGradient_setStartColor, 1, JSPROP_PERMANENT | JSPROP_ENUMERATE),
-		JS_FS_END
+        JS_FN("ctor", js_cocos2dx_CCLayerGradient_ctor, 0, JSPROP_PERMANENT | JSPROP_ENUMERATE),
+        JS_FS_END
 	};
 
 	static JSFunctionSpec st_funcs[] = {
@@ -32541,6 +34075,18 @@ extern JSObject *jsb_CCLayer_prototype;
 void js_cocos2dx_CCLayerMultiplex_finalize(JSFreeOp *fop, JSObject *obj) {
 }
 
+static JSBool js_cocos2dx_CCLayerMultiplex_ctor(JSContext *cx, uint32_t argc, jsval *vp)
+{
+	JSObject *obj = JS_THIS_OBJECT(cx, vp);
+    cocos2d::CCLayerMultiplex *nobj = new cocos2d::CCLayerMultiplex();
+    js_proxy_t* p;
+    JS_NEW_PROXY(p, nobj, obj);
+    nobj->autorelease();
+    JS_AddNamedObjectRoot(cx, &p->obj, "cocos2d::CCLayerMultiplex");
+    JS_SET_RVAL(cx, vp, JSVAL_VOID);
+    return JS_TRUE;
+}
+
 void js_register_cocos2dx_CCLayerMultiplex(JSContext *cx, JSObject *global) {
 	jsb_CCLayerMultiplex_class = (JSClass *)calloc(1, sizeof(JSClass));
 	jsb_CCLayerMultiplex_class->name = "LayerMultiplex";
@@ -32563,7 +34109,8 @@ void js_register_cocos2dx_CCLayerMultiplex(JSContext *cx, JSObject *global) {
 		JS_FN("switchToAndReleaseMe", js_cocos2dx_CCLayerMultiplex_switchToAndReleaseMe, 1, JSPROP_PERMANENT | JSPROP_ENUMERATE),
 		JS_FN("addLayer", js_cocos2dx_CCLayerMultiplex_addLayer, 1, JSPROP_PERMANENT | JSPROP_ENUMERATE),
 		JS_FN("switchTo", js_cocos2dx_CCLayerMultiplex_switchTo, 1, JSPROP_PERMANENT | JSPROP_ENUMERATE),
-		JS_FS_END
+        JS_FN("ctor", js_cocos2dx_CCLayerMultiplex_ctor, 0, JSPROP_PERMANENT | JSPROP_ENUMERATE),
+        JS_FS_END
 	};
 
 	JSFunctionSpec *st_funcs = NULL;
@@ -32670,6 +34217,18 @@ extern JSObject *jsb_CCNode_prototype;
 void js_cocos2dx_CCScene_finalize(JSFreeOp *fop, JSObject *obj) {
 }
 
+static JSBool js_cocos2dx_CCScene_ctor(JSContext *cx, uint32_t argc, jsval *vp)
+{
+	JSObject *obj = JS_THIS_OBJECT(cx, vp);
+    cocos2d::CCScene *nobj = new cocos2d::CCScene();
+    js_proxy_t* p;
+    JS_NEW_PROXY(p, nobj, obj);
+    nobj->autorelease();
+    JS_AddNamedObjectRoot(cx, &p->obj, "cocos2d::CCScene");
+    JS_SET_RVAL(cx, vp, JSVAL_VOID);
+    return JS_TRUE;
+}
+
 void js_register_cocos2dx_CCScene(JSContext *cx, JSObject *global) {
 	jsb_CCScene_class = (JSClass *)calloc(1, sizeof(JSClass));
 	jsb_CCScene_class->name = "Scene";
@@ -32687,7 +34246,8 @@ void js_register_cocos2dx_CCScene(JSContext *cx, JSObject *global) {
 
 	static JSFunctionSpec funcs[] = {
 		JS_FN("init", js_cocos2dx_CCScene_init, 0, JSPROP_PERMANENT | JSPROP_ENUMERATE),
-		JS_FS_END
+        JS_FN("ctor", js_cocos2dx_CCScene_ctor, 0, JSPROP_PERMANENT | JSPROP_ENUMERATE),
+        JS_FS_END
 	};
 
 	static JSFunctionSpec st_funcs[] = {
@@ -32785,7 +34345,7 @@ void js_register_cocos2dx_CCTransitionEaseScene(JSContext *cx, JSObject *global)
 
 	static JSFunctionSpec funcs[] = {
 		JS_FN("easeActionWithAction", js_cocos2dx_CCTransitionEaseScene_easeActionWithAction, 1, JSPROP_PERMANENT | JSPROP_ENUMERATE),
-		JS_FS_END
+        JS_FS_END
 	};
 
 	JSFunctionSpec *st_funcs = NULL;
@@ -32978,6 +34538,18 @@ extern JSObject *jsb_CCScene_prototype;
 void js_cocos2dx_CCTransitionScene_finalize(JSFreeOp *fop, JSObject *obj) {
 }
 
+static JSBool js_cocos2dx_CCTransitionScene_ctor(JSContext *cx, uint32_t argc, jsval *vp)
+{
+	JSObject *obj = JS_THIS_OBJECT(cx, vp);
+    cocos2d::CCTransitionScene *nobj = new cocos2d::CCTransitionScene();
+    js_proxy_t* p;
+    JS_NEW_PROXY(p, nobj, obj);
+    nobj->autorelease();
+    JS_AddNamedObjectRoot(cx, &p->obj, "cocos2d::CCTransitionScene");
+    JS_SET_RVAL(cx, vp, JSVAL_VOID);
+    return JS_TRUE;
+}
+
 void js_register_cocos2dx_CCTransitionScene(JSContext *cx, JSObject *global) {
 	jsb_CCTransitionScene_class = (JSClass *)calloc(1, sizeof(JSClass));
 	jsb_CCTransitionScene_class->name = "TransitionScene";
@@ -33001,7 +34573,8 @@ void js_register_cocos2dx_CCTransitionScene(JSContext *cx, JSObject *global) {
 		JS_FN("initWithDuration", js_cocos2dx_CCTransitionScene_initWithDuration, 2, JSPROP_PERMANENT | JSPROP_ENUMERATE),
 		JS_FN("cleanup", js_cocos2dx_CCTransitionScene_cleanup, 0, JSPROP_PERMANENT | JSPROP_ENUMERATE),
 		JS_FN("hideOutShowIn", js_cocos2dx_CCTransitionScene_hideOutShowIn, 0, JSPROP_PERMANENT | JSPROP_ENUMERATE),
-		JS_FS_END
+        JS_FN("ctor", js_cocos2dx_CCTransitionScene_ctor, 0, JSPROP_PERMANENT | JSPROP_ENUMERATE),
+        JS_FS_END
 	};
 
 	static JSFunctionSpec st_funcs[] = {
@@ -33141,6 +34714,18 @@ extern JSObject *jsb_CCTransitionScene_prototype;
 void js_cocos2dx_CCTransitionSceneOriented_finalize(JSFreeOp *fop, JSObject *obj) {
 }
 
+static JSBool js_cocos2dx_CCTransitionSceneOriented_ctor(JSContext *cx, uint32_t argc, jsval *vp)
+{
+	JSObject *obj = JS_THIS_OBJECT(cx, vp);
+    cocos2d::CCTransitionSceneOriented *nobj = new cocos2d::CCTransitionSceneOriented();
+    js_proxy_t* p;
+    JS_NEW_PROXY(p, nobj, obj);
+    nobj->autorelease();
+    JS_AddNamedObjectRoot(cx, &p->obj, "cocos2d::CCTransitionSceneOriented");
+    JS_SET_RVAL(cx, vp, JSVAL_VOID);
+    return JS_TRUE;
+}
+
 void js_register_cocos2dx_CCTransitionSceneOriented(JSContext *cx, JSObject *global) {
 	jsb_CCTransitionSceneOriented_class = (JSClass *)calloc(1, sizeof(JSClass));
 	jsb_CCTransitionSceneOriented_class->name = "TransitionSceneOriented";
@@ -33160,7 +34745,8 @@ void js_register_cocos2dx_CCTransitionSceneOriented(JSContext *cx, JSObject *glo
 
 	static JSFunctionSpec funcs[] = {
 		JS_FN("initWithDuration", js_cocos2dx_CCTransitionSceneOriented_initWithDuration, 3, JSPROP_PERMANENT | JSPROP_ENUMERATE),
-		JS_FS_END
+        JS_FN("ctor", js_cocos2dx_CCTransitionSceneOriented_ctor, 0, JSPROP_PERMANENT | JSPROP_ENUMERATE),
+        JS_FS_END
 	};
 
 	static JSFunctionSpec st_funcs[] = {
@@ -33264,6 +34850,18 @@ JSBool js_cocos2dx_CCTransitionRotoZoom_constructor(JSContext *cx, uint32_t argc
 extern JSObject *jsb_CCTransitionScene_prototype;
 
 void js_cocos2dx_CCTransitionRotoZoom_finalize(JSFreeOp *fop, JSObject *obj) {
+}
+
+static JSBool js_cocos2dx_CCTransitionRotoZoom_ctor(JSContext *cx, uint32_t argc, jsval *vp)
+{
+	JSObject *obj = JS_THIS_OBJECT(cx, vp);
+    cocos2d::CCTransitionRotoZoom *nobj = new cocos2d::CCTransitionRotoZoom();
+    js_proxy_t* p;
+    JS_NEW_PROXY(p, nobj, obj);
+    nobj->autorelease();
+    JS_AddNamedObjectRoot(cx, &p->obj, "cocos2d::CCTransitionRotoZoom");
+    JS_SET_RVAL(cx, vp, JSVAL_VOID);
+    return JS_TRUE;
 }
 
 void js_register_cocos2dx_CCTransitionRotoZoom(JSContext *cx, JSObject *global) {
@@ -33384,6 +34982,18 @@ JSBool js_cocos2dx_CCTransitionJumpZoom_constructor(JSContext *cx, uint32_t argc
 extern JSObject *jsb_CCTransitionScene_prototype;
 
 void js_cocos2dx_CCTransitionJumpZoom_finalize(JSFreeOp *fop, JSObject *obj) {
+}
+
+static JSBool js_cocos2dx_CCTransitionJumpZoom_ctor(JSContext *cx, uint32_t argc, jsval *vp)
+{
+	JSObject *obj = JS_THIS_OBJECT(cx, vp);
+    cocos2d::CCTransitionJumpZoom *nobj = new cocos2d::CCTransitionJumpZoom();
+    js_proxy_t* p;
+    JS_NEW_PROXY(p, nobj, obj);
+    nobj->autorelease();
+    JS_AddNamedObjectRoot(cx, &p->obj, "cocos2d::CCTransitionJumpZoom");
+    JS_SET_RVAL(cx, vp, JSVAL_VOID);
+    return JS_TRUE;
 }
 
 void js_register_cocos2dx_CCTransitionJumpZoom(JSContext *cx, JSObject *global) {
@@ -33580,6 +35190,18 @@ extern JSObject *jsb_CCTransitionScene_prototype;
 void js_cocos2dx_CCTransitionMoveInL_finalize(JSFreeOp *fop, JSObject *obj) {
 }
 
+static JSBool js_cocos2dx_CCTransitionMoveInL_ctor(JSContext *cx, uint32_t argc, jsval *vp)
+{
+	JSObject *obj = JS_THIS_OBJECT(cx, vp);
+    cocos2d::CCTransitionMoveInL *nobj = new cocos2d::CCTransitionMoveInL();
+    js_proxy_t* p;
+    JS_NEW_PROXY(p, nobj, obj);
+    nobj->autorelease();
+    JS_AddNamedObjectRoot(cx, &p->obj, "cocos2d::CCTransitionMoveInL");
+    JS_SET_RVAL(cx, vp, JSVAL_VOID);
+    return JS_TRUE;
+}
+
 void js_register_cocos2dx_CCTransitionMoveInL(JSContext *cx, JSObject *global) {
 	jsb_CCTransitionMoveInL_class = (JSClass *)calloc(1, sizeof(JSClass));
 	jsb_CCTransitionMoveInL_class->name = "TransitionMoveInL";
@@ -33599,7 +35221,8 @@ void js_register_cocos2dx_CCTransitionMoveInL(JSContext *cx, JSObject *global) {
 		JS_FN("action", js_cocos2dx_CCTransitionMoveInL_action, 0, JSPROP_PERMANENT | JSPROP_ENUMERATE),
 		JS_FN("easeActionWithAction", js_cocos2dx_CCTransitionMoveInL_easeActionWithAction, 1, JSPROP_PERMANENT | JSPROP_ENUMERATE),
 		JS_FN("initScenes", js_cocos2dx_CCTransitionMoveInL_initScenes, 0, JSPROP_PERMANENT | JSPROP_ENUMERATE),
-		JS_FS_END
+        JS_FN("ctor", js_cocos2dx_CCTransitionMoveInL_ctor, 0, JSPROP_PERMANENT | JSPROP_ENUMERATE),
+        JS_FS_END
 	};
 
 	static JSFunctionSpec st_funcs[] = {
@@ -33720,6 +35343,18 @@ extern JSObject *jsb_CCTransitionMoveInL_prototype;
 void js_cocos2dx_CCTransitionMoveInR_finalize(JSFreeOp *fop, JSObject *obj) {
 }
 
+static JSBool js_cocos2dx_CCTransitionMoveInR_ctor(JSContext *cx, uint32_t argc, jsval *vp)
+{
+	JSObject *obj = JS_THIS_OBJECT(cx, vp);
+    cocos2d::CCTransitionMoveInR *nobj = new cocos2d::CCTransitionMoveInR();
+    js_proxy_t* p;
+    JS_NEW_PROXY(p, nobj, obj);
+    nobj->autorelease();
+    JS_AddNamedObjectRoot(cx, &p->obj, "cocos2d::CCTransitionMoveInR");
+    JS_SET_RVAL(cx, vp, JSVAL_VOID);
+    return JS_TRUE;
+}
+
 void js_register_cocos2dx_CCTransitionMoveInR(JSContext *cx, JSObject *global) {
 	jsb_CCTransitionMoveInR_class = (JSClass *)calloc(1, sizeof(JSClass));
 	jsb_CCTransitionMoveInR_class->name = "TransitionMoveInR";
@@ -33737,7 +35372,8 @@ void js_register_cocos2dx_CCTransitionMoveInR(JSContext *cx, JSObject *global) {
 
 	static JSFunctionSpec funcs[] = {
 		JS_FN("initScenes", js_cocos2dx_CCTransitionMoveInR_initScenes, 0, JSPROP_PERMANENT | JSPROP_ENUMERATE),
-		JS_FS_END
+        JS_FN("ctor", js_cocos2dx_CCTransitionMoveInR_ctor, 0, JSPROP_PERMANENT | JSPROP_ENUMERATE),
+        JS_FS_END
 	};
 
 	static JSFunctionSpec st_funcs[] = {
@@ -33858,6 +35494,18 @@ extern JSObject *jsb_CCTransitionMoveInL_prototype;
 void js_cocos2dx_CCTransitionMoveInT_finalize(JSFreeOp *fop, JSObject *obj) {
 }
 
+static JSBool js_cocos2dx_CCTransitionMoveInT_ctor(JSContext *cx, uint32_t argc, jsval *vp)
+{
+	JSObject *obj = JS_THIS_OBJECT(cx, vp);
+    cocos2d::CCTransitionMoveInT *nobj = new cocos2d::CCTransitionMoveInT();
+    js_proxy_t* p;
+    JS_NEW_PROXY(p, nobj, obj);
+    nobj->autorelease();
+    JS_AddNamedObjectRoot(cx, &p->obj, "cocos2d::CCTransitionMoveInT");
+    JS_SET_RVAL(cx, vp, JSVAL_VOID);
+    return JS_TRUE;
+}
+
 void js_register_cocos2dx_CCTransitionMoveInT(JSContext *cx, JSObject *global) {
 	jsb_CCTransitionMoveInT_class = (JSClass *)calloc(1, sizeof(JSClass));
 	jsb_CCTransitionMoveInT_class->name = "TransitionMoveInT";
@@ -33875,7 +35523,8 @@ void js_register_cocos2dx_CCTransitionMoveInT(JSContext *cx, JSObject *global) {
 
 	static JSFunctionSpec funcs[] = {
 		JS_FN("initScenes", js_cocos2dx_CCTransitionMoveInT_initScenes, 0, JSPROP_PERMANENT | JSPROP_ENUMERATE),
-		JS_FS_END
+        JS_FN("ctor", js_cocos2dx_CCTransitionMoveInT_ctor, 0, JSPROP_PERMANENT | JSPROP_ENUMERATE),
+        JS_FS_END
 	};
 
 	static JSFunctionSpec st_funcs[] = {
@@ -33996,6 +35645,18 @@ extern JSObject *jsb_CCTransitionMoveInL_prototype;
 void js_cocos2dx_CCTransitionMoveInB_finalize(JSFreeOp *fop, JSObject *obj) {
 }
 
+static JSBool js_cocos2dx_CCTransitionMoveInB_ctor(JSContext *cx, uint32_t argc, jsval *vp)
+{
+	JSObject *obj = JS_THIS_OBJECT(cx, vp);
+    cocos2d::CCTransitionMoveInB *nobj = new cocos2d::CCTransitionMoveInB();
+    js_proxy_t* p;
+    JS_NEW_PROXY(p, nobj, obj);
+    nobj->autorelease();
+    JS_AddNamedObjectRoot(cx, &p->obj, "cocos2d::CCTransitionMoveInB");
+    JS_SET_RVAL(cx, vp, JSVAL_VOID);
+    return JS_TRUE;
+}
+
 void js_register_cocos2dx_CCTransitionMoveInB(JSContext *cx, JSObject *global) {
 	jsb_CCTransitionMoveInB_class = (JSClass *)calloc(1, sizeof(JSClass));
 	jsb_CCTransitionMoveInB_class->name = "TransitionMoveInB";
@@ -34013,7 +35674,8 @@ void js_register_cocos2dx_CCTransitionMoveInB(JSContext *cx, JSObject *global) {
 
 	static JSFunctionSpec funcs[] = {
 		JS_FN("initScenes", js_cocos2dx_CCTransitionMoveInB_initScenes, 0, JSPROP_PERMANENT | JSPROP_ENUMERATE),
-		JS_FS_END
+        JS_FN("ctor", js_cocos2dx_CCTransitionMoveInB_ctor, 0, JSPROP_PERMANENT | JSPROP_ENUMERATE),
+        JS_FS_END
 	};
 
 	static JSFunctionSpec st_funcs[] = {
@@ -34193,6 +35855,18 @@ extern JSObject *jsb_CCTransitionScene_prototype;
 void js_cocos2dx_CCTransitionSlideInL_finalize(JSFreeOp *fop, JSObject *obj) {
 }
 
+static JSBool js_cocos2dx_CCTransitionSlideInL_ctor(JSContext *cx, uint32_t argc, jsval *vp)
+{
+	JSObject *obj = JS_THIS_OBJECT(cx, vp);
+    cocos2d::CCTransitionSlideInL *nobj = new cocos2d::CCTransitionSlideInL();
+    js_proxy_t* p;
+    JS_NEW_PROXY(p, nobj, obj);
+    nobj->autorelease();
+    JS_AddNamedObjectRoot(cx, &p->obj, "cocos2d::CCTransitionSlideInL");
+    JS_SET_RVAL(cx, vp, JSVAL_VOID);
+    return JS_TRUE;
+}
+
 void js_register_cocos2dx_CCTransitionSlideInL(JSContext *cx, JSObject *global) {
 	jsb_CCTransitionSlideInL_class = (JSClass *)calloc(1, sizeof(JSClass));
 	jsb_CCTransitionSlideInL_class->name = "TransitionSlideInL";
@@ -34212,7 +35886,8 @@ void js_register_cocos2dx_CCTransitionSlideInL(JSContext *cx, JSObject *global) 
 		JS_FN("action", js_cocos2dx_CCTransitionSlideInL_action, 0, JSPROP_PERMANENT | JSPROP_ENUMERATE),
 		JS_FN("easeActionWithAction", js_cocos2dx_CCTransitionSlideInL_easeActionWithAction, 1, JSPROP_PERMANENT | JSPROP_ENUMERATE),
 		JS_FN("initScenes", js_cocos2dx_CCTransitionSlideInL_initScenes, 0, JSPROP_PERMANENT | JSPROP_ENUMERATE),
-		JS_FS_END
+        JS_FN("ctor", js_cocos2dx_CCTransitionSlideInL_ctor, 0, JSPROP_PERMANENT | JSPROP_ENUMERATE),
+        JS_FS_END
 	};
 
 	static JSFunctionSpec st_funcs[] = {
@@ -34357,6 +36032,18 @@ extern JSObject *jsb_CCTransitionSlideInL_prototype;
 void js_cocos2dx_CCTransitionSlideInR_finalize(JSFreeOp *fop, JSObject *obj) {
 }
 
+static JSBool js_cocos2dx_CCTransitionSlideInR_ctor(JSContext *cx, uint32_t argc, jsval *vp)
+{
+	JSObject *obj = JS_THIS_OBJECT(cx, vp);
+    cocos2d::CCTransitionSlideInR *nobj = new cocos2d::CCTransitionSlideInR();
+    js_proxy_t* p;
+    JS_NEW_PROXY(p, nobj, obj);
+    nobj->autorelease();
+    JS_AddNamedObjectRoot(cx, &p->obj, "cocos2d::CCTransitionSlideInR");
+    JS_SET_RVAL(cx, vp, JSVAL_VOID);
+    return JS_TRUE;
+}
+
 void js_register_cocos2dx_CCTransitionSlideInR(JSContext *cx, JSObject *global) {
 	jsb_CCTransitionSlideInR_class = (JSClass *)calloc(1, sizeof(JSClass));
 	jsb_CCTransitionSlideInR_class->name = "TransitionSlideInR";
@@ -34375,7 +36062,8 @@ void js_register_cocos2dx_CCTransitionSlideInR(JSContext *cx, JSObject *global) 
 	static JSFunctionSpec funcs[] = {
 		JS_FN("action", js_cocos2dx_CCTransitionSlideInR_action, 0, JSPROP_PERMANENT | JSPROP_ENUMERATE),
 		JS_FN("initScenes", js_cocos2dx_CCTransitionSlideInR_initScenes, 0, JSPROP_PERMANENT | JSPROP_ENUMERATE),
-		JS_FS_END
+        JS_FN("ctor", js_cocos2dx_CCTransitionSlideInR_ctor, 0, JSPROP_PERMANENT | JSPROP_ENUMERATE),
+        JS_FS_END
 	};
 
 	static JSFunctionSpec st_funcs[] = {
@@ -34520,6 +36208,18 @@ extern JSObject *jsb_CCTransitionSlideInL_prototype;
 void js_cocos2dx_CCTransitionSlideInB_finalize(JSFreeOp *fop, JSObject *obj) {
 }
 
+static JSBool js_cocos2dx_CCTransitionSlideInB_ctor(JSContext *cx, uint32_t argc, jsval *vp)
+{
+	JSObject *obj = JS_THIS_OBJECT(cx, vp);
+    cocos2d::CCTransitionSlideInB *nobj = new cocos2d::CCTransitionSlideInB();
+    js_proxy_t* p;
+    JS_NEW_PROXY(p, nobj, obj);
+    nobj->autorelease();
+    JS_AddNamedObjectRoot(cx, &p->obj, "cocos2d::CCTransitionSlideInB");
+    JS_SET_RVAL(cx, vp, JSVAL_VOID);
+    return JS_TRUE;
+}
+
 void js_register_cocos2dx_CCTransitionSlideInB(JSContext *cx, JSObject *global) {
 	jsb_CCTransitionSlideInB_class = (JSClass *)calloc(1, sizeof(JSClass));
 	jsb_CCTransitionSlideInB_class->name = "TransitionSlideInB";
@@ -34538,7 +36238,8 @@ void js_register_cocos2dx_CCTransitionSlideInB(JSContext *cx, JSObject *global) 
 	static JSFunctionSpec funcs[] = {
 		JS_FN("action", js_cocos2dx_CCTransitionSlideInB_action, 0, JSPROP_PERMANENT | JSPROP_ENUMERATE),
 		JS_FN("initScenes", js_cocos2dx_CCTransitionSlideInB_initScenes, 0, JSPROP_PERMANENT | JSPROP_ENUMERATE),
-		JS_FS_END
+        JS_FN("ctor", js_cocos2dx_CCTransitionSlideInB_ctor, 0, JSPROP_PERMANENT | JSPROP_ENUMERATE),
+        JS_FS_END
 	};
 
 	static JSFunctionSpec st_funcs[] = {
@@ -34683,6 +36384,18 @@ extern JSObject *jsb_CCTransitionSlideInL_prototype;
 void js_cocos2dx_CCTransitionSlideInT_finalize(JSFreeOp *fop, JSObject *obj) {
 }
 
+static JSBool js_cocos2dx_CCTransitionSlideInT_ctor(JSContext *cx, uint32_t argc, jsval *vp)
+{
+	JSObject *obj = JS_THIS_OBJECT(cx, vp);
+    cocos2d::CCTransitionSlideInT *nobj = new cocos2d::CCTransitionSlideInT();
+    js_proxy_t* p;
+    JS_NEW_PROXY(p, nobj, obj);
+    nobj->autorelease();
+    JS_AddNamedObjectRoot(cx, &p->obj, "cocos2d::CCTransitionSlideInT");
+    JS_SET_RVAL(cx, vp, JSVAL_VOID);
+    return JS_TRUE;
+}
+
 void js_register_cocos2dx_CCTransitionSlideInT(JSContext *cx, JSObject *global) {
 	jsb_CCTransitionSlideInT_class = (JSClass *)calloc(1, sizeof(JSClass));
 	jsb_CCTransitionSlideInT_class->name = "TransitionSlideInT";
@@ -34701,7 +36414,8 @@ void js_register_cocos2dx_CCTransitionSlideInT(JSContext *cx, JSObject *global) 
 	static JSFunctionSpec funcs[] = {
 		JS_FN("action", js_cocos2dx_CCTransitionSlideInT_action, 0, JSPROP_PERMANENT | JSPROP_ENUMERATE),
 		JS_FN("initScenes", js_cocos2dx_CCTransitionSlideInT_initScenes, 0, JSPROP_PERMANENT | JSPROP_ENUMERATE),
-		JS_FS_END
+        JS_FN("ctor", js_cocos2dx_CCTransitionSlideInT_ctor, 0, JSPROP_PERMANENT | JSPROP_ENUMERATE),
+        JS_FS_END
 	};
 
 	static JSFunctionSpec st_funcs[] = {
@@ -34842,6 +36556,18 @@ extern JSObject *jsb_CCTransitionScene_prototype;
 void js_cocos2dx_CCTransitionShrinkGrow_finalize(JSFreeOp *fop, JSObject *obj) {
 }
 
+static JSBool js_cocos2dx_CCTransitionShrinkGrow_ctor(JSContext *cx, uint32_t argc, jsval *vp)
+{
+	JSObject *obj = JS_THIS_OBJECT(cx, vp);
+    cocos2d::CCTransitionShrinkGrow *nobj = new cocos2d::CCTransitionShrinkGrow();
+    js_proxy_t* p;
+    JS_NEW_PROXY(p, nobj, obj);
+    nobj->autorelease();
+    JS_AddNamedObjectRoot(cx, &p->obj, "cocos2d::CCTransitionShrinkGrow");
+    JS_SET_RVAL(cx, vp, JSVAL_VOID);
+    return JS_TRUE;
+}
+
 void js_register_cocos2dx_CCTransitionShrinkGrow(JSContext *cx, JSObject *global) {
 	jsb_CCTransitionShrinkGrow_class = (JSClass *)calloc(1, sizeof(JSClass));
 	jsb_CCTransitionShrinkGrow_class->name = "TransitionShrinkGrow";
@@ -34859,7 +36585,8 @@ void js_register_cocos2dx_CCTransitionShrinkGrow(JSContext *cx, JSObject *global
 
 	static JSFunctionSpec funcs[] = {
 		JS_FN("easeActionWithAction", js_cocos2dx_CCTransitionShrinkGrow_easeActionWithAction, 1, JSPROP_PERMANENT | JSPROP_ENUMERATE),
-		JS_FS_END
+        JS_FN("ctor", js_cocos2dx_CCTransitionShrinkGrow_ctor, 0, JSPROP_PERMANENT | JSPROP_ENUMERATE),
+        JS_FS_END
 	};
 
 	static JSFunctionSpec st_funcs[] = {
@@ -34998,6 +36725,18 @@ JSBool js_cocos2dx_CCTransitionFlipX_constructor(JSContext *cx, uint32_t argc, j
 extern JSObject *jsb_CCTransitionSceneOriented_prototype;
 
 void js_cocos2dx_CCTransitionFlipX_finalize(JSFreeOp *fop, JSObject *obj) {
+}
+
+static JSBool js_cocos2dx_CCTransitionFlipX_ctor(JSContext *cx, uint32_t argc, jsval *vp)
+{
+	JSObject *obj = JS_THIS_OBJECT(cx, vp);
+    cocos2d::CCTransitionFlipX *nobj = new cocos2d::CCTransitionFlipX();
+    js_proxy_t* p;
+    JS_NEW_PROXY(p, nobj, obj);
+    nobj->autorelease();
+    JS_AddNamedObjectRoot(cx, &p->obj, "cocos2d::CCTransitionFlipX");
+    JS_SET_RVAL(cx, vp, JSVAL_VOID);
+    return JS_TRUE;
 }
 
 void js_register_cocos2dx_CCTransitionFlipX(JSContext *cx, JSObject *global) {
@@ -35155,6 +36894,18 @@ extern JSObject *jsb_CCTransitionSceneOriented_prototype;
 void js_cocos2dx_CCTransitionFlipY_finalize(JSFreeOp *fop, JSObject *obj) {
 }
 
+static JSBool js_cocos2dx_CCTransitionFlipY_ctor(JSContext *cx, uint32_t argc, jsval *vp)
+{
+	JSObject *obj = JS_THIS_OBJECT(cx, vp);
+    cocos2d::CCTransitionFlipY *nobj = new cocos2d::CCTransitionFlipY();
+    js_proxy_t* p;
+    JS_NEW_PROXY(p, nobj, obj);
+    nobj->autorelease();
+    JS_AddNamedObjectRoot(cx, &p->obj, "cocos2d::CCTransitionFlipY");
+    JS_SET_RVAL(cx, vp, JSVAL_VOID);
+    return JS_TRUE;
+}
+
 void js_register_cocos2dx_CCTransitionFlipY(JSContext *cx, JSObject *global) {
 	jsb_CCTransitionFlipY_class = (JSClass *)calloc(1, sizeof(JSClass));
 	jsb_CCTransitionFlipY_class->name = "TransitionFlipY";
@@ -35308,6 +37059,18 @@ JSBool js_cocos2dx_CCTransitionFlipAngular_constructor(JSContext *cx, uint32_t a
 extern JSObject *jsb_CCTransitionSceneOriented_prototype;
 
 void js_cocos2dx_CCTransitionFlipAngular_finalize(JSFreeOp *fop, JSObject *obj) {
+}
+
+static JSBool js_cocos2dx_CCTransitionFlipAngular_ctor(JSContext *cx, uint32_t argc, jsval *vp)
+{
+	JSObject *obj = JS_THIS_OBJECT(cx, vp);
+    cocos2d::CCTransitionFlipAngular *nobj = new cocos2d::CCTransitionFlipAngular();
+    js_proxy_t* p;
+    JS_NEW_PROXY(p, nobj, obj);
+    nobj->autorelease();
+    JS_AddNamedObjectRoot(cx, &p->obj, "cocos2d::CCTransitionFlipAngular");
+    JS_SET_RVAL(cx, vp, JSVAL_VOID);
+    return JS_TRUE;
 }
 
 void js_register_cocos2dx_CCTransitionFlipAngular(JSContext *cx, JSObject *global) {
@@ -35465,6 +37228,18 @@ extern JSObject *jsb_CCTransitionSceneOriented_prototype;
 void js_cocos2dx_CCTransitionZoomFlipX_finalize(JSFreeOp *fop, JSObject *obj) {
 }
 
+static JSBool js_cocos2dx_CCTransitionZoomFlipX_ctor(JSContext *cx, uint32_t argc, jsval *vp)
+{
+	JSObject *obj = JS_THIS_OBJECT(cx, vp);
+    cocos2d::CCTransitionZoomFlipX *nobj = new cocos2d::CCTransitionZoomFlipX();
+    js_proxy_t* p;
+    JS_NEW_PROXY(p, nobj, obj);
+    nobj->autorelease();
+    JS_AddNamedObjectRoot(cx, &p->obj, "cocos2d::CCTransitionZoomFlipX");
+    JS_SET_RVAL(cx, vp, JSVAL_VOID);
+    return JS_TRUE;
+}
+
 void js_register_cocos2dx_CCTransitionZoomFlipX(JSContext *cx, JSObject *global) {
 	jsb_CCTransitionZoomFlipX_class = (JSClass *)calloc(1, sizeof(JSClass));
 	jsb_CCTransitionZoomFlipX_class->name = "TransitionZoomFlipX";
@@ -35620,6 +37395,18 @@ extern JSObject *jsb_CCTransitionSceneOriented_prototype;
 void js_cocos2dx_CCTransitionZoomFlipY_finalize(JSFreeOp *fop, JSObject *obj) {
 }
 
+static JSBool js_cocos2dx_CCTransitionZoomFlipY_ctor(JSContext *cx, uint32_t argc, jsval *vp)
+{
+	JSObject *obj = JS_THIS_OBJECT(cx, vp);
+    cocos2d::CCTransitionZoomFlipY *nobj = new cocos2d::CCTransitionZoomFlipY();
+    js_proxy_t* p;
+    JS_NEW_PROXY(p, nobj, obj);
+    nobj->autorelease();
+    JS_AddNamedObjectRoot(cx, &p->obj, "cocos2d::CCTransitionZoomFlipY");
+    JS_SET_RVAL(cx, vp, JSVAL_VOID);
+    return JS_TRUE;
+}
+
 void js_register_cocos2dx_CCTransitionZoomFlipY(JSContext *cx, JSObject *global) {
 	jsb_CCTransitionZoomFlipY_class = (JSClass *)calloc(1, sizeof(JSClass));
 	jsb_CCTransitionZoomFlipY_class->name = "TransitionZoomFlipY";
@@ -35773,6 +37560,18 @@ JSBool js_cocos2dx_CCTransitionZoomFlipAngular_constructor(JSContext *cx, uint32
 extern JSObject *jsb_CCTransitionSceneOriented_prototype;
 
 void js_cocos2dx_CCTransitionZoomFlipAngular_finalize(JSFreeOp *fop, JSObject *obj) {
+}
+
+static JSBool js_cocos2dx_CCTransitionZoomFlipAngular_ctor(JSContext *cx, uint32_t argc, jsval *vp)
+{
+	JSObject *obj = JS_THIS_OBJECT(cx, vp);
+    cocos2d::CCTransitionZoomFlipAngular *nobj = new cocos2d::CCTransitionZoomFlipAngular();
+    js_proxy_t* p;
+    JS_NEW_PROXY(p, nobj, obj);
+    nobj->autorelease();
+    JS_AddNamedObjectRoot(cx, &p->obj, "cocos2d::CCTransitionZoomFlipAngular");
+    JS_SET_RVAL(cx, vp, JSVAL_VOID);
+    return JS_TRUE;
 }
 
 void js_register_cocos2dx_CCTransitionZoomFlipAngular(JSContext *cx, JSObject *global) {
@@ -35989,6 +37788,18 @@ extern JSObject *jsb_CCTransitionScene_prototype;
 void js_cocos2dx_CCTransitionFade_finalize(JSFreeOp *fop, JSObject *obj) {
 }
 
+static JSBool js_cocos2dx_CCTransitionFade_ctor(JSContext *cx, uint32_t argc, jsval *vp)
+{
+	JSObject *obj = JS_THIS_OBJECT(cx, vp);
+    cocos2d::CCTransitionFade *nobj = new cocos2d::CCTransitionFade();
+    js_proxy_t* p;
+    JS_NEW_PROXY(p, nobj, obj);
+    nobj->autorelease();
+    JS_AddNamedObjectRoot(cx, &p->obj, "cocos2d::CCTransitionFade");
+    JS_SET_RVAL(cx, vp, JSVAL_VOID);
+    return JS_TRUE;
+}
+
 void js_register_cocos2dx_CCTransitionFade(JSContext *cx, JSObject *global) {
 	jsb_CCTransitionFade_class = (JSClass *)calloc(1, sizeof(JSClass));
 	jsb_CCTransitionFade_class->name = "TransitionFade";
@@ -36008,7 +37819,8 @@ void js_register_cocos2dx_CCTransitionFade(JSContext *cx, JSObject *global) {
 
 	static JSFunctionSpec funcs[] = {
 		JS_FN("initWithDuration", js_cocos2dx_CCTransitionFade_initWithDuration, 2, JSPROP_PERMANENT | JSPROP_ENUMERATE),
-		JS_FS_END
+        JS_FN("ctor", js_cocos2dx_CCTransitionFade_ctor, 0, JSPROP_PERMANENT | JSPROP_ENUMERATE),
+        JS_FS_END
 	};
 
 	static JSFunctionSpec st_funcs[] = {
@@ -36129,6 +37941,18 @@ extern JSObject *jsb_CCTransitionScene_prototype;
 void js_cocos2dx_CCTransitionCrossFade_finalize(JSFreeOp *fop, JSObject *obj) {
 }
 
+static JSBool js_cocos2dx_CCTransitionCrossFade_ctor(JSContext *cx, uint32_t argc, jsval *vp)
+{
+	JSObject *obj = JS_THIS_OBJECT(cx, vp);
+    cocos2d::CCTransitionCrossFade *nobj = new cocos2d::CCTransitionCrossFade();
+    js_proxy_t* p;
+    JS_NEW_PROXY(p, nobj, obj);
+    nobj->autorelease();
+    JS_AddNamedObjectRoot(cx, &p->obj, "cocos2d::CCTransitionCrossFade");
+    JS_SET_RVAL(cx, vp, JSVAL_VOID);
+    return JS_TRUE;
+}
+
 void js_register_cocos2dx_CCTransitionCrossFade(JSContext *cx, JSObject *global) {
 	jsb_CCTransitionCrossFade_class = (JSClass *)calloc(1, sizeof(JSClass));
 	jsb_CCTransitionCrossFade_class->name = "TransitionCrossFade";
@@ -36146,7 +37970,8 @@ void js_register_cocos2dx_CCTransitionCrossFade(JSContext *cx, JSObject *global)
 
 	static JSFunctionSpec funcs[] = {
 		JS_FN("draw", js_cocos2dx_CCTransitionCrossFade_draw, 0, JSPROP_PERMANENT | JSPROP_ENUMERATE),
-		JS_FS_END
+        JS_FN("ctor", js_cocos2dx_CCTransitionCrossFade_ctor, 0, JSPROP_PERMANENT | JSPROP_ENUMERATE),
+        JS_FS_END
 	};
 
 	static JSFunctionSpec st_funcs[] = {
@@ -36287,6 +38112,18 @@ extern JSObject *jsb_CCTransitionScene_prototype;
 void js_cocos2dx_CCTransitionTurnOffTiles_finalize(JSFreeOp *fop, JSObject *obj) {
 }
 
+static JSBool js_cocos2dx_CCTransitionTurnOffTiles_ctor(JSContext *cx, uint32_t argc, jsval *vp)
+{
+	JSObject *obj = JS_THIS_OBJECT(cx, vp);
+    cocos2d::CCTransitionTurnOffTiles *nobj = new cocos2d::CCTransitionTurnOffTiles();
+    js_proxy_t* p;
+    JS_NEW_PROXY(p, nobj, obj);
+    nobj->autorelease();
+    JS_AddNamedObjectRoot(cx, &p->obj, "cocos2d::CCTransitionTurnOffTiles");
+    JS_SET_RVAL(cx, vp, JSVAL_VOID);
+    return JS_TRUE;
+}
+
 void js_register_cocos2dx_CCTransitionTurnOffTiles(JSContext *cx, JSObject *global) {
 	jsb_CCTransitionTurnOffTiles_class = (JSClass *)calloc(1, sizeof(JSClass));
 	jsb_CCTransitionTurnOffTiles_class->name = "TransitionTurnOffTiles";
@@ -36304,7 +38141,8 @@ void js_register_cocos2dx_CCTransitionTurnOffTiles(JSContext *cx, JSObject *glob
 
 	static JSFunctionSpec funcs[] = {
 		JS_FN("easeActionWithAction", js_cocos2dx_CCTransitionTurnOffTiles_easeActionWithAction, 1, JSPROP_PERMANENT | JSPROP_ENUMERATE),
-		JS_FS_END
+        JS_FN("ctor", js_cocos2dx_CCTransitionTurnOffTiles_ctor, 0, JSPROP_PERMANENT | JSPROP_ENUMERATE),
+        JS_FS_END
 	};
 
 	static JSFunctionSpec st_funcs[] = {
@@ -36469,6 +38307,18 @@ extern JSObject *jsb_CCTransitionScene_prototype;
 void js_cocos2dx_CCTransitionSplitCols_finalize(JSFreeOp *fop, JSObject *obj) {
 }
 
+static JSBool js_cocos2dx_CCTransitionSplitCols_ctor(JSContext *cx, uint32_t argc, jsval *vp)
+{
+	JSObject *obj = JS_THIS_OBJECT(cx, vp);
+    cocos2d::CCTransitionSplitCols *nobj = new cocos2d::CCTransitionSplitCols();
+    js_proxy_t* p;
+    JS_NEW_PROXY(p, nobj, obj);
+    nobj->autorelease();
+    JS_AddNamedObjectRoot(cx, &p->obj, "cocos2d::CCTransitionSplitCols");
+    JS_SET_RVAL(cx, vp, JSVAL_VOID);
+    return JS_TRUE;
+}
+
 void js_register_cocos2dx_CCTransitionSplitCols(JSContext *cx, JSObject *global) {
 	jsb_CCTransitionSplitCols_class = (JSClass *)calloc(1, sizeof(JSClass));
 	jsb_CCTransitionSplitCols_class->name = "TransitionSplitCols";
@@ -36487,7 +38337,8 @@ void js_register_cocos2dx_CCTransitionSplitCols(JSContext *cx, JSObject *global)
 	static JSFunctionSpec funcs[] = {
 		JS_FN("action", js_cocos2dx_CCTransitionSplitCols_action, 0, JSPROP_PERMANENT | JSPROP_ENUMERATE),
 		JS_FN("easeActionWithAction", js_cocos2dx_CCTransitionSplitCols_easeActionWithAction, 1, JSPROP_PERMANENT | JSPROP_ENUMERATE),
-		JS_FS_END
+        JS_FN("ctor", js_cocos2dx_CCTransitionSplitCols_ctor, 0, JSPROP_PERMANENT | JSPROP_ENUMERATE),
+        JS_FS_END
 	};
 
 	static JSFunctionSpec st_funcs[] = {
@@ -36617,6 +38468,18 @@ extern JSObject *jsb_CCTransitionSplitCols_prototype;
 void js_cocos2dx_CCTransitionSplitRows_finalize(JSFreeOp *fop, JSObject *obj) {
 }
 
+static JSBool js_cocos2dx_CCTransitionSplitRows_ctor(JSContext *cx, uint32_t argc, jsval *vp)
+{
+	JSObject *obj = JS_THIS_OBJECT(cx, vp);
+    cocos2d::CCTransitionSplitRows *nobj = new cocos2d::CCTransitionSplitRows();
+    js_proxy_t* p;
+    JS_NEW_PROXY(p, nobj, obj);
+    nobj->autorelease();
+    JS_AddNamedObjectRoot(cx, &p->obj, "cocos2d::CCTransitionSplitRows");
+    JS_SET_RVAL(cx, vp, JSVAL_VOID);
+    return JS_TRUE;
+}
+
 void js_register_cocos2dx_CCTransitionSplitRows(JSContext *cx, JSObject *global) {
 	jsb_CCTransitionSplitRows_class = (JSClass *)calloc(1, sizeof(JSClass));
 	jsb_CCTransitionSplitRows_class->name = "TransitionSplitRows";
@@ -36634,7 +38497,8 @@ void js_register_cocos2dx_CCTransitionSplitRows(JSContext *cx, JSObject *global)
 
 	static JSFunctionSpec funcs[] = {
 		JS_FN("action", js_cocos2dx_CCTransitionSplitRows_action, 0, JSPROP_PERMANENT | JSPROP_ENUMERATE),
-		JS_FS_END
+        JS_FN("ctor", js_cocos2dx_CCTransitionSplitRows_ctor, 0, JSPROP_PERMANENT | JSPROP_ENUMERATE),
+        JS_FS_END
 	};
 
 	static JSFunctionSpec st_funcs[] = {
@@ -36804,6 +38668,18 @@ extern JSObject *jsb_CCTransitionScene_prototype;
 void js_cocos2dx_CCTransitionFadeTR_finalize(JSFreeOp *fop, JSObject *obj) {
 }
 
+static JSBool js_cocos2dx_CCTransitionFadeTR_ctor(JSContext *cx, uint32_t argc, jsval *vp)
+{
+	JSObject *obj = JS_THIS_OBJECT(cx, vp);
+    cocos2d::CCTransitionFadeTR *nobj = new cocos2d::CCTransitionFadeTR();
+    js_proxy_t* p;
+    JS_NEW_PROXY(p, nobj, obj);
+    nobj->autorelease();
+    JS_AddNamedObjectRoot(cx, &p->obj, "cocos2d::CCTransitionFadeTR");
+    JS_SET_RVAL(cx, vp, JSVAL_VOID);
+    return JS_TRUE;
+}
+
 void js_register_cocos2dx_CCTransitionFadeTR(JSContext *cx, JSObject *global) {
 	jsb_CCTransitionFadeTR_class = (JSClass *)calloc(1, sizeof(JSClass));
 	jsb_CCTransitionFadeTR_class->name = "TransitionFadeTR";
@@ -36822,7 +38698,8 @@ void js_register_cocos2dx_CCTransitionFadeTR(JSContext *cx, JSObject *global) {
 	static JSFunctionSpec funcs[] = {
 		JS_FN("easeActionWithAction", js_cocos2dx_CCTransitionFadeTR_easeActionWithAction, 1, JSPROP_PERMANENT | JSPROP_ENUMERATE),
 		JS_FN("actionWithSize", js_cocos2dx_CCTransitionFadeTR_actionWithSize, 1, JSPROP_PERMANENT | JSPROP_ENUMERATE),
-		JS_FS_END
+        JS_FN("ctor", js_cocos2dx_CCTransitionFadeTR_ctor, 0, JSPROP_PERMANENT | JSPROP_ENUMERATE),
+        JS_FS_END
 	};
 
 	static JSFunctionSpec st_funcs[] = {
@@ -36957,6 +38834,18 @@ extern JSObject *jsb_CCTransitionFadeTR_prototype;
 void js_cocos2dx_CCTransitionFadeBL_finalize(JSFreeOp *fop, JSObject *obj) {
 }
 
+static JSBool js_cocos2dx_CCTransitionFadeBL_ctor(JSContext *cx, uint32_t argc, jsval *vp)
+{
+	JSObject *obj = JS_THIS_OBJECT(cx, vp);
+    cocos2d::CCTransitionFadeBL *nobj = new cocos2d::CCTransitionFadeBL();
+    js_proxy_t* p;
+    JS_NEW_PROXY(p, nobj, obj);
+    nobj->autorelease();
+    JS_AddNamedObjectRoot(cx, &p->obj, "cocos2d::CCTransitionFadeBL");
+    JS_SET_RVAL(cx, vp, JSVAL_VOID);
+    return JS_TRUE;
+}
+
 void js_register_cocos2dx_CCTransitionFadeBL(JSContext *cx, JSObject *global) {
 	jsb_CCTransitionFadeBL_class = (JSClass *)calloc(1, sizeof(JSClass));
 	jsb_CCTransitionFadeBL_class->name = "TransitionFadeBL";
@@ -36974,7 +38863,8 @@ void js_register_cocos2dx_CCTransitionFadeBL(JSContext *cx, JSObject *global) {
 
 	static JSFunctionSpec funcs[] = {
 		JS_FN("actionWithSize", js_cocos2dx_CCTransitionFadeBL_actionWithSize, 1, JSPROP_PERMANENT | JSPROP_ENUMERATE),
-		JS_FS_END
+        JS_FN("ctor", js_cocos2dx_CCTransitionFadeBL_ctor, 0, JSPROP_PERMANENT | JSPROP_ENUMERATE),
+        JS_FS_END
 	};
 
 	static JSFunctionSpec st_funcs[] = {
@@ -37109,6 +38999,18 @@ extern JSObject *jsb_CCTransitionFadeTR_prototype;
 void js_cocos2dx_CCTransitionFadeUp_finalize(JSFreeOp *fop, JSObject *obj) {
 }
 
+static JSBool js_cocos2dx_CCTransitionFadeUp_ctor(JSContext *cx, uint32_t argc, jsval *vp)
+{
+	JSObject *obj = JS_THIS_OBJECT(cx, vp);
+    cocos2d::CCTransitionFadeUp *nobj = new cocos2d::CCTransitionFadeUp();
+    js_proxy_t* p;
+    JS_NEW_PROXY(p, nobj, obj);
+    nobj->autorelease();
+    JS_AddNamedObjectRoot(cx, &p->obj, "cocos2d::CCTransitionFadeUp");
+    JS_SET_RVAL(cx, vp, JSVAL_VOID);
+    return JS_TRUE;
+}
+
 void js_register_cocos2dx_CCTransitionFadeUp(JSContext *cx, JSObject *global) {
 	jsb_CCTransitionFadeUp_class = (JSClass *)calloc(1, sizeof(JSClass));
 	jsb_CCTransitionFadeUp_class->name = "TransitionFadeUp";
@@ -37126,7 +39028,8 @@ void js_register_cocos2dx_CCTransitionFadeUp(JSContext *cx, JSObject *global) {
 
 	static JSFunctionSpec funcs[] = {
 		JS_FN("actionWithSize", js_cocos2dx_CCTransitionFadeUp_actionWithSize, 1, JSPROP_PERMANENT | JSPROP_ENUMERATE),
-		JS_FS_END
+        JS_FN("ctor", js_cocos2dx_CCTransitionFadeUp_ctor, 0, JSPROP_PERMANENT | JSPROP_ENUMERATE),
+        JS_FS_END
 	};
 
 	static JSFunctionSpec st_funcs[] = {
@@ -37261,6 +39164,18 @@ extern JSObject *jsb_CCTransitionFadeTR_prototype;
 void js_cocos2dx_CCTransitionFadeDown_finalize(JSFreeOp *fop, JSObject *obj) {
 }
 
+static JSBool js_cocos2dx_CCTransitionFadeDown_ctor(JSContext *cx, uint32_t argc, jsval *vp)
+{
+	JSObject *obj = JS_THIS_OBJECT(cx, vp);
+    cocos2d::CCTransitionFadeDown *nobj = new cocos2d::CCTransitionFadeDown();
+    js_proxy_t* p;
+    JS_NEW_PROXY(p, nobj, obj);
+    nobj->autorelease();
+    JS_AddNamedObjectRoot(cx, &p->obj, "cocos2d::CCTransitionFadeDown");
+    JS_SET_RVAL(cx, vp, JSVAL_VOID);
+    return JS_TRUE;
+}
+
 void js_register_cocos2dx_CCTransitionFadeDown(JSContext *cx, JSObject *global) {
 	jsb_CCTransitionFadeDown_class = (JSClass *)calloc(1, sizeof(JSClass));
 	jsb_CCTransitionFadeDown_class->name = "TransitionFadeDown";
@@ -37278,7 +39193,8 @@ void js_register_cocos2dx_CCTransitionFadeDown(JSContext *cx, JSObject *global) 
 
 	static JSFunctionSpec funcs[] = {
 		JS_FN("actionWithSize", js_cocos2dx_CCTransitionFadeDown_actionWithSize, 1, JSPROP_PERMANENT | JSPROP_ENUMERATE),
-		JS_FS_END
+        JS_FN("ctor", js_cocos2dx_CCTransitionFadeDown_ctor, 0, JSPROP_PERMANENT | JSPROP_ENUMERATE),
+        JS_FS_END
 	};
 
 	static JSFunctionSpec st_funcs[] = {
@@ -37447,6 +39363,18 @@ extern JSObject *jsb_CCTransitionScene_prototype;
 void js_cocos2dx_CCTransitionPageTurn_finalize(JSFreeOp *fop, JSObject *obj) {
 }
 
+static JSBool js_cocos2dx_CCTransitionPageTurn_ctor(JSContext *cx, uint32_t argc, jsval *vp)
+{
+	JSObject *obj = JS_THIS_OBJECT(cx, vp);
+    cocos2d::CCTransitionPageTurn *nobj = new cocos2d::CCTransitionPageTurn();
+    js_proxy_t* p;
+    JS_NEW_PROXY(p, nobj, obj);
+    nobj->autorelease();
+    JS_AddNamedObjectRoot(cx, &p->obj, "cocos2d::CCTransitionPageTurn");
+    JS_SET_RVAL(cx, vp, JSVAL_VOID);
+    return JS_TRUE;
+}
+
 void js_register_cocos2dx_CCTransitionPageTurn(JSContext *cx, JSObject *global) {
 	jsb_CCTransitionPageTurn_class = (JSClass *)calloc(1, sizeof(JSClass));
 	jsb_CCTransitionPageTurn_class->name = "TransitionPageTurn";
@@ -37467,7 +39395,8 @@ void js_register_cocos2dx_CCTransitionPageTurn(JSContext *cx, JSObject *global) 
 	static JSFunctionSpec funcs[] = {
 		JS_FN("actionWithSize", js_cocos2dx_CCTransitionPageTurn_actionWithSize, 1, JSPROP_PERMANENT | JSPROP_ENUMERATE),
 		JS_FN("initWithDuration", js_cocos2dx_CCTransitionPageTurn_initWithDuration, 3, JSPROP_PERMANENT | JSPROP_ENUMERATE),
-		JS_FS_END
+        JS_FN("ctor", js_cocos2dx_CCTransitionPageTurn_ctor, 0, JSPROP_PERMANENT | JSPROP_ENUMERATE),
+        JS_FS_END
 	};
 
 	static JSFunctionSpec st_funcs[] = {
@@ -37573,6 +39502,18 @@ extern JSObject *jsb_CCTransitionScene_prototype;
 void js_cocos2dx_CCTransitionProgress_finalize(JSFreeOp *fop, JSObject *obj) {
 }
 
+static JSBool js_cocos2dx_CCTransitionProgress_ctor(JSContext *cx, uint32_t argc, jsval *vp)
+{
+	JSObject *obj = JS_THIS_OBJECT(cx, vp);
+    cocos2d::CCTransitionProgress *nobj = new cocos2d::CCTransitionProgress();
+    js_proxy_t* p;
+    JS_NEW_PROXY(p, nobj, obj);
+    nobj->autorelease();
+    JS_AddNamedObjectRoot(cx, &p->obj, "cocos2d::CCTransitionProgress");
+    JS_SET_RVAL(cx, vp, JSVAL_VOID);
+    return JS_TRUE;
+}
+
 void js_register_cocos2dx_CCTransitionProgress(JSContext *cx, JSObject *global) {
 	jsb_CCTransitionProgress_class = (JSClass *)calloc(1, sizeof(JSClass));
 	jsb_CCTransitionProgress_class->name = "TransitionProgress";
@@ -37669,6 +39610,18 @@ extern JSObject *jsb_CCTransitionProgress_prototype;
 void js_cocos2dx_CCTransitionProgressRadialCCW_finalize(JSFreeOp *fop, JSObject *obj) {
 }
 
+static JSBool js_cocos2dx_CCTransitionProgressRadialCCW_ctor(JSContext *cx, uint32_t argc, jsval *vp)
+{
+	JSObject *obj = JS_THIS_OBJECT(cx, vp);
+    cocos2d::CCTransitionProgressRadialCCW *nobj = new cocos2d::CCTransitionProgressRadialCCW();
+    js_proxy_t* p;
+    JS_NEW_PROXY(p, nobj, obj);
+    nobj->autorelease();
+    JS_AddNamedObjectRoot(cx, &p->obj, "cocos2d::CCTransitionProgressRadialCCW");
+    JS_SET_RVAL(cx, vp, JSVAL_VOID);
+    return JS_TRUE;
+}
+
 void js_register_cocos2dx_CCTransitionProgressRadialCCW(JSContext *cx, JSObject *global) {
 	jsb_CCTransitionProgressRadialCCW_class = (JSClass *)calloc(1, sizeof(JSClass));
 	jsb_CCTransitionProgressRadialCCW_class->name = "TransitionProgressRadialCCW";
@@ -37761,6 +39714,18 @@ JSBool js_cocos2dx_CCTransitionProgressRadialCW_create(JSContext *cx, uint32_t a
 extern JSObject *jsb_CCTransitionProgress_prototype;
 
 void js_cocos2dx_CCTransitionProgressRadialCW_finalize(JSFreeOp *fop, JSObject *obj) {
+}
+
+static JSBool js_cocos2dx_CCTransitionProgressRadialCW_ctor(JSContext *cx, uint32_t argc, jsval *vp)
+{
+	JSObject *obj = JS_THIS_OBJECT(cx, vp);
+    cocos2d::CCTransitionProgressRadialCW *nobj = new cocos2d::CCTransitionProgressRadialCW();
+    js_proxy_t* p;
+    JS_NEW_PROXY(p, nobj, obj);
+    nobj->autorelease();
+    JS_AddNamedObjectRoot(cx, &p->obj, "cocos2d::CCTransitionProgressRadialCW");
+    JS_SET_RVAL(cx, vp, JSVAL_VOID);
+    return JS_TRUE;
 }
 
 void js_register_cocos2dx_CCTransitionProgressRadialCW(JSContext *cx, JSObject *global) {
@@ -37857,6 +39822,18 @@ extern JSObject *jsb_CCTransitionProgress_prototype;
 void js_cocos2dx_CCTransitionProgressHorizontal_finalize(JSFreeOp *fop, JSObject *obj) {
 }
 
+static JSBool js_cocos2dx_CCTransitionProgressHorizontal_ctor(JSContext *cx, uint32_t argc, jsval *vp)
+{
+	JSObject *obj = JS_THIS_OBJECT(cx, vp);
+    cocos2d::CCTransitionProgressHorizontal *nobj = new cocos2d::CCTransitionProgressHorizontal();
+    js_proxy_t* p;
+    JS_NEW_PROXY(p, nobj, obj);
+    nobj->autorelease();
+    JS_AddNamedObjectRoot(cx, &p->obj, "cocos2d::CCTransitionProgressHorizontal");
+    JS_SET_RVAL(cx, vp, JSVAL_VOID);
+    return JS_TRUE;
+}
+
 void js_register_cocos2dx_CCTransitionProgressHorizontal(JSContext *cx, JSObject *global) {
 	jsb_CCTransitionProgressHorizontal_class = (JSClass *)calloc(1, sizeof(JSClass));
 	jsb_CCTransitionProgressHorizontal_class->name = "TransitionProgressHorizontal";
@@ -37949,6 +39926,18 @@ JSBool js_cocos2dx_CCTransitionProgressVertical_create(JSContext *cx, uint32_t a
 extern JSObject *jsb_CCTransitionProgress_prototype;
 
 void js_cocos2dx_CCTransitionProgressVertical_finalize(JSFreeOp *fop, JSObject *obj) {
+}
+
+static JSBool js_cocos2dx_CCTransitionProgressVertical_ctor(JSContext *cx, uint32_t argc, jsval *vp)
+{
+	JSObject *obj = JS_THIS_OBJECT(cx, vp);
+    cocos2d::CCTransitionProgressVertical *nobj = new cocos2d::CCTransitionProgressVertical();
+    js_proxy_t* p;
+    JS_NEW_PROXY(p, nobj, obj);
+    nobj->autorelease();
+    JS_AddNamedObjectRoot(cx, &p->obj, "cocos2d::CCTransitionProgressVertical");
+    JS_SET_RVAL(cx, vp, JSVAL_VOID);
+    return JS_TRUE;
 }
 
 void js_register_cocos2dx_CCTransitionProgressVertical(JSContext *cx, JSObject *global) {
@@ -38045,6 +40034,18 @@ extern JSObject *jsb_CCTransitionProgress_prototype;
 void js_cocos2dx_CCTransitionProgressInOut_finalize(JSFreeOp *fop, JSObject *obj) {
 }
 
+static JSBool js_cocos2dx_CCTransitionProgressInOut_ctor(JSContext *cx, uint32_t argc, jsval *vp)
+{
+	JSObject *obj = JS_THIS_OBJECT(cx, vp);
+    cocos2d::CCTransitionProgressInOut *nobj = new cocos2d::CCTransitionProgressInOut();
+    js_proxy_t* p;
+    JS_NEW_PROXY(p, nobj, obj);
+    nobj->autorelease();
+    JS_AddNamedObjectRoot(cx, &p->obj, "cocos2d::CCTransitionProgressInOut");
+    JS_SET_RVAL(cx, vp, JSVAL_VOID);
+    return JS_TRUE;
+}
+
 void js_register_cocos2dx_CCTransitionProgressInOut(JSContext *cx, JSObject *global) {
 	jsb_CCTransitionProgressInOut_class = (JSClass *)calloc(1, sizeof(JSClass));
 	jsb_CCTransitionProgressInOut_class->name = "TransitionProgressInOut";
@@ -38137,6 +40138,18 @@ JSBool js_cocos2dx_CCTransitionProgressOutIn_create(JSContext *cx, uint32_t argc
 extern JSObject *jsb_CCTransitionProgress_prototype;
 
 void js_cocos2dx_CCTransitionProgressOutIn_finalize(JSFreeOp *fop, JSObject *obj) {
+}
+
+static JSBool js_cocos2dx_CCTransitionProgressOutIn_ctor(JSContext *cx, uint32_t argc, jsval *vp)
+{
+	JSObject *obj = JS_THIS_OBJECT(cx, vp);
+    cocos2d::CCTransitionProgressOutIn *nobj = new cocos2d::CCTransitionProgressOutIn();
+    js_proxy_t* p;
+    JS_NEW_PROXY(p, nobj, obj);
+    nobj->autorelease();
+    JS_AddNamedObjectRoot(cx, &p->obj, "cocos2d::CCTransitionProgressOutIn");
+    JS_SET_RVAL(cx, vp, JSVAL_VOID);
+    return JS_TRUE;
 }
 
 void js_register_cocos2dx_CCTransitionProgressOutIn(JSContext *cx, JSObject *global) {
@@ -38431,6 +40444,18 @@ extern JSObject *jsb_CCNodeRGBA_prototype;
 void js_cocos2dx_CCMenuItem_finalize(JSFreeOp *fop, JSObject *obj) {
 }
 
+static JSBool js_cocos2dx_CCMenuItem_ctor(JSContext *cx, uint32_t argc, jsval *vp)
+{
+	JSObject *obj = JS_THIS_OBJECT(cx, vp);
+    cocos2d::CCMenuItem *nobj = new cocos2d::CCMenuItem();
+    js_proxy_t* p;
+    JS_NEW_PROXY(p, nobj, obj);
+    nobj->autorelease();
+    JS_AddNamedObjectRoot(cx, &p->obj, "cocos2d::CCMenuItem");
+    JS_SET_RVAL(cx, vp, JSVAL_VOID);
+    return JS_TRUE;
+}
+
 void js_register_cocos2dx_CCMenuItem(JSContext *cx, JSObject *global) {
 	jsb_CCMenuItem_class = (JSClass *)calloc(1, sizeof(JSClass));
 	jsb_CCMenuItem_class->name = "MenuItem";
@@ -38461,7 +40486,8 @@ void js_register_cocos2dx_CCMenuItem(JSContext *cx, JSObject *global) {
 		JS_FN("registerScriptTapHandler", js_cocos2dx_CCMenuItem_registerScriptTapHandler, 1, JSPROP_PERMANENT | JSPROP_ENUMERATE),
 		JS_FN("unselected", js_cocos2dx_CCMenuItem_unselected, 0, JSPROP_PERMANENT | JSPROP_ENUMERATE),
 		JS_FN("rect", js_cocos2dx_CCMenuItem_rect, 0, JSPROP_PERMANENT | JSPROP_ENUMERATE),
-		JS_FS_END
+        JS_FN("ctor", js_cocos2dx_CCMenuItem_ctor, 0, JSPROP_PERMANENT | JSPROP_ENUMERATE),
+        JS_FS_END
 	};
 
 	JSFunctionSpec *st_funcs = NULL;
@@ -38703,6 +40729,18 @@ extern JSObject *jsb_CCMenuItem_prototype;
 void js_cocos2dx_CCMenuItemLabel_finalize(JSFreeOp *fop, JSObject *obj) {
 }
 
+static JSBool js_cocos2dx_CCMenuItemLabel_ctor(JSContext *cx, uint32_t argc, jsval *vp)
+{
+	JSObject *obj = JS_THIS_OBJECT(cx, vp);
+    cocos2d::CCMenuItemLabel *nobj = new cocos2d::CCMenuItemLabel();
+    js_proxy_t* p;
+    JS_NEW_PROXY(p, nobj, obj);
+    nobj->autorelease();
+    JS_AddNamedObjectRoot(cx, &p->obj, "cocos2d::CCMenuItemLabel");
+    JS_SET_RVAL(cx, vp, JSVAL_VOID);
+    return JS_TRUE;
+}
+
 void js_register_cocos2dx_CCMenuItemLabel(JSContext *cx, JSObject *global) {
 	jsb_CCMenuItemLabel_class = (JSClass *)calloc(1, sizeof(JSClass));
 	jsb_CCMenuItemLabel_class->name = "MenuItemLabel";
@@ -38730,7 +40768,8 @@ void js_register_cocos2dx_CCMenuItemLabel(JSContext *cx, JSObject *global) {
 		JS_FN("setDisabledColor", js_cocos2dx_CCMenuItemLabel_setDisabledColor, 1, JSPROP_PERMANENT | JSPROP_ENUMERATE),
 		JS_FN("getLabel", js_cocos2dx_CCMenuItemLabel_getLabel, 0, JSPROP_PERMANENT | JSPROP_ENUMERATE),
 		JS_FN("unselected", js_cocos2dx_CCMenuItemLabel_unselected, 0, JSPROP_PERMANENT | JSPROP_ENUMERATE),
-		JS_FS_END
+        JS_FN("ctor", js_cocos2dx_CCMenuItemLabel_ctor, 0, JSPROP_PERMANENT | JSPROP_ENUMERATE),
+        JS_FS_END
 	};
 
 	JSFunctionSpec *st_funcs = NULL;
@@ -38798,6 +40837,18 @@ JSBool js_cocos2dx_CCMenuItemAtlasFont_constructor(JSContext *cx, uint32_t argc,
 extern JSObject *jsb_CCMenuItemLabel_prototype;
 
 void js_cocos2dx_CCMenuItemAtlasFont_finalize(JSFreeOp *fop, JSObject *obj) {
+}
+
+static JSBool js_cocos2dx_CCMenuItemAtlasFont_ctor(JSContext *cx, uint32_t argc, jsval *vp)
+{
+	JSObject *obj = JS_THIS_OBJECT(cx, vp);
+    cocos2d::CCMenuItemAtlasFont *nobj = new cocos2d::CCMenuItemAtlasFont();
+    js_proxy_t* p;
+    JS_NEW_PROXY(p, nobj, obj);
+    nobj->autorelease();
+    JS_AddNamedObjectRoot(cx, &p->obj, "cocos2d::CCMenuItemAtlasFont");
+    JS_SET_RVAL(cx, vp, JSVAL_VOID);
+    return JS_TRUE;
 }
 
 void js_register_cocos2dx_CCMenuItemAtlasFont(JSContext *cx, JSObject *global) {
@@ -39016,6 +41067,18 @@ extern JSObject *jsb_CCMenuItemLabel_prototype;
 void js_cocos2dx_CCMenuItemFont_finalize(JSFreeOp *fop, JSObject *obj) {
 }
 
+static JSBool js_cocos2dx_CCMenuItemFont_ctor(JSContext *cx, uint32_t argc, jsval *vp)
+{
+	JSObject *obj = JS_THIS_OBJECT(cx, vp);
+    cocos2d::CCMenuItemFont *nobj = new cocos2d::CCMenuItemFont();
+    js_proxy_t* p;
+    JS_NEW_PROXY(p, nobj, obj);
+    nobj->autorelease();
+    JS_AddNamedObjectRoot(cx, &p->obj, "cocos2d::CCMenuItemFont");
+    JS_SET_RVAL(cx, vp, JSVAL_VOID);
+    return JS_TRUE;
+}
+
 void js_register_cocos2dx_CCMenuItemFont(JSContext *cx, JSObject *global) {
 	jsb_CCMenuItemFont_class = (JSClass *)calloc(1, sizeof(JSClass));
 	jsb_CCMenuItemFont_class->name = "MenuItemFont";
@@ -39038,7 +41101,8 @@ void js_register_cocos2dx_CCMenuItemFont(JSContext *cx, JSObject *global) {
 		JS_FN("fontName", js_cocos2dx_CCMenuItemFont_fontNameObj, 0, JSPROP_PERMANENT | JSPROP_ENUMERATE),
 		JS_FN("setFontSize", js_cocos2dx_CCMenuItemFont_setFontSizeObj, 1, JSPROP_PERMANENT | JSPROP_ENUMERATE),
 		JS_FN("fontSize", js_cocos2dx_CCMenuItemFont_fontSizeObj, 0, JSPROP_PERMANENT | JSPROP_ENUMERATE),
-		JS_FS_END
+        JS_FN("ctor", js_cocos2dx_CCMenuItemFont_ctor, 0, JSPROP_PERMANENT | JSPROP_ENUMERATE),
+        JS_FS_END
 	};
 
 	static JSFunctionSpec st_funcs[] = {
@@ -39351,6 +41415,18 @@ extern JSObject *jsb_CCMenuItem_prototype;
 void js_cocos2dx_CCMenuItemSprite_finalize(JSFreeOp *fop, JSObject *obj) {
 }
 
+static JSBool js_cocos2dx_CCMenuItemSprite_ctor(JSContext *cx, uint32_t argc, jsval *vp)
+{
+	JSObject *obj = JS_THIS_OBJECT(cx, vp);
+    cocos2d::CCMenuItemSprite *nobj = new cocos2d::CCMenuItemSprite();
+    js_proxy_t* p;
+    JS_NEW_PROXY(p, nobj, obj);
+    nobj->autorelease();
+    JS_AddNamedObjectRoot(cx, &p->obj, "cocos2d::CCMenuItemSprite");
+    JS_SET_RVAL(cx, vp, JSVAL_VOID);
+    return JS_TRUE;
+}
+
 void js_register_cocos2dx_CCMenuItemSprite(JSContext *cx, JSObject *global) {
 	jsb_CCMenuItemSprite_class = (JSClass *)calloc(1, sizeof(JSClass));
 	jsb_CCMenuItemSprite_class->name = "MenuItemSprite";
@@ -39380,7 +41456,8 @@ void js_register_cocos2dx_CCMenuItemSprite(JSContext *cx, JSObject *global) {
 		JS_FN("getSelectedImage", js_cocos2dx_CCMenuItemSprite_getSelectedImage, 0, JSPROP_PERMANENT | JSPROP_ENUMERATE),
 		JS_FN("getNormalImage", js_cocos2dx_CCMenuItemSprite_getNormalImage, 0, JSPROP_PERMANENT | JSPROP_ENUMERATE),
 		JS_FN("unselected", js_cocos2dx_CCMenuItemSprite_unselected, 0, JSPROP_PERMANENT | JSPROP_ENUMERATE),
-		JS_FS_END
+        JS_FN("ctor", js_cocos2dx_CCMenuItemSprite_ctor, 0, JSPROP_PERMANENT | JSPROP_ENUMERATE),
+        JS_FS_END
 	};
 
 	JSFunctionSpec *st_funcs = NULL;
@@ -39545,6 +41622,18 @@ extern JSObject *jsb_CCMenuItemSprite_prototype;
 void js_cocos2dx_CCMenuItemImage_finalize(JSFreeOp *fop, JSObject *obj) {
 }
 
+static JSBool js_cocos2dx_CCMenuItemImage_ctor(JSContext *cx, uint32_t argc, jsval *vp)
+{
+	JSObject *obj = JS_THIS_OBJECT(cx, vp);
+    cocos2d::CCMenuItemImage *nobj = new cocos2d::CCMenuItemImage();
+    js_proxy_t* p;
+    JS_NEW_PROXY(p, nobj, obj);
+    nobj->autorelease();
+    JS_AddNamedObjectRoot(cx, &p->obj, "cocos2d::CCMenuItemImage");
+    JS_SET_RVAL(cx, vp, JSVAL_VOID);
+    return JS_TRUE;
+}
+
 void js_register_cocos2dx_CCMenuItemImage(JSContext *cx, JSObject *global) {
 	jsb_CCMenuItemImage_class = (JSClass *)calloc(1, sizeof(JSClass));
 	jsb_CCMenuItemImage_class->name = "MenuItemImage";
@@ -39565,7 +41654,8 @@ void js_register_cocos2dx_CCMenuItemImage(JSContext *cx, JSObject *global) {
 		JS_FN("setSelectedSpriteFrame", js_cocos2dx_CCMenuItemImage_setSelectedSpriteFrame, 1, JSPROP_PERMANENT | JSPROP_ENUMERATE),
 		JS_FN("init", js_cocos2dx_CCMenuItemImage_init, 0, JSPROP_PERMANENT | JSPROP_ENUMERATE),
 		JS_FN("setNormalSpriteFrame", js_cocos2dx_CCMenuItemImage_setNormalSpriteFrame, 1, JSPROP_PERMANENT | JSPROP_ENUMERATE),
-		JS_FS_END
+        JS_FN("ctor", js_cocos2dx_CCMenuItemImage_ctor, 0, JSPROP_PERMANENT | JSPROP_ENUMERATE),
+        JS_FS_END
 	};
 
 	JSFunctionSpec *st_funcs = NULL;
@@ -39872,6 +41962,18 @@ extern JSObject *jsb_CCMenuItem_prototype;
 void js_cocos2dx_CCMenuItemToggle_finalize(JSFreeOp *fop, JSObject *obj) {
 }
 
+static JSBool js_cocos2dx_CCMenuItemToggle_ctor(JSContext *cx, uint32_t argc, jsval *vp)
+{
+	JSObject *obj = JS_THIS_OBJECT(cx, vp);
+    cocos2d::CCMenuItemToggle *nobj = new cocos2d::CCMenuItemToggle();
+    js_proxy_t* p;
+    JS_NEW_PROXY(p, nobj, obj);
+    nobj->autorelease();
+    JS_AddNamedObjectRoot(cx, &p->obj, "cocos2d::CCMenuItemToggle");
+    JS_SET_RVAL(cx, vp, JSVAL_VOID);
+    return JS_TRUE;
+}
+
 void js_register_cocos2dx_CCMenuItemToggle(JSContext *cx, JSObject *global) {
 	jsb_CCMenuItemToggle_class = (JSClass *)calloc(1, sizeof(JSClass));
 	jsb_CCMenuItemToggle_class->name = "MenuItemToggle";
@@ -39902,7 +42004,8 @@ void js_register_cocos2dx_CCMenuItemToggle(JSContext *cx, JSObject *global) {
 		JS_FN("activate", js_cocos2dx_CCMenuItemToggle_activate, 0, JSPROP_PERMANENT | JSPROP_ENUMERATE),
 		JS_FN("unselected", js_cocos2dx_CCMenuItemToggle_unselected, 0, JSPROP_PERMANENT | JSPROP_ENUMERATE),
 		JS_FN("selectedItem", js_cocos2dx_CCMenuItemToggle_selectedItem, 0, JSPROP_PERMANENT | JSPROP_ENUMERATE),
-		JS_FS_END
+        JS_FN("ctor", js_cocos2dx_CCMenuItemToggle_ctor, 0, JSPROP_PERMANENT | JSPROP_ENUMERATE),
+        JS_FS_END
 	};
 
 	JSFunctionSpec *st_funcs = NULL;
@@ -40430,6 +42533,18 @@ extern JSObject *jsb_CCLayerRGBA_prototype;
 void js_cocos2dx_CCMenu_finalize(JSFreeOp *fop, JSObject *obj) {
 }
 
+static JSBool js_cocos2dx_CCMenu_ctor(JSContext *cx, uint32_t argc, jsval *vp)
+{
+	JSObject *obj = JS_THIS_OBJECT(cx, vp);
+    cocos2d::CCMenu *nobj = new cocos2d::CCMenu();
+    js_proxy_t* p;
+    JS_NEW_PROXY(p, nobj, obj);
+    nobj->autorelease();
+    JS_AddNamedObjectRoot(cx, &p->obj, "cocos2d::CCMenu");
+    JS_SET_RVAL(cx, vp, JSVAL_VOID);
+    return JS_TRUE;
+}
+
 void js_register_cocos2dx_CCMenu(JSContext *cx, JSObject *global) {
 	jsb_CCMenu_class = (JSClass *)calloc(1, sizeof(JSClass));
 	jsb_CCMenu_class->name = "Menu";
@@ -40466,7 +42581,8 @@ void js_register_cocos2dx_CCMenu(JSContext *cx, JSObject *global) {
 		JS_FN("removeChild", js_cocos2dx_CCMenu_removeChild, 2, JSPROP_PERMANENT | JSPROP_ENUMERATE),
 		JS_FN("alignItemsVerticallyWithPadding", js_cocos2dx_CCMenu_alignItemsVerticallyWithPadding, 1, JSPROP_PERMANENT | JSPROP_ENUMERATE),
 		JS_FN("registerWithTouchDispatcher", js_cocos2dx_CCMenu_registerWithTouchDispatcher, 0, JSPROP_PERMANENT | JSPROP_ENUMERATE),
-		JS_FS_END
+        JS_FN("ctor", js_cocos2dx_CCMenu_ctor, 0, JSPROP_PERMANENT | JSPROP_ENUMERATE),
+        JS_FS_END
 	};
 
 	JSFunctionSpec *st_funcs = NULL;
@@ -40918,6 +43034,18 @@ extern JSObject *jsb_CCNodeRGBA_prototype;
 void js_cocos2dx_CCProgressTimer_finalize(JSFreeOp *fop, JSObject *obj) {
 }
 
+static JSBool js_cocos2dx_CCProgressTimer_ctor(JSContext *cx, uint32_t argc, jsval *vp)
+{
+	JSObject *obj = JS_THIS_OBJECT(cx, vp);
+    cocos2d::CCProgressTimer *nobj = new cocos2d::CCProgressTimer();
+    js_proxy_t* p;
+    JS_NEW_PROXY(p, nobj, obj);
+    nobj->autorelease();
+    JS_AddNamedObjectRoot(cx, &p->obj, "cocos2d::CCProgressTimer");
+    JS_SET_RVAL(cx, vp, JSVAL_VOID);
+    return JS_TRUE;
+}
+
 void js_register_cocos2dx_CCProgressTimer(JSContext *cx, JSObject *global) {
 	jsb_CCProgressTimer_class = (JSClass *)calloc(1, sizeof(JSClass));
 	jsb_CCProgressTimer_class->name = "ProgressTimer";
@@ -40953,7 +43081,8 @@ void js_register_cocos2dx_CCProgressTimer(JSContext *cx, JSObject *global) {
 		JS_FN("initWithSprite", js_cocos2dx_CCProgressTimer_initWithSprite, 1, JSPROP_PERMANENT | JSPROP_ENUMERATE),
 		JS_FN("setPercentage", js_cocos2dx_CCProgressTimer_setPercentage, 1, JSPROP_PERMANENT | JSPROP_ENUMERATE),
 		JS_FN("setType", js_cocos2dx_CCProgressTimer_setType, 1, JSPROP_PERMANENT | JSPROP_ENUMERATE),
-		JS_FS_END
+        JS_FN("ctor", js_cocos2dx_CCProgressTimer_ctor, 0, JSPROP_PERMANENT | JSPROP_ENUMERATE),
+        JS_FS_END
 	};
 
 	static JSFunctionSpec st_funcs[] = {
@@ -41759,6 +43888,18 @@ extern JSObject *jsb_CCNode_prototype;
 void js_cocos2dx_CCRenderTexture_finalize(JSFreeOp *fop, JSObject *obj) {
 }
 
+static JSBool js_cocos2dx_CCRenderTexture_ctor(JSContext *cx, uint32_t argc, jsval *vp)
+{
+	JSObject *obj = JS_THIS_OBJECT(cx, vp);
+    cocos2d::CCRenderTexture *nobj = new cocos2d::CCRenderTexture();
+    js_proxy_t* p;
+    JS_NEW_PROXY(p, nobj, obj);
+    nobj->autorelease();
+    JS_AddNamedObjectRoot(cx, &p->obj, "cocos2d::CCRenderTexture");
+    JS_SET_RVAL(cx, vp, JSVAL_VOID);
+    return JS_TRUE;
+}
+
 void js_register_cocos2dx_CCRenderTexture(JSContext *cx, JSObject *global) {
 	jsb_CCRenderTexture_class = (JSClass *)calloc(1, sizeof(JSClass));
 	jsb_CCRenderTexture_class->name = "RenderTexture";
@@ -41803,7 +43944,8 @@ void js_register_cocos2dx_CCRenderTexture(JSContext *cx, JSObject *global) {
 		JS_FN("newCCImage", js_cocos2dx_CCRenderTexture_newCCImage, 0, JSPROP_PERMANENT | JSPROP_ENUMERATE),
 		JS_FN("setClearDepth", js_cocos2dx_CCRenderTexture_setClearDepth, 1, JSPROP_PERMANENT | JSPROP_ENUMERATE),
 		JS_FN("setSprite", js_cocos2dx_CCRenderTexture_setSprite, 1, JSPROP_PERMANENT | JSPROP_ENUMERATE),
-		JS_FS_END
+        JS_FN("ctor", js_cocos2dx_CCRenderTexture_ctor, 0, JSPROP_PERMANENT | JSPROP_ENUMERATE),
+        JS_FS_END
 	};
 
 	static JSFunctionSpec st_funcs[] = {
@@ -42380,6 +44522,18 @@ extern JSObject *jsb_CCNode_prototype;
 void js_cocos2dx_CCParticleBatchNode_finalize(JSFreeOp *fop, JSObject *obj) {
 }
 
+static JSBool js_cocos2dx_CCParticleBatchNode_ctor(JSContext *cx, uint32_t argc, jsval *vp)
+{
+	JSObject *obj = JS_THIS_OBJECT(cx, vp);
+    cocos2d::CCParticleBatchNode *nobj = new cocos2d::CCParticleBatchNode();
+    js_proxy_t* p;
+    JS_NEW_PROXY(p, nobj, obj);
+    nobj->autorelease();
+    JS_AddNamedObjectRoot(cx, &p->obj, "cocos2d::CCParticleBatchNode");
+    JS_SET_RVAL(cx, vp, JSVAL_VOID);
+    return JS_TRUE;
+}
+
 void js_register_cocos2dx_CCParticleBatchNode(JSContext *cx, JSObject *global) {
 	jsb_CCParticleBatchNode_class = (JSClass *)calloc(1, sizeof(JSClass));
 	jsb_CCParticleBatchNode_class->name = "ParticleBatchNode";
@@ -42413,7 +44567,8 @@ void js_register_cocos2dx_CCParticleBatchNode(JSContext *cx, JSObject *global) {
 		JS_FN("initWithTexture", js_cocos2dx_CCParticleBatchNode_initWithTexture, 2, JSPROP_PERMANENT | JSPROP_ENUMERATE),
 		JS_FN("reorderChild", js_cocos2dx_CCParticleBatchNode_reorderChild, 2, JSPROP_PERMANENT | JSPROP_ENUMERATE),
 		JS_FN("setTextureAtlas", js_cocos2dx_CCParticleBatchNode_setTextureAtlas, 1, JSPROP_PERMANENT | JSPROP_ENUMERATE),
-		JS_FS_END
+        JS_FN("ctor", js_cocos2dx_CCParticleBatchNode_ctor, 0, JSPROP_PERMANENT | JSPROP_ENUMERATE),
+        JS_FS_END
 	};
 
 	static JSFunctionSpec st_funcs[] = {
@@ -44526,6 +46681,18 @@ extern JSObject *jsb_CCNode_prototype;
 void js_cocos2dx_CCParticleSystem_finalize(JSFreeOp *fop, JSObject *obj) {
 }
 
+static JSBool js_cocos2dx_CCParticleSystem_ctor(JSContext *cx, uint32_t argc, jsval *vp)
+{
+	JSObject *obj = JS_THIS_OBJECT(cx, vp);
+    cocos2d::CCParticleSystem *nobj = new cocos2d::CCParticleSystem();
+    js_proxy_t* p;
+    JS_NEW_PROXY(p, nobj, obj);
+    nobj->autorelease();
+    JS_AddNamedObjectRoot(cx, &p->obj, "cocos2d::CCParticleSystem");
+    JS_SET_RVAL(cx, vp, JSVAL_VOID);
+    return JS_TRUE;
+}
+
 void js_register_cocos2dx_CCParticleSystem(JSContext *cx, JSObject *global) {
 	jsb_CCParticleSystem_class = (JSClass *)calloc(1, sizeof(JSClass));
 	jsb_CCParticleSystem_class->name = "ParticleSystem";
@@ -44649,7 +46816,8 @@ void js_register_cocos2dx_CCParticleSystem(JSContext *cx, JSObject *global) {
 		JS_FN("setStartRadiusVar", js_cocos2dx_CCParticleSystem_setStartRadiusVar, 1, JSPROP_PERMANENT | JSPROP_ENUMERATE),
 		JS_FN("getEndRadiusVar", js_cocos2dx_CCParticleSystem_getEndRadiusVar, 0, JSPROP_PERMANENT | JSPROP_ENUMERATE),
 		JS_FN("getStartColorVar", js_cocos2dx_CCParticleSystem_getStartColorVar, 0, JSPROP_PERMANENT | JSPROP_ENUMERATE),
-		JS_FS_END
+        JS_FN("ctor", js_cocos2dx_CCParticleSystem_ctor, 0, JSPROP_PERMANENT | JSPROP_ENUMERATE),
+        JS_FS_END
 	};
 
 	static JSFunctionSpec st_funcs[] = {
@@ -44881,6 +47049,18 @@ extern JSObject *jsb_CCParticleSystem_prototype;
 void js_cocos2dx_CCParticleSystemQuad_finalize(JSFreeOp *fop, JSObject *obj) {
 }
 
+static JSBool js_cocos2dx_CCParticleSystemQuad_ctor(JSContext *cx, uint32_t argc, jsval *vp)
+{
+	JSObject *obj = JS_THIS_OBJECT(cx, vp);
+    cocos2d::CCParticleSystemQuad *nobj = new cocos2d::CCParticleSystemQuad();
+    js_proxy_t* p;
+    JS_NEW_PROXY(p, nobj, obj);
+    nobj->autorelease();
+    JS_AddNamedObjectRoot(cx, &p->obj, "cocos2d::CCParticleSystemQuad");
+    JS_SET_RVAL(cx, vp, JSVAL_VOID);
+    return JS_TRUE;
+}
+
 void js_register_cocos2dx_CCParticleSystemQuad(JSContext *cx, JSObject *global) {
 	jsb_CCParticleSystemQuad_class = (JSClass *)calloc(1, sizeof(JSClass));
 	jsb_CCParticleSystemQuad_class->name = "ParticleSystem";
@@ -44903,7 +47083,8 @@ void js_register_cocos2dx_CCParticleSystemQuad(JSContext *cx, JSObject *global) 
 		JS_FN("setTextureWithRect", js_cocos2dx_CCParticleSystemQuad_setTextureWithRect, 2, JSPROP_PERMANENT | JSPROP_ENUMERATE),
 		JS_FN("initIndices", js_cocos2dx_CCParticleSystemQuad_initIndices, 0, JSPROP_PERMANENT | JSPROP_ENUMERATE),
 		JS_FN("setDisplayFrame", js_cocos2dx_CCParticleSystemQuad_setDisplayFrame, 1, JSPROP_PERMANENT | JSPROP_ENUMERATE),
-		JS_FS_END
+        JS_FN("ctor", js_cocos2dx_CCParticleSystemQuad_ctor, 0, JSPROP_PERMANENT | JSPROP_ENUMERATE),
+        JS_FS_END
 	};
 
 	static JSFunctionSpec st_funcs[] = {
@@ -45061,6 +47242,18 @@ extern JSObject *jsb_CCParticleSystemQuad_prototype;
 void js_cocos2dx_CCParticleFire_finalize(JSFreeOp *fop, JSObject *obj) {
 }
 
+static JSBool js_cocos2dx_CCParticleFire_ctor(JSContext *cx, uint32_t argc, jsval *vp)
+{
+	JSObject *obj = JS_THIS_OBJECT(cx, vp);
+    cocos2d::CCParticleFire *nobj = new cocos2d::CCParticleFire();
+    js_proxy_t* p;
+    JS_NEW_PROXY(p, nobj, obj);
+    nobj->autorelease();
+    JS_AddNamedObjectRoot(cx, &p->obj, "cocos2d::CCParticleFire");
+    JS_SET_RVAL(cx, vp, JSVAL_VOID);
+    return JS_TRUE;
+}
+
 void js_register_cocos2dx_CCParticleFire(JSContext *cx, JSObject *global) {
 	jsb_CCParticleFire_class = (JSClass *)calloc(1, sizeof(JSClass));
 	jsb_CCParticleFire_class->name = "ParticleFire";
@@ -45079,7 +47272,8 @@ void js_register_cocos2dx_CCParticleFire(JSContext *cx, JSObject *global) {
 	static JSFunctionSpec funcs[] = {
 		JS_FN("init", js_cocos2dx_CCParticleFire_init, 0, JSPROP_PERMANENT | JSPROP_ENUMERATE),
 		JS_FN("initWithTotalParticles", js_cocos2dx_CCParticleFire_initWithTotalParticles, 1, JSPROP_PERMANENT | JSPROP_ENUMERATE),
-		JS_FS_END
+        JS_FN("ctor", js_cocos2dx_CCParticleFire_ctor, 0, JSPROP_PERMANENT | JSPROP_ENUMERATE),
+        JS_FS_END
 	};
 
 	static JSFunctionSpec st_funcs[] = {
@@ -45237,6 +47431,18 @@ extern JSObject *jsb_CCParticleSystemQuad_prototype;
 void js_cocos2dx_CCParticleFireworks_finalize(JSFreeOp *fop, JSObject *obj) {
 }
 
+static JSBool js_cocos2dx_CCParticleFireworks_ctor(JSContext *cx, uint32_t argc, jsval *vp)
+{
+	JSObject *obj = JS_THIS_OBJECT(cx, vp);
+    cocos2d::CCParticleFireworks *nobj = new cocos2d::CCParticleFireworks();
+    js_proxy_t* p;
+    JS_NEW_PROXY(p, nobj, obj);
+    nobj->autorelease();
+    JS_AddNamedObjectRoot(cx, &p->obj, "cocos2d::CCParticleFireworks");
+    JS_SET_RVAL(cx, vp, JSVAL_VOID);
+    return JS_TRUE;
+}
+
 void js_register_cocos2dx_CCParticleFireworks(JSContext *cx, JSObject *global) {
 	jsb_CCParticleFireworks_class = (JSClass *)calloc(1, sizeof(JSClass));
 	jsb_CCParticleFireworks_class->name = "ParticleFireworks";
@@ -45255,7 +47461,8 @@ void js_register_cocos2dx_CCParticleFireworks(JSContext *cx, JSObject *global) {
 	static JSFunctionSpec funcs[] = {
 		JS_FN("init", js_cocos2dx_CCParticleFireworks_init, 0, JSPROP_PERMANENT | JSPROP_ENUMERATE),
 		JS_FN("initWithTotalParticles", js_cocos2dx_CCParticleFireworks_initWithTotalParticles, 1, JSPROP_PERMANENT | JSPROP_ENUMERATE),
-		JS_FS_END
+        JS_FN("ctor", js_cocos2dx_CCParticleFireworks_ctor, 0, JSPROP_PERMANENT | JSPROP_ENUMERATE),
+        JS_FS_END
 	};
 
 	static JSFunctionSpec st_funcs[] = {
@@ -45413,6 +47620,18 @@ extern JSObject *jsb_CCParticleSystemQuad_prototype;
 void js_cocos2dx_CCParticleSun_finalize(JSFreeOp *fop, JSObject *obj) {
 }
 
+static JSBool js_cocos2dx_CCParticleSun_ctor(JSContext *cx, uint32_t argc, jsval *vp)
+{
+	JSObject *obj = JS_THIS_OBJECT(cx, vp);
+    cocos2d::CCParticleSun *nobj = new cocos2d::CCParticleSun();
+    js_proxy_t* p;
+    JS_NEW_PROXY(p, nobj, obj);
+    nobj->autorelease();
+    JS_AddNamedObjectRoot(cx, &p->obj, "cocos2d::CCParticleSun");
+    JS_SET_RVAL(cx, vp, JSVAL_VOID);
+    return JS_TRUE;
+}
+
 void js_register_cocos2dx_CCParticleSun(JSContext *cx, JSObject *global) {
 	jsb_CCParticleSun_class = (JSClass *)calloc(1, sizeof(JSClass));
 	jsb_CCParticleSun_class->name = "ParticleSun";
@@ -45431,7 +47650,8 @@ void js_register_cocos2dx_CCParticleSun(JSContext *cx, JSObject *global) {
 	static JSFunctionSpec funcs[] = {
 		JS_FN("init", js_cocos2dx_CCParticleSun_init, 0, JSPROP_PERMANENT | JSPROP_ENUMERATE),
 		JS_FN("initWithTotalParticles", js_cocos2dx_CCParticleSun_initWithTotalParticles, 1, JSPROP_PERMANENT | JSPROP_ENUMERATE),
-		JS_FS_END
+        JS_FN("ctor", js_cocos2dx_CCParticleSun_ctor, 0, JSPROP_PERMANENT | JSPROP_ENUMERATE),
+        JS_FS_END
 	};
 
 	static JSFunctionSpec st_funcs[] = {
@@ -45589,6 +47809,18 @@ extern JSObject *jsb_CCParticleSystemQuad_prototype;
 void js_cocos2dx_CCParticleGalaxy_finalize(JSFreeOp *fop, JSObject *obj) {
 }
 
+static JSBool js_cocos2dx_CCParticleGalaxy_ctor(JSContext *cx, uint32_t argc, jsval *vp)
+{
+	JSObject *obj = JS_THIS_OBJECT(cx, vp);
+    cocos2d::CCParticleGalaxy *nobj = new cocos2d::CCParticleGalaxy();
+    js_proxy_t* p;
+    JS_NEW_PROXY(p, nobj, obj);
+    nobj->autorelease();
+    JS_AddNamedObjectRoot(cx, &p->obj, "cocos2d::CCParticleGalaxy");
+    JS_SET_RVAL(cx, vp, JSVAL_VOID);
+    return JS_TRUE;
+}
+
 void js_register_cocos2dx_CCParticleGalaxy(JSContext *cx, JSObject *global) {
 	jsb_CCParticleGalaxy_class = (JSClass *)calloc(1, sizeof(JSClass));
 	jsb_CCParticleGalaxy_class->name = "ParticleGalaxy";
@@ -45607,7 +47839,8 @@ void js_register_cocos2dx_CCParticleGalaxy(JSContext *cx, JSObject *global) {
 	static JSFunctionSpec funcs[] = {
 		JS_FN("init", js_cocos2dx_CCParticleGalaxy_init, 0, JSPROP_PERMANENT | JSPROP_ENUMERATE),
 		JS_FN("initWithTotalParticles", js_cocos2dx_CCParticleGalaxy_initWithTotalParticles, 1, JSPROP_PERMANENT | JSPROP_ENUMERATE),
-		JS_FS_END
+        JS_FN("ctor", js_cocos2dx_CCParticleGalaxy_ctor, 0, JSPROP_PERMANENT | JSPROP_ENUMERATE),
+        JS_FS_END
 	};
 
 	static JSFunctionSpec st_funcs[] = {
@@ -45765,6 +47998,18 @@ extern JSObject *jsb_CCParticleSystemQuad_prototype;
 void js_cocos2dx_CCParticleFlower_finalize(JSFreeOp *fop, JSObject *obj) {
 }
 
+static JSBool js_cocos2dx_CCParticleFlower_ctor(JSContext *cx, uint32_t argc, jsval *vp)
+{
+	JSObject *obj = JS_THIS_OBJECT(cx, vp);
+    cocos2d::CCParticleFlower *nobj = new cocos2d::CCParticleFlower();
+    js_proxy_t* p;
+    JS_NEW_PROXY(p, nobj, obj);
+    nobj->autorelease();
+    JS_AddNamedObjectRoot(cx, &p->obj, "cocos2d::CCParticleFlower");
+    JS_SET_RVAL(cx, vp, JSVAL_VOID);
+    return JS_TRUE;
+}
+
 void js_register_cocos2dx_CCParticleFlower(JSContext *cx, JSObject *global) {
 	jsb_CCParticleFlower_class = (JSClass *)calloc(1, sizeof(JSClass));
 	jsb_CCParticleFlower_class->name = "ParticleFlower";
@@ -45783,7 +48028,8 @@ void js_register_cocos2dx_CCParticleFlower(JSContext *cx, JSObject *global) {
 	static JSFunctionSpec funcs[] = {
 		JS_FN("init", js_cocos2dx_CCParticleFlower_init, 0, JSPROP_PERMANENT | JSPROP_ENUMERATE),
 		JS_FN("initWithTotalParticles", js_cocos2dx_CCParticleFlower_initWithTotalParticles, 1, JSPROP_PERMANENT | JSPROP_ENUMERATE),
-		JS_FS_END
+        JS_FN("ctor", js_cocos2dx_CCParticleFlower_ctor, 0, JSPROP_PERMANENT | JSPROP_ENUMERATE),
+        JS_FS_END
 	};
 
 	static JSFunctionSpec st_funcs[] = {
@@ -45941,6 +48187,18 @@ extern JSObject *jsb_CCParticleSystemQuad_prototype;
 void js_cocos2dx_CCParticleMeteor_finalize(JSFreeOp *fop, JSObject *obj) {
 }
 
+static JSBool js_cocos2dx_CCParticleMeteor_ctor(JSContext *cx, uint32_t argc, jsval *vp)
+{
+	JSObject *obj = JS_THIS_OBJECT(cx, vp);
+    cocos2d::CCParticleMeteor *nobj = new cocos2d::CCParticleMeteor();
+    js_proxy_t* p;
+    JS_NEW_PROXY(p, nobj, obj);
+    nobj->autorelease();
+    JS_AddNamedObjectRoot(cx, &p->obj, "cocos2d::CCParticleMeteor");
+    JS_SET_RVAL(cx, vp, JSVAL_VOID);
+    return JS_TRUE;
+}
+
 void js_register_cocos2dx_CCParticleMeteor(JSContext *cx, JSObject *global) {
 	jsb_CCParticleMeteor_class = (JSClass *)calloc(1, sizeof(JSClass));
 	jsb_CCParticleMeteor_class->name = "ParticleMeteor";
@@ -45959,7 +48217,8 @@ void js_register_cocos2dx_CCParticleMeteor(JSContext *cx, JSObject *global) {
 	static JSFunctionSpec funcs[] = {
 		JS_FN("init", js_cocos2dx_CCParticleMeteor_init, 0, JSPROP_PERMANENT | JSPROP_ENUMERATE),
 		JS_FN("initWithTotalParticles", js_cocos2dx_CCParticleMeteor_initWithTotalParticles, 1, JSPROP_PERMANENT | JSPROP_ENUMERATE),
-		JS_FS_END
+        JS_FN("ctor", js_cocos2dx_CCParticleMeteor_ctor, 0, JSPROP_PERMANENT | JSPROP_ENUMERATE),
+        JS_FS_END
 	};
 
 	static JSFunctionSpec st_funcs[] = {
@@ -46117,6 +48376,18 @@ extern JSObject *jsb_CCParticleSystemQuad_prototype;
 void js_cocos2dx_CCParticleSpiral_finalize(JSFreeOp *fop, JSObject *obj) {
 }
 
+static JSBool js_cocos2dx_CCParticleSpiral_ctor(JSContext *cx, uint32_t argc, jsval *vp)
+{
+	JSObject *obj = JS_THIS_OBJECT(cx, vp);
+    cocos2d::CCParticleSpiral *nobj = new cocos2d::CCParticleSpiral();
+    js_proxy_t* p;
+    JS_NEW_PROXY(p, nobj, obj);
+    nobj->autorelease();
+    JS_AddNamedObjectRoot(cx, &p->obj, "cocos2d::CCParticleSpiral");
+    JS_SET_RVAL(cx, vp, JSVAL_VOID);
+    return JS_TRUE;
+}
+
 void js_register_cocos2dx_CCParticleSpiral(JSContext *cx, JSObject *global) {
 	jsb_CCParticleSpiral_class = (JSClass *)calloc(1, sizeof(JSClass));
 	jsb_CCParticleSpiral_class->name = "ParticleSpiral";
@@ -46135,7 +48406,8 @@ void js_register_cocos2dx_CCParticleSpiral(JSContext *cx, JSObject *global) {
 	static JSFunctionSpec funcs[] = {
 		JS_FN("init", js_cocos2dx_CCParticleSpiral_init, 0, JSPROP_PERMANENT | JSPROP_ENUMERATE),
 		JS_FN("initWithTotalParticles", js_cocos2dx_CCParticleSpiral_initWithTotalParticles, 1, JSPROP_PERMANENT | JSPROP_ENUMERATE),
-		JS_FS_END
+        JS_FN("ctor", js_cocos2dx_CCParticleSpiral_ctor, 0, JSPROP_PERMANENT | JSPROP_ENUMERATE),
+        JS_FS_END
 	};
 
 	static JSFunctionSpec st_funcs[] = {
@@ -46293,6 +48565,18 @@ extern JSObject *jsb_CCParticleSystemQuad_prototype;
 void js_cocos2dx_CCParticleExplosion_finalize(JSFreeOp *fop, JSObject *obj) {
 }
 
+static JSBool js_cocos2dx_CCParticleExplosion_ctor(JSContext *cx, uint32_t argc, jsval *vp)
+{
+	JSObject *obj = JS_THIS_OBJECT(cx, vp);
+    cocos2d::CCParticleExplosion *nobj = new cocos2d::CCParticleExplosion();
+    js_proxy_t* p;
+    JS_NEW_PROXY(p, nobj, obj);
+    nobj->autorelease();
+    JS_AddNamedObjectRoot(cx, &p->obj, "cocos2d::CCParticleExplosion");
+    JS_SET_RVAL(cx, vp, JSVAL_VOID);
+    return JS_TRUE;
+}
+
 void js_register_cocos2dx_CCParticleExplosion(JSContext *cx, JSObject *global) {
 	jsb_CCParticleExplosion_class = (JSClass *)calloc(1, sizeof(JSClass));
 	jsb_CCParticleExplosion_class->name = "ParticleExplosion";
@@ -46311,7 +48595,8 @@ void js_register_cocos2dx_CCParticleExplosion(JSContext *cx, JSObject *global) {
 	static JSFunctionSpec funcs[] = {
 		JS_FN("init", js_cocos2dx_CCParticleExplosion_init, 0, JSPROP_PERMANENT | JSPROP_ENUMERATE),
 		JS_FN("initWithTotalParticles", js_cocos2dx_CCParticleExplosion_initWithTotalParticles, 1, JSPROP_PERMANENT | JSPROP_ENUMERATE),
-		JS_FS_END
+        JS_FN("ctor", js_cocos2dx_CCParticleExplosion_ctor, 0, JSPROP_PERMANENT | JSPROP_ENUMERATE),
+        JS_FS_END
 	};
 
 	static JSFunctionSpec st_funcs[] = {
@@ -46469,6 +48754,18 @@ extern JSObject *jsb_CCParticleSystemQuad_prototype;
 void js_cocos2dx_CCParticleSmoke_finalize(JSFreeOp *fop, JSObject *obj) {
 }
 
+static JSBool js_cocos2dx_CCParticleSmoke_ctor(JSContext *cx, uint32_t argc, jsval *vp)
+{
+	JSObject *obj = JS_THIS_OBJECT(cx, vp);
+    cocos2d::CCParticleSmoke *nobj = new cocos2d::CCParticleSmoke();
+    js_proxy_t* p;
+    JS_NEW_PROXY(p, nobj, obj);
+    nobj->autorelease();
+    JS_AddNamedObjectRoot(cx, &p->obj, "cocos2d::CCParticleSmoke");
+    JS_SET_RVAL(cx, vp, JSVAL_VOID);
+    return JS_TRUE;
+}
+
 void js_register_cocos2dx_CCParticleSmoke(JSContext *cx, JSObject *global) {
 	jsb_CCParticleSmoke_class = (JSClass *)calloc(1, sizeof(JSClass));
 	jsb_CCParticleSmoke_class->name = "ParticleSmoke";
@@ -46487,7 +48784,8 @@ void js_register_cocos2dx_CCParticleSmoke(JSContext *cx, JSObject *global) {
 	static JSFunctionSpec funcs[] = {
 		JS_FN("init", js_cocos2dx_CCParticleSmoke_init, 0, JSPROP_PERMANENT | JSPROP_ENUMERATE),
 		JS_FN("initWithTotalParticles", js_cocos2dx_CCParticleSmoke_initWithTotalParticles, 1, JSPROP_PERMANENT | JSPROP_ENUMERATE),
-		JS_FS_END
+        JS_FN("ctor", js_cocos2dx_CCParticleSmoke_ctor, 0, JSPROP_PERMANENT | JSPROP_ENUMERATE),
+        JS_FS_END
 	};
 
 	static JSFunctionSpec st_funcs[] = {
@@ -46645,6 +48943,18 @@ extern JSObject *jsb_CCParticleSystemQuad_prototype;
 void js_cocos2dx_CCParticleSnow_finalize(JSFreeOp *fop, JSObject *obj) {
 }
 
+static JSBool js_cocos2dx_CCParticleSnow_ctor(JSContext *cx, uint32_t argc, jsval *vp)
+{
+	JSObject *obj = JS_THIS_OBJECT(cx, vp);
+    cocos2d::CCParticleSnow *nobj = new cocos2d::CCParticleSnow();
+    js_proxy_t* p;
+    JS_NEW_PROXY(p, nobj, obj);
+    nobj->autorelease();
+    JS_AddNamedObjectRoot(cx, &p->obj, "cocos2d::CCParticleSnow");
+    JS_SET_RVAL(cx, vp, JSVAL_VOID);
+    return JS_TRUE;
+}
+
 void js_register_cocos2dx_CCParticleSnow(JSContext *cx, JSObject *global) {
 	jsb_CCParticleSnow_class = (JSClass *)calloc(1, sizeof(JSClass));
 	jsb_CCParticleSnow_class->name = "ParticleSnow";
@@ -46663,7 +48973,8 @@ void js_register_cocos2dx_CCParticleSnow(JSContext *cx, JSObject *global) {
 	static JSFunctionSpec funcs[] = {
 		JS_FN("init", js_cocos2dx_CCParticleSnow_init, 0, JSPROP_PERMANENT | JSPROP_ENUMERATE),
 		JS_FN("initWithTotalParticles", js_cocos2dx_CCParticleSnow_initWithTotalParticles, 1, JSPROP_PERMANENT | JSPROP_ENUMERATE),
-		JS_FS_END
+        JS_FN("ctor", js_cocos2dx_CCParticleSnow_ctor, 0, JSPROP_PERMANENT | JSPROP_ENUMERATE),
+        JS_FS_END
 	};
 
 	static JSFunctionSpec st_funcs[] = {
@@ -46821,6 +49132,18 @@ extern JSObject *jsb_CCParticleSystemQuad_prototype;
 void js_cocos2dx_CCParticleRain_finalize(JSFreeOp *fop, JSObject *obj) {
 }
 
+static JSBool js_cocos2dx_CCParticleRain_ctor(JSContext *cx, uint32_t argc, jsval *vp)
+{
+	JSObject *obj = JS_THIS_OBJECT(cx, vp);
+    cocos2d::CCParticleRain *nobj = new cocos2d::CCParticleRain();
+    js_proxy_t* p;
+    JS_NEW_PROXY(p, nobj, obj);
+    nobj->autorelease();
+    JS_AddNamedObjectRoot(cx, &p->obj, "cocos2d::CCParticleRain");
+    JS_SET_RVAL(cx, vp, JSVAL_VOID);
+    return JS_TRUE;
+}
+
 void js_register_cocos2dx_CCParticleRain(JSContext *cx, JSObject *global) {
 	jsb_CCParticleRain_class = (JSClass *)calloc(1, sizeof(JSClass));
 	jsb_CCParticleRain_class->name = "ParticleRain";
@@ -46839,7 +49162,8 @@ void js_register_cocos2dx_CCParticleRain(JSContext *cx, JSObject *global) {
 	static JSFunctionSpec funcs[] = {
 		JS_FN("init", js_cocos2dx_CCParticleRain_init, 0, JSPROP_PERMANENT | JSPROP_ENUMERATE),
 		JS_FN("initWithTotalParticles", js_cocos2dx_CCParticleRain_initWithTotalParticles, 1, JSPROP_PERMANENT | JSPROP_ENUMERATE),
-		JS_FS_END
+        JS_FN("ctor", js_cocos2dx_CCParticleRain_ctor, 0, JSPROP_PERMANENT | JSPROP_ENUMERATE),
+        JS_FS_END
 	};
 
 	static JSFunctionSpec st_funcs[] = {
@@ -47240,7 +49564,7 @@ void js_register_cocos2dx_CCFileUtils(JSContext *cx, JSObject *global) {
 		JS_FN("addSearchPath", js_cocos2dx_CCFileUtils_addSearchPath, 1, JSPROP_PERMANENT | JSPROP_ENUMERATE),
 		JS_FN("setPopupNotify", js_cocos2dx_CCFileUtils_setPopupNotify, 1, JSPROP_PERMANENT | JSPROP_ENUMERATE),
 		JS_FN("loadFilenameLookup", js_cocos2dx_CCFileUtils_loadFilenameLookupDictionaryFromFile, 1, JSPROP_PERMANENT | JSPROP_ENUMERATE),
-		JS_FS_END
+        JS_FS_END
 	};
 
 	static JSFunctionSpec st_funcs[] = {
@@ -47431,6 +49755,18 @@ JSBool js_cocos2dx_CCShaderCache_constructor(JSContext *cx, uint32_t argc, jsval
 void js_cocos2dx_CCShaderCache_finalize(JSFreeOp *fop, JSObject *obj) {
 }
 
+static JSBool js_cocos2dx_CCShaderCache_ctor(JSContext *cx, uint32_t argc, jsval *vp)
+{
+	JSObject *obj = JS_THIS_OBJECT(cx, vp);
+    cocos2d::CCShaderCache *nobj = new cocos2d::CCShaderCache();
+    js_proxy_t* p;
+    JS_NEW_PROXY(p, nobj, obj);
+    nobj->autorelease();
+    JS_AddNamedObjectRoot(cx, &p->obj, "cocos2d::CCShaderCache");
+    JS_SET_RVAL(cx, vp, JSVAL_VOID);
+    return JS_TRUE;
+}
+
 void js_register_cocos2dx_CCShaderCache(JSContext *cx, JSObject *global) {
 	jsb_CCShaderCache_class = (JSClass *)calloc(1, sizeof(JSClass));
 	jsb_CCShaderCache_class->name = "ShaderCache";
@@ -47453,7 +49789,8 @@ void js_register_cocos2dx_CCShaderCache(JSContext *cx, JSObject *global) {
 		JS_FN("addProgram", js_cocos2dx_CCShaderCache_addProgram, 2, JSPROP_PERMANENT | JSPROP_ENUMERATE),
 		JS_FN("getProgram", js_cocos2dx_CCShaderCache_programForKey, 1, JSPROP_PERMANENT | JSPROP_ENUMERATE),
 		JS_FN("loadDefaultShaders", js_cocos2dx_CCShaderCache_loadDefaultShaders, 0, JSPROP_PERMANENT | JSPROP_ENUMERATE),
-		JS_FS_END
+        JS_FN("ctor", js_cocos2dx_CCShaderCache_ctor, 0, JSPROP_PERMANENT | JSPROP_ENUMERATE),
+        JS_FS_END
 	};
 
 	static JSFunctionSpec st_funcs[] = {
@@ -47691,6 +50028,18 @@ JSBool js_cocos2dx_CCAnimationCache_constructor(JSContext *cx, uint32_t argc, js
 void js_cocos2dx_CCAnimationCache_finalize(JSFreeOp *fop, JSObject *obj) {
 }
 
+static JSBool js_cocos2dx_CCAnimationCache_ctor(JSContext *cx, uint32_t argc, jsval *vp)
+{
+	JSObject *obj = JS_THIS_OBJECT(cx, vp);
+    cocos2d::CCAnimationCache *nobj = new cocos2d::CCAnimationCache();
+    js_proxy_t* p;
+    JS_NEW_PROXY(p, nobj, obj);
+    nobj->autorelease();
+    JS_AddNamedObjectRoot(cx, &p->obj, "cocos2d::CCAnimationCache");
+    JS_SET_RVAL(cx, vp, JSVAL_VOID);
+    return JS_TRUE;
+}
+
 void js_register_cocos2dx_CCAnimationCache(JSContext *cx, JSObject *global) {
 	jsb_CCAnimationCache_class = (JSClass *)calloc(1, sizeof(JSClass));
 	jsb_CCAnimationCache_class->name = "AnimationCache";
@@ -47715,7 +50064,8 @@ void js_register_cocos2dx_CCAnimationCache(JSContext *cx, JSObject *global) {
 		JS_FN("addAnimationsWithDictionary", js_cocos2dx_CCAnimationCache_addAnimationsWithDictionary, 1, JSPROP_PERMANENT | JSPROP_ENUMERATE),
 		JS_FN("removeAnimation", js_cocos2dx_CCAnimationCache_removeAnimationByName, 1, JSPROP_PERMANENT | JSPROP_ENUMERATE),
 		JS_FN("addAnimation", js_cocos2dx_CCAnimationCache_addAnimation, 2, JSPROP_PERMANENT | JSPROP_ENUMERATE),
-		JS_FS_END
+        JS_FN("ctor", js_cocos2dx_CCAnimationCache_ctor, 0, JSPROP_PERMANENT | JSPROP_ENUMERATE),
+        JS_FS_END
 	};
 
 	static JSFunctionSpec st_funcs[] = {
@@ -48049,7 +50399,7 @@ void js_register_cocos2dx_CCSpriteFrameCache(JSContext *cx, JSObject *global) {
 		JS_FN("removeSpriteFrames", js_cocos2dx_CCSpriteFrameCache_removeSpriteFrames, 0, JSPROP_PERMANENT | JSPROP_ENUMERATE),
 		JS_FN("removeSpriteFramesFromTexture", js_cocos2dx_CCSpriteFrameCache_removeSpriteFramesFromTexture, 1, JSPROP_PERMANENT | JSPROP_ENUMERATE),
 		JS_FN("removeSpriteFrameByName", js_cocos2dx_CCSpriteFrameCache_removeSpriteFrameByName, 1, JSPROP_PERMANENT | JSPROP_ENUMERATE),
-		JS_FS_END
+        JS_FS_END
 	};
 
 	static JSFunctionSpec st_funcs[] = {
@@ -48396,6 +50746,18 @@ JSBool js_cocos2dx_CCTextureCache_constructor(JSContext *cx, uint32_t argc, jsva
 void js_cocos2dx_CCTextureCache_finalize(JSFreeOp *fop, JSObject *obj) {
 }
 
+static JSBool js_cocos2dx_CCTextureCache_ctor(JSContext *cx, uint32_t argc, jsval *vp)
+{
+	JSObject *obj = JS_THIS_OBJECT(cx, vp);
+    cocos2d::CCTextureCache *nobj = new cocos2d::CCTextureCache();
+    js_proxy_t* p;
+    JS_NEW_PROXY(p, nobj, obj);
+    nobj->autorelease();
+    JS_AddNamedObjectRoot(cx, &p->obj, "cocos2d::CCTextureCache");
+    JS_SET_RVAL(cx, vp, JSVAL_VOID);
+    return JS_TRUE;
+}
+
 void js_register_cocos2dx_CCTextureCache(JSContext *cx, JSObject *global) {
 	jsb_CCTextureCache_class = (JSClass *)calloc(1, sizeof(JSClass));
 	jsb_CCTextureCache_class->name = "TextureCache";
@@ -48424,7 +50786,8 @@ void js_register_cocos2dx_CCTextureCache(JSContext *cx, JSObject *global) {
 		JS_FN("removeAllTextures", js_cocos2dx_CCTextureCache_removeAllTextures, 0, JSPROP_PERMANENT | JSPROP_ENUMERATE),
 		JS_FN("removeUnusedTextures", js_cocos2dx_CCTextureCache_removeUnusedTextures, 0, JSPROP_PERMANENT | JSPROP_ENUMERATE),
 		JS_FN("removeTexture", js_cocos2dx_CCTextureCache_removeTexture, 1, JSPROP_PERMANENT | JSPROP_ENUMERATE),
-		JS_FS_END
+        JS_FN("ctor", js_cocos2dx_CCTextureCache_ctor, 0, JSPROP_PERMANENT | JSPROP_ENUMERATE),
+        JS_FS_END
 	};
 
 	static JSFunctionSpec st_funcs[] = {
@@ -48682,6 +51045,18 @@ extern JSObject *jsb_CCNode_prototype;
 void js_cocos2dx_CCParallaxNode_finalize(JSFreeOp *fop, JSObject *obj) {
 }
 
+static JSBool js_cocos2dx_CCParallaxNode_ctor(JSContext *cx, uint32_t argc, jsval *vp)
+{
+	JSObject *obj = JS_THIS_OBJECT(cx, vp);
+    cocos2d::CCParallaxNode *nobj = new cocos2d::CCParallaxNode();
+    js_proxy_t* p;
+    JS_NEW_PROXY(p, nobj, obj);
+    nobj->autorelease();
+    JS_AddNamedObjectRoot(cx, &p->obj, "cocos2d::CCParallaxNode");
+    JS_SET_RVAL(cx, vp, JSVAL_VOID);
+    return JS_TRUE;
+}
+
 void js_register_cocos2dx_CCParallaxNode(JSContext *cx, JSObject *global) {
 	jsb_CCParallaxNode_class = (JSClass *)calloc(1, sizeof(JSClass));
 	jsb_CCParallaxNode_class->name = "ParallaxNode";
@@ -48706,7 +51081,8 @@ void js_register_cocos2dx_CCParallaxNode(JSContext *cx, JSObject *global) {
 		JS_FN("removeChild", js_cocos2dx_CCParallaxNode_removeChild, 2, JSPROP_PERMANENT | JSPROP_ENUMERATE),
 		JS_FN("getParallaxArray", js_cocos2dx_CCParallaxNode_getParallaxArray, 0, JSPROP_PERMANENT | JSPROP_ENUMERATE),
 		JS_FN("setParallaxArray", js_cocos2dx_CCParallaxNode_setParallaxArray, 1, JSPROP_PERMANENT | JSPROP_ENUMERATE),
-		JS_FS_END
+        JS_FN("ctor", js_cocos2dx_CCParallaxNode_ctor, 0, JSPROP_PERMANENT | JSPROP_ENUMERATE),
+        JS_FS_END
 	};
 
 	static JSFunctionSpec st_funcs[] = {
@@ -48977,6 +51353,18 @@ JSBool js_cocos2dx_CCTMXObjectGroup_constructor(JSContext *cx, uint32_t argc, js
 void js_cocos2dx_CCTMXObjectGroup_finalize(JSFreeOp *fop, JSObject *obj) {
 }
 
+static JSBool js_cocos2dx_CCTMXObjectGroup_ctor(JSContext *cx, uint32_t argc, jsval *vp)
+{
+	JSObject *obj = JS_THIS_OBJECT(cx, vp);
+    cocos2d::CCTMXObjectGroup *nobj = new cocos2d::CCTMXObjectGroup();
+    js_proxy_t* p;
+    JS_NEW_PROXY(p, nobj, obj);
+    nobj->autorelease();
+    JS_AddNamedObjectRoot(cx, &p->obj, "cocos2d::CCTMXObjectGroup");
+    JS_SET_RVAL(cx, vp, JSVAL_VOID);
+    return JS_TRUE;
+}
+
 void js_register_cocos2dx_CCTMXObjectGroup(JSContext *cx, JSObject *global) {
 	jsb_CCTMXObjectGroup_class = (JSClass *)calloc(1, sizeof(JSClass));
 	jsb_CCTMXObjectGroup_class->name = "TMXObjectGroup";
@@ -49005,7 +51393,8 @@ void js_register_cocos2dx_CCTMXObjectGroup(JSContext *cx, JSObject *global) {
 		JS_FN("setProperties", js_cocos2dx_CCTMXObjectGroup_setProperties, 1, JSPROP_PERMANENT | JSPROP_ENUMERATE),
 		JS_FN("propertyNamed", js_cocos2dx_CCTMXObjectGroup_propertyNamed, 1, JSPROP_PERMANENT | JSPROP_ENUMERATE),
 		JS_FN("setObjects", js_cocos2dx_CCTMXObjectGroup_setObjects, 1, JSPROP_PERMANENT | JSPROP_ENUMERATE),
-		JS_FS_END
+        JS_FN("ctor", js_cocos2dx_CCTMXObjectGroup_ctor, 0, JSPROP_PERMANENT | JSPROP_ENUMERATE),
+        JS_FS_END
 	};
 
 	JSFunctionSpec *st_funcs = NULL;
@@ -49111,6 +51500,18 @@ JSBool js_cocos2dx_CCTMXLayerInfo_constructor(JSContext *cx, uint32_t argc, jsva
 void js_cocos2dx_CCTMXLayerInfo_finalize(JSFreeOp *fop, JSObject *obj) {
 }
 
+static JSBool js_cocos2dx_CCTMXLayerInfo_ctor(JSContext *cx, uint32_t argc, jsval *vp)
+{
+	JSObject *obj = JS_THIS_OBJECT(cx, vp);
+    cocos2d::CCTMXLayerInfo *nobj = new cocos2d::CCTMXLayerInfo();
+    js_proxy_t* p;
+    JS_NEW_PROXY(p, nobj, obj);
+    nobj->autorelease();
+    JS_AddNamedObjectRoot(cx, &p->obj, "cocos2d::CCTMXLayerInfo");
+    JS_SET_RVAL(cx, vp, JSVAL_VOID);
+    return JS_TRUE;
+}
+
 void js_register_cocos2dx_CCTMXLayerInfo(JSContext *cx, JSObject *global) {
 	jsb_CCTMXLayerInfo_class = (JSClass *)calloc(1, sizeof(JSClass));
 	jsb_CCTMXLayerInfo_class->name = "TMXLayerInfo";
@@ -49131,7 +51532,8 @@ void js_register_cocos2dx_CCTMXLayerInfo(JSContext *cx, JSObject *global) {
 	static JSFunctionSpec funcs[] = {
 		JS_FN("setProperties", js_cocos2dx_CCTMXLayerInfo_setProperties, 1, JSPROP_PERMANENT | JSPROP_ENUMERATE),
 		JS_FN("getProperties", js_cocos2dx_CCTMXLayerInfo_getProperties, 0, JSPROP_PERMANENT | JSPROP_ENUMERATE),
-		JS_FS_END
+        JS_FN("ctor", js_cocos2dx_CCTMXLayerInfo_ctor, 0, JSPROP_PERMANENT | JSPROP_ENUMERATE),
+        JS_FS_END
 	};
 
 	JSFunctionSpec *st_funcs = NULL;
@@ -49222,6 +51624,18 @@ JSBool js_cocos2dx_CCTMXTilesetInfo_constructor(JSContext *cx, uint32_t argc, js
 void js_cocos2dx_CCTMXTilesetInfo_finalize(JSFreeOp *fop, JSObject *obj) {
 }
 
+static JSBool js_cocos2dx_CCTMXTilesetInfo_ctor(JSContext *cx, uint32_t argc, jsval *vp)
+{
+	JSObject *obj = JS_THIS_OBJECT(cx, vp);
+    cocos2d::CCTMXTilesetInfo *nobj = new cocos2d::CCTMXTilesetInfo();
+    js_proxy_t* p;
+    JS_NEW_PROXY(p, nobj, obj);
+    nobj->autorelease();
+    JS_AddNamedObjectRoot(cx, &p->obj, "cocos2d::CCTMXTilesetInfo");
+    JS_SET_RVAL(cx, vp, JSVAL_VOID);
+    return JS_TRUE;
+}
+
 void js_register_cocos2dx_CCTMXTilesetInfo(JSContext *cx, JSObject *global) {
 	jsb_CCTMXTilesetInfo_class = (JSClass *)calloc(1, sizeof(JSClass));
 	jsb_CCTMXTilesetInfo_class->name = "TMXTilesetInfo";
@@ -49241,7 +51655,8 @@ void js_register_cocos2dx_CCTMXTilesetInfo(JSContext *cx, JSObject *global) {
 
 	static JSFunctionSpec funcs[] = {
 		JS_FN("rectForGID", js_cocos2dx_CCTMXTilesetInfo_rectForGID, 1, JSPROP_PERMANENT | JSPROP_ENUMERATE),
-		JS_FS_END
+        JS_FN("ctor", js_cocos2dx_CCTMXTilesetInfo_ctor, 0, JSPROP_PERMANENT | JSPROP_ENUMERATE),
+        JS_FS_END
 	};
 
 	JSFunctionSpec *st_funcs = NULL;
@@ -49970,6 +52385,18 @@ JSBool js_cocos2dx_CCTMXMapInfo_constructor(JSContext *cx, uint32_t argc, jsval 
 void js_cocos2dx_CCTMXMapInfo_finalize(JSFreeOp *fop, JSObject *obj) {
 }
 
+static JSBool js_cocos2dx_CCTMXMapInfo_ctor(JSContext *cx, uint32_t argc, jsval *vp)
+{
+	JSObject *obj = JS_THIS_OBJECT(cx, vp);
+    cocos2d::CCTMXMapInfo *nobj = new cocos2d::CCTMXMapInfo();
+    js_proxy_t* p;
+    JS_NEW_PROXY(p, nobj, obj);
+    nobj->autorelease();
+    JS_AddNamedObjectRoot(cx, &p->obj, "cocos2d::CCTMXMapInfo");
+    JS_SET_RVAL(cx, vp, JSVAL_VOID);
+    return JS_TRUE;
+}
+
 void js_register_cocos2dx_CCTMXMapInfo(JSContext *cx, JSObject *global) {
 	jsb_CCTMXMapInfo_class = (JSClass *)calloc(1, sizeof(JSClass));
 	jsb_CCTMXMapInfo_class->name = "TMXMapInfo";
@@ -50020,7 +52447,8 @@ void js_register_cocos2dx_CCTMXMapInfo(JSContext *cx, JSObject *global) {
 		JS_FN("setTilesets", js_cocos2dx_CCTMXMapInfo_setTilesets, 1, JSPROP_PERMANENT | JSPROP_ENUMERATE),
 		JS_FN("getProperties", js_cocos2dx_CCTMXMapInfo_getProperties, 0, JSPROP_PERMANENT | JSPROP_ENUMERATE),
 		JS_FN("getCurrentString", js_cocos2dx_CCTMXMapInfo_getCurrentString, 0, JSPROP_PERMANENT | JSPROP_ENUMERATE),
-		JS_FS_END
+        JS_FN("ctor", js_cocos2dx_CCTMXMapInfo_ctor, 0, JSPROP_PERMANENT | JSPROP_ENUMERATE),
+        JS_FS_END
 	};
 
 	static JSFunctionSpec st_funcs[] = {
@@ -50731,6 +53159,18 @@ extern JSObject *jsb_CCSpriteBatchNode_prototype;
 void js_cocos2dx_CCTMXLayer_finalize(JSFreeOp *fop, JSObject *obj) {
 }
 
+static JSBool js_cocos2dx_CCTMXLayer_ctor(JSContext *cx, uint32_t argc, jsval *vp)
+{
+	JSObject *obj = JS_THIS_OBJECT(cx, vp);
+    cocos2d::CCTMXLayer *nobj = new cocos2d::CCTMXLayer();
+    js_proxy_t* p;
+    JS_NEW_PROXY(p, nobj, obj);
+    nobj->autorelease();
+    JS_AddNamedObjectRoot(cx, &p->obj, "cocos2d::CCTMXLayer");
+    JS_SET_RVAL(cx, vp, JSVAL_VOID);
+    return JS_TRUE;
+}
+
 void js_register_cocos2dx_CCTMXLayer(JSContext *cx, JSObject *global) {
 	jsb_CCTMXLayer_class = (JSClass *)calloc(1, sizeof(JSClass));
 	jsb_CCTMXLayer_class->name = "TMXLayer";
@@ -50774,7 +53214,8 @@ void js_register_cocos2dx_CCTMXLayer(JSContext *cx, JSObject *global) {
 		JS_FN("getTileSet", js_cocos2dx_CCTMXLayer_getTileSet, 0, JSPROP_PERMANENT | JSPROP_ENUMERATE),
 		JS_FN("getProperties", js_cocos2dx_CCTMXLayer_getProperties, 0, JSPROP_PERMANENT | JSPROP_ENUMERATE),
 		JS_FN("getTileAt", js_cocos2dx_CCTMXLayer_tileAt, 1, JSPROP_PERMANENT | JSPROP_ENUMERATE),
-		JS_FS_END
+        JS_FN("ctor", js_cocos2dx_CCTMXLayer_ctor, 0, JSPROP_PERMANENT | JSPROP_ENUMERATE),
+        JS_FS_END
 	};
 
 	static JSFunctionSpec st_funcs[] = {
@@ -51239,6 +53680,18 @@ extern JSObject *jsb_CCNode_prototype;
 void js_cocos2dx_CCTMXTiledMap_finalize(JSFreeOp *fop, JSObject *obj) {
 }
 
+static JSBool js_cocos2dx_CCTMXTiledMap_ctor(JSContext *cx, uint32_t argc, jsval *vp)
+{
+	JSObject *obj = JS_THIS_OBJECT(cx, vp);
+    cocos2d::CCTMXTiledMap *nobj = new cocos2d::CCTMXTiledMap();
+    js_proxy_t* p;
+    JS_NEW_PROXY(p, nobj, obj);
+    nobj->autorelease();
+    JS_AddNamedObjectRoot(cx, &p->obj, "cocos2d::CCTMXTiledMap");
+    JS_SET_RVAL(cx, vp, JSVAL_VOID);
+    return JS_TRUE;
+}
+
 void js_register_cocos2dx_CCTMXTiledMap(JSContext *cx, JSObject *global) {
 	jsb_CCTMXTiledMap_class = (JSClass *)calloc(1, sizeof(JSClass));
 	jsb_CCTMXTiledMap_class->name = "TMXTiledMap";
@@ -51273,7 +53726,8 @@ void js_register_cocos2dx_CCTMXTiledMap(JSContext *cx, JSObject *global) {
 		JS_FN("getLayer", js_cocos2dx_CCTMXTiledMap_layerNamed, 1, JSPROP_PERMANENT | JSPROP_ENUMERATE),
 		JS_FN("getMapOrientation", js_cocos2dx_CCTMXTiledMap_getMapOrientation, 0, JSPROP_PERMANENT | JSPROP_ENUMERATE),
 		JS_FN("getProperty", js_cocos2dx_CCTMXTiledMap_propertyNamed, 1, JSPROP_PERMANENT | JSPROP_ENUMERATE),
-		JS_FS_END
+        JS_FN("ctor", js_cocos2dx_CCTMXTiledMap_ctor, 0, JSPROP_PERMANENT | JSPROP_ENUMERATE),
+        JS_FS_END
 	};
 
 	static JSFunctionSpec st_funcs[] = {
@@ -51502,6 +53956,18 @@ extern JSObject *jsb_CCAtlasNode_prototype;
 void js_cocos2dx_CCTileMapAtlas_finalize(JSFreeOp *fop, JSObject *obj) {
 }
 
+static JSBool js_cocos2dx_CCTileMapAtlas_ctor(JSContext *cx, uint32_t argc, jsval *vp)
+{
+	JSObject *obj = JS_THIS_OBJECT(cx, vp);
+    cocos2d::CCTileMapAtlas *nobj = new cocos2d::CCTileMapAtlas();
+    js_proxy_t* p;
+    JS_NEW_PROXY(p, nobj, obj);
+    nobj->autorelease();
+    JS_AddNamedObjectRoot(cx, &p->obj, "cocos2d::CCTileMapAtlas");
+    JS_SET_RVAL(cx, vp, JSVAL_VOID);
+    return JS_TRUE;
+}
+
 void js_register_cocos2dx_CCTileMapAtlas(JSContext *cx, JSObject *global) {
 	jsb_CCTileMapAtlas_class = (JSClass *)calloc(1, sizeof(JSClass));
 	jsb_CCTileMapAtlas_class->name = "TileMapAtlas";
@@ -51526,7 +53992,8 @@ void js_register_cocos2dx_CCTileMapAtlas(JSContext *cx, JSObject *global) {
 		JS_FN("getTileAt", js_cocos2dx_CCTileMapAtlas_tileAt, 1, JSPROP_PERMANENT | JSPROP_ENUMERATE),
 		JS_FN("setTile", js_cocos2dx_CCTileMapAtlas_setTile, 2, JSPROP_PERMANENT | JSPROP_ENUMERATE),
 		JS_FN("setTGAInfo", js_cocos2dx_CCTileMapAtlas_setTGAInfo, 1, JSPROP_PERMANENT | JSPROP_ENUMERATE),
-		JS_FS_END
+        JS_FN("ctor", js_cocos2dx_CCTileMapAtlas_ctor, 0, JSPROP_PERMANENT | JSPROP_ENUMERATE),
+        JS_FS_END
 	};
 
 	static JSFunctionSpec st_funcs[] = {
@@ -51723,6 +54190,18 @@ JSBool js_cocos2dx_CCTimer_constructor(JSContext *cx, uint32_t argc, jsval *vp)
 void js_cocos2dx_CCTimer_finalize(JSFreeOp *fop, JSObject *obj) {
 }
 
+static JSBool js_cocos2dx_CCTimer_ctor(JSContext *cx, uint32_t argc, jsval *vp)
+{
+	JSObject *obj = JS_THIS_OBJECT(cx, vp);
+    cocos2d::CCTimer *nobj = new cocos2d::CCTimer();
+    js_proxy_t* p;
+    JS_NEW_PROXY(p, nobj, obj);
+    nobj->autorelease();
+    JS_AddNamedObjectRoot(cx, &p->obj, "cocos2d::CCTimer");
+    JS_SET_RVAL(cx, vp, JSVAL_VOID);
+    return JS_TRUE;
+}
+
 void js_register_cocos2dx_CCTimer(JSContext *cx, JSObject *global) {
 	jsb_CCTimer_class = (JSClass *)calloc(1, sizeof(JSClass));
 	jsb_CCTimer_class->name = "Timer";
@@ -51746,7 +54225,8 @@ void js_register_cocos2dx_CCTimer(JSContext *cx, JSObject *global) {
 		JS_FN("initWithScriptHandler", js_cocos2dx_CCTimer_initWithScriptHandler, 2, JSPROP_PERMANENT | JSPROP_ENUMERATE),
 		JS_FN("update", js_cocos2dx_CCTimer_update, 1, JSPROP_PERMANENT | JSPROP_ENUMERATE),
 		JS_FN("getScriptHandler", js_cocos2dx_CCTimer_getScriptHandler, 0, JSPROP_PERMANENT | JSPROP_ENUMERATE),
-		JS_FS_END
+        JS_FN("ctor", js_cocos2dx_CCTimer_ctor, 0, JSPROP_PERMANENT | JSPROP_ENUMERATE),
+        JS_FS_END
 	};
 
 	static JSFunctionSpec st_funcs[] = {
@@ -51855,6 +54335,18 @@ JSBool js_cocos2dx_CCScheduler_constructor(JSContext *cx, uint32_t argc, jsval *
 void js_cocos2dx_CCScheduler_finalize(JSFreeOp *fop, JSObject *obj) {
 }
 
+static JSBool js_cocos2dx_CCScheduler_ctor(JSContext *cx, uint32_t argc, jsval *vp)
+{
+	JSObject *obj = JS_THIS_OBJECT(cx, vp);
+    cocos2d::CCScheduler *nobj = new cocos2d::CCScheduler();
+    js_proxy_t* p;
+    JS_NEW_PROXY(p, nobj, obj);
+    nobj->autorelease();
+    JS_AddNamedObjectRoot(cx, &p->obj, "cocos2d::CCScheduler");
+    JS_SET_RVAL(cx, vp, JSVAL_VOID);
+    return JS_TRUE;
+}
+
 void js_register_cocos2dx_CCScheduler(JSContext *cx, JSObject *global) {
 	jsb_CCScheduler_class = (JSClass *)calloc(1, sizeof(JSClass));
 	jsb_CCScheduler_class->name = "Scheduler";
@@ -51875,7 +54367,8 @@ void js_register_cocos2dx_CCScheduler(JSContext *cx, JSObject *global) {
 	static JSFunctionSpec funcs[] = {
 		JS_FN("setTimeScale", js_cocos2dx_CCScheduler_setTimeScale, 1, JSPROP_PERMANENT | JSPROP_ENUMERATE),
 		JS_FN("getTimeScale", js_cocos2dx_CCScheduler_getTimeScale, 0, JSPROP_PERMANENT | JSPROP_ENUMERATE),
-		JS_FS_END
+        JS_FN("ctor", js_cocos2dx_CCScheduler_ctor, 0, JSPROP_PERMANENT | JSPROP_ENUMERATE),
+        JS_FS_END
 	};
 
 	JSFunctionSpec *st_funcs = NULL;
@@ -52417,7 +54910,7 @@ void js_register_cocos2dx_SimpleAudioEngine(JSContext *cx, JSObject *global) {
 		JS_FN("resumeAllEffects", js_cocos2dx_SimpleAudioEngine_resumeAllEffects, 0, JSPROP_PERMANENT | JSPROP_ENUMERATE),
 		JS_FN("pauseMusic", js_cocos2dx_SimpleAudioEngine_pauseBackgroundMusic, 0, JSPROP_PERMANENT | JSPROP_ENUMERATE),
 		JS_FN("resumeEffect", js_cocos2dx_SimpleAudioEngine_resumeEffect, 1, JSPROP_PERMANENT | JSPROP_ENUMERATE),
-		JS_FS_END
+        JS_FS_END
 	};
 
 	static JSFunctionSpec st_funcs[] = {

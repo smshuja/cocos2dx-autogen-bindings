@@ -527,6 +527,18 @@ JSBool js_cocos2dx_extension_CCBReader_constructor(JSContext *cx, uint32_t argc,
 void js_cocos2dx_extension_CCBReader_finalize(JSFreeOp *fop, JSObject *obj) {
 }
 
+static JSBool js_cocos2dx_extension_CCBReader_ctor(JSContext *cx, uint32_t argc, jsval *vp)
+{
+	JSObject *obj = JS_THIS_OBJECT(cx, vp);
+    cocos2d::extension::CCBReader *nobj = new cocos2d::extension::CCBReader();
+    js_proxy_t* p;
+    JS_NEW_PROXY(p, nobj, obj);
+    nobj->autorelease();
+    JS_AddNamedObjectRoot(cx, &p->obj, "cocos2d::extension::CCBReader");
+    JS_SET_RVAL(cx, vp, JSVAL_VOID);
+    return JS_TRUE;
+}
+
 void js_register_cocos2dx_extension_CCBReader(JSContext *cx, JSObject *global) {
 	jsb_CCBReader_class = (JSClass *)calloc(1, sizeof(JSClass));
 	jsb_CCBReader_class->name = "_Reader";
@@ -558,7 +570,8 @@ void js_register_cocos2dx_extension_CCBReader(JSContext *cx, JSObject *global) {
 		JS_FN("getAnimationManagersForNodes", js_cocos2dx_extension_CCBReader_getAnimationManagersForNodes, 0, JSPROP_PERMANENT | JSPROP_ENUMERATE),
 		JS_FN("getNodesWithAnimationManagers", js_cocos2dx_extension_CCBReader_getNodesWithAnimationManagers, 0, JSPROP_PERMANENT | JSPROP_ENUMERATE),
 		JS_FN("getActionManager", js_cocos2dx_extension_CCBReader_getAnimationManager, 0, JSPROP_PERMANENT | JSPROP_ENUMERATE),
-		JS_FS_END
+        JS_FN("ctor", js_cocos2dx_extension_CCBReader_ctor, 0, JSPROP_PERMANENT | JSPROP_ENUMERATE),
+        JS_FS_END
 	};
 
 	JSFunctionSpec *st_funcs = NULL;
@@ -933,6 +946,18 @@ extern JSObject *jsb_CCLayerRGBA_prototype;
 void js_cocos2dx_extension_CCControl_finalize(JSFreeOp *fop, JSObject *obj) {
 }
 
+static JSBool js_cocos2dx_extension_CCControl_ctor(JSContext *cx, uint32_t argc, jsval *vp)
+{
+	JSObject *obj = JS_THIS_OBJECT(cx, vp);
+    cocos2d::extension::CCControl *nobj = new cocos2d::extension::CCControl();
+    js_proxy_t* p;
+    JS_NEW_PROXY(p, nobj, obj);
+    nobj->autorelease();
+    JS_AddNamedObjectRoot(cx, &p->obj, "cocos2d::extension::CCControl");
+    JS_SET_RVAL(cx, vp, JSVAL_VOID);
+    return JS_TRUE;
+}
+
 void js_register_cocos2dx_extension_CCControl(JSContext *cx, JSObject *global) {
 	jsb_CCControl_class = (JSClass *)calloc(1, sizeof(JSClass));
 	jsb_CCControl_class->name = "Control";
@@ -967,7 +992,8 @@ void js_register_cocos2dx_extension_CCControl(JSContext *cx, JSObject *global) {
 		JS_FN("setHighlighted", js_cocos2dx_extension_CCControl_setHighlighted, 1, JSPROP_PERMANENT | JSPROP_ENUMERATE),
 		JS_FN("registerWithTouchDispatcher", js_cocos2dx_extension_CCControl_registerWithTouchDispatcher, 0, JSPROP_PERMANENT | JSPROP_ENUMERATE),
 		JS_FN("isHighlighted", js_cocos2dx_extension_CCControl_isHighlighted, 0, JSPROP_PERMANENT | JSPROP_ENUMERATE),
-		JS_FS_END
+        JS_FN("ctor", js_cocos2dx_extension_CCControl_ctor, 0, JSPROP_PERMANENT | JSPROP_ENUMERATE),
+        JS_FS_END
 	};
 
 	JSFunctionSpec *st_funcs = NULL;
@@ -1900,6 +1926,18 @@ extern JSObject *jsb_CCNodeRGBA_prototype;
 void js_cocos2dx_extension_CCScale9Sprite_finalize(JSFreeOp *fop, JSObject *obj) {
 }
 
+static JSBool js_cocos2dx_extension_CCScale9Sprite_ctor(JSContext *cx, uint32_t argc, jsval *vp)
+{
+	JSObject *obj = JS_THIS_OBJECT(cx, vp);
+    cocos2d::extension::CCScale9Sprite *nobj = new cocos2d::extension::CCScale9Sprite();
+    js_proxy_t* p;
+    JS_NEW_PROXY(p, nobj, obj);
+    nobj->autorelease();
+    JS_AddNamedObjectRoot(cx, &p->obj, "cocos2d::extension::CCScale9Sprite");
+    JS_SET_RVAL(cx, vp, JSVAL_VOID);
+    return JS_TRUE;
+}
+
 void js_register_cocos2dx_extension_CCScale9Sprite(JSContext *cx, JSObject *global) {
 	jsb_CCScale9Sprite_class = (JSClass *)calloc(1, sizeof(JSClass));
 	jsb_CCScale9Sprite_class->name = "Scale9Sprite";
@@ -1942,7 +1980,8 @@ void js_register_cocos2dx_extension_CCScale9Sprite(JSContext *cx, JSObject *glob
 		JS_FN("setCapInsets", js_cocos2dx_extension_CCScale9Sprite_setCapInsets, 1, JSPROP_PERMANENT | JSPROP_ENUMERATE),
 		JS_FN("getInsetLeft", js_cocos2dx_extension_CCScale9Sprite_getInsetLeft, 0, JSPROP_PERMANENT | JSPROP_ENUMERATE),
 		JS_FN("setInsetRight", js_cocos2dx_extension_CCScale9Sprite_setInsetRight, 1, JSPROP_PERMANENT | JSPROP_ENUMERATE),
-		JS_FS_END
+        JS_FN("ctor", js_cocos2dx_extension_CCScale9Sprite_ctor, 0, JSPROP_PERMANENT | JSPROP_ENUMERATE),
+        JS_FS_END
 	};
 
 	static JSFunctionSpec st_funcs[] = {
@@ -3370,6 +3409,18 @@ extern JSObject *jsb_CCControl_prototype;
 void js_cocos2dx_extension_CCControlButton_finalize(JSFreeOp *fop, JSObject *obj) {
 }
 
+static JSBool js_cocos2dx_extension_CCControlButton_ctor(JSContext *cx, uint32_t argc, jsval *vp)
+{
+	JSObject *obj = JS_THIS_OBJECT(cx, vp);
+    cocos2d::extension::CCControlButton *nobj = new cocos2d::extension::CCControlButton();
+    js_proxy_t* p;
+    JS_NEW_PROXY(p, nobj, obj);
+    nobj->autorelease();
+    JS_AddNamedObjectRoot(cx, &p->obj, "cocos2d::extension::CCControlButton");
+    JS_SET_RVAL(cx, vp, JSVAL_VOID);
+    return JS_TRUE;
+}
+
 void js_register_cocos2dx_extension_CCControlButton(JSContext *cx, JSObject *global) {
 	jsb_CCControlButton_class = (JSClass *)calloc(1, sizeof(JSClass));
 	jsb_CCControlButton_class->name = "ControlButton";
@@ -3443,7 +3494,8 @@ void js_register_cocos2dx_extension_CCControlButton(JSContext *cx, JSObject *glo
 		JS_FN("setBackgroundSprite", js_cocos2dx_extension_CCControlButton_setBackgroundSprite, 1, JSPROP_PERMANENT | JSPROP_ENUMERATE),
 		JS_FN("getZoomOnTouchDown", js_cocos2dx_extension_CCControlButton_getZoomOnTouchDown, 0, JSPROP_PERMANENT | JSPROP_ENUMERATE),
 		JS_FN("getTitleForState", js_cocos2dx_extension_CCControlButton_getTitleForState, 1, JSPROP_PERMANENT | JSPROP_ENUMERATE),
-		JS_FS_END
+        JS_FN("ctor", js_cocos2dx_extension_CCControlButton_ctor, 0, JSPROP_PERMANENT | JSPROP_ENUMERATE),
+        JS_FS_END
 	};
 
 	static JSFunctionSpec st_funcs[] = {
@@ -4437,6 +4489,18 @@ extern JSObject *jsb_CCLayer_prototype;
 void js_cocos2dx_extension_CCScrollView_finalize(JSFreeOp *fop, JSObject *obj) {
 }
 
+static JSBool js_cocos2dx_extension_CCScrollView_ctor(JSContext *cx, uint32_t argc, jsval *vp)
+{
+	JSObject *obj = JS_THIS_OBJECT(cx, vp);
+    cocos2d::extension::CCScrollView *nobj = new cocos2d::extension::CCScrollView();
+    js_proxy_t* p;
+    JS_NEW_PROXY(p, nobj, obj);
+    nobj->autorelease();
+    JS_AddNamedObjectRoot(cx, &p->obj, "cocos2d::extension::CCScrollView");
+    JS_SET_RVAL(cx, vp, JSVAL_VOID);
+    return JS_TRUE;
+}
+
 void js_register_cocos2dx_extension_CCScrollView(JSContext *cx, JSObject *global) {
 	jsb_CCScrollView_class = (JSClass *)calloc(1, sizeof(JSClass));
 	jsb_CCScrollView_class->name = "ScrollView";
@@ -4490,7 +4554,8 @@ void js_register_cocos2dx_extension_CCScrollView(JSContext *cx, JSObject *global
 		JS_FN("minContainerOffset", js_cocos2dx_extension_CCScrollView_minContainerOffset, 0, JSPROP_PERMANENT | JSPROP_ENUMERATE),
 		JS_FN("registerWithTouchDispatcher", js_cocos2dx_extension_CCScrollView_registerWithTouchDispatcher, 0, JSPROP_PERMANENT | JSPROP_ENUMERATE),
 		JS_FN("setZoomScale", js_cocos2dx_extension_CCScrollView_setZoomScale, 1, JSPROP_PERMANENT | JSPROP_ENUMERATE),
-		JS_FS_END
+        JS_FN("ctor", js_cocos2dx_extension_CCScrollView_ctor, 0, JSPROP_PERMANENT | JSPROP_ENUMERATE),
+        JS_FS_END
 	};
 
 	static JSFunctionSpec st_funcs[] = {
@@ -5394,6 +5459,18 @@ JSBool js_cocos2dx_extension_CCBAnimationManager_constructor(JSContext *cx, uint
 void js_cocos2dx_extension_CCBAnimationManager_finalize(JSFreeOp *fop, JSObject *obj) {
 }
 
+static JSBool js_cocos2dx_extension_CCBAnimationManager_ctor(JSContext *cx, uint32_t argc, jsval *vp)
+{
+	JSObject *obj = JS_THIS_OBJECT(cx, vp);
+    cocos2d::extension::CCBAnimationManager *nobj = new cocos2d::extension::CCBAnimationManager();
+    js_proxy_t* p;
+    JS_NEW_PROXY(p, nobj, obj);
+    nobj->autorelease();
+    JS_AddNamedObjectRoot(cx, &p->obj, "cocos2d::extension::CCBAnimationManager");
+    JS_SET_RVAL(cx, vp, JSVAL_VOID);
+    return JS_TRUE;
+}
+
 void js_register_cocos2dx_extension_CCBAnimationManager(JSContext *cx, JSObject *global) {
 	jsb_CCBAnimationManager_class = (JSClass *)calloc(1, sizeof(JSClass));
 	jsb_CCBAnimationManager_class->name = "AnimationManager";
@@ -5448,7 +5525,8 @@ void js_register_cocos2dx_extension_CCBAnimationManager(JSContext *cx, JSObject 
 		JS_FN("setSequences", js_cocos2dx_extension_CCBAnimationManager_setSequences, 1, JSPROP_PERMANENT | JSPROP_ENUMERATE),
 		JS_FN("debug", js_cocos2dx_extension_CCBAnimationManager_debug, 0, JSPROP_PERMANENT | JSPROP_ENUMERATE),
 		JS_FN("getDocumentControllerName", js_cocos2dx_extension_CCBAnimationManager_getDocumentControllerName, 0, JSPROP_PERMANENT | JSPROP_ENUMERATE),
-		JS_FS_END
+        JS_FN("ctor", js_cocos2dx_extension_CCBAnimationManager_ctor, 0, JSPROP_PERMANENT | JSPROP_ENUMERATE),
+        JS_FS_END
 	};
 
 	JSFunctionSpec *st_funcs = NULL;
@@ -5607,6 +5685,18 @@ extern JSObject *jsb_CCNode_prototype;
 void js_cocos2dx_extension_CCTableViewCell_finalize(JSFreeOp *fop, JSObject *obj) {
 }
 
+static JSBool js_cocos2dx_extension_CCTableViewCell_ctor(JSContext *cx, uint32_t argc, jsval *vp)
+{
+	JSObject *obj = JS_THIS_OBJECT(cx, vp);
+    cocos2d::extension::CCTableViewCell *nobj = new cocos2d::extension::CCTableViewCell();
+    js_proxy_t* p;
+    JS_NEW_PROXY(p, nobj, obj);
+    nobj->autorelease();
+    JS_AddNamedObjectRoot(cx, &p->obj, "cocos2d::extension::CCTableViewCell");
+    JS_SET_RVAL(cx, vp, JSVAL_VOID);
+    return JS_TRUE;
+}
+
 void js_register_cocos2dx_extension_CCTableViewCell(JSContext *cx, JSObject *global) {
 	jsb_CCTableViewCell_class = (JSClass *)calloc(1, sizeof(JSClass));
 	jsb_CCTableViewCell_class->name = "TableViewCell";
@@ -5630,7 +5720,8 @@ void js_register_cocos2dx_extension_CCTableViewCell(JSContext *cx, JSObject *glo
 		JS_FN("setObjectID", js_cocos2dx_extension_CCTableViewCell_setObjectID, 1, JSPROP_PERMANENT | JSPROP_ENUMERATE),
 		JS_FN("getObjectID", js_cocos2dx_extension_CCTableViewCell_getObjectID, 0, JSPROP_PERMANENT | JSPROP_ENUMERATE),
 		JS_FN("getIdx", js_cocos2dx_extension_CCTableViewCell_getIdx, 0, JSPROP_PERMANENT | JSPROP_ENUMERATE),
-		JS_FS_END
+        JS_FN("ctor", js_cocos2dx_extension_CCTableViewCell_ctor, 0, JSPROP_PERMANENT | JSPROP_ENUMERATE),
+        JS_FS_END
 	};
 
 	JSFunctionSpec *st_funcs = NULL;
@@ -6110,6 +6201,18 @@ extern JSObject *jsb_CCScrollView_prototype;
 void js_cocos2dx_extension_CCTableView_finalize(JSFreeOp *fop, JSObject *obj) {
 }
 
+static JSBool js_cocos2dx_extension_CCTableView_ctor(JSContext *cx, uint32_t argc, jsval *vp)
+{
+	JSObject *obj = JS_THIS_OBJECT(cx, vp);
+    cocos2d::extension::CCTableView *nobj = new cocos2d::extension::CCTableView();
+    js_proxy_t* p;
+    JS_NEW_PROXY(p, nobj, obj);
+    nobj->autorelease();
+    JS_AddNamedObjectRoot(cx, &p->obj, "cocos2d::extension::CCTableView");
+    JS_SET_RVAL(cx, vp, JSVAL_VOID);
+    return JS_TRUE;
+}
+
 void js_register_cocos2dx_extension_CCTableView(JSContext *cx, JSObject *global) {
 	jsb_CCTableView_class = (JSClass *)calloc(1, sizeof(JSClass));
 	jsb_CCTableView_class->name = "TableView";
@@ -6144,7 +6247,8 @@ void js_register_cocos2dx_extension_CCTableView(JSContext *cx, JSObject *global)
 		JS_FN("insertCellAtIndex", js_cocos2dx_extension_CCTableView_insertCellAtIndex, 1, JSPROP_PERMANENT | JSPROP_ENUMERATE),
 		JS_FN("cellAtIndex", js_cocos2dx_extension_CCTableView_cellAtIndex, 1, JSPROP_PERMANENT | JSPROP_ENUMERATE),
 		JS_FN("dequeueCell", js_cocos2dx_extension_CCTableView_dequeueCell, 0, JSPROP_PERMANENT | JSPROP_ENUMERATE),
-		JS_FS_END
+        JS_FN("ctor", js_cocos2dx_extension_CCTableView_ctor, 0, JSPROP_PERMANENT | JSPROP_ENUMERATE),
+        JS_FS_END
 	};
 
 	JSFunctionSpec *st_funcs = NULL;
@@ -6766,6 +6870,18 @@ extern JSObject *jsb_CCControlButton_prototype;
 void js_cocos2dx_extension_CCEditBox_finalize(JSFreeOp *fop, JSObject *obj) {
 }
 
+static JSBool js_cocos2dx_extension_CCEditBox_ctor(JSContext *cx, uint32_t argc, jsval *vp)
+{
+	JSObject *obj = JS_THIS_OBJECT(cx, vp);
+    cocos2d::extension::CCEditBox *nobj = new cocos2d::extension::CCEditBox();
+    js_proxy_t* p;
+    JS_NEW_PROXY(p, nobj, obj);
+    nobj->autorelease();
+    JS_AddNamedObjectRoot(cx, &p->obj, "cocos2d::extension::CCEditBox");
+    JS_SET_RVAL(cx, vp, JSVAL_VOID);
+    return JS_TRUE;
+}
+
 void js_register_cocos2dx_extension_CCEditBox(JSContext *cx, JSObject *global) {
 	jsb_CCEditBox_class = (JSClass *)calloc(1, sizeof(JSClass));
 	jsb_CCEditBox_class->name = "EditBox";
@@ -6806,7 +6922,8 @@ void js_register_cocos2dx_extension_CCEditBox(JSContext *cx, JSObject *global) {
 		JS_FN("setContentSize", js_cocos2dx_extension_CCEditBox_setContentSize, 1, JSPROP_PERMANENT | JSPROP_ENUMERATE),
 		JS_FN("setFont", js_cocos2dx_extension_CCEditBox_setFont, 2, JSPROP_PERMANENT | JSPROP_ENUMERATE),
 		JS_FN("setVisible", js_cocos2dx_extension_CCEditBox_setVisible, 1, JSPROP_PERMANENT | JSPROP_ENUMERATE),
-		JS_FS_END
+        JS_FN("ctor", js_cocos2dx_extension_CCEditBox_ctor, 0, JSPROP_PERMANENT | JSPROP_ENUMERATE),
+        JS_FS_END
 	};
 
 	static JSFunctionSpec st_funcs[] = {
