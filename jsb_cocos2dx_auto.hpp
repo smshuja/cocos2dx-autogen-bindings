@@ -2924,6 +2924,18 @@ JSBool js_cocos2dx_CCFileUtils_loadFilenameLookupDictionaryFromFile(JSContext *c
 JSBool js_cocos2dx_CCFileUtils_purgeFileUtils(JSContext *cx, uint32_t argc, jsval *vp);
 JSBool js_cocos2dx_CCFileUtils_sharedFileUtils(JSContext *cx, uint32_t argc, jsval *vp);
 
+extern JSClass  *jsb_CCApplication_class;
+extern JSObject *jsb_CCApplication_prototype;
+
+JSBool js_cocos2dx_CCApplication_constructor(JSContext *cx, uint32_t argc, jsval *vp);
+void js_cocos2dx_CCApplication_finalize(JSContext *cx, JSObject *obj);
+void js_register_cocos2dx_CCApplication(JSContext *cx, JSObject *global);
+void register_all_cocos2dx(JSContext* cx, JSObject* obj);
+JSBool js_cocos2dx_CCApplication_getTargetPlatform(JSContext *cx, uint32_t argc, jsval *vp);
+JSBool js_cocos2dx_CCApplication_setAnimationInterval(JSContext *cx, uint32_t argc, jsval *vp);
+JSBool js_cocos2dx_CCApplication_getCurrentLanguage(JSContext *cx, uint32_t argc, jsval *vp);
+JSBool js_cocos2dx_CCApplication_sharedApplication(JSContext *cx, uint32_t argc, jsval *vp);
+
 extern JSClass  *jsb_CCShaderCache_class;
 extern JSObject *jsb_CCShaderCache_prototype;
 
