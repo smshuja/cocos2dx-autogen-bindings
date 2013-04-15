@@ -6153,12 +6153,6 @@ appendChild : function () {},
 reorderBatch : function () {},
 
 /**
- * @method getTexture
- * @return A value converted from C/C++ "cocos2d::CCTexture2D*"
- */
-getTexture : function () {},
-
-/**
  * @method visit
  */
 visit : function () {},
@@ -6189,6 +6183,12 @@ removeSpriteFromAtlas : function () {},
  * @param {int}
  */
 atlasIndexForChild : function () {},
+
+/**
+ * @method getTexture
+ * @return A value converted from C/C++ "cocos2d::CCTexture2D*"
+ */
+getTexture : function () {},
 
 /**
  * @method increaseAtlasCapacity
@@ -6279,6 +6279,12 @@ removeChild : function () {},
  * @param {cocos2d::CCSprite*}
  */
 highestAtlasIndexInChild : function () {},
+
+/**
+ * @method CCSpriteBatchNode
+ * @constructor
+ */
+CCSpriteBatchNode : function () {},
 
 };
 
