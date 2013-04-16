@@ -1373,6 +1373,26 @@ JSBool js_cocos2dx_extension_CCScale9Sprite_resizableSpriteWithCapInsets(JSConte
 	JS_ReportError(cx, "wrong number of arguments: %d, was expecting %d", argc, 1);
 	return JS_FALSE;
 }
+JSBool js_cocos2dx_extension_CCScale9Sprite_setOpacity(JSContext *cx, uint32_t argc, jsval *vp)
+{
+	jsval *argv = JS_ARGV(cx, vp);
+	JSBool ok = JS_TRUE;
+	JSObject *obj = JS_THIS_OBJECT(cx, vp);
+	js_proxy_t *proxy; JS_GET_NATIVE_PROXY(proxy, obj);
+	cocos2d::extension::CCScale9Sprite* cobj = (cocos2d::extension::CCScale9Sprite *)(proxy ? proxy->ptr : NULL);
+	JSB_PRECONDITION2( cobj, cx, JS_FALSE, "Invalid Native Object");
+	if (argc == 1) {
+		uint16_t arg0;
+		ok &= jsval_to_uint16(cx, argv[0], &arg0);
+		JSB_PRECONDITION2(ok, cx, JS_FALSE, "Error processing arguments");
+		cobj->setOpacity(arg0);
+		JS_SET_RVAL(cx, vp, JSVAL_VOID);
+		return JS_TRUE;
+	}
+
+	JS_ReportError(cx, "wrong number of arguments: %d, was expecting %d", argc, 1);
+	return JS_FALSE;
+}
 JSBool js_cocos2dx_extension_CCScale9Sprite_setContentSize(JSContext *cx, uint32_t argc, jsval *vp)
 {
 	jsval *argv = JS_ARGV(cx, vp);
@@ -1499,6 +1519,26 @@ JSBool js_cocos2dx_extension_CCScale9Sprite_initWithFile(JSContext *cx, uint32_t
 	} while(0);
 
 	JS_ReportError(cx, "wrong number of arguments");
+	return JS_FALSE;
+}
+JSBool js_cocos2dx_extension_CCScale9Sprite_setColor(JSContext *cx, uint32_t argc, jsval *vp)
+{
+	jsval *argv = JS_ARGV(cx, vp);
+	JSBool ok = JS_TRUE;
+	JSObject *obj = JS_THIS_OBJECT(cx, vp);
+	js_proxy_t *proxy; JS_GET_NATIVE_PROXY(proxy, obj);
+	cocos2d::extension::CCScale9Sprite* cobj = (cocos2d::extension::CCScale9Sprite *)(proxy ? proxy->ptr : NULL);
+	JSB_PRECONDITION2( cobj, cx, JS_FALSE, "Invalid Native Object");
+	if (argc == 1) {
+		cocos2d::ccColor3B arg0;
+		ok &= jsval_to_cccolor3b(cx, argv[0], &arg0);
+		JSB_PRECONDITION2(ok, cx, JS_FALSE, "Error processing arguments");
+		cobj->setColor(arg0);
+		JS_SET_RVAL(cx, vp, JSVAL_VOID);
+		return JS_TRUE;
+	}
+
+	JS_ReportError(cx, "wrong number of arguments: %d, was expecting %d", argc, 1);
 	return JS_FALSE;
 }
 JSBool js_cocos2dx_extension_CCScale9Sprite_getInsetTop(JSContext *cx, uint32_t argc, jsval *vp)
@@ -1969,10 +2009,12 @@ void js_register_cocos2dx_extension_CCScale9Sprite(JSContext *cx, JSObject *glob
 		JS_FN("initWithBatchNode", js_cocos2dx_extension_CCScale9Sprite_initWithBatchNode, 3, JSPROP_PERMANENT | JSPROP_ENUMERATE),
 		JS_FN("getInsetBottom", js_cocos2dx_extension_CCScale9Sprite_getInsetBottom, 0, JSPROP_PERMANENT | JSPROP_ENUMERATE),
 		JS_FN("resizableSpriteWithCapInsets", js_cocos2dx_extension_CCScale9Sprite_resizableSpriteWithCapInsets, 1, JSPROP_PERMANENT | JSPROP_ENUMERATE),
+		JS_FN("setOpacity", js_cocos2dx_extension_CCScale9Sprite_setOpacity, 1, JSPROP_PERMANENT | JSPROP_ENUMERATE),
 		JS_FN("setContentSize", js_cocos2dx_extension_CCScale9Sprite_setContentSize, 1, JSPROP_PERMANENT | JSPROP_ENUMERATE),
 		JS_FN("getInsetRight", js_cocos2dx_extension_CCScale9Sprite_getInsetRight, 0, JSPROP_PERMANENT | JSPROP_ENUMERATE),
 		JS_FN("getOriginalSize", js_cocos2dx_extension_CCScale9Sprite_getOriginalSize, 0, JSPROP_PERMANENT | JSPROP_ENUMERATE),
 		JS_FN("initWithFile", js_cocos2dx_extension_CCScale9Sprite_initWithFile, 1, JSPROP_PERMANENT | JSPROP_ENUMERATE),
+		JS_FN("setColor", js_cocos2dx_extension_CCScale9Sprite_setColor, 1, JSPROP_PERMANENT | JSPROP_ENUMERATE),
 		JS_FN("getInsetTop", js_cocos2dx_extension_CCScale9Sprite_getInsetTop, 0, JSPROP_PERMANENT | JSPROP_ENUMERATE),
 		JS_FN("setInsetLeft", js_cocos2dx_extension_CCScale9Sprite_setInsetLeft, 1, JSPROP_PERMANENT | JSPROP_ENUMERATE),
 		JS_FN("initWithSpriteFrame", js_cocos2dx_extension_CCScale9Sprite_initWithSpriteFrame, 1, JSPROP_PERMANENT | JSPROP_ENUMERATE),

@@ -276,6 +276,12 @@ getInsetBottom : function () {},
 resizableSpriteWithCapInsets : function () {},
 
 /**
+ * @method setOpacity
+ * @param {unsigned char}
+ */
+setOpacity : function () {},
+
+/**
  * @method setContentSize
  * @param {cocos2d::CCSize}
  */
@@ -292,6 +298,12 @@ getInsetRight : function () {},
  * @return A value converted from C/C++ "cocos2d::CCSize"
  */
 getOriginalSize : function () {},
+
+/**
+ * @method setColor
+ * @param {cocos2d::ccColor3B}
+ */
+setColor : function () {},
 
 /**
  * @method getInsetTop
