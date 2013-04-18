@@ -703,6 +703,12 @@ CCTexture2D : function () {},
 cc.Node = {
 
 /**
+ * @method nodeToWorldTransform
+ * @return A value converted from C/C++ "cocos2d::CCAffineTransform"
+ */
+nodeToWorldTransform : function () {},
+
+/**
  * @method getShaderProgram
  * @return A value converted from C/C++ "cocos2d::CCGLProgram*"
  */
@@ -819,6 +825,12 @@ getRotationY : function () {},
 setParent : function () {},
 
 /**
+ * @method nodeToParentTransform
+ * @return A value converted from C/C++ "cocos2d::CCAffineTransform"
+ */
+nodeToParentTransform : function () {},
+
+/**
  * @method numberOfRunningActions
  * @return A value converted from C/C++ "unsigned int"
  */
@@ -854,6 +866,11 @@ setPositionX : function () {},
  * @return A value converted from C/C++ "cocos2d::CCPoint"
  */
 getAnchorPoint : function () {},
+
+/**
+ * @method updateTransform
+ */
+updateTransform : function () {},
 
 /**
  * @method isVisible
@@ -979,6 +996,12 @@ setRotationX : function () {},
  * @param {float}
  */
 setRotationY : function () {},
+
+/**
+ * @method setAdditionalTransform
+ * @param {cocos2d::CCAffineTransform}
+ */
+setAdditionalTransform : function () {},
 
 /**
  * @method getScheduler
@@ -1157,6 +1180,18 @@ convertToNodeSpace : function () {},
  * @return A value converted from C/C++ "float"
  */
 getScale : function () {},
+
+/**
+ * @method worldToNodeTransform
+ * @return A value converted from C/C++ "cocos2d::CCAffineTransform"
+ */
+worldToNodeTransform : function () {},
+
+/**
+ * @method parentToNodeTransform
+ * @return A value converted from C/C++ "cocos2d::CCAffineTransform"
+ */
+parentToNodeTransform : function () {},
 
 /**
  * @method getCamera

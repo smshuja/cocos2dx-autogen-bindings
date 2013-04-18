@@ -3011,6 +3011,23 @@ JSBool js_cocos2dx_CCNode_addChild(JSContext *cx, uint32_t argc, jsval *vp)
 	JS_ReportError(cx, "wrong number of arguments");
 	return JS_FALSE;
 }
+JSBool js_cocos2dx_CCNode_nodeToWorldTransform(JSContext *cx, uint32_t argc, jsval *vp)
+{
+	JSObject *obj = JS_THIS_OBJECT(cx, vp);
+	js_proxy_t *proxy; JS_GET_NATIVE_PROXY(proxy, obj);
+	cocos2d::CCNode* cobj = (cocos2d::CCNode *)(proxy ? proxy->ptr : NULL);
+	JSB_PRECONDITION2( cobj, cx, JS_FALSE, "Invalid Native Object");
+	if (argc == 0) {
+		cocos2d::CCAffineTransform ret = cobj->nodeToWorldTransform();
+		jsval jsret;
+		jsret = ccaffinetransform_to_jsval(cx, ret);
+		JS_SET_RVAL(cx, vp, jsret);
+		return JS_TRUE;
+	}
+
+	JS_ReportError(cx, "wrong number of arguments: %d, was expecting %d", argc, 0);
+	return JS_FALSE;
+}
 JSBool js_cocos2dx_CCNode_getShaderProgram(JSContext *cx, uint32_t argc, jsval *vp)
 {
 	JSObject *obj = JS_THIS_OBJECT(cx, vp);
@@ -3471,6 +3488,23 @@ JSBool js_cocos2dx_CCNode_setParent(JSContext *cx, uint32_t argc, jsval *vp)
 	JS_ReportError(cx, "wrong number of arguments: %d, was expecting %d", argc, 1);
 	return JS_FALSE;
 }
+JSBool js_cocos2dx_CCNode_nodeToParentTransform(JSContext *cx, uint32_t argc, jsval *vp)
+{
+	JSObject *obj = JS_THIS_OBJECT(cx, vp);
+	js_proxy_t *proxy; JS_GET_NATIVE_PROXY(proxy, obj);
+	cocos2d::CCNode* cobj = (cocos2d::CCNode *)(proxy ? proxy->ptr : NULL);
+	JSB_PRECONDITION2( cobj, cx, JS_FALSE, "Invalid Native Object");
+	if (argc == 0) {
+		cocos2d::CCAffineTransform ret = cobj->nodeToParentTransform();
+		jsval jsret;
+		jsret = ccaffinetransform_to_jsval(cx, ret);
+		JS_SET_RVAL(cx, vp, jsret);
+		return JS_TRUE;
+	}
+
+	JS_ReportError(cx, "wrong number of arguments: %d, was expecting %d", argc, 0);
+	return JS_FALSE;
+}
 JSBool js_cocos2dx_CCNode_numberOfRunningActions(JSContext *cx, uint32_t argc, jsval *vp)
 {
 	JSObject *obj = JS_THIS_OBJECT(cx, vp);
@@ -3587,6 +3621,21 @@ JSBool js_cocos2dx_CCNode_getAnchorPoint(JSContext *cx, uint32_t argc, jsval *vp
 		jsval jsret;
 		jsret = ccpoint_to_jsval(cx, ret);
 		JS_SET_RVAL(cx, vp, jsret);
+		return JS_TRUE;
+	}
+
+	JS_ReportError(cx, "wrong number of arguments: %d, was expecting %d", argc, 0);
+	return JS_FALSE;
+}
+JSBool js_cocos2dx_CCNode_updateTransform(JSContext *cx, uint32_t argc, jsval *vp)
+{
+	JSObject *obj = JS_THIS_OBJECT(cx, vp);
+	js_proxy_t *proxy; JS_GET_NATIVE_PROXY(proxy, obj);
+	cocos2d::CCNode* cobj = (cocos2d::CCNode *)(proxy ? proxy->ptr : NULL);
+	JSB_PRECONDITION2( cobj, cx, JS_FALSE, "Invalid Native Object");
+	if (argc == 0) {
+		cobj->updateTransform();
+		JS_SET_RVAL(cx, vp, JSVAL_VOID);
 		return JS_TRUE;
 	}
 
@@ -4003,6 +4052,26 @@ JSBool js_cocos2dx_CCNode_setRotationY(JSContext *cx, uint32_t argc, jsval *vp)
 		ok &= JS_ValueToNumber(cx, argv[0], &arg0);
 		JSB_PRECONDITION2(ok, cx, JS_FALSE, "Error processing arguments");
 		cobj->setRotationY(arg0);
+		JS_SET_RVAL(cx, vp, JSVAL_VOID);
+		return JS_TRUE;
+	}
+
+	JS_ReportError(cx, "wrong number of arguments: %d, was expecting %d", argc, 1);
+	return JS_FALSE;
+}
+JSBool js_cocos2dx_CCNode_setAdditionalTransform(JSContext *cx, uint32_t argc, jsval *vp)
+{
+	jsval *argv = JS_ARGV(cx, vp);
+	JSBool ok = JS_TRUE;
+	JSObject *obj = JS_THIS_OBJECT(cx, vp);
+	js_proxy_t *proxy; JS_GET_NATIVE_PROXY(proxy, obj);
+	cocos2d::CCNode* cobj = (cocos2d::CCNode *)(proxy ? proxy->ptr : NULL);
+	JSB_PRECONDITION2( cobj, cx, JS_FALSE, "Invalid Native Object");
+	if (argc == 1) {
+		cocos2d::CCAffineTransform arg0;
+		ok &= jsval_to_ccaffinetransform(cx, argv[0], &arg0);
+		JSB_PRECONDITION2(ok, cx, JS_FALSE, "Error processing arguments");
+		cobj->setAdditionalTransform(arg0);
 		JS_SET_RVAL(cx, vp, JSVAL_VOID);
 		return JS_TRUE;
 	}
@@ -4709,6 +4778,40 @@ JSBool js_cocos2dx_CCNode_getScale(JSContext *cx, uint32_t argc, jsval *vp)
 	JS_ReportError(cx, "wrong number of arguments: %d, was expecting %d", argc, 0);
 	return JS_FALSE;
 }
+JSBool js_cocos2dx_CCNode_worldToNodeTransform(JSContext *cx, uint32_t argc, jsval *vp)
+{
+	JSObject *obj = JS_THIS_OBJECT(cx, vp);
+	js_proxy_t *proxy; JS_GET_NATIVE_PROXY(proxy, obj);
+	cocos2d::CCNode* cobj = (cocos2d::CCNode *)(proxy ? proxy->ptr : NULL);
+	JSB_PRECONDITION2( cobj, cx, JS_FALSE, "Invalid Native Object");
+	if (argc == 0) {
+		cocos2d::CCAffineTransform ret = cobj->worldToNodeTransform();
+		jsval jsret;
+		jsret = ccaffinetransform_to_jsval(cx, ret);
+		JS_SET_RVAL(cx, vp, jsret);
+		return JS_TRUE;
+	}
+
+	JS_ReportError(cx, "wrong number of arguments: %d, was expecting %d", argc, 0);
+	return JS_FALSE;
+}
+JSBool js_cocos2dx_CCNode_parentToNodeTransform(JSContext *cx, uint32_t argc, jsval *vp)
+{
+	JSObject *obj = JS_THIS_OBJECT(cx, vp);
+	js_proxy_t *proxy; JS_GET_NATIVE_PROXY(proxy, obj);
+	cocos2d::CCNode* cobj = (cocos2d::CCNode *)(proxy ? proxy->ptr : NULL);
+	JSB_PRECONDITION2( cobj, cx, JS_FALSE, "Invalid Native Object");
+	if (argc == 0) {
+		cocos2d::CCAffineTransform ret = cobj->parentToNodeTransform();
+		jsval jsret;
+		jsret = ccaffinetransform_to_jsval(cx, ret);
+		JS_SET_RVAL(cx, vp, jsret);
+		return JS_TRUE;
+	}
+
+	JS_ReportError(cx, "wrong number of arguments: %d, was expecting %d", argc, 0);
+	return JS_FALSE;
+}
 JSBool js_cocos2dx_CCNode_getCamera(JSContext *cx, uint32_t argc, jsval *vp)
 {
 	JSObject *obj = JS_THIS_OBJECT(cx, vp);
@@ -4886,6 +4989,7 @@ void js_register_cocos2dx_CCNode(JSContext *cx, JSObject *global) {
 
 	static JSFunctionSpec funcs[] = {
 		JS_FN("addChild", js_cocos2dx_CCNode_addChild, 1, JSPROP_PERMANENT | JSPROP_ENUMERATE),
+		JS_FN("nodeToWorldTransform", js_cocos2dx_CCNode_nodeToWorldTransform, 0, JSPROP_PERMANENT | JSPROP_ENUMERATE),
 		JS_FN("getShaderProgram", js_cocos2dx_CCNode_getShaderProgram, 0, JSPROP_PERMANENT | JSPROP_ENUMERATE),
 		JS_FN("getChildren", js_cocos2dx_CCNode_getChildren, 0, JSPROP_PERMANENT | JSPROP_ENUMERATE),
 		JS_FN("getScriptHandler", js_cocos2dx_CCNode_getScriptHandler, 0, JSPROP_PERMANENT | JSPROP_ENUMERATE),
@@ -4907,12 +5011,14 @@ void js_register_cocos2dx_CCNode(JSContext *cx, JSObject *global) {
 		JS_FN("getRotationX", js_cocos2dx_CCNode_getRotationX, 0, JSPROP_PERMANENT | JSPROP_ENUMERATE),
 		JS_FN("getRotationY", js_cocos2dx_CCNode_getRotationY, 0, JSPROP_PERMANENT | JSPROP_ENUMERATE),
 		JS_FN("setParent", js_cocos2dx_CCNode_setParent, 1, JSPROP_PERMANENT | JSPROP_ENUMERATE),
+		JS_FN("nodeToParentTransform", js_cocos2dx_CCNode_nodeToParentTransform, 0, JSPROP_PERMANENT | JSPROP_ENUMERATE),
 		JS_FN("numberOfRunningActions", js_cocos2dx_CCNode_numberOfRunningActions, 0, JSPROP_PERMANENT | JSPROP_ENUMERATE),
 		JS_FN("stopActionByTag", js_cocos2dx_CCNode_stopActionByTag, 1, JSPROP_PERMANENT | JSPROP_ENUMERATE),
 		JS_FN("reorderChild", js_cocos2dx_CCNode_reorderChild, 2, JSPROP_PERMANENT | JSPROP_ENUMERATE),
 		JS_FN("setPositionY", js_cocos2dx_CCNode_setPositionY, 1, JSPROP_PERMANENT | JSPROP_ENUMERATE),
 		JS_FN("setPositionX", js_cocos2dx_CCNode_setPositionX, 1, JSPROP_PERMANENT | JSPROP_ENUMERATE),
 		JS_FN("getAnchorPoint", js_cocos2dx_CCNode_getAnchorPoint, 0, JSPROP_PERMANENT | JSPROP_ENUMERATE),
+		JS_FN("updateTransform", js_cocos2dx_CCNode_updateTransform, 0, JSPROP_PERMANENT | JSPROP_ENUMERATE),
 		JS_FN("isVisible", js_cocos2dx_CCNode_isVisible, 0, JSPROP_PERMANENT | JSPROP_ENUMERATE),
 		JS_FN("getChildrenCount", js_cocos2dx_CCNode_getChildrenCount, 0, JSPROP_PERMANENT | JSPROP_ENUMERATE),
 		JS_FN("setAnchorPoint", js_cocos2dx_CCNode_setAnchorPoint, 1, JSPROP_PERMANENT | JSPROP_ENUMERATE),
@@ -4934,6 +5040,7 @@ void js_register_cocos2dx_CCNode(JSContext *cx, JSObject *global) {
 		JS_FN("getActionByTag", js_cocos2dx_CCNode_getActionByTag, 1, JSPROP_PERMANENT | JSPROP_ENUMERATE),
 		JS_FN("setRotationX", js_cocos2dx_CCNode_setRotationX, 1, JSPROP_PERMANENT | JSPROP_ENUMERATE),
 		JS_FN("setRotationY", js_cocos2dx_CCNode_setRotationY, 1, JSPROP_PERMANENT | JSPROP_ENUMERATE),
+		JS_FN("setAdditionalTransform", js_cocos2dx_CCNode_setAdditionalTransform, 1, JSPROP_PERMANENT | JSPROP_ENUMERATE),
 		JS_FN("getScheduler", js_cocos2dx_CCNode_getScheduler, 0, JSPROP_PERMANENT | JSPROP_ENUMERATE),
 		JS_FN("getOrderOfArrival", js_cocos2dx_CCNode_getOrderOfArrival, 0, JSPROP_PERMANENT | JSPROP_ENUMERATE),
 		JS_FN("setContentSize", js_cocos2dx_CCNode_setContentSize, 1, JSPROP_PERMANENT | JSPROP_ENUMERATE),
@@ -4967,6 +5074,8 @@ void js_register_cocos2dx_CCNode(JSContext *cx, JSObject *global) {
 		JS_FN("sortAllChildren", js_cocos2dx_CCNode_sortAllChildren, 0, JSPROP_PERMANENT | JSPROP_ENUMERATE),
 		JS_FN("convertToNodeSpace", js_cocos2dx_CCNode_convertToNodeSpace, 1, JSPROP_PERMANENT | JSPROP_ENUMERATE),
 		JS_FN("getScale", js_cocos2dx_CCNode_getScale, 0, JSPROP_PERMANENT | JSPROP_ENUMERATE),
+		JS_FN("worldToNodeTransform", js_cocos2dx_CCNode_worldToNodeTransform, 0, JSPROP_PERMANENT | JSPROP_ENUMERATE),
+		JS_FN("parentToNodeTransform", js_cocos2dx_CCNode_parentToNodeTransform, 0, JSPROP_PERMANENT | JSPROP_ENUMERATE),
 		JS_FN("getCamera", js_cocos2dx_CCNode_getCamera, 0, JSPROP_PERMANENT | JSPROP_ENUMERATE),
 		JS_FN("setTag", js_cocos2dx_CCNode_setTag, 1, JSPROP_PERMANENT | JSPROP_ENUMERATE),
 		JS_FN("stopAction", js_cocos2dx_CCNode_stopAction, 1, JSPROP_PERMANENT | JSPROP_ENUMERATE),
