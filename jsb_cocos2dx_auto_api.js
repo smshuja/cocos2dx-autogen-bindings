@@ -10816,12 +10816,6 @@ positionAt : function () {},
 setLayerOrientation : function () {},
 
 /**
- * @method getTiles
- * @return A value converted from C/C++ "unsigned int*"
- */
-getTiles : function () {},
-
-/**
  * @method releaseMap
  */
 releaseMap : function () {},
