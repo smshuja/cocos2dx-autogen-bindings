@@ -88,6 +88,12 @@ getNodesWithAnimationManagers : function () {},
  */
 getAnimationManager : function () {},
 
+/**
+ * @method setResolutionScale
+ * @param {float}
+ */
+setResolutionScale : function () {},
+
 };
 
 /**

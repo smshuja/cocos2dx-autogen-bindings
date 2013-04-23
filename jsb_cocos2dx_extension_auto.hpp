@@ -25,6 +25,7 @@ JSBool js_cocos2dx_extension_CCBReader_readCallbackKeyframesForSeq(JSContext *cx
 JSBool js_cocos2dx_extension_CCBReader_getAnimationManagersForNodes(JSContext *cx, uint32_t argc, jsval *vp);
 JSBool js_cocos2dx_extension_CCBReader_getNodesWithAnimationManagers(JSContext *cx, uint32_t argc, jsval *vp);
 JSBool js_cocos2dx_extension_CCBReader_getAnimationManager(JSContext *cx, uint32_t argc, jsval *vp);
+JSBool js_cocos2dx_extension_CCBReader_setResolutionScale(JSContext *cx, uint32_t argc, jsval *vp);
 JSBool js_cocos2dx_extension_CCBReader_CCBReader(JSContext *cx, uint32_t argc, jsval *vp);
 
 extern JSClass  *jsb_CCControl_class;
