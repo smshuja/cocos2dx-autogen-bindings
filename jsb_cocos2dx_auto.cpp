@@ -317,6 +317,7 @@ JSBool js_cocos2dx_CCAction_constructor(JSContext *cx, uint32_t argc, jsval *vp)
 
 
 void js_cocos2dx_CCAction_finalize(JSFreeOp *fop, JSObject *obj) {
+    CCLOGINFO("jsbindings: finalizing JS object %p (CCAction)", obj);
 }
 
 static JSBool js_cocos2dx_CCAction_ctor(JSContext *cx, uint32_t argc, jsval *vp)
@@ -493,6 +494,7 @@ JSBool js_cocos2dx_CCFiniteTimeAction_constructor(JSContext *cx, uint32_t argc, 
 extern JSObject *jsb_CCAction_prototype;
 
 void js_cocos2dx_CCFiniteTimeAction_finalize(JSFreeOp *fop, JSObject *obj) {
+    CCLOGINFO("jsbindings: finalizing JS object %p (CCFiniteTimeAction)", obj);
 }
 
 static JSBool js_cocos2dx_CCFiniteTimeAction_ctor(JSContext *cx, uint32_t argc, jsval *vp)
@@ -849,6 +851,7 @@ JSBool js_cocos2dx_CCSpeed_constructor(JSContext *cx, uint32_t argc, jsval *vp)
 extern JSObject *jsb_CCAction_prototype;
 
 void js_cocos2dx_CCSpeed_finalize(JSFreeOp *fop, JSObject *obj) {
+    CCLOGINFO("jsbindings: finalizing JS object %p (CCSpeed)", obj);
 }
 
 static JSBool js_cocos2dx_CCSpeed_ctor(JSContext *cx, uint32_t argc, jsval *vp)
@@ -1115,6 +1118,7 @@ JSBool js_cocos2dx_CCFollow_constructor(JSContext *cx, uint32_t argc, jsval *vp)
 extern JSObject *jsb_CCAction_prototype;
 
 void js_cocos2dx_CCFollow_finalize(JSFreeOp *fop, JSObject *obj) {
+    CCLOGINFO("jsbindings: finalizing JS object %p (CCFollow)", obj);
 }
 
 static JSBool js_cocos2dx_CCFollow_ctor(JSContext *cx, uint32_t argc, jsval *vp)
@@ -1623,6 +1627,7 @@ JSBool js_cocos2dx_CCGLProgram_constructor(JSContext *cx, uint32_t argc, jsval *
 
 
 void js_cocos2dx_CCGLProgram_finalize(JSFreeOp *fop, JSObject *obj) {
+    CCLOGINFO("jsbindings: finalizing JS object %p (CCGLProgram)", obj);
 }
 
 static JSBool js_cocos2dx_CCGLProgram_ctor(JSContext *cx, uint32_t argc, jsval *vp)
@@ -1902,6 +1907,7 @@ JSBool js_cocos2dx_CCTouch_constructor(JSContext *cx, uint32_t argc, jsval *vp)
 
 
 void js_cocos2dx_CCTouch_finalize(JSFreeOp *fop, JSObject *obj) {
+    CCLOGINFO("jsbindings: finalizing JS object %p (CCTouch)", obj);
 }
 
 static JSBool js_cocos2dx_CCTouch_ctor(JSContext *cx, uint32_t argc, jsval *vp)
@@ -2189,6 +2195,7 @@ JSBool js_cocos2dx_CCSet_create(JSContext *cx, uint32_t argc, jsval *vp)
 
 
 void js_cocos2dx_CCSet_finalize(JSFreeOp *fop, JSObject *obj) {
+    CCLOGINFO("jsbindings: finalizing JS object %p (CCSet)", obj);
 }
 
 void js_register_cocos2dx_CCSet(JSContext *cx, JSObject *global) {
@@ -2838,6 +2845,7 @@ JSBool js_cocos2dx_CCTexture2D_constructor(JSContext *cx, uint32_t argc, jsval *
 
 
 void js_cocos2dx_CCTexture2D_finalize(JSFreeOp *fop, JSObject *obj) {
+    CCLOGINFO("jsbindings: finalizing JS object %p (CCTexture2D)", obj);
 }
 
 static JSBool js_cocos2dx_CCTexture2D_ctor(JSContext *cx, uint32_t argc, jsval *vp)
@@ -4956,6 +4964,7 @@ JSBool js_cocos2dx_CCNode_constructor(JSContext *cx, uint32_t argc, jsval *vp)
 
 
 void js_cocos2dx_CCNode_finalize(JSFreeOp *fop, JSObject *obj) {
+    CCLOGINFO("jsbindings: finalizing JS object %p (CCNode)", obj);
 }
 
 static JSBool js_cocos2dx_CCNode_ctor(JSContext *cx, uint32_t argc, jsval *vp)
@@ -5428,6 +5437,7 @@ JSBool js_cocos2dx_CCNodeRGBA_constructor(JSContext *cx, uint32_t argc, jsval *v
 extern JSObject *jsb_CCNode_prototype;
 
 void js_cocos2dx_CCNodeRGBA_finalize(JSFreeOp *fop, JSObject *obj) {
+    CCLOGINFO("jsbindings: finalizing JS object %p (CCNodeRGBA)", obj);
 }
 
 static JSBool js_cocos2dx_CCNodeRGBA_ctor(JSContext *cx, uint32_t argc, jsval *vp)
@@ -6080,6 +6090,7 @@ JSBool js_cocos2dx_CCSpriteFrame_createWithTexture(JSContext *cx, uint32_t argc,
 
 
 void js_cocos2dx_CCSpriteFrame_finalize(JSFreeOp *fop, JSObject *obj) {
+    CCLOGINFO("jsbindings: finalizing JS object %p (CCSpriteFrame)", obj);
 }
 
 static JSBool js_cocos2dx_CCSpriteFrame_ctor(JSContext *cx, uint32_t argc, jsval *vp)
@@ -6358,6 +6369,7 @@ JSBool js_cocos2dx_CCAnimationFrame_constructor(JSContext *cx, uint32_t argc, js
 
 
 void js_cocos2dx_CCAnimationFrame_finalize(JSFreeOp *fop, JSObject *obj) {
+    CCLOGINFO("jsbindings: finalizing JS object %p (CCAnimationFrame)", obj);
 }
 
 static JSBool js_cocos2dx_CCAnimationFrame_ctor(JSContext *cx, uint32_t argc, jsval *vp)
@@ -6798,6 +6810,7 @@ JSBool js_cocos2dx_CCAnimation_constructor(JSContext *cx, uint32_t argc, jsval *
 
 
 void js_cocos2dx_CCAnimation_finalize(JSFreeOp *fop, JSObject *obj) {
+    CCLOGINFO("jsbindings: finalizing JS object %p (CCAnimation)", obj);
 }
 
 static JSBool js_cocos2dx_CCAnimation_ctor(JSContext *cx, uint32_t argc, jsval *vp)
@@ -7077,6 +7090,7 @@ JSBool js_cocos2dx_CCActionInterval_create(JSContext *cx, uint32_t argc, jsval *
 extern JSObject *jsb_CCFiniteTimeAction_prototype;
 
 void js_cocos2dx_CCActionInterval_finalize(JSFreeOp *fop, JSObject *obj) {
+    CCLOGINFO("jsbindings: finalizing JS object %p (CCActionInterval)", obj);
 }
 
 static JSBool js_cocos2dx_CCActionInterval_ctor(JSContext *cx, uint32_t argc, jsval *vp)
@@ -7284,6 +7298,7 @@ JSBool js_cocos2dx_CCSequence_initWithTwoActions(JSContext *cx, uint32_t argc, j
 extern JSObject *jsb_CCActionInterval_prototype;
 
 void js_cocos2dx_CCSequence_finalize(JSFreeOp *fop, JSObject *obj) {
+    CCLOGINFO("jsbindings: finalizing JS object %p (CCSequence)", obj);
 }
 
 static JSBool js_cocos2dx_CCSequence_ctor(JSContext *cx, uint32_t argc, jsval *vp)
@@ -7579,6 +7594,7 @@ JSBool js_cocos2dx_CCRepeat_create(JSContext *cx, uint32_t argc, jsval *vp)
 extern JSObject *jsb_CCActionInterval_prototype;
 
 void js_cocos2dx_CCRepeat_finalize(JSFreeOp *fop, JSObject *obj) {
+    CCLOGINFO("jsbindings: finalizing JS object %p (CCRepeat)", obj);
 }
 
 static JSBool js_cocos2dx_CCRepeat_ctor(JSContext *cx, uint32_t argc, jsval *vp)
@@ -7887,6 +7903,7 @@ JSBool js_cocos2dx_CCRepeatForever_constructor(JSContext *cx, uint32_t argc, jsv
 extern JSObject *jsb_CCActionInterval_prototype;
 
 void js_cocos2dx_CCRepeatForever_finalize(JSFreeOp *fop, JSObject *obj) {
+    CCLOGINFO("jsbindings: finalizing JS object %p (CCRepeatForever)", obj);
 }
 
 static JSBool js_cocos2dx_CCRepeatForever_ctor(JSContext *cx, uint32_t argc, jsval *vp)
@@ -8093,6 +8110,7 @@ JSBool js_cocos2dx_CCSpawn_initWithTwoActions(JSContext *cx, uint32_t argc, jsva
 extern JSObject *jsb_CCActionInterval_prototype;
 
 void js_cocos2dx_CCSpawn_finalize(JSFreeOp *fop, JSObject *obj) {
+    CCLOGINFO("jsbindings: finalizing JS object %p (CCSpawn)", obj);
 }
 
 static JSBool js_cocos2dx_CCSpawn_ctor(JSContext *cx, uint32_t argc, jsval *vp)
@@ -8322,6 +8340,7 @@ JSBool js_cocos2dx_CCRotateTo_create(JSContext *cx, uint32_t argc, jsval *vp)
 extern JSObject *jsb_CCActionInterval_prototype;
 
 void js_cocos2dx_CCRotateTo_finalize(JSFreeOp *fop, JSObject *obj) {
+    CCLOGINFO("jsbindings: finalizing JS object %p (CCRotateTo)", obj);
 }
 
 static JSBool js_cocos2dx_CCRotateTo_ctor(JSContext *cx, uint32_t argc, jsval *vp)
@@ -8576,6 +8595,7 @@ JSBool js_cocos2dx_CCRotateBy_create(JSContext *cx, uint32_t argc, jsval *vp)
 extern JSObject *jsb_CCActionInterval_prototype;
 
 void js_cocos2dx_CCRotateBy_finalize(JSFreeOp *fop, JSObject *obj) {
+    CCLOGINFO("jsbindings: finalizing JS object %p (CCRotateBy)", obj);
 }
 
 static JSBool js_cocos2dx_CCRotateBy_ctor(JSContext *cx, uint32_t argc, jsval *vp)
@@ -8779,6 +8799,7 @@ JSBool js_cocos2dx_CCMoveBy_create(JSContext *cx, uint32_t argc, jsval *vp)
 extern JSObject *jsb_CCActionInterval_prototype;
 
 void js_cocos2dx_CCMoveBy_finalize(JSFreeOp *fop, JSObject *obj) {
+    CCLOGINFO("jsbindings: finalizing JS object %p (CCMoveBy)", obj);
 }
 
 static JSBool js_cocos2dx_CCMoveBy_ctor(JSContext *cx, uint32_t argc, jsval *vp)
@@ -8938,6 +8959,7 @@ JSBool js_cocos2dx_CCMoveTo_create(JSContext *cx, uint32_t argc, jsval *vp)
 extern JSObject *jsb_CCMoveBy_prototype;
 
 void js_cocos2dx_CCMoveTo_finalize(JSFreeOp *fop, JSObject *obj) {
+    CCLOGINFO("jsbindings: finalizing JS object %p (CCMoveTo)", obj);
 }
 
 static JSBool js_cocos2dx_CCMoveTo_ctor(JSContext *cx, uint32_t argc, jsval *vp)
@@ -9145,6 +9167,7 @@ JSBool js_cocos2dx_CCSkewTo_constructor(JSContext *cx, uint32_t argc, jsval *vp)
 extern JSObject *jsb_CCActionInterval_prototype;
 
 void js_cocos2dx_CCSkewTo_finalize(JSFreeOp *fop, JSObject *obj) {
+    CCLOGINFO("jsbindings: finalizing JS object %p (CCSkewTo)", obj);
 }
 
 static JSBool js_cocos2dx_CCSkewTo_ctor(JSContext *cx, uint32_t argc, jsval *vp)
@@ -9331,6 +9354,7 @@ JSBool js_cocos2dx_CCSkewBy_create(JSContext *cx, uint32_t argc, jsval *vp)
 extern JSObject *jsb_CCSkewTo_prototype;
 
 void js_cocos2dx_CCSkewBy_finalize(JSFreeOp *fop, JSObject *obj) {
+    CCLOGINFO("jsbindings: finalizing JS object %p (CCSkewBy)", obj);
 }
 
 static JSBool js_cocos2dx_CCSkewBy_ctor(JSContext *cx, uint32_t argc, jsval *vp)
@@ -9539,6 +9563,7 @@ JSBool js_cocos2dx_CCJumpBy_create(JSContext *cx, uint32_t argc, jsval *vp)
 extern JSObject *jsb_CCActionInterval_prototype;
 
 void js_cocos2dx_CCJumpBy_finalize(JSFreeOp *fop, JSObject *obj) {
+    CCLOGINFO("jsbindings: finalizing JS object %p (CCJumpBy)", obj);
 }
 
 static JSBool js_cocos2dx_CCJumpBy_ctor(JSContext *cx, uint32_t argc, jsval *vp)
@@ -9678,6 +9703,7 @@ JSBool js_cocos2dx_CCJumpTo_create(JSContext *cx, uint32_t argc, jsval *vp)
 extern JSObject *jsb_CCJumpBy_prototype;
 
 void js_cocos2dx_CCJumpTo_finalize(JSFreeOp *fop, JSObject *obj) {
+    CCLOGINFO("jsbindings: finalizing JS object %p (CCJumpTo)", obj);
 }
 
 static JSBool js_cocos2dx_CCJumpTo_ctor(JSContext *cx, uint32_t argc, jsval *vp)
@@ -9849,6 +9875,7 @@ JSBool js_cocos2dx_CCBezierBy_update(JSContext *cx, uint32_t argc, jsval *vp)
 extern JSObject *jsb_CCActionInterval_prototype;
 
 void js_cocos2dx_CCBezierBy_finalize(JSFreeOp *fop, JSObject *obj) {
+    CCLOGINFO("jsbindings: finalizing JS object %p (CCBezierBy)", obj);
 }
 
 static JSBool js_cocos2dx_CCBezierBy_ctor(JSContext *cx, uint32_t argc, jsval *vp)
@@ -9978,6 +10005,7 @@ JSBool js_cocos2dx_CCBezierTo_initWithDuration(JSContext *cx, uint32_t argc, jsv
 extern JSObject *jsb_CCBezierBy_prototype;
 
 void js_cocos2dx_CCBezierTo_finalize(JSFreeOp *fop, JSObject *obj) {
+    CCLOGINFO("jsbindings: finalizing JS object %p (CCBezierTo)", obj);
 }
 
 static JSBool js_cocos2dx_CCBezierTo_ctor(JSContext *cx, uint32_t argc, jsval *vp)
@@ -10204,6 +10232,7 @@ JSBool js_cocos2dx_CCScaleTo_create(JSContext *cx, uint32_t argc, jsval *vp)
 extern JSObject *jsb_CCActionInterval_prototype;
 
 void js_cocos2dx_CCScaleTo_finalize(JSFreeOp *fop, JSObject *obj) {
+    CCLOGINFO("jsbindings: finalizing JS object %p (CCScaleTo)", obj);
 }
 
 static JSBool js_cocos2dx_CCScaleTo_ctor(JSContext *cx, uint32_t argc, jsval *vp)
@@ -10391,6 +10420,7 @@ JSBool js_cocos2dx_CCScaleBy_create(JSContext *cx, uint32_t argc, jsval *vp)
 extern JSObject *jsb_CCScaleTo_prototype;
 
 void js_cocos2dx_CCScaleBy_finalize(JSFreeOp *fop, JSObject *obj) {
+    CCLOGINFO("jsbindings: finalizing JS object %p (CCScaleBy)", obj);
 }
 
 static JSBool js_cocos2dx_CCScaleBy_ctor(JSContext *cx, uint32_t argc, jsval *vp)
@@ -10605,6 +10635,7 @@ JSBool js_cocos2dx_CCBlink_create(JSContext *cx, uint32_t argc, jsval *vp)
 extern JSObject *jsb_CCActionInterval_prototype;
 
 void js_cocos2dx_CCBlink_finalize(JSFreeOp *fop, JSObject *obj) {
+    CCLOGINFO("jsbindings: finalizing JS object %p (CCBlink)", obj);
 }
 
 static JSBool js_cocos2dx_CCBlink_ctor(JSContext *cx, uint32_t argc, jsval *vp)
@@ -10757,6 +10788,7 @@ JSBool js_cocos2dx_CCFadeIn_create(JSContext *cx, uint32_t argc, jsval *vp)
 extern JSObject *jsb_CCActionInterval_prototype;
 
 void js_cocos2dx_CCFadeIn_finalize(JSFreeOp *fop, JSObject *obj) {
+    CCLOGINFO("jsbindings: finalizing JS object %p (CCFadeIn)", obj);
 }
 
 static JSBool js_cocos2dx_CCFadeIn_ctor(JSContext *cx, uint32_t argc, jsval *vp)
@@ -10904,6 +10936,7 @@ JSBool js_cocos2dx_CCFadeOut_create(JSContext *cx, uint32_t argc, jsval *vp)
 extern JSObject *jsb_CCActionInterval_prototype;
 
 void js_cocos2dx_CCFadeOut_finalize(JSFreeOp *fop, JSObject *obj) {
+    CCLOGINFO("jsbindings: finalizing JS object %p (CCFadeOut)", obj);
 }
 
 static JSBool js_cocos2dx_CCFadeOut_ctor(JSContext *cx, uint32_t argc, jsval *vp)
@@ -11079,6 +11112,7 @@ JSBool js_cocos2dx_CCFadeTo_create(JSContext *cx, uint32_t argc, jsval *vp)
 extern JSObject *jsb_CCActionInterval_prototype;
 
 void js_cocos2dx_CCFadeTo_finalize(JSFreeOp *fop, JSObject *obj) {
+    CCLOGINFO("jsbindings: finalizing JS object %p (CCFadeTo)", obj);
 }
 
 static JSBool js_cocos2dx_CCFadeTo_ctor(JSContext *cx, uint32_t argc, jsval *vp)
@@ -11265,6 +11299,7 @@ JSBool js_cocos2dx_CCTintTo_create(JSContext *cx, uint32_t argc, jsval *vp)
 extern JSObject *jsb_CCActionInterval_prototype;
 
 void js_cocos2dx_CCTintTo_finalize(JSFreeOp *fop, JSObject *obj) {
+    CCLOGINFO("jsbindings: finalizing JS object %p (CCTintTo)", obj);
 }
 
 static JSBool js_cocos2dx_CCTintTo_ctor(JSContext *cx, uint32_t argc, jsval *vp)
@@ -11475,6 +11510,7 @@ JSBool js_cocos2dx_CCTintBy_create(JSContext *cx, uint32_t argc, jsval *vp)
 extern JSObject *jsb_CCActionInterval_prototype;
 
 void js_cocos2dx_CCTintBy_finalize(JSFreeOp *fop, JSObject *obj) {
+    CCLOGINFO("jsbindings: finalizing JS object %p (CCTintBy)", obj);
 }
 
 static JSBool js_cocos2dx_CCTintBy_ctor(JSContext *cx, uint32_t argc, jsval *vp)
@@ -11626,6 +11662,7 @@ JSBool js_cocos2dx_CCDelayTime_create(JSContext *cx, uint32_t argc, jsval *vp)
 extern JSObject *jsb_CCActionInterval_prototype;
 
 void js_cocos2dx_CCDelayTime_finalize(JSFreeOp *fop, JSObject *obj) {
+    CCLOGINFO("jsbindings: finalizing JS object %p (CCDelayTime)", obj);
 }
 
 static JSBool js_cocos2dx_CCDelayTime_ctor(JSContext *cx, uint32_t argc, jsval *vp)
@@ -11924,6 +11961,7 @@ JSBool js_cocos2dx_CCAnimate_constructor(JSContext *cx, uint32_t argc, jsval *vp
 extern JSObject *jsb_CCActionInterval_prototype;
 
 void js_cocos2dx_CCAnimate_finalize(JSFreeOp *fop, JSObject *obj) {
+    CCLOGINFO("jsbindings: finalizing JS object %p (CCAnimate)", obj);
 }
 
 static JSBool js_cocos2dx_CCAnimate_ctor(JSContext *cx, uint32_t argc, jsval *vp)
@@ -12221,6 +12259,7 @@ JSBool js_cocos2dx_CCTargetedAction_constructor(JSContext *cx, uint32_t argc, js
 extern JSObject *jsb_CCActionInterval_prototype;
 
 void js_cocos2dx_CCTargetedAction_finalize(JSFreeOp *fop, JSObject *obj) {
+    CCLOGINFO("jsbindings: finalizing JS object %p (CCTargetedAction)", obj);
 }
 
 static JSBool js_cocos2dx_CCTargetedAction_ctor(JSContext *cx, uint32_t argc, jsval *vp)
@@ -12381,6 +12420,7 @@ JSBool js_cocos2dx_CCActionCamera_constructor(JSContext *cx, uint32_t argc, jsva
 extern JSObject *jsb_CCActionInterval_prototype;
 
 void js_cocos2dx_CCActionCamera_finalize(JSFreeOp *fop, JSObject *obj) {
+    CCLOGINFO("jsbindings: finalizing JS object %p (CCActionCamera)", obj);
 }
 
 static JSBool js_cocos2dx_CCActionCamera_ctor(JSContext *cx, uint32_t argc, jsval *vp)
@@ -12625,6 +12665,7 @@ JSBool js_cocos2dx_CCOrbitCamera_constructor(JSContext *cx, uint32_t argc, jsval
 extern JSObject *jsb_CCActionCamera_prototype;
 
 void js_cocos2dx_CCOrbitCamera_finalize(JSFreeOp *fop, JSObject *obj) {
+    CCLOGINFO("jsbindings: finalizing JS object %p (CCOrbitCamera)", obj);
 }
 
 static JSBool js_cocos2dx_CCOrbitCamera_ctor(JSContext *cx, uint32_t argc, jsval *vp)
@@ -13030,6 +13071,7 @@ JSBool js_cocos2dx_CCActionManager_constructor(JSContext *cx, uint32_t argc, jsv
 
 
 void js_cocos2dx_CCActionManager_finalize(JSFreeOp *fop, JSObject *obj) {
+    CCLOGINFO("jsbindings: finalizing JS object %p (CCActionManager)", obj);
 }
 
 static JSBool js_cocos2dx_CCActionManager_ctor(JSContext *cx, uint32_t argc, jsval *vp)
@@ -13284,6 +13326,7 @@ JSBool js_cocos2dx_CCActionEase_create(JSContext *cx, uint32_t argc, jsval *vp)
 extern JSObject *jsb_CCActionInterval_prototype;
 
 void js_cocos2dx_CCActionEase_finalize(JSFreeOp *fop, JSObject *obj) {
+    CCLOGINFO("jsbindings: finalizing JS object %p (CCActionEase)", obj);
 }
 
 static JSBool js_cocos2dx_CCActionEase_ctor(JSContext *cx, uint32_t argc, jsval *vp)
@@ -13492,6 +13535,7 @@ JSBool js_cocos2dx_CCEaseRateAction_create(JSContext *cx, uint32_t argc, jsval *
 extern JSObject *jsb_CCActionEase_prototype;
 
 void js_cocos2dx_CCEaseRateAction_finalize(JSFreeOp *fop, JSObject *obj) {
+    CCLOGINFO("jsbindings: finalizing JS object %p (CCEaseRateAction)", obj);
 }
 
 static JSBool js_cocos2dx_CCEaseRateAction_ctor(JSContext *cx, uint32_t argc, jsval *vp)
@@ -13651,6 +13695,7 @@ JSBool js_cocos2dx_CCEaseIn_create(JSContext *cx, uint32_t argc, jsval *vp)
 extern JSObject *jsb_CCEaseRateAction_prototype;
 
 void js_cocos2dx_CCEaseIn_finalize(JSFreeOp *fop, JSObject *obj) {
+    CCLOGINFO("jsbindings: finalizing JS object %p (CCEaseIn)", obj);
 }
 
 static JSBool js_cocos2dx_CCEaseIn_ctor(JSContext *cx, uint32_t argc, jsval *vp)
@@ -13806,6 +13851,7 @@ JSBool js_cocos2dx_CCEaseOut_create(JSContext *cx, uint32_t argc, jsval *vp)
 extern JSObject *jsb_CCEaseRateAction_prototype;
 
 void js_cocos2dx_CCEaseOut_finalize(JSFreeOp *fop, JSObject *obj) {
+    CCLOGINFO("jsbindings: finalizing JS object %p (CCEaseOut)", obj);
 }
 
 static JSBool js_cocos2dx_CCEaseOut_ctor(JSContext *cx, uint32_t argc, jsval *vp)
@@ -13961,6 +14007,7 @@ JSBool js_cocos2dx_CCEaseInOut_create(JSContext *cx, uint32_t argc, jsval *vp)
 extern JSObject *jsb_CCEaseRateAction_prototype;
 
 void js_cocos2dx_CCEaseInOut_finalize(JSFreeOp *fop, JSObject *obj) {
+    CCLOGINFO("jsbindings: finalizing JS object %p (CCEaseInOut)", obj);
 }
 
 static JSBool js_cocos2dx_CCEaseInOut_ctor(JSContext *cx, uint32_t argc, jsval *vp)
@@ -14114,6 +14161,7 @@ JSBool js_cocos2dx_CCEaseExponentialIn_create(JSContext *cx, uint32_t argc, jsva
 extern JSObject *jsb_CCActionEase_prototype;
 
 void js_cocos2dx_CCEaseExponentialIn_finalize(JSFreeOp *fop, JSObject *obj) {
+    CCLOGINFO("jsbindings: finalizing JS object %p (CCEaseExponentialIn)", obj);
 }
 
 static JSBool js_cocos2dx_CCEaseExponentialIn_ctor(JSContext *cx, uint32_t argc, jsval *vp)
@@ -14267,6 +14315,7 @@ JSBool js_cocos2dx_CCEaseExponentialOut_create(JSContext *cx, uint32_t argc, jsv
 extern JSObject *jsb_CCActionEase_prototype;
 
 void js_cocos2dx_CCEaseExponentialOut_finalize(JSFreeOp *fop, JSObject *obj) {
+    CCLOGINFO("jsbindings: finalizing JS object %p (CCEaseExponentialOut)", obj);
 }
 
 static JSBool js_cocos2dx_CCEaseExponentialOut_ctor(JSContext *cx, uint32_t argc, jsval *vp)
@@ -14420,6 +14469,7 @@ JSBool js_cocos2dx_CCEaseExponentialInOut_create(JSContext *cx, uint32_t argc, j
 extern JSObject *jsb_CCActionEase_prototype;
 
 void js_cocos2dx_CCEaseExponentialInOut_finalize(JSFreeOp *fop, JSObject *obj) {
+    CCLOGINFO("jsbindings: finalizing JS object %p (CCEaseExponentialInOut)", obj);
 }
 
 static JSBool js_cocos2dx_CCEaseExponentialInOut_ctor(JSContext *cx, uint32_t argc, jsval *vp)
@@ -14573,6 +14623,7 @@ JSBool js_cocos2dx_CCEaseSineIn_create(JSContext *cx, uint32_t argc, jsval *vp)
 extern JSObject *jsb_CCActionEase_prototype;
 
 void js_cocos2dx_CCEaseSineIn_finalize(JSFreeOp *fop, JSObject *obj) {
+    CCLOGINFO("jsbindings: finalizing JS object %p (CCEaseSineIn)", obj);
 }
 
 static JSBool js_cocos2dx_CCEaseSineIn_ctor(JSContext *cx, uint32_t argc, jsval *vp)
@@ -14726,6 +14777,7 @@ JSBool js_cocos2dx_CCEaseSineOut_create(JSContext *cx, uint32_t argc, jsval *vp)
 extern JSObject *jsb_CCActionEase_prototype;
 
 void js_cocos2dx_CCEaseSineOut_finalize(JSFreeOp *fop, JSObject *obj) {
+    CCLOGINFO("jsbindings: finalizing JS object %p (CCEaseSineOut)", obj);
 }
 
 static JSBool js_cocos2dx_CCEaseSineOut_ctor(JSContext *cx, uint32_t argc, jsval *vp)
@@ -14879,6 +14931,7 @@ JSBool js_cocos2dx_CCEaseSineInOut_create(JSContext *cx, uint32_t argc, jsval *v
 extern JSObject *jsb_CCActionEase_prototype;
 
 void js_cocos2dx_CCEaseSineInOut_finalize(JSFreeOp *fop, JSObject *obj) {
+    CCLOGINFO("jsbindings: finalizing JS object %p (CCEaseSineInOut)", obj);
 }
 
 static JSBool js_cocos2dx_CCEaseSineInOut_ctor(JSContext *cx, uint32_t argc, jsval *vp)
@@ -15126,6 +15179,7 @@ JSBool js_cocos2dx_CCEaseElastic_create(JSContext *cx, uint32_t argc, jsval *vp)
 extern JSObject *jsb_CCActionEase_prototype;
 
 void js_cocos2dx_CCEaseElastic_finalize(JSFreeOp *fop, JSObject *obj) {
+    CCLOGINFO("jsbindings: finalizing JS object %p (CCEaseElastic)", obj);
 }
 
 static JSBool js_cocos2dx_CCEaseElastic_ctor(JSContext *cx, uint32_t argc, jsval *vp)
@@ -15314,6 +15368,7 @@ JSBool js_cocos2dx_CCEaseElasticIn_create(JSContext *cx, uint32_t argc, jsval *v
 extern JSObject *jsb_CCEaseElastic_prototype;
 
 void js_cocos2dx_CCEaseElasticIn_finalize(JSFreeOp *fop, JSObject *obj) {
+    CCLOGINFO("jsbindings: finalizing JS object %p (CCEaseElasticIn)", obj);
 }
 
 static JSBool js_cocos2dx_CCEaseElasticIn_ctor(JSContext *cx, uint32_t argc, jsval *vp)
@@ -15498,6 +15553,7 @@ JSBool js_cocos2dx_CCEaseElasticOut_create(JSContext *cx, uint32_t argc, jsval *
 extern JSObject *jsb_CCEaseElastic_prototype;
 
 void js_cocos2dx_CCEaseElasticOut_finalize(JSFreeOp *fop, JSObject *obj) {
+    CCLOGINFO("jsbindings: finalizing JS object %p (CCEaseElasticOut)", obj);
 }
 
 static JSBool js_cocos2dx_CCEaseElasticOut_ctor(JSContext *cx, uint32_t argc, jsval *vp)
@@ -15682,6 +15738,7 @@ JSBool js_cocos2dx_CCEaseElasticInOut_create(JSContext *cx, uint32_t argc, jsval
 extern JSObject *jsb_CCEaseElastic_prototype;
 
 void js_cocos2dx_CCEaseElasticInOut_finalize(JSFreeOp *fop, JSObject *obj) {
+    CCLOGINFO("jsbindings: finalizing JS object %p (CCEaseElasticInOut)", obj);
 }
 
 static JSBool js_cocos2dx_CCEaseElasticInOut_ctor(JSContext *cx, uint32_t argc, jsval *vp)
@@ -15837,6 +15894,7 @@ JSBool js_cocos2dx_CCEaseBounce_create(JSContext *cx, uint32_t argc, jsval *vp)
 extern JSObject *jsb_CCActionEase_prototype;
 
 void js_cocos2dx_CCEaseBounce_finalize(JSFreeOp *fop, JSObject *obj) {
+    CCLOGINFO("jsbindings: finalizing JS object %p (CCEaseBounce)", obj);
 }
 
 static JSBool js_cocos2dx_CCEaseBounce_ctor(JSContext *cx, uint32_t argc, jsval *vp)
@@ -15990,6 +16048,7 @@ JSBool js_cocos2dx_CCEaseBounceIn_create(JSContext *cx, uint32_t argc, jsval *vp
 extern JSObject *jsb_CCEaseBounce_prototype;
 
 void js_cocos2dx_CCEaseBounceIn_finalize(JSFreeOp *fop, JSObject *obj) {
+    CCLOGINFO("jsbindings: finalizing JS object %p (CCEaseBounceIn)", obj);
 }
 
 static JSBool js_cocos2dx_CCEaseBounceIn_ctor(JSContext *cx, uint32_t argc, jsval *vp)
@@ -16143,6 +16202,7 @@ JSBool js_cocos2dx_CCEaseBounceOut_create(JSContext *cx, uint32_t argc, jsval *v
 extern JSObject *jsb_CCEaseBounce_prototype;
 
 void js_cocos2dx_CCEaseBounceOut_finalize(JSFreeOp *fop, JSObject *obj) {
+    CCLOGINFO("jsbindings: finalizing JS object %p (CCEaseBounceOut)", obj);
 }
 
 static JSBool js_cocos2dx_CCEaseBounceOut_ctor(JSContext *cx, uint32_t argc, jsval *vp)
@@ -16296,6 +16356,7 @@ JSBool js_cocos2dx_CCEaseBounceInOut_create(JSContext *cx, uint32_t argc, jsval 
 extern JSObject *jsb_CCEaseBounce_prototype;
 
 void js_cocos2dx_CCEaseBounceInOut_finalize(JSFreeOp *fop, JSObject *obj) {
+    CCLOGINFO("jsbindings: finalizing JS object %p (CCEaseBounceInOut)", obj);
 }
 
 static JSBool js_cocos2dx_CCEaseBounceInOut_ctor(JSContext *cx, uint32_t argc, jsval *vp)
@@ -16449,6 +16510,7 @@ JSBool js_cocos2dx_CCEaseBackIn_create(JSContext *cx, uint32_t argc, jsval *vp)
 extern JSObject *jsb_CCActionEase_prototype;
 
 void js_cocos2dx_CCEaseBackIn_finalize(JSFreeOp *fop, JSObject *obj) {
+    CCLOGINFO("jsbindings: finalizing JS object %p (CCEaseBackIn)", obj);
 }
 
 static JSBool js_cocos2dx_CCEaseBackIn_ctor(JSContext *cx, uint32_t argc, jsval *vp)
@@ -16602,6 +16664,7 @@ JSBool js_cocos2dx_CCEaseBackOut_create(JSContext *cx, uint32_t argc, jsval *vp)
 extern JSObject *jsb_CCActionEase_prototype;
 
 void js_cocos2dx_CCEaseBackOut_finalize(JSFreeOp *fop, JSObject *obj) {
+    CCLOGINFO("jsbindings: finalizing JS object %p (CCEaseBackOut)", obj);
 }
 
 static JSBool js_cocos2dx_CCEaseBackOut_ctor(JSContext *cx, uint32_t argc, jsval *vp)
@@ -16755,6 +16818,7 @@ JSBool js_cocos2dx_CCEaseBackInOut_create(JSContext *cx, uint32_t argc, jsval *v
 extern JSObject *jsb_CCActionEase_prototype;
 
 void js_cocos2dx_CCEaseBackInOut_finalize(JSFreeOp *fop, JSObject *obj) {
+    CCLOGINFO("jsbindings: finalizing JS object %p (CCEaseBackInOut)", obj);
 }
 
 static JSBool js_cocos2dx_CCEaseBackInOut_ctor(JSContext *cx, uint32_t argc, jsval *vp)
@@ -16940,6 +17004,7 @@ JSBool js_cocos2dx_CCActionInstant_constructor(JSContext *cx, uint32_t argc, jsv
 extern JSObject *jsb_CCFiniteTimeAction_prototype;
 
 void js_cocos2dx_CCActionInstant_finalize(JSFreeOp *fop, JSObject *obj) {
+    CCLOGINFO("jsbindings: finalizing JS object %p (CCActionInstant)", obj);
 }
 
 static JSBool js_cocos2dx_CCActionInstant_ctor(JSContext *cx, uint32_t argc, jsval *vp)
@@ -17107,6 +17172,7 @@ JSBool js_cocos2dx_CCShow_constructor(JSContext *cx, uint32_t argc, jsval *vp)
 extern JSObject *jsb_CCActionInstant_prototype;
 
 void js_cocos2dx_CCShow_finalize(JSFreeOp *fop, JSObject *obj) {
+    CCLOGINFO("jsbindings: finalizing JS object %p (CCShow)", obj);
 }
 
 static JSBool js_cocos2dx_CCShow_ctor(JSContext *cx, uint32_t argc, jsval *vp)
@@ -17275,6 +17341,7 @@ JSBool js_cocos2dx_CCHide_constructor(JSContext *cx, uint32_t argc, jsval *vp)
 extern JSObject *jsb_CCActionInstant_prototype;
 
 void js_cocos2dx_CCHide_finalize(JSFreeOp *fop, JSObject *obj) {
+    CCLOGINFO("jsbindings: finalizing JS object %p (CCHide)", obj);
 }
 
 static JSBool js_cocos2dx_CCHide_ctor(JSContext *cx, uint32_t argc, jsval *vp)
@@ -17419,6 +17486,7 @@ JSBool js_cocos2dx_CCToggleVisibility_constructor(JSContext *cx, uint32_t argc, 
 extern JSObject *jsb_CCActionInstant_prototype;
 
 void js_cocos2dx_CCToggleVisibility_finalize(JSFreeOp *fop, JSObject *obj) {
+    CCLOGINFO("jsbindings: finalizing JS object %p (CCToggleVisibility)", obj);
 }
 
 static JSBool js_cocos2dx_CCToggleVisibility_ctor(JSContext *cx, uint32_t argc, jsval *vp)
@@ -17613,6 +17681,7 @@ JSBool js_cocos2dx_CCFlipX_constructor(JSContext *cx, uint32_t argc, jsval *vp)
 extern JSObject *jsb_CCActionInstant_prototype;
 
 void js_cocos2dx_CCFlipX_finalize(JSFreeOp *fop, JSObject *obj) {
+    CCLOGINFO("jsbindings: finalizing JS object %p (CCFlipX)", obj);
 }
 
 static JSBool js_cocos2dx_CCFlipX_ctor(JSContext *cx, uint32_t argc, jsval *vp)
@@ -17811,6 +17880,7 @@ JSBool js_cocos2dx_CCFlipY_constructor(JSContext *cx, uint32_t argc, jsval *vp)
 extern JSObject *jsb_CCActionInstant_prototype;
 
 void js_cocos2dx_CCFlipY_finalize(JSFreeOp *fop, JSObject *obj) {
+    CCLOGINFO("jsbindings: finalizing JS object %p (CCFlipY)", obj);
 }
 
 static JSBool js_cocos2dx_CCFlipY_ctor(JSContext *cx, uint32_t argc, jsval *vp)
@@ -17985,6 +18055,7 @@ JSBool js_cocos2dx_CCPlace_constructor(JSContext *cx, uint32_t argc, jsval *vp)
 extern JSObject *jsb_CCActionInstant_prototype;
 
 void js_cocos2dx_CCPlace_finalize(JSFreeOp *fop, JSObject *obj) {
+    CCLOGINFO("jsbindings: finalizing JS object %p (CCPlace)", obj);
 }
 
 static JSBool js_cocos2dx_CCPlace_ctor(JSContext *cx, uint32_t argc, jsval *vp)
@@ -18221,6 +18292,7 @@ JSBool js_cocos2dx_CCCallFunc_constructor(JSContext *cx, uint32_t argc, jsval *v
 extern JSObject *jsb_CCActionInstant_prototype;
 
 void js_cocos2dx_CCCallFunc_finalize(JSFreeOp *fop, JSObject *obj) {
+    CCLOGINFO("jsbindings: finalizing JS object %p (CCCallFunc)", obj);
 }
 
 static JSBool js_cocos2dx_CCCallFunc_ctor(JSContext *cx, uint32_t argc, jsval *vp)
@@ -18427,6 +18499,7 @@ JSBool js_cocos2dx_CCGridAction_create(JSContext *cx, uint32_t argc, jsval *vp)
 extern JSObject *jsb_CCActionInterval_prototype;
 
 void js_cocos2dx_CCGridAction_finalize(JSFreeOp *fop, JSObject *obj) {
+    CCLOGINFO("jsbindings: finalizing JS object %p (CCGridAction)", obj);
 }
 
 static JSBool js_cocos2dx_CCGridAction_ctor(JSContext *cx, uint32_t argc, jsval *vp)
@@ -18599,6 +18672,7 @@ JSBool js_cocos2dx_CCGrid3DAction_originalVertex(JSContext *cx, uint32_t argc, j
 extern JSObject *jsb_CCGridAction_prototype;
 
 void js_cocos2dx_CCGrid3DAction_finalize(JSFreeOp *fop, JSObject *obj) {
+    CCLOGINFO("jsbindings: finalizing JS object %p (CCGrid3DAction)", obj);
 }
 
 static JSBool js_cocos2dx_CCGrid3DAction_ctor(JSContext *cx, uint32_t argc, jsval *vp)
@@ -18766,6 +18840,7 @@ JSBool js_cocos2dx_CCTiledGrid3DAction_getGrid(JSContext *cx, uint32_t argc, jsv
 extern JSObject *jsb_CCGridAction_prototype;
 
 void js_cocos2dx_CCTiledGrid3DAction_finalize(JSFreeOp *fop, JSObject *obj) {
+    CCLOGINFO("jsbindings: finalizing JS object %p (CCTiledGrid3DAction)", obj);
 }
 
 static JSBool js_cocos2dx_CCTiledGrid3DAction_ctor(JSContext *cx, uint32_t argc, jsval *vp)
@@ -18889,6 +18964,7 @@ JSBool js_cocos2dx_CCStopGrid_create(JSContext *cx, uint32_t argc, jsval *vp)
 extern JSObject *jsb_CCActionInstant_prototype;
 
 void js_cocos2dx_CCStopGrid_finalize(JSFreeOp *fop, JSObject *obj) {
+    CCLOGINFO("jsbindings: finalizing JS object %p (CCStopGrid)", obj);
 }
 
 static JSBool js_cocos2dx_CCStopGrid_ctor(JSContext *cx, uint32_t argc, jsval *vp)
@@ -19039,6 +19115,7 @@ JSBool js_cocos2dx_CCReuseGrid_create(JSContext *cx, uint32_t argc, jsval *vp)
 extern JSObject *jsb_CCActionInstant_prototype;
 
 void js_cocos2dx_CCReuseGrid_finalize(JSFreeOp *fop, JSObject *obj) {
+    CCLOGINFO("jsbindings: finalizing JS object %p (CCReuseGrid)", obj);
 }
 
 static JSBool js_cocos2dx_CCReuseGrid_ctor(JSContext *cx, uint32_t argc, jsval *vp)
@@ -19272,6 +19349,7 @@ JSBool js_cocos2dx_CCWaves3D_create(JSContext *cx, uint32_t argc, jsval *vp)
 extern JSObject *jsb_CCGrid3DAction_prototype;
 
 void js_cocos2dx_CCWaves3D_finalize(JSFreeOp *fop, JSObject *obj) {
+    CCLOGINFO("jsbindings: finalizing JS object %p (CCWaves3D)", obj);
 }
 
 static JSBool js_cocos2dx_CCWaves3D_ctor(JSContext *cx, uint32_t argc, jsval *vp)
@@ -19447,6 +19525,7 @@ JSBool js_cocos2dx_CCFlipX3D_create(JSContext *cx, uint32_t argc, jsval *vp)
 extern JSObject *jsb_CCGrid3DAction_prototype;
 
 void js_cocos2dx_CCFlipX3D_finalize(JSFreeOp *fop, JSObject *obj) {
+    CCLOGINFO("jsbindings: finalizing JS object %p (CCFlipX3D)", obj);
 }
 
 static JSBool js_cocos2dx_CCFlipX3D_ctor(JSContext *cx, uint32_t argc, jsval *vp)
@@ -19571,6 +19650,7 @@ JSBool js_cocos2dx_CCFlipY3D_create(JSContext *cx, uint32_t argc, jsval *vp)
 extern JSObject *jsb_CCFlipX3D_prototype;
 
 void js_cocos2dx_CCFlipY3D_finalize(JSFreeOp *fop, JSObject *obj) {
+    CCLOGINFO("jsbindings: finalizing JS object %p (CCFlipY3D)", obj);
 }
 
 static JSBool js_cocos2dx_CCFlipY3D_ctor(JSContext *cx, uint32_t argc, jsval *vp)
@@ -19821,6 +19901,7 @@ JSBool js_cocos2dx_CCLens3D_create(JSContext *cx, uint32_t argc, jsval *vp)
 extern JSObject *jsb_CCGrid3DAction_prototype;
 
 void js_cocos2dx_CCLens3D_finalize(JSFreeOp *fop, JSObject *obj) {
+    CCLOGINFO("jsbindings: finalizing JS object %p (CCLens3D)", obj);
 }
 
 static JSBool js_cocos2dx_CCLens3D_ctor(JSContext *cx, uint32_t argc, jsval *vp)
@@ -20104,6 +20185,7 @@ JSBool js_cocos2dx_CCRipple3D_create(JSContext *cx, uint32_t argc, jsval *vp)
 extern JSObject *jsb_CCGrid3DAction_prototype;
 
 void js_cocos2dx_CCRipple3D_finalize(JSFreeOp *fop, JSObject *obj) {
+    CCLOGINFO("jsbindings: finalizing JS object %p (CCRipple3D)", obj);
 }
 
 static JSBool js_cocos2dx_CCRipple3D_ctor(JSContext *cx, uint32_t argc, jsval *vp)
@@ -20269,6 +20351,7 @@ JSBool js_cocos2dx_CCShaky3D_create(JSContext *cx, uint32_t argc, jsval *vp)
 extern JSObject *jsb_CCGrid3DAction_prototype;
 
 void js_cocos2dx_CCShaky3D_finalize(JSFreeOp *fop, JSObject *obj) {
+    CCLOGINFO("jsbindings: finalizing JS object %p (CCShaky3D)", obj);
 }
 
 static JSBool js_cocos2dx_CCShaky3D_ctor(JSContext *cx, uint32_t argc, jsval *vp)
@@ -20502,6 +20585,7 @@ JSBool js_cocos2dx_CCLiquid_create(JSContext *cx, uint32_t argc, jsval *vp)
 extern JSObject *jsb_CCGrid3DAction_prototype;
 
 void js_cocos2dx_CCLiquid_finalize(JSFreeOp *fop, JSObject *obj) {
+    CCLOGINFO("jsbindings: finalizing JS object %p (CCLiquid)", obj);
 }
 
 static JSBool js_cocos2dx_CCLiquid_ctor(JSContext *cx, uint32_t argc, jsval *vp)
@@ -20747,6 +20831,7 @@ JSBool js_cocos2dx_CCWaves_create(JSContext *cx, uint32_t argc, jsval *vp)
 extern JSObject *jsb_CCGrid3DAction_prototype;
 
 void js_cocos2dx_CCWaves_finalize(JSFreeOp *fop, JSObject *obj) {
+    CCLOGINFO("jsbindings: finalizing JS object %p (CCWaves)", obj);
 }
 
 static JSBool js_cocos2dx_CCWaves_ctor(JSContext *cx, uint32_t argc, jsval *vp)
@@ -21025,6 +21110,7 @@ JSBool js_cocos2dx_CCTwirl_create(JSContext *cx, uint32_t argc, jsval *vp)
 extern JSObject *jsb_CCGrid3DAction_prototype;
 
 void js_cocos2dx_CCTwirl_finalize(JSFreeOp *fop, JSObject *obj) {
+    CCLOGINFO("jsbindings: finalizing JS object %p (CCTwirl)", obj);
 }
 
 static JSBool js_cocos2dx_CCTwirl_ctor(JSContext *cx, uint32_t argc, jsval *vp)
@@ -21158,6 +21244,7 @@ JSBool js_cocos2dx_CCPageTurn3D_create(JSContext *cx, uint32_t argc, jsval *vp)
 extern JSObject *jsb_CCGrid3DAction_prototype;
 
 void js_cocos2dx_CCPageTurn3D_finalize(JSFreeOp *fop, JSObject *obj) {
+    CCLOGINFO("jsbindings: finalizing JS object %p (CCPageTurn3D)", obj);
 }
 
 static JSBool js_cocos2dx_CCPageTurn3D_ctor(JSContext *cx, uint32_t argc, jsval *vp)
@@ -21332,6 +21419,7 @@ JSBool js_cocos2dx_CCProgressTo_create(JSContext *cx, uint32_t argc, jsval *vp)
 extern JSObject *jsb_CCActionInterval_prototype;
 
 void js_cocos2dx_CCProgressTo_finalize(JSFreeOp *fop, JSObject *obj) {
+    CCLOGINFO("jsbindings: finalizing JS object %p (CCProgressTo)", obj);
 }
 
 static JSBool js_cocos2dx_CCProgressTo_ctor(JSContext *cx, uint32_t argc, jsval *vp)
@@ -21538,6 +21626,7 @@ JSBool js_cocos2dx_CCProgressFromTo_create(JSContext *cx, uint32_t argc, jsval *
 extern JSObject *jsb_CCActionInterval_prototype;
 
 void js_cocos2dx_CCProgressFromTo_finalize(JSFreeOp *fop, JSObject *obj) {
+    CCLOGINFO("jsbindings: finalizing JS object %p (CCProgressFromTo)", obj);
 }
 
 static JSBool js_cocos2dx_CCProgressFromTo_ctor(JSContext *cx, uint32_t argc, jsval *vp)
@@ -21699,6 +21788,7 @@ JSBool js_cocos2dx_CCShakyTiles3D_create(JSContext *cx, uint32_t argc, jsval *vp
 extern JSObject *jsb_CCTiledGrid3DAction_prototype;
 
 void js_cocos2dx_CCShakyTiles3D_finalize(JSFreeOp *fop, JSObject *obj) {
+    CCLOGINFO("jsbindings: finalizing JS object %p (CCShakyTiles3D)", obj);
 }
 
 static JSBool js_cocos2dx_CCShakyTiles3D_ctor(JSContext *cx, uint32_t argc, jsval *vp)
@@ -21858,6 +21948,7 @@ JSBool js_cocos2dx_CCShatteredTiles3D_create(JSContext *cx, uint32_t argc, jsval
 extern JSObject *jsb_CCTiledGrid3DAction_prototype;
 
 void js_cocos2dx_CCShatteredTiles3D_finalize(JSFreeOp *fop, JSObject *obj) {
+    CCLOGINFO("jsbindings: finalizing JS object %p (CCShatteredTiles3D)", obj);
 }
 
 static JSBool js_cocos2dx_CCShatteredTiles3D_ctor(JSContext *cx, uint32_t argc, jsval *vp)
@@ -22111,6 +22202,7 @@ JSBool js_cocos2dx_CCShuffleTiles_create(JSContext *cx, uint32_t argc, jsval *vp
 extern JSObject *jsb_CCTiledGrid3DAction_prototype;
 
 void js_cocos2dx_CCShuffleTiles_finalize(JSFreeOp *fop, JSObject *obj) {
+    CCLOGINFO("jsbindings: finalizing JS object %p (CCShuffleTiles)", obj);
 }
 
 static JSBool js_cocos2dx_CCShuffleTiles_ctor(JSContext *cx, uint32_t argc, jsval *vp)
@@ -22328,6 +22420,7 @@ JSBool js_cocos2dx_CCFadeOutTRTiles_create(JSContext *cx, uint32_t argc, jsval *
 extern JSObject *jsb_CCTiledGrid3DAction_prototype;
 
 void js_cocos2dx_CCFadeOutTRTiles_finalize(JSFreeOp *fop, JSObject *obj) {
+    CCLOGINFO("jsbindings: finalizing JS object %p (CCFadeOutTRTiles)", obj);
 }
 
 static JSBool js_cocos2dx_CCFadeOutTRTiles_ctor(JSContext *cx, uint32_t argc, jsval *vp)
@@ -22460,6 +22553,7 @@ JSBool js_cocos2dx_CCFadeOutBLTiles_create(JSContext *cx, uint32_t argc, jsval *
 extern JSObject *jsb_CCFadeOutTRTiles_prototype;
 
 void js_cocos2dx_CCFadeOutBLTiles_finalize(JSFreeOp *fop, JSObject *obj) {
+    CCLOGINFO("jsbindings: finalizing JS object %p (CCFadeOutBLTiles)", obj);
 }
 
 static JSBool js_cocos2dx_CCFadeOutBLTiles_ctor(JSContext *cx, uint32_t argc, jsval *vp)
@@ -22610,6 +22704,7 @@ JSBool js_cocos2dx_CCFadeOutUpTiles_create(JSContext *cx, uint32_t argc, jsval *
 extern JSObject *jsb_CCFadeOutTRTiles_prototype;
 
 void js_cocos2dx_CCFadeOutUpTiles_finalize(JSFreeOp *fop, JSObject *obj) {
+    CCLOGINFO("jsbindings: finalizing JS object %p (CCFadeOutUpTiles)", obj);
 }
 
 static JSBool js_cocos2dx_CCFadeOutUpTiles_ctor(JSContext *cx, uint32_t argc, jsval *vp)
@@ -22739,6 +22834,7 @@ JSBool js_cocos2dx_CCFadeOutDownTiles_create(JSContext *cx, uint32_t argc, jsval
 extern JSObject *jsb_CCFadeOutUpTiles_prototype;
 
 void js_cocos2dx_CCFadeOutDownTiles_finalize(JSFreeOp *fop, JSObject *obj) {
+    CCLOGINFO("jsbindings: finalizing JS object %p (CCFadeOutDownTiles)", obj);
 }
 
 static JSBool js_cocos2dx_CCFadeOutDownTiles_ctor(JSContext *cx, uint32_t argc, jsval *vp)
@@ -23006,6 +23102,7 @@ JSBool js_cocos2dx_CCTurnOffTiles_create(JSContext *cx, uint32_t argc, jsval *vp
 extern JSObject *jsb_CCTiledGrid3DAction_prototype;
 
 void js_cocos2dx_CCTurnOffTiles_finalize(JSFreeOp *fop, JSObject *obj) {
+    CCLOGINFO("jsbindings: finalizing JS object %p (CCTurnOffTiles)", obj);
 }
 
 static JSBool js_cocos2dx_CCTurnOffTiles_ctor(JSContext *cx, uint32_t argc, jsval *vp)
@@ -23243,6 +23340,7 @@ JSBool js_cocos2dx_CCWavesTiles3D_create(JSContext *cx, uint32_t argc, jsval *vp
 extern JSObject *jsb_CCTiledGrid3DAction_prototype;
 
 void js_cocos2dx_CCWavesTiles3D_finalize(JSFreeOp *fop, JSObject *obj) {
+    CCLOGINFO("jsbindings: finalizing JS object %p (CCWavesTiles3D)", obj);
 }
 
 static JSBool js_cocos2dx_CCWavesTiles3D_ctor(JSContext *cx, uint32_t argc, jsval *vp)
@@ -23480,6 +23578,7 @@ JSBool js_cocos2dx_CCJumpTiles3D_create(JSContext *cx, uint32_t argc, jsval *vp)
 extern JSObject *jsb_CCTiledGrid3DAction_prototype;
 
 void js_cocos2dx_CCJumpTiles3D_finalize(JSFreeOp *fop, JSObject *obj) {
+    CCLOGINFO("jsbindings: finalizing JS object %p (CCJumpTiles3D)", obj);
 }
 
 static JSBool js_cocos2dx_CCJumpTiles3D_ctor(JSContext *cx, uint32_t argc, jsval *vp)
@@ -23661,6 +23760,7 @@ JSBool js_cocos2dx_CCSplitRows_create(JSContext *cx, uint32_t argc, jsval *vp)
 extern JSObject *jsb_CCTiledGrid3DAction_prototype;
 
 void js_cocos2dx_CCSplitRows_finalize(JSFreeOp *fop, JSObject *obj) {
+    CCLOGINFO("jsbindings: finalizing JS object %p (CCSplitRows)", obj);
 }
 
 static JSBool js_cocos2dx_CCSplitRows_ctor(JSContext *cx, uint32_t argc, jsval *vp)
@@ -23839,6 +23939,7 @@ JSBool js_cocos2dx_CCSplitCols_create(JSContext *cx, uint32_t argc, jsval *vp)
 extern JSObject *jsb_CCTiledGrid3DAction_prototype;
 
 void js_cocos2dx_CCSplitCols_finalize(JSFreeOp *fop, JSObject *obj) {
+    CCLOGINFO("jsbindings: finalizing JS object %p (CCSplitCols)", obj);
 }
 
 static JSBool js_cocos2dx_CCSplitCols_ctor(JSContext *cx, uint32_t argc, jsval *vp)
@@ -24049,6 +24150,7 @@ JSBool js_cocos2dx_CCActionTween_create(JSContext *cx, uint32_t argc, jsval *vp)
 extern JSObject *jsb_CCActionInterval_prototype;
 
 void js_cocos2dx_CCActionTween_finalize(JSFreeOp *fop, JSObject *obj) {
+    CCLOGINFO("jsbindings: finalizing JS object %p (CCActionTween)", obj);
 }
 
 static JSBool js_cocos2dx_CCActionTween_ctor(JSContext *cx, uint32_t argc, jsval *vp)
@@ -24303,6 +24405,7 @@ JSBool js_cocos2dx_CCCardinalSplineTo_constructor(JSContext *cx, uint32_t argc, 
 extern JSObject *jsb_CCActionInterval_prototype;
 
 void js_cocos2dx_CCCardinalSplineTo_finalize(JSFreeOp *fop, JSObject *obj) {
+    CCLOGINFO("jsbindings: finalizing JS object %p (CCCardinalSplineTo)", obj);
 }
 
 static JSBool js_cocos2dx_CCCardinalSplineTo_ctor(JSContext *cx, uint32_t argc, jsval *vp)
@@ -24480,6 +24583,7 @@ JSBool js_cocos2dx_CCCardinalSplineBy_constructor(JSContext *cx, uint32_t argc, 
 extern JSObject *jsb_CCCardinalSplineTo_prototype;
 
 void js_cocos2dx_CCCardinalSplineBy_finalize(JSFreeOp *fop, JSObject *obj) {
+    CCLOGINFO("jsbindings: finalizing JS object %p (CCCardinalSplineBy)", obj);
 }
 
 static JSBool js_cocos2dx_CCCardinalSplineBy_ctor(JSContext *cx, uint32_t argc, jsval *vp)
@@ -24588,6 +24692,7 @@ JSBool js_cocos2dx_CCCatmullRomTo_initWithDuration(JSContext *cx, uint32_t argc,
 extern JSObject *jsb_CCCardinalSplineTo_prototype;
 
 void js_cocos2dx_CCCatmullRomTo_finalize(JSFreeOp *fop, JSObject *obj) {
+    CCLOGINFO("jsbindings: finalizing JS object %p (CCCatmullRomTo)", obj);
 }
 
 static JSBool js_cocos2dx_CCCatmullRomTo_ctor(JSContext *cx, uint32_t argc, jsval *vp)
@@ -24692,6 +24797,7 @@ JSBool js_cocos2dx_CCCatmullRomBy_initWithDuration(JSContext *cx, uint32_t argc,
 extern JSObject *jsb_CCCardinalSplineBy_prototype;
 
 void js_cocos2dx_CCCatmullRomBy_finalize(JSFreeOp *fop, JSObject *obj) {
+    CCLOGINFO("jsbindings: finalizing JS object %p (CCCatmullRomBy)", obj);
 }
 
 static JSBool js_cocos2dx_CCCatmullRomBy_ctor(JSContext *cx, uint32_t argc, jsval *vp)
@@ -25146,6 +25252,7 @@ JSBool js_cocos2dx_CCAtlasNode_constructor(JSContext *cx, uint32_t argc, jsval *
 extern JSObject *jsb_CCNodeRGBA_prototype;
 
 void js_cocos2dx_CCAtlasNode_finalize(JSFreeOp *fop, JSObject *obj) {
+    CCLOGINFO("jsbindings: finalizing JS object %p (CCAtlasNode)", obj);
 }
 
 static JSBool js_cocos2dx_CCAtlasNode_ctor(JSContext *cx, uint32_t argc, jsval *vp)
@@ -25382,6 +25489,7 @@ JSBool js_cocos2dx_CCDrawNode_constructor(JSContext *cx, uint32_t argc, jsval *v
 extern JSObject *jsb_CCNode_prototype;
 
 void js_cocos2dx_CCDrawNode_finalize(JSFreeOp *fop, JSObject *obj) {
+    CCLOGINFO("jsbindings: finalizing JS object %p (CCDrawNode)", obj);
 }
 
 static JSBool js_cocos2dx_CCDrawNode_ctor(JSContext *cx, uint32_t argc, jsval *vp)
@@ -25729,6 +25837,7 @@ JSBool js_cocos2dx_CCCamera_constructor(JSContext *cx, uint32_t argc, jsval *vp)
 
 
 void js_cocos2dx_CCCamera_finalize(JSFreeOp *fop, JSObject *obj) {
+    CCLOGINFO("jsbindings: finalizing JS object %p (CCCamera)", obj);
 }
 
 static JSBool js_cocos2dx_CCCamera_ctor(JSContext *cx, uint32_t argc, jsval *vp)
@@ -27245,6 +27354,7 @@ JSBool js_cocos2dx_CCSprite_constructor(JSContext *cx, uint32_t argc, jsval *vp)
 extern JSObject *jsb_CCNodeRGBA_prototype;
 
 void js_cocos2dx_CCSprite_finalize(JSFreeOp *fop, JSObject *obj) {
+    CCLOGINFO("jsbindings: finalizing JS object %p (CCSprite)", obj);
 }
 
 static JSBool js_cocos2dx_CCSprite_ctor(JSContext *cx, uint32_t argc, jsval *vp)
@@ -27842,6 +27952,7 @@ JSBool js_cocos2dx_CCLabelTTF_constructor(JSContext *cx, uint32_t argc, jsval *v
 extern JSObject *jsb_CCSprite_prototype;
 
 void js_cocos2dx_CCLabelTTF_finalize(JSFreeOp *fop, JSObject *obj) {
+    CCLOGINFO("jsbindings: finalizing JS object %p (CCLabelTTF)", obj);
 }
 
 static JSBool js_cocos2dx_CCLabelTTF_ctor(JSContext *cx, uint32_t argc, jsval *vp)
@@ -28978,6 +29089,7 @@ JSBool js_cocos2dx_CCDirector_sharedDirector(JSContext *cx, uint32_t argc, jsval
 
 
 void js_cocos2dx_CCDirector_finalize(JSFreeOp *fop, JSObject *obj) {
+    CCLOGINFO("jsbindings: finalizing JS object %p (CCDirector)", obj);
 }
 
 void js_register_cocos2dx_CCDirector(JSContext *cx, JSObject *global) {
@@ -29489,6 +29601,7 @@ JSBool js_cocos2dx_CCGridBase_create(JSContext *cx, uint32_t argc, jsval *vp)
 
 
 void js_cocos2dx_CCGridBase_finalize(JSFreeOp *fop, JSObject *obj) {
+    CCLOGINFO("jsbindings: finalizing JS object %p (CCGridBase)", obj);
 }
 
 static JSBool js_cocos2dx_CCGridBase_ctor(JSContext *cx, uint32_t argc, jsval *vp)
@@ -29780,6 +29893,7 @@ JSBool js_cocos2dx_CCGrid3D_constructor(JSContext *cx, uint32_t argc, jsval *vp)
 extern JSObject *jsb_CCGridBase_prototype;
 
 void js_cocos2dx_CCGrid3D_finalize(JSFreeOp *fop, JSObject *obj) {
+    CCLOGINFO("jsbindings: finalizing JS object %p (CCGrid3D)", obj);
 }
 
 static JSBool js_cocos2dx_CCGrid3D_ctor(JSContext *cx, uint32_t argc, jsval *vp)
@@ -30060,6 +30174,7 @@ JSBool js_cocos2dx_CCTiledGrid3D_constructor(JSContext *cx, uint32_t argc, jsval
 extern JSObject *jsb_CCGridBase_prototype;
 
 void js_cocos2dx_CCTiledGrid3D_finalize(JSFreeOp *fop, JSObject *obj) {
+    CCLOGINFO("jsbindings: finalizing JS object %p (CCTiledGrid3D)", obj);
 }
 
 static JSBool js_cocos2dx_CCTiledGrid3D_ctor(JSContext *cx, uint32_t argc, jsval *vp)
@@ -30367,6 +30482,7 @@ JSBool js_cocos2dx_CCLabelAtlas_constructor(JSContext *cx, uint32_t argc, jsval 
 extern JSObject *jsb_CCAtlasNode_prototype;
 
 void js_cocos2dx_CCLabelAtlas_finalize(JSFreeOp *fop, JSObject *obj) {
+    CCLOGINFO("jsbindings: finalizing JS object %p (CCLabelAtlas)", obj);
 }
 
 static JSBool js_cocos2dx_CCLabelAtlas_ctor(JSContext *cx, uint32_t argc, jsval *vp)
@@ -31220,6 +31336,7 @@ JSBool js_cocos2dx_CCSpriteBatchNode_constructor(JSContext *cx, uint32_t argc, j
 extern JSObject *jsb_CCNode_prototype;
 
 void js_cocos2dx_CCSpriteBatchNode_finalize(JSFreeOp *fop, JSObject *obj) {
+    CCLOGINFO("jsbindings: finalizing JS object %p (CCSpriteBatchNode)", obj);
 }
 
 static JSBool js_cocos2dx_CCSpriteBatchNode_ctor(JSContext *cx, uint32_t argc, jsval *vp)
@@ -32083,6 +32200,7 @@ JSBool js_cocos2dx_CCLabelBMFont_constructor(JSContext *cx, uint32_t argc, jsval
 extern JSObject *jsb_CCSpriteBatchNode_prototype;
 
 void js_cocos2dx_CCLabelBMFont_finalize(JSFreeOp *fop, JSObject *obj) {
+    CCLOGINFO("jsbindings: finalizing JS object %p (CCLabelBMFont)", obj);
 }
 
 static JSBool js_cocos2dx_CCLabelBMFont_ctor(JSContext *cx, uint32_t argc, jsval *vp)
@@ -32992,6 +33110,7 @@ JSBool js_cocos2dx_CCLayer_constructor(JSContext *cx, uint32_t argc, jsval *vp)
 extern JSObject *jsb_CCNode_prototype;
 
 void js_cocos2dx_CCLayer_finalize(JSFreeOp *fop, JSObject *obj) {
+    CCLOGINFO("jsbindings: finalizing JS object %p (CCLayer)", obj);
 }
 
 static JSBool js_cocos2dx_CCLayer_ctor(JSContext *cx, uint32_t argc, jsval *vp)
@@ -33424,6 +33543,7 @@ JSBool js_cocos2dx_CCLayerRGBA_constructor(JSContext *cx, uint32_t argc, jsval *
 extern JSObject *jsb_CCLayer_prototype;
 
 void js_cocos2dx_CCLayerRGBA_finalize(JSFreeOp *fop, JSObject *obj) {
+    CCLOGINFO("jsbindings: finalizing JS object %p (CCLayerRGBA)", obj);
 }
 
 static JSBool js_cocos2dx_CCLayerRGBA_ctor(JSContext *cx, uint32_t argc, jsval *vp)
@@ -33840,6 +33960,7 @@ JSBool js_cocos2dx_CCLayerColor_constructor(JSContext *cx, uint32_t argc, jsval 
 extern JSObject *jsb_CCLayerRGBA_prototype;
 
 void js_cocos2dx_CCLayerColor_finalize(JSFreeOp *fop, JSObject *obj) {
+    CCLOGINFO("jsbindings: finalizing JS object %p (CCLayerColor)", obj);
 }
 
 static JSBool js_cocos2dx_CCLayerColor_ctor(JSContext *cx, uint32_t argc, jsval *vp)
@@ -34279,6 +34400,7 @@ JSBool js_cocos2dx_CCLayerGradient_create(JSContext *cx, uint32_t argc, jsval *v
 extern JSObject *jsb_CCLayerColor_prototype;
 
 void js_cocos2dx_CCLayerGradient_finalize(JSFreeOp *fop, JSObject *obj) {
+    CCLOGINFO("jsbindings: finalizing JS object %p (CCLayerGradient)", obj);
 }
 
 static JSBool js_cocos2dx_CCLayerGradient_ctor(JSContext *cx, uint32_t argc, jsval *vp)
@@ -34484,6 +34606,7 @@ JSBool js_cocos2dx_CCLayerMultiplex_constructor(JSContext *cx, uint32_t argc, js
 extern JSObject *jsb_CCLayer_prototype;
 
 void js_cocos2dx_CCLayerMultiplex_finalize(JSFreeOp *fop, JSObject *obj) {
+    CCLOGINFO("jsbindings: finalizing JS object %p (CCLayerMultiplex)", obj);
 }
 
 static JSBool js_cocos2dx_CCLayerMultiplex_ctor(JSContext *cx, uint32_t argc, jsval *vp)
@@ -34626,6 +34749,7 @@ JSBool js_cocos2dx_CCScene_constructor(JSContext *cx, uint32_t argc, jsval *vp)
 extern JSObject *jsb_CCNode_prototype;
 
 void js_cocos2dx_CCScene_finalize(JSFreeOp *fop, JSObject *obj) {
+    CCLOGINFO("jsbindings: finalizing JS object %p (CCScene)", obj);
 }
 
 static JSBool js_cocos2dx_CCScene_ctor(JSContext *cx, uint32_t argc, jsval *vp)
@@ -34737,6 +34861,7 @@ JSBool js_cocos2dx_CCTransitionEaseScene_easeActionWithAction(JSContext *cx, uin
 
 
 void js_cocos2dx_CCTransitionEaseScene_finalize(JSFreeOp *fop, JSObject *obj) {
+    CCLOGINFO("jsbindings: finalizing JS object %p (CCTransitionEaseScene)", obj);
 }
 
 void js_register_cocos2dx_CCTransitionEaseScene(JSContext *cx, JSObject *global) {
@@ -34947,6 +35072,7 @@ JSBool js_cocos2dx_CCTransitionScene_constructor(JSContext *cx, uint32_t argc, j
 extern JSObject *jsb_CCScene_prototype;
 
 void js_cocos2dx_CCTransitionScene_finalize(JSFreeOp *fop, JSObject *obj) {
+    CCLOGINFO("jsbindings: finalizing JS object %p (CCTransitionScene)", obj);
 }
 
 static JSBool js_cocos2dx_CCTransitionScene_ctor(JSContext *cx, uint32_t argc, jsval *vp)
@@ -35123,6 +35249,7 @@ JSBool js_cocos2dx_CCTransitionSceneOriented_constructor(JSContext *cx, uint32_t
 extern JSObject *jsb_CCTransitionScene_prototype;
 
 void js_cocos2dx_CCTransitionSceneOriented_finalize(JSFreeOp *fop, JSObject *obj) {
+    CCLOGINFO("jsbindings: finalizing JS object %p (CCTransitionSceneOriented)", obj);
 }
 
 static JSBool js_cocos2dx_CCTransitionSceneOriented_ctor(JSContext *cx, uint32_t argc, jsval *vp)
@@ -35261,6 +35388,7 @@ JSBool js_cocos2dx_CCTransitionRotoZoom_constructor(JSContext *cx, uint32_t argc
 extern JSObject *jsb_CCTransitionScene_prototype;
 
 void js_cocos2dx_CCTransitionRotoZoom_finalize(JSFreeOp *fop, JSObject *obj) {
+    CCLOGINFO("jsbindings: finalizing JS object %p (CCTransitionRotoZoom)", obj);
 }
 
 static JSBool js_cocos2dx_CCTransitionRotoZoom_ctor(JSContext *cx, uint32_t argc, jsval *vp)
@@ -35393,6 +35521,7 @@ JSBool js_cocos2dx_CCTransitionJumpZoom_constructor(JSContext *cx, uint32_t argc
 extern JSObject *jsb_CCTransitionScene_prototype;
 
 void js_cocos2dx_CCTransitionJumpZoom_finalize(JSFreeOp *fop, JSObject *obj) {
+    CCLOGINFO("jsbindings: finalizing JS object %p (CCTransitionJumpZoom)", obj);
 }
 
 static JSBool js_cocos2dx_CCTransitionJumpZoom_ctor(JSContext *cx, uint32_t argc, jsval *vp)
@@ -35599,6 +35728,7 @@ JSBool js_cocos2dx_CCTransitionMoveInL_constructor(JSContext *cx, uint32_t argc,
 extern JSObject *jsb_CCTransitionScene_prototype;
 
 void js_cocos2dx_CCTransitionMoveInL_finalize(JSFreeOp *fop, JSObject *obj) {
+    CCLOGINFO("jsbindings: finalizing JS object %p (CCTransitionMoveInL)", obj);
 }
 
 static JSBool js_cocos2dx_CCTransitionMoveInL_ctor(JSContext *cx, uint32_t argc, jsval *vp)
@@ -35752,6 +35882,7 @@ JSBool js_cocos2dx_CCTransitionMoveInR_constructor(JSContext *cx, uint32_t argc,
 extern JSObject *jsb_CCTransitionMoveInL_prototype;
 
 void js_cocos2dx_CCTransitionMoveInR_finalize(JSFreeOp *fop, JSObject *obj) {
+    CCLOGINFO("jsbindings: finalizing JS object %p (CCTransitionMoveInR)", obj);
 }
 
 static JSBool js_cocos2dx_CCTransitionMoveInR_ctor(JSContext *cx, uint32_t argc, jsval *vp)
@@ -35903,6 +36034,7 @@ JSBool js_cocos2dx_CCTransitionMoveInT_constructor(JSContext *cx, uint32_t argc,
 extern JSObject *jsb_CCTransitionMoveInL_prototype;
 
 void js_cocos2dx_CCTransitionMoveInT_finalize(JSFreeOp *fop, JSObject *obj) {
+    CCLOGINFO("jsbindings: finalizing JS object %p (CCTransitionMoveInT)", obj);
 }
 
 static JSBool js_cocos2dx_CCTransitionMoveInT_ctor(JSContext *cx, uint32_t argc, jsval *vp)
@@ -36054,6 +36186,7 @@ JSBool js_cocos2dx_CCTransitionMoveInB_constructor(JSContext *cx, uint32_t argc,
 extern JSObject *jsb_CCTransitionMoveInL_prototype;
 
 void js_cocos2dx_CCTransitionMoveInB_finalize(JSFreeOp *fop, JSObject *obj) {
+    CCLOGINFO("jsbindings: finalizing JS object %p (CCTransitionMoveInB)", obj);
 }
 
 static JSBool js_cocos2dx_CCTransitionMoveInB_ctor(JSContext *cx, uint32_t argc, jsval *vp)
@@ -36264,6 +36397,7 @@ JSBool js_cocos2dx_CCTransitionSlideInL_constructor(JSContext *cx, uint32_t argc
 extern JSObject *jsb_CCTransitionScene_prototype;
 
 void js_cocos2dx_CCTransitionSlideInL_finalize(JSFreeOp *fop, JSObject *obj) {
+    CCLOGINFO("jsbindings: finalizing JS object %p (CCTransitionSlideInL)", obj);
 }
 
 static JSBool js_cocos2dx_CCTransitionSlideInL_ctor(JSContext *cx, uint32_t argc, jsval *vp)
@@ -36441,6 +36575,7 @@ JSBool js_cocos2dx_CCTransitionSlideInR_constructor(JSContext *cx, uint32_t argc
 extern JSObject *jsb_CCTransitionSlideInL_prototype;
 
 void js_cocos2dx_CCTransitionSlideInR_finalize(JSFreeOp *fop, JSObject *obj) {
+    CCLOGINFO("jsbindings: finalizing JS object %p (CCTransitionSlideInR)", obj);
 }
 
 static JSBool js_cocos2dx_CCTransitionSlideInR_ctor(JSContext *cx, uint32_t argc, jsval *vp)
@@ -36617,6 +36752,7 @@ JSBool js_cocos2dx_CCTransitionSlideInB_constructor(JSContext *cx, uint32_t argc
 extern JSObject *jsb_CCTransitionSlideInL_prototype;
 
 void js_cocos2dx_CCTransitionSlideInB_finalize(JSFreeOp *fop, JSObject *obj) {
+    CCLOGINFO("jsbindings: finalizing JS object %p (CCTransitionSlideInB)", obj);
 }
 
 static JSBool js_cocos2dx_CCTransitionSlideInB_ctor(JSContext *cx, uint32_t argc, jsval *vp)
@@ -36793,6 +36929,7 @@ JSBool js_cocos2dx_CCTransitionSlideInT_constructor(JSContext *cx, uint32_t argc
 extern JSObject *jsb_CCTransitionSlideInL_prototype;
 
 void js_cocos2dx_CCTransitionSlideInT_finalize(JSFreeOp *fop, JSObject *obj) {
+    CCLOGINFO("jsbindings: finalizing JS object %p (CCTransitionSlideInT)", obj);
 }
 
 static JSBool js_cocos2dx_CCTransitionSlideInT_ctor(JSContext *cx, uint32_t argc, jsval *vp)
@@ -36965,6 +37102,7 @@ JSBool js_cocos2dx_CCTransitionShrinkGrow_constructor(JSContext *cx, uint32_t ar
 extern JSObject *jsb_CCTransitionScene_prototype;
 
 void js_cocos2dx_CCTransitionShrinkGrow_finalize(JSFreeOp *fop, JSObject *obj) {
+    CCLOGINFO("jsbindings: finalizing JS object %p (CCTransitionShrinkGrow)", obj);
 }
 
 static JSBool js_cocos2dx_CCTransitionShrinkGrow_ctor(JSContext *cx, uint32_t argc, jsval *vp)
@@ -37136,6 +37274,7 @@ JSBool js_cocos2dx_CCTransitionFlipX_constructor(JSContext *cx, uint32_t argc, j
 extern JSObject *jsb_CCTransitionSceneOriented_prototype;
 
 void js_cocos2dx_CCTransitionFlipX_finalize(JSFreeOp *fop, JSObject *obj) {
+    CCLOGINFO("jsbindings: finalizing JS object %p (CCTransitionFlipX)", obj);
 }
 
 static JSBool js_cocos2dx_CCTransitionFlipX_ctor(JSContext *cx, uint32_t argc, jsval *vp)
@@ -37303,6 +37442,7 @@ JSBool js_cocos2dx_CCTransitionFlipY_constructor(JSContext *cx, uint32_t argc, j
 extern JSObject *jsb_CCTransitionSceneOriented_prototype;
 
 void js_cocos2dx_CCTransitionFlipY_finalize(JSFreeOp *fop, JSObject *obj) {
+    CCLOGINFO("jsbindings: finalizing JS object %p (CCTransitionFlipY)", obj);
 }
 
 static JSBool js_cocos2dx_CCTransitionFlipY_ctor(JSContext *cx, uint32_t argc, jsval *vp)
@@ -37470,6 +37610,7 @@ JSBool js_cocos2dx_CCTransitionFlipAngular_constructor(JSContext *cx, uint32_t a
 extern JSObject *jsb_CCTransitionSceneOriented_prototype;
 
 void js_cocos2dx_CCTransitionFlipAngular_finalize(JSFreeOp *fop, JSObject *obj) {
+    CCLOGINFO("jsbindings: finalizing JS object %p (CCTransitionFlipAngular)", obj);
 }
 
 static JSBool js_cocos2dx_CCTransitionFlipAngular_ctor(JSContext *cx, uint32_t argc, jsval *vp)
@@ -37637,6 +37778,7 @@ JSBool js_cocos2dx_CCTransitionZoomFlipX_constructor(JSContext *cx, uint32_t arg
 extern JSObject *jsb_CCTransitionSceneOriented_prototype;
 
 void js_cocos2dx_CCTransitionZoomFlipX_finalize(JSFreeOp *fop, JSObject *obj) {
+    CCLOGINFO("jsbindings: finalizing JS object %p (CCTransitionZoomFlipX)", obj);
 }
 
 static JSBool js_cocos2dx_CCTransitionZoomFlipX_ctor(JSContext *cx, uint32_t argc, jsval *vp)
@@ -37804,6 +37946,7 @@ JSBool js_cocos2dx_CCTransitionZoomFlipY_constructor(JSContext *cx, uint32_t arg
 extern JSObject *jsb_CCTransitionSceneOriented_prototype;
 
 void js_cocos2dx_CCTransitionZoomFlipY_finalize(JSFreeOp *fop, JSObject *obj) {
+    CCLOGINFO("jsbindings: finalizing JS object %p (CCTransitionZoomFlipY)", obj);
 }
 
 static JSBool js_cocos2dx_CCTransitionZoomFlipY_ctor(JSContext *cx, uint32_t argc, jsval *vp)
@@ -37971,6 +38114,7 @@ JSBool js_cocos2dx_CCTransitionZoomFlipAngular_constructor(JSContext *cx, uint32
 extern JSObject *jsb_CCTransitionSceneOriented_prototype;
 
 void js_cocos2dx_CCTransitionZoomFlipAngular_finalize(JSFreeOp *fop, JSObject *obj) {
+    CCLOGINFO("jsbindings: finalizing JS object %p (CCTransitionZoomFlipAngular)", obj);
 }
 
 static JSBool js_cocos2dx_CCTransitionZoomFlipAngular_ctor(JSContext *cx, uint32_t argc, jsval *vp)
@@ -38197,6 +38341,7 @@ JSBool js_cocos2dx_CCTransitionFade_constructor(JSContext *cx, uint32_t argc, js
 extern JSObject *jsb_CCTransitionScene_prototype;
 
 void js_cocos2dx_CCTransitionFade_finalize(JSFreeOp *fop, JSObject *obj) {
+    CCLOGINFO("jsbindings: finalizing JS object %p (CCTransitionFade)", obj);
 }
 
 static JSBool js_cocos2dx_CCTransitionFade_ctor(JSContext *cx, uint32_t argc, jsval *vp)
@@ -38350,6 +38495,7 @@ JSBool js_cocos2dx_CCTransitionCrossFade_constructor(JSContext *cx, uint32_t arg
 extern JSObject *jsb_CCTransitionScene_prototype;
 
 void js_cocos2dx_CCTransitionCrossFade_finalize(JSFreeOp *fop, JSObject *obj) {
+    CCLOGINFO("jsbindings: finalizing JS object %p (CCTransitionCrossFade)", obj);
 }
 
 static JSBool js_cocos2dx_CCTransitionCrossFade_ctor(JSContext *cx, uint32_t argc, jsval *vp)
@@ -38521,6 +38667,7 @@ JSBool js_cocos2dx_CCTransitionTurnOffTiles_constructor(JSContext *cx, uint32_t 
 extern JSObject *jsb_CCTransitionScene_prototype;
 
 void js_cocos2dx_CCTransitionTurnOffTiles_finalize(JSFreeOp *fop, JSObject *obj) {
+    CCLOGINFO("jsbindings: finalizing JS object %p (CCTransitionTurnOffTiles)", obj);
 }
 
 static JSBool js_cocos2dx_CCTransitionTurnOffTiles_ctor(JSContext *cx, uint32_t argc, jsval *vp)
@@ -38716,6 +38863,7 @@ JSBool js_cocos2dx_CCTransitionSplitCols_constructor(JSContext *cx, uint32_t arg
 extern JSObject *jsb_CCTransitionScene_prototype;
 
 void js_cocos2dx_CCTransitionSplitCols_finalize(JSFreeOp *fop, JSObject *obj) {
+    CCLOGINFO("jsbindings: finalizing JS object %p (CCTransitionSplitCols)", obj);
 }
 
 static JSBool js_cocos2dx_CCTransitionSplitCols_ctor(JSContext *cx, uint32_t argc, jsval *vp)
@@ -38877,6 +39025,7 @@ JSBool js_cocos2dx_CCTransitionSplitRows_constructor(JSContext *cx, uint32_t arg
 extern JSObject *jsb_CCTransitionSplitCols_prototype;
 
 void js_cocos2dx_CCTransitionSplitRows_finalize(JSFreeOp *fop, JSObject *obj) {
+    CCLOGINFO("jsbindings: finalizing JS object %p (CCTransitionSplitRows)", obj);
 }
 
 static JSBool js_cocos2dx_CCTransitionSplitRows_ctor(JSContext *cx, uint32_t argc, jsval *vp)
@@ -39077,6 +39226,7 @@ JSBool js_cocos2dx_CCTransitionFadeTR_constructor(JSContext *cx, uint32_t argc, 
 extern JSObject *jsb_CCTransitionScene_prototype;
 
 void js_cocos2dx_CCTransitionFadeTR_finalize(JSFreeOp *fop, JSObject *obj) {
+    CCLOGINFO("jsbindings: finalizing JS object %p (CCTransitionFadeTR)", obj);
 }
 
 static JSBool js_cocos2dx_CCTransitionFadeTR_ctor(JSContext *cx, uint32_t argc, jsval *vp)
@@ -39243,6 +39393,7 @@ JSBool js_cocos2dx_CCTransitionFadeBL_constructor(JSContext *cx, uint32_t argc, 
 extern JSObject *jsb_CCTransitionFadeTR_prototype;
 
 void js_cocos2dx_CCTransitionFadeBL_finalize(JSFreeOp *fop, JSObject *obj) {
+    CCLOGINFO("jsbindings: finalizing JS object %p (CCTransitionFadeBL)", obj);
 }
 
 static JSBool js_cocos2dx_CCTransitionFadeBL_ctor(JSContext *cx, uint32_t argc, jsval *vp)
@@ -39408,6 +39559,7 @@ JSBool js_cocos2dx_CCTransitionFadeUp_constructor(JSContext *cx, uint32_t argc, 
 extern JSObject *jsb_CCTransitionFadeTR_prototype;
 
 void js_cocos2dx_CCTransitionFadeUp_finalize(JSFreeOp *fop, JSObject *obj) {
+    CCLOGINFO("jsbindings: finalizing JS object %p (CCTransitionFadeUp)", obj);
 }
 
 static JSBool js_cocos2dx_CCTransitionFadeUp_ctor(JSContext *cx, uint32_t argc, jsval *vp)
@@ -39573,6 +39725,7 @@ JSBool js_cocos2dx_CCTransitionFadeDown_constructor(JSContext *cx, uint32_t argc
 extern JSObject *jsb_CCTransitionFadeTR_prototype;
 
 void js_cocos2dx_CCTransitionFadeDown_finalize(JSFreeOp *fop, JSObject *obj) {
+    CCLOGINFO("jsbindings: finalizing JS object %p (CCTransitionFadeDown)", obj);
 }
 
 static JSBool js_cocos2dx_CCTransitionFadeDown_ctor(JSContext *cx, uint32_t argc, jsval *vp)
@@ -39772,6 +39925,7 @@ JSBool js_cocos2dx_CCTransitionPageTurn_constructor(JSContext *cx, uint32_t argc
 extern JSObject *jsb_CCTransitionScene_prototype;
 
 void js_cocos2dx_CCTransitionPageTurn_finalize(JSFreeOp *fop, JSObject *obj) {
+    CCLOGINFO("jsbindings: finalizing JS object %p (CCTransitionPageTurn)", obj);
 }
 
 static JSBool js_cocos2dx_CCTransitionPageTurn_ctor(JSContext *cx, uint32_t argc, jsval *vp)
@@ -39911,6 +40065,7 @@ JSBool js_cocos2dx_CCTransitionProgress_constructor(JSContext *cx, uint32_t argc
 extern JSObject *jsb_CCTransitionScene_prototype;
 
 void js_cocos2dx_CCTransitionProgress_finalize(JSFreeOp *fop, JSObject *obj) {
+    CCLOGINFO("jsbindings: finalizing JS object %p (CCTransitionProgress)", obj);
 }
 
 static JSBool js_cocos2dx_CCTransitionProgress_ctor(JSContext *cx, uint32_t argc, jsval *vp)
@@ -40019,6 +40174,7 @@ JSBool js_cocos2dx_CCTransitionProgressRadialCCW_create(JSContext *cx, uint32_t 
 extern JSObject *jsb_CCTransitionProgress_prototype;
 
 void js_cocos2dx_CCTransitionProgressRadialCCW_finalize(JSFreeOp *fop, JSObject *obj) {
+    CCLOGINFO("jsbindings: finalizing JS object %p (CCTransitionProgressRadialCCW)", obj);
 }
 
 static JSBool js_cocos2dx_CCTransitionProgressRadialCCW_ctor(JSContext *cx, uint32_t argc, jsval *vp)
@@ -40125,6 +40281,7 @@ JSBool js_cocos2dx_CCTransitionProgressRadialCW_create(JSContext *cx, uint32_t a
 extern JSObject *jsb_CCTransitionProgress_prototype;
 
 void js_cocos2dx_CCTransitionProgressRadialCW_finalize(JSFreeOp *fop, JSObject *obj) {
+    CCLOGINFO("jsbindings: finalizing JS object %p (CCTransitionProgressRadialCW)", obj);
 }
 
 static JSBool js_cocos2dx_CCTransitionProgressRadialCW_ctor(JSContext *cx, uint32_t argc, jsval *vp)
@@ -40231,6 +40388,7 @@ JSBool js_cocos2dx_CCTransitionProgressHorizontal_create(JSContext *cx, uint32_t
 extern JSObject *jsb_CCTransitionProgress_prototype;
 
 void js_cocos2dx_CCTransitionProgressHorizontal_finalize(JSFreeOp *fop, JSObject *obj) {
+    CCLOGINFO("jsbindings: finalizing JS object %p (CCTransitionProgressHorizontal)", obj);
 }
 
 static JSBool js_cocos2dx_CCTransitionProgressHorizontal_ctor(JSContext *cx, uint32_t argc, jsval *vp)
@@ -40337,6 +40495,7 @@ JSBool js_cocos2dx_CCTransitionProgressVertical_create(JSContext *cx, uint32_t a
 extern JSObject *jsb_CCTransitionProgress_prototype;
 
 void js_cocos2dx_CCTransitionProgressVertical_finalize(JSFreeOp *fop, JSObject *obj) {
+    CCLOGINFO("jsbindings: finalizing JS object %p (CCTransitionProgressVertical)", obj);
 }
 
 static JSBool js_cocos2dx_CCTransitionProgressVertical_ctor(JSContext *cx, uint32_t argc, jsval *vp)
@@ -40443,6 +40602,7 @@ JSBool js_cocos2dx_CCTransitionProgressInOut_create(JSContext *cx, uint32_t argc
 extern JSObject *jsb_CCTransitionProgress_prototype;
 
 void js_cocos2dx_CCTransitionProgressInOut_finalize(JSFreeOp *fop, JSObject *obj) {
+    CCLOGINFO("jsbindings: finalizing JS object %p (CCTransitionProgressInOut)", obj);
 }
 
 static JSBool js_cocos2dx_CCTransitionProgressInOut_ctor(JSContext *cx, uint32_t argc, jsval *vp)
@@ -40549,6 +40709,7 @@ JSBool js_cocos2dx_CCTransitionProgressOutIn_create(JSContext *cx, uint32_t argc
 extern JSObject *jsb_CCTransitionProgress_prototype;
 
 void js_cocos2dx_CCTransitionProgressOutIn_finalize(JSFreeOp *fop, JSObject *obj) {
+    CCLOGINFO("jsbindings: finalizing JS object %p (CCTransitionProgressOutIn)", obj);
 }
 
 static JSBool js_cocos2dx_CCTransitionProgressOutIn_ctor(JSContext *cx, uint32_t argc, jsval *vp)
@@ -40853,6 +41014,7 @@ JSBool js_cocos2dx_CCMenuItem_constructor(JSContext *cx, uint32_t argc, jsval *v
 extern JSObject *jsb_CCNodeRGBA_prototype;
 
 void js_cocos2dx_CCMenuItem_finalize(JSFreeOp *fop, JSObject *obj) {
+    CCLOGINFO("jsbindings: finalizing JS object %p (CCMenuItem)", obj);
 }
 
 static JSBool js_cocos2dx_CCMenuItem_ctor(JSContext *cx, uint32_t argc, jsval *vp)
@@ -41138,6 +41300,7 @@ JSBool js_cocos2dx_CCMenuItemLabel_constructor(JSContext *cx, uint32_t argc, jsv
 extern JSObject *jsb_CCMenuItem_prototype;
 
 void js_cocos2dx_CCMenuItemLabel_finalize(JSFreeOp *fop, JSObject *obj) {
+    CCLOGINFO("jsbindings: finalizing JS object %p (CCMenuItemLabel)", obj);
 }
 
 static JSBool js_cocos2dx_CCMenuItemLabel_ctor(JSContext *cx, uint32_t argc, jsval *vp)
@@ -41248,6 +41411,7 @@ JSBool js_cocos2dx_CCMenuItemAtlasFont_constructor(JSContext *cx, uint32_t argc,
 extern JSObject *jsb_CCMenuItemLabel_prototype;
 
 void js_cocos2dx_CCMenuItemAtlasFont_finalize(JSFreeOp *fop, JSObject *obj) {
+    CCLOGINFO("jsbindings: finalizing JS object %p (CCMenuItemAtlasFont)", obj);
 }
 
 static JSBool js_cocos2dx_CCMenuItemAtlasFont_ctor(JSContext *cx, uint32_t argc, jsval *vp)
@@ -41476,6 +41640,7 @@ JSBool js_cocos2dx_CCMenuItemFont_constructor(JSContext *cx, uint32_t argc, jsva
 extern JSObject *jsb_CCMenuItemLabel_prototype;
 
 void js_cocos2dx_CCMenuItemFont_finalize(JSFreeOp *fop, JSObject *obj) {
+    CCLOGINFO("jsbindings: finalizing JS object %p (CCMenuItemFont)", obj);
 }
 
 static JSBool js_cocos2dx_CCMenuItemFont_ctor(JSContext *cx, uint32_t argc, jsval *vp)
@@ -41824,6 +41989,7 @@ JSBool js_cocos2dx_CCMenuItemSprite_constructor(JSContext *cx, uint32_t argc, js
 extern JSObject *jsb_CCMenuItem_prototype;
 
 void js_cocos2dx_CCMenuItemSprite_finalize(JSFreeOp *fop, JSObject *obj) {
+    CCLOGINFO("jsbindings: finalizing JS object %p (CCMenuItemSprite)", obj);
 }
 
 static JSBool js_cocos2dx_CCMenuItemSprite_ctor(JSContext *cx, uint32_t argc, jsval *vp)
@@ -42031,6 +42197,7 @@ JSBool js_cocos2dx_CCMenuItemImage_constructor(JSContext *cx, uint32_t argc, jsv
 extern JSObject *jsb_CCMenuItemSprite_prototype;
 
 void js_cocos2dx_CCMenuItemImage_finalize(JSFreeOp *fop, JSObject *obj) {
+    CCLOGINFO("jsbindings: finalizing JS object %p (CCMenuItemImage)", obj);
 }
 
 static JSBool js_cocos2dx_CCMenuItemImage_ctor(JSContext *cx, uint32_t argc, jsval *vp)
@@ -42371,6 +42538,7 @@ JSBool js_cocos2dx_CCMenuItemToggle_constructor(JSContext *cx, uint32_t argc, js
 extern JSObject *jsb_CCMenuItem_prototype;
 
 void js_cocos2dx_CCMenuItemToggle_finalize(JSFreeOp *fop, JSObject *obj) {
+    CCLOGINFO("jsbindings: finalizing JS object %p (CCMenuItemToggle)", obj);
 }
 
 static JSBool js_cocos2dx_CCMenuItemToggle_ctor(JSContext *cx, uint32_t argc, jsval *vp)
@@ -42942,6 +43110,7 @@ JSBool js_cocos2dx_CCMenu_constructor(JSContext *cx, uint32_t argc, jsval *vp)
 extern JSObject *jsb_CCLayerRGBA_prototype;
 
 void js_cocos2dx_CCMenu_finalize(JSFreeOp *fop, JSObject *obj) {
+    CCLOGINFO("jsbindings: finalizing JS object %p (CCMenu)", obj);
 }
 
 static JSBool js_cocos2dx_CCMenu_ctor(JSContext *cx, uint32_t argc, jsval *vp)
@@ -43443,6 +43612,7 @@ JSBool js_cocos2dx_CCProgressTimer_constructor(JSContext *cx, uint32_t argc, jsv
 extern JSObject *jsb_CCNodeRGBA_prototype;
 
 void js_cocos2dx_CCProgressTimer_finalize(JSFreeOp *fop, JSObject *obj) {
+    CCLOGINFO("jsbindings: finalizing JS object %p (CCProgressTimer)", obj);
 }
 
 static JSBool js_cocos2dx_CCProgressTimer_ctor(JSContext *cx, uint32_t argc, jsval *vp)
@@ -44297,6 +44467,7 @@ JSBool js_cocos2dx_CCRenderTexture_constructor(JSContext *cx, uint32_t argc, jsv
 extern JSObject *jsb_CCNode_prototype;
 
 void js_cocos2dx_CCRenderTexture_finalize(JSFreeOp *fop, JSObject *obj) {
+    CCLOGINFO("jsbindings: finalizing JS object %p (CCRenderTexture)", obj);
 }
 
 static JSBool js_cocos2dx_CCRenderTexture_ctor(JSContext *cx, uint32_t argc, jsval *vp)
@@ -44931,6 +45102,7 @@ JSBool js_cocos2dx_CCParticleBatchNode_constructor(JSContext *cx, uint32_t argc,
 extern JSObject *jsb_CCNode_prototype;
 
 void js_cocos2dx_CCParticleBatchNode_finalize(JSFreeOp *fop, JSObject *obj) {
+    CCLOGINFO("jsbindings: finalizing JS object %p (CCParticleBatchNode)", obj);
 }
 
 static JSBool js_cocos2dx_CCParticleBatchNode_ctor(JSContext *cx, uint32_t argc, jsval *vp)
@@ -47090,6 +47262,7 @@ JSBool js_cocos2dx_CCParticleSystem_constructor(JSContext *cx, uint32_t argc, js
 extern JSObject *jsb_CCNode_prototype;
 
 void js_cocos2dx_CCParticleSystem_finalize(JSFreeOp *fop, JSObject *obj) {
+    CCLOGINFO("jsbindings: finalizing JS object %p (CCParticleSystem)", obj);
 }
 
 static JSBool js_cocos2dx_CCParticleSystem_ctor(JSContext *cx, uint32_t argc, jsval *vp)
@@ -47458,6 +47631,7 @@ JSBool js_cocos2dx_CCParticleSystemQuad_constructor(JSContext *cx, uint32_t argc
 extern JSObject *jsb_CCParticleSystem_prototype;
 
 void js_cocos2dx_CCParticleSystemQuad_finalize(JSFreeOp *fop, JSObject *obj) {
+    CCLOGINFO("jsbindings: finalizing JS object %p (CCParticleSystemQuad)", obj);
 }
 
 static JSBool js_cocos2dx_CCParticleSystemQuad_ctor(JSContext *cx, uint32_t argc, jsval *vp)
@@ -47651,6 +47825,7 @@ JSBool js_cocos2dx_CCParticleFire_constructor(JSContext *cx, uint32_t argc, jsva
 extern JSObject *jsb_CCParticleSystemQuad_prototype;
 
 void js_cocos2dx_CCParticleFire_finalize(JSFreeOp *fop, JSObject *obj) {
+    CCLOGINFO("jsbindings: finalizing JS object %p (CCParticleFire)", obj);
 }
 
 static JSBool js_cocos2dx_CCParticleFire_ctor(JSContext *cx, uint32_t argc, jsval *vp)
@@ -47840,6 +48015,7 @@ JSBool js_cocos2dx_CCParticleFireworks_constructor(JSContext *cx, uint32_t argc,
 extern JSObject *jsb_CCParticleSystemQuad_prototype;
 
 void js_cocos2dx_CCParticleFireworks_finalize(JSFreeOp *fop, JSObject *obj) {
+    CCLOGINFO("jsbindings: finalizing JS object %p (CCParticleFireworks)", obj);
 }
 
 static JSBool js_cocos2dx_CCParticleFireworks_ctor(JSContext *cx, uint32_t argc, jsval *vp)
@@ -48029,6 +48205,7 @@ JSBool js_cocos2dx_CCParticleSun_constructor(JSContext *cx, uint32_t argc, jsval
 extern JSObject *jsb_CCParticleSystemQuad_prototype;
 
 void js_cocos2dx_CCParticleSun_finalize(JSFreeOp *fop, JSObject *obj) {
+    CCLOGINFO("jsbindings: finalizing JS object %p (CCParticleSun)", obj);
 }
 
 static JSBool js_cocos2dx_CCParticleSun_ctor(JSContext *cx, uint32_t argc, jsval *vp)
@@ -48218,6 +48395,7 @@ JSBool js_cocos2dx_CCParticleGalaxy_constructor(JSContext *cx, uint32_t argc, js
 extern JSObject *jsb_CCParticleSystemQuad_prototype;
 
 void js_cocos2dx_CCParticleGalaxy_finalize(JSFreeOp *fop, JSObject *obj) {
+    CCLOGINFO("jsbindings: finalizing JS object %p (CCParticleGalaxy)", obj);
 }
 
 static JSBool js_cocos2dx_CCParticleGalaxy_ctor(JSContext *cx, uint32_t argc, jsval *vp)
@@ -48407,6 +48585,7 @@ JSBool js_cocos2dx_CCParticleFlower_constructor(JSContext *cx, uint32_t argc, js
 extern JSObject *jsb_CCParticleSystemQuad_prototype;
 
 void js_cocos2dx_CCParticleFlower_finalize(JSFreeOp *fop, JSObject *obj) {
+    CCLOGINFO("jsbindings: finalizing JS object %p (CCParticleFlower)", obj);
 }
 
 static JSBool js_cocos2dx_CCParticleFlower_ctor(JSContext *cx, uint32_t argc, jsval *vp)
@@ -48596,6 +48775,7 @@ JSBool js_cocos2dx_CCParticleMeteor_constructor(JSContext *cx, uint32_t argc, js
 extern JSObject *jsb_CCParticleSystemQuad_prototype;
 
 void js_cocos2dx_CCParticleMeteor_finalize(JSFreeOp *fop, JSObject *obj) {
+    CCLOGINFO("jsbindings: finalizing JS object %p (CCParticleMeteor)", obj);
 }
 
 static JSBool js_cocos2dx_CCParticleMeteor_ctor(JSContext *cx, uint32_t argc, jsval *vp)
@@ -48785,6 +48965,7 @@ JSBool js_cocos2dx_CCParticleSpiral_constructor(JSContext *cx, uint32_t argc, js
 extern JSObject *jsb_CCParticleSystemQuad_prototype;
 
 void js_cocos2dx_CCParticleSpiral_finalize(JSFreeOp *fop, JSObject *obj) {
+    CCLOGINFO("jsbindings: finalizing JS object %p (CCParticleSpiral)", obj);
 }
 
 static JSBool js_cocos2dx_CCParticleSpiral_ctor(JSContext *cx, uint32_t argc, jsval *vp)
@@ -48974,6 +49155,7 @@ JSBool js_cocos2dx_CCParticleExplosion_constructor(JSContext *cx, uint32_t argc,
 extern JSObject *jsb_CCParticleSystemQuad_prototype;
 
 void js_cocos2dx_CCParticleExplosion_finalize(JSFreeOp *fop, JSObject *obj) {
+    CCLOGINFO("jsbindings: finalizing JS object %p (CCParticleExplosion)", obj);
 }
 
 static JSBool js_cocos2dx_CCParticleExplosion_ctor(JSContext *cx, uint32_t argc, jsval *vp)
@@ -49163,6 +49345,7 @@ JSBool js_cocos2dx_CCParticleSmoke_constructor(JSContext *cx, uint32_t argc, jsv
 extern JSObject *jsb_CCParticleSystemQuad_prototype;
 
 void js_cocos2dx_CCParticleSmoke_finalize(JSFreeOp *fop, JSObject *obj) {
+    CCLOGINFO("jsbindings: finalizing JS object %p (CCParticleSmoke)", obj);
 }
 
 static JSBool js_cocos2dx_CCParticleSmoke_ctor(JSContext *cx, uint32_t argc, jsval *vp)
@@ -49352,6 +49535,7 @@ JSBool js_cocos2dx_CCParticleSnow_constructor(JSContext *cx, uint32_t argc, jsva
 extern JSObject *jsb_CCParticleSystemQuad_prototype;
 
 void js_cocos2dx_CCParticleSnow_finalize(JSFreeOp *fop, JSObject *obj) {
+    CCLOGINFO("jsbindings: finalizing JS object %p (CCParticleSnow)", obj);
 }
 
 static JSBool js_cocos2dx_CCParticleSnow_ctor(JSContext *cx, uint32_t argc, jsval *vp)
@@ -49541,6 +49725,7 @@ JSBool js_cocos2dx_CCParticleRain_constructor(JSContext *cx, uint32_t argc, jsva
 extern JSObject *jsb_CCParticleSystemQuad_prototype;
 
 void js_cocos2dx_CCParticleRain_finalize(JSFreeOp *fop, JSObject *obj) {
+    CCLOGINFO("jsbindings: finalizing JS object %p (CCParticleRain)", obj);
 }
 
 static JSBool js_cocos2dx_CCParticleRain_ctor(JSContext *cx, uint32_t argc, jsval *vp)
@@ -49941,6 +50126,7 @@ JSBool js_cocos2dx_CCFileUtils_sharedFileUtils(JSContext *cx, uint32_t argc, jsv
 
 
 void js_cocos2dx_CCFileUtils_finalize(JSFreeOp *fop, JSObject *obj) {
+    CCLOGINFO("jsbindings: finalizing JS object %p (CCFileUtils)", obj);
 }
 
 void js_register_cocos2dx_CCFileUtils(JSContext *cx, JSObject *global) {
@@ -50094,6 +50280,7 @@ JSBool js_cocos2dx_CCApplication_sharedApplication(JSContext *cx, uint32_t argc,
 
 
 void js_cocos2dx_CCApplication_finalize(JSFreeOp *fop, JSObject *obj) {
+    CCLOGINFO("jsbindings: finalizing JS object %p (CCApplication)", obj);
 }
 
 void js_register_cocos2dx_CCApplication(JSContext *cx, JSObject *global) {
@@ -50303,6 +50490,7 @@ JSBool js_cocos2dx_CCShaderCache_constructor(JSContext *cx, uint32_t argc, jsval
 
 
 void js_cocos2dx_CCShaderCache_finalize(JSFreeOp *fop, JSObject *obj) {
+    CCLOGINFO("jsbindings: finalizing JS object %p (CCShaderCache)", obj);
 }
 
 static JSBool js_cocos2dx_CCShaderCache_ctor(JSContext *cx, uint32_t argc, jsval *vp)
@@ -50576,6 +50764,7 @@ JSBool js_cocos2dx_CCAnimationCache_constructor(JSContext *cx, uint32_t argc, js
 
 
 void js_cocos2dx_CCAnimationCache_finalize(JSFreeOp *fop, JSObject *obj) {
+    CCLOGINFO("jsbindings: finalizing JS object %p (CCAnimationCache)", obj);
 }
 
 static JSBool js_cocos2dx_CCAnimationCache_ctor(JSContext *cx, uint32_t argc, jsval *vp)
@@ -50920,6 +51109,7 @@ JSBool js_cocos2dx_CCSpriteFrameCache_sharedSpriteFrameCache(JSContext *cx, uint
 
 
 void js_cocos2dx_CCSpriteFrameCache_finalize(JSFreeOp *fop, JSObject *obj) {
+    CCLOGINFO("jsbindings: finalizing JS object %p (CCSpriteFrameCache)", obj);
 }
 
 void js_register_cocos2dx_CCSpriteFrameCache(JSContext *cx, JSObject *global) {
@@ -51294,6 +51484,7 @@ JSBool js_cocos2dx_CCTextureCache_constructor(JSContext *cx, uint32_t argc, jsva
 
 
 void js_cocos2dx_CCTextureCache_finalize(JSFreeOp *fop, JSObject *obj) {
+    CCLOGINFO("jsbindings: finalizing JS object %p (CCTextureCache)", obj);
 }
 
 static JSBool js_cocos2dx_CCTextureCache_ctor(JSContext *cx, uint32_t argc, jsval *vp)
@@ -51593,6 +51784,7 @@ JSBool js_cocos2dx_CCParallaxNode_constructor(JSContext *cx, uint32_t argc, jsva
 extern JSObject *jsb_CCNode_prototype;
 
 void js_cocos2dx_CCParallaxNode_finalize(JSFreeOp *fop, JSObject *obj) {
+    CCLOGINFO("jsbindings: finalizing JS object %p (CCParallaxNode)", obj);
 }
 
 static JSBool js_cocos2dx_CCParallaxNode_ctor(JSContext *cx, uint32_t argc, jsval *vp)
@@ -51901,6 +52093,7 @@ JSBool js_cocos2dx_CCTMXObjectGroup_constructor(JSContext *cx, uint32_t argc, js
 
 
 void js_cocos2dx_CCTMXObjectGroup_finalize(JSFreeOp *fop, JSObject *obj) {
+    CCLOGINFO("jsbindings: finalizing JS object %p (CCTMXObjectGroup)", obj);
 }
 
 static JSBool js_cocos2dx_CCTMXObjectGroup_ctor(JSContext *cx, uint32_t argc, jsval *vp)
@@ -52048,6 +52241,7 @@ JSBool js_cocos2dx_CCTMXLayerInfo_constructor(JSContext *cx, uint32_t argc, jsva
 
 
 void js_cocos2dx_CCTMXLayerInfo_finalize(JSFreeOp *fop, JSObject *obj) {
+    CCLOGINFO("jsbindings: finalizing JS object %p (CCTMXLayerInfo)", obj);
 }
 
 static JSBool js_cocos2dx_CCTMXLayerInfo_ctor(JSContext *cx, uint32_t argc, jsval *vp)
@@ -52172,6 +52366,7 @@ JSBool js_cocos2dx_CCTMXTilesetInfo_constructor(JSContext *cx, uint32_t argc, js
 
 
 void js_cocos2dx_CCTMXTilesetInfo_finalize(JSFreeOp *fop, JSObject *obj) {
+    CCLOGINFO("jsbindings: finalizing JS object %p (CCTMXTilesetInfo)", obj);
 }
 
 static JSBool js_cocos2dx_CCTMXTilesetInfo_ctor(JSContext *cx, uint32_t argc, jsval *vp)
@@ -52933,6 +53128,7 @@ JSBool js_cocos2dx_CCTMXMapInfo_constructor(JSContext *cx, uint32_t argc, jsval 
 
 
 void js_cocos2dx_CCTMXMapInfo_finalize(JSFreeOp *fop, JSObject *obj) {
+    CCLOGINFO("jsbindings: finalizing JS object %p (CCTMXMapInfo)", obj);
 }
 
 static JSBool js_cocos2dx_CCTMXMapInfo_ctor(JSContext *cx, uint32_t argc, jsval *vp)
@@ -53690,6 +53886,7 @@ JSBool js_cocos2dx_CCTMXLayer_constructor(JSContext *cx, uint32_t argc, jsval *v
 extern JSObject *jsb_CCSpriteBatchNode_prototype;
 
 void js_cocos2dx_CCTMXLayer_finalize(JSFreeOp *fop, JSObject *obj) {
+    CCLOGINFO("jsbindings: finalizing JS object %p (CCTMXLayer)", obj);
 }
 
 static JSBool js_cocos2dx_CCTMXLayer_ctor(JSContext *cx, uint32_t argc, jsval *vp)
@@ -54210,6 +54407,7 @@ JSBool js_cocos2dx_CCTMXTiledMap_constructor(JSContext *cx, uint32_t argc, jsval
 extern JSObject *jsb_CCNode_prototype;
 
 void js_cocos2dx_CCTMXTiledMap_finalize(JSFreeOp *fop, JSObject *obj) {
+    CCLOGINFO("jsbindings: finalizing JS object %p (CCTMXTiledMap)", obj);
 }
 
 static JSBool js_cocos2dx_CCTMXTiledMap_ctor(JSContext *cx, uint32_t argc, jsval *vp)
@@ -54486,6 +54684,7 @@ JSBool js_cocos2dx_CCTileMapAtlas_constructor(JSContext *cx, uint32_t argc, jsva
 extern JSObject *jsb_CCAtlasNode_prototype;
 
 void js_cocos2dx_CCTileMapAtlas_finalize(JSFreeOp *fop, JSObject *obj) {
+    CCLOGINFO("jsbindings: finalizing JS object %p (CCTileMapAtlas)", obj);
 }
 
 static JSBool js_cocos2dx_CCTileMapAtlas_ctor(JSContext *cx, uint32_t argc, jsval *vp)
@@ -54720,6 +54919,7 @@ JSBool js_cocos2dx_CCTimer_constructor(JSContext *cx, uint32_t argc, jsval *vp)
 
 
 void js_cocos2dx_CCTimer_finalize(JSFreeOp *fop, JSObject *obj) {
+    CCLOGINFO("jsbindings: finalizing JS object %p (CCTimer)", obj);
 }
 
 static JSBool js_cocos2dx_CCTimer_ctor(JSContext *cx, uint32_t argc, jsval *vp)
@@ -54865,6 +55065,7 @@ JSBool js_cocos2dx_CCScheduler_constructor(JSContext *cx, uint32_t argc, jsval *
 
 
 void js_cocos2dx_CCScheduler_finalize(JSFreeOp *fop, JSObject *obj) {
+    CCLOGINFO("jsbindings: finalizing JS object %p (CCScheduler)", obj);
 }
 
 static JSBool js_cocos2dx_CCScheduler_ctor(JSContext *cx, uint32_t argc, jsval *vp)
@@ -55403,6 +55604,7 @@ JSBool js_cocos2dx_SimpleAudioEngine_sharedEngine(JSContext *cx, uint32_t argc, 
 
 
 void js_cocos2dx_SimpleAudioEngine_finalize(JSFreeOp *fop, JSObject *obj) {
+    CCLOGINFO("jsbindings: finalizing JS object %p (SimpleAudioEngine)", obj);
 }
 
 void js_register_cocos2dx_SimpleAudioEngine(JSContext *cx, JSObject *global) {

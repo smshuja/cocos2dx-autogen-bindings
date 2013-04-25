@@ -541,6 +541,7 @@ JSBool js_cocos2dx_extension_CCBReader_constructor(JSContext *cx, uint32_t argc,
 
 
 void js_cocos2dx_extension_CCBReader_finalize(JSFreeOp *fop, JSObject *obj) {
+    CCLOGINFO("jsbindings: finalizing JS object %p (CCBReader)", obj);
 }
 
 static JSBool js_cocos2dx_extension_CCBReader_ctor(JSContext *cx, uint32_t argc, jsval *vp)
@@ -963,6 +964,7 @@ JSBool js_cocos2dx_extension_CCControl_constructor(JSContext *cx, uint32_t argc,
 extern JSObject *jsb_CCLayerRGBA_prototype;
 
 void js_cocos2dx_extension_CCControl_finalize(JSFreeOp *fop, JSObject *obj) {
+    CCLOGINFO("jsbindings: finalizing JS object %p (CCControl)", obj);
 }
 
 static JSBool js_cocos2dx_extension_CCControl_ctor(JSContext *cx, uint32_t argc, jsval *vp)
@@ -1983,6 +1985,7 @@ JSBool js_cocos2dx_extension_CCScale9Sprite_constructor(JSContext *cx, uint32_t 
 extern JSObject *jsb_CCNodeRGBA_prototype;
 
 void js_cocos2dx_extension_CCScale9Sprite_finalize(JSFreeOp *fop, JSObject *obj) {
+    CCLOGINFO("jsbindings: finalizing JS object %p (CCScale9Sprite)", obj);
 }
 
 static JSBool js_cocos2dx_extension_CCScale9Sprite_ctor(JSContext *cx, uint32_t argc, jsval *vp)
@@ -3468,6 +3471,7 @@ JSBool js_cocos2dx_extension_CCControlButton_constructor(JSContext *cx, uint32_t
 extern JSObject *jsb_CCControl_prototype;
 
 void js_cocos2dx_extension_CCControlButton_finalize(JSFreeOp *fop, JSObject *obj) {
+    CCLOGINFO("jsbindings: finalizing JS object %p (CCControlButton)", obj);
 }
 
 static JSBool js_cocos2dx_extension_CCControlButton_ctor(JSContext *cx, uint32_t argc, jsval *vp)
@@ -4548,6 +4552,7 @@ JSBool js_cocos2dx_extension_CCScrollView_constructor(JSContext *cx, uint32_t ar
 extern JSObject *jsb_CCLayer_prototype;
 
 void js_cocos2dx_extension_CCScrollView_finalize(JSFreeOp *fop, JSObject *obj) {
+    CCLOGINFO("jsbindings: finalizing JS object %p (CCScrollView)", obj);
 }
 
 static JSBool js_cocos2dx_extension_CCScrollView_ctor(JSContext *cx, uint32_t argc, jsval *vp)
@@ -5518,6 +5523,7 @@ JSBool js_cocos2dx_extension_CCBAnimationManager_constructor(JSContext *cx, uint
 
 
 void js_cocos2dx_extension_CCBAnimationManager_finalize(JSFreeOp *fop, JSObject *obj) {
+    CCLOGINFO("jsbindings: finalizing JS object %p (CCBAnimationManager)", obj);
 }
 
 static JSBool js_cocos2dx_extension_CCBAnimationManager_ctor(JSContext *cx, uint32_t argc, jsval *vp)
@@ -5744,6 +5750,7 @@ JSBool js_cocos2dx_extension_CCTableViewCell_constructor(JSContext *cx, uint32_t
 extern JSObject *jsb_CCNode_prototype;
 
 void js_cocos2dx_extension_CCTableViewCell_finalize(JSFreeOp *fop, JSObject *obj) {
+    CCLOGINFO("jsbindings: finalizing JS object %p (CCTableViewCell)", obj);
 }
 
 static JSBool js_cocos2dx_extension_CCTableViewCell_ctor(JSContext *cx, uint32_t argc, jsval *vp)
@@ -6260,6 +6267,7 @@ JSBool js_cocos2dx_extension_CCTableView_constructor(JSContext *cx, uint32_t arg
 extern JSObject *jsb_CCScrollView_prototype;
 
 void js_cocos2dx_extension_CCTableView_finalize(JSFreeOp *fop, JSObject *obj) {
+    CCLOGINFO("jsbindings: finalizing JS object %p (CCTableView)", obj);
 }
 
 static JSBool js_cocos2dx_extension_CCTableView_ctor(JSContext *cx, uint32_t argc, jsval *vp)
@@ -6929,6 +6937,7 @@ JSBool js_cocos2dx_extension_CCEditBox_constructor(JSContext *cx, uint32_t argc,
 extern JSObject *jsb_CCControlButton_prototype;
 
 void js_cocos2dx_extension_CCEditBox_finalize(JSFreeOp *fop, JSObject *obj) {
+    CCLOGINFO("jsbindings: finalizing JS object %p (CCEditBox)", obj);
 }
 
 static JSBool js_cocos2dx_extension_CCEditBox_ctor(JSContext *cx, uint32_t argc, jsval *vp)
