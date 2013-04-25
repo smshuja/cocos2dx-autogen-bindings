@@ -3756,6 +3756,52 @@ getGrid : function () {},
 };
 
 /**
+ * @class CCStopGrid
+ */
+cc.StopGrid = {
+
+/**
+ * @method startWithTarget
+ * @param {cocos2d::CCNode*}
+ */
+startWithTarget : function () {},
+
+/**
+ * @method create
+ * @return A value converted from C/C++ "cocos2d::CCStopGrid*"
+ */
+create : function () {},
+
+};
+
+/**
+ * @class CCReuseGrid
+ */
+cc.ReuseGrid = {
+
+/**
+ * @method startWithTarget
+ * @param {cocos2d::CCNode*}
+ */
+startWithTarget : function () {},
+
+/**
+ * @method initWithTimes
+ * @return A value converted from C/C++ "bool"
+ * @param {int}
+ */
+initWithTimes : function () {},
+
+/**
+ * @method create
+ * @return A value converted from C/C++ "cocos2d::CCReuseGrid*"
+ * @param {int}
+ */
+create : function () {},
+
+};
+
+/**
  * @class CCWaves3D
  */
 cc.Waves3D = {

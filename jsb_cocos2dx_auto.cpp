@@ -18835,6 +18835,282 @@ void js_register_cocos2dx_CCTiledGrid3DAction(JSContext *cx, JSObject *global) {
 }
 
 
+JSClass  *jsb_CCStopGrid_class;
+JSObject *jsb_CCStopGrid_prototype;
+
+JSBool js_cocos2dx_CCStopGrid_startWithTarget(JSContext *cx, uint32_t argc, jsval *vp)
+{
+	jsval *argv = JS_ARGV(cx, vp);
+	JSBool ok = JS_TRUE;
+	JSObject *obj = JS_THIS_OBJECT(cx, vp);
+	js_proxy_t *proxy; JS_GET_NATIVE_PROXY(proxy, obj);
+	cocos2d::CCStopGrid* cobj = (cocos2d::CCStopGrid *)(proxy ? proxy->ptr : NULL);
+	JSB_PRECONDITION2( cobj, cx, JS_FALSE, "Invalid Native Object");
+	if (argc == 1) {
+		cocos2d::CCNode* arg0;
+		do {
+			js_proxy_t *proxy;
+			JSObject *tmpObj = JSVAL_TO_OBJECT(argv[0]);
+			JS_GET_NATIVE_PROXY(proxy, tmpObj);
+			arg0 = (cocos2d::CCNode*)(proxy ? proxy->ptr : NULL);
+			JSB_PRECONDITION2( arg0, cx, JS_FALSE, "Invalid Native Object");
+		} while (0);
+		JSB_PRECONDITION2(ok, cx, JS_FALSE, "Error processing arguments");
+		cobj->startWithTarget(arg0);
+		JS_SET_RVAL(cx, vp, JSVAL_VOID);
+		return JS_TRUE;
+	}
+
+	JS_ReportError(cx, "wrong number of arguments: %d, was expecting %d", argc, 1);
+	return JS_FALSE;
+}
+JSBool js_cocos2dx_CCStopGrid_create(JSContext *cx, uint32_t argc, jsval *vp)
+{
+	if (argc == 0) {
+		cocos2d::CCStopGrid* ret = cocos2d::CCStopGrid::create();
+		jsval jsret;
+		do {
+		if (ret) {
+			js_proxy_t *proxy = js_get_or_create_proxy<cocos2d::CCStopGrid>(cx, ret);
+			jsret = OBJECT_TO_JSVAL(proxy->obj);
+		} else {
+			jsret = JSVAL_NULL;
+		}
+	} while (0);
+		JS_SET_RVAL(cx, vp, jsret);
+		return JS_TRUE;
+	}
+	JS_ReportError(cx, "wrong number of arguments");
+	return JS_FALSE;
+}
+
+
+
+extern JSObject *jsb_CCActionInstant_prototype;
+
+void js_cocos2dx_CCStopGrid_finalize(JSFreeOp *fop, JSObject *obj) {
+}
+
+static JSBool js_cocos2dx_CCStopGrid_ctor(JSContext *cx, uint32_t argc, jsval *vp)
+{
+	JSObject *obj = JS_THIS_OBJECT(cx, vp);
+    cocos2d::CCStopGrid *nobj = new cocos2d::CCStopGrid();
+    js_proxy_t* p;
+    JS_NEW_PROXY(p, nobj, obj);
+    nobj->autorelease();
+    JS_AddNamedObjectRoot(cx, &p->obj, "cocos2d::CCStopGrid");
+    JS_SET_RVAL(cx, vp, JSVAL_VOID);
+    return JS_TRUE;
+}
+
+void js_register_cocos2dx_CCStopGrid(JSContext *cx, JSObject *global) {
+	jsb_CCStopGrid_class = (JSClass *)calloc(1, sizeof(JSClass));
+	jsb_CCStopGrid_class->name = "StopGrid";
+	jsb_CCStopGrid_class->addProperty = JS_PropertyStub;
+	jsb_CCStopGrid_class->delProperty = JS_PropertyStub;
+	jsb_CCStopGrid_class->getProperty = JS_PropertyStub;
+	jsb_CCStopGrid_class->setProperty = JS_StrictPropertyStub;
+	jsb_CCStopGrid_class->enumerate = JS_EnumerateStub;
+	jsb_CCStopGrid_class->resolve = JS_ResolveStub;
+	jsb_CCStopGrid_class->convert = JS_ConvertStub;
+	jsb_CCStopGrid_class->finalize = js_cocos2dx_CCStopGrid_finalize;
+	jsb_CCStopGrid_class->flags = JSCLASS_HAS_RESERVED_SLOTS(2);
+
+	JSPropertySpec *properties = NULL;
+
+	static JSFunctionSpec funcs[] = {
+		JS_FN("startWithTarget", js_cocos2dx_CCStopGrid_startWithTarget, 1, JSPROP_PERMANENT | JSPROP_ENUMERATE),
+        JS_FN("ctor", js_cocos2dx_CCStopGrid_ctor, 0, JSPROP_PERMANENT | JSPROP_ENUMERATE),
+        JS_FS_END
+	};
+
+	static JSFunctionSpec st_funcs[] = {
+		JS_FN("create", js_cocos2dx_CCStopGrid_create, 0, JSPROP_PERMANENT | JSPROP_ENUMERATE),
+		JS_FS_END
+	};
+
+	jsb_CCStopGrid_prototype = JS_InitClass(
+		cx, global,
+		jsb_CCActionInstant_prototype,
+		jsb_CCStopGrid_class,
+		dummy_constructor<cocos2d::CCStopGrid>, 0, // no constructor
+		properties,
+		funcs,
+		NULL, // no static properties
+		st_funcs);
+	// make the class enumerable in the registered namespace
+	JSBool found;
+	JS_SetPropertyAttributes(cx, global, "StopGrid", JSPROP_ENUMERATE | JSPROP_READONLY, &found);
+
+	// add the proto and JSClass to the type->js info hash table
+	TypeTest<cocos2d::CCStopGrid> t;
+	js_type_class_t *p;
+	uint32_t typeId = t.s_id();
+	HASH_FIND_INT(_js_global_type_ht, &typeId, p);
+	if (!p) {
+		p = (js_type_class_t *)malloc(sizeof(js_type_class_t));
+		p->type = typeId;
+		p->jsclass = jsb_CCStopGrid_class;
+		p->proto = jsb_CCStopGrid_prototype;
+		p->parentProto = jsb_CCActionInstant_prototype;
+		HASH_ADD_INT(_js_global_type_ht, type, p);
+	}
+}
+
+
+JSClass  *jsb_CCReuseGrid_class;
+JSObject *jsb_CCReuseGrid_prototype;
+
+JSBool js_cocos2dx_CCReuseGrid_startWithTarget(JSContext *cx, uint32_t argc, jsval *vp)
+{
+	jsval *argv = JS_ARGV(cx, vp);
+	JSBool ok = JS_TRUE;
+	JSObject *obj = JS_THIS_OBJECT(cx, vp);
+	js_proxy_t *proxy; JS_GET_NATIVE_PROXY(proxy, obj);
+	cocos2d::CCReuseGrid* cobj = (cocos2d::CCReuseGrid *)(proxy ? proxy->ptr : NULL);
+	JSB_PRECONDITION2( cobj, cx, JS_FALSE, "Invalid Native Object");
+	if (argc == 1) {
+		cocos2d::CCNode* arg0;
+		do {
+			js_proxy_t *proxy;
+			JSObject *tmpObj = JSVAL_TO_OBJECT(argv[0]);
+			JS_GET_NATIVE_PROXY(proxy, tmpObj);
+			arg0 = (cocos2d::CCNode*)(proxy ? proxy->ptr : NULL);
+			JSB_PRECONDITION2( arg0, cx, JS_FALSE, "Invalid Native Object");
+		} while (0);
+		JSB_PRECONDITION2(ok, cx, JS_FALSE, "Error processing arguments");
+		cobj->startWithTarget(arg0);
+		JS_SET_RVAL(cx, vp, JSVAL_VOID);
+		return JS_TRUE;
+	}
+
+	JS_ReportError(cx, "wrong number of arguments: %d, was expecting %d", argc, 1);
+	return JS_FALSE;
+}
+JSBool js_cocos2dx_CCReuseGrid_initWithTimes(JSContext *cx, uint32_t argc, jsval *vp)
+{
+	jsval *argv = JS_ARGV(cx, vp);
+	JSBool ok = JS_TRUE;
+	JSObject *obj = JS_THIS_OBJECT(cx, vp);
+	js_proxy_t *proxy; JS_GET_NATIVE_PROXY(proxy, obj);
+	cocos2d::CCReuseGrid* cobj = (cocos2d::CCReuseGrid *)(proxy ? proxy->ptr : NULL);
+	JSB_PRECONDITION2( cobj, cx, JS_FALSE, "Invalid Native Object");
+	if (argc == 1) {
+		int arg0;
+		ok &= jsval_to_int32(cx, argv[0], (int32_t *)&arg0);
+		JSB_PRECONDITION2(ok, cx, JS_FALSE, "Error processing arguments");
+		bool ret = cobj->initWithTimes(arg0);
+		jsval jsret;
+		jsret = BOOLEAN_TO_JSVAL(ret);
+		JS_SET_RVAL(cx, vp, jsret);
+		return JS_TRUE;
+	}
+
+	JS_ReportError(cx, "wrong number of arguments: %d, was expecting %d", argc, 1);
+	return JS_FALSE;
+}
+JSBool js_cocos2dx_CCReuseGrid_create(JSContext *cx, uint32_t argc, jsval *vp)
+{
+	jsval *argv = JS_ARGV(cx, vp);
+	JSBool ok = JS_TRUE;
+	if (argc == 1) {
+		int arg0;
+		ok &= jsval_to_int32(cx, argv[0], (int32_t *)&arg0);
+		JSB_PRECONDITION2(ok, cx, JS_FALSE, "Error processing arguments");
+		cocos2d::CCReuseGrid* ret = cocos2d::CCReuseGrid::create(arg0);
+		jsval jsret;
+		do {
+		if (ret) {
+			js_proxy_t *proxy = js_get_or_create_proxy<cocos2d::CCReuseGrid>(cx, ret);
+			jsret = OBJECT_TO_JSVAL(proxy->obj);
+		} else {
+			jsret = JSVAL_NULL;
+		}
+	} while (0);
+		JS_SET_RVAL(cx, vp, jsret);
+		return JS_TRUE;
+	}
+	JS_ReportError(cx, "wrong number of arguments");
+	return JS_FALSE;
+}
+
+
+
+extern JSObject *jsb_CCActionInstant_prototype;
+
+void js_cocos2dx_CCReuseGrid_finalize(JSFreeOp *fop, JSObject *obj) {
+}
+
+static JSBool js_cocos2dx_CCReuseGrid_ctor(JSContext *cx, uint32_t argc, jsval *vp)
+{
+	JSObject *obj = JS_THIS_OBJECT(cx, vp);
+    cocos2d::CCReuseGrid *nobj = new cocos2d::CCReuseGrid();
+    js_proxy_t* p;
+    JS_NEW_PROXY(p, nobj, obj);
+    nobj->autorelease();
+    JS_AddNamedObjectRoot(cx, &p->obj, "cocos2d::CCReuseGrid");
+    JS_SET_RVAL(cx, vp, JSVAL_VOID);
+    return JS_TRUE;
+}
+
+void js_register_cocos2dx_CCReuseGrid(JSContext *cx, JSObject *global) {
+	jsb_CCReuseGrid_class = (JSClass *)calloc(1, sizeof(JSClass));
+	jsb_CCReuseGrid_class->name = "ReuseGrid";
+	jsb_CCReuseGrid_class->addProperty = JS_PropertyStub;
+	jsb_CCReuseGrid_class->delProperty = JS_PropertyStub;
+	jsb_CCReuseGrid_class->getProperty = JS_PropertyStub;
+	jsb_CCReuseGrid_class->setProperty = JS_StrictPropertyStub;
+	jsb_CCReuseGrid_class->enumerate = JS_EnumerateStub;
+	jsb_CCReuseGrid_class->resolve = JS_ResolveStub;
+	jsb_CCReuseGrid_class->convert = JS_ConvertStub;
+	jsb_CCReuseGrid_class->finalize = js_cocos2dx_CCReuseGrid_finalize;
+	jsb_CCReuseGrid_class->flags = JSCLASS_HAS_RESERVED_SLOTS(2);
+
+	static JSPropertySpec properties[] = {
+		{0, 0, 0, JSOP_NULLWRAPPER, JSOP_NULLWRAPPER}
+	};
+
+	static JSFunctionSpec funcs[] = {
+		JS_FN("startWithTarget", js_cocos2dx_CCReuseGrid_startWithTarget, 1, JSPROP_PERMANENT | JSPROP_ENUMERATE),
+		JS_FN("initWithTimes", js_cocos2dx_CCReuseGrid_initWithTimes, 1, JSPROP_PERMANENT | JSPROP_ENUMERATE),
+        JS_FN("ctor", js_cocos2dx_CCReuseGrid_ctor, 0, JSPROP_PERMANENT | JSPROP_ENUMERATE),
+        JS_FS_END
+	};
+
+	static JSFunctionSpec st_funcs[] = {
+		JS_FN("create", js_cocos2dx_CCReuseGrid_create, 1, JSPROP_PERMANENT | JSPROP_ENUMERATE),
+		JS_FS_END
+	};
+
+	jsb_CCReuseGrid_prototype = JS_InitClass(
+		cx, global,
+		jsb_CCActionInstant_prototype,
+		jsb_CCReuseGrid_class,
+		dummy_constructor<cocos2d::CCReuseGrid>, 0, // no constructor
+		properties,
+		funcs,
+		NULL, // no static properties
+		st_funcs);
+	// make the class enumerable in the registered namespace
+	JSBool found;
+	JS_SetPropertyAttributes(cx, global, "ReuseGrid", JSPROP_ENUMERATE | JSPROP_READONLY, &found);
+
+	// add the proto and JSClass to the type->js info hash table
+	TypeTest<cocos2d::CCReuseGrid> t;
+	js_type_class_t *p;
+	uint32_t typeId = t.s_id();
+	HASH_FIND_INT(_js_global_type_ht, &typeId, p);
+	if (!p) {
+		p = (js_type_class_t *)malloc(sizeof(js_type_class_t));
+		p->type = typeId;
+		p->jsclass = jsb_CCReuseGrid_class;
+		p->proto = jsb_CCReuseGrid_prototype;
+		p->parentProto = jsb_CCActionInstant_prototype;
+		HASH_ADD_INT(_js_global_type_ht, type, p);
+	}
+}
+
+
 JSClass  *jsb_CCWaves3D_class;
 JSObject *jsb_CCWaves3D_prototype;
 
@@ -55331,6 +55607,7 @@ void register_all_cocos2dx(JSContext* cx, JSObject* obj) {
 	js_register_cocos2dx_CCTransitionMoveInT(cx, obj);
 	js_register_cocos2dx_CCTransitionMoveInR(cx, obj);
 	js_register_cocos2dx_CCPlace(cx, obj);
+	js_register_cocos2dx_CCStopGrid(cx, obj);
 	js_register_cocos2dx_CCLabelBMFont(cx, obj);
 	js_register_cocos2dx_CCTransitionMoveInB(cx, obj);
 	js_register_cocos2dx_CCTransitionZoomFlipX(cx, obj);
@@ -55362,6 +55639,7 @@ void register_all_cocos2dx(JSContext* cx, JSObject* obj) {
 	js_register_cocos2dx_CCTransitionZoomFlipY(cx, obj);
 	js_register_cocos2dx_CCTMXMapInfo(cx, obj);
 	js_register_cocos2dx_CCTransitionSlideInB(cx, obj);
+	js_register_cocos2dx_CCReuseGrid(cx, obj);
 	js_register_cocos2dx_CCShuffleTiles(cx, obj);
 	js_register_cocos2dx_CCEaseSineIn(cx, obj);
 	js_register_cocos2dx_CCTransitionFadeBL(cx, obj);

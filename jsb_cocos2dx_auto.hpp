@@ -1137,6 +1137,27 @@ JSBool js_cocos2dx_CCTiledGrid3DAction_setTile(JSContext *cx, uint32_t argc, jsv
 JSBool js_cocos2dx_CCTiledGrid3DAction_originalTile(JSContext *cx, uint32_t argc, jsval *vp);
 JSBool js_cocos2dx_CCTiledGrid3DAction_getGrid(JSContext *cx, uint32_t argc, jsval *vp);
 
+extern JSClass  *jsb_CCStopGrid_class;
+extern JSObject *jsb_CCStopGrid_prototype;
+
+JSBool js_cocos2dx_CCStopGrid_constructor(JSContext *cx, uint32_t argc, jsval *vp);
+void js_cocos2dx_CCStopGrid_finalize(JSContext *cx, JSObject *obj);
+void js_register_cocos2dx_CCStopGrid(JSContext *cx, JSObject *global);
+void register_all_cocos2dx(JSContext* cx, JSObject* obj);
+JSBool js_cocos2dx_CCStopGrid_startWithTarget(JSContext *cx, uint32_t argc, jsval *vp);
+JSBool js_cocos2dx_CCStopGrid_create(JSContext *cx, uint32_t argc, jsval *vp);
+
+extern JSClass  *jsb_CCReuseGrid_class;
+extern JSObject *jsb_CCReuseGrid_prototype;
+
+JSBool js_cocos2dx_CCReuseGrid_constructor(JSContext *cx, uint32_t argc, jsval *vp);
+void js_cocos2dx_CCReuseGrid_finalize(JSContext *cx, JSObject *obj);
+void js_register_cocos2dx_CCReuseGrid(JSContext *cx, JSObject *global);
+void register_all_cocos2dx(JSContext* cx, JSObject* obj);
+JSBool js_cocos2dx_CCReuseGrid_startWithTarget(JSContext *cx, uint32_t argc, jsval *vp);
+JSBool js_cocos2dx_CCReuseGrid_initWithTimes(JSContext *cx, uint32_t argc, jsval *vp);
+JSBool js_cocos2dx_CCReuseGrid_create(JSContext *cx, uint32_t argc, jsval *vp);
+
 extern JSClass  *jsb_CCWaves3D_class;
 extern JSObject *jsb_CCWaves3D_prototype;
 
