@@ -28152,30 +28152,19 @@ JSBool js_cocos2dx_CCDirector_getDeltaTime(JSContext *cx, uint32_t argc, jsval *
 	JS_ReportError(cx, "wrong number of arguments: %d, was expecting %d", argc, 0);
 	return JS_FALSE;
 }
-JSBool js_cocos2dx_CCDirector_setKeypadDispatcher(JSContext *cx, uint32_t argc, jsval *vp)
+JSBool js_cocos2dx_CCDirector_setGLDefaultValues(JSContext *cx, uint32_t argc, jsval *vp)
 {
-	jsval *argv = JS_ARGV(cx, vp);
-	JSBool ok = JS_TRUE;
 	JSObject *obj = JS_THIS_OBJECT(cx, vp);
 	js_proxy_t *proxy; JS_GET_NATIVE_PROXY(proxy, obj);
 	cocos2d::CCDirector* cobj = (cocos2d::CCDirector *)(proxy ? proxy->ptr : NULL);
 	JSB_PRECONDITION2( cobj, cx, JS_FALSE, "Invalid Native Object");
-	if (argc == 1) {
-		cocos2d::CCKeypadDispatcher* arg0;
-		do {
-			js_proxy_t *proxy;
-			JSObject *tmpObj = JSVAL_TO_OBJECT(argv[0]);
-			JS_GET_NATIVE_PROXY(proxy, tmpObj);
-			arg0 = (cocos2d::CCKeypadDispatcher*)(proxy ? proxy->ptr : NULL);
-			JSB_PRECONDITION2( arg0, cx, JS_FALSE, "Invalid Native Object");
-		} while (0);
-		JSB_PRECONDITION2(ok, cx, JS_FALSE, "Error processing arguments");
-		cobj->setKeypadDispatcher(arg0);
+	if (argc == 0) {
+		cobj->setGLDefaultValues();
 		JS_SET_RVAL(cx, vp, JSVAL_VOID);
 		return JS_TRUE;
 	}
 
-	JS_ReportError(cx, "wrong number of arguments: %d, was expecting %d", argc, 1);
+	JS_ReportError(cx, "wrong number of arguments: %d, was expecting %d", argc, 0);
 	return JS_FALSE;
 }
 JSBool js_cocos2dx_CCDirector_setActionManager(JSContext *cx, uint32_t argc, jsval *vp)
@@ -28541,19 +28530,50 @@ JSBool js_cocos2dx_CCDirector_stopAnimation(JSContext *cx, uint32_t argc, jsval 
 	JS_ReportError(cx, "wrong number of arguments: %d, was expecting %d", argc, 0);
 	return JS_FALSE;
 }
-JSBool js_cocos2dx_CCDirector_setGLDefaultValues(JSContext *cx, uint32_t argc, jsval *vp)
+JSBool js_cocos2dx_CCDirector_setKeypadDispatcher(JSContext *cx, uint32_t argc, jsval *vp)
 {
+	jsval *argv = JS_ARGV(cx, vp);
+	JSBool ok = JS_TRUE;
 	JSObject *obj = JS_THIS_OBJECT(cx, vp);
 	js_proxy_t *proxy; JS_GET_NATIVE_PROXY(proxy, obj);
 	cocos2d::CCDirector* cobj = (cocos2d::CCDirector *)(proxy ? proxy->ptr : NULL);
 	JSB_PRECONDITION2( cobj, cx, JS_FALSE, "Invalid Native Object");
-	if (argc == 0) {
-		cobj->setGLDefaultValues();
+	if (argc == 1) {
+		cocos2d::CCKeypadDispatcher* arg0;
+		do {
+			js_proxy_t *proxy;
+			JSObject *tmpObj = JSVAL_TO_OBJECT(argv[0]);
+			JS_GET_NATIVE_PROXY(proxy, tmpObj);
+			arg0 = (cocos2d::CCKeypadDispatcher*)(proxy ? proxy->ptr : NULL);
+			JSB_PRECONDITION2( arg0, cx, JS_FALSE, "Invalid Native Object");
+		} while (0);
+		JSB_PRECONDITION2(ok, cx, JS_FALSE, "Error processing arguments");
+		cobj->setKeypadDispatcher(arg0);
 		JS_SET_RVAL(cx, vp, JSVAL_VOID);
 		return JS_TRUE;
 	}
 
-	JS_ReportError(cx, "wrong number of arguments: %d, was expecting %d", argc, 0);
+	JS_ReportError(cx, "wrong number of arguments: %d, was expecting %d", argc, 1);
+	return JS_FALSE;
+}
+JSBool js_cocos2dx_CCDirector_popToSceneStackLevel(JSContext *cx, uint32_t argc, jsval *vp)
+{
+	jsval *argv = JS_ARGV(cx, vp);
+	JSBool ok = JS_TRUE;
+	JSObject *obj = JS_THIS_OBJECT(cx, vp);
+	js_proxy_t *proxy; JS_GET_NATIVE_PROXY(proxy, obj);
+	cocos2d::CCDirector* cobj = (cocos2d::CCDirector *)(proxy ? proxy->ptr : NULL);
+	JSB_PRECONDITION2( cobj, cx, JS_FALSE, "Invalid Native Object");
+	if (argc == 1) {
+		int arg0;
+		ok &= jsval_to_int32(cx, argv[0], (int32_t *)&arg0);
+		JSB_PRECONDITION2(ok, cx, JS_FALSE, "Error processing arguments");
+		cobj->popToSceneStackLevel(arg0);
+		JS_SET_RVAL(cx, vp, JSVAL_VOID);
+		return JS_TRUE;
+	}
+
+	JS_ReportError(cx, "wrong number of arguments: %d, was expecting %d", argc, 1);
 	return JS_FALSE;
 }
 JSBool js_cocos2dx_CCDirector_resume(JSContext *cx, uint32_t argc, jsval *vp)
@@ -29116,7 +29136,7 @@ void js_register_cocos2dx_CCDirector(JSContext *cx, JSObject *global) {
 		JS_FN("getContentScaleFactor", js_cocos2dx_CCDirector_getContentScaleFactor, 0, JSPROP_PERMANENT | JSPROP_ENUMERATE),
 		JS_FN("getWinSizeInPixels", js_cocos2dx_CCDirector_getWinSizeInPixels, 0, JSPROP_PERMANENT | JSPROP_ENUMERATE),
 		JS_FN("getDeltaTime", js_cocos2dx_CCDirector_getDeltaTime, 0, JSPROP_PERMANENT | JSPROP_ENUMERATE),
-		JS_FN("setKeypadDispatcher", js_cocos2dx_CCDirector_setKeypadDispatcher, 1, JSPROP_PERMANENT | JSPROP_ENUMERATE),
+		JS_FN("setGLDefaultValues", js_cocos2dx_CCDirector_setGLDefaultValues, 0, JSPROP_PERMANENT | JSPROP_ENUMERATE),
 		JS_FN("setActionManager", js_cocos2dx_CCDirector_setActionManager, 1, JSPROP_PERMANENT | JSPROP_ENUMERATE),
 		JS_FN("setAlphaBlending", js_cocos2dx_CCDirector_setAlphaBlending, 1, JSPROP_PERMANENT | JSPROP_ENUMERATE),
 		JS_FN("popToRootScene", js_cocos2dx_CCDirector_popToRootScene, 0, JSPROP_PERMANENT | JSPROP_ENUMERATE),
@@ -29136,7 +29156,8 @@ void js_register_cocos2dx_CCDirector(JSContext *cx, JSObject *global) {
 		JS_FN("getRunningScene", js_cocos2dx_CCDirector_getRunningScene, 0, JSPROP_PERMANENT | JSPROP_ENUMERATE),
 		JS_FN("setViewport", js_cocos2dx_CCDirector_setViewport, 0, JSPROP_PERMANENT | JSPROP_ENUMERATE),
 		JS_FN("stopAnimation", js_cocos2dx_CCDirector_stopAnimation, 0, JSPROP_PERMANENT | JSPROP_ENUMERATE),
-		JS_FN("setGLDefaultValues", js_cocos2dx_CCDirector_setGLDefaultValues, 0, JSPROP_PERMANENT | JSPROP_ENUMERATE),
+		JS_FN("setKeypadDispatcher", js_cocos2dx_CCDirector_setKeypadDispatcher, 1, JSPROP_PERMANENT | JSPROP_ENUMERATE),
+		JS_FN("popToSceneStackLevel", js_cocos2dx_CCDirector_popToSceneStackLevel, 1, JSPROP_PERMANENT | JSPROP_ENUMERATE),
 		JS_FN("resume", js_cocos2dx_CCDirector_resume, 0, JSPROP_PERMANENT | JSPROP_ENUMERATE),
 		JS_FN("setTouchDispatcher", js_cocos2dx_CCDirector_setTouchDispatcher, 1, JSPROP_PERMANENT | JSPROP_ENUMERATE),
 		JS_FN("isNextDeltaTimeZero", js_cocos2dx_CCDirector_isNextDeltaTimeZero, 0, JSPROP_PERMANENT | JSPROP_ENUMERATE),

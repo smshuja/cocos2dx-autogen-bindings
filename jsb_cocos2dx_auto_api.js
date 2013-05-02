@@ -5716,10 +5716,9 @@ getWinSizeInPixels : function () {},
 getDeltaTime : function () {},
 
 /**
- * @method setKeypadDispatcher
- * @param {cocos2d::CCKeypadDispatcher*}
+ * @method setGLDefaultValues
  */
-setKeypadDispatcher : function () {},
+setGLDefaultValues : function () {},
 
 /**
  * @method setActionManager
@@ -5831,9 +5830,16 @@ setViewport : function () {},
 stopAnimation : function () {},
 
 /**
- * @method setGLDefaultValues
+ * @method setKeypadDispatcher
+ * @param {cocos2d::CCKeypadDispatcher*}
  */
-setGLDefaultValues : function () {},
+setKeypadDispatcher : function () {},
+
+/**
+ * @method popToSceneStackLevel
+ * @param {int}
+ */
+popToSceneStackLevel : function () {},
 
 /**
  * @method resume

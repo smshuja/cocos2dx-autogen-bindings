@@ -1692,7 +1692,7 @@ JSBool js_cocos2dx_CCDirector_setContentScaleFactor(JSContext *cx, uint32_t argc
 JSBool js_cocos2dx_CCDirector_getContentScaleFactor(JSContext *cx, uint32_t argc, jsval *vp);
 JSBool js_cocos2dx_CCDirector_getWinSizeInPixels(JSContext *cx, uint32_t argc, jsval *vp);
 JSBool js_cocos2dx_CCDirector_getDeltaTime(JSContext *cx, uint32_t argc, jsval *vp);
-JSBool js_cocos2dx_CCDirector_setKeypadDispatcher(JSContext *cx, uint32_t argc, jsval *vp);
+JSBool js_cocos2dx_CCDirector_setGLDefaultValues(JSContext *cx, uint32_t argc, jsval *vp);
 JSBool js_cocos2dx_CCDirector_setActionManager(JSContext *cx, uint32_t argc, jsval *vp);
 JSBool js_cocos2dx_CCDirector_setAlphaBlending(JSContext *cx, uint32_t argc, jsval *vp);
 JSBool js_cocos2dx_CCDirector_popToRootScene(JSContext *cx, uint32_t argc, jsval *vp);
@@ -1712,7 +1712,8 @@ JSBool js_cocos2dx_CCDirector_startAnimation(JSContext *cx, uint32_t argc, jsval
 JSBool js_cocos2dx_CCDirector_getRunningScene(JSContext *cx, uint32_t argc, jsval *vp);
 JSBool js_cocos2dx_CCDirector_setViewport(JSContext *cx, uint32_t argc, jsval *vp);
 JSBool js_cocos2dx_CCDirector_stopAnimation(JSContext *cx, uint32_t argc, jsval *vp);
-JSBool js_cocos2dx_CCDirector_setGLDefaultValues(JSContext *cx, uint32_t argc, jsval *vp);
+JSBool js_cocos2dx_CCDirector_setKeypadDispatcher(JSContext *cx, uint32_t argc, jsval *vp);
+JSBool js_cocos2dx_CCDirector_popToSceneStackLevel(JSContext *cx, uint32_t argc, jsval *vp);
 JSBool js_cocos2dx_CCDirector_resume(JSContext *cx, uint32_t argc, jsval *vp);
 JSBool js_cocos2dx_CCDirector_setTouchDispatcher(JSContext *cx, uint32_t argc, jsval *vp);
 JSBool js_cocos2dx_CCDirector_isNextDeltaTimeZero(JSContext *cx, uint32_t argc, jsval *vp);
