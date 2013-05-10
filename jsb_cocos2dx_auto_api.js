@@ -492,6 +492,12 @@ count : function () {},
 addObject : function () {},
 
 /**
+ * @method acceptVisitor
+ * @param {cocos2d::CCDataVisitor}
+ */
+acceptVisitor : function () {},
+
+/**
  * @method mutableCopy
  * @return A value converted from C/C++ "cocos2d::CCSet*"
  */

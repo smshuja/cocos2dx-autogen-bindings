@@ -129,6 +129,7 @@ void js_register_cocos2dx_CCSet(JSContext *cx, JSObject *global);
 void register_all_cocos2dx(JSContext* cx, JSObject* obj);
 JSBool js_cocos2dx_CCSet_count(JSContext *cx, uint32_t argc, jsval *vp);
 JSBool js_cocos2dx_CCSet_addObject(JSContext *cx, uint32_t argc, jsval *vp);
+JSBool js_cocos2dx_CCSet_acceptVisitor(JSContext *cx, uint32_t argc, jsval *vp);
 JSBool js_cocos2dx_CCSet_mutableCopy(JSContext *cx, uint32_t argc, jsval *vp);
 JSBool js_cocos2dx_CCSet_anyObject(JSContext *cx, uint32_t argc, jsval *vp);
 JSBool js_cocos2dx_CCSet_removeAllObjects(JSContext *cx, uint32_t argc, jsval *vp);

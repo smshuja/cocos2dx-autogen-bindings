@@ -2030,6 +2030,32 @@ JSBool js_cocos2dx_CCSet_addObject(JSContext *cx, uint32_t argc, jsval *vp)
 	JS_ReportError(cx, "wrong number of arguments: %d, was expecting %d", argc, 1);
 	return JS_FALSE;
 }
+JSBool js_cocos2dx_CCSet_acceptVisitor(JSContext *cx, uint32_t argc, jsval *vp)
+{
+	jsval *argv = JS_ARGV(cx, vp);
+	JSBool ok = JS_TRUE;
+	JSObject *obj = JS_THIS_OBJECT(cx, vp);
+	js_proxy_t *proxy; JS_GET_NATIVE_PROXY(proxy, obj);
+	cocos2d::CCSet* cobj = (cocos2d::CCSet *)(proxy ? proxy->ptr : NULL);
+	JSB_PRECONDITION2( cobj, cx, JS_FALSE, "Invalid Native Object");
+	if (argc == 1) {
+		cocos2d::CCDataVisitor arg0;
+		do {
+			js_proxy_t *proxy;
+			JSObject *tmpObj = JSVAL_TO_OBJECT(argv[0]);
+			JS_GET_NATIVE_PROXY(proxy, tmpObj);
+			arg0 = (cocos2d::CCDataVisitor)(proxy ? proxy->ptr : NULL);
+			JSB_PRECONDITION2( arg0, cx, JS_FALSE, "Invalid Native Object");
+		} while (0);
+		JSB_PRECONDITION2(ok, cx, JS_FALSE, "Error processing arguments");
+		cobj->acceptVisitor(arg0);
+		JS_SET_RVAL(cx, vp, JSVAL_VOID);
+		return JS_TRUE;
+	}
+
+	JS_ReportError(cx, "wrong number of arguments: %d, was expecting %d", argc, 1);
+	return JS_FALSE;
+}
 JSBool js_cocos2dx_CCSet_mutableCopy(JSContext *cx, uint32_t argc, jsval *vp)
 {
 	JSObject *obj = JS_THIS_OBJECT(cx, vp);
@@ -2218,6 +2244,7 @@ void js_register_cocos2dx_CCSet(JSContext *cx, JSObject *global) {
 	static JSFunctionSpec funcs[] = {
 		JS_FN("count", js_cocos2dx_CCSet_count, 0, JSPROP_PERMANENT | JSPROP_ENUMERATE),
 		JS_FN("addObject", js_cocos2dx_CCSet_addObject, 1, JSPROP_PERMANENT | JSPROP_ENUMERATE),
+		JS_FN("acceptVisitor", js_cocos2dx_CCSet_acceptVisitor, 1, JSPROP_PERMANENT | JSPROP_ENUMERATE),
 		JS_FN("mutableCopy", js_cocos2dx_CCSet_mutableCopy, 0, JSPROP_PERMANENT | JSPROP_ENUMERATE),
 		JS_FN("anyObject", js_cocos2dx_CCSet_anyObject, 0, JSPROP_PERMANENT | JSPROP_ENUMERATE),
 		JS_FN("removeAllObjects", js_cocos2dx_CCSet_removeAllObjects, 0, JSPROP_PERMANENT | JSPROP_ENUMERATE),
