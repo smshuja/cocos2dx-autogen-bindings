@@ -263,10 +263,22 @@ init : function () {},
 setPreferredSize : function () {},
 
 /**
+ * @method getOpacity
+ * @return A value converted from C/C++ "unsigned char"
+ */
+getOpacity : function () {},
+
+/**
  * @method setSpriteFrame
  * @param {cocos2d::CCSpriteFrame*}
  */
 setSpriteFrame : function () {},
+
+/**
+ * @method getColor
+ * @return A value converted from C/C++ "cocos2d::ccColor3B"
+ */
+getColor : function () {},
 
 /**
  * @method getInsetBottom
@@ -367,10 +379,10 @@ cc.ControlButton = {
 setTitleColorDispatchTable : function () {},
 
 /**
- * @method isPushed
- * @return A value converted from C/C++ "bool"
+ * @method setZoomOnTouchDown
+ * @param {bool}
  */
-isPushed : function () {},
+setZoomOnTouchDown : function () {},
 
 /**
  * @method setSelected
@@ -425,10 +437,18 @@ setHighlighted : function () {},
 setBackgroundSpriteDispatchTable : function () {},
 
 /**
- * @method setZoomOnTouchDown
- * @param {bool}
+ * @method setTitleLabelForState
+ * @param {cocos2d::CCNode*}
+ * @param {unsigned int}
  */
-setZoomOnTouchDown : function () {},
+setTitleLabelForState : function () {},
+
+/**
+ * @method setTitleForState
+ * @param {cocos2d::CCString*}
+ * @param {unsigned int}
+ */
+setTitleForState : function () {},
 
 /**
  * @method getTitleDispatchTable
@@ -476,6 +496,12 @@ getTitleTTFSizeForState : function () {},
 setTitleDispatchTable : function () {},
 
 /**
+ * @method isPushed
+ * @return A value converted from C/C++ "bool"
+ */
+isPushed : function () {},
+
+/**
  * @method setOpacity
  * @param {unsigned char}
  */
@@ -501,11 +527,10 @@ setTitleTTFForState : function () {},
 setPreferredSize : function () {},
 
 /**
- * @method setTitleLabelForState
- * @param {cocos2d::CCNode*}
- * @param {unsigned int}
+ * @method getHorizontalOrigin
+ * @return A value converted from C/C++ "int"
  */
-setTitleLabelForState : function () {},
+getHorizontalOrigin : function () {},
 
 /**
  * @method ccTouchMoved
@@ -546,10 +571,10 @@ setEnabled : function () {},
 getBackgroundSpriteForState : function () {},
 
 /**
- * @method getHorizontalOrigin
- * @return A value converted from C/C++ "int"
+ * @method getColor
+ * @return A value converted from C/C++ "cocos2d::ccColor3B"
  */
-getHorizontalOrigin : function () {},
+getColor : function () {},
 
 /**
  * @method setMargins
@@ -627,6 +652,12 @@ setBackgroundSpriteFrameForState : function () {},
 setBackgroundSpriteForState : function () {},
 
 /**
+ * @method setColor
+ * @param {cocos2d::ccColor3B}
+ */
+setColor : function () {},
+
+/**
  * @method getTitleLabelDispatchTable
  * @return A value converted from C/C++ "cocos2d::CCDictionary*"
  */
@@ -689,13 +720,6 @@ getCurrentTitle : function () {},
  * @param {unsigned int}
  */
 getTitleBMFontForState : function () {},
-
-/**
- * @method setTitleForState
- * @param {cocos2d::CCString*}
- * @param {unsigned int}
- */
-setTitleForState : function () {},
 
 /**
  * @method setBackgroundSprite
