@@ -5590,10 +5590,13 @@ CCSprite : function () {},
 cc.LabelTTF = {
 
 /**
- * @method setFontName
- * @param {const char*}
+ * @method enableShadow
+ * @param {cocos2d::CCSize}
+ * @param {float}
+ * @param {float}
+ * @param {bool}
  */
-setFontName : function () {},
+enableShadow : function () {},
 
 /**
  * @method setDimensions
@@ -5614,16 +5617,30 @@ getFontSize : function () {},
 getString : function () {},
 
 /**
- * @method setVerticalAlignment
- * @param {cocos2d::CCVerticalTextAlignment}
+ * @method setTextDefinition
+ * @param {ccFontDefinition*}
  */
-setVerticalAlignment : function () {},
+setTextDefinition : function () {},
 
 /**
- * @method getFontName
- * @return A value converted from C/C++ "const char*"
+ * @method setFontName
+ * @param {const char*}
  */
-getFontName : function () {},
+setFontName : function () {},
+
+/**
+ * @method getHorizontalAlignment
+ * @return A value converted from C/C++ "cocos2d::CCTextAlignment"
+ */
+getHorizontalAlignment : function () {},
+
+/**
+ * @method initWithStringAndTextDefinition
+ * @return A value converted from C/C++ "bool"
+ * @param {const char*}
+ * @param {cocos2d::ccFontDefinition}
+ */
+initWithStringAndTextDefinition : function () {},
 
 /**
  * @method setString
@@ -5632,10 +5649,37 @@ getFontName : function () {},
 setString : function () {},
 
 /**
+ * @method init
+ * @return A value converted from C/C++ "bool"
+ */
+init : function () {},
+
+/**
+ * @method setFontFillColor
+ * @param {cocos2d::ccColor3B}
+ * @param {bool}
+ */
+setFontFillColor : function () {},
+
+/**
+ * @method enableStroke
+ * @param {cocos2d::ccColor3B}
+ * @param {float}
+ * @param {bool}
+ */
+enableStroke : function () {},
+
+/**
  * @method getDimensions
  * @return A value converted from C/C++ "cocos2d::CCSize"
  */
 getDimensions : function () {},
+
+/**
+ * @method setVerticalAlignment
+ * @param {cocos2d::CCVerticalTextAlignment}
+ */
+setVerticalAlignment : function () {},
 
 /**
  * @method setFontSize
@@ -5644,28 +5688,38 @@ getDimensions : function () {},
 setFontSize : function () {},
 
 /**
- * @method setHorizontalAlignment
- * @param {cocos2d::CCTextAlignment}
- */
-setHorizontalAlignment : function () {},
-
-/**
- * @method init
- * @return A value converted from C/C++ "bool"
- */
-init : function () {},
-
-/**
  * @method getVerticalAlignment
  * @return A value converted from C/C++ "cocos2d::CCVerticalTextAlignment"
  */
 getVerticalAlignment : function () {},
 
 /**
- * @method getHorizontalAlignment
- * @return A value converted from C/C++ "cocos2d::CCTextAlignment"
+ * @method getTextDefinition
+ * @return A value converted from C/C++ "ccFontDefinition*"
  */
-getHorizontalAlignment : function () {},
+getTextDefinition : function () {},
+
+/**
+ * @method getFontName
+ * @return A value converted from C/C++ "const char*"
+ */
+getFontName : function () {},
+
+/**
+ * @method setHorizontalAlignment
+ * @param {cocos2d::CCTextAlignment}
+ */
+setHorizontalAlignment : function () {},
+
+/**
+ * @method disableShadow
+ */
+disableShadow : function () {},
+
+/**
+ * @method disableStroke
+ */
+disableStroke : function () {},
 
 /**
  * @method CCLabelTTF
@@ -5716,10 +5770,9 @@ getWinSizeInPixels : function () {},
 getDeltaTime : function () {},
 
 /**
- * @method setKeypadDispatcher
- * @param {cocos2d::CCKeypadDispatcher*}
+ * @method setGLDefaultValues
  */
-setKeypadDispatcher : function () {},
+setGLDefaultValues : function () {},
 
 /**
  * @method setActionManager
@@ -5831,9 +5884,16 @@ setViewport : function () {},
 stopAnimation : function () {},
 
 /**
- * @method setGLDefaultValues
+ * @method setKeypadDispatcher
+ * @param {cocos2d::CCKeypadDispatcher*}
  */
-setGLDefaultValues : function () {},
+setKeypadDispatcher : function () {},
+
+/**
+ * @method popToSceneStackLevel
+ * @param {int}
+ */
+popToSceneStackLevel : function () {},
 
 /**
  * @method resume

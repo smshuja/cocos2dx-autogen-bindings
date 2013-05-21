@@ -2535,6 +2535,21 @@ JSBool js_cocos2dx_CCTexture2D_initWithString(JSContext *cx, uint32_t argc, jsva
 		}
 	} while(0);
 
+	do {
+		if (argc == 2) {
+			const char* arg0;
+			std::string arg0_tmp; ok &= jsval_to_std_string(cx, argv[0], &arg0_tmp); arg0 = arg0_tmp.c_str();
+			if (!ok) { ok = JS_TRUE; break; }
+			ccFontDefinition* arg1;
+			#pragma warning NO CONVERSION TO NATIVE FOR ccFontDefinition*;
+			if (!ok) { ok = JS_TRUE; break; }
+			bool ret = cobj->initWithString(arg0, arg1);
+			jsval jsret; jsret = BOOLEAN_TO_JSVAL(ret);
+			JS_SET_RVAL(cx, vp, jsret);
+			return JS_TRUE;
+		}
+	} while(0);
+
 	JS_ReportError(cx, "wrong number of arguments");
 	return JS_FALSE;
 }
@@ -2888,7 +2903,7 @@ void js_register_cocos2dx_CCTexture2D(JSContext *cx, JSObject *global) {
 		JS_FN("getPixelsHigh", js_cocos2dx_CCTexture2D_getPixelsHigh, 0, JSPROP_PERMANENT | JSPROP_ENUMERATE),
 		JS_FN("bitsPerPixelForFormat", js_cocos2dx_CCTexture2D_bitsPerPixelForFormat, 0, JSPROP_PERMANENT | JSPROP_ENUMERATE),
 		JS_FN("getName", js_cocos2dx_CCTexture2D_getName, 0, JSPROP_PERMANENT | JSPROP_ENUMERATE),
-		JS_FN("initWithString", js_cocos2dx_CCTexture2D_initWithString, 3, JSPROP_PERMANENT | JSPROP_ENUMERATE),
+		JS_FN("initWithString", js_cocos2dx_CCTexture2D_initWithString, 2, JSPROP_PERMANENT | JSPROP_ENUMERATE),
 		JS_FN("setMaxT", js_cocos2dx_CCTexture2D_setMaxT, 1, JSPROP_PERMANENT | JSPROP_ENUMERATE),
 		JS_FN("drawInRect", js_cocos2dx_CCTexture2D_drawInRect, 1, JSPROP_PERMANENT | JSPROP_ENUMERATE),
 		JS_FN("getContentSize", js_cocos2dx_CCTexture2D_getContentSize, 0, JSPROP_PERMANENT | JSPROP_ENUMERATE),
@@ -27482,7 +27497,7 @@ void js_register_cocos2dx_CCSprite(JSContext *cx, JSObject *global) {
 JSClass  *jsb_CCLabelTTF_class;
 JSObject *jsb_CCLabelTTF_prototype;
 
-JSBool js_cocos2dx_CCLabelTTF_setFontName(JSContext *cx, uint32_t argc, jsval *vp)
+JSBool js_cocos2dx_CCLabelTTF_enableShadow(JSContext *cx, uint32_t argc, jsval *vp)
 {
 	jsval *argv = JS_ARGV(cx, vp);
 	JSBool ok = JS_TRUE;
@@ -27490,16 +27505,34 @@ JSBool js_cocos2dx_CCLabelTTF_setFontName(JSContext *cx, uint32_t argc, jsval *v
 	js_proxy_t *proxy; JS_GET_NATIVE_PROXY(proxy, obj);
 	cocos2d::CCLabelTTF* cobj = (cocos2d::CCLabelTTF *)(proxy ? proxy->ptr : NULL);
 	JSB_PRECONDITION2( cobj, cx, JS_FALSE, "Invalid Native Object");
-	if (argc == 1) {
-		const char* arg0;
-		std::string arg0_tmp; ok &= jsval_to_std_string(cx, argv[0], &arg0_tmp); arg0 = arg0_tmp.c_str();
+	if (argc == 3) {
+		cocos2d::CCSize arg0;
+		double arg1;
+		double arg2;
+		ok &= jsval_to_ccsize(cx, argv[0], &arg0);
+		ok &= JS_ValueToNumber(cx, argv[1], &arg1);
+		ok &= JS_ValueToNumber(cx, argv[2], &arg2);
 		JSB_PRECONDITION2(ok, cx, JS_FALSE, "Error processing arguments");
-		cobj->setFontName(arg0);
+		cobj->enableShadow(arg0, arg1, arg2);
+		JS_SET_RVAL(cx, vp, JSVAL_VOID);
+		return JS_TRUE;
+	}
+	if (argc == 4) {
+		cocos2d::CCSize arg0;
+		double arg1;
+		double arg2;
+		JSBool arg3;
+		ok &= jsval_to_ccsize(cx, argv[0], &arg0);
+		ok &= JS_ValueToNumber(cx, argv[1], &arg1);
+		ok &= JS_ValueToNumber(cx, argv[2], &arg2);
+		ok &= JS_ValueToBoolean(cx, argv[3], &arg3);
+		JSB_PRECONDITION2(ok, cx, JS_FALSE, "Error processing arguments");
+		cobj->enableShadow(arg0, arg1, arg2, arg3);
 		JS_SET_RVAL(cx, vp, JSVAL_VOID);
 		return JS_TRUE;
 	}
 
-	JS_ReportError(cx, "wrong number of arguments: %d, was expecting %d", argc, 1);
+	JS_ReportError(cx, "wrong number of arguments: %d, was expecting %d", argc, 3);
 	return JS_FALSE;
 }
 JSBool js_cocos2dx_CCLabelTTF_setDimensions(JSContext *cx, uint32_t argc, jsval *vp)
@@ -27556,7 +27589,7 @@ JSBool js_cocos2dx_CCLabelTTF_getString(JSContext *cx, uint32_t argc, jsval *vp)
 	JS_ReportError(cx, "wrong number of arguments: %d, was expecting %d", argc, 0);
 	return JS_FALSE;
 }
-JSBool js_cocos2dx_CCLabelTTF_setVerticalAlignment(JSContext *cx, uint32_t argc, jsval *vp)
+JSBool js_cocos2dx_CCLabelTTF_setTextDefinition(JSContext *cx, uint32_t argc, jsval *vp)
 {
 	jsval *argv = JS_ARGV(cx, vp);
 	JSBool ok = JS_TRUE;
@@ -27565,10 +27598,10 @@ JSBool js_cocos2dx_CCLabelTTF_setVerticalAlignment(JSContext *cx, uint32_t argc,
 	cocos2d::CCLabelTTF* cobj = (cocos2d::CCLabelTTF *)(proxy ? proxy->ptr : NULL);
 	JSB_PRECONDITION2( cobj, cx, JS_FALSE, "Invalid Native Object");
 	if (argc == 1) {
-		cocos2d::CCVerticalTextAlignment arg0;
-		ok &= jsval_to_int32(cx, argv[0], (int32_t *)&arg0);
+		ccFontDefinition* arg0;
+		#pragma warning NO CONVERSION TO NATIVE FOR ccFontDefinition*;
 		JSB_PRECONDITION2(ok, cx, JS_FALSE, "Error processing arguments");
-		cobj->setVerticalAlignment(arg0);
+		cobj->setTextDefinition(arg0);
 		JS_SET_RVAL(cx, vp, JSVAL_VOID);
 		return JS_TRUE;
 	}
@@ -27576,21 +27609,65 @@ JSBool js_cocos2dx_CCLabelTTF_setVerticalAlignment(JSContext *cx, uint32_t argc,
 	JS_ReportError(cx, "wrong number of arguments: %d, was expecting %d", argc, 1);
 	return JS_FALSE;
 }
-JSBool js_cocos2dx_CCLabelTTF_getFontName(JSContext *cx, uint32_t argc, jsval *vp)
+JSBool js_cocos2dx_CCLabelTTF_setFontName(JSContext *cx, uint32_t argc, jsval *vp)
+{
+	jsval *argv = JS_ARGV(cx, vp);
+	JSBool ok = JS_TRUE;
+	JSObject *obj = JS_THIS_OBJECT(cx, vp);
+	js_proxy_t *proxy; JS_GET_NATIVE_PROXY(proxy, obj);
+	cocos2d::CCLabelTTF* cobj = (cocos2d::CCLabelTTF *)(proxy ? proxy->ptr : NULL);
+	JSB_PRECONDITION2( cobj, cx, JS_FALSE, "Invalid Native Object");
+	if (argc == 1) {
+		const char* arg0;
+		std::string arg0_tmp; ok &= jsval_to_std_string(cx, argv[0], &arg0_tmp); arg0 = arg0_tmp.c_str();
+		JSB_PRECONDITION2(ok, cx, JS_FALSE, "Error processing arguments");
+		cobj->setFontName(arg0);
+		JS_SET_RVAL(cx, vp, JSVAL_VOID);
+		return JS_TRUE;
+	}
+
+	JS_ReportError(cx, "wrong number of arguments: %d, was expecting %d", argc, 1);
+	return JS_FALSE;
+}
+JSBool js_cocos2dx_CCLabelTTF_getHorizontalAlignment(JSContext *cx, uint32_t argc, jsval *vp)
 {
 	JSObject *obj = JS_THIS_OBJECT(cx, vp);
 	js_proxy_t *proxy; JS_GET_NATIVE_PROXY(proxy, obj);
 	cocos2d::CCLabelTTF* cobj = (cocos2d::CCLabelTTF *)(proxy ? proxy->ptr : NULL);
 	JSB_PRECONDITION2( cobj, cx, JS_FALSE, "Invalid Native Object");
 	if (argc == 0) {
-		const char* ret = cobj->getFontName();
+		cocos2d::CCTextAlignment ret = cobj->getHorizontalAlignment();
 		jsval jsret;
-		jsret = c_string_to_jsval(cx, ret);
+		jsret = int32_to_jsval(cx, ret);
 		JS_SET_RVAL(cx, vp, jsret);
 		return JS_TRUE;
 	}
 
 	JS_ReportError(cx, "wrong number of arguments: %d, was expecting %d", argc, 0);
+	return JS_FALSE;
+}
+JSBool js_cocos2dx_CCLabelTTF_initWithStringAndTextDefinition(JSContext *cx, uint32_t argc, jsval *vp)
+{
+	jsval *argv = JS_ARGV(cx, vp);
+	JSBool ok = JS_TRUE;
+	JSObject *obj = JS_THIS_OBJECT(cx, vp);
+	js_proxy_t *proxy; JS_GET_NATIVE_PROXY(proxy, obj);
+	cocos2d::CCLabelTTF* cobj = (cocos2d::CCLabelTTF *)(proxy ? proxy->ptr : NULL);
+	JSB_PRECONDITION2( cobj, cx, JS_FALSE, "Invalid Native Object");
+	if (argc == 2) {
+		const char* arg0;
+		cocos2d::ccFontDefinition arg1;
+		std::string arg0_tmp; ok &= jsval_to_std_string(cx, argv[0], &arg0_tmp); arg0 = arg0_tmp.c_str();
+		#pragma warning NO CONVERSION TO NATIVE FOR ccFontDefinition;
+		JSB_PRECONDITION2(ok, cx, JS_FALSE, "Error processing arguments");
+		bool ret = cobj->initWithStringAndTextDefinition(arg0, arg1);
+		jsval jsret;
+		jsret = BOOLEAN_TO_JSVAL(ret);
+		JS_SET_RVAL(cx, vp, jsret);
+		return JS_TRUE;
+	}
+
+	JS_ReportError(cx, "wrong number of arguments: %d, was expecting %d", argc, 2);
 	return JS_FALSE;
 }
 JSBool js_cocos2dx_CCLabelTTF_setString(JSContext *cx, uint32_t argc, jsval *vp)
@@ -27696,6 +27773,87 @@ JSBool js_cocos2dx_CCLabelTTF_initWithString(JSContext *cx, uint32_t argc, jsval
 	JS_ReportError(cx, "wrong number of arguments");
 	return JS_FALSE;
 }
+JSBool js_cocos2dx_CCLabelTTF_init(JSContext *cx, uint32_t argc, jsval *vp)
+{
+	JSObject *obj = JS_THIS_OBJECT(cx, vp);
+	js_proxy_t *proxy; JS_GET_NATIVE_PROXY(proxy, obj);
+	cocos2d::CCLabelTTF* cobj = (cocos2d::CCLabelTTF *)(proxy ? proxy->ptr : NULL);
+	JSB_PRECONDITION2( cobj, cx, JS_FALSE, "Invalid Native Object");
+	if (argc == 0) {
+		bool ret = cobj->init();
+		jsval jsret;
+		jsret = BOOLEAN_TO_JSVAL(ret);
+		JS_SET_RVAL(cx, vp, jsret);
+		return JS_TRUE;
+	}
+
+	JS_ReportError(cx, "wrong number of arguments: %d, was expecting %d", argc, 0);
+	return JS_FALSE;
+}
+JSBool js_cocos2dx_CCLabelTTF_setFontFillColor(JSContext *cx, uint32_t argc, jsval *vp)
+{
+	jsval *argv = JS_ARGV(cx, vp);
+	JSBool ok = JS_TRUE;
+	JSObject *obj = JS_THIS_OBJECT(cx, vp);
+	js_proxy_t *proxy; JS_GET_NATIVE_PROXY(proxy, obj);
+	cocos2d::CCLabelTTF* cobj = (cocos2d::CCLabelTTF *)(proxy ? proxy->ptr : NULL);
+	JSB_PRECONDITION2( cobj, cx, JS_FALSE, "Invalid Native Object");
+	if (argc == 1) {
+		cocos2d::ccColor3B arg0;
+		ok &= jsval_to_cccolor3b(cx, argv[0], &arg0);
+		JSB_PRECONDITION2(ok, cx, JS_FALSE, "Error processing arguments");
+		cobj->setFontFillColor(arg0);
+		JS_SET_RVAL(cx, vp, JSVAL_VOID);
+		return JS_TRUE;
+	}
+	if (argc == 2) {
+		cocos2d::ccColor3B arg0;
+		JSBool arg1;
+		ok &= jsval_to_cccolor3b(cx, argv[0], &arg0);
+		ok &= JS_ValueToBoolean(cx, argv[1], &arg1);
+		JSB_PRECONDITION2(ok, cx, JS_FALSE, "Error processing arguments");
+		cobj->setFontFillColor(arg0, arg1);
+		JS_SET_RVAL(cx, vp, JSVAL_VOID);
+		return JS_TRUE;
+	}
+
+	JS_ReportError(cx, "wrong number of arguments: %d, was expecting %d", argc, 1);
+	return JS_FALSE;
+}
+JSBool js_cocos2dx_CCLabelTTF_enableStroke(JSContext *cx, uint32_t argc, jsval *vp)
+{
+	jsval *argv = JS_ARGV(cx, vp);
+	JSBool ok = JS_TRUE;
+	JSObject *obj = JS_THIS_OBJECT(cx, vp);
+	js_proxy_t *proxy; JS_GET_NATIVE_PROXY(proxy, obj);
+	cocos2d::CCLabelTTF* cobj = (cocos2d::CCLabelTTF *)(proxy ? proxy->ptr : NULL);
+	JSB_PRECONDITION2( cobj, cx, JS_FALSE, "Invalid Native Object");
+	if (argc == 2) {
+		cocos2d::ccColor3B arg0;
+		double arg1;
+		ok &= jsval_to_cccolor3b(cx, argv[0], &arg0);
+		ok &= JS_ValueToNumber(cx, argv[1], &arg1);
+		JSB_PRECONDITION2(ok, cx, JS_FALSE, "Error processing arguments");
+		cobj->enableStroke(arg0, arg1);
+		JS_SET_RVAL(cx, vp, JSVAL_VOID);
+		return JS_TRUE;
+	}
+	if (argc == 3) {
+		cocos2d::ccColor3B arg0;
+		double arg1;
+		JSBool arg2;
+		ok &= jsval_to_cccolor3b(cx, argv[0], &arg0);
+		ok &= JS_ValueToNumber(cx, argv[1], &arg1);
+		ok &= JS_ValueToBoolean(cx, argv[2], &arg2);
+		JSB_PRECONDITION2(ok, cx, JS_FALSE, "Error processing arguments");
+		cobj->enableStroke(arg0, arg1, arg2);
+		JS_SET_RVAL(cx, vp, JSVAL_VOID);
+		return JS_TRUE;
+	}
+
+	JS_ReportError(cx, "wrong number of arguments: %d, was expecting %d", argc, 2);
+	return JS_FALSE;
+}
 JSBool js_cocos2dx_CCLabelTTF_getDimensions(JSContext *cx, uint32_t argc, jsval *vp)
 {
 	JSObject *obj = JS_THIS_OBJECT(cx, vp);
@@ -27711,6 +27869,26 @@ JSBool js_cocos2dx_CCLabelTTF_getDimensions(JSContext *cx, uint32_t argc, jsval 
 	}
 
 	JS_ReportError(cx, "wrong number of arguments: %d, was expecting %d", argc, 0);
+	return JS_FALSE;
+}
+JSBool js_cocos2dx_CCLabelTTF_setVerticalAlignment(JSContext *cx, uint32_t argc, jsval *vp)
+{
+	jsval *argv = JS_ARGV(cx, vp);
+	JSBool ok = JS_TRUE;
+	JSObject *obj = JS_THIS_OBJECT(cx, vp);
+	js_proxy_t *proxy; JS_GET_NATIVE_PROXY(proxy, obj);
+	cocos2d::CCLabelTTF* cobj = (cocos2d::CCLabelTTF *)(proxy ? proxy->ptr : NULL);
+	JSB_PRECONDITION2( cobj, cx, JS_FALSE, "Invalid Native Object");
+	if (argc == 1) {
+		cocos2d::CCVerticalTextAlignment arg0;
+		ok &= jsval_to_int32(cx, argv[0], (int32_t *)&arg0);
+		JSB_PRECONDITION2(ok, cx, JS_FALSE, "Error processing arguments");
+		cobj->setVerticalAlignment(arg0);
+		JS_SET_RVAL(cx, vp, JSVAL_VOID);
+		return JS_TRUE;
+	}
+
+	JS_ReportError(cx, "wrong number of arguments: %d, was expecting %d", argc, 1);
 	return JS_FALSE;
 }
 JSBool js_cocos2dx_CCLabelTTF_setFontSize(JSContext *cx, uint32_t argc, jsval *vp)
@@ -27733,6 +27911,57 @@ JSBool js_cocos2dx_CCLabelTTF_setFontSize(JSContext *cx, uint32_t argc, jsval *v
 	JS_ReportError(cx, "wrong number of arguments: %d, was expecting %d", argc, 1);
 	return JS_FALSE;
 }
+JSBool js_cocos2dx_CCLabelTTF_getVerticalAlignment(JSContext *cx, uint32_t argc, jsval *vp)
+{
+	JSObject *obj = JS_THIS_OBJECT(cx, vp);
+	js_proxy_t *proxy; JS_GET_NATIVE_PROXY(proxy, obj);
+	cocos2d::CCLabelTTF* cobj = (cocos2d::CCLabelTTF *)(proxy ? proxy->ptr : NULL);
+	JSB_PRECONDITION2( cobj, cx, JS_FALSE, "Invalid Native Object");
+	if (argc == 0) {
+		cocos2d::CCVerticalTextAlignment ret = cobj->getVerticalAlignment();
+		jsval jsret;
+		jsret = int32_to_jsval(cx, ret);
+		JS_SET_RVAL(cx, vp, jsret);
+		return JS_TRUE;
+	}
+
+	JS_ReportError(cx, "wrong number of arguments: %d, was expecting %d", argc, 0);
+	return JS_FALSE;
+}
+JSBool js_cocos2dx_CCLabelTTF_getTextDefinition(JSContext *cx, uint32_t argc, jsval *vp)
+{
+	JSObject *obj = JS_THIS_OBJECT(cx, vp);
+	js_proxy_t *proxy; JS_GET_NATIVE_PROXY(proxy, obj);
+	cocos2d::CCLabelTTF* cobj = (cocos2d::CCLabelTTF *)(proxy ? proxy->ptr : NULL);
+	JSB_PRECONDITION2( cobj, cx, JS_FALSE, "Invalid Native Object");
+	if (argc == 0) {
+		ccFontDefinition* ret = cobj->getTextDefinition();
+		jsval jsret;
+		#pragma warning NO CONVERSION FROM NATIVE FOR ccFontDefinition*;
+		JS_SET_RVAL(cx, vp, jsret);
+		return JS_TRUE;
+	}
+
+	JS_ReportError(cx, "wrong number of arguments: %d, was expecting %d", argc, 0);
+	return JS_FALSE;
+}
+JSBool js_cocos2dx_CCLabelTTF_getFontName(JSContext *cx, uint32_t argc, jsval *vp)
+{
+	JSObject *obj = JS_THIS_OBJECT(cx, vp);
+	js_proxy_t *proxy; JS_GET_NATIVE_PROXY(proxy, obj);
+	cocos2d::CCLabelTTF* cobj = (cocos2d::CCLabelTTF *)(proxy ? proxy->ptr : NULL);
+	JSB_PRECONDITION2( cobj, cx, JS_FALSE, "Invalid Native Object");
+	if (argc == 0) {
+		const char* ret = cobj->getFontName();
+		jsval jsret;
+		jsret = c_string_to_jsval(cx, ret);
+		JS_SET_RVAL(cx, vp, jsret);
+		return JS_TRUE;
+	}
+
+	JS_ReportError(cx, "wrong number of arguments: %d, was expecting %d", argc, 0);
+	return JS_FALSE;
+}
 JSBool js_cocos2dx_CCLabelTTF_setHorizontalAlignment(JSContext *cx, uint32_t argc, jsval *vp)
 {
 	jsval *argv = JS_ARGV(cx, vp);
@@ -27753,51 +27982,50 @@ JSBool js_cocos2dx_CCLabelTTF_setHorizontalAlignment(JSContext *cx, uint32_t arg
 	JS_ReportError(cx, "wrong number of arguments: %d, was expecting %d", argc, 1);
 	return JS_FALSE;
 }
-JSBool js_cocos2dx_CCLabelTTF_init(JSContext *cx, uint32_t argc, jsval *vp)
+JSBool js_cocos2dx_CCLabelTTF_disableShadow(JSContext *cx, uint32_t argc, jsval *vp)
 {
+	jsval *argv = JS_ARGV(cx, vp);
+	JSBool ok = JS_TRUE;
 	JSObject *obj = JS_THIS_OBJECT(cx, vp);
 	js_proxy_t *proxy; JS_GET_NATIVE_PROXY(proxy, obj);
 	cocos2d::CCLabelTTF* cobj = (cocos2d::CCLabelTTF *)(proxy ? proxy->ptr : NULL);
 	JSB_PRECONDITION2( cobj, cx, JS_FALSE, "Invalid Native Object");
 	if (argc == 0) {
-		bool ret = cobj->init();
-		jsval jsret;
-		jsret = BOOLEAN_TO_JSVAL(ret);
-		JS_SET_RVAL(cx, vp, jsret);
+		cobj->disableShadow();
+		JS_SET_RVAL(cx, vp, JSVAL_VOID);
+		return JS_TRUE;
+	}
+	if (argc == 1) {
+		JSBool arg0;
+		ok &= JS_ValueToBoolean(cx, argv[0], &arg0);
+		JSB_PRECONDITION2(ok, cx, JS_FALSE, "Error processing arguments");
+		cobj->disableShadow(arg0);
+		JS_SET_RVAL(cx, vp, JSVAL_VOID);
 		return JS_TRUE;
 	}
 
 	JS_ReportError(cx, "wrong number of arguments: %d, was expecting %d", argc, 0);
 	return JS_FALSE;
 }
-JSBool js_cocos2dx_CCLabelTTF_getVerticalAlignment(JSContext *cx, uint32_t argc, jsval *vp)
+JSBool js_cocos2dx_CCLabelTTF_disableStroke(JSContext *cx, uint32_t argc, jsval *vp)
 {
+	jsval *argv = JS_ARGV(cx, vp);
+	JSBool ok = JS_TRUE;
 	JSObject *obj = JS_THIS_OBJECT(cx, vp);
 	js_proxy_t *proxy; JS_GET_NATIVE_PROXY(proxy, obj);
 	cocos2d::CCLabelTTF* cobj = (cocos2d::CCLabelTTF *)(proxy ? proxy->ptr : NULL);
 	JSB_PRECONDITION2( cobj, cx, JS_FALSE, "Invalid Native Object");
 	if (argc == 0) {
-		cocos2d::CCVerticalTextAlignment ret = cobj->getVerticalAlignment();
-		jsval jsret;
-		jsret = int32_to_jsval(cx, ret);
-		JS_SET_RVAL(cx, vp, jsret);
+		cobj->disableStroke();
+		JS_SET_RVAL(cx, vp, JSVAL_VOID);
 		return JS_TRUE;
 	}
-
-	JS_ReportError(cx, "wrong number of arguments: %d, was expecting %d", argc, 0);
-	return JS_FALSE;
-}
-JSBool js_cocos2dx_CCLabelTTF_getHorizontalAlignment(JSContext *cx, uint32_t argc, jsval *vp)
-{
-	JSObject *obj = JS_THIS_OBJECT(cx, vp);
-	js_proxy_t *proxy; JS_GET_NATIVE_PROXY(proxy, obj);
-	cocos2d::CCLabelTTF* cobj = (cocos2d::CCLabelTTF *)(proxy ? proxy->ptr : NULL);
-	JSB_PRECONDITION2( cobj, cx, JS_FALSE, "Invalid Native Object");
-	if (argc == 0) {
-		cocos2d::CCTextAlignment ret = cobj->getHorizontalAlignment();
-		jsval jsret;
-		jsret = int32_to_jsval(cx, ret);
-		JS_SET_RVAL(cx, vp, jsret);
+	if (argc == 1) {
+		JSBool arg0;
+		ok &= JS_ValueToBoolean(cx, argv[0], &arg0);
+		JSB_PRECONDITION2(ok, cx, JS_FALSE, "Error processing arguments");
+		cobj->disableStroke(arg0);
+		JS_SET_RVAL(cx, vp, JSVAL_VOID);
 		return JS_TRUE;
 	}
 
@@ -27985,20 +28213,28 @@ void js_register_cocos2dx_CCLabelTTF(JSContext *cx, JSObject *global) {
 	};
 
 	static JSFunctionSpec funcs[] = {
-		JS_FN("setFontName", js_cocos2dx_CCLabelTTF_setFontName, 1, JSPROP_PERMANENT | JSPROP_ENUMERATE),
+		JS_FN("enableShadow", js_cocos2dx_CCLabelTTF_enableShadow, 3, JSPROP_PERMANENT | JSPROP_ENUMERATE),
 		JS_FN("setDimensions", js_cocos2dx_CCLabelTTF_setDimensions, 1, JSPROP_PERMANENT | JSPROP_ENUMERATE),
 		JS_FN("getFontSize", js_cocos2dx_CCLabelTTF_getFontSize, 0, JSPROP_PERMANENT | JSPROP_ENUMERATE),
 		JS_FN("getString", js_cocos2dx_CCLabelTTF_getString, 0, JSPROP_PERMANENT | JSPROP_ENUMERATE),
-		JS_FN("setVerticalAlignment", js_cocos2dx_CCLabelTTF_setVerticalAlignment, 1, JSPROP_PERMANENT | JSPROP_ENUMERATE),
-		JS_FN("getFontName", js_cocos2dx_CCLabelTTF_getFontName, 0, JSPROP_PERMANENT | JSPROP_ENUMERATE),
+		JS_FN("setTextDefinition", js_cocos2dx_CCLabelTTF_setTextDefinition, 1, JSPROP_PERMANENT | JSPROP_ENUMERATE),
+		JS_FN("setFontName", js_cocos2dx_CCLabelTTF_setFontName, 1, JSPROP_PERMANENT | JSPROP_ENUMERATE),
+		JS_FN("getHorizontalAlignment", js_cocos2dx_CCLabelTTF_getHorizontalAlignment, 0, JSPROP_PERMANENT | JSPROP_ENUMERATE),
+		JS_FN("initWithStringAndTextDefinition", js_cocos2dx_CCLabelTTF_initWithStringAndTextDefinition, 2, JSPROP_PERMANENT | JSPROP_ENUMERATE),
 		JS_FN("setString", js_cocos2dx_CCLabelTTF_setString, 1, JSPROP_PERMANENT | JSPROP_ENUMERATE),
 		JS_FN("initWithString", js_cocos2dx_CCLabelTTF_initWithString, 3, JSPROP_PERMANENT | JSPROP_ENUMERATE),
-		JS_FN("getDimensions", js_cocos2dx_CCLabelTTF_getDimensions, 0, JSPROP_PERMANENT | JSPROP_ENUMERATE),
-		JS_FN("setFontSize", js_cocos2dx_CCLabelTTF_setFontSize, 1, JSPROP_PERMANENT | JSPROP_ENUMERATE),
-		JS_FN("setHorizontalAlignment", js_cocos2dx_CCLabelTTF_setHorizontalAlignment, 1, JSPROP_PERMANENT | JSPROP_ENUMERATE),
 		JS_FN("init", js_cocos2dx_CCLabelTTF_init, 0, JSPROP_PERMANENT | JSPROP_ENUMERATE),
+		JS_FN("setFontFillColor", js_cocos2dx_CCLabelTTF_setFontFillColor, 1, JSPROP_PERMANENT | JSPROP_ENUMERATE),
+		JS_FN("enableStroke", js_cocos2dx_CCLabelTTF_enableStroke, 2, JSPROP_PERMANENT | JSPROP_ENUMERATE),
+		JS_FN("getDimensions", js_cocos2dx_CCLabelTTF_getDimensions, 0, JSPROP_PERMANENT | JSPROP_ENUMERATE),
+		JS_FN("setVerticalAlignment", js_cocos2dx_CCLabelTTF_setVerticalAlignment, 1, JSPROP_PERMANENT | JSPROP_ENUMERATE),
+		JS_FN("setFontSize", js_cocos2dx_CCLabelTTF_setFontSize, 1, JSPROP_PERMANENT | JSPROP_ENUMERATE),
 		JS_FN("getVerticalAlignment", js_cocos2dx_CCLabelTTF_getVerticalAlignment, 0, JSPROP_PERMANENT | JSPROP_ENUMERATE),
-		JS_FN("getHorizontalAlignment", js_cocos2dx_CCLabelTTF_getHorizontalAlignment, 0, JSPROP_PERMANENT | JSPROP_ENUMERATE),
+		JS_FN("getTextDefinition", js_cocos2dx_CCLabelTTF_getTextDefinition, 0, JSPROP_PERMANENT | JSPROP_ENUMERATE),
+		JS_FN("getFontName", js_cocos2dx_CCLabelTTF_getFontName, 0, JSPROP_PERMANENT | JSPROP_ENUMERATE),
+		JS_FN("setHorizontalAlignment", js_cocos2dx_CCLabelTTF_setHorizontalAlignment, 1, JSPROP_PERMANENT | JSPROP_ENUMERATE),
+		JS_FN("disableShadow", js_cocos2dx_CCLabelTTF_disableShadow, 0, JSPROP_PERMANENT | JSPROP_ENUMERATE),
+		JS_FN("disableStroke", js_cocos2dx_CCLabelTTF_disableStroke, 0, JSPROP_PERMANENT | JSPROP_ENUMERATE),
         JS_FN("ctor", js_cocos2dx_CCLabelTTF_ctor, 0, JSPROP_PERMANENT | JSPROP_ENUMERATE),
         JS_FS_END
 	};
@@ -28152,30 +28388,19 @@ JSBool js_cocos2dx_CCDirector_getDeltaTime(JSContext *cx, uint32_t argc, jsval *
 	JS_ReportError(cx, "wrong number of arguments: %d, was expecting %d", argc, 0);
 	return JS_FALSE;
 }
-JSBool js_cocos2dx_CCDirector_setKeypadDispatcher(JSContext *cx, uint32_t argc, jsval *vp)
+JSBool js_cocos2dx_CCDirector_setGLDefaultValues(JSContext *cx, uint32_t argc, jsval *vp)
 {
-	jsval *argv = JS_ARGV(cx, vp);
-	JSBool ok = JS_TRUE;
 	JSObject *obj = JS_THIS_OBJECT(cx, vp);
 	js_proxy_t *proxy; JS_GET_NATIVE_PROXY(proxy, obj);
 	cocos2d::CCDirector* cobj = (cocos2d::CCDirector *)(proxy ? proxy->ptr : NULL);
 	JSB_PRECONDITION2( cobj, cx, JS_FALSE, "Invalid Native Object");
-	if (argc == 1) {
-		cocos2d::CCKeypadDispatcher* arg0;
-		do {
-			js_proxy_t *proxy;
-			JSObject *tmpObj = JSVAL_TO_OBJECT(argv[0]);
-			JS_GET_NATIVE_PROXY(proxy, tmpObj);
-			arg0 = (cocos2d::CCKeypadDispatcher*)(proxy ? proxy->ptr : NULL);
-			JSB_PRECONDITION2( arg0, cx, JS_FALSE, "Invalid Native Object");
-		} while (0);
-		JSB_PRECONDITION2(ok, cx, JS_FALSE, "Error processing arguments");
-		cobj->setKeypadDispatcher(arg0);
+	if (argc == 0) {
+		cobj->setGLDefaultValues();
 		JS_SET_RVAL(cx, vp, JSVAL_VOID);
 		return JS_TRUE;
 	}
 
-	JS_ReportError(cx, "wrong number of arguments: %d, was expecting %d", argc, 1);
+	JS_ReportError(cx, "wrong number of arguments: %d, was expecting %d", argc, 0);
 	return JS_FALSE;
 }
 JSBool js_cocos2dx_CCDirector_setActionManager(JSContext *cx, uint32_t argc, jsval *vp)
@@ -28541,19 +28766,50 @@ JSBool js_cocos2dx_CCDirector_stopAnimation(JSContext *cx, uint32_t argc, jsval 
 	JS_ReportError(cx, "wrong number of arguments: %d, was expecting %d", argc, 0);
 	return JS_FALSE;
 }
-JSBool js_cocos2dx_CCDirector_setGLDefaultValues(JSContext *cx, uint32_t argc, jsval *vp)
+JSBool js_cocos2dx_CCDirector_setKeypadDispatcher(JSContext *cx, uint32_t argc, jsval *vp)
 {
+	jsval *argv = JS_ARGV(cx, vp);
+	JSBool ok = JS_TRUE;
 	JSObject *obj = JS_THIS_OBJECT(cx, vp);
 	js_proxy_t *proxy; JS_GET_NATIVE_PROXY(proxy, obj);
 	cocos2d::CCDirector* cobj = (cocos2d::CCDirector *)(proxy ? proxy->ptr : NULL);
 	JSB_PRECONDITION2( cobj, cx, JS_FALSE, "Invalid Native Object");
-	if (argc == 0) {
-		cobj->setGLDefaultValues();
+	if (argc == 1) {
+		cocos2d::CCKeypadDispatcher* arg0;
+		do {
+			js_proxy_t *proxy;
+			JSObject *tmpObj = JSVAL_TO_OBJECT(argv[0]);
+			JS_GET_NATIVE_PROXY(proxy, tmpObj);
+			arg0 = (cocos2d::CCKeypadDispatcher*)(proxy ? proxy->ptr : NULL);
+			JSB_PRECONDITION2( arg0, cx, JS_FALSE, "Invalid Native Object");
+		} while (0);
+		JSB_PRECONDITION2(ok, cx, JS_FALSE, "Error processing arguments");
+		cobj->setKeypadDispatcher(arg0);
 		JS_SET_RVAL(cx, vp, JSVAL_VOID);
 		return JS_TRUE;
 	}
 
-	JS_ReportError(cx, "wrong number of arguments: %d, was expecting %d", argc, 0);
+	JS_ReportError(cx, "wrong number of arguments: %d, was expecting %d", argc, 1);
+	return JS_FALSE;
+}
+JSBool js_cocos2dx_CCDirector_popToSceneStackLevel(JSContext *cx, uint32_t argc, jsval *vp)
+{
+	jsval *argv = JS_ARGV(cx, vp);
+	JSBool ok = JS_TRUE;
+	JSObject *obj = JS_THIS_OBJECT(cx, vp);
+	js_proxy_t *proxy; JS_GET_NATIVE_PROXY(proxy, obj);
+	cocos2d::CCDirector* cobj = (cocos2d::CCDirector *)(proxy ? proxy->ptr : NULL);
+	JSB_PRECONDITION2( cobj, cx, JS_FALSE, "Invalid Native Object");
+	if (argc == 1) {
+		int arg0;
+		ok &= jsval_to_int32(cx, argv[0], (int32_t *)&arg0);
+		JSB_PRECONDITION2(ok, cx, JS_FALSE, "Error processing arguments");
+		cobj->popToSceneStackLevel(arg0);
+		JS_SET_RVAL(cx, vp, JSVAL_VOID);
+		return JS_TRUE;
+	}
+
+	JS_ReportError(cx, "wrong number of arguments: %d, was expecting %d", argc, 1);
 	return JS_FALSE;
 }
 JSBool js_cocos2dx_CCDirector_resume(JSContext *cx, uint32_t argc, jsval *vp)
@@ -29116,7 +29372,7 @@ void js_register_cocos2dx_CCDirector(JSContext *cx, JSObject *global) {
 		JS_FN("getContentScaleFactor", js_cocos2dx_CCDirector_getContentScaleFactor, 0, JSPROP_PERMANENT | JSPROP_ENUMERATE),
 		JS_FN("getWinSizeInPixels", js_cocos2dx_CCDirector_getWinSizeInPixels, 0, JSPROP_PERMANENT | JSPROP_ENUMERATE),
 		JS_FN("getDeltaTime", js_cocos2dx_CCDirector_getDeltaTime, 0, JSPROP_PERMANENT | JSPROP_ENUMERATE),
-		JS_FN("setKeypadDispatcher", js_cocos2dx_CCDirector_setKeypadDispatcher, 1, JSPROP_PERMANENT | JSPROP_ENUMERATE),
+		JS_FN("setGLDefaultValues", js_cocos2dx_CCDirector_setGLDefaultValues, 0, JSPROP_PERMANENT | JSPROP_ENUMERATE),
 		JS_FN("setActionManager", js_cocos2dx_CCDirector_setActionManager, 1, JSPROP_PERMANENT | JSPROP_ENUMERATE),
 		JS_FN("setAlphaBlending", js_cocos2dx_CCDirector_setAlphaBlending, 1, JSPROP_PERMANENT | JSPROP_ENUMERATE),
 		JS_FN("popToRootScene", js_cocos2dx_CCDirector_popToRootScene, 0, JSPROP_PERMANENT | JSPROP_ENUMERATE),
@@ -29136,7 +29392,8 @@ void js_register_cocos2dx_CCDirector(JSContext *cx, JSObject *global) {
 		JS_FN("getRunningScene", js_cocos2dx_CCDirector_getRunningScene, 0, JSPROP_PERMANENT | JSPROP_ENUMERATE),
 		JS_FN("setViewport", js_cocos2dx_CCDirector_setViewport, 0, JSPROP_PERMANENT | JSPROP_ENUMERATE),
 		JS_FN("stopAnimation", js_cocos2dx_CCDirector_stopAnimation, 0, JSPROP_PERMANENT | JSPROP_ENUMERATE),
-		JS_FN("setGLDefaultValues", js_cocos2dx_CCDirector_setGLDefaultValues, 0, JSPROP_PERMANENT | JSPROP_ENUMERATE),
+		JS_FN("setKeypadDispatcher", js_cocos2dx_CCDirector_setKeypadDispatcher, 1, JSPROP_PERMANENT | JSPROP_ENUMERATE),
+		JS_FN("popToSceneStackLevel", js_cocos2dx_CCDirector_popToSceneStackLevel, 1, JSPROP_PERMANENT | JSPROP_ENUMERATE),
 		JS_FN("resume", js_cocos2dx_CCDirector_resume, 0, JSPROP_PERMANENT | JSPROP_ENUMERATE),
 		JS_FN("setTouchDispatcher", js_cocos2dx_CCDirector_setTouchDispatcher, 1, JSPROP_PERMANENT | JSPROP_ENUMERATE),
 		JS_FN("isNextDeltaTimeZero", js_cocos2dx_CCDirector_isNextDeltaTimeZero, 0, JSPROP_PERMANENT | JSPROP_ENUMERATE),
