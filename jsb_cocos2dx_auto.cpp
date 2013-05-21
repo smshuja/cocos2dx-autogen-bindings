@@ -27658,7 +27658,7 @@ JSBool js_cocos2dx_CCLabelTTF_initWithStringAndTextDefinition(JSContext *cx, uin
 		const char* arg0;
 		cocos2d::ccFontDefinition arg1;
 		std::string arg0_tmp; ok &= jsval_to_std_string(cx, argv[0], &arg0_tmp); arg0 = arg0_tmp.c_str();
-		#pragma warning NO CONVERSION TO NATIVE FOR ccFontDefinition;
+		ok &= jsval_to_ccfontdefinition(cx, argv[1], &arg1);
 		JSB_PRECONDITION2(ok, cx, JS_FALSE, "Error processing arguments");
 		bool ret = cobj->initWithStringAndTextDefinition(arg0, arg1);
 		jsval jsret;
