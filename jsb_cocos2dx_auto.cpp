@@ -54178,7 +54178,7 @@ void js_register_cocos2dx_CCTMXLayer(JSContext *cx, JSObject *global) {
 	static JSFunctionSpec funcs[] = {
 		JS_FN("addChild", js_cocos2dx_CCTMXLayer_addChild, 3, JSPROP_PERMANENT | JSPROP_ENUMERATE),
 		JS_FN("getTileGIDAt", js_cocos2dx_CCTMXLayer_tileGIDAt, 1, JSPROP_PERMANENT | JSPROP_ENUMERATE),
-		JS_FN("positionAt", js_cocos2dx_CCTMXLayer_positionAt, 1, JSPROP_PERMANENT | JSPROP_ENUMERATE),
+		JS_FN("getPositionAt", js_cocos2dx_CCTMXLayer_positionAt, 1, JSPROP_PERMANENT | JSPROP_ENUMERATE),
 		JS_FN("setLayerOrientation", js_cocos2dx_CCTMXLayer_setLayerOrientation, 1, JSPROP_PERMANENT | JSPROP_ENUMERATE),
 		JS_FN("releaseMap", js_cocos2dx_CCTMXLayer_releaseMap, 0, JSPROP_PERMANENT | JSPROP_ENUMERATE),
 		JS_FN("setTiles", js_cocos2dx_CCTMXLayer_setTiles, 1, JSPROP_PERMANENT | JSPROP_ENUMERATE),
