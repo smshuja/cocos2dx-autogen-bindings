@@ -5273,374 +5273,9 @@ CCCamera : function () {},
 };
 
 /**
- * @class CCSprite
+ * @class CCLabelAtlas
  */
-cc.Sprite = {
-
-/**
- * @method draw
- */
-draw : function () {},
-
-/**
- * @method setTexture
- * @param {cocos2d::CCTexture2D*}
- */
-setTexture : function () {},
-
-/**
- * @method isFlipX
- * @return A value converted from C/C++ "bool"
- */
-isFlipX : function () {},
-
-/**
- * @method getTexture
- * @return A value converted from C/C++ "cocos2d::CCTexture2D*"
- */
-getTexture : function () {},
-
-/**
- * @method setScaleY
- * @param {float}
- */
-setScaleY : function () {},
-
-/**
- * @method setScale
- * @param {float}
- */
-setScale : function () {},
-
-/**
- * @method setOpacity
- * @param {unsigned char}
- */
-setOpacity : function () {},
-
-/**
- * @method setDisplayFrameWithAnimationName
- * @param {const char*}
- * @param {int}
- */
-setDisplayFrameWithAnimationName : function () {},
-
-/**
- * @method setRotationY
- * @param {float}
- */
-setRotationY : function () {},
-
-/**
- * @method setAnchorPoint
- * @param {cocos2d::CCPoint}
- */
-setAnchorPoint : function () {},
-
-/**
- * @method setOpacityModifyRGB
- * @param {bool}
- */
-setOpacityModifyRGB : function () {},
-
-/**
- * @method getBatchNode
- * @return A value converted from C/C++ "cocos2d::CCSpriteBatchNode*"
- */
-getBatchNode : function () {},
-
-/**
- * @method isTextureRectRotated
- * @return A value converted from C/C++ "bool"
- */
-isTextureRectRotated : function () {},
-
-/**
- * @method isOpacityModifyRGB
- * @return A value converted from C/C++ "bool"
- */
-isOpacityModifyRGB : function () {},
-
-/**
- * @method setVertexZ
- * @param {float}
- */
-setVertexZ : function () {},
-
-/**
- * @method getTextureRect
- * @return A value converted from C/C++ "cocos2d::CCRect"
- */
-getTextureRect : function () {},
-
-/**
- * @method updateDisplayedOpacity
- * @param {unsigned char}
- */
-updateDisplayedOpacity : function () {},
-
-/**
- * @method initWithSpriteFrameName
- * @return A value converted from C/C++ "bool"
- * @param {const char*}
- */
-initWithSpriteFrameName : function () {},
-
-/**
- * @method isFrameDisplayed
- * @return A value converted from C/C++ "bool"
- * @param {cocos2d::CCSpriteFrame*}
- */
-isFrameDisplayed : function () {},
-
-/**
- * @method getAtlasIndex
- * @return A value converted from C/C++ "unsigned int"
- */
-getAtlasIndex : function () {},
-
-/**
- * @method setRotation
- * @param {float}
- */
-setRotation : function () {},
-
-/**
- * @method setDisplayFrame
- * @param {cocos2d::CCSpriteFrame*}
- */
-setDisplayFrame : function () {},
-
-/**
- * @method getOffsetPosition
- * @return A value converted from C/C++ "cocos2d::CCPoint"
- */
-getOffsetPosition : function () {},
-
-/**
- * @method setBatchNode
- * @param {cocos2d::CCSpriteBatchNode*}
- */
-setBatchNode : function () {},
-
-/**
- * @method setRotationX
- * @param {float}
- */
-setRotationX : function () {},
-
-/**
- * @method setScaleX
- * @param {float}
- */
-setScaleX : function () {},
-
-/**
- * @method setTextureAtlas
- * @param {cocos2d::CCTextureAtlas*}
- */
-setTextureAtlas : function () {},
-
-/**
- * @method setFlipY
- * @param {bool}
- */
-setFlipY : function () {},
-
-/**
- * @method setFlipX
- * @param {bool}
- */
-setFlipX : function () {},
-
-/**
- * @method removeAllChildrenWithCleanup
- * @param {bool}
- */
-removeAllChildrenWithCleanup : function () {},
-
-/**
- * @method sortAllChildren
- */
-sortAllChildren : function () {},
-
-/**
- * @method setAtlasIndex
- * @param {unsigned int}
- */
-setAtlasIndex : function () {},
-
-/**
- * @method setVertexRect
- * @param {cocos2d::CCRect}
- */
-setVertexRect : function () {},
-
-/**
- * @method setDirty
- * @param {bool}
- */
-setDirty : function () {},
-
-/**
- * @method isDirty
- * @return A value converted from C/C++ "bool"
- */
-isDirty : function () {},
-
-/**
- * @method reorderChild
- * @param {cocos2d::CCNode*}
- * @param {int}
- */
-reorderChild : function () {},
-
-/**
- * @method ignoreAnchorPointForPosition
- * @param {bool}
- */
-ignoreAnchorPointForPosition : function () {},
-
-/**
- * @method setColor
- * @param {cocos2d::ccColor3B}
- */
-setColor : function () {},
-
-/**
- * @method getTextureAtlas
- * @return A value converted from C/C++ "cocos2d::CCTextureAtlas*"
- */
-getTextureAtlas : function () {},
-
-/**
- * @method initWithSpriteFrame
- * @return A value converted from C/C++ "bool"
- * @param {cocos2d::CCSpriteFrame*}
- */
-initWithSpriteFrame : function () {},
-
-/**
- * @method removeChild
- * @param {cocos2d::CCNode*}
- * @param {bool}
- */
-removeChild : function () {},
-
-/**
- * @method updateTransform
- */
-updateTransform : function () {},
-
-/**
- * @method isFlipY
- * @return A value converted from C/C++ "bool"
- */
-isFlipY : function () {},
-
-/**
- * @method updateDisplayedColor
- * @param {cocos2d::ccColor3B}
- */
-updateDisplayedColor : function () {},
-
-/**
- * @method setSkewX
- * @param {float}
- */
-setSkewX : function () {},
-
-/**
- * @method setSkewY
- * @param {float}
- */
-setSkewY : function () {},
-
-/**
- * @method setVisible
- * @param {bool}
- */
-setVisible : function () {},
-
-/**
- * @method createWithSpriteFrameName
- * @return A value converted from C/C++ "cocos2d::CCSprite*"
- * @param {const char*}
- */
-createWithSpriteFrameName : function () {},
-
-/**
- * @method createWithSpriteFrame
- * @return A value converted from C/C++ "cocos2d::CCSprite*"
- * @param {cocos2d::CCSpriteFrame*}
- */
-createWithSpriteFrame : function () {},
-
-/**
- * @method CCSprite
- * @constructor
- */
-CCSprite : function () {},
-
-};
-
-/**
- * @class CCLabelTTF
- */
-cc.LabelTTF = {
-
-/**
- * @method enableShadow
- * @param {cocos2d::CCSize}
- * @param {float}
- * @param {float}
- * @param {bool}
- */
-enableShadow : function () {},
-
-/**
- * @method setDimensions
- * @param {cocos2d::CCSize}
- */
-setDimensions : function () {},
-
-/**
- * @method getFontSize
- * @return A value converted from C/C++ "float"
- */
-getFontSize : function () {},
-
-/**
- * @method getString
- * @return A value converted from C/C++ "const char*"
- */
-getString : function () {},
-
-/**
- * @method setTextDefinition
- * @param {ccFontDefinition*}
- */
-setTextDefinition : function () {},
-
-/**
- * @method setFontName
- * @param {const char*}
- */
-setFontName : function () {},
-
-/**
- * @method getHorizontalAlignment
- * @return A value converted from C/C++ "cocos2d::CCTextAlignment"
- */
-getHorizontalAlignment : function () {},
-
-/**
- * @method initWithStringAndTextDefinition
- * @return A value converted from C/C++ "bool"
- * @param {const char*}
- * @param {cocos2d::ccFontDefinition}
- */
-initWithStringAndTextDefinition : function () {},
+cc.LabelAtlas = {
 
 /**
  * @method setString
@@ -5649,83 +5284,21 @@ initWithStringAndTextDefinition : function () {},
 setString : function () {},
 
 /**
- * @method init
- * @return A value converted from C/C++ "bool"
+ * @method updateAtlasValues
  */
-init : function () {},
+updateAtlasValues : function () {},
 
 /**
- * @method setFontFillColor
- * @param {cocos2d::ccColor3B}
- * @param {bool}
- */
-setFontFillColor : function () {},
-
-/**
- * @method enableStroke
- * @param {cocos2d::ccColor3B}
- * @param {float}
- * @param {bool}
- */
-enableStroke : function () {},
-
-/**
- * @method getDimensions
- * @return A value converted from C/C++ "cocos2d::CCSize"
- */
-getDimensions : function () {},
-
-/**
- * @method setVerticalAlignment
- * @param {cocos2d::CCVerticalTextAlignment}
- */
-setVerticalAlignment : function () {},
-
-/**
- * @method setFontSize
- * @param {float}
- */
-setFontSize : function () {},
-
-/**
- * @method getVerticalAlignment
- * @return A value converted from C/C++ "cocos2d::CCVerticalTextAlignment"
- */
-getVerticalAlignment : function () {},
-
-/**
- * @method getTextDefinition
- * @return A value converted from C/C++ "ccFontDefinition*"
- */
-getTextDefinition : function () {},
-
-/**
- * @method getFontName
+ * @method getString
  * @return A value converted from C/C++ "const char*"
  */
-getFontName : function () {},
+getString : function () {},
 
 /**
- * @method setHorizontalAlignment
- * @param {cocos2d::CCTextAlignment}
- */
-setHorizontalAlignment : function () {},
-
-/**
- * @method disableShadow
- */
-disableShadow : function () {},
-
-/**
- * @method disableStroke
- */
-disableStroke : function () {},
-
-/**
- * @method CCLabelTTF
+ * @method CCLabelAtlas
  * @constructor
  */
-CCLabelTTF : function () {},
+CCLabelAtlas : function () {},
 
 };
 
@@ -6247,20 +5820,342 @@ CCTiledGrid3D : function () {},
 };
 
 /**
- * @class CCLabelAtlas
+ * @class CCSprite
  */
-cc.LabelAtlas = {
+cc.Sprite = {
 
 /**
- * @method setString
+ * @method draw
+ */
+draw : function () {},
+
+/**
+ * @method setTexture
+ * @param {cocos2d::CCTexture2D*}
+ */
+setTexture : function () {},
+
+/**
+ * @method isFlipX
+ * @return A value converted from C/C++ "bool"
+ */
+isFlipX : function () {},
+
+/**
+ * @method getTexture
+ * @return A value converted from C/C++ "cocos2d::CCTexture2D*"
+ */
+getTexture : function () {},
+
+/**
+ * @method setScaleY
+ * @param {float}
+ */
+setScaleY : function () {},
+
+/**
+ * @method setScale
+ * @param {float}
+ */
+setScale : function () {},
+
+/**
+ * @method setOpacity
+ * @param {unsigned char}
+ */
+setOpacity : function () {},
+
+/**
+ * @method setDisplayFrameWithAnimationName
+ * @param {const char*}
+ * @param {int}
+ */
+setDisplayFrameWithAnimationName : function () {},
+
+/**
+ * @method setRotationY
+ * @param {float}
+ */
+setRotationY : function () {},
+
+/**
+ * @method setAnchorPoint
+ * @param {cocos2d::CCPoint}
+ */
+setAnchorPoint : function () {},
+
+/**
+ * @method setOpacityModifyRGB
+ * @param {bool}
+ */
+setOpacityModifyRGB : function () {},
+
+/**
+ * @method getBatchNode
+ * @return A value converted from C/C++ "cocos2d::CCSpriteBatchNode*"
+ */
+getBatchNode : function () {},
+
+/**
+ * @method isTextureRectRotated
+ * @return A value converted from C/C++ "bool"
+ */
+isTextureRectRotated : function () {},
+
+/**
+ * @method isOpacityModifyRGB
+ * @return A value converted from C/C++ "bool"
+ */
+isOpacityModifyRGB : function () {},
+
+/**
+ * @method setVertexZ
+ * @param {float}
+ */
+setVertexZ : function () {},
+
+/**
+ * @method getTextureRect
+ * @return A value converted from C/C++ "cocos2d::CCRect"
+ */
+getTextureRect : function () {},
+
+/**
+ * @method updateDisplayedOpacity
+ * @param {unsigned char}
+ */
+updateDisplayedOpacity : function () {},
+
+/**
+ * @method initWithSpriteFrameName
+ * @return A value converted from C/C++ "bool"
  * @param {const char*}
  */
-setString : function () {},
+initWithSpriteFrameName : function () {},
 
 /**
- * @method updateAtlasValues
+ * @method isFrameDisplayed
+ * @return A value converted from C/C++ "bool"
+ * @param {cocos2d::CCSpriteFrame*}
  */
-updateAtlasValues : function () {},
+isFrameDisplayed : function () {},
+
+/**
+ * @method getAtlasIndex
+ * @return A value converted from C/C++ "unsigned int"
+ */
+getAtlasIndex : function () {},
+
+/**
+ * @method setRotation
+ * @param {float}
+ */
+setRotation : function () {},
+
+/**
+ * @method setDisplayFrame
+ * @param {cocos2d::CCSpriteFrame*}
+ */
+setDisplayFrame : function () {},
+
+/**
+ * @method getOffsetPosition
+ * @return A value converted from C/C++ "cocos2d::CCPoint"
+ */
+getOffsetPosition : function () {},
+
+/**
+ * @method setBatchNode
+ * @param {cocos2d::CCSpriteBatchNode*}
+ */
+setBatchNode : function () {},
+
+/**
+ * @method setRotationX
+ * @param {float}
+ */
+setRotationX : function () {},
+
+/**
+ * @method setScaleX
+ * @param {float}
+ */
+setScaleX : function () {},
+
+/**
+ * @method setTextureAtlas
+ * @param {cocos2d::CCTextureAtlas*}
+ */
+setTextureAtlas : function () {},
+
+/**
+ * @method setFlipY
+ * @param {bool}
+ */
+setFlipY : function () {},
+
+/**
+ * @method setFlipX
+ * @param {bool}
+ */
+setFlipX : function () {},
+
+/**
+ * @method removeAllChildrenWithCleanup
+ * @param {bool}
+ */
+removeAllChildrenWithCleanup : function () {},
+
+/**
+ * @method sortAllChildren
+ */
+sortAllChildren : function () {},
+
+/**
+ * @method setAtlasIndex
+ * @param {unsigned int}
+ */
+setAtlasIndex : function () {},
+
+/**
+ * @method setVertexRect
+ * @param {cocos2d::CCRect}
+ */
+setVertexRect : function () {},
+
+/**
+ * @method setDirty
+ * @param {bool}
+ */
+setDirty : function () {},
+
+/**
+ * @method isDirty
+ * @return A value converted from C/C++ "bool"
+ */
+isDirty : function () {},
+
+/**
+ * @method reorderChild
+ * @param {cocos2d::CCNode*}
+ * @param {int}
+ */
+reorderChild : function () {},
+
+/**
+ * @method ignoreAnchorPointForPosition
+ * @param {bool}
+ */
+ignoreAnchorPointForPosition : function () {},
+
+/**
+ * @method setColor
+ * @param {cocos2d::ccColor3B}
+ */
+setColor : function () {},
+
+/**
+ * @method getTextureAtlas
+ * @return A value converted from C/C++ "cocos2d::CCTextureAtlas*"
+ */
+getTextureAtlas : function () {},
+
+/**
+ * @method initWithSpriteFrame
+ * @return A value converted from C/C++ "bool"
+ * @param {cocos2d::CCSpriteFrame*}
+ */
+initWithSpriteFrame : function () {},
+
+/**
+ * @method removeChild
+ * @param {cocos2d::CCNode*}
+ * @param {bool}
+ */
+removeChild : function () {},
+
+/**
+ * @method updateTransform
+ */
+updateTransform : function () {},
+
+/**
+ * @method isFlipY
+ * @return A value converted from C/C++ "bool"
+ */
+isFlipY : function () {},
+
+/**
+ * @method updateDisplayedColor
+ * @param {cocos2d::ccColor3B}
+ */
+updateDisplayedColor : function () {},
+
+/**
+ * @method setSkewX
+ * @param {float}
+ */
+setSkewX : function () {},
+
+/**
+ * @method setSkewY
+ * @param {float}
+ */
+setSkewY : function () {},
+
+/**
+ * @method setVisible
+ * @param {bool}
+ */
+setVisible : function () {},
+
+/**
+ * @method createWithSpriteFrameName
+ * @return A value converted from C/C++ "cocos2d::CCSprite*"
+ * @param {const char*}
+ */
+createWithSpriteFrameName : function () {},
+
+/**
+ * @method createWithSpriteFrame
+ * @return A value converted from C/C++ "cocos2d::CCSprite*"
+ * @param {cocos2d::CCSpriteFrame*}
+ */
+createWithSpriteFrame : function () {},
+
+/**
+ * @method CCSprite
+ * @constructor
+ */
+CCSprite : function () {},
+
+};
+
+/**
+ * @class CCLabelTTF
+ */
+cc.LabelTTF = {
+
+/**
+ * @method enableShadow
+ * @param {cocos2d::CCSize}
+ * @param {float}
+ * @param {float}
+ * @param {bool}
+ */
+enableShadow : function () {},
+
+/**
+ * @method setDimensions
+ * @param {cocos2d::CCSize}
+ */
+setDimensions : function () {},
+
+/**
+ * @method getFontSize
+ * @return A value converted from C/C++ "float"
+ */
+getFontSize : function () {},
 
 /**
  * @method getString
@@ -6269,10 +6164,115 @@ updateAtlasValues : function () {},
 getString : function () {},
 
 /**
- * @method CCLabelAtlas
+ * @method setTextDefinition
+ * @param {ccFontDefinition*}
+ */
+setTextDefinition : function () {},
+
+/**
+ * @method setFontName
+ * @param {const char*}
+ */
+setFontName : function () {},
+
+/**
+ * @method getHorizontalAlignment
+ * @return A value converted from C/C++ "cocos2d::CCTextAlignment"
+ */
+getHorizontalAlignment : function () {},
+
+/**
+ * @method initWithStringAndTextDefinition
+ * @return A value converted from C/C++ "bool"
+ * @param {const char*}
+ * @param {cocos2d::ccFontDefinition}
+ */
+initWithStringAndTextDefinition : function () {},
+
+/**
+ * @method setString
+ * @param {const char*}
+ */
+setString : function () {},
+
+/**
+ * @method init
+ * @return A value converted from C/C++ "bool"
+ */
+init : function () {},
+
+/**
+ * @method setFontFillColor
+ * @param {cocos2d::ccColor3B}
+ * @param {bool}
+ */
+setFontFillColor : function () {},
+
+/**
+ * @method enableStroke
+ * @param {cocos2d::ccColor3B}
+ * @param {float}
+ * @param {bool}
+ */
+enableStroke : function () {},
+
+/**
+ * @method getDimensions
+ * @return A value converted from C/C++ "cocos2d::CCSize"
+ */
+getDimensions : function () {},
+
+/**
+ * @method setVerticalAlignment
+ * @param {cocos2d::CCVerticalTextAlignment}
+ */
+setVerticalAlignment : function () {},
+
+/**
+ * @method setFontSize
+ * @param {float}
+ */
+setFontSize : function () {},
+
+/**
+ * @method getVerticalAlignment
+ * @return A value converted from C/C++ "cocos2d::CCVerticalTextAlignment"
+ */
+getVerticalAlignment : function () {},
+
+/**
+ * @method getTextDefinition
+ * @return A value converted from C/C++ "ccFontDefinition*"
+ */
+getTextDefinition : function () {},
+
+/**
+ * @method getFontName
+ * @return A value converted from C/C++ "const char*"
+ */
+getFontName : function () {},
+
+/**
+ * @method setHorizontalAlignment
+ * @param {cocos2d::CCTextAlignment}
+ */
+setHorizontalAlignment : function () {},
+
+/**
+ * @method disableShadow
+ */
+disableShadow : function () {},
+
+/**
+ * @method disableStroke
+ */
+disableStroke : function () {},
+
+/**
+ * @method CCLabelTTF
  * @constructor
  */
-CCLabelAtlas : function () {},
+CCLabelTTF : function () {},
 
 };
 
