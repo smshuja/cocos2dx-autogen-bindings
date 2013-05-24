@@ -1456,16 +1456,16 @@ setPosition : function () {},
 setReturnType : function () {},
 
 /**
- * @method getMaxLength
- * @return A value converted from C/C++ "int"
- */
-getMaxLength : function () {},
-
-/**
  * @method setInputFlag
  * @param {cocos2d::extension::EditBoxInputFlag}
  */
 setInputFlag : function () {},
+
+/**
+ * @method getMaxLength
+ * @return A value converted from C/C++ "int"
+ */
+getMaxLength : function () {},
 
 /**
  * @method setText
