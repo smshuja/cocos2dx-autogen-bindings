@@ -547,10 +547,11 @@ cc.Texture2D = {
 getShaderProgram : function () {},
 
 /**
- * @method getMaxT
- * @return A value converted from C/C++ "float"
+ * @method initWithETCFile
+ * @return A value converted from C/C++ "bool"
+ * @param {const char*}
  */
-getMaxT : function () {},
+initWithETCFile : function () {},
 
 /**
  * @method stringForFormat
@@ -612,6 +613,12 @@ drawInRect : function () {},
  * @return A value converted from C/C++ "cocos2d::CCSize"
  */
 getContentSize : function () {},
+
+/**
+ * @method getMaxT
+ * @return A value converted from C/C++ "float"
+ */
+getMaxT : function () {},
 
 /**
  * @method setAliasTexParameters
@@ -10419,6 +10426,13 @@ cc.TextureCache = {
  * @method dumpCachedTextureInfo
  */
 dumpCachedTextureInfo : function () {},
+
+/**
+ * @method addETCImage
+ * @return A value converted from C/C++ "cocos2d::CCTexture2D*"
+ * @param {const char*}
+ */
+addETCImage : function () {},
 
 /**
  * @method addUIImage
