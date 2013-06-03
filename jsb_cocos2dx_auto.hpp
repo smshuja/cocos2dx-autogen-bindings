@@ -1582,13 +1582,10 @@ JSBool js_cocos2dx_CCCamera_locate(JSContext *cx, uint32_t argc, jsval *vp);
 JSBool js_cocos2dx_CCCamera_restore(JSContext *cx, uint32_t argc, jsval *vp);
 JSBool js_cocos2dx_CCCamera_setEyeXYZ(JSContext *cx, uint32_t argc, jsval *vp);
 JSBool js_cocos2dx_CCCamera_setCenterXYZ(JSContext *cx, uint32_t argc, jsval *vp);
-JSBool js_cocos2dx_CCCamera_getCenterXYZ(JSContext *cx, uint32_t argc, jsval *vp);
 JSBool js_cocos2dx_CCCamera_isDirty(JSContext *cx, uint32_t argc, jsval *vp);
 JSBool js_cocos2dx_CCCamera_init(JSContext *cx, uint32_t argc, jsval *vp);
 JSBool js_cocos2dx_CCCamera_setDirty(JSContext *cx, uint32_t argc, jsval *vp);
 JSBool js_cocos2dx_CCCamera_setUpXYZ(JSContext *cx, uint32_t argc, jsval *vp);
-JSBool js_cocos2dx_CCCamera_getUpXYZ(JSContext *cx, uint32_t argc, jsval *vp);
-JSBool js_cocos2dx_CCCamera_getEyeXYZ(JSContext *cx, uint32_t argc, jsval *vp);
 JSBool js_cocos2dx_CCCamera_getZEye(JSContext *cx, uint32_t argc, jsval *vp);
 JSBool js_cocos2dx_CCCamera_CCCamera(JSContext *cx, uint32_t argc, jsval *vp);
 

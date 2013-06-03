@@ -5217,14 +5217,6 @@ setEyeXYZ : function () {},
 setCenterXYZ : function () {},
 
 /**
- * @method getCenterXYZ
- * @param {float*}
- * @param {float*}
- * @param {float*}
- */
-getCenterXYZ : function () {},
-
-/**
  * @method isDirty
  * @return A value converted from C/C++ "bool"
  */
@@ -5248,22 +5240,6 @@ setDirty : function () {},
  * @param {float}
  */
 setUpXYZ : function () {},
-
-/**
- * @method getUpXYZ
- * @param {float*}
- * @param {float*}
- * @param {float*}
- */
-getUpXYZ : function () {},
-
-/**
- * @method getEyeXYZ
- * @param {float*}
- * @param {float*}
- * @param {float*}
- */
-getEyeXYZ : function () {},
 
 /**
  * @method getZEye
