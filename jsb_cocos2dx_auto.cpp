@@ -25684,30 +25684,6 @@ JSBool js_cocos2dx_CCCamera_setCenterXYZ(JSContext *cx, uint32_t argc, jsval *vp
 	JS_ReportError(cx, "wrong number of arguments: %d, was expecting %d", argc, 3);
 	return JS_FALSE;
 }
-JSBool js_cocos2dx_CCCamera_getCenterXYZ(JSContext *cx, uint32_t argc, jsval *vp)
-{
-	jsval *argv = JS_ARGV(cx, vp);
-	JSBool ok = JS_TRUE;
-	JSObject *obj = JS_THIS_OBJECT(cx, vp);
-	js_proxy_t *proxy; JS_GET_NATIVE_PROXY(proxy, obj);
-	cocos2d::CCCamera* cobj = (cocos2d::CCCamera *)(proxy ? proxy->ptr : NULL);
-	JSB_PRECONDITION2( cobj, cx, JS_FALSE, "Invalid Native Object");
-	if (argc == 3) {
-		float* arg0;
-		float* arg1;
-		float* arg2;
-		#pragma warning NO CONVERSION TO NATIVE FOR float*;
-		#pragma warning NO CONVERSION TO NATIVE FOR float*;
-		#pragma warning NO CONVERSION TO NATIVE FOR float*;
-		JSB_PRECONDITION2(ok, cx, JS_FALSE, "Error processing arguments");
-		cobj->getCenterXYZ(arg0, arg1, arg2);
-		JS_SET_RVAL(cx, vp, JSVAL_VOID);
-		return JS_TRUE;
-	}
-
-	JS_ReportError(cx, "wrong number of arguments: %d, was expecting %d", argc, 3);
-	return JS_FALSE;
-}
 JSBool js_cocos2dx_CCCamera_isDirty(JSContext *cx, uint32_t argc, jsval *vp)
 {
 	JSObject *obj = JS_THIS_OBJECT(cx, vp);
@@ -25777,54 +25753,6 @@ JSBool js_cocos2dx_CCCamera_setUpXYZ(JSContext *cx, uint32_t argc, jsval *vp)
 		ok &= JS_ValueToNumber(cx, argv[2], &arg2);
 		JSB_PRECONDITION2(ok, cx, JS_FALSE, "Error processing arguments");
 		cobj->setUpXYZ(arg0, arg1, arg2);
-		JS_SET_RVAL(cx, vp, JSVAL_VOID);
-		return JS_TRUE;
-	}
-
-	JS_ReportError(cx, "wrong number of arguments: %d, was expecting %d", argc, 3);
-	return JS_FALSE;
-}
-JSBool js_cocos2dx_CCCamera_getUpXYZ(JSContext *cx, uint32_t argc, jsval *vp)
-{
-	jsval *argv = JS_ARGV(cx, vp);
-	JSBool ok = JS_TRUE;
-	JSObject *obj = JS_THIS_OBJECT(cx, vp);
-	js_proxy_t *proxy; JS_GET_NATIVE_PROXY(proxy, obj);
-	cocos2d::CCCamera* cobj = (cocos2d::CCCamera *)(proxy ? proxy->ptr : NULL);
-	JSB_PRECONDITION2( cobj, cx, JS_FALSE, "Invalid Native Object");
-	if (argc == 3) {
-		float* arg0;
-		float* arg1;
-		float* arg2;
-		#pragma warning NO CONVERSION TO NATIVE FOR float*;
-		#pragma warning NO CONVERSION TO NATIVE FOR float*;
-		#pragma warning NO CONVERSION TO NATIVE FOR float*;
-		JSB_PRECONDITION2(ok, cx, JS_FALSE, "Error processing arguments");
-		cobj->getUpXYZ(arg0, arg1, arg2);
-		JS_SET_RVAL(cx, vp, JSVAL_VOID);
-		return JS_TRUE;
-	}
-
-	JS_ReportError(cx, "wrong number of arguments: %d, was expecting %d", argc, 3);
-	return JS_FALSE;
-}
-JSBool js_cocos2dx_CCCamera_getEyeXYZ(JSContext *cx, uint32_t argc, jsval *vp)
-{
-	jsval *argv = JS_ARGV(cx, vp);
-	JSBool ok = JS_TRUE;
-	JSObject *obj = JS_THIS_OBJECT(cx, vp);
-	js_proxy_t *proxy; JS_GET_NATIVE_PROXY(proxy, obj);
-	cocos2d::CCCamera* cobj = (cocos2d::CCCamera *)(proxy ? proxy->ptr : NULL);
-	JSB_PRECONDITION2( cobj, cx, JS_FALSE, "Invalid Native Object");
-	if (argc == 3) {
-		float* arg0;
-		float* arg1;
-		float* arg2;
-		#pragma warning NO CONVERSION TO NATIVE FOR float*;
-		#pragma warning NO CONVERSION TO NATIVE FOR float*;
-		#pragma warning NO CONVERSION TO NATIVE FOR float*;
-		JSB_PRECONDITION2(ok, cx, JS_FALSE, "Error processing arguments");
-		cobj->getEyeXYZ(arg0, arg1, arg2);
 		JS_SET_RVAL(cx, vp, JSVAL_VOID);
 		return JS_TRUE;
 	}
@@ -25912,13 +25840,10 @@ void js_register_cocos2dx_CCCamera(JSContext *cx, JSObject *global) {
 		JS_FN("restore", js_cocos2dx_CCCamera_restore, 0, JSPROP_PERMANENT | JSPROP_ENUMERATE),
 		JS_FN("setEye", js_cocos2dx_CCCamera_setEyeXYZ, 3, JSPROP_PERMANENT | JSPROP_ENUMERATE),
 		JS_FN("setCenter", js_cocos2dx_CCCamera_setCenterXYZ, 3, JSPROP_PERMANENT | JSPROP_ENUMERATE),
-		JS_FN("getCenter", js_cocos2dx_CCCamera_getCenterXYZ, 3, JSPROP_PERMANENT | JSPROP_ENUMERATE),
 		JS_FN("isDirty", js_cocos2dx_CCCamera_isDirty, 0, JSPROP_PERMANENT | JSPROP_ENUMERATE),
 		JS_FN("init", js_cocos2dx_CCCamera_init, 0, JSPROP_PERMANENT | JSPROP_ENUMERATE),
 		JS_FN("setDirty", js_cocos2dx_CCCamera_setDirty, 1, JSPROP_PERMANENT | JSPROP_ENUMERATE),
 		JS_FN("setUp", js_cocos2dx_CCCamera_setUpXYZ, 3, JSPROP_PERMANENT | JSPROP_ENUMERATE),
-		JS_FN("getUp", js_cocos2dx_CCCamera_getUpXYZ, 3, JSPROP_PERMANENT | JSPROP_ENUMERATE),
-		JS_FN("getEye", js_cocos2dx_CCCamera_getEyeXYZ, 3, JSPROP_PERMANENT | JSPROP_ENUMERATE),
         JS_FN("ctor", js_cocos2dx_CCCamera_ctor, 0, JSPROP_PERMANENT | JSPROP_ENUMERATE),
         JS_FS_END
 	};
