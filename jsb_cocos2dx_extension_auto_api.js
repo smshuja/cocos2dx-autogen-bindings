@@ -1456,6 +1456,12 @@ setPosition : function () {},
 setReturnType : function () {},
 
 /**
+ * @method getDelegate
+ * @return A value converted from C/C++ "cocos2d::extension::CCEditBoxDelegate*"
+ */
+getDelegate : function () {},
+
+/**
  * @method setInputFlag
  * @param {cocos2d::extension::EditBoxInputFlag}
  */
