@@ -9,6 +9,12 @@ var cc = cc || {};
 cc._Reader = {
 
 /**
+ * @method addOwnerOutletName
+ * @param {std::string}
+ */
+addOwnerOutletName : function () {},
+
+/**
  * @method getOwnerCallbackNames
  * @return A value converted from C/C++ "cocos2d::CCArray*"
  */
@@ -19,6 +25,12 @@ getOwnerCallbackNames : function () {},
  * @param {const char*}
  */
 setCCBRootPath : function () {},
+
+/**
+ * @method addOwnerOutletNode
+ * @param {cocos2d::CCNode*}
+ */
+addOwnerOutletNode : function () {},
 
 /**
  * @method getOwnerCallbackNodes
