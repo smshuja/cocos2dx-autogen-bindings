@@ -8060,9 +8060,11 @@ unregisterScriptTapHandler : function () {},
 isEnabled : function () {},
 
 /**
- * @method selected
+ * @method initWithCallback
+ * @return A value converted from C/C++ "bool"
+ * @param {cocos2d::ccMenuCallback}
  */
-selected : function () {},
+initWithCallback : function () {},
 
 /**
  * @method setOpacityModifyRGB
@@ -8081,6 +8083,11 @@ getScriptTapHandler : function () {},
  * @return A value converted from C/C++ "bool"
  */
 isSelected : function () {},
+
+/**
+ * @method selected
+ */
+selected : function () {},
 
 /**
  * @method isOpacityModifyRGB
@@ -8153,6 +8160,14 @@ setString : function () {},
 selected : function () {},
 
 /**
+ * @method initWithLabel
+ * @return A value converted from C/C++ "bool"
+ * @param {cocos2d::CCNode*}
+ * @param {cocos2d::ccMenuCallback}
+ */
+initWithLabel : function () {},
+
+/**
  * @method setDisabledColor
  * @param {cocos2d::ccColor3B}
  */
@@ -8183,6 +8198,18 @@ CCMenuItemLabel : function () {},
 cc.MenuItemAtlasFont = {
 
 /**
+ * @method initWithString
+ * @return A value converted from C/C++ "bool"
+ * @param {const char*}
+ * @param {const char*}
+ * @param {int}
+ * @param {int}
+ * @param {char}
+ * @param {cocos2d::ccMenuCallback}
+ */
+initWithString : function () {},
+
+/**
  * @method CCMenuItemAtlasFont
  * @constructor
  */
@@ -8208,16 +8235,24 @@ setFontNameObj : function () {},
 fontNameObj : function () {},
 
 /**
- * @method setFontSizeObj
- * @param {unsigned int}
+ * @method initWithString
+ * @return A value converted from C/C++ "bool"
+ * @param {const char*}
+ * @param {cocos2d::ccMenuCallback}
  */
-setFontSizeObj : function () {},
+initWithString : function () {},
 
 /**
  * @method fontSizeObj
  * @return A value converted from C/C++ "unsigned int"
  */
 fontSizeObj : function () {},
+
+/**
+ * @method setFontSizeObj
+ * @param {unsigned int}
+ */
+setFontSizeObj : function () {},
 
 /**
  * @method setFontName
@@ -8286,6 +8321,16 @@ setNormalImage : function () {},
 setDisabledImage : function () {},
 
 /**
+ * @method initWithNormalSprite
+ * @return A value converted from C/C++ "bool"
+ * @param {cocos2d::CCNode*}
+ * @param {cocos2d::CCNode*}
+ * @param {cocos2d::CCNode*}
+ * @param {cocos2d::ccMenuCallback}
+ */
+initWithNormalSprite : function () {},
+
+/**
  * @method setSelectedImage
  * @param {cocos2d::CCNode*}
  */
@@ -8346,16 +8391,26 @@ setDisabledSpriteFrame : function () {},
 setSelectedSpriteFrame : function () {},
 
 /**
+ * @method setNormalSpriteFrame
+ * @param {cocos2d::CCSpriteFrame*}
+ */
+setNormalSpriteFrame : function () {},
+
+/**
  * @method init
  * @return A value converted from C/C++ "bool"
  */
 init : function () {},
 
 /**
- * @method setNormalSpriteFrame
- * @param {cocos2d::CCSpriteFrame*}
+ * @method initWithNormalImage
+ * @return A value converted from C/C++ "bool"
+ * @param {const char*}
+ * @param {const char*}
+ * @param {const char*}
+ * @param {cocos2d::ccMenuCallback}
  */
-setNormalSpriteFrame : function () {},
+initWithNormalImage : function () {},
 
 /**
  * @method CCMenuItemImage
@@ -8414,11 +8469,6 @@ getSelectedIndex : function () {},
 addSubItem : function () {},
 
 /**
- * @method selected
- */
-selected : function () {},
-
-/**
  * @method setOpacityModifyRGB
  * @param {bool}
  */
@@ -8428,6 +8478,11 @@ setOpacityModifyRGB : function () {},
  * @method activate
  */
 activate : function () {},
+
+/**
+ * @method selected
+ */
+selected : function () {},
 
 /**
  * @method unselected
