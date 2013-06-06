@@ -8060,13 +8060,6 @@ unregisterScriptTapHandler : function () {},
 isEnabled : function () {},
 
 /**
- * @method initWithCallback
- * @return A value converted from C/C++ "bool"
- * @param {cocos2d::ccMenuCallback}
- */
-initWithCallback : function () {},
-
-/**
  * @method setOpacityModifyRGB
  * @param {bool}
  */

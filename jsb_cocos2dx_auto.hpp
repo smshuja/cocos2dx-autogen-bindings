@@ -2437,7 +2437,6 @@ JSBool js_cocos2dx_CCMenuItem_setEnabled(JSContext *cx, uint32_t argc, jsval *vp
 JSBool js_cocos2dx_CCMenuItem_activate(JSContext *cx, uint32_t argc, jsval *vp);
 JSBool js_cocos2dx_CCMenuItem_unregisterScriptTapHandler(JSContext *cx, uint32_t argc, jsval *vp);
 JSBool js_cocos2dx_CCMenuItem_isEnabled(JSContext *cx, uint32_t argc, jsval *vp);
-JSBool js_cocos2dx_CCMenuItem_initWithCallback(JSContext *cx, uint32_t argc, jsval *vp);
 JSBool js_cocos2dx_CCMenuItem_setOpacityModifyRGB(JSContext *cx, uint32_t argc, jsval *vp);
 JSBool js_cocos2dx_CCMenuItem_getScriptTapHandler(JSContext *cx, uint32_t argc, jsval *vp);
 JSBool js_cocos2dx_CCMenuItem_isSelected(JSContext *cx, uint32_t argc, jsval *vp);

@@ -40818,28 +40818,6 @@ JSBool js_cocos2dx_CCMenuItem_isEnabled(JSContext *cx, uint32_t argc, jsval *vp)
 	JS_ReportError(cx, "wrong number of arguments: %d, was expecting %d", argc, 0);
 	return JS_FALSE;
 }
-JSBool js_cocos2dx_CCMenuItem_initWithCallback(JSContext *cx, uint32_t argc, jsval *vp)
-{
-	jsval *argv = JS_ARGV(cx, vp);
-	JSBool ok = JS_TRUE;
-	JSObject *obj = JS_THIS_OBJECT(cx, vp);
-	js_proxy_t *proxy = jsb_get_js_proxy(obj);
-	cocos2d::CCMenuItem* cobj = (cocos2d::CCMenuItem *)(proxy ? proxy->ptr : NULL);
-	JSB_PRECONDITION2( cobj, cx, JS_FALSE, "Invalid Native Object");
-	if (argc == 1) {
-		cocos2d::ccMenuCallback arg0;
-		#pragma warning NO CONVERSION TO NATIVE FOR const ccMenuCallback;
-		JSB_PRECONDITION2(ok, cx, JS_FALSE, "Error processing arguments");
-		bool ret = cobj->initWithCallback(arg0);
-		jsval jsret;
-		jsret = BOOLEAN_TO_JSVAL(ret);
-		JS_SET_RVAL(cx, vp, jsret);
-		return JS_TRUE;
-	}
-
-	JS_ReportError(cx, "wrong number of arguments: %d, was expecting %d", argc, 1);
-	return JS_FALSE;
-}
 JSBool js_cocos2dx_CCMenuItem_setOpacityModifyRGB(JSContext *cx, uint32_t argc, jsval *vp)
 {
 	jsval *argv = JS_ARGV(cx, vp);
@@ -41044,7 +41022,6 @@ void js_register_cocos2dx_CCMenuItem(JSContext *cx, JSObject *global) {
 		JS_FN("activate", js_cocos2dx_CCMenuItem_activate, 0, JSPROP_PERMANENT | JSPROP_ENUMERATE),
 		JS_FN("unregisterScriptTapHandler", js_cocos2dx_CCMenuItem_unregisterScriptTapHandler, 0, JSPROP_PERMANENT | JSPROP_ENUMERATE),
 		JS_FN("isEnabled", js_cocos2dx_CCMenuItem_isEnabled, 0, JSPROP_PERMANENT | JSPROP_ENUMERATE),
-		JS_FN("initWithCallback", js_cocos2dx_CCMenuItem_initWithCallback, 1, JSPROP_PERMANENT | JSPROP_ENUMERATE),
 		JS_FN("setOpacityModifyRGB", js_cocos2dx_CCMenuItem_setOpacityModifyRGB, 1, JSPROP_PERMANENT | JSPROP_ENUMERATE),
 		JS_FN("getScriptTapHandler", js_cocos2dx_CCMenuItem_getScriptTapHandler, 0, JSPROP_PERMANENT | JSPROP_ENUMERATE),
 		JS_FN("isSelected", js_cocos2dx_CCMenuItem_isSelected, 0, JSPROP_PERMANENT | JSPROP_ENUMERATE),
