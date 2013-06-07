@@ -5433,6 +5433,11 @@ convertToUI : function () {},
 setAccelerometer : function () {},
 
 /**
+ * @method setDefaultValues
+ */
+setDefaultValues : function () {},
+
+/**
  * @method init
  * @return A value converted from C/C++ "bool"
  */
