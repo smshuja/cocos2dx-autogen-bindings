@@ -1822,6 +1822,7 @@ JSBool js_cocos2dx_CCLabelTTF_setHorizontalAlignment(JSContext *cx, uint32_t arg
 JSBool js_cocos2dx_CCLabelTTF_disableShadow(JSContext *cx, uint32_t argc, jsval *vp);
 JSBool js_cocos2dx_CCLabelTTF_disableStroke(JSContext *cx, uint32_t argc, jsval *vp);
 JSBool js_cocos2dx_CCLabelTTF_create(JSContext *cx, uint32_t argc, jsval *vp);
+JSBool js_cocos2dx_CCLabelTTF_createWithFontDefinition(JSContext *cx, uint32_t argc, jsval *vp);
 JSBool js_cocos2dx_CCLabelTTF_CCLabelTTF(JSContext *cx, uint32_t argc, jsval *vp);
 
 extern JSClass  *jsb_CCSpriteBatchNode_class;
