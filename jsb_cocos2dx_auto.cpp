@@ -30489,6 +30489,33 @@ JSBool js_cocos2dx_CCLabelTTF_create(JSContext *cx, uint32_t argc, jsval *vp)
 	JS_ReportError(cx, "wrong number of arguments");
 	return JS_FALSE;
 }
+JSBool js_cocos2dx_CCLabelTTF_createWithFontDefinition(JSContext *cx, uint32_t argc, jsval *vp)
+{
+	jsval *argv = JS_ARGV(cx, vp);
+	JSBool ok = JS_TRUE;
+	if (argc == 2) {
+		const char* arg0;
+		cocos2d::ccFontDefinition arg1;
+		std::string arg0_tmp; ok &= jsval_to_std_string(cx, argv[0], &arg0_tmp); arg0 = arg0_tmp.c_str();
+		ok &= jsval_to_ccfontdefinition(cx, argv[1], &arg1);
+		JSB_PRECONDITION2(ok, cx, JS_FALSE, "Error processing arguments");
+		cocos2d::CCLabelTTF* ret = cocos2d::CCLabelTTF::createWithFontDefinition(arg0, arg1);
+		jsval jsret;
+		do {
+		if (ret) {
+			js_proxy_t *proxy = js_get_or_create_proxy<cocos2d::CCLabelTTF>(cx, ret);
+			jsret = OBJECT_TO_JSVAL(proxy->obj);
+		} else {
+			jsret = JSVAL_NULL;
+		}
+	} while (0);
+		JS_SET_RVAL(cx, vp, jsret);
+		return JS_TRUE;
+	}
+	JS_ReportError(cx, "wrong number of arguments");
+	return JS_FALSE;
+}
+
 JSBool js_cocos2dx_CCLabelTTF_constructor(JSContext *cx, uint32_t argc, jsval *vp)
 {
 	if (argc == 0) {
@@ -30579,6 +30606,7 @@ void js_register_cocos2dx_CCLabelTTF(JSContext *cx, JSObject *global) {
 
 	static JSFunctionSpec st_funcs[] = {
 		JS_FN("create", js_cocos2dx_CCLabelTTF_create, 0, JSPROP_PERMANENT | JSPROP_ENUMERATE),
+		JS_FN("createWithFontDefinition", js_cocos2dx_CCLabelTTF_createWithFontDefinition, 2, JSPROP_PERMANENT | JSPROP_ENUMERATE),
 		JS_FS_END
 	};
 
