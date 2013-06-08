@@ -6252,6 +6252,14 @@ disableShadow : function () {},
 disableStroke : function () {},
 
 /**
+ * @method createWithFontDefinition
+ * @return A value converted from C/C++ "cocos2d::CCLabelTTF*"
+ * @param {const char*}
+ * @param {cocos2d::ccFontDefinition}
+ */
+createWithFontDefinition : function () {},
+
+/**
  * @method CCLabelTTF
  * @constructor
  */
