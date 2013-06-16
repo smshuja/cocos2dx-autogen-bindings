@@ -30,6 +30,26 @@ static JSBool empty_constructor(JSContext *cx, uint32_t argc, jsval *vp) {
 JSClass  *jsb_CCBReader_class;
 JSObject *jsb_CCBReader_prototype;
 
+JSBool js_cocos2dx_extension_CCBReader_addOwnerOutletName(JSContext *cx, uint32_t argc, jsval *vp)
+{
+	jsval *argv = JS_ARGV(cx, vp);
+	JSBool ok = JS_TRUE;
+	JSObject *obj = JS_THIS_OBJECT(cx, vp);
+	js_proxy_t *proxy = jsb_get_js_proxy(obj);
+	cocos2d::extension::CCBReader* cobj = (cocos2d::extension::CCBReader *)(proxy ? proxy->ptr : NULL);
+	JSB_PRECONDITION2( cobj, cx, JS_FALSE, "Invalid Native Object");
+	if (argc == 1) {
+		std::string arg0;
+		ok &= jsval_to_std_string(cx, argv[0], &arg0);
+		JSB_PRECONDITION2(ok, cx, JS_FALSE, "Error processing arguments");
+		cobj->addOwnerOutletName(arg0);
+		JS_SET_RVAL(cx, vp, JSVAL_VOID);
+		return JS_TRUE;
+	}
+
+	JS_ReportError(cx, "wrong number of arguments: %d, was expecting %d", argc, 1);
+	return JS_FALSE;
+}
 JSBool js_cocos2dx_extension_CCBReader_getOwnerCallbackNames(JSContext *cx, uint32_t argc, jsval *vp)
 {
 	JSObject *obj = JS_THIS_OBJECT(cx, vp);
@@ -60,6 +80,32 @@ JSBool js_cocos2dx_extension_CCBReader_setCCBRootPath(JSContext *cx, uint32_t ar
 		std::string arg0_tmp; ok &= jsval_to_std_string(cx, argv[0], &arg0_tmp); arg0 = arg0_tmp.c_str();
 		JSB_PRECONDITION2(ok, cx, JS_FALSE, "Error processing arguments");
 		cobj->setCCBRootPath(arg0);
+		JS_SET_RVAL(cx, vp, JSVAL_VOID);
+		return JS_TRUE;
+	}
+
+	JS_ReportError(cx, "wrong number of arguments: %d, was expecting %d", argc, 1);
+	return JS_FALSE;
+}
+JSBool js_cocos2dx_extension_CCBReader_addOwnerOutletNode(JSContext *cx, uint32_t argc, jsval *vp)
+{
+	jsval *argv = JS_ARGV(cx, vp);
+	JSBool ok = JS_TRUE;
+	JSObject *obj = JS_THIS_OBJECT(cx, vp);
+	js_proxy_t *proxy = jsb_get_js_proxy(obj);
+	cocos2d::extension::CCBReader* cobj = (cocos2d::extension::CCBReader *)(proxy ? proxy->ptr : NULL);
+	JSB_PRECONDITION2( cobj, cx, JS_FALSE, "Invalid Native Object");
+	if (argc == 1) {
+		cocos2d::CCNode* arg0;
+		do {
+			js_proxy_t *proxy;
+			JSObject *tmpObj = JSVAL_TO_OBJECT(argv[0]);
+			proxy = jsb_get_js_proxy(tmpObj);
+			arg0 = (cocos2d::CCNode*)(proxy ? proxy->ptr : NULL);
+			JSB_PRECONDITION2( arg0, cx, JS_FALSE, "Invalid Native Object");
+		} while (0);
+		JSB_PRECONDITION2(ok, cx, JS_FALSE, "Error processing arguments");
+		cobj->addOwnerOutletNode(arg0);
 		JS_SET_RVAL(cx, vp, JSVAL_VOID);
 		return JS_TRUE;
 	}
@@ -566,8 +612,10 @@ void js_register_cocos2dx_extension_CCBReader(JSContext *cx, JSObject *global) {
 	};
 
 	static JSFunctionSpec funcs[] = {
+		JS_FN("addOwnerOutletName", js_cocos2dx_extension_CCBReader_addOwnerOutletName, 1, JSPROP_PERMANENT | JSPROP_ENUMERATE),
 		JS_FN("getOwnerCallbackNames", js_cocos2dx_extension_CCBReader_getOwnerCallbackNames, 0, JSPROP_PERMANENT | JSPROP_ENUMERATE),
 		JS_FN("setCCBRootPath", js_cocos2dx_extension_CCBReader_setCCBRootPath, 1, JSPROP_PERMANENT | JSPROP_ENUMERATE),
+		JS_FN("addOwnerOutletNode", js_cocos2dx_extension_CCBReader_addOwnerOutletNode, 1, JSPROP_PERMANENT | JSPROP_ENUMERATE),
 		JS_FN("getOwnerCallbackNodes", js_cocos2dx_extension_CCBReader_getOwnerCallbackNodes, 0, JSPROP_PERMANENT | JSPROP_ENUMERATE),
 		JS_FN("readSoundKeyframesForSeq", js_cocos2dx_extension_CCBReader_readSoundKeyframesForSeq, 1, JSPROP_PERMANENT | JSPROP_ENUMERATE),
 		JS_FN("getCCBRootPath", js_cocos2dx_extension_CCBReader_getCCBRootPath, 0, JSPROP_PERMANENT | JSPROP_ENUMERATE),
