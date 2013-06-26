@@ -930,11 +930,6 @@ convertToNodeSpaceAR : function () {},
 addComponent : function () {},
 
 /**
- * @method visit
- */
-visit : function () {},
-
-/**
  * @method setShaderProgram
  * @param {cocos2d::GLProgram*}
  */
@@ -6939,11 +6934,6 @@ appendChild : function () {},
 reorderBatch : function () {},
 
 /**
- * @method visit
- */
-visit : function () {},
-
-/**
  * @method setTexture
  * @param {cocos2d::Texture2D*}
  */
@@ -9278,6 +9268,49 @@ Menu : function () {},
 };
 
 /**
+ * @class ClippingNode
+ */
+cc.ClippingNode = {
+
+/**
+ * @method setInverted
+ * @param {bool}
+ */
+setInverted : function () {},
+
+/**
+ * @method setStencil
+ * @param {cocos2d::Node*}
+ */
+setStencil : function () {},
+
+/**
+ * @method getAlphaThreshold
+ * @return A value converted from C/C++ "float"
+ */
+getAlphaThreshold : function () {},
+
+/**
+ * @method getStencil
+ * @return A value converted from C/C++ "cocos2d::Node*"
+ */
+getStencil : function () {},
+
+/**
+ * @method setAlphaThreshold
+ * @param {float}
+ */
+setAlphaThreshold : function () {},
+
+/**
+ * @method isInverted
+ * @return A value converted from C/C++ "bool"
+ */
+isInverted : function () {},
+
+};
+
+/**
  * @class ProgressTimer
  */
 cc.ProgressTimer = {
@@ -9439,11 +9472,6 @@ end : function () {},
 setClearStencil : function () {},
 
 /**
- * @method visit
- */
-visit : function () {},
-
-/**
  * @method getSprite
  * @return A value converted from C/C++ "cocos2d::Sprite*"
  */
@@ -9584,11 +9612,6 @@ disableParticle : function () {},
  * @return A value converted from C/C++ "cocos2d::Texture2D*"
  */
 getTexture : function () {},
-
-/**
- * @method visit
- */
-visit : function () {},
 
 /**
  * @method removeAllChildrenWithCleanup
@@ -11205,11 +11228,6 @@ TextureCache : function () {},
  * @class ParallaxNode
  */
 cc.ParallaxNode = {
-
-/**
- * @method visit
- */
-visit : function () {},
 
 /**
  * @method removeAllChildrenWithCleanup

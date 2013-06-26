@@ -220,7 +220,6 @@ JSBool js_cocos2dx_Node_getChildrenCount(JSContext *cx, uint32_t argc, jsval *vp
 JSBool js_cocos2dx_Node_setAnchorPoint(JSContext *cx, uint32_t argc, jsval *vp);
 JSBool js_cocos2dx_Node_convertToNodeSpaceAR(JSContext *cx, uint32_t argc, jsval *vp);
 JSBool js_cocos2dx_Node_addComponent(JSContext *cx, uint32_t argc, jsval *vp);
-JSBool js_cocos2dx_Node_visit(JSContext *cx, uint32_t argc, jsval *vp);
 JSBool js_cocos2dx_Node_setShaderProgram(JSContext *cx, uint32_t argc, jsval *vp);
 JSBool js_cocos2dx_Node_getRotation(JSContext *cx, uint32_t argc, jsval *vp);
 JSBool js_cocos2dx_Node_resumeSchedulerAndActions(JSContext *cx, uint32_t argc, jsval *vp);
@@ -1939,7 +1938,6 @@ void register_all_cocos2dx(JSContext* cx, JSObject* obj);
 JSBool js_cocos2dx_SpriteBatchNode_appendChild(JSContext *cx, uint32_t argc, jsval *vp);
 JSBool js_cocos2dx_SpriteBatchNode_reorderBatch(JSContext *cx, uint32_t argc, jsval *vp);
 JSBool js_cocos2dx_SpriteBatchNode_addChild(JSContext *cx, uint32_t argc, jsval *vp);
-JSBool js_cocos2dx_SpriteBatchNode_visit(JSContext *cx, uint32_t argc, jsval *vp);
 JSBool js_cocos2dx_SpriteBatchNode_setTexture(JSContext *cx, uint32_t argc, jsval *vp);
 JSBool js_cocos2dx_SpriteBatchNode_removeChildAtIndex(JSContext *cx, uint32_t argc, jsval *vp);
 JSBool js_cocos2dx_SpriteBatchNode_removeSpriteFromAtlas(JSContext *cx, uint32_t argc, jsval *vp);
@@ -2687,6 +2685,22 @@ JSBool js_cocos2dx_Menu_alignItemsVerticallyWithPadding(JSContext *cx, uint32_t 
 JSBool js_cocos2dx_Menu_registerWithTouchDispatcher(JSContext *cx, uint32_t argc, jsval *vp);
 JSBool js_cocos2dx_Menu_Menu(JSContext *cx, uint32_t argc, jsval *vp);
 
+extern JSClass  *jsb_ClippingNode_class;
+extern JSObject *jsb_ClippingNode_prototype;
+
+JSBool js_cocos2dx_ClippingNode_constructor(JSContext *cx, uint32_t argc, jsval *vp);
+void js_cocos2dx_ClippingNode_finalize(JSContext *cx, JSObject *obj);
+void js_register_cocos2dx_ClippingNode(JSContext *cx, JSObject *global);
+void register_all_cocos2dx(JSContext* cx, JSObject* obj);
+JSBool js_cocos2dx_ClippingNode_setInverted(JSContext *cx, uint32_t argc, jsval *vp);
+JSBool js_cocos2dx_ClippingNode_setStencil(JSContext *cx, uint32_t argc, jsval *vp);
+JSBool js_cocos2dx_ClippingNode_getAlphaThreshold(JSContext *cx, uint32_t argc, jsval *vp);
+JSBool js_cocos2dx_ClippingNode_init(JSContext *cx, uint32_t argc, jsval *vp);
+JSBool js_cocos2dx_ClippingNode_getStencil(JSContext *cx, uint32_t argc, jsval *vp);
+JSBool js_cocos2dx_ClippingNode_setAlphaThreshold(JSContext *cx, uint32_t argc, jsval *vp);
+JSBool js_cocos2dx_ClippingNode_isInverted(JSContext *cx, uint32_t argc, jsval *vp);
+JSBool js_cocos2dx_ClippingNode_create(JSContext *cx, uint32_t argc, jsval *vp);
+
 extern JSClass  *jsb_ProgressTimer_class;
 extern JSObject *jsb_ProgressTimer_prototype;
 
@@ -2729,7 +2743,6 @@ JSBool js_cocos2dx_RenderTexture_getClearStencil(JSContext *cx, uint32_t argc, j
 JSBool js_cocos2dx_RenderTexture_end(JSContext *cx, uint32_t argc, jsval *vp);
 JSBool js_cocos2dx_RenderTexture_setClearStencil(JSContext *cx, uint32_t argc, jsval *vp);
 JSBool js_cocos2dx_RenderTexture_initWithWidthAndHeight(JSContext *cx, uint32_t argc, jsval *vp);
-JSBool js_cocos2dx_RenderTexture_visit(JSContext *cx, uint32_t argc, jsval *vp);
 JSBool js_cocos2dx_RenderTexture_getSprite(JSContext *cx, uint32_t argc, jsval *vp);
 JSBool js_cocos2dx_RenderTexture_isAutoDraw(JSContext *cx, uint32_t argc, jsval *vp);
 JSBool js_cocos2dx_RenderTexture_setClearFlags(JSContext *cx, uint32_t argc, jsval *vp);
@@ -2764,7 +2777,6 @@ JSBool js_cocos2dx_ParticleBatchNode_setTexture(JSContext *cx, uint32_t argc, js
 JSBool js_cocos2dx_ParticleBatchNode_initWithFile(JSContext *cx, uint32_t argc, jsval *vp);
 JSBool js_cocos2dx_ParticleBatchNode_disableParticle(JSContext *cx, uint32_t argc, jsval *vp);
 JSBool js_cocos2dx_ParticleBatchNode_getTexture(JSContext *cx, uint32_t argc, jsval *vp);
-JSBool js_cocos2dx_ParticleBatchNode_visit(JSContext *cx, uint32_t argc, jsval *vp);
 JSBool js_cocos2dx_ParticleBatchNode_removeAllChildrenWithCleanup(JSContext *cx, uint32_t argc, jsval *vp);
 JSBool js_cocos2dx_ParticleBatchNode_getTextureAtlas(JSContext *cx, uint32_t argc, jsval *vp);
 JSBool js_cocos2dx_ParticleBatchNode_removeChild(JSContext *cx, uint32_t argc, jsval *vp);
@@ -3168,7 +3180,6 @@ void js_cocos2dx_ParallaxNode_finalize(JSContext *cx, JSObject *obj);
 void js_register_cocos2dx_ParallaxNode(JSContext *cx, JSObject *global);
 void register_all_cocos2dx(JSContext* cx, JSObject* obj);
 JSBool js_cocos2dx_ParallaxNode_addChild(JSContext *cx, uint32_t argc, jsval *vp);
-JSBool js_cocos2dx_ParallaxNode_visit(JSContext *cx, uint32_t argc, jsval *vp);
 JSBool js_cocos2dx_ParallaxNode_removeAllChildrenWithCleanup(JSContext *cx, uint32_t argc, jsval *vp);
 JSBool js_cocos2dx_ParallaxNode_removeChild(JSContext *cx, uint32_t argc, jsval *vp);
 JSBool js_cocos2dx_ParallaxNode_getParallaxArray(JSContext *cx, uint32_t argc, jsval *vp);
