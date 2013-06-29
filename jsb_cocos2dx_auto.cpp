@@ -36875,32 +36875,6 @@ JSBool js_cocos2dx_LayerGradient_create(JSContext *cx, uint32_t argc, jsval *vp)
 	JSBool ok = JS_TRUE;
 	
 	do {
-		if (argc == 3) {
-			cocos2d::ccColor4B arg0;
-			ok &= jsval_to_cccolor4b(cx, argv[0], &arg0);
-			if (!ok) { ok = JS_TRUE; break; }
-			cocos2d::ccColor4B arg1;
-			ok &= jsval_to_cccolor4b(cx, argv[1], &arg1);
-			if (!ok) { ok = JS_TRUE; break; }
-			cocos2d::Point arg2;
-			ok &= jsval_to_ccpoint(cx, argv[2], &arg2);
-			if (!ok) { ok = JS_TRUE; break; }
-			cocos2d::LayerGradient* ret = cocos2d::LayerGradient::create(arg0, arg1, arg2);
-			jsval jsret;
-			do {
-				if (ret) {
-					js_proxy_t *proxy = js_get_or_create_proxy<cocos2d::LayerGradient>(cx, ret);
-					jsret = OBJECT_TO_JSVAL(proxy->obj);
-				} else {
-					jsret = JSVAL_NULL;
-				}
-			} while (0);
-			JS_SET_RVAL(cx, vp, jsret);
-			return JS_TRUE;
-		}
-	} while (0);
-	
-	do {
 		if (argc == 2) {
 			cocos2d::ccColor4B arg0;
 			ok &= jsval_to_cccolor4b(cx, argv[0], &arg0);
@@ -36926,6 +36900,32 @@ JSBool js_cocos2dx_LayerGradient_create(JSContext *cx, uint32_t argc, jsval *vp)
 	do {
 		if (argc == 0) {
 			cocos2d::LayerGradient* ret = cocos2d::LayerGradient::create();
+			jsval jsret;
+			do {
+				if (ret) {
+					js_proxy_t *proxy = js_get_or_create_proxy<cocos2d::LayerGradient>(cx, ret);
+					jsret = OBJECT_TO_JSVAL(proxy->obj);
+				} else {
+					jsret = JSVAL_NULL;
+				}
+			} while (0);
+			JS_SET_RVAL(cx, vp, jsret);
+			return JS_TRUE;
+		}
+	} while (0);
+	
+	do {
+		if (argc == 3) {
+			cocos2d::ccColor4B arg0;
+			ok &= jsval_to_cccolor4b(cx, argv[0], &arg0);
+			if (!ok) { ok = JS_TRUE; break; }
+			cocos2d::ccColor4B arg1;
+			ok &= jsval_to_cccolor4b(cx, argv[1], &arg1);
+			if (!ok) { ok = JS_TRUE; break; }
+			cocos2d::Point arg2;
+			ok &= jsval_to_ccpoint(cx, argv[2], &arg2);
+			if (!ok) { ok = JS_TRUE; break; }
+			cocos2d::LayerGradient* ret = cocos2d::LayerGradient::create(arg0, arg1, arg2);
 			jsval jsret;
 			do {
 				if (ret) {
