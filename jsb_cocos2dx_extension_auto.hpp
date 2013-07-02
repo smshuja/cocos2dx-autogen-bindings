@@ -12,8 +12,10 @@ JSBool js_cocos2dx_extension_CCBReader_constructor(JSContext *cx, uint32_t argc,
 void js_cocos2dx_extension_CCBReader_finalize(JSContext *cx, JSObject *obj);
 void js_register_cocos2dx_extension_CCBReader(JSContext *cx, JSObject *global);
 void register_all_cocos2dx_extension(JSContext* cx, JSObject* obj);
+JSBool js_cocos2dx_extension_CCBReader_addOwnerOutletName(JSContext *cx, uint32_t argc, jsval *vp);
 JSBool js_cocos2dx_extension_CCBReader_getOwnerCallbackNames(JSContext *cx, uint32_t argc, jsval *vp);
 JSBool js_cocos2dx_extension_CCBReader_setCCBRootPath(JSContext *cx, uint32_t argc, jsval *vp);
+JSBool js_cocos2dx_extension_CCBReader_addOwnerOutletNode(JSContext *cx, uint32_t argc, jsval *vp);
 JSBool js_cocos2dx_extension_CCBReader_getOwnerCallbackNodes(JSContext *cx, uint32_t argc, jsval *vp);
 JSBool js_cocos2dx_extension_CCBReader_readSoundKeyframesForSeq(JSContext *cx, uint32_t argc, jsval *vp);
 JSBool js_cocos2dx_extension_CCBReader_getCCBRootPath(JSContext *cx, uint32_t argc, jsval *vp);
@@ -311,8 +313,8 @@ JSBool js_cocos2dx_extension_CCEditBox_initWithSizeAndBackgroundSprite(JSContext
 JSBool js_cocos2dx_extension_CCEditBox_setPlaceHolder(JSContext *cx, uint32_t argc, jsval *vp);
 JSBool js_cocos2dx_extension_CCEditBox_setPosition(JSContext *cx, uint32_t argc, jsval *vp);
 JSBool js_cocos2dx_extension_CCEditBox_setReturnType(JSContext *cx, uint32_t argc, jsval *vp);
-JSBool js_cocos2dx_extension_CCEditBox_getMaxLength(JSContext *cx, uint32_t argc, jsval *vp);
 JSBool js_cocos2dx_extension_CCEditBox_setInputFlag(JSContext *cx, uint32_t argc, jsval *vp);
+JSBool js_cocos2dx_extension_CCEditBox_getMaxLength(JSContext *cx, uint32_t argc, jsval *vp);
 JSBool js_cocos2dx_extension_CCEditBox_setText(JSContext *cx, uint32_t argc, jsval *vp);
 JSBool js_cocos2dx_extension_CCEditBox_setMaxLength(JSContext *cx, uint32_t argc, jsval *vp);
 JSBool js_cocos2dx_extension_CCEditBox_setContentSize(JSContext *cx, uint32_t argc, jsval *vp);
