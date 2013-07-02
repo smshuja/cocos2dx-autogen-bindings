@@ -710,10 +710,22 @@ CCTexture2D : function () {},
 cc.Node = {
 
 /**
+ * @method removeComponent
+ * @return A value converted from C/C++ "bool"
+ * @param {const char*}
+ */
+removeComponent : function () {},
+
+/**
  * @method nodeToWorldTransform
  * @return A value converted from C/C++ "cocos2d::CCAffineTransform"
  */
 nodeToWorldTransform : function () {},
+
+/**
+ * @method removeAllComponents
+ */
+removeAllComponents : function () {},
 
 /**
  * @method getShaderProgram
@@ -903,6 +915,13 @@ setAnchorPoint : function () {},
  * @param {cocos2d::CCPoint}
  */
 convertToNodeSpaceAR : function () {},
+
+/**
+ * @method addComponent
+ * @return A value converted from C/C++ "bool"
+ * @param {cocos2d::CCComponent*}
+ */
+addComponent : function () {},
 
 /**
  * @method visit
@@ -1116,6 +1135,13 @@ getScaleX : function () {},
  * @method cleanup
  */
 cleanup : function () {},
+
+/**
+ * @method getComponent
+ * @return A value converted from C/C++ "cocos2d::CCComponent*"
+ * @param {const char*}
+ */
+getComponent : function () {},
 
 /**
  * @method getContentSize
@@ -2583,6 +2609,12 @@ update : function () {},
  * @return A value converted from C/C++ "cocos2d::CCNode*"
  */
 getForcedTarget : function () {},
+
+/**
+ * @method reverse
+ * @return A value converted from C/C++ "cocos2d::CCTargetedAction*"
+ */
+reverse : function () {},
 
 /**
  * @method create
@@ -5407,6 +5439,11 @@ convertToUI : function () {},
 setAccelerometer : function () {},
 
 /**
+ * @method setDefaultValues
+ */
+setDefaultValues : function () {},
+
+/**
  * @method init
  * @return A value converted from C/C++ "bool"
  */
@@ -6250,6 +6287,14 @@ disableShadow : function () {},
  * @method disableStroke
  */
 disableStroke : function () {},
+
+/**
+ * @method createWithFontDefinition
+ * @return A value converted from C/C++ "cocos2d::CCLabelTTF*"
+ * @param {const char*}
+ * @param {cocos2d::ccFontDefinition}
+ */
+createWithFontDefinition : function () {},
 
 /**
  * @method CCLabelTTF
