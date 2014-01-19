@@ -717,12 +717,6 @@ cc.Node = {
 removeComponent : function () {},
 
 /**
- * @method nodeToWorldTransform
- * @return A value converted from C/C++ "cocos2d::CCAffineTransform"
- */
-nodeToWorldTransform : function () {},
-
-/**
  * @method removeAllComponents
  */
 removeAllComponents : function () {},
@@ -800,6 +794,12 @@ unregisterScriptHandler : function () {},
 getTag : function () {},
 
 /**
+ * @method nodeToWorldTransform
+ * @return A value converted from C/C++ "cocos2d::CCAffineTransform"
+ */
+nodeToWorldTransform : function () {},
+
+/**
  * @method convertToWorldSpace
  * @return A value converted from C/C++ "cocos2d::CCPoint"
  * @param {cocos2d::CCPoint}
@@ -850,10 +850,17 @@ setParent : function () {},
 nodeToParentTransform : function () {},
 
 /**
- * @method numberOfRunningActions
- * @return A value converted from C/C++ "unsigned int"
+ * @method convertToNodeSpace
+ * @return A value converted from C/C++ "cocos2d::CCPoint"
+ * @param {cocos2d::CCPoint}
  */
-numberOfRunningActions : function () {},
+convertToNodeSpace : function () {},
+
+/**
+ * @method getGrid
+ * @return A value converted from C/C++ "cocos2d::CCGridBase*"
+ */
+getGrid : function () {},
 
 /**
  * @method stopActionByTag
@@ -887,6 +894,12 @@ setPositionX : function () {},
 getAnchorPoint : function () {},
 
 /**
+ * @method numberOfRunningActions
+ * @return A value converted from C/C++ "unsigned int"
+ */
+numberOfRunningActions : function () {},
+
+/**
  * @method updateTransform
  */
 updateTransform : function () {},
@@ -902,12 +915,6 @@ isVisible : function () {},
  * @return A value converted from C/C++ "unsigned int"
  */
 getChildrenCount : function () {},
-
-/**
- * @method setAnchorPoint
- * @param {cocos2d::CCPoint}
- */
-setAnchorPoint : function () {},
 
 /**
  * @method convertToNodeSpaceAR
@@ -1037,12 +1044,6 @@ getScheduler : function () {},
 getOrderOfArrival : function () {},
 
 /**
- * @method setContentSize
- * @param {cocos2d::CCSize}
- */
-setContentSize : function () {},
-
-/**
  * @method setActionManager
  * @param {cocos2d::CCActionManager*}
  */
@@ -1079,6 +1080,12 @@ getPositionX : function () {},
 setVisible : function () {},
 
 /**
+ * @method parentToNodeTransform
+ * @return A value converted from C/C++ "cocos2d::CCAffineTransform"
+ */
+parentToNodeTransform : function () {},
+
+/**
  * @method pauseSchedulerAndActions
  */
 pauseSchedulerAndActions : function () {},
@@ -1094,12 +1101,6 @@ getVertexZ : function () {},
  * @param {int}
  */
 _setZOrder : function () {},
-
-/**
- * @method setScale
- * @param {float}
- */
-setScale : function () {},
 
 /**
  * @method getChildByTag
@@ -1143,12 +1144,6 @@ getComponent : function () {},
  * @return A value converted from C/C++ "cocos2d::CCSize"
  */
 getContentSize : function () {},
-
-/**
- * @method setGrid
- * @param {cocos2d::CCGridBase*}
- */
-setGrid : function () {},
 
 /**
  * @method boundingBox
@@ -1197,29 +1192,16 @@ update : function () {},
 sortAllChildren : function () {},
 
 /**
- * @method convertToNodeSpace
- * @return A value converted from C/C++ "cocos2d::CCPoint"
- * @param {cocos2d::CCPoint}
- */
-convertToNodeSpace : function () {},
-
-/**
- * @method getScale
- * @return A value converted from C/C++ "float"
- */
-getScale : function () {},
-
-/**
  * @method worldToNodeTransform
  * @return A value converted from C/C++ "cocos2d::CCAffineTransform"
  */
 worldToNodeTransform : function () {},
 
 /**
- * @method parentToNodeTransform
- * @return A value converted from C/C++ "cocos2d::CCAffineTransform"
+ * @method getScale
+ * @return A value converted from C/C++ "float"
  */
-parentToNodeTransform : function () {},
+getScale : function () {},
 
 /**
  * @method getCamera
@@ -1353,6 +1335,12 @@ isCascadeColorEnabled : function () {},
  * @return A value converted from C/C++ "cocos2d::ccColor3B"
  */
 getDisplayedColor : function () {},
+
+/**
+ * @method create
+ * @return A value converted from C/C++ "cocos2d::CCNodeRGBA*"
+ */
+create : function () {},
 
 /**
  * @method CCNodeRGBA
@@ -3987,12 +3975,6 @@ update : function () {},
 getLensEffect : function () {},
 
 /**
- * @method setPosition
- * @param {cocos2d::CCPoint}
- */
-setPosition : function () {},
-
-/**
  * @method getPosition
  * @return A value converted from C/C++ "cocos2d::CCPoint"
  */
@@ -4056,12 +4038,6 @@ setAmplitude : function () {},
  * @return A value converted from C/C++ "float"
  */
 getAmplitude : function () {},
-
-/**
- * @method setPosition
- * @param {cocos2d::CCPoint}
- */
-setPosition : function () {},
 
 /**
  * @method getPosition
@@ -4279,12 +4255,6 @@ setAmplitude : function () {},
  * @return A value converted from C/C++ "float"
  */
 getAmplitude : function () {},
-
-/**
- * @method setPosition
- * @param {cocos2d::CCPoint}
- */
-setPosition : function () {},
 
 /**
  * @method getPosition
@@ -5451,6 +5421,12 @@ init : function () {},
 setScheduler : function () {},
 
 /**
+ * @method reshapeProjection
+ * @param {cocos2d::CCSize}
+ */
+reshapeProjection : function () {},
+
+/**
  * @method startAnimation
  */
 startAnimation : function () {},
@@ -5894,12 +5870,6 @@ setDisplayFrameWithAnimationName : function () {},
 setRotationY : function () {},
 
 /**
- * @method setAnchorPoint
- * @param {cocos2d::CCPoint}
- */
-setAnchorPoint : function () {},
-
-/**
  * @method setOpacityModifyRGB
  * @param {bool}
  */
@@ -6317,6 +6287,12 @@ appendChild : function () {},
 reorderBatch : function () {},
 
 /**
+ * @method removeAllChildrenWithCleanup
+ * @param {bool}
+ */
+removeAllChildrenWithCleanup : function () {},
+
+/**
  * @method setTexture
  * @param {cocos2d::CCTexture2D*}
  */
@@ -6388,12 +6364,6 @@ initWithTexture : function () {},
 setTextureAtlas : function () {},
 
 /**
- * @method removeAllChildrenWithCleanup
- * @param {bool}
- */
-removeAllChildrenWithCleanup : function () {},
-
-/**
  * @method sortAllChildren
  */
 sortAllChildren : function () {},
@@ -6453,12 +6423,6 @@ CCSpriteBatchNode : function () {},
 cc.LabelBMFont = {
 
 /**
- * @method setAnchorPoint
- * @param {cocos2d::CCPoint}
- */
-setAnchorPoint : function () {},
-
-/**
  * @method createFontChars
  */
 createFontChars : function () {},
@@ -6468,6 +6432,12 @@ createFontChars : function () {},
  * @return A value converted from C/C++ "const char*"
  */
 getString : function () {},
+
+/**
+ * @method getConfiguration
+ * @return A value converted from C/C++ "cocos2d::CCBMFontConfiguration*"
+ */
+getConfiguration : function () {},
 
 /**
  * @method setScale
@@ -6979,12 +6949,6 @@ cc.LayerColor = {
 draw : function () {},
 
 /**
- * @method isOpacityModifyRGB
- * @return A value converted from C/C++ "bool"
- */
-isOpacityModifyRGB : function () {},
-
-/**
  * @method setColor
  * @param {cocos2d::ccColor3B}
  */
@@ -6998,28 +6962,16 @@ setColor : function () {},
 changeWidthAndHeight : function () {},
 
 /**
- * @method setOpacityModifyRGB
- * @param {bool}
- */
-setOpacityModifyRGB : function () {},
-
-/**
- * @method changeWidth
- * @param {float}
- */
-changeWidth : function () {},
-
-/**
  * @method setOpacity
  * @param {unsigned char}
  */
 setOpacity : function () {},
 
 /**
- * @method setContentSize
- * @param {cocos2d::CCSize}
+ * @method changeWidth
+ * @param {float}
  */
-setContentSize : function () {},
+changeWidth : function () {},
 
 /**
  * @method changeHeight
@@ -8100,12 +8052,6 @@ isEnabled : function () {},
 selected : function () {},
 
 /**
- * @method setOpacityModifyRGB
- * @param {bool}
- */
-setOpacityModifyRGB : function () {},
-
-/**
  * @method getScriptTapHandler
  * @return A value converted from C/C++ "int"
  */
@@ -8116,12 +8062,6 @@ getScriptTapHandler : function () {},
  * @return A value converted from C/C++ "bool"
  */
 isSelected : function () {},
-
-/**
- * @method isOpacityModifyRGB
- * @return A value converted from C/C++ "bool"
- */
-isOpacityModifyRGB : function () {},
 
 /**
  * @method registerScriptTapHandler
@@ -8303,12 +8243,6 @@ setEnabled : function () {},
 selected : function () {},
 
 /**
- * @method isOpacityModifyRGB
- * @return A value converted from C/C++ "bool"
- */
-isOpacityModifyRGB : function () {},
-
-/**
  * @method setNormalImage
  * @param {cocos2d::CCNode*}
  */
@@ -8331,12 +8265,6 @@ setSelectedImage : function () {},
  * @return A value converted from C/C++ "cocos2d::CCNode*"
  */
 getDisabledImage : function () {},
-
-/**
- * @method setOpacityModifyRGB
- * @param {bool}
- */
-setOpacityModifyRGB : function () {},
 
 /**
  * @method getSelectedImage
@@ -8419,12 +8347,6 @@ setSubItems : function () {},
 initWithItem : function () {},
 
 /**
- * @method isOpacityModifyRGB
- * @return A value converted from C/C++ "bool"
- */
-isOpacityModifyRGB : function () {},
-
-/**
  * @method setSelectedIndex
  * @param {unsigned int}
  */
@@ -8452,12 +8374,6 @@ addSubItem : function () {},
  * @method selected
  */
 selected : function () {},
-
-/**
- * @method setOpacityModifyRGB
- * @param {bool}
- */
-setOpacityModifyRGB : function () {},
 
 /**
  * @method activate
@@ -8646,15 +8562,110 @@ isInverted : function () {},
 };
 
 /**
+ * @class CCMotionStreak
+ */
+cc.MotionStreak = {
+
+/**
+ * @method reset
+ */
+reset : function () {},
+
+/**
+ * @method draw
+ */
+draw : function () {},
+
+/**
+ * @method setTexture
+ * @param {cocos2d::CCTexture2D*}
+ */
+setTexture : function () {},
+
+/**
+ * @method isOpacityModifyRGB
+ * @return A value converted from C/C++ "bool"
+ */
+isOpacityModifyRGB : function () {},
+
+/**
+ * @method getTexture
+ * @return A value converted from C/C++ "cocos2d::CCTexture2D*"
+ */
+getTexture : function () {},
+
+/**
+ * @method tintWithColor
+ * @param {ccColor3B}
+ */
+tintWithColor : function () {},
+
+/**
+ * @method update
+ * @param {float}
+ */
+update : function () {},
+
+/**
+ * @method setOpacity
+ * @param {unsigned char}
+ */
+setOpacity : function () {},
+
+/**
+ * @method isFastMode
+ * @return A value converted from C/C++ "bool"
+ */
+isFastMode : function () {},
+
+/**
+ * @method setOpacityModifyRGB
+ * @param {bool}
+ */
+setOpacityModifyRGB : function () {},
+
+/**
+ * @method getOpacity
+ * @return A value converted from C/C++ "unsigned char"
+ */
+getOpacity : function () {},
+
+/**
+ * @method setPosition
+ * @param {cocos2d::CCPoint}
+ */
+setPosition : function () {},
+
+/**
+ * @method setStartingPositionInitialized
+ * @param {bool}
+ */
+setStartingPositionInitialized : function () {},
+
+/**
+ * @method setFastMode
+ * @param {bool}
+ */
+setFastMode : function () {},
+
+/**
+ * @method isStartingPositionInitialized
+ * @return A value converted from C/C++ "bool"
+ */
+isStartingPositionInitialized : function () {},
+
+/**
+ * @method CCMotionStreak
+ * @constructor
+ */
+CCMotionStreak : function () {},
+
+};
+
+/**
  * @class CCProgressTimer
  */
 cc.ProgressTimer = {
-
-/**
- * @method setAnchorPoint
- * @param {cocos2d::CCPoint}
- */
-setAnchorPoint : function () {},
 
 /**
  * @method draw
@@ -8668,16 +8679,22 @@ draw : function () {},
 isReverseDirection : function () {},
 
 /**
- * @method isOpacityModifyRGB
- * @return A value converted from C/C++ "bool"
- */
-isOpacityModifyRGB : function () {},
-
-/**
  * @method setBarChangeRate
  * @param {cocos2d::CCPoint}
  */
 setBarChangeRate : function () {},
+
+/**
+ * @method setColor
+ * @param {cocos2d::ccColor3B}
+ */
+setColor : function () {},
+
+/**
+ * @method getBarChangeRate
+ * @return A value converted from C/C++ "cocos2d::CCPoint"
+ */
+getBarChangeRate : function () {},
 
 /**
  * @method getPercentage
@@ -8698,10 +8715,10 @@ setSprite : function () {},
 getType : function () {},
 
 /**
- * @method setOpacityModifyRGB
- * @param {bool}
+ * @method setOpacity
+ * @param {unsigned char}
  */
-setOpacityModifyRGB : function () {},
+setOpacity : function () {},
 
 /**
  * @method getSprite
@@ -8722,10 +8739,16 @@ setMidpoint : function () {},
 getMidpoint : function () {},
 
 /**
- * @method getBarChangeRate
- * @return A value converted from C/C++ "cocos2d::CCPoint"
+ * @method getColor
+ * @return A value converted from C/C++ "cocos2d::ccColor3B"
  */
-getBarChangeRate : function () {},
+getColor : function () {},
+
+/**
+ * @method getOpacity
+ * @return A value converted from C/C++ "unsigned char"
+ */
+getOpacity : function () {},
 
 /**
  * @method initWithSprite
@@ -10155,10 +10178,10 @@ cc.FileUtils = {
 isFileExist : function () {},
 
 /**
- * @method isPopupNotify
- * @return A value converted from C/C++ "bool"
+ * @method removeSearchPath
+ * @param {const char*}
  */
-isPopupNotify : function () {},
+removeSearchPath : function () {},
 
 /**
  * @method purgeCachedEntries
@@ -10183,6 +10206,12 @@ fullPathFromRelativeFile : function () {},
 getFileData : function () {},
 
 /**
+ * @method isPopupNotify
+ * @return A value converted from C/C++ "bool"
+ */
+isPopupNotify : function () {},
+
+/**
  * @method setFilenameLookupDictionary
  * @param {cocos2d::CCDictionary*}
  */
@@ -10202,6 +10231,11 @@ addSearchResolutionsOrder : function () {},
  * @param {unsigned long*}
  */
 getFileDataFromZip : function () {},
+
+/**
+ * @method removeAllPaths
+ */
+removeAllPaths : function () {},
 
 /**
  * @method fullPathForFilename
@@ -10286,6 +10320,58 @@ sharedApplication : function () {},
 };
 
 /**
+ * @class CCEGLViewProtocol
+ */
+cc.EGLViewProtocol = {
+
+/**
+ * @method getVisibleOrigin
+ * @return A value converted from C/C++ "cocos2d::CCPoint"
+ */
+getVisibleOrigin : function () {},
+
+/**
+ * @method setDesignResolutionSize
+ * @param {float}
+ * @param {float}
+ * @param {ResolutionPolicy}
+ */
+setDesignResolutionSize : function () {},
+
+/**
+ * @method getVisibleSize
+ * @return A value converted from C/C++ "cocos2d::CCSize"
+ */
+getVisibleSize : function () {},
+
+};
+
+/**
+ * @class CCEGLView
+ */
+cc.EGLView = {
+
+/**
+ * @method setIMEKeyboardState
+ * @param {bool}
+ */
+setIMEKeyboardState : function () {},
+
+/**
+ * @method isOpenGLReady
+ * @return A value converted from C/C++ "bool"
+ */
+isOpenGLReady : function () {},
+
+/**
+ * @method sharedOpenGLView
+ * @return A value converted from C/C++ "cocos2d::CCEGLView*"
+ */
+sharedOpenGLView : function () {},
+
+};
+
+/**
  * @class CCShaderCache
  */
 cc.ShaderCache = {
@@ -10360,6 +10446,7 @@ init : function () {},
 /**
  * @method addAnimationsWithDictionary
  * @param {cocos2d::CCDictionary*}
+ * @param {const char*}
  */
 addAnimationsWithDictionary : function () {},
 
@@ -10458,6 +10545,97 @@ purgeSharedSpriteFrameCache : function () {},
  * @return A value converted from C/C++ "cocos2d::CCSpriteFrameCache*"
  */
 sharedSpriteFrameCache : function () {},
+
+};
+
+/**
+ * @class CCTextFieldTTF
+ */
+cc.TextFieldTTF = {
+
+/**
+ * @method getCharCount
+ * @return A value converted from C/C++ "int"
+ */
+getCharCount : function () {},
+
+/**
+ * @method getDelegate
+ * @return A value converted from C/C++ "cocos2d::CCTextFieldDelegate*"
+ */
+getDelegate : function () {},
+
+/**
+ * @method setSecureTextEntry
+ * @param {bool}
+ */
+setSecureTextEntry : function () {},
+
+/**
+ * @method getString
+ * @return A value converted from C/C++ "const char*"
+ */
+getString : function () {},
+
+/**
+ * @method getColorSpaceHolder
+ * @return A value converted from C/C++ "cocos2d::ccColor3B"
+ */
+getColorSpaceHolder : function () {},
+
+/**
+ * @method getPlaceHolder
+ * @return A value converted from C/C++ "const char*"
+ */
+getPlaceHolder : function () {},
+
+/**
+ * @method setColorSpaceHolder
+ * @param {cocos2d::ccColor3B}
+ */
+setColorSpaceHolder : function () {},
+
+/**
+ * @method detachWithIME
+ * @return A value converted from C/C++ "bool"
+ */
+detachWithIME : function () {},
+
+/**
+ * @method setDelegate
+ * @param {cocos2d::CCTextFieldDelegate*}
+ */
+setDelegate : function () {},
+
+/**
+ * @method setPlaceHolder
+ * @param {const char*}
+ */
+setPlaceHolder : function () {},
+
+/**
+ * @method isSecureTextEntry
+ * @return A value converted from C/C++ "bool"
+ */
+isSecureTextEntry : function () {},
+
+/**
+ * @method setString
+ * @param {const char*}
+ */
+setString : function () {},
+
+/**
+ * @method attachWithIME
+ * @return A value converted from C/C++ "bool"
+ */
+attachWithIME : function () {},
+
+/**
+ * @method CCTextFieldTTF
+ * @constructor
+ */
+CCTextFieldTTF : function () {},
 
 };
 
@@ -10579,13 +10757,13 @@ removeChild : function () {},
 
 /**
  * @method getParallaxArray
- * @return A value converted from C/C++ "_ccArray*"
+ * @return A value converted from C/C++ "cocos2d::_ccArray*"
  */
 getParallaxArray : function () {},
 
 /**
  * @method setParallaxArray
- * @param {_ccArray*}
+ * @param {cocos2d::_ccArray*}
  */
 setParallaxArray : function () {},
 
@@ -11115,13 +11293,6 @@ CCTMXLayer : function () {},
 cc.TMXTiledMap = {
 
 /**
- * @method propertiesForGID
- * @return A value converted from C/C++ "cocos2d::CCDictionary*"
- * @param {int}
- */
-propertiesForGID : function () {},
-
-/**
  * @method setObjectGroups
  * @param {cocos2d::CCArray*}
  */
@@ -11144,6 +11315,13 @@ setMapSize : function () {},
  * @return A value converted from C/C++ "cocos2d::CCSize"
  */
 getTileSize : function () {},
+
+/**
+ * @method propertiesForGID
+ * @return A value converted from C/C++ "cocos2d::CCDictionary*"
+ * @param {int}
+ */
+propertiesForGID : function () {},
 
 /**
  * @method getObjectGroups
@@ -11262,7 +11440,7 @@ releaseMap : function () {},
 
 /**
  * @method getTGAInfo
- * @return A value converted from C/C++ "sImageTGA*"
+ * @return A value converted from C/C++ "cocos2d::sImageTGA*"
  */
 getTGAInfo : function () {},
 
@@ -11282,7 +11460,7 @@ setTile : function () {},
 
 /**
  * @method setTGAInfo
- * @param {sImageTGA*}
+ * @param {cocos2d::sImageTGA*}
  */
 setTGAInfo : function () {},
 
@@ -11379,6 +11557,73 @@ getTimeScale : function () {},
  * @constructor
  */
 CCScheduler : function () {},
+
+};
+
+/**
+ * @class CCComponent
+ */
+cc.Component = {
+
+/**
+ * @method setEnabled
+ * @param {bool}
+ */
+setEnabled : function () {},
+
+/**
+ * @method setName
+ * @param {const char*}
+ */
+setName : function () {},
+
+/**
+ * @method isEnabled
+ * @return A value converted from C/C++ "bool"
+ */
+isEnabled : function () {},
+
+/**
+ * @method serialize
+ * @param {void*}
+ */
+serialize : function () {},
+
+/**
+ * @method update
+ * @param {float}
+ */
+update : function () {},
+
+/**
+ * @method getOwner
+ * @return A value converted from C/C++ "cocos2d::CCNode*"
+ */
+getOwner : function () {},
+
+/**
+ * @method init
+ * @return A value converted from C/C++ "bool"
+ */
+init : function () {},
+
+/**
+ * @method setOwner
+ * @param {cocos2d::CCNode*}
+ */
+setOwner : function () {},
+
+/**
+ * @method getName
+ * @return A value converted from C/C++ "const char*"
+ */
+getName : function () {},
+
+/**
+ * @method create
+ * @return A value converted from C/C++ "cocos2d::CCComponent*"
+ */
+create : function () {},
 
 };
 
