@@ -917,6 +917,12 @@ isVisible : function () {},
 getChildrenCount : function () {},
 
 /**
+ * @method setAnchorPoint
+ * @param {cocos2d::CCPoint}
+ */
+setAnchorPoint : function () {},
+
+/**
  * @method convertToNodeSpaceAR
  * @return A value converted from C/C++ "cocos2d::CCPoint"
  * @param {cocos2d::CCPoint}
@@ -929,6 +935,11 @@ convertToNodeSpaceAR : function () {},
  * @param {cocos2d::CCComponent*}
  */
 addComponent : function () {},
+
+/**
+ * @method visit
+ */
+visit : function () {},
 
 /**
  * @method setShaderProgram
@@ -1042,6 +1053,12 @@ getScheduler : function () {},
  * @return A value converted from C/C++ "unsigned int"
  */
 getOrderOfArrival : function () {},
+
+/**
+ * @method setContentSize
+ * @param {cocos2d::CCSize}
+ */
+setContentSize : function () {},
 
 /**
  * @method setActionManager
@@ -2594,12 +2611,6 @@ update : function () {},
 getForcedTarget : function () {},
 
 /**
- * @method reverse
- * @return A value converted from C/C++ "cocos2d::CCTargetedAction*"
- */
-reverse : function () {},
-
-/**
  * @method create
  * @return A value converted from C/C++ "cocos2d::CCTargetedAction*"
  * @param {cocos2d::CCNode*}
@@ -3975,6 +3986,12 @@ update : function () {},
 getLensEffect : function () {},
 
 /**
+ * @method setPosition
+ * @param {cocos2d::CCPoint}
+ */
+setPosition : function () {},
+
+/**
  * @method getPosition
  * @return A value converted from C/C++ "cocos2d::CCPoint"
  */
@@ -4038,6 +4055,12 @@ setAmplitude : function () {},
  * @return A value converted from C/C++ "float"
  */
 getAmplitude : function () {},
+
+/**
+ * @method setPosition
+ * @param {cocos2d::CCPoint}
+ */
+setPosition : function () {},
 
 /**
  * @method getPosition
@@ -4255,6 +4278,12 @@ setAmplitude : function () {},
  * @return A value converted from C/C++ "float"
  */
 getAmplitude : function () {},
+
+/**
+ * @method setPosition
+ * @param {cocos2d::CCPoint}
+ */
+setPosition : function () {},
 
 /**
  * @method getPosition
@@ -5870,6 +5899,12 @@ setDisplayFrameWithAnimationName : function () {},
 setRotationY : function () {},
 
 /**
+ * @method setAnchorPoint
+ * @param {cocos2d::CCPoint}
+ */
+setAnchorPoint : function () {},
+
+/**
  * @method setOpacityModifyRGB
  * @param {bool}
  */
@@ -6287,6 +6322,11 @@ appendChild : function () {},
 reorderBatch : function () {},
 
 /**
+ * @method visit
+ */
+visit : function () {},
+
+/**
  * @method removeAllChildrenWithCleanup
  * @param {bool}
  */
@@ -6421,6 +6461,12 @@ CCSpriteBatchNode : function () {},
  * @class CCLabelBMFont
  */
 cc.LabelBMFont = {
+
+/**
+ * @method setAnchorPoint
+ * @param {cocos2d::CCPoint}
+ */
+setAnchorPoint : function () {},
 
 /**
  * @method createFontChars
@@ -6972,6 +7018,12 @@ setOpacity : function () {},
  * @param {float}
  */
 changeWidth : function () {},
+
+/**
+ * @method setContentSize
+ * @param {cocos2d::CCSize}
+ */
+setContentSize : function () {},
 
 /**
  * @method changeHeight
@@ -8530,6 +8582,11 @@ cc.ClippingNode = {
 setInverted : function () {},
 
 /**
+ * @method visit
+ */
+visit : function () {},
+
+/**
  * @method setStencil
  * @param {cocos2d::CCNode*}
  */
@@ -8666,6 +8723,12 @@ CCMotionStreak : function () {},
  * @class CCProgressTimer
  */
 cc.ProgressTimer = {
+
+/**
+ * @method setAnchorPoint
+ * @param {cocos2d::CCPoint}
+ */
+setAnchorPoint : function () {},
 
 /**
  * @method draw
@@ -8830,6 +8893,11 @@ end : function () {},
 setClearStencil : function () {},
 
 /**
+ * @method visit
+ */
+visit : function () {},
+
+/**
  * @method getSprite
  * @return A value converted from C/C++ "cocos2d::CCSprite*"
  */
@@ -8970,6 +9038,11 @@ disableParticle : function () {},
  * @return A value converted from C/C++ "cocos2d::CCTexture2D*"
  */
 getTexture : function () {},
+
+/**
+ * @method visit
+ */
+visit : function () {},
 
 /**
  * @method removeAllChildrenWithCleanup
@@ -10446,7 +10519,6 @@ init : function () {},
 /**
  * @method addAnimationsWithDictionary
  * @param {cocos2d::CCDictionary*}
- * @param {const char*}
  */
 addAnimationsWithDictionary : function () {},
 
@@ -10741,6 +10813,11 @@ CCTextureCache : function () {},
  * @class CCParallaxNode
  */
 cc.ParallaxNode = {
+
+/**
+ * @method visit
+ */
+visit : function () {},
 
 /**
  * @method removeAllChildrenWithCleanup
@@ -11572,6 +11649,12 @@ cc.Component = {
 setEnabled : function () {},
 
 /**
+ * @method setNode
+ * @param {cocos2d::CCNode*}
+ */
+setNode : function () {},
+
+/**
  * @method setName
  * @param {const char*}
  */
@@ -11618,6 +11701,12 @@ setOwner : function () {},
  * @return A value converted from C/C++ "const char*"
  */
 getName : function () {},
+
+/**
+ * @method getNode
+ * @return A value converted from C/C++ "cocos2d::CCNode*"
+ */
+getNode : function () {},
 
 /**
  * @method create

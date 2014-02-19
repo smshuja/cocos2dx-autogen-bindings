@@ -336,6 +336,12 @@ resizableSpriteWithCapInsets : function () {},
 setOpacity : function () {},
 
 /**
+ * @method setContentSize
+ * @param {cocos2d::CCSize}
+ */
+setContentSize : function () {},
+
+/**
  * @method getInsetRight
  * @return A value converted from C/C++ "float"
  */
@@ -907,6 +913,12 @@ getViewSize : function () {},
  * @return A value converted from C/C++ "cocos2d::CCPoint"
  */
 maxContainerOffset : function () {},
+
+/**
+ * @method setContentSize
+ * @param {cocos2d::CCSize}
+ */
+setContentSize : function () {},
 
 /**
  * @method isTouchMoved
@@ -2133,6 +2145,12 @@ initWithSizeAndBackgroundSprite : function () {},
 setPlaceHolder : function () {},
 
 /**
+ * @method setPosition
+ * @param {cocos2d::CCPoint}
+ */
+setPosition : function () {},
+
+/**
  * @method setReturnType
  * @param {cocos2d::extension::KeyboardReturnType}
  */
@@ -2161,6 +2179,12 @@ setText : function () {},
  * @param {int}
  */
 setMaxLength : function () {},
+
+/**
+ * @method setContentSize
+ * @param {cocos2d::CCSize}
+ */
+setContentSize : function () {},
 
 /**
  * @method setFont
