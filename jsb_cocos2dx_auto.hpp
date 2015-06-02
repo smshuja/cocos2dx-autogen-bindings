@@ -707,6 +707,7 @@ JSBool js_cocos2dx_CCTargetedAction_initWithTarget(JSContext *cx, uint32_t argc,
 JSBool js_cocos2dx_CCTargetedAction_stop(JSContext *cx, uint32_t argc, jsval *vp);
 JSBool js_cocos2dx_CCTargetedAction_update(JSContext *cx, uint32_t argc, jsval *vp);
 JSBool js_cocos2dx_CCTargetedAction_getForcedTarget(JSContext *cx, uint32_t argc, jsval *vp);
+JSBool js_cocos2dx_CCTargetedAction_reverse(JSContext *cx, uint32_t argc, jsval *vp);
 JSBool js_cocos2dx_CCTargetedAction_create(JSContext *cx, uint32_t argc, jsval *vp);
 JSBool js_cocos2dx_CCTargetedAction_CCTargetedAction(JSContext *cx, uint32_t argc, jsval *vp);
 

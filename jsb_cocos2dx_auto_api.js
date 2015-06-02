@@ -2611,6 +2611,12 @@ update : function () {},
 getForcedTarget : function () {},
 
 /**
+ * @method reverse
+ * @return A value converted from C/C++ "cocos2d::CCTargetedAction*"
+ */
+reverse : function () {},
+
+/**
  * @method create
  * @return A value converted from C/C++ "cocos2d::CCTargetedAction*"
  * @param {cocos2d::CCNode*}
